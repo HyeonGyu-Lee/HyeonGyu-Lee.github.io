@@ -1,0 +1,44 @@
+{%- comment -%}
+Include as: {%- include components/breadcrumbs.html -%}
+Depends on: page, site.
+Results in: HTML for the breadcrumbs component.
+Overwrites:
+  node, pages_list, parent_page.
+{%- endcomment -%}
+
+{%- if page.url != "/" -%}
+
+  {%- assign breadcrumbs = "" | split: "" -%}
+  {%- assign current_page = page -%}
+  {%- assign parent_found = true -%}
+  
+  {%- for i in (1..10) -%}
+    {%- if current_page.parent and parent_found -%}
+      {%- assign parent_found = false -%}
+      {%- assign pages_list = site[page.collection] | default: site.html_pages -%}
+
+      {%- for node in pages_list -%}
+        {%- if node.url == current_page.parent or node.title == current_page.parent -%}
+          {%- assign breadcrumbs = breadcrumbs | push: node -%}
+          {%- assign current_page = node -%}
+          {%- assign parent_found = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+    <ol class="breadcrumb-nav-list">
+      {%- for crumb in breadcrumbs reversed -%}
+        <li class="breadcrumb-nav-list-item">
+          <a href="{{ crumb.url | relative_url }}">{{ crumb.title }}</a>
+        </li>
+      {%- endfor -%}
+      <li class="breadcrumb-nav-list-item">
+        <span>{{ page.title }}</span>
+      </li>
+    </ol>
+  </nav>
+
+{%- endif -%}

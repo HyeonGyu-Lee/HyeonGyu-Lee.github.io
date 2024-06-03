@@ -1,0 +1,21 @@
+{% if include.image_src %}
+<div class="image-flex">
+  <div class="image-item">
+    <div class="image-item-img">
+      <a data-fslightbox="{{include.image_src}}" href="{{include.image_src}}" data-type="image"
+         aria-label="This is fslightbox">
+        <div class="skeleton-loading">
+          <div class="skeleton-img"></div>
+        </div>
+        <figure>
+          <img loading="lazy" alt src="{{include.image_src}}" title="" class="lazyload" />
+          <!-- width="500" height="300" -->
+          {% if include.image_caption %}
+          <figcaption>{{include.image_caption}}</figcaption>
+          {% endif %}
+        </figure>
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}

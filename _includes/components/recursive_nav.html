@@ -1,0 +1,28 @@
+{%- comment -%}
+Recursive navigation component to handle infinite levels of pages.
+{%- endcomment -%}
+
+
+<ul class="nav-list">
+  {%- for node in include.pages -%}
+    <li class="nav-list-item">
+      {%- if node.has_children -%}
+      <button class="nav-list-expander btn-reset" aria-label="toggle items in {{ node.title }} category"
+              aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <use xlink:href="#svg-arrow-right"></use>
+        </svg>
+      </button>
+      {%- endif -%}
+      <a href="{{ node.url | relative_url }}" class="nav-list-link">{{ node.title }}</a>
+      {%- if node.has_children -%}
+      {%- assign child_pages = include.all_pages
+      | where: "parent", node.title -%}
+      {%- if node.child_nav_order == 'desc' or node.child_nav_order == 'reversed' -%}
+          {%- assign child_pages = child_pages | reverse -%}
+        {%- endif -%}
+        {%- include components/recursive_nav.html pages=child_pages all_pages=include.all_pages -%}
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>

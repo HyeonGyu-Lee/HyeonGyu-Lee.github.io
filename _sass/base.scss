@@ -1,0 +1,182 @@
+// Base element style overrides
+// stylelint-disable selector-no-type, selector-max-type, selector-max-specificity, selector-max-id
+// :root {
+//  color-scheme: $color-scheme;
+// }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  @include fs-4;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $body-font-family;
+  font-size: inherit;
+  line-height: $body-line-height;
+  color: var(--body-text-color);
+  background-color: var(--body-background-color);
+  overflow-wrap: break-word;
+}
+
+ol,
+ul,
+dl,
+pre,
+address,
+blockquote,
+table,
+div,
+hr,
+form,
+fieldset,
+noscript .table-wrapper {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#toctitle {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-weight: 500;
+  line-height: $body-heading-line-height;
+  color: var(--body-heading-color);
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration: underline;
+  text-decoration-color: var(--border-color);
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration-color: rgba(var(--link-color), 0.45);
+  }
+}
+
+code {
+  font-family: $mono-font-family;
+  font-size: 0.9em;
+  line-height: $body-line-height;
+}
+
+figure,
+pre {
+  margin: 0;
+}
+
+li {
+  margin: 0.25em 0;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+figcaption {
+  color: var(--body-text-color);
+}
+
+hr {
+  height: 1px;
+  padding: 0;
+  margin: $sp-6 0;
+  background-color: var(--border-color);
+  border: 0;
+}
+
+// adds a GitHub-style sidebar to blockquotes
+blockquote {
+  margin: 10px 0;
+
+  // resets user-agent stylesheets for blockquotes
+  margin-block-start: 0;
+  margin-inline-start: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border-color);
+
+  .callout {
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .callout-icon {
+    margin-right: 0.5em;
+  }
+
+  .callout-icon .image-flex .image-item {
+    padding-left: 0;
+    padding-right: 0;
+
+    .image-item-img {
+      width: 1.3rem;
+      height: 1.3rem;
+      object-fit: contain;
+
+      a figure img {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .callout-content {
+    font-size: 1em;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  // border-bottom: 1px dotted var(--body-text-color);
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  min-width: 160px;
+  background-color: var(--body-text-color);
+  color: var(--body-background-color);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 2px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+  transform: translateX(0%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip br {
+  display: none;
+}

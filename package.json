@@ -1,0 +1,64 @@
+{
+  "name": "just-the-docs",
+  "version": "0.3.3",
+  "type": "module",
+  "description": "A modern Jekyll theme for documentation",
+  "repository": "just-the-docs/just-the-docs",
+  "license": "MIT",
+  "bugs": "https://github.com/just-the-docs/just-the-docs/issues",
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.583.0",
+    "@aws-sdk/lib-storage": "^3.583.0",
+    "@notionhq/client": "^2.2.15",
+    "image-size": "^1.1.1",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
+    "notion-to-md": "file:local_modules/notion-to-md",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.2.5",
+    "scss": "^0.2.4",
+    "sharp": "^0.33.4",
+    "sitemap": "^8.0.0",
+    "stylelint": "^16.5.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "prettier": "npx prettier --write '**/*.{scss,js,json}'",
+    "notion-all": "node _scripts/notion-import.js all",
+    "notion-dev": "node _scripts/notion-import.js dev",
+    "notion": "node _scripts/notion-import.js",
+    "lint": "npm-run-all --parallel --continue-on-error lint:*",
+    "lint:css": "stylelint '**/*.scss'",
+    "lint:formatting": "prettier --check '**/*.{scss,js,json}'",
+    "format": "prettier --write '**/*.{scss,js,json}'",
+    "test": "npm run lint"
+  },
+  "stylelint": {
+    "ignoreFiles": [
+      "assets/css/just-the-docs-default.scss",
+      "assets/css/just-the-docs-light.scss",
+      "assets/css/just-the-docs-dark.scss",
+      "assets/css/just-the-docs.scss",
+      "_sass/vendor/**/*.scss"
+    ],
+    "extends": [
+      "stylelint-config-standard-scss"
+    ],
+    "rules": {
+      "alpha-value-notation": null,
+      "at-rule-empty-line-before": null,
+      "color-function-notation": null,
+      "media-feature-range-notation": "prefix",
+      "no-descending-specificity": null,
+      "scss/no-global-function-names": null
+    }
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  }
+}
