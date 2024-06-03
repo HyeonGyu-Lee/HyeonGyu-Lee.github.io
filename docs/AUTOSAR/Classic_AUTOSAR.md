@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Classic AUTOSAR
-has_children: false
+has_children: true
 published_date: 2024-06-03-08-06-00
 last_modified_date: 2024-06-03-13-06-00
 parent: 'AUTOSAR'
