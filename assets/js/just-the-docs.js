@@ -585,4 +585,6 @@ jtd.onReady(function(){
 
 {% include js/custom.js %}
 {% include js/canvas.js %}
+{% include js/scroll-nav.js %}
 {% include js/table.js %}
+{% include js/arxml.js %}

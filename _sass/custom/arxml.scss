@@ -1,0 +1,69 @@
+.arxml-container {
+  max-width: 960px;
+  height: 600px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+}
+
+.tree-container,
+.details-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.tree-container {
+  border-right: 1px solid #ccc;
+}
+
+.details-container {
+  padding-left: 20px;
+}
+
+.tree-container ul,
+.details-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tree-container li,
+.details-container li {
+  margin: 5px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.tree-container li > span {
+  display: flex;
+  align-items: center;
+}
+
+.tree-container button.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+  margin-right: 5px;
+}
+
+.tree-container button.toggle-btn.collapsed svg {
+  transform: rotate(90deg);
+}
+
+ul ul {
+  display: none;
+  padding-left: 10px; /* Adjust indentation for child lists */
+}
+
+.collapsed > ul {
+  display: block;
+}

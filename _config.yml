@@ -88,7 +88,7 @@ heading_anchors: true
 
 # aux_links_active: false
 # Aux links for the upper right navigation
-# aux_links:
+aux_links: true
 #  "Contact Us":
 #     - "https://www.mdsit.co.kr/Inquiry"
 #    - "mailto:autosar@mdsit.co.kr"
@@ -227,3 +227,4 @@ compress_html:
 
 include:
   - "_images"
+  - "_files"

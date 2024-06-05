@@ -1,0 +1,39 @@
+// adds a GitHub-style sidebar to blockquotes
+blockquote {
+  margin: 10px 0;
+
+  // resets user-agent stylesheets for blockquotes
+  margin-block-start: 0;
+  margin-inline-start: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border-color);
+
+  .callout {
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .callout-icon {
+    margin-right: 0.5em;
+  }
+
+  .callout-icon .image-flex .image-item {
+    padding-left: 0;
+    padding-right: 0;
+
+    .image-item-img {
+      width: 1.3rem;
+      height: 1.3rem;
+      object-fit: contain;
+
+      a figure img {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .callout-content {
+    font-size: 1em;
+  }
+}

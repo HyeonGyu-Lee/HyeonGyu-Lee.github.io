@@ -1,0 +1,33 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  // border-bottom: 1px dotted var(--body-text-color);
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  min-width: 160px;
+  background-color: var(--body-text-color);
+  color: var(--body-background-color);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 2px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+  transform: translateX(0%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip br {
+  display: none;
+}

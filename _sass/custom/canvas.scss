@@ -1,0 +1,24 @@
+.canvas-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .canvas-container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .canvas-container {
+    padding: 0 10px;
+  }
+}
+
+.canvas {
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}

@@ -1,0 +1,162 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const arxmlElement = document.querySelector("arxml")
+  if (arxmlElement) {
+    const shortNameToFind = arxmlElement.getAttribute("id")
+    const filePath = arxmlElement.getAttribute("files")
+
+    fetch(filePath)
+      .then((response) => response.text())
+      .then((data) => {
+        const parser = new DOMParser()
+        const xmlDoc = parser.parseFromString(data, "application/xml")
+        const ecucModules = xmlDoc.querySelectorAll("ECUC-MODULE-DEF")
+
+        ecucModules.forEach((module) => {
+          const shortName = module.querySelector(":scope > SHORT-NAME")
+          if (shortName && shortName.textContent === shortNameToFind) {
+            const tree = createTree(module, shortNameToFind)
+            document.getElementById("arxmlContent").appendChild(tree)
+          }
+        })
+      })
+      .catch((error) => console.error("Error fetching the ARXML file:", error))
+  }
+})
+
+function getExceptionList(id) {
+  const exceptionLists = {
+    Dcm: {
+      tree: [
+        "SHORT-NAME",
+        "DESC",
+        "ADMIN-DATA",
+        "LOWER-MULTIPLICITY",
+        "UPPER-MULTIPLICITY",
+        "POST-BUILD-VARIANT-SUPPORT",
+        "SUPPORTED-CONFIG-VARIANTS",
+        "RELATED-TRACE-ITEM-REF",
+        "SCOPE",
+        "ORIGIN",
+        "POST-BUILD-VARIANT-VALUE",
+        "VALUE-CONFIG-CLASSES",
+        "SYMBOLIC-NAME-VALUE",
+        "REFERENCES",
+      ],
+      node: [""],
+      detail: [
+        "ECUC-MODULE-DEF",
+        "CONTAINERS",
+        "ECUC-PARAM-CONF-CONTAINER-DEF",
+        "SUB-CONTAINERS",
+        "SHORT-NAME",
+      ],
+    },
+    // 다른 id에 대한 예외 목록을 추가할 수 있습니다.
+  }
+  return exceptionLists[id] || { tree: [], detail: [] }
+}
+
+function createTree(xmlNode, id) {
+  const ul = document.createElement("ul")
+  const li = document.createElement("li")
+  const span = document.createElement("span")
+  const { tree: treeExceptions, node: nodeExceptions } = getExceptionList(id)
+
+  const hasChildElements = Array.from(xmlNode.childNodes).some(
+    (childNode) =>
+      childNode.nodeType === Node.ELEMENT_NODE &&
+      !treeExceptions.includes(childNode.nodeName)
+  )
+  if (hasChildElements) {
+    const toggleBtn = document.createElement("button")
+    toggleBtn.classList.add("toggle-btn")
+    toggleBtn.innerHTML =
+      '<svg width="10" height="10" viewBox="0 0 20 20"><polygon points="0,0 10,10 0,20" /></svg>'
+    span.appendChild(toggleBtn)
+
+    toggleBtn.addEventListener("click", function () {
+      const parentLi = this.parentElement.parentElement
+      parentLi.classList.toggle("collapsed")
+      this.classList.toggle("collapsed")
+    })
+  }
+
+  const shortName = xmlNode.querySelector(":scope > SHORT-NAME")
+  if (shortName) {
+    span.appendChild(document.createTextNode(shortName.textContent))
+  } else {
+    span.appendChild(document.createTextNode(`${xmlNode.nodeName} {: .label }`))
+  }
+  li.appendChild(span)
+
+  li.addEventListener("click", function (event) {
+    event.stopPropagation()
+    displayNodeDetails(xmlNode, id)
+  })
+
+  ul.appendChild(li)
+
+  xmlNode.childNodes.forEach((childNode) => {
+    if (
+      childNode.nodeType === Node.ELEMENT_NODE &&
+      !treeExceptions.includes(childNode.nodeName) &&
+      !nodeExceptions.includes(childNode.nodeName)
+    ) {
+      const childTree = createTree(childNode, id)
+      li.appendChild(childTree)
+    } else if (
+      childNode.nodeType === Node.TEXT_NODE &&
+      childNode.textContent.trim()
+    ) {
+      const textNode = document.createElement("span")
+      textNode.textContent = `: ${childNode.textContent.trim()}`
+      li.appendChild(textNode)
+    }
+  })
+
+  return ul
+}
+
+function displayNodeDetails(xmlNode, id) {
+  const detailsContainer = document.getElementById("nodeDetails")
+  const treeContainer = document.querySelector(".tree-container")
+  const { detail: detailExceptions } = getExceptionList(id)
+  detailsContainer.innerHTML = ""
+
+  const nodeName = document.createElement("h3")
+  nodeName.textContent = xmlNode.querySelector(":scope > SHORT-NAME")
+    ? xmlNode.querySelector(":scope > SHORT-NAME").textContent
+    : xmlNode.nodeName
+  detailsContainer.appendChild(nodeName)
+
+  const list = document.createElement("ul")
+  Array.from(xmlNode.children).forEach((child) => {
+    if (!detailExceptions.includes(child.nodeName)) {
+      if (child.nodeName === "PARAMETERS") {
+        const item = document.createElement("li")
+        const combo = document.createElement("select")
+        Array.from(child.children).forEach((param) => {
+          const shortNameElement = param.querySelector(":scope > SHORT-NAME")
+          if (shortNameElement) {
+            const option = document.createElement("option")
+            option.textContent = shortNameElement.textContent
+            combo.appendChild(option)
+          }
+        })
+        item.textContent = `${child.nodeName}: `
+        item.appendChild(combo)
+        list.appendChild(item)
+      } else {
+        const item = document.createElement("li")
+        item.textContent = `${child.nodeName}: ${child.textContent}`
+        list.appendChild(item)
+      }
+    }
+  })
+
+  detailsContainer.appendChild(list)
+
+  // Update the layout
+  treeContainer.classList.toggle("hidden")
+  detailsContainer.parentNode.classList.toggle("expanded")
+}
