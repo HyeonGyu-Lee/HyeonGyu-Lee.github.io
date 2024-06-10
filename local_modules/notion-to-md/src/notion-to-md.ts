@@ -35,12 +35,15 @@ export class NotionToMarkdown {
     this.customTransformers = {}
   }
 
-  replaceSpecialChar(htmlContent: string): string {
+  replaceSpecialChar(htmlContent: string, blockType: string = "defaultType"): string {
     // const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas)(\s[^>]*)?>)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
-    const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas)(\s[^>]*)?>)|(\`\`\`(mermaid|xml)[\s\S]*?\`\`\`)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
+    const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas)(\s[^>]*)?>)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
     const regex = new RegExp(regexPattern, "gi")
+    const blockTypes = [
+      "code"
+    ]
 
-    if (!regex.test(htmlContent)) {
+    if (!regex.test(htmlContent) || blockTypes.includes(blockType)) {
         return htmlContent
     }
     return htmlContent = htmlContent.replace(regex, (match, p1, p2, p3, p4) => {
@@ -493,7 +496,7 @@ export class NotionToMarkdown {
       }
     }
 
-    parsedData = this.replaceSpecialChar(parsedData)
+    parsedData = this.replaceSpecialChar(parsedData, type)
 
     switch (type) {
       case "code":
