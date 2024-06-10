@@ -36,7 +36,8 @@ export class NotionToMarkdown {
   }
 
   replaceSpecialChar(htmlContent: string): string {
-    const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas|arxml)(\s[^>]*)?>)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
+    // const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas|arxml)(\s[^>]*)?>)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
+    const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas|arxml)(\s[^>]*)?>)|(\`\`\`(mermaid|xml)[\s\S]*?\`\`\`)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
     const regex = new RegExp(regexPattern, "gi")
 
     if (!regex.test(htmlContent)) {

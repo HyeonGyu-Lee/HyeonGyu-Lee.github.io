@@ -3,8 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (arxmlElement) {
     const shortNameToFind = arxmlElement.getAttribute("id")
     const filePath = arxmlElement.getAttribute("files")
+    const baseUrl = window.location.origin
+    const fullPath = new URL(filePath, baseUrl).href
 
-    fetch(filePath)
+    fetch(fullPath)
       .then((response) => response.text())
       .then((data) => {
         const parser = new DOMParser()
@@ -32,6 +34,7 @@ function getExceptionList(id) {
         "ADMIN-DATA",
         "LOWER-MULTIPLICITY",
         "UPPER-MULTIPLICITY",
+        "UPPER-MULTIPLICITY-INFINITE",
         "POST-BUILD-VARIANT-SUPPORT",
         "SUPPORTED-CONFIG-VARIANTS",
         "RELATED-TRACE-ITEM-REF",
@@ -41,8 +44,17 @@ function getExceptionList(id) {
         "VALUE-CONFIG-CLASSES",
         "SYMBOLIC-NAME-VALUE",
         "REFERENCES",
+        "INTRODUCTION",
+        "MULTIPLICITY-CONFIG-CLASSES",
+        "POST-BUILD-VARIANT-MULTIPLICITY",
+        "DEFAULT-VALUE",
+        "MAX",
+        "MIN",
+        "ECUC-STRING-PARAM-DEF-VARIANTS",
+        "ECUC-FUNCTION-NAME-DEF-VARIANTS",
+        "LITERALS",
       ],
-      node: [""],
+      node: ["CONTAINERS", "PARAMETERS"],
       detail: [
         "ECUC-MODULE-DEF",
         "CONTAINERS",
@@ -56,8 +68,11 @@ function getExceptionList(id) {
   return exceptionLists[id] || { tree: [], detail: [] }
 }
 
-function createTree(xmlNode, id) {
+function createTree(xmlNode, id, level = 0) {
   const ul = document.createElement("ul")
+  ul.style.listStyleType = "none"
+  ul.style.marginLeft = `${level * 2}px`
+
   const li = document.createElement("li")
   const span = document.createElement("span")
   const { tree: treeExceptions, node: nodeExceptions } = getExceptionList(id)
@@ -67,6 +82,7 @@ function createTree(xmlNode, id) {
       childNode.nodeType === Node.ELEMENT_NODE &&
       !treeExceptions.includes(childNode.nodeName)
   )
+
   if (hasChildElements) {
     const toggleBtn = document.createElement("button")
     toggleBtn.classList.add("toggle-btn")
@@ -83,26 +99,33 @@ function createTree(xmlNode, id) {
 
   const shortName = xmlNode.querySelector(":scope > SHORT-NAME")
   if (shortName) {
-    span.appendChild(document.createTextNode(shortName.textContent))
+    const attrSpan = document.createElement("span")
+    attrSpan.style.fontWeight = "bold"
+    attrSpan.textContent = `${shortName.textContent}`
+    span.appendChild(attrSpan)
+    // span.appendChild(document.createTextNode(shortName.textContent))
   } else {
-    span.appendChild(document.createTextNode(`${xmlNode.nodeName} {: .label }`))
+    const attrSpan = document.createElement("span")
+    attrSpan.textContent = `${xmlNode.nodeName}`
+    span.appendChild(attrSpan)
   }
   li.appendChild(span)
 
-  li.addEventListener("click", function (event) {
-    event.stopPropagation()
-    displayNodeDetails(xmlNode, id)
-  })
+  if (!nodeExceptions.includes(xmlNode.nodeName)) {
+    li.addEventListener("click", function (event) {
+      event.stopPropagation()
+      displayNodeDetails(xmlNode, id)
+    })
+  }
 
   ul.appendChild(li)
 
   xmlNode.childNodes.forEach((childNode) => {
     if (
       childNode.nodeType === Node.ELEMENT_NODE &&
-      !treeExceptions.includes(childNode.nodeName) &&
-      !nodeExceptions.includes(childNode.nodeName)
+      !treeExceptions.includes(childNode.nodeName)
     ) {
-      const childTree = createTree(childNode, id)
+      const childTree = createTree(childNode, id, level + 1)
       li.appendChild(childTree)
     } else if (
       childNode.nodeType === Node.TEXT_NODE &&
@@ -123,11 +146,18 @@ function displayNodeDetails(xmlNode, id) {
   const { detail: detailExceptions } = getExceptionList(id)
   detailsContainer.innerHTML = ""
 
-  const nodeName = document.createElement("h3")
-  nodeName.textContent = xmlNode.querySelector(":scope > SHORT-NAME")
+  // const nodeName = document.createElement("h3")
+  // nodeName.textContent = xmlNode.querySelector(":scope > SHORT-NAME")
+  //  ? xmlNode.querySelector(":scope > SHORT-NAME").textContent
+  //  : xmlNode.nodeName
+
+  const attrSpan = document.createElement("span")
+  attrSpan.style.fontWeight = "bold"
+  attrSpan.textContent = xmlNode.querySelector(":scope > SHORT-NAME")
     ? xmlNode.querySelector(":scope > SHORT-NAME").textContent
     : xmlNode.nodeName
-  detailsContainer.appendChild(nodeName)
+
+  detailsContainer.appendChild(attrSpan)
 
   const list = document.createElement("ul")
   Array.from(xmlNode.children).forEach((child) => {
@@ -143,12 +173,23 @@ function displayNodeDetails(xmlNode, id) {
             combo.appendChild(option)
           }
         })
-        item.textContent = `${child.nodeName}: `
+        const attrSpan = document.createElement("span")
+        attrSpan.style.fontWeight = "bold"
+        attrSpan.textContent = `${child.nodeName}: `
+        item.appendChild(attrSpan)
         item.appendChild(combo)
         list.appendChild(item)
       } else {
         const item = document.createElement("li")
-        item.textContent = `${child.nodeName}: ${child.textContent}`
+
+        const attrSpan = document.createElement("span")
+        attrSpan.style.fontWeight = "bold"
+        attrSpan.textContent = `${child.nodeName}: `
+
+        const valueSpan = document.createElement("span")
+        valueSpan.textContent = `${child.textContent}`
+        item.appendChild(attrSpan)
+        item.appendChild(valueSpan)
         list.appendChild(item)
       }
     }
