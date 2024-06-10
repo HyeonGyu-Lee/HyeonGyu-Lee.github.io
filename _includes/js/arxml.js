@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const arxmlElement = document.querySelector(".arxml")
   if (arxmlElement) {
     const shortNameToFind = arxmlElement.getAttribute("id")
-    const filePath = arxmlElement.getAttribute("files")
+    const filePath = arxmlElement.getAttribute("data-files")
     const baseUrl = window.location.origin
     const fullPath = new URL(filePath, baseUrl).href
 
