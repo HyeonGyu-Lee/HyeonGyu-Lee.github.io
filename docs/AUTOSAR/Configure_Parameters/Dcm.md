@@ -3,7 +3,7 @@ layout: default
 title: Dcm
 has_children: false
 published_date: 2024-06-05-12-06-00
-last_modified_date: 2024-06-10-13-06-00
+last_modified_date: 2024-06-10-14-06-00
 nav_order: 1
 parent: 'Configure Parameters'
 permalink: '/AUTOSAR/Configure_Parameters/Dcm'
@@ -102,8 +102,44 @@ sequenceDiagram
   participant DcmRxPduId
   PduR -\>\> DcmRxPduId: Dcm_StartOfReception()
   PduR -\>\> DcmRxPduId: Dcm_CopyRxData()
-  DcmRxPduId --\>\> PduR: succeeded
+  DcmRxPduId --\>\> PduR: Result = E_OK
 	PduR-\>\>DcmRxPduId: Dcm_TpRxIndication()
+  DcmRxPduId --\>\> PduR: Result = E_OK
+	PduR-\>\>DcmRxPduId: Dcm_TpRxConfirmation()
 ```
 
 
+- [SWS_Dcm_00111] DSL 서브모듈은 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출한 후에만 수신 데이터를 DSD 서브모듈로 전달
+- [SWS_Dcm_00241] 요청 메시지가 수신되는 즉시 (파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출한 후 연결된 Tx-DcmPduId에 대해 Dcm_TpTxConfirmation()을 호출하기 전까지) DSL 하위 모듈은 해당 DcmPduId를 차단해야함(SWS_Dcm_00351 참조). 이 요청을 처리하는 동안에는 해당 응답 메시지가 전송되고 DcmPduId가 다시 해제될 때까지 동일한 DcmDslConnection의 다른 요청(예: OBD 세션에 의해 향상된 세션이 종료될 수 있음)을 수신할 수 없음(동시 TesterPresent 요청 제외)
+
+> API(프로토타입, 입출력 파라미터)에 대한 자세한 설명은 PduR 모듈의 인터페이스 설명에서 확인할 수 있음([2] 참조)  
+> 진단 통신 어플리케이션에 따라 서로 다른 DcmPduId를 사용할 수 있음. 예를 들어:
+
+- OBD DcmRxPduId : OBD 요청 수신용
+- OBD DcmTxPduId : OBD 응답 전송용
+- UDS phys DcmRxPduId : 물리적 주소가 지정된 UDS 요청 수신용
+- UDS fuc DcmRxPduId : 기능적(Functionally) 주소가 지정된 UDS 요청 수신용
+- UDS DcmTxPduId :  UDS 응답 전송용
+
+> 주소 유형(phys/func)은 DcmRxPduId에 따라 구성됨(구성 매개변수 DcmDslProtocolRx 참조)  
+> 전송 계층의 주소 지정 형식(확장 주소 지정, 일반 주소 지정)과 관계없이 기능적 수신과 물리적 수신에 대해 항상 다른 DcmRxPduId 값이 있기 때문에 DcmRxPduId별로 구성할 수 있음
+
+
+### 동시 “TesterPresent”(”유지 로직”) [Concurrent \| “keep alive logic”]
+
+
+> 테스터가 물리적 요청/응답과 병행하여 기능적인 “TesterPresent” 명령을 전송할 수도 있음  
+> 이를 ISO14229-1[15]에서 “keep alive logic”이라고 함  
+> 이 기능 “TesterPresent”는 물리적 요청과 동일한 DcmDslConnection에 속하는 별도의 DcmRxPduId(UDS 기능 DcmRxPduId)에서 수신됨  
+> 이 경우 명시적으로 구성되지 않은 Dcm 내부 수신 버퍼가 사용됨  
+> 이러한 이유로 기능적 TesterPresent(그리고 응답이 없는 기능적 TestPresent만)는 다음과 같은 방식으로 처리
+
+- [SWS_Dcm_00112] PduR 모듈이 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출하고 요청이 “suppressPosPspMsgIndicationBit”이 TRUE(SID = 0x3E, 서브펑션 =0x80)인 “TesterPresent” 명령이면 DSL 서브 모듈은 세션 타임아웃 타이머를 재설정함(S3Server)
+- [SWS_Dcm_00113] PduR 모듈이 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출하고 요청이 “suppressPosRspMsgIndicationBit”이 TRUE(SID = 0x3E, 서브펑션 = 0x80)로 설정된 “TestPresent” 명령이면 DSL 서브모듈은 추가 해석을 위해 이 요청을 DSD 서브 모듈에 전달하지 않아야함을 의미
+- **SWS_Dcm_00013의 근거 :** DSL 서브모듈의 “TesterPresent” 기능을 우회하기 때문에 DCM 모듈은 지연 없이 다음 물리적 요청을 수신하고 처리할 수 있음
+- [SWS_Dcm_01168] Dcm은 TesterPresent 요청이 “suppressPosRspMsgIndicationBit”이 TRUE로 설정된 기능 주소에서 수신된 경우에만 동시 요청으로 처리
+
+### DSD 서브모듈에서 PduR 모듈로 응답 전달
+
+- [SWS_Dcm_00114] DSD 서브모듈은 응답 전송을 위해 DSL 서브모듈에 요청함
+- [SWS_Dcm_00115] DcmDslMainConnection의 진단 응답이 준비되면, DSL 서브모듈은 해당 DcmDslProtocolTxPduRef 파라미터를 PduId로 사용하여 PduR_DcmTransmit()을 호출하여 진단응답의 PduR 모듈로의 전송을 트리거 해야
