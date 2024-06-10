@@ -36,7 +36,7 @@ If a user is using a custom mermaid file and doesn't specify a version, we defau
   <script defer src="https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid.version }}/dist/mermaid.min.js"></script>
 {% endif %}
 
-<script defer>
+<script>
   window.addEventListener('load', function() {
     var config = {% include mermaid_config.js %};
     mermaid.initialize(config);
