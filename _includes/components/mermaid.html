@@ -36,10 +36,12 @@ If a user is using a custom mermaid file and doesn't specify a version, we defau
   <script defer src="https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid.version }}/dist/mermaid.min.js"></script>
 {% endif %}
 
-<script>
-  var config = {% include mermaid_config.js %};
-  mermaid.initialize(config);
-  window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+<script defer>
+  window.addEventListener('load', function() {
+    var config = {% include mermaid_config.js %};
+    mermaid.initialize(config);
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
 </script>
 
 {% endif %}
