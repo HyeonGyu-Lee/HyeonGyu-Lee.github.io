@@ -13,7 +13,7 @@ redirect_from:
 ---
 <div class="arxml-container">
 <div class="tree-container">
-<arxml id="Dcm" files="_files/422.arxml"></arxml>
+<div class=”arxml” id="Dcm" files="_files/422.arxml"></div>
 <div id="arxmlContent" markdown="1"></div>
 </div>
 <div class="details-container">
