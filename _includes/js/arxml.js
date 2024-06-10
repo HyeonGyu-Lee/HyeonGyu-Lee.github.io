@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const arxmlElement = document.querySelector("arxml")
+  const arxmlElement = document.querySelector(".arxml")
   if (arxmlElement) {
     const shortNameToFind = arxmlElement.getAttribute("id")
     const filePath = arxmlElement.getAttribute("files")

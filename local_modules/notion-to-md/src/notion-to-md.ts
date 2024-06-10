@@ -36,15 +36,15 @@ export class NotionToMarkdown {
   }
 
   replaceSpecialChar(htmlContent: string): string {
-    // const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas|arxml)(\s[^>]*)?>)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
-    const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas|arxml)(\s[^>]*)?>)|(\`\`\`(mermaid|xml)[\s\S]*?\`\`\`)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
+    // const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas)(\s[^>]*)?>)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
+    const regexPattern = /(<\/?(span|u|details|summary|blockquote|div|br|a|canvas)(\s[^>]*)?>)|(\`\`\`(mermaid|xml)[\s\S]*?\`\`\`)|(!\[[^\]]*\]\([^\)]*\))|([<>\|\\])/
     const regex = new RegExp(regexPattern, "gi")
 
     if (!regex.test(htmlContent)) {
         return htmlContent
     }
-    return htmlContent = htmlContent.replace(regex, (match, p1, p2, p3) => {
-      if (p1 || p2) {
+    return htmlContent = htmlContent.replace(regex, (match, p1, p2, p3, p4) => {
+      if (p1 || p2 || p4) {
           return match
       }
       return `\\${match}`
