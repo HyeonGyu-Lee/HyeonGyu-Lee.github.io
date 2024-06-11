@@ -206,6 +206,9 @@ export const callout = (text: string, icon?: CalloutIcon, color?: string) => {
         case "⚠️":
           color = "caution"
           break;
+        case "📝":
+          color = "example"
+          break;
         default:
           break;
       }

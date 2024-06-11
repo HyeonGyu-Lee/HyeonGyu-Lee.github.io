@@ -140,6 +140,10 @@ callouts:
   white:
     color: grey
     opacity: 0.1
+  example:
+    title: example
+    color: yellow
+    opacity: 0.3
   highlight:
     color: yellow
   notice:
