@@ -37,10 +37,12 @@ blockquote {
   .callout-content {
     font-size: 1em;
   }
-}
-p:last-child {
-  margin-bottom: 0;
-}
-p:first-child {
-  margin-top: 0;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
 }
