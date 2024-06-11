@@ -259,3 +259,16 @@ stateDiagram-v2
 ```
 
 
+
+##### 7.2.4.8.1.1 Dcm 초기화(1)
+
+- [SWS_Dcm_00872]  Dcm_Init() 중에 각 이벤트의 상태를 ‘ROE cleared’ 상태로 변경
+
+#### 7.2.4.8.1.2 ‘ROE cleared’ 상태에서 ‘ROE stopped’로 전환
+
+- [SWS_Dcm_00873] 유효한 ROE 설정 요청을 수신하면 요청에서 처리되는 RoeEvent가 ‘ROE stooped’ 상태로 변경(표2 참조)
+- [SWS_Dcm_00874] StorageState가 ‘stroeEvent’로 설정된 상태에서 RoeEvent가 설정되었고, StartResponseOnEvent가 ‘storeEvent’로 설정되지 않은 상태에서 전원 주기동안 활성화(active over power cycles)된 EventWindowTime 또는 이후 clearResponseOnEvent가 수신되면 Dcm은 비휘발성 정보(non-volatile information)가 제공되는 즉시 ‘ROE stopped’ 상태로 변경
+
+> 참고 : StorageState가 ‘StoreEvent’로 설정된 상태에서 이벤트가 한 번 초기화되면 ClearResponseOnEvent 요청에 의해 초기화될 때까지 초기화된 상태로 유지(SWS_Dcm_00897 참조)
+
+- [SWS_Dcm_00951] RoeEvent에 대해 구성 파라미터 DcmDspRoeInitialEventStatus가 DCM_ROE_STOPPED

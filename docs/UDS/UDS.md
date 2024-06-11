@@ -144,7 +144,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 | 0x36              | 0x76               | Transfer Data                      | Perform actual transfer of data following use of 0x74/0x75            |
 | 0x37              | 0x77               | Request Transfer Exit              | Stop the transfer of data                                             |
 | 0x38              | 0x78               | Request File Transfer              | Perform a file download/upload to/from the ECU                        |
-|                   | 0x7F               | Negative Response                  | Sent with a Negative Response Code when a request cann                |
+| 0x7F              | \<                 | Negative Response                  | Sent with a Negative Response Code when a request cannot be handled   |
 
 
 ### Diagnostic Session Control (0x10)
