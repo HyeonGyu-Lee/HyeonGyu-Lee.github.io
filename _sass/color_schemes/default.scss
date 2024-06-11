@@ -7,7 +7,7 @@ body[data-theme="light"] {
   --body-heading-color: #{$grey-dk-300};
   --body-text-color: #{$grey-dk-100};
   --nav-child-link-color: #{darken($realred-100, 5%)};
-  --sidebar-color:#{lighten($realred-000, 36%)};
+  --sidebar-color: #{lighten($realred-000, 36%)};
   --btn-primary-color: #{$purple-100};
   --code-background-color: #{$grey-lt-000};
   --code-linenumber-color: #{#dee2f7};
