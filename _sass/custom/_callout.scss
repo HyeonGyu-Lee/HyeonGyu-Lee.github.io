@@ -12,6 +12,16 @@ blockquote {
     display: flex;
     align-items: flex-start;
     padding: 0;
+
+    .callout-content p:last-child,
+    .callout-icon p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout-content p:first-child,
+    .callout-icon p:first-child {
+      margin-top: 0;
+    }
   }
 
   .callout-icon {
@@ -35,13 +45,5 @@ blockquote {
 
   .callout-content {
     font-size: 1em;
-
-    > p:last-child {
-      margin-bottom: 0;
-    }
-
-    > p:first-child {
-      margin-top: 0;
-    }
   }
 }
