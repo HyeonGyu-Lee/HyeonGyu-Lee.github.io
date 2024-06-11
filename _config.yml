@@ -142,8 +142,8 @@ callouts:
     opacity: 0.1
   example:
     title: example
-    color: yellow
-    opacity: 0.3
+    color: red
+    opacity: 0.1
   highlight:
     color: yellow
   notice:

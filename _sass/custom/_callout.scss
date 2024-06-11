@@ -5,6 +5,7 @@ blockquote {
   // resets user-agent stylesheets for blockquotes
   margin-block-start: 0;
   margin-inline-start: 0;
+  padding: 0.8rem;
   padding-left: 1rem;
   border-left: 3px solid var(--border-color);
 
@@ -36,4 +37,10 @@ blockquote {
   .callout-content {
     font-size: 1em;
   }
+}
+p:last-child {
+  margin-bottom: 0;
+}
+p:first-child {
+  margin-top: 0;
 }
