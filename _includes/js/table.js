@@ -19,11 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (cell.hasAttribute("row-merged") || cell.hasAttribute("col-merged"))
           return
 
-        if (normalizeText(cell) !== "") {
+        if ((normalizeText(cell) !== "") ||
+        (normalizeText(cell) !== "<") ||
+        (normalizeText(cell) !== "^")) {
           let rowSpan = 1
           while (
             rowIndex + rowSpan < rows.length &&
-            normalizeText(rows[rowIndex + rowSpan].cells[colIndex]) === ""
+            (normalizeText(rows[rowIndex + rowSpan].cells[colIndex]) === "" ||
+            normalizeText(rows[rowIndex + rowSpan].cells[colIndex]) === "^")
           ) {
             rows[rowIndex + rowSpan].cells[colIndex].setAttribute(
               "row-merged",
@@ -36,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
           let colSpan = 1
           while (
             colIndex + colSpan < row.cells.length &&
-            normalizeText(row.cells[colIndex + colSpan]) === ""
+            (normalizeText(row.cells[colIndex + colSpan]) === "" ||
+            normalizeText(row.cells[colIndex + colSpan]) === "<")
           ) {
             row.cells[colIndex + colSpan].setAttribute("col-merged", colSpan)
             colSpan++
