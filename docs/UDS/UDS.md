@@ -3,7 +3,7 @@ layout: default
 title: UDS
 has_children: false
 published_date: 2024-06-11-09-06-00
-last_modified_date: 2024-06-11-11-06-00
+last_modified_date: 2024-06-11-13-06-00
 nav_order: 4
 permalink: '/UDS'
 redirect_from:
@@ -152,7 +152,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 - ECU가 진단 모드로 전환
 - 차량의 정상 모드에서 테스트 모드로 전환할 때 사용
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -170,7 +170,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 - ECU를 재설정
 - 하드 리셋, 키 오프 또는 소프트 리셋을 포함
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -187,7 +187,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 보안이 중요한 서비스를 사용하기 위해 인증을 활성화
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -204,7 +204,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ECU의 메시지 송수신 기능을 켜거나 끔
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -221,7 +221,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 더 발전된 인증 절차를 사용하여 ECU에 접근
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -238,7 +238,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 현재 세션을 유지하기 위해 주기적으로 “Heart Beat" 메시지를 전송
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -255,7 +255,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 클라이언트/서버 통신에 사용되는 타이밍 매개변수를 조회하거나 수정
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -272,7 +272,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ISO 15764를 통해 암호화된 데이터를 전송
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -289,7 +289,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 오류 감지를 활성화하거나 비활성화
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -306,7 +306,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 이벤트가 발생했을 때 ECU가 서비스 요청을 처리하도록 요청
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -323,7 +323,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 진단 액세스를 위한 통신 속도를 설정
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -340,7 +340,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 타겟 ECU로부터 데이터를 읽어옴
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -357,7 +357,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 타켓 ECU로부터 물리적 메모리에서 데이터를 읽어옴
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -374,7 +374,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 데이터 식별자의 스케일링 정보를 읽어옴 
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -391,7 +391,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ECU에 센서 데이터를 주기적으로 방송하도록 요청
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -408,7 +408,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 0x22 또는 0x2A에서 동적으로 사용할 데이터 매개변수를 정의
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -425,7 +425,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 데이터 매개변수에 의해 결정된 특정 변수를 프로그래밍
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -442,7 +442,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ECU 메모리에 정보를 작성
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -459,7 +459,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 저장된 DTC(진단 트러블 코드)를 삭제
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -476,7 +476,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 저장된 DTC와 관련 정보를 읽어옴
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -493,7 +493,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ECU 아날로그/디지털 입력/출력을 제어
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -510,7 +510,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 테스트 루틴을 시작하거나 중지합니다 (예: 자가 테스트, 플래시 메모리 지우기)
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -527,7 +527,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ECU에 소프트웨어/데이터 추가를 요청합니다 (위치/크기 포함)
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -544,7 +544,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ECU에서 소프트웨어/데이터를 읽어오도록 요청합니다 (위치/크기 포함)
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -561,7 +561,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 0x74/0x75 명령 후 실제 데이터를 전송
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -578,7 +578,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 데이터 전송을 중지
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -595,7 +595,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - ECU와의 파일 다운로드/업로드를 수행
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
@@ -612,7 +612,7 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - 요청이 처리될 수 없을 때 부정 응답 코드와 함께 전송
 
-<blockquote class="white">
+<blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
 📝 
