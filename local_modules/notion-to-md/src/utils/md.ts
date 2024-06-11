@@ -258,6 +258,9 @@ export const callout = (text: string, icon?: CalloutIcon, color?: string) => {
     case "caution":
       callout_option = "caution"
       break;
+    case "example":
+      callout_option = "example"
+      break;
     case "default":
       callout_option = "white"
       break;
