@@ -3,7 +3,7 @@ layout: default
 title: UDS
 has_children: false
 published_date: 2024-06-11-09-06-00
-last_modified_date: 2024-06-11-10-06-00
+last_modified_date: 2024-06-11-11-06-00
 nav_order: 4
 permalink: '/UDS'
 redirect_from:
@@ -57,13 +57,13 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 
 
-| Frame Type                 | Byte 0   |                                                    | Byte 1 <br>Service ID (for UDS) | Byte 2 <br>Data        | …  | Byte 7 <br>Data |
+| Frame Type                 | Byte 0   | \<                                                 | Byte 1 <br>Service ID (for UDS) | Byte 2 <br>Data        | …  | Byte 7 <br>Data |
 | -------------------------- | -------- | -------------------------------------------------- | ------------------------------- | ---------------------- | -- | --------------- |
 | Bit offset                 | Bit 7-4  | Bit 3-0                                            | Bit 15-8                        | Bit 23-16              | …  | Bit 63-56       |
 | Single Frame<br>(SF)       | Type = 0 | (0-7) Single frame data length                     | Data A                          | Data B                 | …  | Data G          |
-| First Frame<br>(FF)        | Type = 1 | Data length of multi frame data size (8-4096) Byte |                                 | Data A                 | …  | Data F          |
+| First Frame<br>(FF)        | Type = 1 | Data length of multi frame data size (8-4096) Byte | \<                              | Data A                 | …  | Data F          |
 | Consecutive Frame<br>(CF)  | Type = 2 | Sequence number index (0-15)                       | Data A                          | Data B                 | …  | Data G          |
-| Flow Control Frame<br>(FC) | Type = 3 | Flow Control Flag (0, 1, 2)                        | Block size                      | Separation Time/ST min | NA |                 |
+| Flow Control Frame<br>(FC) | Type = 3 | Flow Control Flag (0, 1, 2)                        | Block size                      | Separation Time/ST min | NA | \<              |
 
 <div class="image-flex">
 <div class="image-item">
