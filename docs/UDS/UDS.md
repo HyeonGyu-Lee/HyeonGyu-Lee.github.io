@@ -57,13 +57,29 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 
 
-| Frame Type         | Byte 0   |                                                    | Byte 1 <br>Service ID (for UDS) | Byte 2 <br>Data        | …  | Byte 7 <br>Data |
-| ------------------ | -------- | -------------------------------------------------- | ------------------------------- | ---------------------- | -- | --------------- |
-| Bit offset         | Bit 7-4  | Bit 3-0                                            | Bit 15-8                        | Bit 23-16              | …  | Bit 63-56       |
-| Single Frame       | Type = 0 | (0-7) Single frame data length                     | Data A                          | Data B                 | …  | Data G          |
-| First Frame        | Type = 1 | Data length of multi frame data size (8-4096) Byte |                                 | Data A                 | …  | Data F          |
-| Consecutive Frame  | Type = 2 | Sequence number index (0-15)                       | Data A                          | Data B                 | …  | Data G          |
-| Flow Control Frame | Type = 3 | Flow Control Flag (0, 1, 2)                        | Block size                      | Separation Time/ST min | NA |                 |
+| Frame Type                 | Byte 0   |                                                    | Byte 1 <br>Service ID (for UDS) | Byte 2 <br>Data        | …  | Byte 7 <br>Data |
+| -------------------------- | -------- | -------------------------------------------------- | ------------------------------- | ---------------------- | -- | --------------- |
+| Bit offset                 | Bit 7-4  | Bit 3-0                                            | Bit 15-8                        | Bit 23-16              | …  | Bit 63-56       |
+| Single Frame<br>(SF)       | Type = 0 | (0-7) Single frame data length                     | Data A                          | Data B                 | …  | Data G          |
+| First Frame<br>(FF)        | Type = 1 | Data length of multi frame data size (8-4096) Byte |                                 | Data A                 | …  | Data F          |
+| Consecutive Frame<br>(CF)  | Type = 2 | Sequence number index (0-15)                       | Data A                          | Data B                 | …  | Data G          |
+| Flow Control Frame<br>(FC) | Type = 3 | Flow Control Flag (0, 1, 2)                        | Block size                      | Separation Time/ST min | NA |                 |
+
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/UDS/2.webp" href="/_images/UDS/2.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" alt src="/_images/UDS/2.webp" title="" class="lazyload" />
+</figure>
+</a>
+</div>
+</div>
+</div>
+
 
 
 ## CAN ID
@@ -95,3 +111,68 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 
 - UDS 메시지는 일정한 길이를 유지해야함, 따라서 메시지가 해당 길이에 도달하지 못하는 경우 나머지 부분은 ‘패딩(Padding’으로 채움
 - 일반적으로 0또는 A, 특정 값으로 설정됨
+
+# UDS serivce Identifiers(SIDs)
+
+
+| UDS SID (request) | UDS SID (response) | Service                            | Details                                                               |
+| ----------------- | ------------------ | ---------------------------------- | --------------------------------------------------------------------- |
+| 0x10              | 0x50               | Diagnostic Session Control         | Control which UDS services are available                              |
+| 0x11              | 0x51               | ECU Reset                          | Reset the ECU (“hard reset”, “key off", “soft reset”)                 |
+| 0x27              | 0x67               | Security Access                    | Enable use of security-critical services via authentication           |
+| 0x28              | 0x68               | Communication Control              | Turn sending/receiving of messages on/off in the ECU                  |
+| 0x29              | 0x69               | Authentication                     | Enable more advanced authentication vs. 0x27 (PKI based exchange)     |
+| 0x3E              | 0x7E               | Tester Present                     | Send a "heartbeat" periodically to remain in the current session      |
+| 0x83              | 0xC3               | Access Timing Parameters           | View/modify timing parameters used in client/server communication     |
+| 0x84              | 0xC4               | Secured Data Transmission          | Send encrypted data via ISO 15764 (Extended Data Link Security)       |
+| 0x85              | 0xC5               | Control DTC Settings               | Enable/disable detection of errors (e.g. used during diagnostics)     |
+| 0x86              | 0xC6               | Response On Event                  | Request that an ECU processes a service request if an event happens   |
+| 0x87              | 0xC7               | Link Control                       | Set the baud rate for diagnostic access                               |
+| 0x22              | 0x62               | Read Data By Identifier            | Read data from targeted ECU - e.g. VIN, sensor data values etc.       |
+| 0x23              | 0x63               | Read Memory By Address             | Read data from physical memory (e.g. to understand software behavior) |
+| 0x24              | 0x64               | Read Scaling Data By Identifier    | Read information about how to scale data identifiers                  |
+| 0x2A              | 0x6A               | Read Data By Identifier Periodic   | Request ECU to broadcast sensor data at slow/medium/fast/stop rate    |
+| 0x2C              | 0x6C               | Dynamically Define Data Identifier | Define data parameter for use in 0x22 or 0x2A dynamically             |
+| 0x2E              | 0x6E               | Write Data By Identifier           | Program specific variables determined by data parameters              |
+| 0x3D              | 0x7D               | Write Memory By Address            | Write information to the ECU's memory                                 |
+| 0x14              | 0x54               | Clear Diagnostic Information       | Delete stored DTCs                                                    |
+| 0x19              | 0x59               | Read DTC Information               | Read stored DTCs, as well as related information                      |
+| 0x2F              | 0x6F               | Input Output Control By Identifier | Gain control over ECU analog/digital inputs/outputs                   |
+| 0x31              | 0x71               | Routine Control                    | Initiate/stop routines (e.g. self-testing, erasing of flash memory)   |
+| 0x34              | 0x74               | Request Download                   | Start request to add software/data to ECU (incl. location/size)       |
+| 0x35              | 0x75               | Request Upload                     | Start request to read software/data from ECU (incl. location/size)    |
+| 0x36              | 0x76               | Transfer Data                      | Perform actual transfer of data following use of 0x74/0x75            |
+| 0x37              | 0x77               | Request Transfer Exit              | Stop the transfer of data                                             |
+| 0x38              | 0x78               | Request File Transfer              | Perform a file download/upload to/from the ECU                        |
+|                   | 0x7F               | Negative Response                  | Sent with a Negative Response Code when a request cann                |
+
+
+Diagnostic Session Control
+ECU Reset
+Security Access
+Communication Control
+Authentication
+Tester Present
+Access Timing Parameters
+Secured Data Transmission
+Control DTC Settings
+Response On Event
+Link Control
+Read Data By Identifier
+Read Memory By Address
+Read Scaling Data By Identifier
+Read Data By Identifier Periodic
+Dynamically Define Data Identifier
+Write Data By Identifier
+Write Memory By Address
+Clear Diagnostic Information
+Read DTC Information
+Input Output Control By Identifier
+Routine Control
+Request Download
+Request Upload
+Transfer Data
+Request Transfer Exit
+Request File Transfer
+Negative Response
+
