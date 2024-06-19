@@ -4,6 +4,7 @@ title: mermaid
 has_children: false
 published_date: 2024-06-20-08-06-00
 last_modified_date: 2024-06-20-08-06-00
+nav_order: 1
 parent: '기타'
 permalink: '/기타/mermaid'
 redirect_from:
