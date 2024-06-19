@@ -14,7 +14,7 @@ redirect_from:
 # **Sequence Diagram**
 
 
-```mermaid
+```c
 sequenceDiagram
 	participant Alice
 	participant John
@@ -52,7 +52,7 @@ sequenceDiagram
 
 
 
-```mermaid
+```c
 sequenceDiagram
 	Alice->John: 선
 	John-->Alice: 점선
@@ -85,7 +85,7 @@ sequenceDiagram
 ## Actor 스타일 및 명칭 변경 (participant, actor)
 
 
-```mermaid
+```c
 sequenceDiagram
 	participant Alice
 	actor J as John
@@ -114,7 +114,7 @@ J->Alice : text
 > 한번에 여러 단계의 stack을 적용하려면 activate, deactivate를 하단에 적용하면 된다.
 
 
-```mermaid
+```c
 sequenceDiagram
 	Alice->>+John: 1번째: 냠
 	activate John
@@ -153,7 +153,7 @@ sequenceDiagram
 ## 메모 (Note)
 
 
-```mermaid
+```c
 sequenceDiagram
 		participant test
 		participant John
@@ -182,7 +182,7 @@ sequenceDiagram
 ## 루프 (Loop)
 
 
-```mermaid
+```c
 sequenceDiagram
     Alice->>John: 1분마다 신호를 줘! , 10분동안!
     loop Every minute
@@ -210,7 +210,7 @@ sequenceDiagram
 ### 선택지와 옵션을 표시 (alt ~ else, opt)
 
 
-```mermaid
+```c
 sequenceDiagram
     Alice->>Bob: 선택지 질문
     alt 1번을 선택한다
@@ -243,7 +243,7 @@ sequenceDiagram
 ## 병렬 표시 (par)
 
 
-```mermaid
+```c
 sequenceDiagram
 	par Alice to Bob
 	Alice->>Bob: Go help John
@@ -278,7 +278,7 @@ sequenceDiagram
 ## 색상 부여 (rect)
 
 
-```mermaid
+```c
 sequenceDiagram
 	participant Alice
 	participant John
@@ -319,7 +319,7 @@ sequenceDiagram
 ## 주석 (comment)
 
 
-```mermaid
+```c
 sequenceDiagram
     Alice->>John: 안에 주석 있음
     %% comment
@@ -340,7 +340,7 @@ sequenceDiagram
 ## 번호, 순번 (autonumber)
 
 
-```mermaid
+```c
 sequenceDiagram
     autonumber
     Alice->>John: Hello John, how are you?
@@ -376,7 +376,7 @@ sequenceDiagram
 ### 특수문자
 
 
-```mermaid
+```c
 sequenceDiagram
     A->>B: I #9829; you!
     B->>A: I #9829; you #infin; times more!
@@ -395,7 +395,7 @@ sequenceDiagram
 ### Actor에 링크 (link)
 
 
-```mermaid
+```c
 sequenceDiagram
     participant Alice
     participant John
@@ -428,7 +428,7 @@ sequenceDiagram
 ### 중요 지역 표시 (critical)
 
 
-```mermaid
+```c
 sequenceDiagram
     critical Establish a connection to the DB
         Service-->DB: connect
@@ -449,7 +449,7 @@ sequenceDiagram
 ### 중단점 (break)
 
 
-```mermaid
+```c
 sequenceDiagram
     Consumer-->API: Book something
     API-->BookingService: Start booking process
