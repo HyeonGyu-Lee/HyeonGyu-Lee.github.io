@@ -3,7 +3,7 @@ layout: default
 title: Services Identifiers
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-06-20-09-06-00
+last_modified_date: 2024-06-20-10-06-00
 nav_order: 1
 parent: 'UDS'
 permalink: '/UDS/Services_Identifiers'
@@ -14,36 +14,36 @@ redirect_from:
 # UDS serivce Identifiers(SIDs)
 
 
-| UDS SID (request) | UDS SID (response) | Service                                | Details                                                                 | Sub function types               |
-| ----------------- | ------------------ | -------------------------------------- | ----------------------------------------------------------------------- | -------------------------------- |
-| **0x10**          | **0x50**           | **Diagnostic Session Control**         | **Control which UDS services are available**                            | **Diagnostic session type**      |
-| **0x11**          | **0x51**           | **ECU Reset**                          | **Reset the ECU (“hard reset”, “key off", “soft reset”)**               | **Reset type**                   |
-| **0x27**          | **0x67**           | **Security Access**                    | **Enable use of security-critical services via authentication**         | **Security access type**         |
-| **0x28**          | **0x68**           | **Communication Control**              | **Turn sending/receiving of messages on/off in the ECU**                | **Control type**                 |
-| 0x29              | 0x69               | Authentication                         | Enable more advanced authentication vs. 0x27 (PKI based exchange)       |                                  |
-| **0x3E**          | **0x7E**           | **Tester Present**                     | **Send a "heartbeat" periodically to remain in the current session**    | **“Zero Sub function”**          |
-| **0x83**          | **0xC3**           | **Access Timing Parameters**           | **View/modify timing parameters used in client/server communication**   | **Timing parameter access type** |
-| 0x84              | 0xC4               | Secured Data Transmission              | Send encrypted data via ISO 15764 (Extended Data Link Security)         |                                  |
-| **0x85**          | **0xC5**           | **Control DTC Settings**               | **Enable/disable detection of errors (e.g. used during diagnostics)**   | **DTC setting type**             |
-| **0x86**          | **0xC6**           | **Response On Event**                  | **Request that an ECU processes a service request if an event happens** | **Event type**                   |
-| **0x87**          | **0xC7**           | **Link Control**                       | **Set the baud rate for diagnostic access**                             | **Link control type**            |
-| 0x22              | 0x62               | Read Data By Identifier                | Read data from targeted ECU - e.g. VIN, sensor data values etc.         |                                  |
-| 0x23              | 0x63               | Read Memory By Address                 | Read data from physical memory (e.g. to understand software behavior)   |                                  |
-| 0x24              | 0x64               | Read Scaling Data By Identifier        | Read information about how to scale data identifiers                    |                                  |
-| 0x2A              | 0x6A               | Read Data By Identifier Periodic       | Request ECU to broadcast sensor data at slow/medium/fast/stop rate      |                                  |
-| **0x2C**          | **0x6C**           | **Dynamically Define Data Identifier** | **Define data parameter for use in 0x22 or 0x2A dynamically**           | **Definition type**              |
-| 0x2E              | 0x6E               | Write Data By Identifier               | Program specific variables determined by data parameters                |                                  |
-| 0x3D              | 0x7D               | Write Memory By Address                | Write information to the ECU's memory                                   |                                  |
-| 0x14              | 0x54               | Clear Diagnostic Information           | Delete stored DTCs                                                      |                                  |
-| **0x19**          | **0x59**           | **Read DTC Information**               | **Read stored DTCs, as well as related information**                    | **Report type**                  |
-| 0x2F              | 0x6F               | Input Output Control By Identifier     | Gain control over ECU analog/digital inputs/outputs                     |                                  |
-| **0x31**          | **0x71**           | **Routine Control**                    | **Initiate/stop routines (e.g. self-testing, erasing of flash memory)** | **Routine control type**         |
-| 0x34              | 0x74               | Request Download                       | Start request to add software/data to ECU (incl. location/size)         |                                  |
-| 0x35              | 0x75               | Request Upload                         | Start request to read software/data from ECU (incl. location/size)      |                                  |
-| 0x36              | 0x76               | Transfer Data                          | Perform actual transfer of data following use of 0x74/0x75              |                                  |
-| 0x37              | 0x77               | Request Transfer Exit                  | Stop the transfer of data                                               |                                  |
-| 0x38              | 0x78               | Request File Transfer                  | Perform a file download/upload to/from the ECU                          |                                  |
-| 0x7F              | \<                 | Negative Response                      | Sent with a Negative Response Code when a request cannot be handled     |                                  |
+| UDS SID (request) | UDS SID (response) | Service                                | Details                                                                 | Sub function types               | Sub function |
+| ----------------- | ------------------ | -------------------------------------- | ----------------------------------------------------------------------- | -------------------------------- | ------------ |
+| **0x10**          | **0x50**           | **Diagnostic Session Control**         | **Control which UDS services are available**                            | **Diagnostic session type**      | 0x01 - 0x04  |
+| **0x11**          | **0x51**           | **ECU Reset**                          | **Reset the ECU (“hard reset”, “key off", “soft reset”)**               | **Reset type**                   | 0x01 - 0x05  |
+| **0x27**          | **0x67**           | **Security Access**                    | **Enable use of security-critical services via authentication**         | **Security access type**         | 0x01 - 0x10  |
+| **0x28**          | **0x68**           | **Communication Control**              | **Turn sending/receiving of messages on/off in the ECU**                | **Control type**                 | 0x00 - 0x03  |
+| 0x29              | 0x69               | Authentication                         | Enable more advanced authentication vs. 0x27 (PKI based exchange)       |                                  |              |
+| **0x3E**          | **0x7E**           | **Tester Present**                     | **Send a "heartbeat" periodically to remain in the current session**    | **“Zero Sub function”**          | 0x00         |
+| **0x83**          | **0xC3**           | **Access Timing Parameters**           | **View/modify timing parameters used in client/server communication**   | **Timing parameter access type** | 0x01 - 0x02  |
+| 0x84              | 0xC4               | Secured Data Transmission              | Send encrypted data via ISO 15764 (Extended Data Link Security)         |                                  |              |
+| **0x85**          | **0xC5**           | **Control DTC Settings**               | **Enable/disable detection of errors (e.g. used during diagnostics)**   | **DTC setting type**             | 0x01 - 0x02  |
+| **0x86**          | **0xC6**           | **Response On Event**                  | **Request that an ECU processes a service request if an event happens** | **Event type**                   | 0x00 - 0x02  |
+| **0x87**          | **0xC7**           | **Link Control**                       | **Set the baud rate for diagnostic access**                             | **Link control type**            | 0x01 - 0x05  |
+| 0x22              | 0x62               | Read Data By Identifier                | Read data from targeted ECU - e.g. VIN, sensor data values etc.         |                                  |              |
+| 0x23              | 0x63               | Read Memory By Address                 | Read data from physical memory (e.g. to understand software behavior)   |                                  |              |
+| 0x24              | 0x64               | Read Scaling Data By Identifier        | Read information about how to scale data identifiers                    |                                  |              |
+| 0x2A              | 0x6A               | Read Data By Identifier Periodic       | Request ECU to broadcast sensor data at slow/medium/fast/stop rate      |                                  |              |
+| **0x2C**          | **0x6C**           | **Dynamically Define Data Identifier** | **Define data parameter for use in 0x22 or 0x2A dynamically**           | **Definition type**              | 0x01 - 0x03  |
+| 0x2E              | 0x6E               | Write Data By Identifier               | Program specific variables determined by data parameters                |                                  |              |
+| 0x3D              | 0x7D               | Write Memory By Address                | Write information to the ECU's memory                                   |                                  |              |
+| 0x14              | 0x54               | Clear Diagnostic Information           | Delete stored DTCs                                                      |                                  |              |
+| **0x19**          | **0x59**           | **Read DTC Information**               | **Read stored DTCs, as well as related information**                    | **Report type**                  | 0x01 - 0x0D  |
+| 0x2F              | 0x6F               | Input Output Control By Identifier     | Gain control over ECU analog/digital inputs/outputs                     |                                  |              |
+| **0x31**          | **0x71**           | **Routine Control**                    | **Initiate/stop routines (e.g. self-testing, erasing of flash memory)** | **Routine control type**         | 0x01 - 0x03  |
+| 0x34              | 0x74               | Request Download                       | Start request to add software/data to ECU (incl. location/size)         |                                  |              |
+| 0x35              | 0x75               | Request Upload                         | Start request to read software/data from ECU (incl. location/size)      |                                  |              |
+| 0x36              | 0x76               | Transfer Data                          | Perform actual transfer of data following use of 0x74/0x75              |                                  |              |
+| 0x37              | 0x77               | Request Transfer Exit                  | Stop the transfer of data                                               |                                  |              |
+| 0x38              | 0x78               | Request File Transfer                  | Perform a file download/upload to/from the ECU                          |                                  |              |
+| 0x7F              | \<                 | Negative Response                      | Sent with a Negative Response Code when a request cannot be handled     |                                  |              |
 
 
 ### Diagnostic Session Control (0x10)
@@ -62,6 +62,14 @@ redirect_from:
 </div>
 </blockquote>
 
+
+
+| Diagnostic session type<br>(sub function value) | Diagnostic session              | Description                                      |
+| ----------------------------------------------- | ------------------------------- | ------------------------------------------------ |
+| 0x01                                            | Default Session                 | On Start of ECU, ECU runs in to default session. |
+| 0x02                                            | Programming Session             | Used to upload software.                         |
+| 0x03                                            | Extended Diagnostic Session     | Used to unlock additional diagnostic functions.  |
+| 0x04                                            | Safety System Diagnostic System |                                                  |
 
 
 ```mermaid
@@ -88,14 +96,6 @@ sequenceDiagram
 
 
 
-| Diagnostic session type<br>(sub function value) | Diagnostic session              | Description                                            |
-| ----------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
-| 0x01                                            | Default Session                 | On Start of ECU, ECU runs in to default session.       |
-| 0x02                                            | Programming Session             | Used to upload software.                               |
-| 0x03                                            | Extended Diagnostic Session     | Used to unlock additional diagnostic functions.        |
-| 0x04                                            | Safety System Diagnostic System | Used to test all safety critical diagnostic functions. |
-
-
 ### ECU Reset (0x11)
 
 - ECU를 재설정
@@ -114,6 +114,15 @@ sequenceDiagram
 
 
 
+| Reset type (sub function value) | Reset                         | Description                                              |
+| ------------------------------- | ----------------------------- | -------------------------------------------------------- |
+| 0x01                            | Hard Reset                    | Completely reboots the ECU.                              |
+| 0x02                            | Key Off On Reset              | Simulates turning the key off and on, resetting the ECU. |
+| 0x03                            | Soft Reset                    | Resets the ECU software without a full reboot.           |
+| 0x04                            | Enable Rapid Power Shut Down  | Activates rapid power shut down.                         |
+| 0x05                            | Disable Rapid Power Shut Down | Deactivates rapid power shut down.                       |
+
+
 ### Security Access (0x27)
 
 - 보안이 중요한 서비스를 사용하기 위해 인증을 활성화
@@ -129,6 +138,12 @@ sequenceDiagram
 </div>
 </blockquote>
 
+
+
+| Security Access type<br>(Sub function value)                 | Security Access | Description                                      |
+| ------------------------------------------------------------ | --------------- | ------------------------------------------------ |
+| 0x01<br>0x03<br>0x05<br>0x07<br>0x09<br>0x0B<br>0x0D<br>0x0F | Request Seed    | Requests a seed for security access.             |
+| 0x02<br>0x04<br>0x06<br>0x08<br>0x0A<br>0x0C<br>0x0E<br>0x10 | Send Key        | Sends a key corresponding to the requested seed. |
 
 
 ```mermaid
@@ -187,6 +202,14 @@ sequenceDiagram
 
 
 
+| Control type<br>(Sub function value) | Control                  | Description                                        |
+| ------------------------------------ | ------------------------ | -------------------------------------------------- |
+| 0x00                                 | Enable Rx and Tx         | Enables both reception (Rx) and transmission (Tx). |
+| 0x01                                 | Enable Rx and Disable Tx | Enables reception and disables transmission.       |
+| 0x02                                 | Disable Rx and Enable Tx | Disables reception and enables transmission.       |
+| 0x03                                 | Disable Rx and Tx        | Disables both reception and transmission.          |
+
+
 ### Authentication (0x29)
 
 - 더 발전된 인증 절차를 사용하여 ECU에 접근
@@ -219,6 +242,12 @@ sequenceDiagram
 </div>
 </blockquote>
 
+
+
+| (Sub function value) | function          | Description                      |
+| -------------------- | ----------------- | -------------------------------- |
+| 0x00                 | Zero Sub-Function | Indicates the tester is present. |
+|                      |                   |                                  |
 
 
 ```mermaid
@@ -267,6 +296,12 @@ sequenceDiagram
 
 
 
+| Timing parameter access Type<br>(Sub function value) | Timing parameter access | Description                          |
+| ---------------------------------------------------- | ----------------------- | ------------------------------------ |
+| 0x01                                                 | Set Timing Parameters   | Sets specific timing parameters.     |
+| 0x02                                                 | Get Timing Parameters   | Retrieves current timing parameters. |
+
+
 ### Secured Data Transmission (0x84)
 
 - ISO 15764를 통해 암호화된 데이터를 전송
@@ -301,6 +336,12 @@ sequenceDiagram
 
 
 
+| DTC Setting type<br>(Sub function value) | DTC Setting     | Description              |
+| ---------------------------------------- | --------------- | ------------------------ |
+| 0x01                                     | DTC Setting On  | Activates DTC setting.   |
+| 0x02                                     | DTC Setting Off | Deactivates DTC setting. |
+
+
 ### Response On Event (0x86)
 
 - 이벤트가 발생했을 때 ECU가 서비스 요청을 처리하도록 요청
@@ -318,6 +359,13 @@ sequenceDiagram
 
 
 
+| Event type<br>(Sub function value) | Event                            | Description                                              |
+| ---------------------------------- | -------------------------------- | -------------------------------------------------------- |
+| 0x00                               | Report Events                    | Sends a response when specified events occur.            |
+| 0x01                               | Clear Event Reporting            | Disables event reporting.                                |
+| 0x02                               | Report Events with Enhanced Data | Sends a response with additional data when events occur. |
+
+
 ### Link Control (0x87)
 
 - 진단 액세스를 위한 통신 속도를 설정
@@ -333,6 +381,15 @@ sequenceDiagram
 </div>
 </blockquote>
 
+
+
+| Link control type<br>(Sub function value) | Link control                     | Description                     |
+| ----------------------------------------- | -------------------------------- | ------------------------------- |
+| 0x01                                      | Verify Link Control              | Verifies the link status.       |
+| 0x02                                      | Transition to Communication Mode | Switches to communication mode. |
+| 0x03                                      | Transition to Link Control Mode  | Switches to link control mode.  |
+| 0x04                                      | Transition to Sleep Mode         | Switches to sleep mode.         |
+| 0x05                                      | Terminate Communication          | Ends the communication session. |
 
 
 ### Read Data By Identifier (0x22)
@@ -420,6 +477,13 @@ sequenceDiagram
 
 
 
+| Definition type<br>(Sub function value) | Definition                                | Description                                                       |
+| --------------------------------------- | ----------------------------------------- | ----------------------------------------------------------------- |
+| 0x01                                    | Define By Identifier                      | Defines a data identifier dynamically using existing identifiers. |
+| 0x02                                    | Define By Memory Address                  | Defines a data identifier dynamically using memory addresses.     |
+| 0x03                                    | Clear Dynamically Defined Data Identifier | Clears previously defined data identifiers.                       |
+
+
 ### Write Data By Identifier (0x2E)
 
 - 데이터 매개변수에 의해 결정된 특정 변수를 프로그래밍
@@ -488,35 +552,35 @@ sequenceDiagram
 
 
 
-| Report type<br>(sub function value) | Report                                     |
-| ----------------------------------- | ------------------------------------------ |
-| 0x01                                | Number of DTC by status mask               |
-| 0x02                                | DTC by status mask                         |
-| 0x03                                | DTC snapshot identification                |
-| 0x04                                | DTC snapshot record by DTC number          |
-| 0x05                                | DTC stored data by record number           |
-| 0x06                                | DTC extended data record by DTC number     |
-| 0x07                                | Number of DTC by severity mask record      |
-| 0x08                                | DTC by severity mask record                |
-| 0x09                                | Severity information of DTC                |
-| 0x0A                                | Supported DTC                              |
-| 0x0B                                | First failed DTC                           |
-| 0x0C                                | First confirmed DTC                        |
-| 0x0D                                | Most recent failed DTC                     |
-| 0x0E                                | Most recent confirmed DTC                  |
-| 0x0F                                | Mirror memory DTC by status mask           |
-| 0x10                                | Mirror memory DTC by DTC number            |
-| 0x11                                | Number of mirror memory DTC by status mask |
-| 0x12                                | Number of emissions OBD DTC by status mask |
-| 0x13                                | Emissions OBD DTC by status mask           |
-| 0x14                                | DTC fault detection counter                |
-| 0x15                                | DTC with permanent status                  |
-| 0x16                                | DTC extended data record by record number  |
-| 0x17                                | User defined memory DTC by status mask     |
-| 0x18                                | User defined memory DTC snapshot by number |
-| 0x19                                | User defined memory DTC record by number   |
-| 0x42                                | WWH-OBD DTC by status mask record          |
-| 0x55                                | WWH-OBD DTCs with permanent status         |
+| Report type<br>(sub function value) | Report                                     | Description                                                                |
+| ----------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------- |
+| 0x01                                | Number of DTC by Status Mask               | Reports the number of DTCs matching the status mask.                       |
+| 0x02                                | DTC by Status Mask                         | Reports the DTCs matching the status mask.                                 |
+| 0x03                                | DTC Snapshot Identification                | Reports the identification of DTC snapshots.                               |
+| 0x04                                | DTC Snapshot Record by DTC Number          | Reports the snapshot records by DTC number.                                |
+| 0x05                                | DTC Stored Data by Record Number           | Reports the stored DTC data by record number.                              |
+| 0x06                                | DTC Extended Data Record by DTC Number     | Reports the extended data records by DTC number.                           |
+| 0x07                                | Number of DTC by Severity Mask Record      | Reports the number of DTCs matching the severity mask.                     |
+| 0x08                                | DTC by Severity Mask Record                | Reports the DTCs matching the severity mask.                               |
+| 0x09                                | Severity Information of DTC                | Reports the severity information of a specific DTC.                        |
+| 0x0A                                | Supported DTC                              | Reports the supported DTCs.                                                |
+| 0x0B                                | First Failed DTC                           | Reports the first failed DTC.                                              |
+| 0x0C                                | First Confirmed DTC                        | Reports the first confirmed DTC.                                           |
+| 0x0D                                | Most Recent Failed DTC                     | Reports the most recent failed DTC.                                        |
+| 0x0E                                | Most Recent Confirmed DTC                  | Reports the most recent confirmed DTC.                                     |
+| 0x0F                                | Mirror Memory DTC by Status Mask           | Reports the mirror memory DTCs matching the status mask.                   |
+| 0x10                                | Mirror Memory DTC by DTC Number            | Reports the mirror memory DTCs by DTC number.                              |
+| 0x11                                | Number of Mirror Memory DTC by Status Mask | Reports the number of mirror memory DTCs matching the status mask.         |
+| 0x12                                | Number of Emissions OBD DTC by Status Mask | Reports the number of emissions-related OBD DTCs matching the status mask. |
+| 0x13                                | Emissions OBD DTC by Status Mask           | Reports the emissions-related OBD DTCs matching the status mask.           |
+| 0x14                                | DTC Fault Detection Counter                | Reports the DTC fault detection counter.                                   |
+| 0x15                                | DTC with Permanent Status                  | Reports the DTCs with permanent status.                                    |
+| 0x16                                | DTC Extended Data Record by Record Number  | Reports the extended data records by record number.                        |
+| 0x17                                | User Defined Memory DTC by Status Mask     | Reports the user-defined memory DTCs matching the status mask.             |
+| 0x18                                | User Defined Memory DTC Snapshot by Number | Reports the user-defined memory DTC snapshots by number.                   |
+| 0x19                                | User Defined Memory DTC Record by Number   | Reports the user-defined memory DTC records by number.                     |
+| 0x42                                | WWH-OBD DTC by Status Mask Record          | Reports the WWH-OBD DTCs matching the status mask.                         |
+| 0x55                                | WWH-OBD DTCs with Permanent Status         | Reports the WWH-OBD DTCs with permanent status.                            |
 
 
 ### Input Output Control By Identifier (0x2F)
@@ -551,6 +615,13 @@ sequenceDiagram
 </div>
 </blockquote>
 
+
+
+| Routine control type<br>(Sub function value) | Routine control         | Description                                  |
+| -------------------------------------------- | ----------------------- | -------------------------------------------- |
+| 0x01                                         | Start Routine           | Starts a specified routine.                  |
+| 0x02                                         | Stop Routine            | Stops a specified routine.                   |
+| 0x03                                         | Request Routine Results | Requests the results of a specified routine. |
 
 
 ### Request Download (0x34)
