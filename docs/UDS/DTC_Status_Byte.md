@@ -3,7 +3,7 @@ layout: default
 title: DTC Status Byte
 has_children: false
 published_date: 2024-06-20-09-06-00
-last_modified_date: 2024-06-20-10-06-00
+last_modified_date: 2024-06-20-11-06-00
 nav_order: 3
 parent: 'UDS'
 permalink: '/UDS/DTC_Status_Byte'
@@ -11,6 +11,25 @@ redirect_from:
  - /6a79edc83476430b85fbc4dc270ad541
  - /undefined
 ---
+# DTC Status Byte
+
+
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
+DTC 정보를 포함한 응답 메시지의 일부<br>Read DTC Information (0x19) 서비스 요청 시 반환
+</div>
+</div>
+</blockquote>
+
+
+- Diagnostic Trouble Code의 상태를 나타내는 1바이트의 데이터
+- 8개의 개별 비트로 구성되며, 각 비트는 DTC의 특정 상태를 나타냄
+- DTC Status Byte는 ECU가 진단 도구에 오류의 현재 상태를 보고하는 데 사용
+
 | bit # | hex  | state                              | description                                           |
 | ----- | ---- | ---------------------------------- | ----------------------------------------------------- |
 | 0     | 0x01 | testFailed                         | DTC failed at the time of the request                 |
