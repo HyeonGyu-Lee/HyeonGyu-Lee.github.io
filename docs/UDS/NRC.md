@@ -13,6 +13,8 @@ redirect_from:
 ---
 # UDS NRC(Negative Response Code)
 
+- ECU가 진단 요청을 처리할 수 없을 때 송신되는 코드
+- 진단 도구가 문제를 이해하고 해결하는 데 도움을 줄 수 있음
 
 | NRC Hex   | Mnemonic | Use Case                                             |
 | --------- | -------- | ---------------------------------------------------- |
@@ -58,7 +60,9 @@ redirect_from:
 | 0x92      | VTH      | Voltage Too High                                     |
 | 0x93      | VTL      | Voltage Too Low                                      |
 | 0xF0-0xFE |          | Manufacturer Specific Conditions Not Correct         |
-|           |          |                                                      |
+
+
+## with Description
 
 
 | value       | Mnemonic | responseCode                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
