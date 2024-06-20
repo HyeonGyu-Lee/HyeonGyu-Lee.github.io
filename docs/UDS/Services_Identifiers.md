@@ -3,7 +3,7 @@ layout: default
 title: Services Identifiers
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-06-20-10-06-00
+last_modified_date: 2024-06-20-11-06-00
 nav_order: 1
 parent: 'UDS'
 permalink: '/UDS/Services_Identifiers'
@@ -23,30 +23,30 @@ redirect_from:
 | **0x11**          | **0x51**           | **ECU Reset**                          | **Reset the ECU (“hard reset”, “key off", “soft reset”)**               | **Reset type**                   | 0x01 - 0x05  |
 | **0x27**          | **0x67**           | **Security Access**                    | **Enable use of security-critical services via authentication**         | **Security access type**         | 0x01 - 0x10  |
 | **0x28**          | **0x68**           | **Communication Control**              | **Turn sending/receiving of messages on/off in the ECU**                | **Control type**                 | 0x00 - 0x03  |
-| 0x29              | 0x69               | Authentication                         | Enable more advanced authentication vs. 0x27 (PKI based exchange)       |                                  |              |
+| 0x29              | 0x69               | Authentication                         | Enable more advanced authentication vs. 0x27 (PKI based exchange)       | N/A                              | \<           |
 | **0x3E**          | **0x7E**           | **Tester Present**                     | **Send a "heartbeat" periodically to remain in the current session**    | **“Zero Sub function”**          | 0x00         |
 | **0x83**          | **0xC3**           | **Access Timing Parameters**           | **View/modify timing parameters used in client/server communication**   | **Timing parameter access type** | 0x01 - 0x02  |
-| 0x84              | 0xC4               | Secured Data Transmission              | Send encrypted data via ISO 15764 (Extended Data Link Security)         |                                  |              |
+| 0x84              | 0xC4               | Secured Data Transmission              | Send encrypted data via ISO 15764 (Extended Data Link Security)         | N/A                              | \<           |
 | **0x85**          | **0xC5**           | **Control DTC Settings**               | **Enable/disable detection of errors (e.g. used during diagnostics)**   | **DTC setting type**             | 0x01 - 0x02  |
 | **0x86**          | **0xC6**           | **Response On Event**                  | **Request that an ECU processes a service request if an event happens** | **Event type**                   | 0x00 - 0x02  |
 | **0x87**          | **0xC7**           | **Link Control**                       | **Set the baud rate for diagnostic access**                             | **Link control type**            | 0x01 - 0x05  |
-| 0x22              | 0x62               | Read Data By Identifier                | Read data from targeted ECU - e.g. VIN, sensor data values etc.         |                                  |              |
-| 0x23              | 0x63               | Read Memory By Address                 | Read data from physical memory (e.g. to understand software behavior)   |                                  |              |
-| 0x24              | 0x64               | Read Scaling Data By Identifier        | Read information about how to scale data identifiers                    |                                  |              |
-| 0x2A              | 0x6A               | Read Data By Identifier Periodic       | Request ECU to broadcast sensor data at slow/medium/fast/stop rate      |                                  |              |
+| 0x22              | 0x62               | Read Data By Identifier                | Read data from targeted ECU - e.g. VIN, sensor data values etc.         | N/A                              | \<           |
+| 0x23              | 0x63               | Read Memory By Address                 | Read data from physical memory (e.g. to understand software behavior)   | N/A                              | \<           |
+| 0x24              | 0x64               | Read Scaling Data By Identifier        | Read information about how to scale data identifiers                    | N/A                              | \<           |
+| 0x2A              | 0x6A               | Read Data By Identifier Periodic       | Request ECU to broadcast sensor data at slow/medium/fast/stop rate      | N/A                              | \<           |
 | **0x2C**          | **0x6C**           | **Dynamically Define Data Identifier** | **Define data parameter for use in 0x22 or 0x2A dynamically**           | **Definition type**              | 0x01 - 0x03  |
-| 0x2E              | 0x6E               | Write Data By Identifier               | Program specific variables determined by data parameters                |                                  |              |
-| 0x3D              | 0x7D               | Write Memory By Address                | Write information to the ECU's memory                                   |                                  |              |
-| 0x14              | 0x54               | Clear Diagnostic Information           | Delete stored DTCs                                                      |                                  |              |
+| 0x2E              | 0x6E               | Write Data By Identifier               | Program specific variables determined by data parameters                | N/A                              | \<           |
+| 0x3D              | 0x7D               | Write Memory By Address                | Write information to the ECU's memory                                   | N/A                              | \<           |
+| 0x14              | 0x54               | Clear Diagnostic Information           | Delete stored DTCs                                                      | N/A                              | \<           |
 | **0x19**          | **0x59**           | **Read DTC Information**               | **Read stored DTCs, as well as related information**                    | **Report type**                  | 0x01 - 0x0D  |
-| 0x2F              | 0x6F               | Input Output Control By Identifier     | Gain control over ECU analog/digital inputs/outputs                     |                                  |              |
+| 0x2F              | 0x6F               | Input Output Control By Identifier     | Gain control over ECU analog/digital inputs/outputs                     | N/A                              | \<           |
 | **0x31**          | **0x71**           | **Routine Control**                    | **Initiate/stop routines (e.g. self-testing, erasing of flash memory)** | **Routine control type**         | 0x01 - 0x03  |
-| 0x34              | 0x74               | Request Download                       | Start request to add software/data to ECU (incl. location/size)         |                                  |              |
-| 0x35              | 0x75               | Request Upload                         | Start request to read software/data from ECU (incl. location/size)      |                                  |              |
-| 0x36              | 0x76               | Transfer Data                          | Perform actual transfer of data following use of 0x74/0x75              |                                  |              |
-| 0x37              | 0x77               | Request Transfer Exit                  | Stop the transfer of data                                               |                                  |              |
-| 0x38              | 0x78               | Request File Transfer                  | Perform a file download/upload to/from the ECU                          |                                  |              |
-| 0x7F              | \<                 | Negative Response                      | Sent with a Negative Response Code when a request cannot be handled     |                                  |              |
+| 0x34              | 0x74               | Request Download                       | Start request to add software/data to ECU (incl. location/size)         | N/A                              | \<           |
+| 0x35              | 0x75               | Request Upload                         | Start request to read software/data from ECU (incl. location/size)      | N/A                              | \<           |
+| 0x36              | 0x76               | Transfer Data                          | Perform actual transfer of data following use of 0x74/0x75              | N/A                              | \<           |
+| 0x37              | 0x77               | Request Transfer Exit                  | Stop the transfer of data                                               | N/A                              | \<           |
+| 0x38              | 0x78               | Request File Transfer                  | Perform a file download/upload to/from the ECU                          | N/A                              | \<           |
+| 0x7F              | \<                 | Negative Response                      | Sent with a Negative Response Code when a request cannot be handled     | N/A                              | \<           |
 
 
 ### Diagnostic Session Control (0x10)
@@ -67,12 +67,12 @@ redirect_from:
 
 
 
-| Diagnostic session type<br>(sub function value) | Diagnostic session              | Description                                      |
-| ----------------------------------------------- | ------------------------------- | ------------------------------------------------ |
-| 0x01                                            | Default Session                 | On Start of ECU, ECU runs in to default session. |
-| 0x02                                            | Programming Session             | Used to upload software.                         |
-| 0x03                                            | Extended Diagnostic Session     | Used to unlock additional diagnostic functions.  |
-| 0x04                                            | Safety System Diagnostic System |                                                  |
+| Diagnostic session type<br>(sub function value) | Diagnostic session              | Description                                            |
+| ----------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
+| 0x01                                            | Default Session                 | On Start of ECU, ECU runs in to default session.       |
+| 0x02                                            | Programming Session             | Used to upload software.                               |
+| 0x03                                            | Extended Diagnostic Session     | Used to unlock additional diagnostic functions.        |
+| 0x04                                            | Safety System Diagnostic System | Used to test all safety critical diagnostic functions. |
 
 
 ```mermaid
@@ -250,7 +250,6 @@ sequenceDiagram
 | (Sub function value) | function          | Description                      |
 | -------------------- | ----------------- | -------------------------------- |
 | 0x00                 | Zero Sub-Function | Indicates the tester is present. |
-|                      |                   |                                  |
 
 
 ```mermaid
