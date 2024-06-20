@@ -3,7 +3,7 @@ layout: default
 title: Services Identifiers
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-06-20-08-06-00
+last_modified_date: 2024-06-20-09-06-00
 nav_order: 1
 parent: 'UDS'
 permalink: '/UDS/Services_Identifiers'
@@ -14,36 +14,36 @@ redirect_from:
 # UDS serivce Identifiers(SIDs)
 
 
-| UDS SID (request) | UDS SID (response) | Service                            | Details                                                               |
-| ----------------- | ------------------ | ---------------------------------- | --------------------------------------------------------------------- |
-| 0x10              | 0x50               | Diagnostic Session Control         | Control which UDS services are available                              |
-| 0x11              | 0x51               | ECU Reset                          | Reset the ECU (“hard reset”, “key off", “soft reset”)                 |
-| 0x27              | 0x67               | Security Access                    | Enable use of security-critical services via authentication           |
-| 0x28              | 0x68               | Communication Control              | Turn sending/receiving of messages on/off in the ECU                  |
-| 0x29              | 0x69               | Authentication                     | Enable more advanced authentication vs. 0x27 (PKI based exchange)     |
-| 0x3E              | 0x7E               | Tester Present                     | Send a "heartbeat" periodically to remain in the current session      |
-| 0x83              | 0xC3               | Access Timing Parameters           | View/modify timing parameters used in client/server communication     |
-| 0x84              | 0xC4               | Secured Data Transmission          | Send encrypted data via ISO 15764 (Extended Data Link Security)       |
-| 0x85              | 0xC5               | Control DTC Settings               | Enable/disable detection of errors (e.g. used during diagnostics)     |
-| 0x86              | 0xC6               | Response On Event                  | Request that an ECU processes a service request if an event happens   |
-| 0x87              | 0xC7               | Link Control                       | Set the baud rate for diagnostic access                               |
-| 0x22              | 0x62               | Read Data By Identifier            | Read data from targeted ECU - e.g. VIN, sensor data values etc.       |
-| 0x23              | 0x63               | Read Memory By Address             | Read data from physical memory (e.g. to understand software behavior) |
-| 0x24              | 0x64               | Read Scaling Data By Identifier    | Read information about how to scale data identifiers                  |
-| 0x2A              | 0x6A               | Read Data By Identifier Periodic   | Request ECU to broadcast sensor data at slow/medium/fast/stop rate    |
-| 0x2C              | 0x6C               | Dynamically Define Data Identifier | Define data parameter for use in 0x22 or 0x2A dynamically             |
-| 0x2E              | 0x6E               | Write Data By Identifier           | Program specific variables determined by data parameters              |
-| 0x3D              | 0x7D               | Write Memory By Address            | Write information to the ECU's memory                                 |
-| 0x14              | 0x54               | Clear Diagnostic Information       | Delete stored DTCs                                                    |
-| 0x19              | 0x59               | Read DTC Information               | Read stored DTCs, as well as related information                      |
-| 0x2F              | 0x6F               | Input Output Control By Identifier | Gain control over ECU analog/digital inputs/outputs                   |
-| 0x31              | 0x71               | Routine Control                    | Initiate/stop routines (e.g. self-testing, erasing of flash memory)   |
-| 0x34              | 0x74               | Request Download                   | Start request to add software/data to ECU (incl. location/size)       |
-| 0x35              | 0x75               | Request Upload                     | Start request to read software/data from ECU (incl. location/size)    |
-| 0x36              | 0x76               | Transfer Data                      | Perform actual transfer of data following use of 0x74/0x75            |
-| 0x37              | 0x77               | Request Transfer Exit              | Stop the transfer of data                                             |
-| 0x38              | 0x78               | Request File Transfer              | Perform a file download/upload to/from the ECU                        |
-| 0x7F              | \<                 | Negative Response                  | Sent with a Negative Response Code when a request cannot be handled   |
+| UDS SID (request) | UDS SID (response) | Service                                | Details                                                                 | Sub function types               |
+| ----------------- | ------------------ | -------------------------------------- | ----------------------------------------------------------------------- | -------------------------------- |
+| **0x10**          | **0x50**           | **Diagnostic Session Control**         | **Control which UDS services are available**                            | **Diagnostic session type**      |
+| **0x11**          | **0x51**           | **ECU Reset**                          | **Reset the ECU (“hard reset”, “key off", “soft reset”)**               | **Reset type**                   |
+| **0x27**          | **0x67**           | **Security Access**                    | **Enable use of security-critical services via authentication**         | **Security access type**         |
+| **0x28**          | **0x68**           | **Communication Control**              | **Turn sending/receiving of messages on/off in the ECU**                | **Control type**                 |
+| 0x29              | 0x69               | Authentication                         | Enable more advanced authentication vs. 0x27 (PKI based exchange)       |                                  |
+| **0x3E**          | **0x7E**           | **Tester Present**                     | **Send a "heartbeat" periodically to remain in the current session**    | **“Zero Sub function”**          |
+| **0x83**          | **0xC3**           | **Access Timing Parameters**           | **View/modify timing parameters used in client/server communication**   | **Timing parameter access type** |
+| 0x84              | 0xC4               | Secured Data Transmission              | Send encrypted data via ISO 15764 (Extended Data Link Security)         |                                  |
+| **0x85**          | **0xC5**           | **Control DTC Settings**               | **Enable/disable detection of errors (e.g. used during diagnostics)**   | **DTC setting type**             |
+| **0x86**          | **0xC6**           | **Response On Event**                  | **Request that an ECU processes a service request if an event happens** | **Event type**                   |
+| **0x87**          | **0xC7**           | **Link Control**                       | **Set the baud rate for diagnostic access**                             | **Link control type**            |
+| 0x22              | 0x62               | Read Data By Identifier                | Read data from targeted ECU - e.g. VIN, sensor data values etc.         |                                  |
+| 0x23              | 0x63               | Read Memory By Address                 | Read data from physical memory (e.g. to understand software behavior)   |                                  |
+| 0x24              | 0x64               | Read Scaling Data By Identifier        | Read information about how to scale data identifiers                    |                                  |
+| 0x2A              | 0x6A               | Read Data By Identifier Periodic       | Request ECU to broadcast sensor data at slow/medium/fast/stop rate      |                                  |
+| **0x2C**          | **0x6C**           | **Dynamically Define Data Identifier** | **Define data parameter for use in 0x22 or 0x2A dynamically**           | **Definition type**              |
+| 0x2E              | 0x6E               | Write Data By Identifier               | Program specific variables determined by data parameters                |                                  |
+| 0x3D              | 0x7D               | Write Memory By Address                | Write information to the ECU's memory                                   |                                  |
+| 0x14              | 0x54               | Clear Diagnostic Information           | Delete stored DTCs                                                      |                                  |
+| **0x19**          | **0x59**           | **Read DTC Information**               | **Read stored DTCs, as well as related information**                    | **Report type**                  |
+| 0x2F              | 0x6F               | Input Output Control By Identifier     | Gain control over ECU analog/digital inputs/outputs                     |                                  |
+| **0x31**          | **0x71**           | **Routine Control**                    | **Initiate/stop routines (e.g. self-testing, erasing of flash memory)** | **Routine control type**         |
+| 0x34              | 0x74               | Request Download                       | Start request to add software/data to ECU (incl. location/size)         |                                  |
+| 0x35              | 0x75               | Request Upload                         | Start request to read software/data from ECU (incl. location/size)      |                                  |
+| 0x36              | 0x76               | Transfer Data                          | Perform actual transfer of data following use of 0x74/0x75              |                                  |
+| 0x37              | 0x77               | Request Transfer Exit                  | Stop the transfer of data                                               |                                  |
+| 0x38              | 0x78               | Request File Transfer                  | Perform a file download/upload to/from the ECU                          |                                  |
+| 0x7F              | \<                 | Negative Response                      | Sent with a Negative Response Code when a request cannot be handled     |                                  |
 
 
 ### Diagnostic Session Control (0x10)
@@ -70,22 +70,30 @@ sequenceDiagram
   participant Dsl
   participant Dsd
   participant Dsp
+  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
   activate PduR
-  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType, Std_ReturnType)
   Dsl->>+ Dsd: Data_Indication_functionality()
-  Dsd->>+ Dsp: DiagnosticSessionControl service interpreter()
-  Dsp -->>- Dsd: DiagnosticSessionControl service interpreter()
+  Dsd->>+ Dsp: DiagnosticSessionControl service<br>interpreter()
+  Dsp -->>- Dsd: DiagnosticSessionControl service<br>interpreter()
   Dsd -->>- Dsl: Data_Indication_functionality()
   Dsl -->>- PduR: Dcm_TpRxIndication()
-  PduR ->>+ Dsl: Dcm_TpTxConfirmation(PduIdType, Std_ReturnType)
+  PduR ->>+ Dsl: Dcm_TpTxConfirmation(PduIdType,<br>Std_ReturnType)
   Dsl->>+ Dsd: Data_Confirmation_functionality()
-  Dsd->>+ Dsp: DspInternal_DcmConfirmation(Dcm_IdContextType, PduIdType, Dcm_ConfirmationStatusType)
+  Dsd->>+ Dsp: DspInternal_DcmConfirmation(<br>Dcm_IdContextType, PduIdType,<br>Dcm_ConfirmationStatusType)
   Dsp -->>- Dsd: DspInternal_DcmConfirmation()
   Dsd -->>- Dsl: Data_Confirmation_functionality()
   Dsl -->>- PduR: Dcm_TpTxConfirmation()
   deactivate PduR
 ```
 
+
+
+| Diagnostic session type<br>(sub function value) | Diagnostic session              | Description                                            |
+| ----------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
+| 0x01                                            | Default Session                 | On Start of ECU, ECU runs in to default session.       |
+| 0x02                                            | Programming Session             | Used to upload software.                               |
+| 0x03                                            | Extended Diagnostic Session     | Used to unlock additional diagnostic functions.        |
+| 0x04                                            | Safety System Diagnostic System | Used to test all safety critical diagnostic functions. |
 
 
 ### ECU Reset (0x11)
@@ -120,6 +128,45 @@ sequenceDiagram
 </div>
 </div>
 </blockquote>
+
+
+
+```mermaid
+sequenceDiagram
+  participant PduR
+  participant Dsl
+  participant Dsd
+  participant Dsp
+  participant Dcm User
+  
+  critical Request Seed
+  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
+  activate PduR
+  Dsl->>+ Dsd: Data_Indication_functionality()
+  Dsd->>+ Dsp: SecurityAccess service<br>interpreter()
+  Dsp ->>+ Dcm User: GetSeed(Std_ReturnType,<br>uint8*, Dcm_OpStatusType, uint8*,<br>Dcm_NegativeResponseCodeType*)
+  Dcm User -->> Dsp: GetSeed()
+	deactivate Dcm User
+	deactivate Dsp
+	deactivate Dsd
+	deactivate Dsl
+	end
+  critical Compare Key
+  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
+  activate PduR
+  Dsl->>+ Dsd: Data_Indication_functionality()
+  Dsd->>+ Dsp: SecurityAccess service<br>interpreter()
+  Dsp ->>+ Dcm User: CompareKey(Std_ReturnType,<br>uint8*, Dcm_OpStatusType)
+  Dcm User -->>- Dsp: Dcm_CompareKey()
+  Dsp ->>+ Dsl: Dcm_SetSecurityLevel(Dcm_SecLevelType)
+	deactivate Dsl
+	deactivate Dsd
+  Dsl -->> Dsp : Dcm_SetSecurityLevel()
+	deactivate Dsp
+	deactivate Dsl
+  deactivate PduR
+	end
+```
 
 
 
@@ -180,20 +227,25 @@ sequenceDiagram
   participant Dsl
   participant Dsd
   participant Dsp
+  
+  critical Tester Present with positive response
+  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
   activate PduR
-  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType, Std_ReturnType)
   Dsl->>+ Dsd: Data_Indication_functionality()
-  Dsd->>+ Dsp: TesterPresent service interpreter()
-  Dsp -->>- Dsd: TesterPresent service interpreter()
+  Dsd->>+ Dsp: TesterPresent service<br>interpreter()
+  Dsp -->>- Dsd: TesterPresent service<br>interpreter()
   Dsd -->>- Dsl: Data_Indication_functionality()
   Dsl -->>- PduR: Dcm_TpRxIndication()
-  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType, Std_ReturnType)
+	end
+  critical Tester Present with negative response
+  PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
   Dsl->>+ Dsd: Data_Indication_functionality()
-  Dsd->>+ Dsp: TesterPresent service interpreter()
-  Dsp -->>- Dsd: TesterPresent service interpreter()
+  Dsd->>+ Dsp: TesterPresent service<br>interpreter()
+  Dsp -->>- Dsd: TesterPresent service<br>interpreter()
   Dsd -->>- Dsl: Data_Indication_functionality()
   Dsl -->>- PduR: Dcm_TpRxIndication()
   deactivate PduR
+	end
 ```
 
 
@@ -434,6 +486,37 @@ sequenceDiagram
 </div>
 </blockquote>
 
+
+
+| Report type<br>(sub function value) | Report                                     |
+| ----------------------------------- | ------------------------------------------ |
+| 0x01                                | Number of DTC by status mask               |
+| 0x02                                | DTC by status mask                         |
+| 0x03                                | DTC snapshot identification                |
+| 0x04                                | DTC snapshot record by DTC number          |
+| 0x05                                | DTC stored data by record number           |
+| 0x06                                | DTC extended data record by DTC number     |
+| 0x07                                | Number of DTC by severity mask record      |
+| 0x08                                | DTC by severity mask record                |
+| 0x09                                | Severity information of DTC                |
+| 0x0A                                | Supported DTC                              |
+| 0x0B                                | First failed DTC                           |
+| 0x0C                                | First confirmed DTC                        |
+| 0x0D                                | Most recent failed DTC                     |
+| 0x0E                                | Most recent confirmed DTC                  |
+| 0x0F                                | Mirror memory DTC by status mask           |
+| 0x10                                | Mirror memory DTC by DTC number            |
+| 0x11                                | Number of mirror memory DTC by status mask |
+| 0x12                                | Number of emissions OBD DTC by status mask |
+| 0x13                                | Emissions OBD DTC by status mask           |
+| 0x14                                | DTC fault detection counter                |
+| 0x15                                | DTC with permanent status                  |
+| 0x16                                | DTC extended data record by record number  |
+| 0x17                                | User defined memory DTC by status mask     |
+| 0x18                                | User defined memory DTC snapshot by number |
+| 0x19                                | User defined memory DTC record by number   |
+| 0x42                                | WWH-OBD DTC by status mask record          |
+| 0x55                                | WWH-OBD DTCs with permanent status         |
 
 
 ### Input Output Control By Identifier (0x2F)
