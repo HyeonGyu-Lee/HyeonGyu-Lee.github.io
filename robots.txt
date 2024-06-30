@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://autosar.dev/sitemap.xml
+Host: https://autosar.dev/

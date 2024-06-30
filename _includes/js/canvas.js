@@ -347,9 +347,14 @@ function initializeCanvas(
       // Helper function to handle URL navigation
       function navigateToUrl(url) {
         if (url) {
+          const fullUrl = window.location.href
+          const origin = window.location.origin
+          const path = fullUrl.substring(origin.length)
+
           if (url.startsWith("#")) {
+            const newPath = path.split("#")[0]
             window.location.href =
-              `${window.location.origin}/` +
+              `${origin}${newPath}` +
               url
                 .toLowerCase()
                 .replace(/([\s])|([\(\)\/])/g, (match, p1, p2) => {
@@ -361,8 +366,7 @@ function initializeCanvas(
                   return `${match}`
                 })
           } else {
-            window.location.href =
-              `${window.location.origin}/` + url.replace(/\s/g, "-")
+            window.location.href = `${origin}${path}/` + url.replace(/\s/g, "-")
           }
         }
       }
@@ -488,7 +492,7 @@ function autosarLayerInit(dynamicFontSize) {
       textColor: textColors.white,
       fontSize: dynamicFontSize(24),
       cells: [{ x: 0, y: 0, w: 8, h: 1 }],
-      url: "#AUTOSAR/Classic_AUTOSAR/Application Layer (Application)",
+      url: "#Application Layer (Application)",
     },
     {
       name: "AUTOSAR Runtime Environment (RTE)",
@@ -496,7 +500,7 @@ function autosarLayerInit(dynamicFontSize) {
       textColor: textColors.white,
       fontSize: dynamicFontSize(24),
       cells: [{ x: 0, y: 1, w: 8, h: 1 }],
-      url: "#AUTOSAR/Classic_AUTOSAR/AUTOSAR Runtime Environment (RTE)",
+      url: "#AUTOSAR Runtime Environment (RTE)",
     },
     {
       name: "Basic Software (BSW)",
@@ -504,7 +508,7 @@ function autosarLayerInit(dynamicFontSize) {
       textColor: textColors.black,
       fontSize: dynamicFontSize(24),
       cells: [{ x: 0, y: 2, w: 8, h: 3 }],
-      url: "#AUTOSAR/Classic_AUTOSAR/Basic Software (BSW)",
+      url: "#Basic Software (BSW)",
     },
     {
       name: "Microcontroller",
@@ -512,7 +516,7 @@ function autosarLayerInit(dynamicFontSize) {
       textColor: textColors.white,
       fontSize: dynamicFontSize(24),
       cells: [{ x: 0, y: 5, w: 8, h: 1 }],
-      url: "#AUTOSAR/Classic_AUTOSAR/Microcontroller (Hardware)",
+      url: "#Microcontroller (Hardware)",
     },
   ].map((layer) => ({ ...layer, ...baseStyle }))
 
@@ -528,7 +532,7 @@ function autosarLayerInit(dynamicFontSize) {
           { x: 0, y: 2, w: 1, h: 3 },
           { x: 2, y: 2, w: 4, h: 1 },
         ],
-        url: "#AUTOSAR/Classic_AUTOSAR/Services Layer",
+        url: "#Services Layer",
       },
       {
         name: "ECU Abstraction Layer",
@@ -539,7 +543,7 @@ function autosarLayerInit(dynamicFontSize) {
           { x: 6, y: 2, w: 1, h: 2 },
           { x: 1, y: 3, w: 6, h: 1 },
         ],
-        url: "#AUTOSAR/Classic_AUTOSAR/ECU Abstraction Layer",
+        url: "#ECU Abstraction Layer",
       },
       {
         name: "Complex Drivers",
@@ -547,7 +551,7 @@ function autosarLayerInit(dynamicFontSize) {
         textColor: textColors.black,
         fontSize: dynamicFontSize(20),
         cells: [{ x: 7, y: 2, w: 1, h: 3 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Complex Drivers",
+        url: "#Complex Drivers",
       },
       {
         name: "Microcontroller Abstraction Layer",
@@ -555,7 +559,7 @@ function autosarLayerInit(dynamicFontSize) {
         textColor: textColors.black,
         fontSize: dynamicFontSize(20),
         cells: [{ x: 1, y: 4, w: 6, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Microcontroller Abstraction Layer",
+        url: "#Microcontroller Abstraction Layer",
       },
     ].map((layer) => ({ ...layer, ...baseStyle })),
   }
@@ -569,31 +573,31 @@ function autosarLayerInit(dynamicFontSize) {
           { x: 0, y: 2, w: 1, h: 3 },
           { x: 0, y: 2, w: 2, h: 1 },
         ],
-        url: "#AUTOSAR/Classic_AUTOSAR/System Services",
+        url: "#System Services",
       },
       {
         name: "Memory Services",
         color: layerColors.services,
         cells: [{ x: 2, y: 2, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Memory Services",
+        url: "#Memory Services",
       },
       {
         name: "Crypto Services",
         color: layerColors.services,
         cells: [{ x: 3, y: 2, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Crypto Services",
+        url: "#Crypto Services",
       },
       {
         name: "Off-board Communication Services",
         color: layerColors.services,
         cells: [{ x: 4, y: 2, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Off-board Communication Services",
+        url: "#Off-board Communication Services",
       },
       {
         name: "Communication Services",
         color: layerColors.services,
         cells: [{ x: 5, y: 2, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Communication Services",
+        url: "#Communication Services",
       },
     ].map((layer) => ({ ...layer, ...icc3Style })),
     "ECU Abstraction Layer": [
@@ -601,37 +605,37 @@ function autosarLayerInit(dynamicFontSize) {
         name: "On-board Device Abstraction",
         color: layerColors.abstraction,
         cells: [{ x: 1, y: 3, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/On-board Device Abstraction",
+        url: "#On-board Device Abstraction",
       },
       {
         name: "Memory Hardware Abstraction",
         color: layerColors.abstraction,
         cells: [{ x: 2, y: 3, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Memory Hardware Abstraction",
+        url: "#Memory Hardware Abstraction",
       },
       {
         name: "Crypto Hardware Abstraction",
         color: layerColors.abstraction,
         cells: [{ x: 3, y: 3, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Crypto Hardware Abstraction",
+        url: "#Crypto Hardware Abstraction",
       },
       {
         name: "Wireless Communication Abstraction",
         color: layerColors.abstraction,
         cells: [{ x: 4, y: 3, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Wireless Communication Abstraction",
+        url: "#Wireless Communication Abstraction",
       },
       {
         name: "Communication Hardware Abstraction",
         color: layerColors.abstraction,
         cells: [{ x: 5, y: 3, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Communication Hardware Abstraction",
+        url: "#Communication Hardware Abstraction",
       },
       {
         name: "I/O Hardware Abstraction",
         color: layerColors.abstraction,
         cells: [{ x: 6, y: 2, w: 1, h: 2 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/IO Hardware Abstraction",
+        url: "#IO Hardware Abstraction",
       },
     ].map((layer) => ({ ...layer, ...icc3Style })),
     "Microcontroller Abstraction Layer": [
@@ -639,37 +643,37 @@ function autosarLayerInit(dynamicFontSize) {
         name: "Microcontroller Drivers",
         color: layerColors.drivers,
         cells: [{ x: 1, y: 4, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Microcontroller Drivers",
+        url: "#Microcontroller Drivers",
       },
       {
         name: "Memory Drivers",
         color: layerColors.drivers,
         cells: [{ x: 2, y: 4, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Memory Drivers",
+        url: "#Memory Drivers",
       },
       {
         name: "Crypto Drivers",
         color: layerColors.drivers,
         cells: [{ x: 3, y: 4, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Crypto Drivers",
+        url: "#Crypto Drivers",
       },
       {
         name: "Wireless Communication Drivers",
         color: layerColors.drivers,
         cells: [{ x: 4, y: 4, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Wireless Communication Drivers",
+        url: "#Wireless Communication Drivers",
       },
       {
         name: "Communication Drivers",
         color: layerColors.drivers,
         cells: [{ x: 5, y: 4, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/Communication Drivers",
+        url: "#Communication Drivers",
       },
       {
         name: "I/O Drivers",
         color: layerColors.drivers,
         cells: [{ x: 6, y: 4, w: 1, h: 1 }],
-        url: "#AUTOSAR/Classic_AUTOSAR/IO Drivers",
+        url: "#IO Drivers",
       },
     ].map((layer) => ({ ...layer, ...icc3Style })),
   }

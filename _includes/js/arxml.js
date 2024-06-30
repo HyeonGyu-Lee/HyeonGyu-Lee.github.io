@@ -54,7 +54,7 @@ function getExceptionList(id) {
         "ECUC-FUNCTION-NAME-DEF-VARIANTS",
         "LITERALS",
       ],
-      node: ["CONTAINERS", "PARAMETERS"],
+      node: ["CONTAINERS", "SUB-CONTAINERS", "PARAMETERS"],
       detail: [
         "ECUC-MODULE-DEF",
         "CONTAINERS",
