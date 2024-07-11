@@ -8,7 +8,7 @@
   "bugs": "https://github.com/just-the-docs/just-the-docs/issues",
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.583.0",
-    "@aws-sdk/lib-storage": "^3.583.0",
+    "@aws-sdk/lib-storage": "^3.614.0",
     "@notionhq/client": "^2.2.15",
     "image-size": "^1.1.1",
     "moment": "^2.30.1",
