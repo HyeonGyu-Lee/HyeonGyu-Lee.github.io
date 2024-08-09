@@ -3,7 +3,7 @@ layout: default
 title: NRC
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-06-20-11-06-00
+last_modified_date: 2024-08-09-10-08-00
 nav_order: 2
 parent: 'UDS'
 permalink: '/UDS/NRC'
@@ -11,7 +11,7 @@ redirect_from:
  - /0d9c3695803e41ed9a11aa5b632aab3a
  - /undefined
 ---
-# UDS NRC(Negative Response Code)
+**Negative Response Code**
 
 - ECU가 진단 요청을 처리할 수 없을 때 송신되는 코드
 - 진단 도구가 문제를 이해하고 해결하는 데 도움을 줄 수 있음
