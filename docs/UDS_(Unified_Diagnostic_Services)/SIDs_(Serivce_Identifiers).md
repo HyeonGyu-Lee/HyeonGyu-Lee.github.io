@@ -3,14 +3,27 @@ layout: default
 title: SIDs (Serivce Identifiers)
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-08-09-10-08-00
+last_modified_date: 2024-08-09-11-08-00
 nav_order: 1
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/SIDs_(Serivce_Identifiers)'
 redirect_from:
  - /6c434e6207fc42a89f62176ec69d00be
  - /undefined
----- 차량의 ECU와 진단 도구 간의 통신에서 사용되는 특정 명령 또는 서비스를 식별하는 고유한 코드
+---
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
+Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프로토콜에서 사용되는 주요 명령어들로, 특정 진단 서비스를 호출하는 데 사용됩니다. 각 SID는 특정 진단 기능을 수행하기 위한 요청을 나타내며, ECU(Electronic Control Unit)가 이 요청을 수신하고 해당 서비스에 대해 적절한 응답을 반환합니다.
+</div>
+</div>
+</blockquote>
+
+
+- 차량의 ECU와 진단 도구 간의 통신에서 사용되는 특정 명령 또는 서비스를 식별하는 고유한 코드
 - 각 SID는 ECU가 수행해야 할 진단 작업을 정의
 - UDS 프로토콜에서 SIDs는 특정 기능을 요청하거나 실행하기 위해 사용
 

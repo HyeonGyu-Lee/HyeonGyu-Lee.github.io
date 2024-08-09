@@ -3,14 +3,27 @@ layout: default
 title: NRC (Negative Response Code)
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-08-09-10-08-00
+last_modified_date: 2024-08-09-11-08-00
 nav_order: 2
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/NRC_(Negative_Response_Code)'
 redirect_from:
  - /0d9c3695803e41ed9a11aa5b632aab3a
  - /undefined
----- ECU가 진단 요청을 처리할 수 없을 때 송신되는 코드
+---
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
+Negative Response Code : 차량의 진단 통신 프로토콜에서 사용되는 코드로, 특정 진단 요청이 실패했거나 처리할 수 없을 때 ECU(Electronic Control Unit)에서 반환하는 응답 코드입니다. 이 코드는 ISO 14229 (UDS - Unified Diagnostic Services) 표준에서 정의되며, 차량의 OBD(On-Board Diagnostics) 시스템에서 진단 요청에 대한 부정적인 응답을 식별하는 데 사용됩니다.
+</div>
+</div>
+</blockquote>
+
+
+- ECU가 진단 요청을 처리할 수 없을 때 송신되는 코드
 - 진단 도구가 문제를 이해하고 해결하는 데 도움을 줄 수 있음
 
 | NRC Hex   | Mnemonic | Use Case                                             |
