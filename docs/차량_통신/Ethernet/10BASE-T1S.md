@@ -4,7 +4,7 @@ title: 10BASE-T1S
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 9
+nav_order: 1
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/10BASE-T1S'
 redirect_from:
@@ -91,19 +91,4 @@ Unsupported 응답이면 PHY·드라이버 지원 여부를 먼저 확인한다.
 
 
 노드별로 동일 크기 프레임을 전송하고 ID·timestamp·손실을 기록한다. 단일 송신, 동시 송신, 노드 제거·복귀, coordinator 재시작을 구분한다. 공유 매체 처리량과 각 노드의 최악 대기 시간을 각각 측정한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: Ethernet](https://app.notion.com/p/Ethernet-3f71b412900a817b9e99f6616ada2231)
-
-
-[IEEE 802.3cg 프로젝트](https://www.ieee802.org/3/cg/)
-
-
-[OPEN Alliance](https://opensig.org/)
 

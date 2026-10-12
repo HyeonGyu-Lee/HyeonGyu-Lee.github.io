@@ -4,7 +4,7 @@ title: 차량 Ethernet 상위 프로토콜
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 12
+nav_order: 4
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/차량_Ethernet_상위_프로토콜'
 redirect_from:
@@ -90,19 +90,4 @@ UDP 30490은 흔히 사용하는 SOME/IP-SD 포트 예시이며 프로젝트 설
 
 
 UDP datagram 하나와 애플리케이션 메시지의 관계를 먼저 정의한다. TCP로 옮기면 read 호출 한 번이 메시지 하나라는 가정이 성립하지 않으므로 길이 prefix 등 framing 규칙을 적용한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: Ethernet](https://app.notion.com/p/Ethernet-3f71b412900a817b9e99f6616ada2231)
-
-
-[RFC Editor 표준 검색](https://www.rfc-editor.org/search/rfc_search.php)
-
-
-[AUTOSAR](https://www.autosar.org/standards/)
 

@@ -108,9 +108,3 @@ AUTOSAR(Automotive Open System Architecture) : Software Infrastructure
 | **목적**    | 기능 안전성(<span class="tooltip">FuSa<span class="tooltiptext">Functional Safety</span></span>) 요구사항을 만족시키며, 전통적인 자동차 기능에 적합합니다. | 데이터 처리와 고급 연결성을 처리하며, 빠르게 변화하는 기술 요구사항에 대응합니다.                                                                                                              |
 | **적용 사례** | 엔진 제어, 전자 제동 시스템, 에어백 시스템 등의 필수적인 차량 제어 기능을 처리합니다.                                                                           | 자율 주행, 고급 인포테인먼트 시스템, 온라인 업데이트와 같은 복잡하고 동적인 기능을 지원합니다.                                                                                                      |
 
-
-## 연결 문서·참고 자료
-
-
-[참고 출처 / 관련 공식 문서](https://www.autosar.org/standards/classic-platform)
-

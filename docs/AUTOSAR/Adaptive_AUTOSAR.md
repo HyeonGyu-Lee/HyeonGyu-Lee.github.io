@@ -96,12 +96,3 @@ AUTOSAR Adaptive Platform: https://www.autosar.org/standards/adaptive-platform
 
 API와 manifest 예시는 적용 릴리스와 제품마다 달라 실제 헤더·도구 문서와 함께 작성한다.
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: AUTOSAR](https://app.notion.com/p/AUTOSAR-e20f9e7df0d34378beea96efa4172089)
-
-
-[AUTOSAR Adaptive Platform](https://www.autosar.org/standards/adaptive-platform)
-

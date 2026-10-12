@@ -84,12 +84,3 @@ redirect_from:
 
 타이밍을 바꾸는 경우 ECU 처리 시간과 tester의 timeout도 함께 확인한다. 다른 릴리스의 비슷한 파라미터명을 그대로 복사하지 않는다.
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: Classic AUTOSAR](https://app.notion.com/p/Classic-AUTOSAR-60a1016be7be4a4082033eabd928f106)
-
-
-[AUTOSAR Classic Platform](https://www.autosar.org/standards/classic-platform)
-

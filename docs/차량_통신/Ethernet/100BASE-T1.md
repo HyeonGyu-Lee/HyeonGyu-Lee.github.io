@@ -4,7 +4,7 @@ title: 100BASE-T1
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 10
+nav_order: 2
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/100BASE-T1'
 redirect_from:
@@ -76,19 +76,4 @@ iperf3 -c 192.168.10.2 -u -b 20M -t 30
 
 
 이 시험의 throughput·loss·jitter 결과는 PHY 적합성 인증을 대신하지 않는다. 전원 재인가와 cable reconnect 후 link 복구와 서비스 복구 시간을 따로 확인한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: Ethernet](https://app.notion.com/p/Ethernet-3f71b412900a817b9e99f6616ada2231)
-
-
-[IEEE 802.3bw](https://www.ieee802.org/3/bw/)
-
-
-[OPEN Alliance](https://opensig.org/)
 

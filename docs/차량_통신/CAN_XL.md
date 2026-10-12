@@ -4,7 +4,7 @@ title: CAN XL
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 4
+nav_order: 3
 parent: '차량 통신'
 permalink: '/차량_통신/CAN_XL'
 redirect_from:
@@ -68,19 +68,4 @@ CAN XL은 Classic CAN·CAN FD보다 큰 페이로드를 제공하며 최대 2048
 
 
 비교 시험은 64·512·1500·2048바이트 입력과 경쟁 트래픽을 포함한다. 송신 시각부터 수신 애플리케이션 처리까지 측정하고 오류·재전송·메모리 사용을 기록한다. 장치별 API가 달라 공통 명령만으로 모든 CAN XL 장비를 시험할 수는 없다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[CiA CAN XL](https://www.can-cia.org/can-knowledge)
-
-
-[ISO 11898](https://www.iso.org/search.html?q=ISO%2011898)
 

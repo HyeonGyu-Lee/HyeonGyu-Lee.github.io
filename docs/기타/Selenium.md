@@ -111,15 +111,3 @@ finally:
 
 선택자는 설명용이며 현재 DOM과 다르면 수정한다. 첫 결과가 원하는 문서인지도 확인하도록 조건을 보강한다. Timeout 발생 시 screenshot·현재 URL·실패 단계·선택자를 저장하고 고정 sleep 증가로만 해결하지 않는다.
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: 기타](https://app.notion.com/p/9450b6551fe942ec9f1c861492fee47c)
-
-
-[Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/)
-
-
-[대기 전략](https://www.selenium.dev/documentation/webdriver/waits/)
-

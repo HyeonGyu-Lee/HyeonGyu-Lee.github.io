@@ -4,7 +4,7 @@ title: TSN
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 16
+nav_order: 7
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/TSN'
 redirect_from:
@@ -79,19 +79,4 @@ LinuxPTP·gPTP 구성은 장비 지원과 802.1AS 프로파일에 맞춘다. 일
 
 
 Gate schedule은 주기·큐·전송 시간·guard band를 포함해 검토한다. 설정 명령 성공, 하드웨어 offload 지원, 실제 end-to-end deadline 충족을 별개로 판정한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: Ethernet](https://app.notion.com/p/Ethernet-3f71b412900a817b9e99f6616ada2231)
-
-
-[IEEE TSN Task Group](https://www.ieee802.org/1/pages/tsn.html)
-
-
-[IEEE 802.1](https://www.ieee802.org/1/)
 

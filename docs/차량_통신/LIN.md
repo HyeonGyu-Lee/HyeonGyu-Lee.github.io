@@ -4,7 +4,7 @@ title: LIN
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 5
+nav_order: 4
 parent: '차량 통신'
 permalink: '/차량_통신/LIN'
 redirect_from:
@@ -107,19 +107,4 @@ assert checksum([0x92, *data]) == 0x3D
 
 
 첫 결과는 데이터만 포함한 classic 예제, 둘째는 PID를 포함한 enhanced 예제다. 실제 프레임의 적용 checksum 종류를 확인한다. 응답을 한 슬롯 누락시켜 timeout 처리와 다음 스케줄의 동작도 확인한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[ISO 17987](https://www.iso.org/search.html?q=ISO%2017987)
-
-
-[AUTOSAR Classic](https://www.autosar.org/standards/classic-platform)
 

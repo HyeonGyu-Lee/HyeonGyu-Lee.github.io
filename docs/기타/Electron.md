@@ -4,7 +4,7 @@ title: Electron
 has_children: false
 published_date: 2026-10-12-11-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 50
+nav_order: 5
 parent: '기타'
 permalink: '/기타/Electron'
 redirect_from:
@@ -158,16 +158,4 @@ Renderer는 window.appInfo.version()을 호출하고 반환값을 textContent로
 
 
 정상 창에서 버전 표시 → 다른 프레임 요청 거부 → 창 재시작 → 배포 패키지에서 preload 경로 확인 순서로 시험한다. 파일 접근 API로 확장할 때는 경로 범위·타입·권한을 main에서 검증한다.
-
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: 기타](https://app.notion.com/p/9450b6551fe942ec9f1c861492fee47c)
-
-
-[Electron IPC](https://www.electronjs.org/docs/latest/tutorial/ipc)
-
-
-[Electron 보안](https://www.electronjs.org/docs/latest/tutorial/security)
 

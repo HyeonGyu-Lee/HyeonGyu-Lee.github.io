@@ -4,7 +4,7 @@ title: MOST
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 7
+nav_order: 6
 parent: '차량 통신'
 permalink: '/차량_통신/MOST'
 redirect_from:
@@ -71,16 +71,4 @@ Ethernet 기반 미디어 전송과 비교할 때 세대·기능·토폴로지·
 
 
 프로토콜 분석 장비의 설정과 원본 캡처를 보존하고, 실제 제품의 MOST 세대와 PHY에 맞는 시험 절차를 사용한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[Microchip MOST 관련 자료 검색](https://www.microchip.com/en-us/search?searchQuery=MOST)
 

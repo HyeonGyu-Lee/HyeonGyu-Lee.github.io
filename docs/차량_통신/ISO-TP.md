@@ -4,7 +4,7 @@ title: ISO-TP
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 14
+nav_order: 8
 parent: '차량 통신'
 permalink: '/차량_통신/ISO-TP'
 redirect_from:
@@ -85,19 +85,4 @@ candump를 함께 실행해 First Frame, Flow Control, Consecutive Frame을 관�
 
 
 First Frame 이후 진행되지 않으면 Flow Control 수신 여부 → 주소 방향 → timeout → Block Size·STmin 순서로 본다. UDS 0x78 응답과 전송 계층의 Flow Control을 혼동하지 않는다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[ISO 15765-2](https://www.iso.org/search.html?q=ISO%2015765-2)
-
-
-[ISO 14229](https://www.iso.org/search.html?q=ISO%2014229)
 

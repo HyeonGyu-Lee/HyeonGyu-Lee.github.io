@@ -404,12 +404,3 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 
 > 마이크로컨트롤러는 ECU의 중심 처리 장치로, 모든 소프트웨어 계층이 직접적으로 상호작용하는 하드웨어입니다.
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: AUTOSAR](https://app.notion.com/p/AUTOSAR-e20f9e7df0d34378beea96efa4172089)
-
-
-[참고 출처 / 관련 공식 문서](https://www.autosar.org/standards/classic-platform)
-

@@ -487,12 +487,3 @@ sequenceDiagram
 ```
 
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: 기타](https://app.notion.com/p/9450b6551fe942ec9f1c861492fee47c)
-
-
-[참고 출처 / 관련 공식 문서](https://mermaid.js.org/)
-

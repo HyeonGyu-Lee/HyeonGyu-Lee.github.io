@@ -4,7 +4,7 @@ title: Ethernet
 has_children: true
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 8
+nav_order: 7
 parent: '차량 통신'
 permalink: '/차량_통신/Ethernet'
 redirect_from:
@@ -92,43 +92,4 @@ Link 상태와 주소·경로를 먼저 확인하고, 캡처에서 실제 요청
 
 
 Link는 up인데 서비스가 보이지 않는 경우 VLAN·subnet·routing·multicast 설정 → transport 포트 → 서비스 제공 상태 순서로 확인한다. 스위치 포트 카운터와 송수신 캡처를 비교해 손실 지점을 좁힌다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[하위 문서: 10BASE-T1S](https://app.notion.com/p/10BASE-T1S-3f71b412900a81a6a543d4e1f5c8fa9f)
-
-
-[하위 문서: 100BASE-T1](https://app.notion.com/p/100BASE-T1-3f71b412900a81ceaab7c7b0679fd3b0)
-
-
-[하위 문서: 1000BASE-T1](https://app.notion.com/p/1000BASE-T1-3f71b412900a816ca45de0d427d115d3)
-
-
-[하위 문서: 차량 Ethernet 상위 프로토콜](https://app.notion.com/p/Ethernet-3f71b412900a817e99e6e3bea577cd4b)
-
-
-[하위 문서: SOME-IP](https://app.notion.com/p/SOME-IP-3f71b412900a81ef8662f3595c5c474b)
-
-
-[하위 문서: DoIP](https://app.notion.com/p/DoIP-3f71b412900a81a3a5e1fc467ddd2058)
-
-
-[하위 문서: TSN](https://app.notion.com/p/TSN-3f71b412900a8161b3e8f37cbcf99cea)
-
-
-[IEEE 802.3](https://www.ieee802.org/3/)
-
-
-[OPEN Alliance](https://opensig.org/)
-
-
-[IEEE 802.1](https://www.ieee802.org/1/)
 

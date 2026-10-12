@@ -4,7 +4,7 @@ title: DoIP
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 15
+nav_order: 6
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/DoIP'
 redirect_from:
@@ -81,19 +81,4 @@ TCP 연결은 됐지만 진단이 실패하면 routing activation 결과, source
 
 
 연결을 강제로 종료한 뒤 재접속·routing activation·기존 요청의 처리 정책을 확인한다. 변경·초기화 서비스는 승인된 시험 대상에서만 실행한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: Ethernet](https://app.notion.com/p/Ethernet-3f71b412900a817b9e99f6616ada2231)
-
-
-[ISO 13400](https://www.iso.org/search.html?q=ISO%2013400)
-
-
-[AUTOSAR Classic](https://www.autosar.org/standards/classic-platform)
 

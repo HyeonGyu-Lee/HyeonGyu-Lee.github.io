@@ -197,12 +197,3 @@ COM에서 사용되는 기본 인터페이스, 모든 COM 인터페이스는 IUn
 ### 2-3. 파라미터
 
 - ‘CoCreateInstance’는 CLSID, 객체가 생성될 컨텍스트(로컬, 원격 등), 그리고 요청된 인터페이스의 식별자(IID) 등을 파라미터로 받
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: 기타](https://app.notion.com/p/9450b6551fe942ec9f1c861492fee47c)
-
-
-[참고 출처 / 관련 공식 문서](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal)
-

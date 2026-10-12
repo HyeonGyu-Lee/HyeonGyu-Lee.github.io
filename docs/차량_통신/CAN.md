@@ -4,7 +4,7 @@ title: CAN
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 2
+nav_order: 1
 parent: '차량 통신'
 permalink: '/차량_통신/CAN'
 redirect_from:
@@ -108,19 +108,4 @@ assert physical == -10
 
 
 신호 정의와 실제 로그의 바이트 순서·단위를 먼저 대조한다. Raw 최소·최대값과 무효값 처리를 추가해 시험한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[CiA CAN 소개](https://www.can-cia.org/can-knowledge)
-
-
-[ISO 11898 검색](https://www.iso.org/search.html?q=ISO%2011898)
 

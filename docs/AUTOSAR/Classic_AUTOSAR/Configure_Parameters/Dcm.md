@@ -399,12 +399,3 @@ stateDiagram-v2
 
 #### 7.2.4.8.1.10 ‘ROE stoppted’ 상태에서 ‘ROE stopped’로 전환 (10)
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: Configure Parameters](https://app.notion.com/p/Configure-Parameters-2efdf43930e745af87fb1b1e97c47015)
-
-
-[참고 출처 / 관련 공식 문서](https://www.autosar.org/standards/classic-platform)
-

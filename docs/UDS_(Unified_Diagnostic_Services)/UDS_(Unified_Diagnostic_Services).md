@@ -4,7 +4,7 @@ title: UDS (Unified Diagnostic Services)
 has_children: true
 published_date: 2024-06-11-09-06-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 2
+nav_order: 3
 permalink: '/UDS_(Unified_Diagnostic_Services)'
 redirect_from:
  - /89f6c72d1f3d44d6b2b7798ecb2eb4af
@@ -273,10 +273,4 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 </div>
 </div>
 
-
-
-## 연결 문서·참고 자료
-
-
-[참고 출처 / 관련 공식 문서](https://www.iso.org/search.html?q=ISO%2014229-1)
 

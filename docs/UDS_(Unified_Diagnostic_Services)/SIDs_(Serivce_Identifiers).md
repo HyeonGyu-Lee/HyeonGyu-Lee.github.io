@@ -752,12 +752,3 @@ sequenceDiagram
 </blockquote>
 
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: UDS (Unified Diagnostic Services)](https://app.notion.com/p/UDS-Unified-Diagnostic-Services-89f6c72d1f3d44d6b2b7798ecb2eb4af)
-
-
-[참고 출처 / 관련 공식 문서](https://www.iso.org/search.html?q=ISO%2014229-1)
-

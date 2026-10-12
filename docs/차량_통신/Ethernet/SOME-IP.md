@@ -4,7 +4,7 @@ title: SOME-IP
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 13
+nav_order: 5
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/SOME-IP'
 redirect_from:
@@ -75,19 +75,4 @@ Offer가 보이는데 호출이 실패하면 interface version, instance·endpoi
 
 
 제공자를 재시작한 뒤 TTL·재탐색·재구독과 오래된 상태의 정리를 확인한다. Wireshark의 someip·someipsd dissector 지원과 decode-as 설정도 확인한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: Ethernet](https://app.notion.com/p/Ethernet-3f71b412900a817b9e99f6616ada2231)
-
-
-[AUTOSAR Foundation](https://www.autosar.org/standards/foundation)
-
-
-[AUTOSAR Adaptive](https://www.autosar.org/standards/adaptive-platform)
 

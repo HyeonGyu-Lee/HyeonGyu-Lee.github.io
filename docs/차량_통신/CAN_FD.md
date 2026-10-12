@@ -4,7 +4,7 @@ title: CAN FD
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 3
+nav_order: 2
 parent: '차량 통신'
 permalink: '/차량_통신/CAN_FD'
 redirect_from:
@@ -97,19 +97,4 @@ ip -details -statistics link show can0
 
 
 상대 노드·트랜시버의 지원과 종단을 확인하고 8·12·64바이트 프레임에서 오류 카운터·주기·지터를 비교한다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[CiA CAN FD](https://www.can-cia.org/can-knowledge)
-
-
-[ISO 11898](https://www.iso.org/search.html?q=ISO%2011898)
 

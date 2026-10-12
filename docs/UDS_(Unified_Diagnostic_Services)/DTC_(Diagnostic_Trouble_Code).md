@@ -140,12 +140,3 @@ DTC 정보를 포함한 응답 메시지의 일부<br>Read DTC Information (0x19
 | 6     | 0x40 | testNotCompletedThisOperationCycle | DTC test not completed this operation cycle           |
 | 7     | 0x80 | warningIndicatorRequested          | Server is requesting warningIndicator to be active    |
 
-
-## 연결 문서·참고 자료
-
-
-[상위 문서: UDS (Unified Diagnostic Services)](https://app.notion.com/p/UDS-Unified-Diagnostic-Services-89f6c72d1f3d44d6b2b7798ecb2eb4af)
-
-
-[ISO 14229](https://www.iso.org/search.html?q=ISO%2014229)
-

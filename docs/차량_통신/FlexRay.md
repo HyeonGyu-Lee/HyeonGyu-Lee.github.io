@@ -4,7 +4,7 @@ title: FlexRay
 has_children: false
 published_date: 2026-10-12-13-10-00
 last_modified_date: 2026-10-12-14-10-00
-nav_order: 6
+nav_order: 5
 parent: '차량 통신'
 permalink: '/차량_통신/FlexRay'
 redirect_from:
@@ -71,16 +71,4 @@ FlexRay는 통신 주기를 기반으로 static segment와 dynamic segment를 �
 
 
 Startup 실패 시 클러스터 설정, startup/sync 노드, 배선과 시계 상태 순으로 비교한다. 프레임 수신 성공만으로 이중화 시험을 통과 처리하지 않는다.
-
-
-## 연결 문서·참고 자료
-
-
-### 문서 탐색
-
-
-[상위 문서: 차량 통신](https://app.notion.com/p/3f71b412900a813ebd67db8632a81945)
-
-
-[ISO 17458](https://www.iso.org/search.html?q=ISO%2017458)
 
