@@ -3,7 +3,7 @@ layout: default
 title: mermaid
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-08-09-10-08-00
+last_modified_date: 2026-10-12-14-10-00
 nav_order: 1
 parent: '기타'
 permalink: '/기타/mermaid'
@@ -11,6 +11,21 @@ redirect_from:
  - /9dce9e4497ee4d9cacf0c81ae6f240c9
  - /undefined
 ---
+## 핵심 요약
+
+
+텍스트로 다이어그램을 표현하는 문법과 예제를 정리한 문서다.
+
+
+## 적용 범위
+
+
+규격·도구 버전에 따른 동작 차이를 확인한다.
+
+
+## 본문
+
+
 # **Sequence Diagram**
 
 
@@ -471,4 +486,13 @@ sequenceDiagram
     API-->BillingService: Start billing process
 ```
 
+
+
+## 연결 문서·참고 자료
+
+
+[상위 문서: 기타](https://app.notion.com/p/9450b6551fe942ec9f1c861492fee47c)
+
+
+[참고 출처 / 관련 공식 문서](https://mermaid.js.org/)
 

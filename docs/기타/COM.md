@@ -3,7 +3,7 @@ layout: default
 title: COM
 has_children: false
 published_date: 2024-08-28-09-08-00
-last_modified_date: 2024-08-30-16-08-00
+last_modified_date: 2026-10-12-14-10-00
 nav_order: 4
 parent: '기타'
 permalink: '/기타/COM'
@@ -11,6 +11,21 @@ redirect_from:
  - /b70a3e94ccc24769aa2c67939878791c
  - /undefined
 ---
+## 핵심 요약
+
+
+Microsoft Component Object Model의 객체·인터페이스와 상호 운용 개념을 정리한 문서다. AUTOSAR COM 통신 모듈과는 다른 주제다.
+
+
+## 적용 범위
+
+
+규격·도구 버전에 따른 동작 차이를 확인한다.
+
+
+## 본문
+
+
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
@@ -139,3 +154,55 @@ COM에서 사용되는 기본 인터페이스, 모든 COM 인터페이스는 IUn
 
 - 이 메서드는 참조 카운트를 감소시키고, 참조 카운트가 0이 되면 객체를 메모리에서 해제
 - 이 방식으로 COM은 메모리 누수를 방지함
+
+# 기타 용어 및 기능
+
+
+## 1. CoInitialize
+
+- COM 라이브러리를 초기화 하는 함수
+- COM 객체를 사용하는 어플리케이션에서 반드시 호출해야 하는 함수
+- COM의 스레드 모델을 설정하고, 해당 스레드에서 COM 기능을 사용할 수 있도록 환경을 설정
+
+### 1-1. 초기화
+
+- ‘CoInitialize’는 COM 라이브러리를 초기화하여, COM을 사용하기 전에 호출해야 함
+- 이 함수는 성공 시 ‘S_OK’를 반환하고, 이미 초기화된 경우 ‘S_FALSE’를 반환
+
+### 1-2. 스레드 모델
+
+- COM은 단일 스레드 아파트먼트(STA)와 멀티 스레드 아파트먼트(MTA)라는 두 가지 스레드 모델을 제공
+- ‘CoInitialize’는 기본적으로 STA를 초기화하며, 멀티 스레드 아파트먼트를 사용하려면 ‘CoInitializeEx’를 사용해야함
+
+### 1-3. 정리
+
+- COM 사용이 끝나면 ‘CoUninitialize’를 호출하여 초기화된 COM 라이브러리를 해제해야 함
+- 이를 통해 메모리 누수를 방지하고, 리소스를 적절히 해제할 수 있음
+
+## 2. CoCreateInstance
+
+- COM 객체를 생성하고, 해당 객체의 특정 인터페이스에 대한 포인터를 반환하는 함수
+- COM 객체를 동적으로 생성할 때 주로 사용
+
+### 2-1. 객체 생성
+
+- ‘CoCreateInstance’는 지정된 CLSID(클래스 식별자; Class Identifier)를 기반으로 새로운 COM 객체를 생성
+- 이때 해당 객체는 요청된 인터페이스의 인스턴스를 제공
+
+### 2-2. 인터페이스 포인터 반환
+
+- 객체가 생성되면 ‘CoCreateInstance’는 요청된 인터페이스에 대한 포인터를 반환
+- 이 포인터는 객체와의 상호작용에 사용
+
+### 2-3. 파라미터
+
+- ‘CoCreateInstance’는 CLSID, 객체가 생성될 컨텍스트(로컬, 원격 등), 그리고 요청된 인터페이스의 식별자(IID) 등을 파라미터로 받
+
+## 연결 문서·참고 자료
+
+
+[상위 문서: 기타](https://app.notion.com/p/9450b6551fe942ec9f1c861492fee47c)
+
+
+[참고 출처 / 관련 공식 문서](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal)
+

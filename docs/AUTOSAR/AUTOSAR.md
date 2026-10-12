@@ -3,7 +3,7 @@ layout: default
 title: AUTOSAR
 has_children: true
 published_date: 2024-06-03-08-06-00
-last_modified_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-12-14-10-00
 nav_order: 1
 permalink: '/AUTOSAR'
 redirect_from:

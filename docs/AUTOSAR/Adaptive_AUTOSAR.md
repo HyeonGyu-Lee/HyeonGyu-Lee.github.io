@@ -3,7 +3,7 @@ layout: default
 title: Adaptive AUTOSAR
 has_children: true
 published_date: 2024-06-03-13-06-00
-last_modified_date: 2026-10-12-12-10-00
+last_modified_date: 2026-10-12-14-10-00
 nav_order: 2
 parent: 'AUTOSAR'
 permalink: '/AUTOSAR/Adaptive_AUTOSAR'
@@ -14,22 +14,16 @@ redirect_from:
 ## 핵심 요약
 
 
-프로세스 실행·서비스 통신·상태 관리를 중심으로 Adaptive Platform을 이해하기 위한 문서다.
+서비스 제공·탐색·호출·재시작을 시험하고 실행·통신 상태를 구분해 분석한다.
 
 
 ## 적용 범위
 
 
-기술 학습 기록이며, 작성자의 실무 수행·성과·인증을 주장하지 않는다. 예시는 설명용이다. 정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
+실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 
 
 ## 본문
-
-
-## 개념과 검증 관점 보강 · 2026-10-12
-
-
-문서 성격: 기술 학습 정리. 작성자의 실무 수행·성과를 의미하지 않습니다. 예시는 설명용이며 실제 시스템 사양이 아닙니다. 규범적 판단은 적용 표준의 판·릴리스와 프로젝트 사양을 확인해야 합니다.
 
 
 ### 핵심 요약
@@ -85,17 +79,29 @@ AUTOSAR Adaptive Platform: https://www.autosar.org/standards/adaptive-platform
 현재 본문은 릴리스 공통 개념의 학습 안내다. 특정 제품 적용 경험이나 릴리스별 요구사항 원문 검증을 주장하지 않는다.
 
 
+### 실습: 서비스 가용성 시험
+
+
+서비스 제공자와 소비자의 interface·instance·endpoint·manifest 버전을 맞춘다. 제공자 미기동 → 기동 → 호출 → 제공자 재시작 → 재탐색·복구 순서를 시험한다.
+
+
+실행 상태, 서비스 발견 시각, 요청 ID, 응답 결과와 오류를 같은 시간축으로 기록한다. 서비스 발견 성공과 데이터의 유효성을 별도로 판정한다.
+
+
+### 장애 분석 방법
+
+
+프로세스가 시작되지 않으면 실행 설정·의존성·권한·종료 코드를 확인한다. 프로세스는 동작하지만 서비스가 없으면 deployment·상태 조건·통신 경로·SD 설정을 확인한다.
+
+
+API와 manifest 예시는 적용 릴리스와 제품마다 달라 실제 헤더·도구 문서와 함께 작성한다.
+
+
 ## 연결 문서·참고 자료
 
 
 [상위 문서: AUTOSAR](https://app.notion.com/p/AUTOSAR-e20f9e7df0d34378beea96efa4172089)
 
 
-[참고 출처 / 관련 공식 문서](https://www.autosar.org/standards/adaptive-platform)
-
-
-## 검토 기록
-
-
-통일 문서 양식 · 2026-10-12 / 기존 본문을 보존하고 요약·범위·참고 영역을 통일했다. 원문 전체 대조, 릴리스별 요구사항 검증과 실제 시스템 실행 시험은 미완료다. 상세 코드와 다이어그램은 기존 내용을 유지했다.
+[AUTOSAR Adaptive Platform](https://www.autosar.org/standards/adaptive-platform)
 

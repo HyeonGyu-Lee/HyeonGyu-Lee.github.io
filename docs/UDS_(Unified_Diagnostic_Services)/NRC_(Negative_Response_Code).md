@@ -3,7 +3,7 @@ layout: default
 title: NRC (Negative Response Code)
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2024-08-09-11-08-00
+last_modified_date: 2026-10-12-14-10-00
 nav_order: 2
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/NRC_(Negative_Response_Code)'
@@ -11,6 +11,85 @@ redirect_from:
  - /0d9c3695803e41ed9a11aa5b632aab3a
  - /undefined
 ---
+## 핵심 요약
+
+
+진단 요청에 대한 NRC를 해석하고 세션·입력·타이밍 조건을 비교해 원인을 좁힌다.
+
+
+## 적용 범위
+
+
+실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+
+
+## 본문
+
+
+### 핵심 요약
+
+
+NRC는 UDS 요청을 정상 완료하지 못한 이유 또는 처리가 계속 진행 중임을 나타내는 코드다. 진단 서비스는 배출가스 OBD에만 한정되지 않으며, 요청 형식·세션·보안 상태·동작 조건을 함께 해석해야 한다.
+
+
+### 응답 프레임 읽기
+
+
+UDS 부정 응답의 기본 구조는 0x7F, 원래 요청 SID, NRC다. 설명용 예시 7F 22 31은 ReadDataByIdentifier(0x22) 요청에 requestOutOfRange(0x31)가 반환됐다는 뜻이다. 실제 원인은 요청 DID와 ECU 사양을 함께 확인한다.
+
+
+### 자주 확인하는 코드
+
+- 0x11 serviceNotSupported: 요청 서비스 지원 여부를 확인한다.
+- 0x12 subFunctionNotSupported: 해당 서비스의 하위 기능 지원 여부를 확인한다.
+- 0x13 incorrectMessageLengthOrInvalidFormat: 길이·필드·인코딩을 점검한다.
+- 0x22 conditionsNotCorrect: 서비스 수행에 필요한 조건을 확인한다.
+- 0x31 requestOutOfRange: 식별자·파라미터·허용 범위와 서비스별 규정을 확인한다.
+- 0x33 securityAccessDenied: 보안 접근 조건을 확인한다.
+- 0x78 requestCorrectlyReceived-ResponsePending: 요청은 수신됐지만 최종 응답이 준비되지 않은 중간 상태다. 즉시 최종 실패로 집계하지 않는다.
+
+### 0x78과 타임아웃 구분
+
+
+P2/P2*와 테스트 도구의 대기 설정, 타임스탬프, 최종 응답을 함께 본다. 0x78을 수신했다고 모든 대기 시간이 무제한으로 연장되는 것은 아니다. 실제 시간 값과 반복 제한은 적용 규격·세션 설정·프로젝트 사양에 따른다.
+
+
+### 분석과 검증 순서
+
+- 원본 요청·응답을 보존하고 SID, 하위 기능, 데이터 길이를 확인한다.
+- 세션·보안 수준·ECU 상태와 요청 순서를 기록한다.
+- 정상 조건, 지원하지 않는 입력, 길이 오류, 조건 미충족을 각각 분리해 시험한다.
+- 예상 NRC는 임의 선택하지 않고 서비스별 요구사항과 검사 우선순위에 따라 정한다.
+- 타임아웃과 ECU의 부정 응답을 서로 다른 결과로 기록한다.
+
+### 확인할 출처
+
+
+ISO 14229-1의 적용 판과 해당 서비스 절을 확인한다: https://www.iso.org/search.html?q=ISO%2014229-1
+
+
+AUTOSAR Classic DCM 규격은 프로젝트 릴리스에 맞춰 확인한다: https://www.autosar.org/standards/classic-platform
+
+
+### 실습: 응답 해석과 결과 분류
+
+
+```python
+response = bytes.fromhex("7F2278")
+assert len(response) == 3 and response[0] == 0x7F
+request_sid, nrc = response[1], response[2]
+print(f"요청 SID=0x{request_sid:02X}, NRC=0x{nrc:02X}")
+assert nrc == 0x78
+```
+
+
+
+위 응답은 ReadDataByIdentifier 요청의 처리 대기 상태다. 최종 응답을 계속 기다리되 적용 P2/P2*와 도구 timeout을 지킨다. 응답 미수신·최종 NRC·처리 대기를 다른 결과로 분류한다.
+
+
+분석 기록에는 요청 원본, DID, 세션·보안·ECU 상태, 수신 시각과 최종 결과를 남긴다. 0x31을 받으면 DID 지원·입력 범위와 서비스별 검사 조건부터 확인한다.
+
+
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
@@ -130,4 +209,13 @@ Negative Response Code : 차량의 진단 통신 프로토콜에서 사용되는
 | 0x93        | VTL      | voltageTooLow                                                     | This response code indicates that the requested action will not be taken because the server prerequisite condition for voltage at the primary pin of the server (ECU) is not met (current voltage is below a pre-programmed maximum threshold).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | 0x94 - 0xFE | \<       | reservedForSpecificConditionsNotCorrect                           | This range of values is reserved for future definition.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | 0xFF        | \<       | ISOSAEReserved                                                    | This range of values is reserved for future definition.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+
+## 연결 문서·참고 자료
+
+
+[상위 문서: UDS (Unified Diagnostic Services)](https://app.notion.com/p/UDS-Unified-Diagnostic-Services-89f6c72d1f3d44d6b2b7798ecb2eb4af)
+
+
+[ISO 14229](https://www.iso.org/search.html?q=ISO%2014229)
 
