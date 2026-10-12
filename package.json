@@ -32,7 +32,8 @@
     "lint:css": "stylelint '**/*.scss'",
     "lint:formatting": "prettier --check '**/*.{scss,js,json}'",
     "format": "prettier --write '**/*.{scss,js,json}'",
-    "test": "npm run lint"
+    "test": "npm run lint && npm run test:notion",
+    "test:notion": "node --test _scripts/notion-fetch.test.js"
   },
   "stylelint": {
     "ignoreFiles": [

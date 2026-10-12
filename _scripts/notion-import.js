@@ -9,9 +9,12 @@ import sharp from "sharp"
 import { SitemapStream, streamToPromise } from "sitemap"
 import { Readable } from "stream"
 import sizeOf from "image-size"
+import { createNotionFetch } from "./notion-fetch.js"
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
+  fetch: createNotionFetch(),
+  timeoutMs: 300000,
 })
 
 const n2m = new NotionToMarkdown({
