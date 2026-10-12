@@ -9,4 +9,4 @@ gem "jekyll-redirect-from", group: :jekyll_plugins
 
 gem "html-proofer", "~> 5.2", :group => :development
 
-gem "webrick", "~> 1.8.1"
+gem "webrick", "~> 1.9.2"
