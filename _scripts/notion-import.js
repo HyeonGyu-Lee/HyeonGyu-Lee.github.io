@@ -163,7 +163,7 @@ function convertLazyImage(body) {
       const urlPath = url.replace(/\\/g, "/")
       const escapedCaption = caption.replace(/[<>\|]/g, (match) => `\\${match}`)
 
-      const { width, height } = sizeOf("." + urlPath)
+      const { width, height } = sizeOf(fs.readFileSync("." + urlPath))
 
       const templateWithCaption = `
 <div class="image-flex">
