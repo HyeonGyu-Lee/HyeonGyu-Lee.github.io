@@ -1,0 +1,4 @@
+# Installed dependencies and generated site output
+node_modules/
+vendor/
+_site/
