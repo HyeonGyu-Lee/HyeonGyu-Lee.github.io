@@ -1,3 +1,5 @@
 root: _site
 blacklist:
   - "line-numbers"
+  # Naver requires this file to contain its verification token, not an HTML page.
+  - "naver34d848d1370fd45eee64d6eca9a05205.html"
