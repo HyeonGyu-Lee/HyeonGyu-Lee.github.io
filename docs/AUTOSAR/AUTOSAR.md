@@ -3,7 +3,7 @@ layout: default
 title: AUTOSAR
 has_children: true
 published_date: 2024-06-03-08-06-00
-last_modified_date: 2026-10-12-12-10-00
+last_modified_date: 2026-10-12-13-10-00
 nav_order: 1
 permalink: '/AUTOSAR'
 redirect_from:
@@ -19,7 +19,7 @@ Classic·Adaptive 플랫폼과 관련 문서를 연결하는 AUTOSAR 학습 기�
 ## 적용 범위
 
 
-기술 학습 기록이며, 작성자의 실무 수행·성과·인증을 주장하지 않는다. 예시는 설명용이다. 정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
+정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
 
 
 ## 본문
@@ -113,10 +113,4 @@ AUTOSAR(Automotive Open System Architecture) : Software Infrastructure
 
 
 [참고 출처 / 관련 공식 문서](https://www.autosar.org/standards/classic-platform)
-
-
-## 검토 기록
-
-
-통일 문서 양식 · 2026-10-12 / 기존 본문을 보존하고 요약·범위·참고 영역을 통일했다. 원문 전체 대조, 릴리스별 요구사항 검증과 실제 시스템 실행 시험은 미완료다. 상세 코드와 다이어그램은 기존 내용을 유지했다.
 
