@@ -34,7 +34,7 @@ jobs:
       - name: Create file
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "24"
 
       - run: npm install
       - run: node _scripts/notion-import.js
