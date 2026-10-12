@@ -51,6 +51,6 @@ jobs:
           commit_user_email: RapidAUTOSAR@github.com
           commit_author: importer-bot 🤖 <RapidAUTOSAR@github.com>
 
-      - run: gh api /repos/RapidAUTOSAR/blog/dispatches -f event_type='RUN_WORKFLOW_DISPATCH_NEXT'
+      - run: gh api /repos/Hyeongyu-Lee/Hyeongyu-Lee.github.io/dispatches -f event_type='RUN_WORKFLOW_DISPATCH_NEXT'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
