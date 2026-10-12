@@ -16,6 +16,7 @@ on:
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: write
+  actions: write
   pages: write
   id-token: write
 
@@ -51,6 +52,7 @@ jobs:
           commit_user_email: RapidAUTOSAR@github.com
           commit_author: importer-bot 🤖 <RapidAUTOSAR@github.com>
 
-      - run: gh api /repos/Hyeongyu-Lee/Hyeongyu-Lee.github.io/dispatches -f event_type='RUN_WORKFLOW_DISPATCH_NEXT'
+      - name: Trigger Pages deployment
+        run: gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
