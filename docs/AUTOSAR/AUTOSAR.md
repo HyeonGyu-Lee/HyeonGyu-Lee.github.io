@@ -3,13 +3,28 @@ layout: default
 title: AUTOSAR
 has_children: true
 published_date: 2024-06-03-08-06-00
-last_modified_date: 2024-06-13-15-06-00
+last_modified_date: 2026-10-12-12-10-00
 nav_order: 1
 permalink: '/AUTOSAR'
 redirect_from:
  - /e20f9e7df0d34378beea96efa4172089
  - /undefined
 ---
+## 핵심 요약
+
+
+Classic·Adaptive 플랫폼과 관련 문서를 연결하는 AUTOSAR 학습 기록의 진입점이다.
+
+
+## 적용 범위
+
+
+기술 학습 기록이며, 작성자의 실무 수행·성과·인증을 주장하지 않는다. 예시는 설명용이다. 정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
+
+
+## 본문
+
+
 ---
 
 
@@ -92,4 +107,16 @@ AUTOSAR(Automotive Open System Architecture) : Software Infrastructure
 | **컴포넌트**  | 베이직 소프트웨어(BSW), 런타임 환경(RTE), 애플리케이션 소프트웨어 컴포넌트(ASW)로 구성됩니다.                                                                  | 서비스 지향 아키텍처(<span class="tooltip">SOA<span class="tooltiptext">Service Oriented Architecture</span></span>)를 기반으로 하며, 마이크로서비스와 같은 현대적 소프트웨어 개발 패러다임을 사용합니다. |
 | **목적**    | 기능 안전성(<span class="tooltip">FuSa<span class="tooltiptext">Functional Safety</span></span>) 요구사항을 만족시키며, 전통적인 자동차 기능에 적합합니다. | 데이터 처리와 고급 연결성을 처리하며, 빠르게 변화하는 기술 요구사항에 대응합니다.                                                                                                              |
 | **적용 사례** | 엔진 제어, 전자 제동 시스템, 에어백 시스템 등의 필수적인 차량 제어 기능을 처리합니다.                                                                           | 자율 주행, 고급 인포테인먼트 시스템, 온라인 업데이트와 같은 복잡하고 동적인 기능을 지원합니다.                                                                                                      |
+
+
+## 연결 문서·참고 자료
+
+
+[참고 출처 / 관련 공식 문서](https://www.autosar.org/standards/classic-platform)
+
+
+## 검토 기록
+
+
+통일 문서 양식 · 2026-10-12 / 기존 본문을 보존하고 요약·범위·참고 영역을 통일했다. 원문 전체 대조, 릴리스별 요구사항 검증과 실제 시스템 실행 시험은 미완료다. 상세 코드와 다이어그램은 기존 내용을 유지했다.
 
