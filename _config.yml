@@ -1,8 +1,8 @@
-title: AUTOSAR dev
-description: 소개
+title: HyeonGyu Lee
+description: 차량 소프트웨어, 통신과 진단을 연결하는 엔지니어링 노트
 baseurl: "/"
 url: "https://AUTOSAR.dev"
-repository: RapidAUTOSAR/blog
+repository: HyeonGyu-Lee/HyeonGyu-Lee.github.io
 
 permalink: pretty
 
@@ -67,7 +67,7 @@ search:
   button: false
 
 # For copy button on code
-enable_copy_code_button: false
+enable_copy_code_button: true
 
 # By default, consuming the theme as a gem leaves mermaid disabled; it is opt-in
 mermaid:
