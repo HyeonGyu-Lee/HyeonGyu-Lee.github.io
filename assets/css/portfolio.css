@@ -1,3 +1,12 @@
+/* Self-hosted Noto Sans KR, SIL Open Font License: ../fonts/OFL.txt */
+@font-face {
+  font-family: "Noto Sans KR Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/noto-sans-kr.woff2") format("woff2");
+}
+
 body {
   --folio-bg: #fbfcfa;
   --folio-surface: #fff;
@@ -10,7 +19,14 @@ body {
   color: var(--folio-ink);
   background: var(--folio-bg);
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    "Noto Sans KR Variable",
+    "Malgun Gothic",
+    "Apple SD Gothic Neo",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans KR",
+    sans-serif;
   line-height: 1.8;
 }
 
@@ -324,4 +340,32 @@ body .nav-list .nav-list-expander {
 
 .main-content .hero-description {
   margin: 26px 0;
+}
+
+/* Bridge the original theme tokens at every navigation depth. */
+body,
+body[data-theme="light"],
+body[data-theme="dark"] {
+  --nav-child-link-color: var(--folio-accent);
+  --link-color: var(--folio-accent);
+  --body-heading-color: var(--folio-ink);
+  --body-text-color: var(--folio-ink);
+  --body-background-color: var(--folio-bg);
+  --sidebar-color: var(--folio-surface);
+  --feedback-color: var(--folio-tint);
+  --feedback-color-1: var(--folio-tint);
+  --prev-next-arrow-color: var(--folio-accent);
+  --scroll-nav-marker-color: var(--folio-muted);
+  --scroll-nav-select-marker-color: var(--folio-accent);
+}
+
+body .main-content h1,
+body .main-content h2,
+body .main-content h3 {
+  font-weight: 650;
+}
+
+body .site-button {
+  color: var(--folio-accent);
+  font-family: inherit;
 }
