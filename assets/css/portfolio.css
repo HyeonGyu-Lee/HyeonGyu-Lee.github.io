@@ -313,12 +313,15 @@ body .site-footer {
 body .nav-list {
   background: transparent;
 }
+
 body .nav-list .nav-list-expander {
   color: var(--folio-accent);
 }
+
 .portfolio-home .scroll-nav {
   display: none;
 }
+
 .main-content .hero-description {
   margin: 26px 0;
 }
