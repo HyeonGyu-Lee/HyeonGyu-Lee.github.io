@@ -3,7 +3,7 @@ layout: default
 title: mermaid
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: '기타'
 permalink: '/기타/mermaid'
@@ -14,13 +14,23 @@ redirect_from:
 ## 핵심 요약
 
 
-텍스트로 다이어그램을 표현하는 문법과 예제를 정리한 문서다.
+> 텍스트로 다이어그램을 표현하는 문법과 예제를 정리한 문서다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 규격·도구 버전에 따른 동작 차이를 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

@@ -3,7 +3,7 @@ layout: default
 title: Single-Core & ISR Synchronization
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 2
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Single-Core_&_ISR_Synchronization'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-단일 코어는 한 순간에 하나의 명령 흐름을 실행해도 task 선점과 ISR 진입 때문에 Shared State가 손상될 수 있다. counter++는 보통 읽기·증가·쓰기이며 중간에 선점되면 증가분을 잃는다.
+> 단일 코어는 한 순간에 하나의 명령 흐름을 실행해도 task 선점과 ISR 진입 때문에 Shared State가 손상될 수 있다. counter++는 보통 읽기·증가·쓰기이며 중간에 선점되면 증가분을 잃는다.
 
 
 ## Lost Update: Task Preempted by ISR

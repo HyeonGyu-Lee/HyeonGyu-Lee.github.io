@@ -3,7 +3,7 @@ layout: default
 title: Process, Thread & IPC
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 3
 parent: 'Embedded Linux'
 permalink: '/Embedded_Linux/Process,_Thread_&_IPC'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-Process는 독립적인 virtual address space를 가지며 Thread는 같은 Process의 메모리를 공유한다. Thread를 늘리면 shared state와 synchronization 문제가 생긴다. fork 이후 실행, exec, exit, wait와 thread 종료·join의 역할을 구분한다.
+> Process는 독립적인 virtual address space를 가지며 Thread는 같은 Process의 메모리를 공유한다. Thread를 늘리면 shared state와 synchronization 문제가 생긴다. fork 이후 실행, exec, exit, wait와 thread 종료·join의 역할을 구분한다.
 
 
 ## IPC Selection

@@ -3,7 +3,7 @@ layout: default
 title: AP & MCU Integration
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'Embedded Linux'
 permalink: '/Embedded_Linux/AP_&_MCU_Integration'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-Linux AP의 큰 연산·정책 처리와 MCU의 로컬 제어를 분리할 때 IPC의 메시지 계약과 장애 격리가 핵심이다. AP가 멈추더라도 필요한 MCU 동작이 무엇인지 먼저 정의한다.
+> Linux AP의 큰 연산·정책 처리와 MCU의 로컬 제어를 분리할 때 IPC의 메시지 계약과 장애 격리가 핵심이다. AP가 멈추더라도 필요한 MCU 동작이 무엇인지 먼저 정의한다.
 
 
 ## OS and AUTOSAR

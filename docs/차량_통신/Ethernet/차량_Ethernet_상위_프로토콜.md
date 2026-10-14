@@ -3,7 +3,7 @@ layout: default
 title: 차량 Ethernet 상위 프로토콜
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 4
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/차량_Ethernet_상위_프로토콜'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-Ethernet 위의 주소·전송·서비스 계층을 구분해 패킷을 분석한다.
+> Ethernet 위의 주소·전송·서비스 계층을 구분해 패킷을 분석한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 일반적인 IP 네트워크 개념. 실제 IPv4·IPv6, 주소·VLAN·포트 정책은 시스템 사양을 따른다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

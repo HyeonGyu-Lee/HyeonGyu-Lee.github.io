@@ -3,7 +3,7 @@ layout: default
 title: ADC
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 3
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/ADC'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-ADC는 아날로그 전압을 디지털 코드로 변환한다. 결과의 품질은 해상도뿐 아니라 기준 전압, 입력 소스 임피던스, acquisition time, 변환 주기, 보정과 노이즈에 영향을 받는다.
+> ADC는 아날로그 전압을 디지털 코드로 변환한다. 결과의 품질은 해상도뿐 아니라 기준 전압, 입력 소스 임피던스, acquisition time, 변환 주기, 보정과 노이즈에 영향을 받는다.
 
 
 ## S32K312 ADC 설정 순서

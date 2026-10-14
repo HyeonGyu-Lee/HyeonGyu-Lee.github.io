@@ -3,7 +3,7 @@ layout: default
 title: 10BASE-T1S
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/10BASE-T1S'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-단거리 single-pair Ethernet의 10 Mbit/s 통신과 multidrop·PLCA를 설명한다.
+> 단거리 single-pair Ethernet의 10 Mbit/s 통신과 multidrop·PLCA를 설명한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 IEEE 802.3cg-2019에서 정의된 10BASE-T1S를 중심으로 설명한다. 실제 거리·노드 수·매체 조건은 표준과 PHY 사양을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

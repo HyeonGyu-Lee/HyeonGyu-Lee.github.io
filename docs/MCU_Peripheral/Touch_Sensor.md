@@ -3,7 +3,7 @@ layout: default
 title: Touch Sensor
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 4
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Touch_Sensor'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-정전용량 터치는 손가락 접근에 따른 전극의 정전용량 변화를 측정한다. raw 값을 baseline과 비교해 delta를 계산하고 threshold·hysteresis·debounce로 안정된 이벤트를 만든다. 부품명과 전극 구조가 확정되지 않은 상태에서 특정 레지스터나 감도 값을 고정하지 않는다.
+> 정전용량 터치는 손가락 접근에 따른 전극의 정전용량 변화를 측정한다. raw 값을 baseline과 비교해 delta를 계산하고 threshold·hysteresis·debounce로 안정된 이벤트를 만든다. 부품명과 전극 구조가 확정되지 않은 상태에서 특정 레지스터나 감도 값을 고정하지 않는다.
 
 
 ## 구현 방식 선택

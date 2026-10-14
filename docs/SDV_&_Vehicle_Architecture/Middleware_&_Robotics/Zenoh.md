@@ -3,7 +3,7 @@ layout: default
 title: Zenoh
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 3
 parent: 'Middleware & Robotics'
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/Zenoh'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-Zenoh는 Key Expression을 기반으로 Pub/Sub·Query 등을 제공하는 통신 기술다. Router/Peer/Client 배치와 네트워크 조건에 따라 동작을 설계한다. ROS 2 연동과 native Zenoh 애플리케이션은 서로 다른 통합 경로다.
+> Zenoh는 Key Expression을 기반으로 Pub/Sub·Query 등을 제공하는 통신 기술다. Router/Peer/Client 배치와 네트워크 조건에 따라 동작을 설계한다. ROS 2 연동과 native Zenoh 애플리케이션은 서로 다른 통합 경로다.
 
 
 ## Example Topology

@@ -3,7 +3,7 @@ layout: default
 title: DMA & Buffer Ownership
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 5
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/DMA_&_Buffer_Ownership'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-DMA는 CPU의 mutex나 IRQ mask를 따르지 않고 메모리를 읽고 쓸 수 있다. DMA가 접근하는 buffer의 소유권과 실제 전송 완료를 기준으로 재사용 시점을 결정한다.
+> DMA는 CPU의 mutex나 IRQ mask를 따르지 않고 메모리를 읽고 쓸 수 있다. DMA가 접근하는 buffer의 소유권과 실제 전송 완료를 기준으로 재사용 시점을 결정한다.
 
 
 ## RX Buffer Ownership
@@ -76,10 +76,14 @@ API timeout은 DMA 정지를 보장하지 않는다. abort 요청 후 하드웨�
 
 ## 주변장치별 적용
 
-- UART: RX idle event는 메시지 경계와 항상 같지 않다. 수신 buffer의 유효 길이를 parser에 전달하고 framing은 별도로 처리한다.
-- SPI: DMA TX 완료 뒤 FIFO/shift register가 남아 있을 수 있다. CS 해제는 실제 완료 조건을 따른다.
-- ADC: half/full buffer 완료 시 소유권을 교환하고 채널 순서·sample counter·overrun을 확인한다.
-- CAN: controller RAM과 소프트웨어 buffer의 소유권을 구분하고 다음 RX arm이 이전 데이터를 덮어쓰지 않도록 한다.
+
+| **항목**   | **설명 및 적용 기준**                                                                     |
+| -------- | ---------------------------------------------------------------------------------- |
+| **UART** | RX idle event는 메시지 경계와 항상 같지 않다. 수신 buffer의 유효 길이를 parser에 전달하고 framing은 별도로 처리한다. |
+| **SPI**  | DMA TX 완료 뒤 FIFO/shift register가 남아 있을 수 있다. CS 해제는 실제 완료 조건을 따른다.                 |
+| **ADC**  | half/full buffer 완료 시 소유권을 교환하고 채널 순서·sample counter·overrun을 확인한다.                |
+| **CAN**  | controller RAM과 소프트웨어 buffer의 소유권을 구분하고 다음 RX arm이 이전 데이터를 덮어쓰지 않도록 한다.            |
+
 
 ## 검증
 

@@ -3,7 +3,7 @@ layout: default
 title: Electron
 has_children: false
 published_date: 2026-10-12-11-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 5
 parent: '기타'
 permalink: '/기타/Electron'
@@ -14,13 +14,23 @@ redirect_from:
 ## 핵심 요약
 
 
-프로세스 책임과 제한된 IPC를 구현하고 보안 경계·배포 환경의 동작을 확인한다.
+> 프로세스 책임과 제한된 IPC를 구현하고 보안 경계·배포 환경의 동작을 확인한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

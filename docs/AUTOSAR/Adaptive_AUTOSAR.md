@@ -3,7 +3,7 @@ layout: default
 title: Adaptive AUTOSAR
 has_children: true
 published_date: 2024-06-03-13-06-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 2
 parent: 'AUTOSAR'
 permalink: '/AUTOSAR/Adaptive_AUTOSAR'
@@ -14,13 +14,23 @@ redirect_from:
 ## 핵심 요약
 
 
-서비스 제공·탐색·호출·재시작을 시험하고 실행·통신 상태를 구분해 분석한다.
+> 서비스 제공·탐색·호출·재시작을 시험하고 실행·통신 상태를 구분해 분석한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -40,12 +50,16 @@ Classic은 MCU 기반 제어와 정적으로 구성된 실행·통신 환경을 
 
 ### 주요 학습 영역
 
-- Execution Management: 애플리케이션 프로세스 실행과 수명 주기.
-- State Management: 상태와 동작 모드의 조정.
-- Communication Management: 서비스 제공·탐색·호출과 이벤트 전달.
-- Persistency: 애플리케이션 데이터의 지속 저장.
-- Diagnostics: 진단 기능과 서비스의 연계.
-- Log and Trace: 실행 상태·문제 분석을 위한 관찰 정보.
+
+| **항목**                       | **설명 및 적용 기준**         |
+| ---------------------------- | ---------------------- |
+| **Execution Management**     | 애플리케이션 프로세스 실행과 수명 주기. |
+| **State Management**         | 상태와 동작 모드의 조정.         |
+| **Communication Management** | 서비스 제공·탐색·호출과 이벤트 전달.  |
+| **Persistency**              | 애플리케이션 데이터의 지속 저장.     |
+| **Diagnostics**              | 진단 기능과 서비스의 연계.        |
+| **Log and Trace**            | 실행 상태·문제 분석을 위한 관찰 정보. |
+
 
 ### 서비스 통신을 읽는 순서
 

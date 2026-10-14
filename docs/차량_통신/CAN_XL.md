@@ -3,7 +3,7 @@ layout: default
 title: CAN XL
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 3
 parent: '차량 통신'
 permalink: '/차량_통신/CAN_XL'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-CAN 계열에서 대용량 페이로드 전송을 다루는 CAN XL의 목적과 호환 조건을 소개한다.
+> CAN 계열에서 대용량 페이로드 전송을 다루는 CAN XL의 목적과 호환 조건을 소개한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 CAN XL의 개념 안내. 규격 판·컨트롤러·PHY의 실제 지원을 확인하기 전에는 제품 호환성을 주장하지 않는다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

@@ -3,7 +3,7 @@ layout: default
 title: Device I/O & Networking
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 4
 parent: 'Embedded Linux'
 permalink: '/Embedded_Linux/Device_I-O_&_Networking'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-User space 애플리케이션은 일반적으로 device node와 표준 API를 통해 하드웨어에 접근한다. 임의 MMIO 접근 대신 driver·권한·프로세스 소유권을 이용한다.
+> User space 애플리케이션은 일반적으로 device node와 표준 API를 통해 하드웨어에 접근한다. 임의 MMIO 접근 대신 driver·권한·프로세스 소유권을 이용한다.
 
 
 ## Device Access

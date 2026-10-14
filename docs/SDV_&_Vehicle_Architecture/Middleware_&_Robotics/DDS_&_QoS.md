@@ -3,7 +3,7 @@ layout: default
 title: DDS & QoS
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 2
 parent: 'Middleware & Robotics'
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/DDS_&_QoS'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-DDS는 Data-Centric Publish/Subscribe 통신 모델과 QoS를 제공한다. ROS 2의 많은 RMW 구현이 DDS를 사용하지만 모든 RMW가 DDS를 사용하는 것은 아니다. Discovery 성공과 데이터 전달 성공은 별도로 확인한다.
+> DDS는 Data-Centric Publish/Subscribe 통신 모델과 QoS를 제공한다. ROS 2의 많은 RMW 구현이 DDS를 사용하지만 모든 RMW가 DDS를 사용하는 것은 아니다. Discovery 성공과 데이터 전달 성공은 별도로 확인한다.
 
 
 ## QoS Contract

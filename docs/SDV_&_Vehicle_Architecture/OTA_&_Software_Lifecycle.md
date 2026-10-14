@@ -3,7 +3,7 @@ layout: default
 title: OTA & Software Lifecycle
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 6
 parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/OTA_&_Software_Lifecycle'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-OTA는 다운로드뿐 아니라 대상 호환성·서명 검증·설치·부팅·Health Check·Rollback을 포함하는 Lifecycle이다. 전송 암호화, Artifact 서명, Secure Boot, Anti-Rollback은 서로 다른 역할을 가진다.
+> OTA는 다운로드뿐 아니라 대상 호환성·서명 검증·설치·부팅·Health Check·Rollback을 포함하는 Lifecycle이다. 전송 암호화, Artifact 서명, Secure Boot, Anti-Rollback은 서로 다른 역할을 가진다.
 
 
 ## Update State Machine

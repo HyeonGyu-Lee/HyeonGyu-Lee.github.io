@@ -3,7 +3,7 @@ layout: default
 title: DTC (Diagnostic Trouble Code)
 has_children: false
 published_date: 2024-06-20-09-06-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 3
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/DTC_(Diagnostic_Trouble_Code)'
@@ -14,13 +14,23 @@ redirect_from:
 ## 핵심 요약
 
 
-DTC 상태를 비트·마스크로 해석하고 고장 주입부터 제거·재시작까지 상태 변화를 확인한다.
+> DTC 상태를 비트·마스크로 해석하고 고장 주입부터 제거·재시작까지 상태 변화를 확인한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -40,14 +50,18 @@ DTC는 진단 대상 고장을 식별하는 코드다. UDS에서 전달하는 DT
 
 ### 상태 바이트의 비트
 
-- bit 0 testFailed: 마지막 테스트 결과의 실패 상태.
-- bit 1 testFailedThisOperationCycle: 이번 동작 주기에 실패한 상태.
-- bit 2 pendingDTC: pending 상태. 정확한 설정·해제 조건은 규격과 모니터 정책을 확인한다.
-- bit 3 confirmedDTC: confirmed 상태. 고장 확인 조건과 수명 주기를 확인한다.
-- bit 4 testNotCompletedSinceLastClear: 마지막 초기화 이후 테스트 미완료 상태.
-- bit 5 testFailedSinceLastClear: 마지막 초기화 이후 실패 이력.
-- bit 6 testNotCompletedThisOperationCycle: 이번 동작 주기에서 테스트 미완료 상태.
-- bit 7 warningIndicatorRequested: 경고 표시 요청 상태. 모든 DTC가 이 비트를 지원한다고 가정하지 않는다.
+
+| **항목**                                       | **설명 및 적용 기준**                              |
+| -------------------------------------------- | ------------------------------------------- |
+| **bit 0 testFailed**                         | 마지막 테스트 결과의 실패 상태.                          |
+| **bit 1 testFailedThisOperationCycle**       | 이번 동작 주기에 실패한 상태.                           |
+| **bit 2 pendingDTC**                         | pending 상태. 정확한 설정·해제 조건은 규격과 모니터 정책을 확인한다. |
+| **bit 3 confirmedDTC**                       | confirmed 상태. 고장 확인 조건과 수명 주기를 확인한다.        |
+| **bit 4 testNotCompletedSinceLastClear**     | 마지막 초기화 이후 테스트 미완료 상태.                      |
+| **bit 5 testFailedSinceLastClear**           | 마지막 초기화 이후 실패 이력.                           |
+| **bit 6 testNotCompletedThisOperationCycle** | 이번 동작 주기에서 테스트 미완료 상태.                      |
+| **bit 7 warningIndicatorRequested**          | 경고 표시 요청 상태. 모든 DTC가 이 비트를 지원한다고 가정하지 않는다.  |
+
 
 ### 마스크 해석 예시
 

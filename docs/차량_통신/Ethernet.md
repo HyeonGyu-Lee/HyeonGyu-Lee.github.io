@@ -3,7 +3,7 @@ layout: default
 title: Ethernet
 has_children: true
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 7
 parent: '차량 통신'
 permalink: '/차량_통신/Ethernet'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-자동차 Ethernet의 PHY·프레임·스위칭과 IP 상위 프로토콜을 구분해 정리한다.
+> 자동차 Ethernet의 PHY·프레임·스위칭과 IP 상위 프로토콜을 구분해 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 IEEE 802.3 물리·MAC 계층과 IEEE 802.1 기능을 구분한다. 실제 구현 규격과 PHY 데이터시트를 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

@@ -3,7 +3,7 @@ layout: default
 title: SPI
 has_children: false
 published_date: 2026-10-14-13-10-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 11
 parent: '차량 통신'
 permalink: '/차량_통신/SPI'
@@ -18,18 +18,38 @@ redirect_from:
 ## 핵심 요약
 
 
-SPI는 SCK와 데이터 신호, CS(Chip Select)를 사용하는 동기식 직렬 통신이다. 컨트롤러가 클록을 만들고 주변장치와 프레임을 교환한다. CPOL·CPHA·bitrate뿐 아니라 주변장치별 명령 형식·CS 유지 조건·읽기 더미 클록·응답 지연을 데이터시트에 맞춰 구현해야 한다.
+> SPI는 SCK와 데이터 신호, CS(Chip Select)를 사용하는 동기식 직렬 통신이다. 컨트롤러가 클록을 만들고 주변장치와 프레임을 교환한다. CPOL·CPHA·bitrate뿐 아니라 주변장치별 명령 형식·CS 유지 조건·읽기 더미 클록·응답 지연을 데이터시트에 맞춰 구현해야 한다.
 
 
 ## 적용 범위와 개발 환경
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 MCU는 S32K312, 주변장치는 아직 특정하지 않은 상태를 기준으로 한다. S32K3 프로젝트에서는 일반적으로 S32 Design Studio와 S32 RTD의 LPSPI IP 드라이버 또는 AUTOSAR Spi 드라이버를 사용한다. S32K1용 S32 SDK의 LPSPI_DRV_* API를 S32K312 코드에 그대로 복사하지 않는다. 설치한 RTD 버전·패키지의 예제와 생성 헤더에서 실제 함수명과 설정 구조체를 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 1. 배선과 전기 조건부터 확인
 
-- SCK: 컨트롤러가 생성하는 클록. SOUT/MOSI: 컨트롤러 송신. SIN/MISO: 컨트롤러 수신. PCS/CS: 통신 대상 선택. 장치 데이터시트의 신호 방향을 MCU 기준으로 대조한다.
+
+| **Signal**      | **MCU 기준 방향 (Controller)** | **역할**             |
+| --------------- | -------------------------- | ------------------ |
+| **SCK**         | 출력                         | 컨트롤러가 생성하는 클록      |
+| **SOUT / MOSI** | 출력                         | 컨트롤러 → 주변장치 데이터 송신 |
+| **SIN / MISO**  | 입력                         | 주변장치 → 컨트롤러 데이터 수신 |
+| **PCS / CS**    | 출력                         | 통신 대상 선택           |
+
+
+MCU가 Controller인 구성을 기준으로 한다. 장치 데이터시트의 신호 방향을 MCU 기준으로 대조한다.
+
 - 공통 접지, I/O 전압과 허용 범위, 레벨 시프터의 방향·지연, CS 비활성 레벨을 확인한다. active-low CS가 일반적이지만 반드시 장치 규격을 따른다.
 - 보드 커넥터 이름만 보지 말고 S32K312 패키지 핀 mux와 회로도를 대조한다. 출력 pad 설정뿐 아니라 입력 경로 선택도 필요할 수 있다. 사용하지 않는 주변장치의 CS가 비활성 상태인지 확인한다.
 - SPI는 보통 보드 내부의 짧은 배선에서 사용한다. 긴 하네스 연결은 파형·접지·EMC 문제가 커지므로 별도 물리 계층을 검토한다. SPI 버스에 CAN처럼 임의의 120Ω 종단을 추가하지 않는다.
@@ -37,14 +57,12 @@ MCU는 S32K312, 주변장치는 아직 특정하지 않은 상태를 기준으�
 ## 2. CPOL·CPHA와 비트 순서
 
 
-```text
-Mode  CPOL  CPHA  SCK idle  샘플링 edge        데이터 변경 edge
-0     0     0     Low       첫 번째(rising)   두 번째(falling)
-1     0     1     Low       두 번째(falling)  첫 번째(rising)
-2     1     0     High      첫 번째(falling)  두 번째(rising)
-3     1     1     High      두 번째(rising)   첫 번째(falling)
-```
-
+| **Mode** | **CPOL** | **CPHA** | **SCK idle** | **Sample edge** | **Change edge** |
+| -------- | -------- | -------- | ------------ | --------------- | --------------- |
+| **0**    | 0        | 0        | Low          | 첫 번째 (rising)   | 두 번째 (falling)  |
+| **1**    | 0        | 1        | Low          | 두 번째 (falling)  | 첫 번째 (rising)   |
+| **2**    | 1        | 0        | High         | 첫 번째 (falling)  | 두 번째 (rising)   |
+| **3**    | 1        | 1        | High         | 두 번째 (rising)   | 첫 번째 (falling)  |
 
 
 CPHA=0에서는 첫 샘플링 edge 전에 첫 데이터 비트가 준비되어야 한다. 주변장치가 요구하는 mode·MSB/LSB first·프레임 길이를 맞춘다. 로직 분석기의 decode 설정도 동일해야 한다. 데이터가 1비트씩 밀리면 CPHA만 추측해서 바꾸기보다 CS·클록 idle·첫 edge와 setup/hold를 파형에서 확인한다.
@@ -113,18 +131,21 @@ int main(void) {
 
 다음은 설명용 가상 센서다. 실제 부품의 명령 코드가 아니다. 가상 계약은 8비트 프레임, mode 0, MSB first, 읽기 명령 0x80 \| register, 명령 다음 바이트에 응답, 전체 두 바이트 동안 CS Low로 정의한다.
 
-
-```text
-시간 →
-CS    ──┐____________________________┌──
-SCK      [ 8 clocks ][ 8 clocks ]
-MOSI     [   0x8F   ][   0x00   ]
-MISO     [ don't care ][ reg value ]
-
-0x8F = 가상 읽기 명령 0x80 | 레지스터 0x0F
-두 번째 바이트 0x00은 응답을 받기 위한 dummy 송신이다.
-읽을 값은 rx[1]이며 rx[0]은 무시한다.
-```
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/차량_통신/SPI/1.webp" href="/_images/차량_통신/SPI/1.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" alt src="/_images/차량_통신/SPI/1.webp" title="" class="lazyload" />
+<figcaption>SPI Mode 0의 가상 Register Read 예제. 0x8F = READ(0x80) \| Register(0x0F). CS를 유지한 채 0x00을 dummy로 송신해 rx[1]을 읽고 rx[0]은 무시한다. 실제 측정 파형이 아니며, 명령 형식과 응답 위치는 장치 데이터시트에 따른다.</figcaption>
+</figure>
+</a>
+</div>
+</div>
+</div>
 
 
 
@@ -173,10 +194,14 @@ AUTOSAR Spi는 Channel(데이터와 buffer), Job(CS 대상·통신 속성), Sequ
 
 ## 8. 오류별 점검과 검증 과제
 
-- 수신이 모두 0xFF: MISO 미연결·입력 mux·CS 미선택·전원·명령 형식을 확인한다. 모두 0x00도 실제 응답이라고 단정하지 않는다.
-- 일부 값이 1비트 이동: CPOL/CPHA, 첫 비트 setup, 마지막 edge를 확인한다. 모든 값의 바이트 순서가 바뀌면 frame size·MSB/LSB·CPU 메모리 byte order를 구분해 점검한다.
-- 저속 정상·고속 실패: SCK 주파수, 데이터 setup/hold, 레벨 시프터, 배선 ringing과 CS 지연을 측정한다. clock divider만 바꾸고 해결되었다고 끝내지 않는다.
-- 첫 transfer만 정상: FIFO 상태·오류 flag clear·PCS 해제·버퍼 재사용·비동기 완료 확인을 점검한다.
+
+| **증상**             | **확인 및 대응**                                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------------------------- |
+| **수신이 모두 0xFF**    | MISO 미연결·입력 mux·CS 미선택·전원·명령 형식을 확인한다. 모두 0x00도 실제 응답이라고 단정하지 않는다.                                        |
+| **일부 값이 1비트 이동**   | CPOL/CPHA, 첫 비트 setup, 마지막 edge를 확인한다. 모든 값의 바이트 순서가 바뀌면 frame size·MSB/LSB·CPU 메모리 byte order를 구분해 점검한다. |
+| **저속 정상·고속 실패**    | SCK 주파수, 데이터 setup/hold, 레벨 시프터, 배선 ringing과 CS 지연을 측정한다. clock divider만 바꾸고 해결되었다고 끝내지 않는다.              |
+| **첫 transfer만 정상** | FIFO 상태·오류 flag clear·PCS 해제·버퍼 재사용·비동기 완료 확인을 점검한다.                                                      |
+
 
 검증 과제: loopback으로 TX/RX 일치 확인 → 실제 장치 ID 읽기 → 읽기 전용·가역 설정 register 확인 → 반복 송수신 및 timeout 주입 → DMA 전환 순으로 진행한다. loopback 성공은 실제 장치의 명령·CS 조건을 검증하지 않는다. 결과에는 RTD 버전, pin mux, functional clock, SCK 실측값, CPOL/CPHA, PCS 파형과 송수신 바이트를 함께 기록한다.
 

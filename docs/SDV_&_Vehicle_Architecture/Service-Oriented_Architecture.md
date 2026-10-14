@@ -3,7 +3,7 @@ layout: default
 title: Service-Oriented Architecture
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 3
 parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/Service-Oriented_Architecture'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-SOA(Service-Oriented Architecture)는 기능을 명시적인 Interface와 계약으로 제공하는 설계 방식이다. 서비스 구현 위치와 사용자를 분리하되 Versioning·Discovery·Timeout·권한·실패 처리를 함께 정의한다.
+> SOA(Service-Oriented Architecture)는 기능을 명시적인 Interface와 계약으로 제공하는 설계 방식이다. 서비스 구현 위치와 사용자를 분리하되 Versioning·Discovery·Timeout·권한·실패 처리를 함께 정의한다.
 
 
 ## Communication Patterns

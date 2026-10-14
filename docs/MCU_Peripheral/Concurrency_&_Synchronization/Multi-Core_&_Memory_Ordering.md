@@ -3,7 +3,7 @@ layout: default
 title: Multi-Core & Memory Ordering
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 4
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Multi-Core_&_Memory_Ordering'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-멀티 코어에서는 로컬 IRQ 차단만으로 Shared State가 보호되지 않는다. atomicity, compiler/CPU ordering, cache coherence, 메모리 접근 속성과 ownership을 별도로 검토해야 한다. 아래 C11 예제는 같은 coherent 공유 메모리를 사용하는 C 실행 환경이 전제다. 별도 펌웨어가 도는 AMP MCU에 자동 적용되지 않는다.
+> 멀티 코어에서는 로컬 IRQ 차단만으로 Shared State가 보호되지 않는다. atomicity, compiler/CPU ordering, cache coherence, 메모리 접근 속성과 ownership을 별도로 검토해야 한다. 아래 C11 예제는 같은 coherent 공유 메모리를 사용하는 C 실행 환경이 전제다. 별도 펌웨어가 도는 AMP MCU에 자동 적용되지 않는다.
 
 
 ## SPSC Slot: Release / Acquire

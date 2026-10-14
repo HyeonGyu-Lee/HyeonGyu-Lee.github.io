@@ -3,7 +3,7 @@ layout: default
 title: Selenium
 has_children: false
 published_date: 2024-08-09-13-08-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 3
 parent: '기타'
 permalink: '/기타/Selenium'
@@ -14,13 +14,23 @@ redirect_from:
 ## 핵심 요약
 
 
-브라우저 검색 동작을 명시적 대기와 결과 assertion으로 검증하는 예제를 다룬다.
+> 브라우저 검색 동작을 명시적 대기와 결과 assertion으로 검증하는 예제를 다룬다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

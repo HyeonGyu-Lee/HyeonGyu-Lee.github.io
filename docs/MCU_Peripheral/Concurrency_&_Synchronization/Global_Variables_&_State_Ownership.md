@@ -3,7 +3,7 @@ layout: default
 title: Global Variables & State Ownership
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Global_Variables_&_State_Ownership'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-전역 상태는 어느 파일에서든 접근할 수 있게 만드는 대신, 쓰기 주체와 읽기 API를 정해 관리한다. 파일 범위 static으로 가시성을 제한해도 ISR이나 여러 task가 같은 상태에 접근하면 동기화가 필요하다.
+> 전역 상태는 어느 파일에서든 접근할 수 있게 만드는 대신, 쓰기 주체와 읽기 API를 정해 관리한다. 파일 범위 static으로 가시성을 제한해도 ISR이나 여러 task가 같은 상태에 접근하면 동기화가 필요하다.
 
 
 ## Single Owner Pattern
@@ -43,10 +43,14 @@ flowchart LR
 
 ## static·extern·const·volatile 구분
 
-- 파일 범위 static: 해당 translation unit 내부 연결을 갖는다. 함수 내부 static: 호출 사이에 값이 유지된다. 어느 쪽도 자동 thread-safe를 뜻하지 않는다.
-- extern: 다른 translation unit에 정의된 객체를 선언한다. 헤더에는 extern 선언, 한 소스 파일에 실체를 둔다. 여러 파일에 정의하거나 헤더에 mutable 전역 실체를 만들지 않는다.
-- const: 해당 접근 경로에서 수정을 제한한다. 스레드 동기화나 메모리 보호를 제공하지 않는다. 실제 ROM 배치는 linker·플랫폼에 따른다.
-- volatile: MMIO 등 지정된 접근을 컴파일러가 일반 변수처럼 생략·합치지 않도록 하는 용도다. atomicity·상호 배제·다른 데이터의 공개 순서·cache coherence를 보장하지 않는다.
+
+| **항목**           | **설명 및 적용 기준**                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------------------------------------ |
+| **파일 범위 static** | 해당 translation unit 내부 연결을 갖는다. 함수 내부 static: 호출 사이에 값이 유지된다. 어느 쪽도 자동 thread-safe를 뜻하지 않는다.                 |
+| **extern**       | 다른 translation unit에 정의된 객체를 선언한다. 헤더에는 extern 선언, 한 소스 파일에 실체를 둔다. 여러 파일에 정의하거나 헤더에 mutable 전역 실체를 만들지 않는다. |
+| **const**        | 해당 접근 경로에서 수정을 제한한다. 스레드 동기화나 메모리 보호를 제공하지 않는다. 실제 ROM 배치는 linker·플랫폼에 따른다.                                  |
+| **volatile**     | MMIO 등 지정된 접근을 컴파일러가 일반 변수처럼 생략·합치지 않도록 하는 용도다. atomicity·상호 배제·다른 데이터의 공개 순서·cache coherence를 보장하지 않는다.     |
+
 
 ## 전역 상태를 모듈로 감싸기
 

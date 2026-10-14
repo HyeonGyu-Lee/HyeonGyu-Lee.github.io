@@ -3,7 +3,7 @@ layout: default
 title: Watchdog & Reset Recovery
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 7
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Watchdog_&_Reset_Recovery'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-Watchdog은 software progress가 멈췄을 때 복구를 시작하는 수단이다. 무조건 주기적으로 feed하는 코드만 넣으면 일부 task가 멈춰도 fault를 숨길 수 있다.
+> Watchdog은 software progress가 멈췄을 때 복구를 시작하는 수단이다. 무조건 주기적으로 feed하는 코드만 넣으면 일부 task가 멈춰도 fault를 숨길 수 있다.
 
 
 ## Supervision Design

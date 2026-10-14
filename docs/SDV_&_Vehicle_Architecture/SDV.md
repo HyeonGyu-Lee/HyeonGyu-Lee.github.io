@@ -3,7 +3,7 @@ layout: default
 title: SDV
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/SDV'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-SDV(Software-Defined Vehicle)는 차량 기능을 소프트웨어로 지속적으로 개발·배포·관리할 수 있도록 하드웨어, 플랫폼, 서비스와 운영 체계를 설계하는 접근이다. ECU를 Linux 컴퓨터로 바꾸거나 OTA 기능 하나를 추가했다고 완성되는 것은 아니다.
+> SDV(Software-Defined Vehicle)는 차량 기능을 소프트웨어로 지속적으로 개발·배포·관리할 수 있도록 하드웨어, 플랫폼, 서비스와 운영 체계를 설계하는 접근이다. ECU를 Linux 컴퓨터로 바꾸거나 OTA 기능 하나를 추가했다고 완성되는 것은 아니다.
 
 
 ## System View

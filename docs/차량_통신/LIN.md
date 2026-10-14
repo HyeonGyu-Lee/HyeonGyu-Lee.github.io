@@ -3,7 +3,7 @@ layout: default
 title: LIN
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 4
 parent: '차량 통신'
 permalink: '/차량_통신/LIN'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-스케줄과 헤더·응답 역할을 중심으로 LIN의 저속 통신과 진단을 정리한다.
+> 스케줄과 헤더·응답 역할을 중심으로 LIN의 저속 통신과 진단을 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 LIN 2.x 및 ISO 17987 시리즈의 일반 개념. 프로젝트의 적용 판과 LDF·트랜시버 사양을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

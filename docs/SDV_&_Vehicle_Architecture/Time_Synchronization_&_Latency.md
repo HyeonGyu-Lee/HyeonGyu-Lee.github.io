@@ -3,7 +3,7 @@ layout: default
 title: Time Synchronization & Latency
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 5
 parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/Time_Synchronization_&_Latency'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-분산 시스템에서는 Clock Synchronization과 Latency Measurement를 구분해야 한다. 서로 다른 장치의 timestamp를 빼려면 clock offset과 오차를 알아야 한다. 같은 장치의 timeout에는 역행 가능한 wall clock보다 monotonic clock을 사용한다.
+> 분산 시스템에서는 Clock Synchronization과 Latency Measurement를 구분해야 한다. 서로 다른 장치의 timestamp를 빼려면 clock offset과 오차를 알아야 한다. 같은 장치의 timeout에는 역행 가능한 wall clock보다 monotonic clock을 사용한다.
 
 
 ## Timing Chain

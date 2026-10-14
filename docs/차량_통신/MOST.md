@@ -3,7 +3,7 @@ layout: default
 title: MOST
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 6
 parent: '차량 통신'
 permalink: '/차량_통신/MOST'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-차량 멀티미디어 네트워크의 대역폭·연결 관리 관점에서 MOST를 소개한다.
+> 차량 멀티미디어 네트워크의 대역폭·연결 관리 관점에서 MOST를 소개한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 MOST 세대와 사용하는 PHY·노드 제품을 먼저 확인한다. 현재 차량에 적용됐다는 의미는 아니다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

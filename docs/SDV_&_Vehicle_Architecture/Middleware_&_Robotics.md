@@ -3,7 +3,7 @@ layout: default
 title: Middleware & Robotics
 has_children: true
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 4
 parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-ROS 2는 Node·Topic·Service·Action과 실행·개발 도구를 제공하는 생태계다. DDS는 ROS 2에서 많이 사용하는 통신 기반이고 Zenoh는 Pub/Sub·Query 등을 제공하는 별도 통신 기술다. 셋을 같은 계층으로 비교하지 않는다.
+> ROS 2는 Node·Topic·Service·Action과 실행·개발 도구를 제공하는 생태계다. DDS는 ROS 2에서 많이 사용하는 통신 기반이고 Zenoh는 Pub/Sub·Query 등을 제공하는 별도 통신 기술다. 셋을 같은 계층으로 비교하지 않는다.
 
 
 ## Layer View

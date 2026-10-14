@@ -3,7 +3,7 @@ layout: default
 title: GPIO
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/GPIO'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-GPIO 설정은 핀 방향만 고르는 작업이 아니다. 주변장치 mux, 입력 경로, 출력 초기값, pull, 전기적 구동 능력과 인터럽트 조건을 회로에 맞춰 구성해야 한다.
+> GPIO 설정은 핀 방향만 고르는 작업이 아니다. 주변장치 mux, 입력 경로, 출력 초기값, pull, 전기적 구동 능력과 인터럽트 조건을 회로에 맞춰 구성해야 한다.
 
 
 ## S32K312 설정 순서

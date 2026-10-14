@@ -3,7 +3,7 @@ layout: default
 title: Zonal Architecture
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'E/E Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/E-E_Architecture/Zonal_Architecture'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-Zonal Architecture는 차량의 물리적 영역별로 I/O·전원 분배·네트워크 접속을 모으고 중앙 연산 자원과 연결하는 구조다. Zone Controller는 단순 CAN-to-Ethernet 변환기가 아니라 로컬 제어·상태 관리·진단·전원 제어를 맡을 수 있다.
+> Zonal Architecture는 차량의 물리적 영역별로 I/O·전원 분배·네트워크 접속을 모으고 중앙 연산 자원과 연결하는 구조다. Zone Controller는 단순 CAN-to-Ethernet 변환기가 아니라 로컬 제어·상태 관리·진단·전원 제어를 맡을 수 있다.
 
 
 ## Example Topology

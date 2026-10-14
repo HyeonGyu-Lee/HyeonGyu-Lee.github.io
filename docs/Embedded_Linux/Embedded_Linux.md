@@ -3,7 +3,7 @@ layout: default
 title: Embedded Linux
 has_children: true
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 9
 permalink: '/Embedded_Linux'
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 ## Overview
 
 
-AP에서 실행되는 Linux를 Boot·Process·Device Driver·IPC·Debugging 관점으로 학습한다. 명령어 목록만 외우기보다 애플리케이션 요청이 system call과 driver를 통해 하드웨어에 도달하는 경로를 이해한다.
+> AP에서 실행되는 Linux를 Boot·Process·Device Driver·IPC·Debugging 관점으로 학습한다. 명령어 목록만 외우기보다 애플리케이션 요청이 system call과 driver를 통해 하드웨어에 도달하는 경로를 이해한다.
 
 
 ## AP and MCU

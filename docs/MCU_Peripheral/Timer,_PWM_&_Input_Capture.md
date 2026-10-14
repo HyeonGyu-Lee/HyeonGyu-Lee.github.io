@@ -3,7 +3,7 @@ layout: default
 title: Timer, PWM & Input Capture
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 6
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Timer,_PWM_&_Input_Capture'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-Timer는 주기 작업·timeout·PWM·edge timestamp의 기반이다. S32K312에서 사용할 timer IP와 channel·pin은 RTD 예제와 Reference Manual로 확정한다. 서로 다른 timer의 prescaler·reload 의미를 혼용하지 않는다.
+> Timer는 주기 작업·timeout·PWM·edge timestamp의 기반이다. S32K312에서 사용할 timer IP와 channel·pin은 RTD 예제와 Reference Manual로 확정한다. 서로 다른 timer의 prescaler·reload 의미를 혼용하지 않는다.
 
 
 ## Calculation

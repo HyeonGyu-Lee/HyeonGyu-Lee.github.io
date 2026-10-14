@@ -3,7 +3,7 @@ layout: default
 title: Coding Test in C
 has_children: true
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 10
 permalink: '/Coding_Test_in_C'
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 ## Overview
 
 
-문제 조건을 자료구조·복잡도·경계 조건으로 바꾸는 연습을 한다. C에서는 알고리즘뿐 아니라 overflow·메모리 수명·배열 경계를 명확하게 관리해야 한다.
+> 문제 조건을 자료구조·복잡도·경계 조건으로 바꾸는 연습을 한다. C에서는 알고리즘뿐 아니라 overflow·메모리 수명·배열 경계를 명확하게 관리해야 한다.
 
 
 ## Learning Path

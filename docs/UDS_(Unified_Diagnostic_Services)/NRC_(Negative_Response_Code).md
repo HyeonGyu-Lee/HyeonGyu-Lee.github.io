@@ -3,7 +3,7 @@ layout: default
 title: NRC (Negative Response Code)
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 2
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/NRC_(Negative_Response_Code)'
@@ -14,13 +14,23 @@ redirect_from:
 ## 핵심 요약
 
 
-진단 요청에 대한 NRC를 해석하고 세션·입력·타이밍 조건을 비교해 원인을 좁힌다.
+> 진단 요청에 대한 NRC를 해석하고 세션·입력·타이밍 조건을 비교해 원인을 좁힌다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -40,12 +50,16 @@ UDS 부정 응답의 기본 구조는 0x7F, 원래 요청 SID, NRC다. 설명용
 
 ### 자주 확인하는 코드
 
-- 0x11 serviceNotSupported: 요청 서비스 지원 여부를 확인한다.
-- 0x12 subFunctionNotSupported: 해당 서비스의 하위 기능 지원 여부를 확인한다.
-- 0x13 incorrectMessageLengthOrInvalidFormat: 길이·필드·인코딩을 점검한다.
-- 0x22 conditionsNotCorrect: 서비스 수행에 필요한 조건을 확인한다.
-- 0x31 requestOutOfRange: 식별자·파라미터·허용 범위와 서비스별 규정을 확인한다.
-- 0x33 securityAccessDenied: 보안 접근 조건을 확인한다.
+
+| **항목**                                         | **설명 및 적용 기준**                 |
+| ---------------------------------------------- | ------------------------------ |
+| **0x11 serviceNotSupported**                   | 요청 서비스 지원 여부를 확인한다.            |
+| **0x12 subFunctionNotSupported**               | 해당 서비스의 하위 기능 지원 여부를 확인한다.     |
+| **0x13 incorrectMessageLengthOrInvalidFormat** | 길이·필드·인코딩을 점검한다.               |
+| **0x22 conditionsNotCorrect**                  | 서비스 수행에 필요한 조건을 확인한다.          |
+| **0x31 requestOutOfRange**                     | 식별자·파라미터·허용 범위와 서비스별 규정을 확인한다. |
+| **0x33 securityAccessDenied**                  | 보안 접근 조건을 확인한다.                |
+
 - 0x78 requestCorrectlyReceived-ResponsePending: 요청은 수신됐지만 최종 응답이 준비되지 않은 중간 상태다. 즉시 최종 실패로 집계하지 않는다.
 
 ### 0x78과 타임아웃 구분

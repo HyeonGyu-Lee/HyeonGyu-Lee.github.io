@@ -3,7 +3,7 @@ layout: default
 title: E/E Architecture
 has_children: true
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 2
 parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/E-E_Architecture'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-E/E(Electrical/Electronic) Architecture는 ECU·센서·Actuator·전원·네트워크의 배치와 역할을 정의한다. Distributed, Domain, Zonal은 설계 관점이며 실제 차량에는 혼합 구조가 흔하다.
+> E/E(Electrical/Electronic) Architecture는 ECU·센서·Actuator·전원·네트워크의 배치와 역할을 정의한다. Distributed, Domain, Zonal은 설계 관점이며 실제 차량에는 혼합 구조가 흔하다.
 
 
 ## Structural Comparison

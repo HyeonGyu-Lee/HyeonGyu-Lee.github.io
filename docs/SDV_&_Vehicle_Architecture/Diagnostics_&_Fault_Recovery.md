@@ -3,7 +3,7 @@ layout: default
 title: Diagnostics & Fault Recovery
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 7
 parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/Diagnostics_&_Fault_Recovery'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-분산 제어 시스템은 정상 데이터 경로뿐 아니라 fault 탐지·격리·복구·기록을 설계해야 한다. 로그가 있다는 사실과 시스템이 올바르게 복구된다는 사실은 다르다.
+> 분산 제어 시스템은 정상 데이터 경로뿐 아니라 fault 탐지·격리·복구·기록을 설계해야 한다. 로그가 있다는 사실과 시스템이 올바르게 복구된다는 사실은 다르다.
 
 
 ## Failure Handling

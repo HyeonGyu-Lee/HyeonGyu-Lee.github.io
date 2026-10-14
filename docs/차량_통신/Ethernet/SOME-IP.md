@@ -3,7 +3,7 @@ layout: default
 title: SOME-IP
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 5
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/SOME-IP'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-SOME/IP의 서비스·메서드·이벤트와 서비스 탐색을 정리한다.
+> SOME/IP의 서비스·메서드·이벤트와 서비스 탐색을 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 표기는 SOME/IP. AUTOSAR 적용 릴리스의 SOME/IP·SOME/IP-SD 규격과 deployment 설정을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

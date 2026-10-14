@@ -3,7 +3,7 @@ layout: default
 title: CAN FD
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 2
 parent: '차량 통신'
 permalink: '/차량_통신/CAN_FD'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-Classic CAN 대비 확장된 데이터 길이와 선택적인 데이터 구간 속도 전환을 이해한다.
+> Classic CAN 대비 확장된 데이터 길이와 선택적인 데이터 구간 속도 전환을 이해한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 CAN FD 공통 개념. 실제 허용 비트레이트·배선·혼합 노드 조건은 ISO 11898과 하드웨어 사양을 따른다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -282,10 +292,14 @@ int main(void) {
 
 ① Classical 8바이트, Nominal만 검증 → ② FD, BRS=0 검증 → ③ FD, BRS=1로 Data phase 검증 → ④ 12·16·32·64바이트 payload와 버퍼 경계 검증 → ⑤ bus load·온도·전압·배선 조건 확장 순으로 진행한다. 단계별 설정값·레지스터 readback·분석기 로그·TEC/REC와 TDC 상태를 함께 남긴다.
 
-- BRS=0도 실패: FD 모드·ISO/non-ISO·수신 노드 호환·메시지 버퍼 배치·Nominal 설정부터 확인한다.
-- BRS=0 정상, BRS=1 실패: 실제 f_CAN, Data 타이밍과 인코딩, TDC, 트랜시버 루프 지연 및 파형을 우선 확인한다.
-- 8바이트 정상, 긴 payload에서 실패: DLC 인코딩, MB payload 크기, stride, 수신 버퍼·상위 계층 길이, 오래된 데이터 패딩을 확인한다.
-- 전력 모드 전환 후 실패: 클록 소스·분주 변경 또는 정지 이후 CAN 타이밍 복구와 트랜시버 standby 해제를 확인한다.
+
+| **증상**                      | **확인 및 대응**                                                       |
+| --------------------------- | ----------------------------------------------------------------- |
+| **BRS=0도 실패**               | FD 모드·ISO/non-ISO·수신 노드 호환·메시지 버퍼 배치·Nominal 설정부터 확인한다.           |
+| **BRS=0 정상, BRS=1 실패**      | 실제 f_CAN, Data 타이밍과 인코딩, TDC, 트랜시버 루프 지연 및 파형을 우선 확인한다.           |
+| **8바이트 정상, 긴 payload에서 실패** | DLC 인코딩, MB payload 크기, stride, 수신 버퍼·상위 계층 길이, 오래된 데이터 패딩을 확인한다. |
+| **전력 모드 전환 후 실패**           | 클록 소스·분주 변경 또는 정지 이후 CAN 타이밍 복구와 트랜시버 standby 해제를 확인한다.           |
+
 
 ## S32K312: Classical에서 FD/BRS로 변경하는 설정 절차
 
@@ -303,21 +317,19 @@ S32K312와 설치한 S32K3 RTD 버전의 FlexCAN 예제를 기준으로 진행�
 ## S32K312: FD 변경 전후 체크리스트
 
 
-```text
-항목                   Classical 기준          FD 전환 후 확인
-Nominal bitrate        500 kbit/s 예시         같은 값 유지·재계산
-Data bitrate           사용하지 않음           2 Mbit/s 예시·실제값 확인
-FD enable              Off                     On
-프레임 FDF/EDL         Classical               FD
-BRS                    해당 없음               Off 검증 후 On
-payload 길이           최대 8 bytes            12/16/20/24/32/48/64 검증
-DLC                    0~8 길이와 동일         9~15 별도 길이 매핑
-MB 메모리              Classical 크기          payload 영역·수량·stride
-TDC                    Data phase 없음         실제 IP·드라이버 조건 확인
-트랜시버               Nominal 속도 확인       FD 속도·지연·파형 확인
-상위 계층              8바이트 가정 가능       CanIf/CanTp/앱 길이 점검
-```
-
+| **항목**              | **Classical 기준** | **FD 전환 후 확인**          |
+| ------------------- | ---------------- | ----------------------- |
+| **Nominal bitrate** | 500 kbit/s 예시    | 같은 값 유지·재계산             |
+| **Data bitrate**    | 사용하지 않음          | 2 Mbit/s 예시·실제값 확인      |
+| **FD enable**       | Off              | On                      |
+| **프레임 FDF/EDL**     | Classical        | FD                      |
+| **BRS**             | 해당 없음            | Off 검증 후 On             |
+| **payload 길이**      | 최대 8 bytes       | 12/16/20/24/32/48/64 검증 |
+| **DLC**             | 0~8 길이와 동일       | 9~15 별도 길이 매핑           |
+| **MB 메모리**          | Classical 크기     | payload 영역·수량·stride    |
+| **TDC**             | Data phase 없음    | 실제 IP·드라이버 조건 확인        |
+| **트랜시버**            | Nominal 속도 확인    | FD 속도·지연·파형 확인          |
+| **상위 계층**           | 8바이트 가정 가능       | CanIf/CanTp/앱 길이 점검     |
 
 
 80 MHz 계산 예제에서 Nominal은 BRP=8·20TQ로 500 kbit/s, Data는 BRP=2·20TQ로 2 Mbit/s다. 이것은 후보 계산 결과이며 S32K312용 드라이버의 허용 조합과 지연 조건을 통과했다는 의미는 아니다. 설정 도구가 prescaler/segment를 다른 값으로 표현하면 실제 물리값으로 환산해 비교한다.

@@ -3,7 +3,7 @@ layout: default
 title: ROS 2
 has_children: false
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'Middleware & Robotics'
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/ROS_2'
@@ -18,7 +18,7 @@ redirect_from:
 ## Overview
 
 
-ROS 2는 로봇·분산 시스템의 Node와 통신·도구를 제공한다. ROS 1과 달리 RMW 추상화와 분산 Discovery 등을 사용하지만 hard real-time이나 차량 Safety 적합성을 자동 보장하지 않는다. 새 학습은 ROS 2를 중심으로 하고 ROS 1은 기존 시스템 이관 시 별도로 비교한다.
+> ROS 2는 로봇·분산 시스템의 Node와 통신·도구를 제공한다. ROS 1과 달리 RMW 추상화와 분산 Discovery 등을 사용하지만 hard real-time이나 차량 Safety 적합성을 자동 보장하지 않는다. 새 학습은 ROS 2를 중심으로 하고 ROS 1은 기존 시스템 이관 시 별도로 비교한다.
 
 
 ## Node and Interface

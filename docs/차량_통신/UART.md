@@ -3,7 +3,7 @@ layout: default
 title: UART
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 13
 parent: '차량 통신'
 permalink: '/차량_통신/UART'
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-UART는 별도 클록선 없이 약속한 baudrate·data bits·parity·stop bits로 데이터를 주고받는 비동기 직렬 통신이다. 프레임 경계를 애플리케이션이 정의해야 하며, UART 전기 레벨과 RS-232/RS-485 물리 계층을 구분한다.
+> UART는 별도 클록선 없이 약속한 baudrate·data bits·parity·stop bits로 데이터를 주고받는 비동기 직렬 통신이다. 프레임 경계를 애플리케이션이 정의해야 하며, UART 전기 레벨과 RS-232/RS-485 물리 계층을 구분한다.
 
 
 ## S32K312 LPUART 설정 순서

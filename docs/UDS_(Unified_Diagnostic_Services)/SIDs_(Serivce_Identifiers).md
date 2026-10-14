@@ -3,7 +3,7 @@ layout: default
 title: SIDs (Serivce Identifiers)
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/SIDs_(Serivce_Identifiers)'
@@ -14,13 +14,23 @@ redirect_from:
 ## 핵심 요약
 
 
-UDS 서비스 식별자와 서비스별 요청·응답 개념을 정리한 문서다. 영문 표기는 Service Identifiers다.
+> UDS 서비스 식별자와 서비스별 요청·응답 개념을 정리한 문서다. 영문 표기는 Service Identifiers다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 규격·도구 버전에 따른 동작 차이를 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

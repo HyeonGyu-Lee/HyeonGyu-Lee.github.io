@@ -3,7 +3,7 @@ layout: default
 title: DoIP
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 6
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/DoIP'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-IP 네트워크에서 진단 장비·게이트웨이·ECU 사이의 진단 전달을 이해한다.
+> IP 네트워크에서 진단 장비·게이트웨이·ECU 사이의 진단 전달을 이해한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 ISO 13400 시리즈의 적용 판과 ECU 논리 주소·라우팅 정책을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

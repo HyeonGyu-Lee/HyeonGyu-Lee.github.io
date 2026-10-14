@@ -3,7 +3,7 @@ layout: default
 title: CAN
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 1
 parent: '차량 통신'
 permalink: '/차량_통신/CAN'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-공유 버스에서 식별자 기반 중재로 메시지를 전송하는 CAN의 프레임·신호·오류 처리를 정리한다.
+> 공유 버스에서 식별자 기반 중재로 메시지를 전송하는 CAN의 프레임·신호·오류 처리를 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 Classic CAN의 일반 개념. ISO 11898 시리즈의 적용 판과 트랜시버 사양을 별도로 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -171,11 +181,15 @@ SJW = 4 TQ → 최대 재동기화 조정 폭 400 ns
 
 ## 클록과 초기화에서 확인할 설정값
 
-- 클록 소스: 외부 발진기·PLL 파생 클록 등에서 CAN 프로토콜 엔진의 소스를 선택한다. S32K1xx에서는 PCC와 CTRL1.CLKSRC 등의 관계를, 다른 계열에서는 해당 클록 멀티플렉서와 divider를 확인한다. 동일 레지스터 명칭이 다른 계열에도 있다고 가정하지 않는다.
-- 상위 분주비: CAN 클록이 이미 80 MHz로 설정되었다면 계산기에 CPU 160 MHz를 다시 넣지 않는다. 예를 들어 상위에서 160 MHz/2, 비트 prescaler에서 /8이면 TQ는 100 ns다.
-- 모드 변경: 해당 매뉴얼 순서에 따라 모듈 활성화와 freeze 진입 확인 후 타이밍·메시지 버퍼를 구성한다. 동작 중 타이밍 변경을 피하고 freeze 진입·해제는 timeout을 둔 상태 비트 polling으로 확인한다.
-- 핀·트랜시버: TX/RX mux, 트랜시버 enable/standby, 전원·접지·종단 저항을 확인한다. 컨트롤러 설정만으로 외부 트랜시버가 자동 활성화되지는 않는다.
-- 수신 설정: ID 표준/확장 구분, 개별/전역 acceptance mask, FIFO 또는 메시지 버퍼 배치, 인터럽트 활성화와 상태 flag 처리 순서를 확인한다.
+
+| **항목**     | **설명 및 적용 기준**                                                                                                                                          |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **클록 소스**  | 외부 발진기·PLL 파생 클록 등에서 CAN 프로토콜 엔진의 소스를 선택한다. S32K1xx에서는 PCC와 CTRL1.CLKSRC 등의 관계를, 다른 계열에서는 해당 클록 멀티플렉서와 divider를 확인한다. 동일 레지스터 명칭이 다른 계열에도 있다고 가정하지 않는다. |
+| **상위 분주비** | CAN 클록이 이미 80 MHz로 설정되었다면 계산기에 CPU 160 MHz를 다시 넣지 않는다. 예를 들어 상위에서 160 MHz/2, 비트 prescaler에서 /8이면 TQ는 100 ns다.                                           |
+| **모드 변경**  | 해당 매뉴얼 순서에 따라 모듈 활성화와 freeze 진입 확인 후 타이밍·메시지 버퍼를 구성한다. 동작 중 타이밍 변경을 피하고 freeze 진입·해제는 timeout을 둔 상태 비트 polling으로 확인한다.                                  |
+| **핀·트랜시버** | TX/RX mux, 트랜시버 enable/standby, 전원·접지·종단 저항을 확인한다. 컨트롤러 설정만으로 외부 트랜시버가 자동 활성화되지는 않는다.                                                                   |
+| **수신 설정**  | ID 표준/확장 구분, 개별/전역 acceptance mask, FIFO 또는 메시지 버퍼 배치, 인터럽트 활성화와 상태 flag 처리 순서를 확인한다.                                                                   |
+
 
 ## CAN 속도 변경 시 함께 바꿀 항목
 
@@ -219,19 +233,17 @@ SocketCAN의 sample-point는 80%가 아니라 0.800 형식이다. 커널이 실�
 ## S32K312: 코드 생성 전후 비교할 설정표
 
 
-```text
-항목                  설정 도구/설계 값          생성 코드·실측 확인
-MCU/드라이버          S32K312 / 설치 RTD 버전   프로젝트와 헤더 버전
-CAN 입력 클록         실제 clock tree 값       source·divider·gate
-Nominal bitrate       예: 500000 bit/s         BRP와 SEG로 역산
-Nominal sample point  예: 80%                  (1+TSEG1)/N_TQ
-SJW                   실제 TQ                  필드 범위·SEG 제약
-타이밍 경로           드라이버 선택값           실제 활성 레지스터 경로
-TX/RX pin             회로도 기준               출력 mux·입력 선택
-transceiver           부품·전원·EN/STB          상태 핀·버스 파형
-RX mask/MB            ID/길이/버퍼 구성          실수신·오버런·IRQ
-```
-
+| **항목**                   | **설정 도구/설계 값**      | **생성 코드·실측 확인**     |
+| ------------------------ | ------------------- | ------------------- |
+| **MCU/드라이버**             | S32K312 / 설치 RTD 버전 | 프로젝트와 헤더 버전         |
+| **CAN 입력 클록**            | 실제 clock tree 값     | source·divider·gate |
+| **Nominal bitrate**      | 예: 500000 bit/s     | BRP와 SEG로 역산        |
+| **Nominal sample point** | 예: 80%              | (1+TSEG1)/N_TQ      |
+| **SJW**                  | 실제 TQ               | 필드 범위·SEG 제약        |
+| **타이밍 경로**               | 드라이버 선택값            | 실제 활성 레지스터 경로       |
+| **TX/RX pin**            | 회로도 기준              | 출력 mux·입력 선택        |
+| **transceiver**          | 부품·전원·EN/STB        | 상태 핀·버스 파형          |
+| **RX mask/MB**           | ID/길이/버퍼 구성         | 실수신·오버런·IRQ         |
 
 
 앞의 CTRL1·CBT 설명 중 S32K1xx 예시는 레지스터 인코딩 차이를 설명하기 위한 비교다. S32K312에 쓸 최종 레지스터 주소·값을 뜻하지 않는다. S32K312 Reference Manual, silicon revision의 errata, 설치 RTD의 release note와 생성 설정을 기준으로 허용 범위를 확정한다.
@@ -243,15 +255,12 @@ RX mask/MB            ID/길이/버퍼 구성          실수신·오버런·IRQ
 S32K312 RTD 프로젝트에서 CAN 구현을 보드 초기화, transport driver, frame dispatcher, 애플리케이션 상태로 분리한다. FlexCAN IP와 AUTOSAR Can/CanIf를 혼합 소유하지 않는다. 아래 board_can_*는 설명용 추상화이며 실제 RTD API와 일치하는 코드가 아니다.
 
 
-```text
-Clock/Pin/Transceiver 초기화
-        ↓
-FlexCAN 초기화 → RX buffer 준비 → 정상 모드 진입
-        ↓
-RX IRQ/완료 → frame 복사/소유권 전달 → RX queue → task parser
-TX task → TX queue → 빈 MB 배정 → 전송 시작 → TX 완료 → MB 반환
-        ↓
-오류 상태 기록 → bus-off 복구 정책 → 상위 통신 상태 갱신
+```mermaid
+flowchart TD
+ A["Clock / Pin / Transceiver 초기화"] --> B["FlexCAN 초기화"] --> C["RX buffer 준비"] --> D["정상 모드 진입"]
+ D --> R["RX IRQ / 완료"] --> O["Frame 복사 또는 Ownership 전달"] --> Q["RX queue"] --> P["Task parser"]
+ D --> T["TX task"] --> TQ["TX queue"] --> M["빈 MB 배정"] --> X["전송 시작"] --> F["TX 완료"] --> FREE["MB 반환"]
+ D -. 오류 발생 .-> E["오류 상태 기록"] --> BO["Bus-off 복구 정책"] --> U["상위 통신 상태 갱신"]
 ```
 
 

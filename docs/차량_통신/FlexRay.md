@@ -3,7 +3,7 @@ layout: default
 title: FlexRay
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 5
 parent: '차량 통신'
 permalink: '/차량_통신/FlexRay'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-시간 기반 슬롯과 네트워크 동기화를 중심으로 FlexRay의 통신 구조를 정리한다.
+> 시간 기반 슬롯과 네트워크 동기화를 중심으로 FlexRay의 통신 구조를 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 ISO 17458 시리즈와 프로젝트 클러스터 설정을 기준으로 세부 조건을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

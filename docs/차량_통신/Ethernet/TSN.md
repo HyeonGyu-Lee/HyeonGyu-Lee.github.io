@@ -3,7 +3,7 @@ layout: default
 title: TSN
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 7
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/TSN'
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-시간 동기화와 큐·스케줄·자원 관리를 통해 Ethernet의 시간 특성을 다루는 TSN 기능을 정리한다.
+> 시간 동기화와 큐·스케줄·자원 관리를 통해 Ethernet의 시간 특성을 다루는 TSN 기능을 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 IEEE 802.1 표준 기능별 적용과 자동차 프로파일을 구분한다. 모든 TSN 기능의 지원을 가정하지 않는다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문

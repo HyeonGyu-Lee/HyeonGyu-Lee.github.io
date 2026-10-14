@@ -3,7 +3,7 @@ layout: default
 title: SDV & Vehicle Architecture
 has_children: true
 published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 8
 permalink: '/SDV_&_Vehicle_Architecture'
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 ## Overview
 
 
-차량 구조, Service 설계, Middleware, 배포·운영을 연결하는 학습 경로다. 기존 차량 통신 문서의 CAN·Ethernet·SOME/IP·TSN은 전송과 설정을 다루고, 이 목차는 시스템 전체에서 어떤 역할로 조합하는지 다룬다. S32K312는 MCU 주변 제어 예시이며 Linux·ROS 2 실행 환경과 동일하다고 가정하지 않는다.
+> 차량 구조, Service 설계, Middleware, 배포·운영을 연결하는 학습 경로다. 기존 차량 통신 문서의 CAN·Ethernet·SOME/IP·TSN은 전송과 설정을 다루고, 이 목차는 시스템 전체에서 어떤 역할로 조합하는지 다룬다. S32K312는 MCU 주변 제어 예시이며 Linux·ROS 2 실행 환경과 동일하다고 가정하지 않는다.
 
 
 ## Learning Path

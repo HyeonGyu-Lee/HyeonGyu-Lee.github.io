@@ -3,7 +3,7 @@ layout: default
 title: OSP
 has_children: false
 published_date: 2026-10-14-13-10-00
-last_modified_date: 2026-10-14-16-10-00
+last_modified_date: 2026-10-14-22-10-00
 nav_order: 12
 parent: '차량 통신'
 permalink: '/차량_통신/OSP'
@@ -18,28 +18,34 @@ redirect_from:
 ## 핵심 요약
 
 
-OSP(Open System Protocol)는 ams OSRAM의 RGB 조명·지능형 드라이버 노드를 daisy chain으로 제어하는 통신 프로토콜이다. LED 밝기 값을 쓰는 것뿐 아니라 노드 초기화·주소 할당·상태 조회·오류 처리까지 포함한다. SPI는 MCU 측 전송 수단으로 사용될 수 있지만 OSP 전체를 일반적인 CS/MOSI/MISO 방식의 SPI 장치로 취급해서는 안 된다.
+> OSP(Open System Protocol)는 ams OSRAM의 RGB 조명·지능형 드라이버 노드를 daisy chain으로 제어하는 통신 프로토콜이다. LED 밝기 값을 쓰는 것뿐 아니라 노드 초기화·주소 할당·상태 조회·오류 처리까지 포함한다. SPI는 MCU 측 전송 수단으로 사용될 수 있지만 OSP 전체를 일반적인 CS/MOSI/MISO 방식의 SPI 장치로 취급해서는 안 된다.
 
 
 ## 적용 범위와 하드웨어 구분
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
 이 문서는 OSRAM RGB 구동 경험과 관련한 학습 자료다. 실제 사용한 LED·보드·라이브러리가 확인되기 전이므로 특정 제품을 사용했다고 단정하지 않는다. 공개 구현의 대표 노드는 RGB가 내장된 OSIRE E3731i(RGBi), 외부 LED를 구동하는 AS1163(SAID)이다. 아래 제조사 예제는 OSP32/Arduino 기반이며 S32K312에 바로 빌드되는 코드는 아니다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 1. 시스템 구성과 계층
 
 
-```text
-애플리케이션: 색상·밝기·애니메이션·진단 정책
-          ↓
-OSP 명령: RESET / INIT / 상태 조회 / PWM 설정
-          ↓
-Telegram: 주소·명령·길이·payload·CRC
-          ↓
-MCU 전송 계층: 송신, 응답 수신, 방향 제어, timeout
-          ↓
-물리 인터페이스 → 첫 OSP 노드 → 다음 노드 → … → 마지막 노드
+```mermaid
+flowchart TD
+ A["Application: 색상 / 밝기 / Animation / 진단 정책"] --> B["OSP Command: RESET / INIT / 상태 조회 / PWM"]
+ B --> C["Telegram: 주소 / 명령 / 길이 / Payload / CRC"]
+ C --> D["MCU Transport: 송신 / 응답 수신 / 방향 제어 / Timeout"]
+ D --> E["물리 인터페이스"] --> N1["첫 OSP 노드"] --> N2["다음 노드"] --> NN["… 마지막 노드"]
 ```
 
 
@@ -215,11 +221,15 @@ CRC 일치만으로 응답이 올바른 것은 아니다. 최소 길이, preambl
 
 ## 9. 증상별 디버깅
 
-- RESET이 다음 노드로 전달되지 않음: MCU mode A/B, I/O 전압·pull, 출력 enable, 인코딩과 SCK, telegram gap·CRC를 확인한다.
-- 송신은 보이나 응답 없음: BiDir/Loop 배선, 수신 MUX·입력 mode, 수신 준비 시점, 노드가 응답을 생성하는 명령인지 확인한다. 임의의 dummy clock 추가로 해결하려 하지 않는다.
-- INIT 응답의 마지막 주소가 예상보다 작음: 노드별 전달 파형과 전원을 따라가며 체인 단절·방향·부품 모드 차이를 확인한다.
-- 응답은 정상인데 LED가 꺼짐: ACTIVE/SLEEP 상태, trap된 오류, 채널 번호·전류·PWM 값, 실제 RGB 배선과 노드 종류를 확인한다.
-- 첫 노드는 정상이고 긴 체인에서 실패: hop에 따른 timeout, 전원 강하, 신호 품질, 노드 버전별 명령·payload 지원 차이를 확인한다. 공개 예제에는 구형 OSP 노드가 PSI=5 telegram을 전달하지 않는 사례도 있다.
+
+| **증상**                       | **확인 및 대응**                                                                                                      |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **RESET이 다음 노드로 전달되지 않음**    | MCU mode A/B, I/O 전압·pull, 출력 enable, 인코딩과 SCK, telegram gap·CRC를 확인한다.                                          |
+| **송신은 보이나 응답 없음**            | BiDir/Loop 배선, 수신 MUX·입력 mode, 수신 준비 시점, 노드가 응답을 생성하는 명령인지 확인한다. 임의의 dummy clock 추가로 해결하려 하지 않는다.                |
+| **INIT 응답의 마지막 주소가 예상보다 작음** | 노드별 전달 파형과 전원을 따라가며 체인 단절·방향·부품 모드 차이를 확인한다.                                                                     |
+| **응답은 정상인데 LED가 꺼짐**         | ACTIVE/SLEEP 상태, trap된 오류, 채널 번호·전류·PWM 값, 실제 RGB 배선과 노드 종류를 확인한다.                                               |
+| **첫 노드는 정상이고 긴 체인에서 실패**     | hop에 따른 timeout, 전원 강하, 신호 품질, 노드 버전별 명령·payload 지원 차이를 확인한다. 공개 예제에는 구형 OSP 노드가 PSI=5 telegram을 전달하지 않는 사례도 있다. |
+
 
 ## 10. 실습 결과 기록
 
