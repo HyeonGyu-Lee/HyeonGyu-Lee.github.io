@@ -1,30 +1,42 @@
 ---
 layout: default
-title: CAN
+title: "CAN"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:52:00.000Z
 nav_order: 1
-parent: '차량 통신'
+parent: "차량 통신"
 permalink: '/차량_통신/CAN'
 redirect_from:
- - /3f71b412900a81f7b0bbfba3a142389f
- - /undefined
+ - "/3f71b412900a81f7b0bbfba3a142389f"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
-공유 버스에서 식별자 기반 중재로 메시지를 전송하는 CAN의 프레임·신호·오류 처리를 정리한다.
+> 공유 버스에서 식별자 기반 중재로 메시지를 전송하는 CAN의 프레임·신호·오류 처리를 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 Classic CAN의 일반 개념. ISO 11898 시리즈의 적용 판과 트랜시버 사양을 별도로 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -88,7 +100,6 @@ cansend vcan0 123#11223344
 ```
 
 
-
 수신 로그에서 ID 0x123과 데이터 11 22 33 44를 확인한다. 응용 신호 정의가 없다면 이 데이터를 온도·속도 등으로 임의 해석하지 않는다.
 
 
@@ -98,14 +109,28 @@ cansend vcan0 123#11223344
 예제 신호 정의는 첫 2바이트 unsigned little-endian, factor 0.1, offset -40이다. Raw 0x012C는 300이고 물리값은 -10이다.
 
 
-```python
-payload = bytes.fromhex("2C01")
-raw = int.from_bytes(payload[:2], "little", signed=False)
-physical = raw * 0.1 - 40
-assert physical == -10
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+int main(void) {
+ const uint8_t payload[] = {0x2C, 0x01};
+ uint16_t raw = (uint16_t)payload[0] | ((uint16_t)payload[1] << 8);
+ /* 0.1 단위 고정소수점: physical = raw*0.1 - 40 */
+ int32_t physical_tenths = (int32_t)raw - 400;
+ assert(physical_tenths == -100);
+ printf("physical = %.1f\n", physical_tenths / 10.0);
+ return 0;
+}
 ```
-
 
 
 신호 정의와 실제 로그의 바이트 순서·단위를 먼저 대조한다. Raw 최소·최대값과 무효값 처리를 추가해 시험한다.
 
+
+## MCU 구현과의 연결
+
+
+차량 네트워크에서는 ECU 간 메시지 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN Bit Timing & FlexCAN](https://autosar.dev/3f91b412900a819aacb9e115a3cb0ba0) 문서에서 별도로 다룬다.

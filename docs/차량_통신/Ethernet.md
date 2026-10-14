@@ -1,30 +1,42 @@
 ---
 layout: default
-title: Ethernet
+title: "Ethernet"
 has_children: true
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:55:00.000Z
 nav_order: 7
-parent: '차량 통신'
+parent: "차량 통신"
 permalink: '/차량_통신/Ethernet'
 redirect_from:
- - /3f71b412900a817b9e99f6616ada2231
- - /undefined
+ - "/3f71b412900a817b9e99f6616ada2231"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
-자동차 Ethernet의 PHY·프레임·스위칭과 IP 상위 프로토콜을 구분해 정리한다.
+> 자동차 Ethernet의 PHY·프레임·스위칭과 IP 상위 프로토콜을 구분해 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 IEEE 802.3 물리·MAC 계층과 IEEE 802.1 기능을 구분한다. 실제 구현 규격과 PHY 데이터시트를 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -84,7 +96,6 @@ sudo tcpdump -i eth0 -nn -s0 -w capture.pcap
 ```
 
 
-
 Link 상태와 주소·경로를 먼저 확인하고, 캡처에서 실제 요청·응답을 분석한다. Ping 성공은 서비스 정상 동작을 입증하지 않으며 ICMP를 차단하는 장치의 무응답도 link 실패와 구분한다.
 
 
@@ -93,3 +104,11 @@ Link 상태와 주소·경로를 먼저 확인하고, 캡처에서 실제 요청
 
 Link는 up인데 서비스가 보이지 않는 경우 VLAN·subnet·routing·multicast 설정 → transport 포트 → 서비스 제공 상태 순서로 확인한다. 스위치 포트 카운터와 송수신 캡처를 비교해 손실 지점을 좁힌다.
 
+
+## 차량 Network 설계 관점
+
+
+차량 Ethernet에서는 backbone/zone topology, link speed와 cable·connector·EMC, switch forwarding/VLAN, traffic priority, time synchronization, startup/recovery를 함께 검토한다. PHY link up, IP 설정, service discovery와 application readiness를 각각 구분한다.
+
+
+100BASE-T1·1000BASE-T1·10BASE-T1S 같은 매체 규격은 MCU MAC과 PHY 사이의 MII/RMII/RGMII interface와 구분한다. ECU 내부 MAC의 descriptor ring·DMA·cache 처리는 MCU Peripheral의 Ethernet MAC & DMA 문서에서 다룬다.

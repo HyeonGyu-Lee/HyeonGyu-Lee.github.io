@@ -1,16 +1,16 @@
 ---
 layout: default
-title: 100BASE-T1
+title: "100BASE-T1"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 2
-parent: 'Ethernet'
+parent: "Ethernet"
 permalink: '/차량_통신/Ethernet/100BASE-T1'
 redirect_from:
- - /3f71b412900a81ceaab7c7b0679fd3b0
- - /undefined
+ - "/3f71b412900a81ceaab7c7b0679fd3b0"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-단일 twisted pair의 100 Mbit/s point-to-point full-duplex 링크를 정리한다.
+> 단일 twisted pair의 100 Mbit/s point-to-point full-duplex 링크를 정리한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 IEEE 802.3bw-2015와 적용 PHY·케이블 사양을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -76,4 +86,3 @@ iperf3 -c 192.168.10.2 -u -b 20M -t 30
 
 
 이 시험의 throughput·loss·jitter 결과는 PHY 적합성 인증을 대신하지 않는다. 전원 재인가와 cable reconnect 후 link 복구와 서비스 복구 시간을 따로 확인한다.
-

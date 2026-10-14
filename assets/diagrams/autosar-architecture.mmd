@@ -1,0 +1,26 @@
+flowchart TB
+ APP["Application · Software Components / Ports"]
+ RTE["RTE · Generated communication and access"]
+ subgraph BSW["Basic Software"]
+ SVC["Services · OS / Communication / Diagnostics / Memory / Crypto"]
+ DCM["Dcm · Diagnostic services"]
+ ECU["ECU Abstraction · Board / Device abstraction"]
+ MCAL["MCAL · MCU peripheral drivers"]
+ CDD["Complex Drivers · Specialized hardware access"]
+ SVC --> ECU --> MCAL
+ SVC --- DCM
+ end
+ HW["Microcontroller / ECU Hardware"]
+ APP <--> RTE
+ RTE <--> SVC
+ RTE -. "Project-specific interface" .-> CDD
+ MCAL <--> HW
+ CDD <--> HW
+ classDef application fill:#e3f3ec,stroke:#237858,color:#173e2f
+ classDef rte fill:#fff3d8,stroke:#b98022,color:#51380e
+ classDef bsw fill:#e9efff,stroke:#607bb5,color:#243b60
+ classDef hardware fill:#edf1f4,stroke:#738594,color:#233848
+ class APP application
+ class RTE rte
+ class SVC,ECU,MCAL,CDD,DCM bsw
+ class HW hardware

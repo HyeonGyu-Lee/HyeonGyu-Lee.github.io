@@ -1,26 +1,37 @@
 ---
 layout: default
-title: Configure Parameters
+title: "AUTOSAR Configuration"
 has_children: true
-published_date: 2024-06-05-12-06-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2024-06-05T03:53:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
 nav_order: 8
-parent: 'Classic AUTOSAR'
-permalink: '/AUTOSAR/Classic_AUTOSAR/Configure_Parameters'
+parent: "Classic AUTOSAR"
+permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration'
 redirect_from:
- - /2efdf43930e745af87fb1b1e97c47015
- - /undefined
+ - "/2efdf43930e745af87fb1b1e97c47015"
+ - "/AUTOSAR/Classic_AUTOSAR/Configure_Parameters"
 ---
+
 ## 핵심 요약
 
 
-설정 변경을 생성 결과·빌드·런타임 시험으로 검증하고 변경 영향을 기록한다.
+> 설정 변경을 생성 결과·빌드·런타임 시험으로 검증하고 변경 영향을 기록한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -83,4 +94,3 @@ redirect_from:
 
 
 타이밍을 바꾸는 경우 ECU 처리 시간과 tester의 timeout도 함께 확인한다. 다른 릴리스의 비슷한 파라미터명을 그대로 복사하지 않는다.
-

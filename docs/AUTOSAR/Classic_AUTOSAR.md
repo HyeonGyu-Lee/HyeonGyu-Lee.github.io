@@ -1,26 +1,36 @@
 ---
 layout: default
-title: Classic AUTOSAR
+title: "Classic AUTOSAR"
 has_children: true
-published_date: 2024-06-03-08-06-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2024-06-02T23:57:00.000Z
+last_modified_date: 2026-10-14T14:00:00.000Z
 nav_order: 1
-parent: 'AUTOSAR'
+parent: "AUTOSAR"
 permalink: '/AUTOSAR/Classic_AUTOSAR'
 redirect_from:
- - /60a1016be7be4a4082033eabd928f106
- - /undefined
+ - "/60a1016be7be4a4082033eabd928f106"
 ---
+
 ## 핵심 요약
 
 
-Classic AUTOSAR의 계층, 모듈과 설정을 학습하기 위한 진입 문서다.
+> Classic AUTOSAR의 계층, 모듈과 설정을 학습하기 위한 진입 문서다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -35,7 +45,7 @@ Classic AUTOSAR의 계층, 모듈과 설정을 학습하기 위한 진입 문서
 > Classic AUTOSAR는 Layered Architecture로 구성되어 있으며, 주요 계층은 Application Layer, Runtime Environment (RTE), Basic Software (BSW), 그리고 Microcontroller로 나눌 수 있습니다. 각 계층은 특정한 역할과 기능을 가지고 있으며, 서로 독립적으로 동작할 수 있도록 설계되어 있습니다.
 
 
-<div class="canvas-container"><canvas id="autosarCanvas"></canvas></div>
+{% include components/autosar-map.html %}
 
 
 ---
@@ -50,7 +60,7 @@ Classic AUTOSAR의 계층, 모듈과 설정을 학습하기 위한 진입 문서
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br>ASW는 **SW-C(Software Component)**의 집합으로 구성되어 있다.
@@ -403,4 +413,3 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 
 
 > 마이크로컨트롤러는 ECU의 중심 처리 장치로, 모든 소프트웨어 계층이 직접적으로 상호작용하는 하드웨어입니다.
-

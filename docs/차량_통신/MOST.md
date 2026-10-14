@@ -1,16 +1,16 @@
 ---
 layout: default
-title: MOST
+title: "MOST"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 6
-parent: '차량 통신'
+parent: "차량 통신"
 permalink: '/차량_통신/MOST'
 redirect_from:
- - /3f71b412900a81e1984edd688374dd6d
- - /undefined
+ - "/3f71b412900a81e1984edd688374dd6d"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -18,13 +18,23 @@ redirect_from:
 ## 핵심 요약
 
 
-차량 멀티미디어 네트워크의 대역폭·연결 관리 관점에서 MOST를 소개한다.
+> 차량 멀티미디어 네트워크의 대역폭·연결 관리 관점에서 MOST를 소개한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 MOST 세대와 사용하는 PHY·노드 제품을 먼저 확인한다. 현재 차량에 적용됐다는 의미는 아니다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -71,4 +81,3 @@ Ethernet 기반 미디어 전송과 비교할 때 세대·기능·토폴로지·
 
 
 프로토콜 분석 장비의 설정과 원본 캡처를 보존하고, 실제 제품의 MOST 세대와 PHY에 맞는 시험 절차를 사용한다.
-

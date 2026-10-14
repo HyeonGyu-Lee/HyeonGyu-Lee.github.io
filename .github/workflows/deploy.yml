@@ -7,6 +7,9 @@
 name: Deploy Jekyll site to Pages
 
 on:
+  push:
+    branches: [main]
+
   repository_dispatch:
     types: [ RUN_WORKFLOW_DISPATCH_NEXT ]
 
@@ -44,6 +47,12 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Verify portfolio assets
+        run: |
+          test -s _site/assets/fonts/noto-sans-kr.woff2
+          test -s _site/assets/css/portfolio.css
+          grep -q 'class="portfolio-hero"' _site/index.html
+          grep -q 'portfolio.css?v=' _site/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
 

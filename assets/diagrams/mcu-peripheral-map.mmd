@@ -1,0 +1,64 @@
+flowchart LR
+%% MCU_PERIPHERAL_MAP
+ BASE["기반 설정 · Clock / Reset / Pin Mux / 전압 / Reference"]
+ subgraph INPUT["입력과 측정"]
+ direction TB
+ GPIO["GPIO · Digital Input / Output"]
+ ADC["ADC · Analog Sampling"]
+ BUTTON["Button Input & Debounce"]
+ POT["가변저항 · Wiper 전압 측정"]
+ TOUCH["Touch Pad · 정전용량 측정 / 판정"]
+ GPIO --> BUTTON
+ ADC --> POT
+ GPIO -. "측정 방식에 따라" .-> TOUCH
+ ADC -. "ADC 기반 방식" .-> TOUCH
+ end
+ subgraph OUTPUT["시간과 출력"]
+ direction TB
+ TIMER["Timer/Counter · Input Capture"]
+ PWM["PWM · Frequency / Duty"]
+ LED["LED · On / Off"]
+ DIM["LED 밝기 · PWM / Driver"]
+ TIMER --> PWM --> DIM
+ end
+ subgraph COMM["통신 Controller"]
+ direction TB
+ SPI["SPI · LPSPI"]
+ I2C["I2C · SDA / SCL"]
+ UART["UART · LPUART"]
+ CAN["CAN Controller · FlexCAN"]
+ ETH["Ethernet MAC · DMA / PHY Interface"]
+ end
+ BASE --> GPIO
+ BASE --> ADC
+ BASE --> TIMER
+ BASE --> SPI
+ BASE --> I2C
+ BASE --> UART
+ BASE --> CAN
+ BASE --> ETH
+ GPIO --> LED
+ TIMER -. "RC 시간 측정 방식" .-> TOUCH
+ I2C -. "외부 Touch IC" .-> TOUCH
+ subgraph SUPPORT["실행 · 데이터 · 복구"]
+ IRQ["Interrupt & ISR"]
+ DMA["DMA & Buffer Ownership"]
+ SYNC["Concurrency & Synchronization"]
+ WD["Watchdog & Reset Recovery"]
+ MEM["Memory Architecture"]
+ BOOT["Security & Boot"]
+ end
+ TIMER -. "Event" .-> IRQ
+ SPI -. "지원 시 전송" .-> DMA
+ ETH -. "Descriptor / Buffer" .-> DMA
+ IRQ --> SYNC
+ DMA --> MEM
+ WD --> BOOT
+ classDef base fill:#edf2f7,stroke:#64748b,color:#17232e
+ classDef peripheral fill:#e6f4ee,stroke:#17805c,color:#123b2c
+ classDef use fill:#fff4dc,stroke:#c88a24,color:#63410c
+ classDef support fill:#edf0ff,stroke:#6675ad,color:#29365d
+ class BASE base
+ class GPIO,ADC,TIMER,PWM,SPI,I2C,UART,CAN,ETH peripheral
+ class BUTTON,POT,TOUCH,LED,DIM use
+ class IRQ,DMA,SYNC,WD,MEM,BOOT support

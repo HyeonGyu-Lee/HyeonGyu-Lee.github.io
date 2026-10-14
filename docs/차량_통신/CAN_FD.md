@@ -1,30 +1,42 @@
 ---
 layout: default
-title: CAN FD
+title: "CAN FD"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:53:00.000Z
 nav_order: 2
-parent: '차량 통신'
+parent: "차량 통신"
 permalink: '/차량_통신/CAN_FD'
 redirect_from:
- - /3f71b412900a815caa45ee26fd52198f
- - /undefined
+ - "/3f71b412900a815caa45ee26fd52198f"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
-Classic CAN 대비 확장된 데이터 길이와 선택적인 데이터 구간 속도 전환을 이해한다.
+> Classic CAN 대비 확장된 데이터 길이와 선택적인 데이터 구간 속도 전환을 이해한다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 CAN FD 공통 개념. 실제 허용 비트레이트·배선·혼합 노드 조건은 ISO 11898과 하드웨어 사양을 따른다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -77,7 +89,6 @@ cansend vcan0 123##1112233445566778899AABBCC
 ```
 
 
-
 ID 0x123, FD 형식, 12바이트 데이터와 BRS 표시를 확인한다. 실제 버스의 data bitrate는 vcan 실습에서 검증되지 않는다.
 
 
@@ -95,6 +106,10 @@ ip -details -statistics link show can0
 ```
 
 
-
 상대 노드·트랜시버의 지원과 종단을 확인하고 8·12·64바이트 프레임에서 오류 카운터·주기·지터를 비교한다.
 
+
+## MCU 구현과의 연결
+
+
+차량 네트워크에서는 ECU 간 메시지 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN FD Configuration](https://autosar.dev/3f91b412900a8146a610f03107f8d64e) 문서에서 별도로 다룬다.

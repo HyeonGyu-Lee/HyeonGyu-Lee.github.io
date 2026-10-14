@@ -1,26 +1,36 @@
 ---
 layout: default
-title: NRC (Negative Response Code)
+title: "NRC (Negative Response Code)"
 has_children: false
-published_date: 2024-06-20-08-06-00
-last_modified_date: 2026-10-12-14-10-00
+published_date: 2024-06-19T23:40:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 2
-parent: 'UDS (Unified Diagnostic Services)'
+parent: "UDS (Unified Diagnostic Services)"
 permalink: '/UDS_(Unified_Diagnostic_Services)/NRC_(Negative_Response_Code)'
 redirect_from:
- - /0d9c3695803e41ed9a11aa5b632aab3a
- - /undefined
+ - "/0d9c3695803e41ed9a11aa5b632aab3a"
 ---
+
 ## 핵심 요약
 
 
-진단 요청에 대한 NRC를 해석하고 세션·입력·타이밍 조건을 비교해 원인을 좁힌다.
+> 진단 요청에 대한 NRC를 해석하고 세션·입력·타이밍 조건을 비교해 원인을 좁힌다.
 
 
 ## 적용 범위
 
 
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+</div>
+</div>
+</blockquote>
+
 
 
 ## 본문
@@ -40,12 +50,16 @@ UDS 부정 응답의 기본 구조는 0x7F, 원래 요청 SID, NRC다. 설명용
 
 ### 자주 확인하는 코드
 
-- 0x11 serviceNotSupported: 요청 서비스 지원 여부를 확인한다.
-- 0x12 subFunctionNotSupported: 해당 서비스의 하위 기능 지원 여부를 확인한다.
-- 0x13 incorrectMessageLengthOrInvalidFormat: 길이·필드·인코딩을 점검한다.
-- 0x22 conditionsNotCorrect: 서비스 수행에 필요한 조건을 확인한다.
-- 0x31 requestOutOfRange: 식별자·파라미터·허용 범위와 서비스별 규정을 확인한다.
-- 0x33 securityAccessDenied: 보안 접근 조건을 확인한다.
+
+| **항목**                                         | **설명 및 적용 기준**                 |
+| ---------------------------------------------- | ------------------------------ |
+| **0x11 serviceNotSupported**                   | 요청 서비스 지원 여부를 확인한다.            |
+| **0x12 subFunctionNotSupported**               | 해당 서비스의 하위 기능 지원 여부를 확인한다.     |
+| **0x13 incorrectMessageLengthOrInvalidFormat** | 길이·필드·인코딩을 점검한다.               |
+| **0x22 conditionsNotCorrect**                  | 서비스 수행에 필요한 조건을 확인한다.          |
+| **0x31 requestOutOfRange**                     | 식별자·파라미터·허용 범위와 서비스별 규정을 확인한다. |
+| **0x33 securityAccessDenied**                  | 보안 접근 조건을 확인한다.                |
+
 - 0x78 requestCorrectlyReceived-ResponsePending: 요청은 수신됐지만 최종 응답이 준비되지 않은 중간 상태다. 즉시 최종 실패로 집계하지 않는다.
 
 ### 0x78과 타임아웃 구분
@@ -74,12 +88,20 @@ AUTOSAR Classic DCM 규격은 프로젝트 릴리스에 맞춰 확인한다: htt
 ### 실습: 응답 해석과 결과 분류
 
 
-```python
-response = bytes.fromhex("7F2278")
-assert len(response) == 3 and response[0] == 0x7F
-request_sid, nrc = response[1], response[2]
-print(f"요청 SID=0x{request_sid:02X}, NRC=0x{nrc:02X}")
-assert nrc == 0x78
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+int main(void) {
+ const uint8_t response[] = {0x7F, 0x22, 0x78};
+ assert(sizeof response == 3 && response[0] == 0x7F);
+ uint8_t sid = response[1], nrc = response[2];
+ printf("SID=0x%02X NRC=0x%02X\n", (unsigned)sid, (unsigned)nrc);
+ assert(nrc == 0x78); /* ResponsePending: 즉시 같은 요청을 재송신하지 않는다. */
+ return 0;
+}
 ```
 
 
@@ -93,7 +115,7 @@ assert nrc == 0x78
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 Negative Response Code : 차량의 진단 통신 프로토콜에서 사용되는 코드로, 특정 진단 요청이 실패했거나 처리할 수 없을 때 ECU(Electronic Control Unit)에서 반환하는 응답 코드입니다. 이 코드는 ISO 14229 (UDS - Unified Diagnostic Services) 표준에서 정의되며, 차량의 OBD(On-Board Diagnostics) 시스템에서 진단 요청에 대한 부정적인 응답을 식별하는 데 사용됩니다.
@@ -209,4 +231,3 @@ Negative Response Code : 차량의 진단 통신 프로토콜에서 사용되는
 | 0x93        | VTL      | voltageTooLow                                                     | This response code indicates that the requested action will not be taken because the server prerequisite condition for voltage at the primary pin of the server (ECU) is not met (current voltage is below a pre-programmed maximum threshold).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | 0x94 - 0xFE | \<       | reservedForSpecificConditionsNotCorrect                           | This range of values is reserved for future definition.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | 0xFF        | \<       | ISOSAEReserved                                                    | This range of values is reserved for future definition.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-

@@ -26,11 +26,11 @@
   </svg>
   <ul class="aux-nav-list">
     <li class="aux-nav-list-item">
-      <a href="#" id="theme-toggle" class="site-button">
+      <button type="button" id="theme-toggle" class="site-button btn-reset" aria-label="다크 모드로 전환" aria-pressed="false">
         <svg width="18px" height="18px">
           <use href="#svg-sun"></use>
         </svg>
-      </a>
+      </button>
     </li>
     {% for link in site.aux_links %}
     <li class="aux-nav-list-item">
