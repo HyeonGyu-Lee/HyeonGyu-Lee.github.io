@@ -34,7 +34,7 @@ redirect_from:
 | EcucConfigSet | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | This container contains the configuration parameters and sub containers of the global PduCollection. |
 | EcucHardware | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | Hardware definition of this Ecu. |
 | EcucPartitionCollection | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | Collection of Partitions defined for this ECU. |
-| EcucPostBuildVariants | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | Collection of toplevel PostBuildSelectable variants. The PredefinedVariants linked inside this container will determine how many PostBuildSelectableVariants exist. If this container exist the name pattern for initialization of BSW modules will be <Mip>_Config_<PredefinedVariant.shortName>. If this container does not exist the name pattern for initialization of BSW modlues will be <Mip>_Config. |
+| EcucPostBuildVariants | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | Collection of toplevel PostBuildSelectable variants. The PredefinedVariants linked inside this container will determine how many PostBuildSelectableVariants exist. If this container exist the name pattern for initialization of BSW modules will be &lt;Mip&gt;_Config_&lt;PredefinedVariant.shortName&gt;. If this container does not exist the name pattern for initialization of BSW modlues will be &lt;Mip&gt;_Config. |
 | EcucUnitGroupAssignment | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | Collection of UnitGroup references to support the generation of ASAM MCD file. |
 | EcucVariationResolver | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | Collection of PredefinedVariant elements containing definition of values for SwSystemconst which shall be applied when resolving the variability during ECU Configuration. |
 

@@ -439,7 +439,17 @@ export class NotionToMarkdown {
               async (cell: any) =>
                 await this.blockToMarkdown({
                   type: "paragraph",
-                  paragraph: { rich_text: cell },
+                  paragraph: {
+                    rich_text: cell.map((text: any) => ({
+                      ...text,
+                      plain_text: text.annotations?.code
+                        ? text.plain_text
+                        : text.plain_text
+                            .replace(/&/g, "&amp;")
+                            .replace(/</g, "&lt;")
+                            .replace(/>/g, "&gt;"),
+                    })),
+                  },
                 } as ListBlockChildrenResponseResult)
             )
 

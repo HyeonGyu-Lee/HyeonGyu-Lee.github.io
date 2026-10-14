@@ -36,7 +36,7 @@ redirect_from:
 | RteGeneration | ECUC-PARAM-CONF-CONTAINER-DEF | [1] | This container holds the parameters for the configuration of the RTE Generation. |
 | RteImplicitCommunication | ECUC-PARAM-CONF-CONTAINER-DEF | [0..*] | Configuration of the Implicit Communication behavior to be generated. |
 | RteInitializationBehavior | ECUC-PARAM-CONF-CONTAINER-DEF | [1..*] | Specifies the initialization strategy for variables allocated by RTE with the purpose to implement VariableDataPrototypes. |
-| RteInitializationRunnableBatch | ECUC-PARAM-CONF-CONTAINER-DEF | [0..*] | This container corresponds to an Rte_Init_<shortName of this container> function invoking the mapped RunnableEntities. |
+| RteInitializationRunnableBatch | ECUC-PARAM-CONF-CONTAINER-DEF | [0..*] | This container corresponds to an Rte_Init_&lt;shortName of this container&gt; function invoking the mapped RunnableEntities. |
 | RteOsInteraction | ECUC-PARAM-CONF-CONTAINER-DEF | [1..*] | Interaction of the Rte with the Os. |
 | RtePostBuildVariantConfiguration | ECUC-PARAM-CONF-CONTAINER-DEF | [0..1] | Specifies the PostbuildVariantSets for each of the PostBuild configurations of the RTE. |
 | RteSwComponentInstance | ECUC-PARAM-CONF-CONTAINER-DEF | [0..*] | Representation of one SwComponentPrototype located on the to be configured ECU. All subcontainer configuration aspects are in relation to this SwComponentPrototype. |
