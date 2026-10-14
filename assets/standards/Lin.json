@@ -1,0 +1,295 @@
+{
+  "name": "Lin",
+  "path": "/Lin",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of the Lin (LIN driver) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "LinDemEventParameterRefs",
+      "path": "/Lin/LinDemEventParameterRefs",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00188",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LIN_E_TIMEOUT",
+          "path": "/Lin/LinDemEventParameterRefs/LIN_E_TIMEOUT",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the DemEventParameter which shall be issued when the error \"Timeout caused by hardware error\" has occurred. If the reference is not configured the error shall be reported as DET error.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00189",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "LinGeneral",
+      "path": "/Lin/LinGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the parameters related to each LIN Driver Unit.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00183",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LinDevErrorDetect",
+          "path": "/Lin/LinGeneral/LinDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00066",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIndex",
+          "path": "/Lin/LinGeneral/LinIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00179",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTimeoutDuration",
+          "path": "/Lin/LinGeneral/LinTimeoutDuration",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the maximum number of loops for blocking function until a timeout is raised in short term wait loops",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00093",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "LinVersionInfoApi",
+          "path": "/Lin/LinGeneral/LinVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Lin_GetVersionInfo function ON or OFF.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00067",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "LinGlobalConfig",
+      "path": "/Lin/LinGlobalConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the global configuration parameter of the Lin driver.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00184",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LinChannel",
+          "path": "/Lin/LinGlobalConfig/LinChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration (parameters) of the LIN Controller(s).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00069",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "LinChannelBaudRate",
+              "path": "/Lin/LinGlobalConfig/LinChannel/LinChannelBaudRate",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the baud rate of the LIN channel",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00180",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "20000",
+                "MIN": "1000"
+              },
+              "children": []
+            },
+            {
+              "name": "LinChannelId",
+              "path": "/Lin/LinGlobalConfig/LinChannel/LinChannelId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Identifies the LIN channel. Replaces LIN_CHANNEL_INDEX_NAME from the LIN SWS.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00181",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "LinChannelWakeupSupport",
+              "path": "/Lin/LinGlobalConfig/LinChannel/LinChannelWakeupSupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if the LIN hardware channel supports wake up functionality",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00182",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "LinClockRef",
+              "path": "/Lin/LinGlobalConfig/LinChannel/LinClockRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the LIN clock source configuration, which is set in the MCU driver configuration.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00094",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"
+              },
+              "children": []
+            },
+            {
+              "name": "LinChannelEcuMWakeupSource",
+              "path": "/Lin/LinGlobalConfig/LinChannel/LinChannelEcuMWakeupSource",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains a reference to the Wakeup Source for this controller as defined in the ECU State Manager.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Lin_00185",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

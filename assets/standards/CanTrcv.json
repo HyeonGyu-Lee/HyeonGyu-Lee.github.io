@@ -1,0 +1,1002 @@
+{
+  "name": "CanTrcv",
+  "path": "/CanTrcv",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of the CanTrcv (CAN Transceiver driver) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "CanTrcvConfigSet",
+      "path": "/CanTrcv/CanTrcvConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR WdgM module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00173",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CanTrcvSPICommRetries",
+          "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvSPICommRetries",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Indicates the maximum number of communication retries in case of a failed SPI communication (applies both to timed out communication and to errors/NACK in the response data).",
+          "metadata": {
+            "INTRODUCTION": "If configured value is '0', no retry is allowed (communication is expected to succeed at first try).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00175",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "0",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvSPICommTimeout",
+          "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvSPICommTimeout",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Indicates the maximum time allowed to the CanTrcv for replying (either positively or negatively) to a SPI command.",
+          "metadata": {
+            "INTRODUCTION": "Timeout is configured in milliseconds. Timeout value of '0' means that no specific timeout is to be used by CanTrcv and the communication is executed at the best of the SPI HW capacity.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00174",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "0",
+            "MAX": "100",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvChannel",
+          "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Container gives CAN transceiver driver information about a single CAN",
+          "metadata": {
+            "INTRODUCTION": "transceiver (channel).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00143",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "CanTrcvChannelId",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Unique identifier of the CAN Transceiver Channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00155",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvChannelUsed",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelUsed",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Shall the related CAN transceiver channel be used?",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00096",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "true"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvControlsPowerSupply",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvControlsPowerSupply",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Is ECU power supply controlled by this transceiver?",
+              "metadata": {
+                "INTRODUCTION": "TRUE = Controlled by transceiver. FALSE = Not controlled by transceiver.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00097",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvHwPnSupport",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvHwPnSupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Indicates whether the HW supports the selective wake-up function",
+              "metadata": {
+                "INTRODUCTION": "TRUE = Selective wakeup feature is supported by the transceiver FALSE = Selective wakeup functionality is not available in transceiver",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00160",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvInitState",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvInitState",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "State of CAN transceiver after call to CanTrcv_Init.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00146",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "CANTRCV_OP_MODE_NORMAL",
+                "LITERALS": "CANTRCV_OP_MODE_NORMAL AUTOSAR_ECUC CANTRCV_OP_MODE_SLEEP AUTOSAR_ECUC CANTRCV_OP_MODE_STANDBY AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvMaxBaudrate",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvMaxBaudrate",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Max baudrate for transceiver hardware type. Only used for validation purposes. Value shall be configured by configuration tool based on",
+              "metadata": {
+                "INTRODUCTION": "transceiver hardware type.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00147",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "1000",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvWakeupByBusUsed",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvWakeupByBusUsed",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Is wake up by bus supported? If CAN transceiver hardware does not support wake up by bus value is always FALSE. If CAN transceiver hardware supports wake up by bus value is TRUE or FALSE depending whether it is used or not.",
+              "metadata": {
+                "INTRODUCTION": "TRUE = Is used. FALSE = Is not used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00148",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvIcuChannelRef",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvIcuChannelRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the IcuChannel to enable/disable the interrupts",
+              "metadata": {
+                "INTRODUCTION": "for wakeups.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00185",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Icu/IcuConfigSet/IcuChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvWakeupSourceRef",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvWakeupSourceRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a wakeup source in the EcuM configuration.",
+              "metadata": {
+                "INTRODUCTION": "This reference is only needed if CanTrcvWakeupByBusUsed is true.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00177",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvPorWakeupSourceRef",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPorWakeupSourceRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Symbolic name reference to specify the wakeup sources that should be used in the calls to EcuM_SetWakeupEvent as specified in [SWS_CanTrcv_00183] and [SWS_CanTrcv_00184].",
+              "metadata": {
+                "INTRODUCTION": "This reference is mandatory if the HW supports POR or SYSERR flags",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00181",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvSyserrWakeupSourceRef",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvSyserrWakeupSourceRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Symbolic name reference to specify the wakeup sources that should be used in the calls to EcuM_SetWakeupEvent as specified in [SWS_CanTrcv_00183] and [SWS_CanTrcv_00184]",
+              "metadata": {
+                "INTRODUCTION": "This reference is mandatory if the HW supports POR or SYSERR flags",
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00182",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTrcvAccess",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess",
+              "type": "ECUC-CHOICE-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container gives CanTrcv Driver information about access to a single CAN transceiver.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00101",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "CanTrcvDioAccess",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Container gives CAN transceiver driver information about accessing ports and port pins. In addition relation between CAN transceiver hardware pin names and Dio port access information is given.",
+                  "metadata": {
+                    "INTRODUCTION": "If a CAN transceiver hardware has no Dio interface, there is no instance of this container.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00145",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "CanTrcvDioChannelAccess",
+                      "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "1",
+                      "upper": null,
+                      "infinite": "true",
+                      "description": "Container gives DIO channel access by single Can transceiver channel.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00157",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY-INFINITE": "true"
+                      },
+                      "children": [
+                        {
+                          "name": "CanTrcvHardwareInterfaceName",
+                          "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvHardwareInterfaceName",
+                          "type": "ECUC-STRING-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "CAN transceiver hardware interface name. It is typically the name of a pin. From a Dio point of view it is either a port, a single channel or a channel group. Depending on this fact either",
+                          "metadata": {
+                            "INTRODUCTION": "CANTRCV_DIO_PORT_SYMBOLIC_NAME or CANTRCV_DIO_CHANNEL_SYMBOLIC_NAME or CANTRCV_DIO_CHANNEL_GROUP_SYMBOLIC_NAME shall reference a Dio configuration. The CAN transceiver driver implementation description shall list up this name for the appropriate CAN transceiver hardware.",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00150",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "CanTrcvDioSymNameRef",
+                          "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvDioSymNameRef",
+                          "type": "ECUC-CHOICE-REFERENCE-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Choice Reference to a DIO Port, DIO Channel or DIO Channel Group. This reference replaces the CANTRCV_DIO_PORT_SYM_NAME, CANTRCV_DIO_CHANNEL_SYM_NAME and CANTRCV_DIO_GROUP_SYM_NAME references in the Can Trcv SWS.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00149",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REFS": "/AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannel /AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannelGroup /AUTOSAR/EcucDefs/Dio/DioConfig/DioPort"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "CanTrcvSpiAccess",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvSpiAccess",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Container gives CAN transceiver driver information about accessing Spi. If a CAN transceiver hardware has no Spi interface, there is no instance of this container.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00183",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "CanTrcvSpiSequence",
+                      "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvSpiAccess/CanTrcvSpiSequence",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "1",
+                      "upper": null,
+                      "infinite": "true",
+                      "description": "Container gives CAN transceiver driver information about one SPI sequence.",
+                      "metadata": {
+                        "INTRODUCTION": "One SPI sequence used by CAN transceiver driver is in exclusive use for it. No other driver is allowed to access this sequence. CAN transceiver driver may use one sequence to access n CAN transceiver hardwares chips of the same type or n sequences are used to access one single CAN transceiver hardware chip. If a CAN transceiver hardware has no SPI interface, there is no instance of this container.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00144",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY-INFINITE": "true"
+                      },
+                      "children": [
+                        {
+                          "name": "CanTrcvSpiAccessSynchronous",
+                          "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvSpiAccess/CanTrcvSpiSequence/CanTrcvSpiAccessSynchronous",
+                          "type": "ECUC-BOOLEAN-PARAM-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter is used to define whether the access to the Spi sequence is synchronous or asynchronous.",
+                          "metadata": {
+                            "INTRODUCTION": "true: SPI access is synchronous. false: SPI access is asynchronous.",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00176",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "DEFAULT-VALUE": "false"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "CanTrcvSpiSequenceName",
+                          "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvSpiAccess/CanTrcvSpiSequence/CanTrcvSpiSequenceName",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": null,
+                          "infinite": "true",
+                          "description": "Reference to a Spi sequence configuration container.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00151",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY-INFINITE": "true",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CanTrcvDemEventParameterRefs",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvDemEventParameterRefs",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00188",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "CANTRCV_E_BUS_ERROR",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvDemEventParameterRefs/CANTRCV_E_BUS_ERROR",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when bus error has occurred.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00189",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "CanTrcvPartialNetwork",
+              "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container gives CAN transceiver driver information about the configuration of Partial Networking functionality.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00161",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "CanTrcvBaudRate",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvBaudRate",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Indicates the CAN Bus communication baud rate in kbps.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00169",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "1000",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvBusErrFlag",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvBusErrFlag",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Indicates if the Bus Error (BUSERR) flag is managed by the BSW. This flag is set if a bus failure is detected by the transceiver.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE = Supported by transceiver and managed by BSW. FALSE = Not managed by BSW.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00171",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvPnCanIdIsExtended",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnCanIdIsExtended",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Indicates whether extended or standard ID is used.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE = Extended Can identifier is used. FALSE = Standard Can identifier is used",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00164",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvPnEnabled",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Indicates whether the selective wake-up function is enabled or disabled in HW.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE = Selective wakeup feature is enabled in the transceiver hardware FALSE = Selective wakeup feature is disabled in the transceiver hardware",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00172",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvPnFrameCanId",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnFrameCanId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "CAN ID of the Wake-up Frame (WUF).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00163",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvPnFrameCanIdMask",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnFrameCanIdMask",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "ID Mask for the selective activation of the transceiver. It is used to enableFrame Wake-up (WUF) on a group of IDs.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00162",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvPnFrameDlc",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnFrameDlc",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Data Length of the Wake-up Frame (WUF).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00168",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "8",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvPowerOnFlag",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPowerOnFlag",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Description: Indicates if the Power On Reset (POR) flag is available and is managed by the transceiver.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE = Supported by Hardware. FALSE = Not supported by Hardware",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00170",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTrcvPnFrameDataMaskSpec",
+                  "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnFrameDataMaskSpec",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "8",
+                  "infinite": null,
+                  "description": "Defines data payload mask to be used on the received payload in order to determine if the transceiver must be woken up by the received Wake-up Frame (WUF).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00165",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "8"
+                  },
+                  "children": [
+                    {
+                      "name": "CanTrcvPnFrameDataMask",
+                      "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnFrameDataMaskSpec/CanTrcvPnFrameDataMask",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines the n byte (Byte0 = LSB) of the data payload mask to be used on the received payload in order to determine if the transceiver must be woken up by the received Wake-up Frame (WUF).",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00166",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "CanTrcvPnFrameDataMaskIndex",
+                      "path": "/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvPartialNetwork/CanTrcvPnFrameDataMaskSpec/CanTrcvPnFrameDataMaskIndex",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "holds the position n in frame of the mask-part",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00167",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "7",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CanTrcvGeneral",
+      "path": "/CanTrcv/CanTrcvGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container gives CAN transceiver driver basic information.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00090",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CanTrcvDevErrorDetect",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF). If enabled, #define CANTRCV_DEV _ERROR_DETECT ON shall be generated. If disabled, #define CANTRCV_DEV_ERROR _DETECT OFF shall be generated. Define shall be part of file CanTrcv_Cfg.h.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00152",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvGetVersionInfo",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvGetVersionInfo",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches version information API on and off. If switched off, function need not be present in compiled code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00153",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvIndex",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00184",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvMainFunctionDiagnosticsPeriod",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvMainFunctionDiagnosticsPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter describes the period for cyclic call to CanTrcv_MainFunctionDiagnostics. Unit is seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00187",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvMainFunctionPeriod",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter describes the period for cyclic call to CanTrcv_MainFunction. Unit is seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00186",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvTimerType",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvTimerType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Type of the Time Service Predefined Timer.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00190",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "None AUTOSAR_ECUC Timer_1us16bit AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvWaitTime",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvWaitTime",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Wait time for transceiver state changes in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00191",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "2.55E-4",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTrcvWakeUpSupport",
+          "path": "/CanTrcv/CanTrcvGeneral/CanTrcvWakeUpSupport",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Informs whether wake up is supported by polling or not supported. In case no",
+          "metadata": {
+            "INTRODUCTION": "wake up is supported by the hardware, setting has to be NOT_SUPPORTED. Only in the case of wake up supported by polling, function CanTrcv_MainFunction has to be present and to be invoked by the scheduler.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTrcv_00154",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "CANTRCV_WAKEUP_BY_POLLING AUTOSAR_ECUC CANTRCV_WAKEUP_NOT_SUPPORTED AUTOSAR_ECUC"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

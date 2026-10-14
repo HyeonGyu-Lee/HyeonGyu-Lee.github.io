@@ -1,0 +1,1069 @@
+{
+  "name": "PduR",
+  "path": "/PduR",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the PduR (PDU Router) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00293",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "PduRBswModules",
+      "path": "/PduR/PduRBswModules",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Each container describes a specific BSW module (upper/CDD/lower/IpduM) that the PDU Router shall interface to.",
+      "metadata": {
+        "INTRODUCTION": "The reason to have it as own configuration container instead of implication of the routing path is to be able to configure CDDs properly and to force module's to be used in a post-build situation even though no routing is made to/from this module (future configurations may include these modules).",
+        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00295",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true",
+        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+        "POST-BUILD-VARIANT-MULTIPLICITY": "false"
+      },
+      "children": [
+        {
+          "name": "PduRCancelReceive",
+          "path": "/PduR/PduRBswModules/PduRCancelReceive",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the Transport protocol module supports the CancelReceive API or not. Value true the API is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00340",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRCancelTransmit",
+          "path": "/PduR/PduRBswModules/PduRCancelTransmit",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the CancelTransmit API or not. Value true the API is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00297",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRChangeParameterApi",
+          "path": "/PduR/PduRBswModules/PduRChangeParameterApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter, if set to true, enables the PduR_<Up>ChangeParameter Api for this Module.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00326",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRCommunicationInterface",
+          "path": "/PduR/PduRBswModules/PduRCommunicationInterface",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the Communication Interface APIs or not. Value true the APIs are supported.",
+          "metadata": {
+            "INTRODUCTION": "A module can have both Communication Interface APIs and Transport Protocol APIs (e.g. the COM module).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00298",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRLowerModule",
+          "path": "/PduR/PduRBswModules/PduRLowerModule",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The PduRLowerModule will decide who will call the APIs and who will implement the APIs.",
+          "metadata": {
+            "INTRODUCTION": "For example, if the CanIf module is referenced then the PDU Router module will implement the PduR_CanIfRxIndication API. And the PDUR module will call the CanIf_Transmit API. Other APIs are of course also covered. An upper module can also be an lower module (e.g. the IpduM module).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00307",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRRetransmission",
+          "path": "/PduR/PduRBswModules/PduRRetransmission",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If set to true this means that the destination transport protocol module will use the retransmission feature. This parameter might be set to false if the retransmission feature is not used, even though the destination transport protocol is supporting it.",
+          "metadata": {
+            "INTRODUCTION": "This parameter is only valid for transport protocol modules and gateway operations. If transmission from a local upper layer module this module will handle the retransmission.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00332",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRTransportProtocol",
+          "path": "/PduR/PduRBswModules/PduRTransportProtocol",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The PDU Router module shall use the API parameters specified for transport protocol interface.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00312",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRTriggertransmit",
+          "path": "/PduR/PduRBswModules/PduRTriggertransmit",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the TriggerTransmit API or not. Value true means that the BSW module supports the TriggerTransmit interface which a lower layer module can call and also that it can call the TriggerTransmit interface of an upper layer module. Value false means that the BSW module does not support the TriggerTransmit interface which a lower layer module can call and also that it shall not call the TriggerTransmit interface of an upper layer module.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00313",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRTxConfirmation",
+          "path": "/PduR/PduRBswModules/PduRTxConfirmation",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the TxConfirmation API or not. Value true the API is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00314",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRUpperModule",
+          "path": "/PduR/PduRBswModules/PduRUpperModule",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The PduRUpperModule will decide who will call the APIs and who will implement the APIs.",
+          "metadata": {
+            "INTRODUCTION": "For example, if the COM module is referenced then the PDU Router module will implement the PduR_Transmit API. And the PDUR module will call the Com_RxIndication API. Other APIs are of course also covered. An upper module can also be an lower module (e.g. the IpduM module).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00338",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRUseTag",
+          "path": "/PduR/PduRBswModules/PduRUseTag",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter, if set to true, enables the usage of the tag (<up>) in the following API calls:",
+          "metadata": {
+            "INTRODUCTION": "* PduR_<Up>CancelReceive * PduR_<Up>CancelTransmit * PduR_<Up>ChangeParameter Example: If used by COM and the parameter is enabled the PduR_ComCancelTransmit is used. The background is that upper layer modules differ in usage of this tag (e.g. COM is using the tag, DCM is not).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00319",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRBswModuleRef",
+          "path": "/PduR/PduRBswModules/PduRBswModuleRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This is a reference to one BSW module's configuration (i.e. not the ECUC parameter definition template).",
+          "metadata": {
+            "INTRODUCTION": "Example, there could be several configurations of LinIf and this reference selects one of them.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00294",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "PduRGeneral",
+      "path": "/PduR/PduRGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container is a subcontainer of PduR and specifies the general configuration parameters of the PDU Router.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00305",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "PduRDevErrorDetect",
+          "path": "/PduR/PduRGeneral/PduRDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00302",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRMetaDataSupport",
+          "path": "/PduR/PduRGeneral/PduRMetaDataSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enable support for MetaData handling. The size of the MetaData is defined by the configuration parameter MetaDataLength of the global PDU definitions. This feature may be used for efficient CAN-CAN-routing, where the MetaData contains the CAN ID.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00347",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRVersionInfoApi",
+          "path": "/PduR/PduRGeneral/PduRVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If true the PduR_GetVersionInfo API is available.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00316",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRZeroCostOperation",
+          "path": "/PduR/PduRGeneral/PduRZeroCostOperation",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If set the PduR configuration generator will report an error if zero-cost-operation cannot be fulfilled.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be seen as an input requirement to the configuration generator.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00317",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "PduRRoutingTables",
+      "path": "/PduR/PduRRoutingTables",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Represents one table of routing paths.",
+      "metadata": {
+        "INTRODUCTION": "This routing table allows multiple configurations that can be used to create several routing tables in the same configuration. This is mainly used for post-build (e.g. post-build selectable) but can be used by pre-compile and link-time for variant handling.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00310",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "PduRConfigurationId",
+          "path": "/PduR/PduRRoutingTables/PduRConfigurationId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Identification of the configuration of the PduR configuration. This identification can be read using the PduR API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00327",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRMaxRoutingPathCnt",
+          "path": "/PduR/PduRRoutingTables/PduRMaxRoutingPathCnt",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of RoutingPaths in all RoutingTables. This parameter is needed only in case of post-build loadable implementation using static memory allocation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00350",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRMaxRoutingPathGroupCnt",
+          "path": "/PduR/PduRRoutingTables/PduRMaxRoutingPathGroupCnt",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of RoutingPathGroups. This parameter is needed only in case of post-build loadable implementation using static memory allocation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00348",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRMaxRoutingTableCnt",
+          "path": "/PduR/PduRRoutingTables/PduRMaxRoutingTableCnt",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of RoutingTables. This parameter is needed only in case of post-build loadable implementation using static memory allocation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00349",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "PduRRoutingPathGroup",
+          "path": "/PduR/PduRRoutingTables/PduRRoutingPathGroup",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container groups routing path destinations. Destinations are used instead of routing paths since a routing path can be 1:n. It is desirable to be able to enable/disable a specific bus (i.e. a destination) rather than a routing path. Of course it is possible to create groups that covers specific routing paths as well.",
+          "metadata": {
+            "INTRODUCTION": "Enabling and disabling of routing path groups are made using the PduR API",
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00308",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "PduRIsEnabledAtInit",
+              "path": "/PduR/PduRRoutingTables/PduRRoutingPathGroup/PduRIsEnabledAtInit",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "If set to true this routing path group will be enabled after initializing the PDU Router module (i.e. enabled in the PduR_Init function).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00329",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "PduRRoutingPathGroupId",
+              "path": "/PduR/PduRRoutingTables/PduRRoutingPathGroup/PduRRoutingPathGroupId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Identification of the routing group.",
+              "metadata": {
+                "INTRODUCTION": "The identification will be used by the disable/enable API in the PDU Router module API.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00309",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "PduRDestPduRef",
+              "path": "/PduR/PduRRoutingTables/PduRRoutingPathGroup/PduRDestPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This reference selects one destination of the routing path.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00301",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "PduRRoutingTable",
+          "path": "/PduR/PduRRoutingTables/PduRRoutingTable",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Represents one container of routing paths.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00247",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "PduRRoutingPath",
+              "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container is a subcontainer of PduRRoutingTable and specifies the routing path of a PDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00248",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+              },
+              "children": [
+                {
+                  "name": "PduRDestPdu",
+                  "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "This container is a subcontainer of PduRRoutingPath and specifies one destination for the PDU to be routed.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00249",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "PduRDestPduDataProvision",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDestPduDataProvision",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies how data are provided: direct (as part of the Transmit call) or via",
+                      "metadata": {
+                        "INTRODUCTION": "the TriggerTransmit callback function. Only required for non-TP gatewayed I-PDUs.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00289",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "PDUR_DIRECT AUTOSAR_ECUC PDUR_TRIGGERTRANSMIT AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRDestPduHandleId",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDestPduHandleId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "PDU identifier assigned by PDU Router. Used by communication interface and transport protocol modules for confirmation (PduR_<Lo>TxConfirmation) and for TriggerTransmit (PduR_<Lo>TriggerTransmit).",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00322",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRTpThreshold",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRTpThreshold",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter is only relevant for TP routings.",
+                      "metadata": {
+                        "INTRODUCTION": "When configured, it enables on-the-fly routing and defines the number of bytes which must have been received before transmission on the destination bus may start. When omitted, direct TP routing is enforced. The PduRouter shall ensure that a buffer is allocated for this routing path which is at least as large as the threshold.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00320",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRTransmissionConfirmation",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRTransmissionConfirmation",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter is only for communication interfaces. Transport protocol modules will always call the TxConfirmation function.",
+                      "metadata": {
+                        "INTRODUCTION": "If set the destination communication interface module will call the TxConfirmation. However the TxConfirmation may be not called due to error. So the PduR shall not block until the TxConfirmation is called. One background for this parameter is for the PduR to know when all modules have confirmed a multicast operation.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00339",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRDestPduRef",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDestPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Destination PDU reference; reference to unique PDU identifier which shall be used by the PDU Router instead of the source PDU ID when calling the related function of the destination module.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00291",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRDestTxBufferRef",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDestTxBufferRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to a buffer that is allocated in the PduRTxBufferTable. This buffer is required for communication interface gatewaying, and for transport protocol gatewaying for single frame routing.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00304",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/PduR/PduRRoutingTables/PduRTxBufferTable/PduRTxBuffer"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRDefaultValue",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDefaultValue",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the default value of the I-PDU. Only required for gateway operation and if at least one PDU specified by PduRDestPdu uses TriggerTransmit Data provision.",
+                      "metadata": {
+                        "INTRODUCTION": "Represented as an array of IntegerParamDef.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00299",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": [
+                        {
+                          "name": "PduRDefaultValueElement",
+                          "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDefaultValue/PduRDefaultValueElement",
+                          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                          "lower": "0",
+                          "upper": null,
+                          "infinite": "true",
+                          "description": "Each value element is represented by the element and the position in an array.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00300",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY-INFINITE": "true",
+                            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                          },
+                          "children": [
+                            {
+                              "name": "PduRDefaultValueElement",
+                              "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDefaultValue/PduRDefaultValueElement/PduRDefaultValueElement",
+                              "type": "ECUC-INTEGER-PARAM-DEF",
+                              "lower": "1",
+                              "upper": "1",
+                              "infinite": null,
+                              "description": "The default value consists of a number of elements. Each element is one byte long and the number of elements is specified by SduLength. The position of this parameter in the container is specified by the PduRElementBytePosition parameter.",
+                              "metadata": {
+                                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00290",
+                                "LOWER-MULTIPLICITY": "1",
+                                "UPPER-MULTIPLICITY": "1",
+                                "SCOPE": "LOCAL",
+                                "ORIGIN": "AUTOSAR_ECUC",
+                                "POST-BUILD-VARIANT-VALUE": "true",
+                                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                                "SYMBOLIC-NAME-VALUE": "false",
+                                "MAX": "255",
+                                "MIN": "0"
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "PduRDefaultValueElementBytePosition",
+                              "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu/PduRDefaultValue/PduRDefaultValueElement/PduRDefaultValueElementBytePosition",
+                              "type": "ECUC-INTEGER-PARAM-DEF",
+                              "lower": "1",
+                              "upper": "1",
+                              "infinite": null,
+                              "description": "This parameter specifies the byte position of the element within the default value",
+                              "metadata": {
+                                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00292",
+                                "LOWER-MULTIPLICITY": "1",
+                                "UPPER-MULTIPLICITY": "1",
+                                "SCOPE": "LOCAL",
+                                "ORIGIN": "AUTOSAR_ECUC",
+                                "POST-BUILD-VARIANT-VALUE": "true",
+                                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                                "SYMBOLIC-NAME-VALUE": "false",
+                                "MAX": "4294967294",
+                                "MIN": "0"
+                              },
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PduRSrcPdu",
+                  "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRSrcPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container is a subcontainer of PduRRoutingPath and specifies the source of the PDU to be routed.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00288",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "PduRSourcePduHandleId",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRSrcPdu/PduRSourcePduHandleId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "PDU identifier assigned by PDU Router.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00311",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRSrcPduUpTxConf",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRSrcPdu/PduRSrcPduUpTxConf",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "When enabled, the TxConfirmation will be",
+                      "metadata": {
+                        "INTRODUCTION": "forwarded to the upper layer. Prerequisites: Lower layer and upper layer support TxConfirmation.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00351",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "true"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "PduRSrcPduRef",
+                      "path": "/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRSrcPdu/PduRSrcPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Source PDU reference; reference to unique PDU identifier which shall be used for the requested PDU Router operation.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00318",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PduRTpBufferTable",
+          "path": "/PduR/PduRRoutingTables/PduRTpBufferTable",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container will specify the needed buffers for gatewaying using TP. It is not connected to the specific routing path destination to allow a more efficient buffer handling.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00335",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "PduRTpBuffer",
+              "path": "/PduR/PduRRoutingTables/PduRTpBufferTable/PduRTpBuffer",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Specifies a buffer used for gatwaying through TP.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00334",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false"
+              },
+              "children": [
+                {
+                  "name": "PduRTpBufferLength",
+                  "path": "/PduR/PduRRoutingTables/PduRTpBufferTable/PduRTpBuffer/PduRTpBufferLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Length of the TP buffer in number of bytes",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00325",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "1"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PduRTxBufferTable",
+          "path": "/PduR/PduRRoutingTables/PduRTxBufferTable",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains the buffers used for gatewaying via communication interfaces and for single frames of transport protocols.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00337",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "PduRTxBuffer",
+              "path": "/PduR/PduRRoutingTables/PduRTxBufferTable/PduRTxBuffer",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Specifies a buffer used for gatewaying via communication interfaces or for",
+              "metadata": {
+                "INTRODUCTION": "single frames of transport protocols.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00336",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false"
+              },
+              "children": [
+                {
+                  "name": "PduRPduMaxLength",
+                  "path": "/PduR/PduRRoutingTables/PduRTxBufferTable/PduRTxBuffer/PduRPduMaxLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Length of the Tx buffer in bytes. This parameter limits the size of buffered routed PDUs.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00324",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "PduRTxBufferDepth",
+                  "path": "/PduR/PduRRoutingTables/PduRTxBufferTable/PduRTxBuffer/PduRTxBufferDepth",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Number of Pdus that can be stored in the buffer.",
+                  "metadata": {
+                    "INTRODUCTION": "If the value is 1, the buffer semantic is \"last is best\". If the value is greater than 1, the buffer semantic is a FiFo. For TP single frames, the depth is always 1.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_PduR_00323",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "1"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

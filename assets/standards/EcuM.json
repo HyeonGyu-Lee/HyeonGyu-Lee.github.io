@@ -1,0 +1,1970 @@
+{
+  "name": "EcuM",
+  "path": "/EcuM",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the EcuM (ECU State Manager) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD"
+  },
+  "children": [
+    {
+      "name": "EcuMConfiguration",
+      "path": "/EcuM/EcuMConfiguration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration (parameters) of the ECU State Manager.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00103",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EcuMCommonConfiguration",
+          "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains the common configuration (parameters) of the ECU State Manager.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00181",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "EcuMConfigConsistencyHash",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMConfigConsistencyHash",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "A hash value generated across all pre-compile and link-time parameters of all BSW modules. This hash value is compared against a field in the EcuM_ConfigType and hence allows checking the consistency of the entire configuration.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00102",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-POST-BUILD",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMDefaultAppMode",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultAppMode",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The default application mode loaded when the ECU comes out of reset.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00104",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAppMode"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMOSResource",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMOSResource",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This parameter is a reference to a OS resource which is used to bring the ECU into sleep mode.",
+              "metadata": {
+                "INTRODUCTION": "In case of multi core each core shall have an own OsResource.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00183",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMDefaultShutdownTarget",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultShutdownTarget",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container describes the default shutdown target to be selected by EcuM. The actual shutdown target may be overridden by the EcuM_SelectShutdownTarget service.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00105",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMDefaultState",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultShutdownTarget/EcuMDefaultState",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter describes the state part of the default shutdown target selected when the ECU comes out of reset. If EcuMStateSleep is selected, the parameter EcuMDefaultSleepModeRef selects the specific sleep mode.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00107",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "EcuMStateOff AUTOSAR_ECUC EcuMStateReset AUTOSAR_ECUC EcuMStateSleep AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMDefaultResetModeRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultShutdownTarget/EcuMDefaultResetModeRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "If EcuMDefaultShutdownTarget is EcuMStateReset, this parameter selects the default reset mode. Otherwise this parameter may be ignored.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00205",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMResetMode"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMDefaultSleepModeRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultShutdownTarget/EcuMDefaultSleepModeRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "If EcuMDefaultShutdownTarget is EcuMStateSleep, this parameter selects the default sleep mode. Otherwise this parameter may be ignored.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00106",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMDriverInitListOne",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for Init Block I.",
+              "metadata": {
+                "INTRODUCTION": "This container holds a list of module IDs that will be initialized. Each module in the list will be called for initialization in the list order. All modules in this list are initialized before the OS is started and so these modules require no OS support.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00111",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMDriverInitItem",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These containers describe the entries in a driver init list.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00110",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "REQUIRES-INDEX": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "EcuMModuleID",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Short name of the module to be initialized, e.g. Mcu, Gpt etc.",
+                      "metadata": {
+                        "INTRODUCTION": "In case EcuMModuleRef is used the EcuMModuleID is optional (in case it is given it shall have the same value as the referenced module configuration).",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00123",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleParameter",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Definition of the function prototype and the parameter passed to the function.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00224",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "NULL_PTR AUTOSAR_ECUC POSTBUILD_PTR AUTOSAR_ECUC VOID AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleService",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined \"Init\" is taken by default.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00124",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleRef",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the configuration of a module instance which shall be initialized by EcuM",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00223",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EcuMDriverInitListZero",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListZero",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for Init Block 0.",
+              "metadata": {
+                "INTRODUCTION": "This container holds a list of module IDs that will be initialized. Each module in the list will be called for initialization in the list order. All modules in this list are initialized before the post-build configuration has been loaded and the OS is initialized. Therefore, these modules may not use post-build configuration.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00114",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMDriverInitItem",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListZero/EcuMDriverInitItem",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These containers describe the entries in a driver init list.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00110",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "REQUIRES-INDEX": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "EcuMModuleID",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListZero/EcuMDriverInitItem/EcuMModuleID",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Short name of the module to be initialized, e.g. Mcu, Gpt etc.",
+                      "metadata": {
+                        "INTRODUCTION": "In case EcuMModuleRef is used the EcuMModuleID is optional (in case it is given it shall have the same value as the referenced module configuration).",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00123",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleParameter",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListZero/EcuMDriverInitItem/EcuMModuleParameter",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Definition of the function prototype and the parameter passed to the function.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00224",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "NULL_PTR AUTOSAR_ECUC POSTBUILD_PTR AUTOSAR_ECUC VOID AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleService",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListZero/EcuMDriverInitItem/EcuMModuleService",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined \"Init\" is taken by default.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00124",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleRef",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListZero/EcuMDriverInitItem/EcuMModuleRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the configuration of a module instance which shall be initialized by EcuM",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00223",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EcuMDriverRestartList",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverRestartList",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "List of module IDs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00115",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMDriverInitItem",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverRestartList/EcuMDriverInitItem",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These containers describe the entries in a driver init list.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00110",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "REQUIRES-INDEX": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "EcuMModuleID",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverRestartList/EcuMDriverInitItem/EcuMModuleID",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Short name of the module to be initialized, e.g. Mcu, Gpt etc.",
+                      "metadata": {
+                        "INTRODUCTION": "In case EcuMModuleRef is used the EcuMModuleID is optional (in case it is given it shall have the same value as the referenced module configuration).",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00123",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleParameter",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverRestartList/EcuMDriverInitItem/EcuMModuleParameter",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Definition of the function prototype and the parameter passed to the function.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00224",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "NULL_PTR AUTOSAR_ECUC POSTBUILD_PTR AUTOSAR_ECUC VOID AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleService",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverRestartList/EcuMDriverInitItem/EcuMModuleService",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined \"Init\" is taken by default.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00124",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleRef",
+                      "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverRestartList/EcuMDriverInitItem/EcuMModuleRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the configuration of a module instance which shall be initialized by EcuM",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00223",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EcuMSleepMode",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the configured sleep modes.",
+              "metadata": {
+                "INTRODUCTION": "The names of these containers specify the symbolic names of the different sleep modes.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00131",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMSleepModeId",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode/EcuMSleepModeId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This ID identifies this sleep mode in services like EcuM_SelectShutdownTarget.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00132",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMSleepModeSuspend",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode/EcuMSleepModeSuspend",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Flag, which is set true, if the CPU is suspended, halted, or powered off in the sleep mode. If the CPU keeps running in this sleep mode, then this flag must be set to false.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00136",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMSleepModeMcuModeRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode/EcuMSleepModeMcuModeRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is a reference to the corresponding MCU mode for this sleep mode.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00133",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuModeSettingConf"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMWakeupSourceMask",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode/EcuMWakeupSourceMask",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These parameters are references to the wakeup sources that shall be enabled for this sleep mode.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00152",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMWakeupSource",
+              "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the configured wakeup sources.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00150",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMCheckWakeupTimeout",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMCheckWakeupTimeout",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This Parameter is the initial Value for the Time of the EcuM to delay shut down of the ECU if the check of the Wakeup Source is done asynchronously (CheckWakeupTimer).",
+                  "metadata": {
+                    "INTRODUCTION": "The unit is in seconds.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00208",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "0",
+                    "MAX": "10",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMValidationTimeout",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMValidationTimeout",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The validation timeout (period for which the ECU State Manager will wait for the validation of a wakeup event) can be defined for each wakeup source independently. The timeout is specified in seconds.",
+                  "metadata": {
+                    "INTRODUCTION": "When the timeout is not instantiated, there is no validation routine and the ECU Manager shall not validate the wakeup source.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00148",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMWakeupSourceId",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines the identifier of this wakeup source.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00151",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "31",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMWakeupSourcePolling",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourcePolling",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter describes if the wakeup source needs polling.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00153",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMComMChannelRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMComMChannelRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is a reference to a Network (channel) defined in the Communication Manager. No reference indicates that the wakeup source is not a communication channel.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00101",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMResetReasonRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMResetReasonRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "This parameter describes the mapping of reset reasons detected by the MCU driver into wakeup sources.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00128",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuPublishedInformation/McuResetReasonConf"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "EcuMFixedConfiguration",
+          "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains the configuration (parameters) of the EcuMFixed.",
+          "metadata": {
+            "INTRODUCTION": "Only applicable if EcuMFixed is implemented.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00165",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "EcuMNvramReadallTimeout",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMNvramReadallTimeout",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Period given in seconds for which the ECU State Manager will wait until it considers a ReadAll job of the NVRAM Manager as failed.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00126",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMNvramWriteallTimeout",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMNvramWriteallTimeout",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Period given in seconds for which the ECU State Manager will wait until it considers a WriteAll job of the NVRAM Manager as failed.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00127",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMRunMinimumDuration",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMRunMinimumDuration",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration given in seconds for which the ECU State Manager will",
+              "metadata": {
+                "INTRODUCTION": "stay in RUN state even when no one requests RUN. This duration should be long at least as long as a SW-Cs needs to request RUN.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00129",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMComMCommunicationAllowedList",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMComMCommunicationAllowedList",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "These parameters contain references to the ComMChannels for which EcuM has to call ComM_CommunicationAllowed.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00191",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMNormalMcuModeRef",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMNormalMcuModeRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter is a reference to the normal MCU mode to be restored after a sleep.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00125",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuModeSettingConf"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMDriverInitListThree",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListThree",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for Init Block III.",
+              "metadata": {
+                "INTRODUCTION": "This container holds a list of module IDs that will be initialized. Each module in the list will be called for initialization in the list order. All modules in this list are initialized after the OS is started and so these modules may use OS support. These modules may also rely on the Nvram ReadAll job to have provided all data.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00112",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMDriverInitItem",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListThree/EcuMDriverInitItem",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These containers describe the entries in a driver init list.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00110",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "REQUIRES-INDEX": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "EcuMModuleID",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListThree/EcuMDriverInitItem/EcuMModuleID",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Short name of the module to be initialized, e.g. Mcu, Gpt etc.",
+                      "metadata": {
+                        "INTRODUCTION": "In case EcuMModuleRef is used the EcuMModuleID is optional (in case it is given it shall have the same value as the referenced module configuration).",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00123",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleParameter",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListThree/EcuMDriverInitItem/EcuMModuleParameter",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Definition of the function prototype and the parameter passed to the function.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00224",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "NULL_PTR AUTOSAR_ECUC POSTBUILD_PTR AUTOSAR_ECUC VOID AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleService",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListThree/EcuMDriverInitItem/EcuMModuleService",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined \"Init\" is taken by default.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00124",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleRef",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListThree/EcuMDriverInitItem/EcuMModuleRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the configuration of a module instance which shall be initialized by EcuM",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00223",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EcuMDriverInitListTwo",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListTwo",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for Init Block II.",
+              "metadata": {
+                "INTRODUCTION": "This container holds a list of module IDs that will be initialized. Each module in the list will be called for initialization in the list order. All modules in this list are initialized after the OS is started and so these modules may use OS support. These modules may not rely on the Nvram ReadAll job to have provided all data.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00113",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMDriverInitItem",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListTwo/EcuMDriverInitItem",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These containers describe the entries in a driver init list.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00110",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "REQUIRES-INDEX": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "EcuMModuleID",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListTwo/EcuMDriverInitItem/EcuMModuleID",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Short name of the module to be initialized, e.g. Mcu, Gpt etc.",
+                      "metadata": {
+                        "INTRODUCTION": "In case EcuMModuleRef is used the EcuMModuleID is optional (in case it is given it shall have the same value as the referenced module configuration).",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00123",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleParameter",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListTwo/EcuMDriverInitItem/EcuMModuleParameter",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Definition of the function prototype and the parameter passed to the function.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00224",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "NULL_PTR AUTOSAR_ECUC POSTBUILD_PTR AUTOSAR_ECUC VOID AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleService",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListTwo/EcuMDriverInitItem/EcuMModuleService",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined \"Init\" is taken by default.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00124",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "EcuMModuleRef",
+                      "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMDriverInitListTwo/EcuMDriverInitItem/EcuMModuleRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the configuration of a module instance which shall be initialized by EcuM",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00223",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                        "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EcuMFixedUserConfig",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMFixedUserConfig",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the identifiers that are needed to refer to a software component or another appropriate entity in the system which is designated to request the RUN state. Application requestors refer to entities above RTE, system requestors to entities below RTE (e.g. Communication Manager).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00147",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMFixedUser",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMFixedUserConfig/EcuMFixedUser",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Parameter used to identify one user.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00202",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMTTII",
+              "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMTTII",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the structures and the following configuration items describe its elements. These structures are concatenated to build a list as indicated by Figure 27 - Configuration Container Diagram.",
+              "metadata": {
+                "INTRODUCTION": "The list must contain at least one element when ECUM_TTII_ENABLED is set to true.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00143",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMDivisor",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMTTII/EcuMDivisor",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines the divisor preload value.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00109",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMSleepModeRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMTTII/EcuMSleepModeRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This configuration parameter is a reference to a configured sleep mode that is used for TTII.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00135",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMSuccessorRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFixedConfiguration/EcuMTTII/EcuMSuccessorRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is a reference to the next sleep mode in the TTII protocol.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00141",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "EcuMFlexConfiguration",
+          "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains the configuration (parameters) of the EcuMFlex.",
+          "metadata": {
+            "INTRODUCTION": "Only applicable if EcuMFlex is implemented.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00167",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "EcuMPartitionRef",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMPartitionRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Reference denotes the partition a EcuM shall run inside.",
+              "metadata": {
+                "INTRODUCTION": "Please note that in case of a multicore ECU this reference is mandatory.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00217",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMNormalMcuModeRef",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMNormalMcuModeRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter is a reference to the normal MCU mode to be restored after a sleep.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00204",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuModeSettingConf"
+              },
+              "children": []
+            },
+            {
+              "name": "EcuMAlarmClock",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMAlarmClock",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the configured alarm clocks.",
+              "metadata": {
+                "INTRODUCTION": "The name of these conatiners allows giving a symbolic name to one alarm clock.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00184",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMAlarmClockId",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMAlarmClock/EcuMAlarmClockId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This ID identifies this alarmclock.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00186",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMAlarmClockTimeOut",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMAlarmClock/EcuMAlarmClockTimeOut",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter allows to define a timeout for this alarm clock.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00188",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMAlarmClockUser",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMAlarmClock/EcuMAlarmClockUser",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter allows an alarm to be assigned to a user.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00195",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMFlexUserConfig",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the identifiers that are needed to refer to a software component or another appropriate entity in the system which uses the EcuMFlex Interfaces.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00201",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMFlexUser",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig/EcuMFlexUser",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Parameter used to identify one user.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00146",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EcuMFlexEcucPartitionRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig/EcuMFlexEcucPartitionRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Denotes in which \"EcucPartition\" the user of the EcuM is executed.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00203",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMGoDownAllowedUsers",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMGoDownAllowedUsers",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container describes the collection of allowed users which are allowed to call the EcuM_GoDown API.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00206",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMGoDownAllowedUserRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMGoDownAllowedUsers/EcuMGoDownAllowedUserRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These parameters describe the references to the users which are allowed to call the EcuM_GoDown API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00207",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMResetMode",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMResetMode",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the configured reset modes.",
+              "metadata": {
+                "INTRODUCTION": "The name of these containers allows one of the following symbolic names to be given to the different reset modes: - ECUM_RESET_MCU - ECUM_RESET_WDG - ECUM_RESET_IO.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00172",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMResetModeId",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMResetMode/EcuMResetModeId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This ID identifies this reset mode in services like EcuM_SelectShutdownTarget.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00173",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMSetClockAllowedUsers",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMSetClockAllowedUsers",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container describes the collection of allowed users which are allowed to call the EcuM_SetClock API.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00197",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "EcuMSetClockAllowedUserRef",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMSetClockAllowedUsers/EcuMSetClockAllowedUserRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "These parameters describe the references to the users which are allowed to call the EcuM_SetClock API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00198",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EcuMShutdownCause",
+              "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMShutdownCause",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "These containers describe the configured shut down or reset causes.",
+              "metadata": {
+                "INTRODUCTION": "The name of these containers allows to give one of the following symbolic names to the different shut down causes: - ECUM_CAUSE_ECU_STATE - ECU state machine entered a state for shutdown, - ECUM_CAUSE_WDGM - WdgM detected failure, - ECUM_CAUSE_DCM - Dcm requests shutdown (split into UDS services?), - and values from configuration.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00175",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "EcuMShutdownCauseId",
+                  "path": "/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMShutdownCause/EcuMShutdownCauseId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This ID identifies this shut down cause.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00176",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EcuMFixedGeneral",
+      "path": "/EcuM/EcuMFixedGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general, pre-compile configuration parameters for the EcuMFixed.",
+      "metadata": {
+        "INTRODUCTION": "Only applicable if EcuMFixed is implemented.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00166",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EcuMIncludeComM",
+          "path": "/EcuM/EcuMFixedGeneral/EcuMIncludeComM",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This configuration parameter defines whether the communication manager is supported by EcuM. This feature is presented for development purpose to compile out the communication manager in the early debugging phase.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00189",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMTTIIEnabled",
+          "path": "/EcuM/EcuMFixedGeneral/EcuMTTIIEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Boolean switch to enable / disable TTII",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00144",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMTTIIWakeupSourceRef",
+          "path": "/EcuM/EcuMFixedGeneral/EcuMTTIIWakeupSourceRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This configuration parameter references the initial sleep mode to be used by TTII when TTII is activated after a RUN mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00145",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "EcuMFlexGeneral",
+      "path": "/EcuM/EcuMFlexGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general, pre-compile configuration parameters for the EcuMFlex.",
+      "metadata": {
+        "INTRODUCTION": "Only applicable if EcuMFlex is implemented.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00168",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EcuMAlarmClockPresent",
+          "path": "/EcuM/EcuMFlexGeneral/EcuMAlarmClockPresent",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This flag indicates whether the optional AlarmClock feature is present.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00199",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMModeHandling",
+          "path": "/EcuM/EcuMFlexGeneral/EcuMModeHandling",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If false, Run Request Protocol is not performed.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00221",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMResetLoopDetection",
+          "path": "/EcuM/EcuMFlexGeneral/EcuMResetLoopDetection",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If false, no reset loop detection is performed. If this configuration parameter exists and is set to true, the callout \"EcuM_LoopDetection\" is called during startup of EcuM (during StartPreOS).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00171",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMSetProgrammableInterrupts",
+          "path": "/EcuM/EcuMFlexGeneral/EcuMSetProgrammableInterrupts",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If this configuration parameter exists and is to true, the callout \"EcuM_AL_SetProgrammableInterrupts\" is called during startup of EcuM (during StartPreOS).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00210",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMAlarmWakeupSource",
+          "path": "/EcuM/EcuMFlexGeneral/EcuMAlarmWakeupSource",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter describes the reference to the EcuMWakeupSource being used for the EcuM AlarmClock.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00200",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "EcuMGeneral",
+      "path": "/EcuM/EcuMGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general, pre-compile configuration parameters.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00116",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EcuMDevErrorDetect",
+          "path": "/EcuM/EcuMGeneral/EcuMDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If false, no debug artifacts (e.g. calls to DET) shall remain in the executable object. Initialization of DET, however is controlled by configuration of optional BSW modules.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00108",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMIncludeDet",
+          "path": "/EcuM/EcuMGeneral/EcuMIncludeDet",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If defined, the according BSW module will be initialized by the ECU State Manager",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00118",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMMainFunctionPeriod",
+          "path": "/EcuM/EcuMGeneral/EcuMMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the schedule period of EcuM_MainFunction.",
+          "metadata": {
+            "INTRODUCTION": "Unit: [s]",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00121",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EcuMVersionInfoApi",
+          "path": "/EcuM/EcuMGeneral/EcuMVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the version info API on or off",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EcuM_00149",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "name": "Port",
+  "path": "/Port",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Port module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "PortConfigSet",
+      "path": "/Port/PortConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Port module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Port_00121",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "PortContainer",
+          "path": "/Port/PortConfigSet/PortContainer",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Container collecting the PortPins.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Port_00122",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "PortNumberOfPortPins",
+              "path": "/Port/PortConfigSet/PortContainer/PortNumberOfPortPins",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The number of specified PortPins in this PortContainer.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Port_00124",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "PortPin",
+              "path": "/Port/PortConfigSet/PortContainer/PortPin",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Configuration of the individual port pins.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Port_00118",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "PortPinDirection",
+                  "path": "/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The initial direction of the pin (IN or OUT). If the direction is not changeable, the value configured here is fixed.",
+                  "metadata": {
+                    "INTRODUCTION": "The direction must match the pin mode. E.g. a pin used for an ADC must be configured to be an in port. Implementation Type: Port_PinDirectionType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Port_00125",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "PORT_PIN_IN AUTOSAR_ECUC PORT_PIN_OUT AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "PortPinDirectionChangeable",
+                  "path": "/Port/PortConfigSet/PortContainer/PortPin/PortPinDirectionChangeable",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Parameter to indicate if the direction is changeable on a port pin during runtime.",
+                  "metadata": {
+                    "INTRODUCTION": "true: Port Pin direction changeable enabled. false: Port Pin direction changeable disabled.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Port_00126",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "PortPinId",
+                  "path": "/Port/PortConfigSet/PortContainer/PortPin/PortPinId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Pin Id of the port pin. This value will be assigned to the symbolic name derived from the port pin container short name.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Port_00127",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "PortPinInitialMode",
+                  "path": "/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Port pin mode from mode list for use with Port_Init() function.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Port_00128",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "PORT_PIN_MODE_ADC AUTOSAR_ECUC PORT_PIN_MODE_CAN AUTOSAR_ECUC PORT_PIN_MODE_DIO AUTOSAR_ECUC PORT_PIN_MODE_DIO_GPT AUTOSAR_ECUC PORT_PIN_MODE_DIO_WDG AUTOSAR_ECUC PORT_PIN_MODE_FLEXRAY AUTOSAR_ECUC PORT_PIN_MODE_ICU AUTOSAR_ECUC PORT_PIN_MODE_LIN AUTOSAR_ECUC PORT_PIN_MODE_MEM AUTOSAR_ECUC PORT_PIN_MODE_PWM AUTOSAR_ECUC PORT_PIN_MODE_SPI AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "PortPinLevelValue",
+                  "path": "/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Port Pin Level value from Port pin list.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Port_00129",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "PORT_PIN_LEVEL_HIGH AUTOSAR_ECUC PORT_PIN_LEVEL_LOW AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "PortPinMode",
+                  "path": "/Port/PortConfigSet/PortContainer/PortPin/PortPinMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Port pin mode from mode list.",
+                  "metadata": {
+                    "INTRODUCTION": "Note that more than one mode is allowed by default. That way it is e.g. possible to combine DIO with another mode such as ICU.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Port_00130",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "PORT_PIN_MODE_ADC AUTOSAR_ECUC PORT_PIN_MODE_CAN AUTOSAR_ECUC PORT_PIN_MODE_DIO AUTOSAR_ECUC PORT_PIN_MODE_DIO_GPT AUTOSAR_ECUC PORT_PIN_MODE_DIO_WDG AUTOSAR_ECUC PORT_PIN_MODE_FLEXRAY AUTOSAR_ECUC PORT_PIN_MODE_ICU AUTOSAR_ECUC PORT_PIN_MODE_LIN AUTOSAR_ECUC PORT_PIN_MODE_MEM AUTOSAR_ECUC PORT_PIN_MODE_PWM AUTOSAR_ECUC PORT_PIN_MODE_SPI AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "PortPinModeChangeable",
+                  "path": "/Port/PortConfigSet/PortContainer/PortPin/PortPinModeChangeable",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Parameter to indicate if the mode is changeable on a port pin during runtime. True: Port Pin mode changeable allowed. False: Port Pin mode changeable not permitted.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Port_00134",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PortGeneral",
+      "path": "/Port/PortGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Module wide configuration parameters of the PORT driver.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Port_00117",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "PortDevErrorDetect",
+          "path": "/Port/PortGeneral/PortDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Port_00123",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PortSetPinDirectionApi",
+          "path": "/Port/PortGeneral/PortSetPinDirectionApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch to enable / disable the use of the function Port_SetPinDirection().",
+          "metadata": {
+            "INTRODUCTION": "TRUE: Enabled - Function Port_SetPinDirection() is available. FALSE: Disabled - Function Port_SetPinDirection() is not available.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Port_00131",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PortSetPinModeApi",
+          "path": "/Port/PortGeneral/PortSetPinModeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch to enable / disable the use of the function Port_SetPinMode().",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled - Function Port_SetPinMode() is available. false: Disabled - Function Port_SetPinMode() is not available.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Port_00132",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PortVersionInfoApi",
+          "path": "/Port/PortGeneral/PortVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch to enable / disable the API to read out the modules version information.",
+          "metadata": {
+            "INTRODUCTION": "true: Version info API enabled. false: Version info API disabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Port_00133",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

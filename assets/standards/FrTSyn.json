@@ -1,0 +1,542 @@
+{
+  "name": "FrTSyn",
+  "path": "/FrTSyn",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "This represents the specific configuration variant for the TSyn on Flexray.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "FrTSynGeneral",
+      "path": "/FrTSyn/FrTSynGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general parameters of the Flexray-specific Synchronized Time-base Manager",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrTSynDevErrorDetect",
+          "path": "/FrTSyn/FrTSynGeneral/FrTSynDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTSynMainFunctionPeriod",
+          "path": "/FrTSyn/FrTSynGeneral/FrTSynMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Schedule period of the main function FrTSyn_MainFunction. Unit: [s].",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00016",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTSynVersionInfo",
+          "path": "/FrTSyn/FrTSynGeneral/FrTSynVersionInfo",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activate/Deactivate the version information API (FrTSyn_GetVersionInfo). True: version information API activated False: version information API deactivated.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00019",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTSynGlobalTimeOfsDataIDList",
+          "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeOfsDataIDList",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00024",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FrTSynGlobalTimeOfsDataIDListElement",
+              "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeOfsDataIDList/FrTSynGlobalTimeOfsDataIDListElement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "16",
+              "upper": "16",
+              "infinite": null,
+              "description": "Element of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00028",
+                "LOWER-MULTIPLICITY": "16",
+                "UPPER-MULTIPLICITY": "16"
+              },
+              "children": [
+                {
+                  "name": "FrTSynGlobalTimeOfsDataIDListIndex",
+                  "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeOfsDataIDList/FrTSynGlobalTimeOfsDataIDListElement/FrTSynGlobalTimeOfsDataIDListIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00029",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "15",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTSynGlobalTimeOfsDataIDListValue",
+                  "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeOfsDataIDList/FrTSynGlobalTimeOfsDataIDListElement/FrTSynGlobalTimeOfsDataIDListValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Value of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00030",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FrTSynGlobalTimeSyncDataIDList",
+          "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeSyncDataIDList",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00023",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FrTSynGlobalTimeSyncDataIDListElement",
+              "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeSyncDataIDList/FrTSynGlobalTimeSyncDataIDListElement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "16",
+              "upper": "16",
+              "infinite": null,
+              "description": "Element of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00025",
+                "LOWER-MULTIPLICITY": "16",
+                "UPPER-MULTIPLICITY": "16"
+              },
+              "children": [
+                {
+                  "name": "FrTSynGlobalTimeSyncDataIDListIndex",
+                  "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeSyncDataIDList/FrTSynGlobalTimeSyncDataIDListElement/FrTSynGlobalTimeSyncDataIDListIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00026",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "15",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTSynGlobalTimeSyncDataIDListValue",
+                  "path": "/FrTSyn/FrTSynGeneral/FrTSynGlobalTimeSyncDataIDList/FrTSynGlobalTimeSyncDataIDListElement/FrTSynGlobalTimeSyncDataIDListValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Value of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00027",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FrTSynGlobalTimeDomain",
+      "path": "/FrTSyn/FrTSynGlobalTimeDomain",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "This represents the existence of a global time domain on Flexray. The FrTSyn module can administrate several global time domains at the same time that in itself form a hierarchy of domains and sub-domains.",
+      "metadata": {
+        "INTRODUCTION": "If the FrTSyn exists it is assumed that at least one global time domain exists.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00004",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "FrTSynGlobalTimeDomainId",
+          "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeDomainId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The global time domain ID.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "31",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTSynGlobalTimeSequenceCounterJumpWidth",
+          "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeSequenceCounterJumpWidth",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The SequenceCounterJumpWidth specifies the maximum allowed gap of the Sequence Counter between two SYNC resp. two OFS messages.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00022",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "15",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTSynSynchronizedTimeBaseRef",
+          "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynSynchronizedTimeBaseRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Mandatory reference to the required synchronized time-base.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00018",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTSynGlobalTimeMaster",
+          "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeMaster",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration of the global time master. Each global time domain is required to have exactly one global time master. This master may or may not exist on the configured ECU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00006",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FrTSynGlobalTimeTxCrcSecured",
+              "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeMaster/FrTSynGlobalTimeTxCrcSecured",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents the configuration of whether or not CRC is supported.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CRC_NOT_SUPPORTED AUTOSAR_ECUC CRC_SUPPORTED AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTSynGlobalTimeTxPeriod",
+              "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeMaster/FrTSynGlobalTimeTxPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents the TX period. Unit: seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00014",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTSynGlobalTimeMasterPdu",
+              "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeMaster/FrTSynGlobalTimeMasterPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container carries all properties required to configure the PDU sent by the global time master for the given global time domain.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00008",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrTSynGlobalTimeMasterConfirmationHandleId",
+                  "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeMaster/FrTSynGlobalTimeMasterPdu/FrTSynGlobalTimeMasterConfirmationHandleId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the handle ID of the PDU that contains the global time information.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00007",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTSynGlobalTimePduRef",
+                  "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeMaster/FrTSynGlobalTimeMasterPdu/FrTSynGlobalTimePduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00020",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FrTSynGlobalTimeSlave",
+          "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeSlave",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This represents the time slave for the enclosing global time domain.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00010",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FrTSynRxCrcValidated",
+              "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeSlave/FrTSynRxCrcValidated",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter controls whether or not CRC validation shall be supported.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00017",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CRC_IGNORED AUTOSAR_ECUC CRC_NOT_VALIDATED AUTOSAR_ECUC CRC_VALIDATED AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTSynGlobalTimeSlavePdu",
+              "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeSlave/FrTSynGlobalTimeSlavePdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container carries all properties required to configure the PDU received by the time slave for the given global time domain.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00012",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrTSynGlobalTimeSlaveHandleId",
+                  "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeSlave/FrTSynGlobalTimeSlavePdu/FrTSynGlobalTimeSlaveHandleId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the handle ID of the PDU that contains the global time information.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00011",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTSynGlobalTimePduRef",
+                  "path": "/FrTSyn/FrTSynGlobalTimeDomain/FrTSynGlobalTimeSlave/FrTSynGlobalTimeSlavePdu/FrTSynGlobalTimePduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTSyn_00021",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

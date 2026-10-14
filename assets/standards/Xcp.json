@@ -1,0 +1,1282 @@
+{
+  "name": "Xcp",
+  "path": "/Xcp",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the XCP module",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "XcpConfig",
+      "path": "/Xcp/XcpConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Xcp module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00020",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "XcpDaqList",
+          "path": "/Xcp/XcpConfig/XcpDaqList",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration of the DAQs.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00050",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "XcpDaqListNumber",
+              "path": "/Xcp/XcpConfig/XcpDaqList/XcpDaqListNumber",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Index number of the DAQ list",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00051",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65534",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpDaqListType",
+              "path": "/Xcp/XcpConfig/XcpDaqList/XcpDaqListType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This indicates whether this DAQ list represents a DAQ or a STIM.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00052",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "DAQ AUTOSAR_ECUC DAQ_STIM AUTOSAR_ECUC STIM AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpMaxOdt",
+              "path": "/Xcp/XcpConfig/XcpDaqList/XcpMaxOdt",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "MAX_ODT indicates the maximum amount of ODTs in this DAQ list",
+              "metadata": {
+                "INTRODUCTION": "(STATIC configuration)",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00053",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "252",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpMaxOdtEntries",
+              "path": "/Xcp/XcpConfig/XcpDaqList/XcpMaxOdtEntries",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter indicates the maximum amount of entries in an ODT of this DAQ list (STATIC configuration).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00058",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpDto",
+              "path": "/Xcp/XcpConfig/XcpDaqList/XcpDto",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container collects data transfer object specific parameters for the DAQ list.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00065",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "XcpDtoPid",
+                  "path": "/Xcp/XcpConfig/XcpDaqList/XcpDto/XcpDtoPid",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Packet identifier (PID) of the DTO that identifies the ODT the content of the DTO.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00066",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "251",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "XcpDto2PduMapping",
+                  "path": "/Xcp/XcpConfig/XcpDaqList/XcpDto/XcpDto2PduMapping",
+                  "type": "ECUC-CHOICE-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This reference specifies the mapping of the DTO to the PDUs from the lower-layer interfaces (CanIf, FrIf, SoAd and Cdd).",
+                  "metadata": {
+                    "INTRODUCTION": "A reference to a XcpRxPdu is only feasible if the the DaqListType is DAQ_STIM. A reference to a XcpTxPdu is only feasible if the DaqListType is DAQ.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00067",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REFS": "/AUTOSAR/EcucDefs/Xcp/XcpConfig/XcpPdu/XcpRxPdu /AUTOSAR/EcucDefs/Xcp/XcpConfig/XcpPdu/XcpTxPdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "XcpOdt",
+              "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains ODT-specific parameter for the DAQ list.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00055",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "XcpOdtEntryMaxSize",
+                  "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdtEntryMaxSize",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter indicates the upper limit for the size of the element described by an ODT entry. Depending on the DaqListType this ODT belongs to it describes the limit for a DAQ (MAX_ODT_ENTRY_SIZE_DAQ) or a STIM (MAX_ODT_ENTRY_SIZE_STIM).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00060",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "254",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "XcpOdtNumber",
+                  "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdtNumber",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index number of this ODT within the DAQ list.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00057",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "251",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "XcpOdt2DtoMapping",
+                  "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdt2DtoMapping",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This reference maps the ODT to the according DTO in which it will be transmitted.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00056",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Xcp/XcpConfig/XcpDaqList/XcpDto"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "XcpOdtEntry",
+                  "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdtEntry",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "This container collects all configuration parameters that comprise an ODT entry.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00061",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "XcpOdtEntryAddress",
+                      "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdtEntry/XcpOdtEntryAddress",
+                      "type": "ECUC-LINKER-SYMBOL-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Memory address that the ODT entry is referencing to.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00063",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-LINKER-SYMBOL-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "XcpOdtEntryBitOffset",
+                      "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdtEntry/XcpOdtEntryBitOffset",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Represent the bit offset in case of the element represents status bit.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00179",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "31",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "XcpOdtEntryLength",
+                      "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdtEntry/XcpOdtEntryLength",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Length of the referenced memory area that is referenced by the ODT entry.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00064",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "XcpOdtEntryNumber",
+                      "path": "/Xcp/XcpConfig/XcpDaqList/XcpOdt/XcpOdtEntry/XcpOdtEntryNumber",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Index number of the ODT entry",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00062",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "254",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "XcpEventChannel",
+          "path": "/Xcp/XcpConfig/XcpEventChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration of event channels on the XCP slave.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00150",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "XcpEventChannelConsistency",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelConsistency",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Type of consistency used by event channel",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00171",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "ODT",
+                "LITERALS": "DAQ AUTOSAR_ECUC EVENT AUTOSAR_ECUC ODT AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpEventChannelMaxDaqList",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelMaxDaqList",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum amount of DAQ lists that are handled by this event channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00153",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpEventChannelNumber",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelNumber",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Index number of the event channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00152",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65534",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpEventChannelPriority",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelPriority",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Priority of the event channel",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00154",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpEventChannelTimeCycle",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelTimeCycle",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The event channel time cycle indicates which sampling period is used to process this event channel. A value of 0 means 'Not cyclic'.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00173",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpEventChannelTimeUnit",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelTimeUnit",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This configuration parameter indicates the unit of the event channel time cycle.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00174",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "TIMESTAMP_UNIT_100MS AUTOSAR_ECUC TIMESTAMP_UNIT_100NS AUTOSAR_ECUC TIMESTAMP_UNIT_100PS AUTOSAR_ECUC TIMESTAMP_UNIT_100US AUTOSAR_ECUC TIMESTAMP_UNIT_10MS AUTOSAR_ECUC TIMESTAMP_UNIT_10NS AUTOSAR_ECUC TIMESTAMP_UNIT_10PS AUTOSAR_ECUC TIMESTAMP_UNIT_10US AUTOSAR_ECUC TIMESTAMP_UNIT_1MS AUTOSAR_ECUC TIMESTAMP_UNIT_1NS AUTOSAR_ECUC TIMESTAMP_UNIT_1PS AUTOSAR_ECUC TIMESTAMP_UNIT_1S AUTOSAR_ECUC TIMESTAMP_UNIT_1US AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpEventChannelType",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This configuration parameter indicates what kind of DAQ list can be allocated to this event channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00172",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "DAQ",
+                "LITERALS": "DAQ AUTOSAR_ECUC DAQ_STIM AUTOSAR_ECUC STIM AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "XcpEventChannelTriggeredDaqListRef",
+              "path": "/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelTriggeredDaqListRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "References all DAQ lists that are trigged by this event channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00151",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Xcp/XcpConfig/XcpDaqList"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "XcpPdu",
+          "path": "/Xcp/XcpConfig/XcpPdu",
+          "type": "ECUC-CHOICE-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Contains PDU information. A PDU may be either a transmission PDU or a reception PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00100",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "XcpRxPdu",
+              "path": "/Xcp/XcpConfig/XcpPdu/XcpRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies received PDUs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00105",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "XcpRxPduId",
+                  "path": "/Xcp/XcpConfig/XcpPdu/XcpRxPdu/XcpRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "ID of the PDU that will be received via a Xcp_<module>RxIndication.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00106",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "XcpRxPduRef",
+                  "path": "/Xcp/XcpConfig/XcpPdu/XcpRxPdu/XcpRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": null,
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00107",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "XcpTxPdu",
+              "path": "/Xcp/XcpConfig/XcpPdu/XcpTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies transmission PDUs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00101",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "XcpTxPduId",
+                  "path": "/Xcp/XcpConfig/XcpPdu/XcpTxPdu/XcpTxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The PDU identifier, which has to be used by the lower layer BSW module for TxConfirmations or TriggerTransmits.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00103",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "XcpTxPduRef",
+                  "path": "/Xcp/XcpConfig/XcpPdu/XcpTxPdu/XcpTxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the external PDU definition.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00104",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XcpGeneral",
+      "path": "/Xcp/XcpGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the general configuration parameters of the XCP.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "XcpDaqConfigType",
+          "path": "/Xcp/XcpGeneral/XcpDaqConfigType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Sets the DAQ_CONFIG_TYPE bit within the DAQ_PROPERTIES parameter to \"static\" or to \"dynamic\". If DAQ_STATIC is selected, the DAQ_CONFIG_TYPE bit is set to \"0\". If DAQ_DYNAMIC is selected, the DAQ_CONFIG_TYPE bit is set to \"1\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00164",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "DAQ_DYNAMIC AUTOSAR_ECUC DAQ_STATIC AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpDaqCount",
+          "path": "/Xcp/XcpGeneral/XcpDaqCount",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Indicates the number of DAQ lists for dynamic configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpDevErrorDetect",
+          "path": "/Xcp/XcpGeneral/XcpDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpFlashProgrammingEnabled",
+          "path": "/Xcp/XcpGeneral/XcpFlashProgrammingEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enabling of XCP Flash programming functionality",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00181",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpIdentificationFieldType",
+          "path": "/Xcp/XcpGeneral/XcpIdentificationFieldType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Type of Identification Field the slave will use when transferring DAQ Packets to the master. The master has to use the same Type of Identification Field when transferring STIM Packets to the slave.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00170",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "ABSOLUTE AUTOSAR_ECUC RELATIVE_BYTE AUTOSAR_ECUC RELATIVE_WORD AUTOSAR_ECUC RELATIVE_WORD_ALIGNED AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpMainFunctionPeriod",
+          "path": "/Xcp/XcpGeneral/XcpMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The XCP does not require this information but the BSW scheduler, which invokes the main function, needs it in order to plan its tasks.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00014",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpMaxCto",
+          "path": "/Xcp/XcpGeneral/XcpMaxCto",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "MAX_CTO shows the maximum length of a CTO packet in bytes.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "8"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpMaxDto",
+          "path": "/Xcp/XcpGeneral/XcpMaxDto",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "MAX_DTO shows the maximum length of a DTO packet in bytes.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "8"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpMaxEventChannel",
+          "path": "/Xcp/XcpGeneral/XcpMaxEventChannel",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": null,
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpMinDaq",
+          "path": "/Xcp/XcpGeneral/XcpMinDaq",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Indicates the number of predefined, read only DAQ lists on the XCP slave.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00013",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOdtCount",
+          "path": "/Xcp/XcpGeneral/XcpOdtCount",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter indicates the amount of ODTs of a DAQ list using dynamic DAQ list configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00054",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "252",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOdtEntriesCount",
+          "path": "/Xcp/XcpGeneral/XcpOdtEntriesCount",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Indicates the amount of entries into an ODT using dynamic DAQ list configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00059",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOdtEntrySizeDaq",
+          "path": "/Xcp/XcpGeneral/XcpOdtEntrySizeDaq",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Indicates the size of an element described by an ODT entry to the DaqListType for a DAQ.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00177",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOdtEntrySizeStim",
+          "path": "/Xcp/XcpGeneral/XcpOdtEntrySizeStim",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Indicates the size of an element described by an ODT entry to the DaqListType for a stim.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00178",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOnCanEnabled",
+          "path": "/Xcp/XcpGeneral/XcpOnCanEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enabling of XCPonCAN functionality",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOnCddEnabled",
+          "path": "/Xcp/XcpGeneral/XcpOnCddEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enabling of XCPonCdd functionality",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00009",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOnEthernetEnabled",
+          "path": "/Xcp/XcpGeneral/XcpOnEthernetEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enabling of XCPonEthernet functionality",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpOnFlexRayEnabled",
+          "path": "/Xcp/XcpGeneral/XcpOnFlexRayEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enabling of XCPonFlexRay functionality",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpPrescalerSupported",
+          "path": "/Xcp/XcpGeneral/XcpPrescalerSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter enables and disables the support for Prescaler support. True is Enabled, False is disabled",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00169",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpSuppressTxSupport",
+          "path": "/Xcp/XcpGeneral/XcpSuppressTxSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the support of suppressing transmission of PDUs per communication channel on or off.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: Suppressing of TxPDUs supported FALSE: Suppressing of TxPDUs not supported",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00176",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpTimestampTicks",
+          "path": "/Xcp/XcpGeneral/XcpTimestampTicks",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the timestamp that will increment based TIMESTAMP_TICKS per unit and wrap around if an overflow occurs.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00167",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpTimestampType",
+          "path": "/Xcp/XcpGeneral/XcpTimestampType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter indicates the number of bytes used for the timestamp field. In case No_TIME_STAMP is selected the timestamp field is not available.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00166",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "FOUR_BYTE AUTOSAR_ECUC NO_TIME_STAMP AUTOSAR_ECUC ONE_BYTE AUTOSAR_ECUC TWO_BYTE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpTimestampUnit",
+          "path": "/Xcp/XcpGeneral/XcpTimestampUnit",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter indicates the resolution of the data acquisition clock of the slave when transferring data to master.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00168",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "TIMESTAMP_UNIT_100MS AUTOSAR_ECUC TIMESTAMP_UNIT_100NS AUTOSAR_ECUC TIMESTAMP_UNIT_100PS AUTOSAR_ECUC TIMESTAMP_UNIT_100US AUTOSAR_ECUC TIMESTAMP_UNIT_10MS AUTOSAR_ECUC TIMESTAMP_UNIT_10NS AUTOSAR_ECUC TIMESTAMP_UNIT_10PS AUTOSAR_ECUC TIMESTAMP_UNIT_10US AUTOSAR_ECUC TIMESTAMP_UNIT_1MS AUTOSAR_ECUC TIMESTAMP_UNIT_1NS AUTOSAR_ECUC TIMESTAMP_UNIT_1PS AUTOSAR_ECUC TIMESTAMP_UNIT_1S AUTOSAR_ECUC TIMESTAMP_UNIT_1US AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpVersionInfoApi",
+          "path": "/Xcp/XcpGeneral/XcpVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables/disables the existence of the XCP_GetVersionInfo() API service.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: XCP_GetVersionInfo() API service exists FALSE: XCP_GetVersionInfo() API service does not exist",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpCounterRef",
+          "path": "/Xcp/XcpGeneral/XcpCounterRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter contains a reference to the counter, which is used by XCP.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00162",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+          },
+          "children": []
+        },
+        {
+          "name": "XcpNvRamBlockIdRef",
+          "path": "/Xcp/XcpGeneral/XcpNvRamBlockIdRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This reference contains the link to a non-volatile memory block to be used in the feature \"RESUME MODE\" so this information has to be stored non volatile to be available directly after start-up of the ECU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xcp_00180",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/NvM/NvMBlockDescriptor"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

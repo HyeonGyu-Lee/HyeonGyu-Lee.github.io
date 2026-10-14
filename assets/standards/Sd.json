@@ -1,0 +1,1995 @@
+{
+  "name": "Sd",
+  "path": "/Sd",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Service Discovery module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "SdConfig",
+      "path": "/Sd/SdConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Service Discovery module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "SdInstance",
+          "path": "/Sd/SdConfig/SdInstance",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container represents an instance of the SD; i.e. the SD configuration for a certain link.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00084",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "SdInstanceHostname",
+              "path": "/Sd/SdConfig/SdInstance/SdInstanceHostname",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Configuration parameter to specify the Hostname.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00012",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "SdClientService",
+              "path": "/Sd/SdConfig/SdInstance/SdClientService",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container specifies all parameters used by Client services.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00005",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "SdClientServiceAutoRequire",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceAutoRequire",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "If existing and set to true, this Service will be set to \"required\" on start.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00098",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceHandleId",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceHandleId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The HandleId by which the BswM can identify this Client Service Instance.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00079",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceId",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Id to identify the service. This is unique for the service interface.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00020",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65534",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceInstanceId",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceInstanceId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configuration parameter to specify Instance Id of the service as used in SD entries.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00022",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65534",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceMajorVersion",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceMajorVersion",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Major version number of the Service as used in the SD entries.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00070",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "254",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceMinorVersion",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceMinorVersion",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Minor version number of the Service as used in the SD Service Entries.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00071",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceTcpRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceTcpRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the SoAdSocketConnection representing the data path (TCP) for communication with methods.",
+                  "metadata": {
+                    "INTRODUCTION": "This element is also used to set the remote address of the server and to open the TCP connection.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00100",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceTimerRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceTimerRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The reference of the SdClientTimer container for this service.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00103",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Sd/SdConfig/SdInstance/SdClientTimer"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientServiceUdpRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientServiceUdpRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the SoAdSocketConnection representing the data path (UDP) for communication with methods.",
+                  "metadata": {
+                    "INTRODUCTION": "This element is also used to set the remote address of the server.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00101",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientCapabilityRecord",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientCapabilityRecord",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Sd uses capability records to store arbitrary name/value pairs conveying additional information about the named service.",
+                  "metadata": {
+                    "INTRODUCTION": "The following use cases are supported: 1) Key present, with no value (e.g. \"passreq\" -- password required for this service) 2) Key present, with empty value (e.g. \"PlugIns=\" server supports plugins, but none are presently installed) 3) Key present, with non-empty value (e.g. \"PlugIns=JPEG,MPEG2,MPEG4\")",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00072",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "SdClientServiceCapabilityRecordKey",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientCapabilityRecord/SdClientServiceCapabilityRecordKey",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines a CapabilityRecord key.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00073",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdClientServiceCapabilityRecordValue",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdClientCapabilityRecord/SdClientServiceCapabilityRecordValue",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines the corresponding CapabilityRecord value.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00074",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "SdConsumedEventGroup",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "A Service may have event groups which can be consumed. A service consumer has to subscribe to the corresponding event-group. After the subscription the event consumer takes the role of a server and the event provider that of a client.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00056",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "SdConsumedEventGroupAutoRequire",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupAutoRequire",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "If existing and set to true, this EventGroup will be set to \"required\" on start.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00108",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdConsumedEventGroupHandleId",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupHandleId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The HandleId by which the BswM can identify this EventGroup.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00116",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdConsumedEventGroupId",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The Eventgroup Id of this eventGroup as a unique identifier of the eventgroup in this service. This identifier is used for EventGroup entries as well.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00057",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65534",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdConsumedEventGroupMulticastGroupRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupMulticastGroupRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "0",
+                      "upper": null,
+                      "infinite": "true",
+                      "description": "Reference to the SoAdSocketConnectionGroup representing the multicast data path (UDP).",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00119",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY-INFINITE": "true",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdConsumedEventGroupTimerRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupTimerRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The reference of the SdClientTimer container for this eventGroup.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00107",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/Sd/SdConfig/SdInstance/SdClientTimer"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdConsumedEventGroupMulticastActivationRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupMulticastActivationRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The reference of a Routing Group in order to activate and setup the Socket Connection for Multicast Events of this EventGroup. The multicast address from the received Multicast option is setup by SoAd_RequestIpAddrAssignment.",
+                      "metadata": {
+                        "INTRODUCTION": "The local address is the same as for the unicast events; thus, it was sent in the UDP Endpoint option of the Subscribe EventGroup entry.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00106",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdConsumedEventGroupTcpActivationRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupTcpActivationRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The reference of the Routing Group for activation of the data path for receiving TCP events.",
+                      "metadata": {
+                        "INTRODUCTION": "This element is also being used for getting the IP address and port number for building the TCP endpoint option for the Subscribe EventGroup entry. If no TCP methods are used in the service, this element is also being used for setting the remote address (TCP Endpoint option referenced by the Offer Service entry) and opening the TCP connection to the server before sending the Subscribe EventGroup entry. If multiple EventGroups of the same Service Instance are subscribed the TCP connection will be shared and must be opened only once.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00105",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdConsumedEventGroupUdpActivationRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdConsumedEventGroupUdpActivationRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The reference of the Routing Group for activation of the data path for receiving UDP events.",
+                      "metadata": {
+                        "INTRODUCTION": "This element is also being used for getting the IP address and port number for building the UDP endpoint option for the Subscribe EventGroup entry. If no UDP methods are used in the service, this element is also being used for setting the remote address (UDP Endpoint option referenced by the Offer Service entry). If multiple EventGroups of the same Service Instance are subscribed the UDP Socket Connection will be shared and must be set only once.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00104",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdClientCapabilityRecord",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdClientCapabilityRecord",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": null,
+                      "infinite": "true",
+                      "description": "Sd uses capability records to store arbitrary name/value pairs conveying additional information about the named service.",
+                      "metadata": {
+                        "INTRODUCTION": "The following use cases are supported: 1) Key present, with no value (e.g. \"passreq\" -- password required for this service) 2) Key present, with empty value (e.g. \"PlugIns=\" server supports plugins, but none are presently installed) 3) Key present, with non-empty value (e.g. \"PlugIns=JPEG,MPEG2,MPEG4\")",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00072",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY-INFINITE": "true"
+                      },
+                      "children": [
+                        {
+                          "name": "SdClientServiceCapabilityRecordKey",
+                          "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdClientCapabilityRecord/SdClientServiceCapabilityRecordKey",
+                          "type": "ECUC-STRING-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Defines a CapabilityRecord key.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00073",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "SdClientServiceCapabilityRecordValue",
+                          "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedEventGroup/SdClientCapabilityRecord/SdClientServiceCapabilityRecordValue",
+                          "type": "ECUC-STRING-PARAM-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Defines the corresponding CapabilityRecord value.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00074",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "SdConsumedMethods",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedMethods",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Container element for representing the data path for accessing the server methods.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00099",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "SdClientServiceActivationRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdClientService/SdConsumedMethods/SdClientServiceActivationRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to a SoAdRoutingGroupRef to activate/deactivate the data path for the methods.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00102",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "SdClientTimer",
+              "path": "/Sd/SdConfig/SdInstance/SdClientTimer",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container specifies all timers used by the Service Discovery module for Client Services.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00043",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "SdClientTimerInitialFindDelayMax",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientTimer/SdClientTimerInitialFindDelayMax",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Max value in [s] to delay randomly the transmission of a find message. This parameter is mandatory for ClientService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00063",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientTimerInitialFindDelayMin",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientTimer/SdClientTimerInitialFindDelayMin",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Min value in [s] to delay randomly the transmission of a find message. This parameter is mandatory for ClientService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00044",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientTimerInitialFindRepetitionsBaseDelay",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientTimer/SdClientTimerInitialFindRepetitionsBaseDelay",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The base delay in [s] for find repetitions. Successive finds have an exponential back off delay (1x base delay, 2x base delay, 4x base delay, ...). This parameter is mandatory for ClientService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00047",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientTimerInitialFindRepetitionsMax",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientTimer/SdClientTimerInitialFindRepetitionsMax",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configuration for the maximum number of find repetitions. This parameter is mandatory for ClientService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00046",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "10",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientTimerRequestResponseMaxDelay",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientTimer/SdClientTimerRequestResponseMaxDelay",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Maximum allowable response delay to entries received by multicast in seconds. This parameter is mandatory for ConsumedEventGroups.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00036",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientTimerRequestResponseMinDelay",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientTimer/SdClientTimerRequestResponseMinDelay",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Minimum allowable response delay to the find message in seconds. This parameter is mandatory for ConsumedEventGroups.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00064",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdClientTimerTTL",
+                  "path": "/Sd/SdConfig/SdInstance/SdClientTimer/SdClientTimerTTL",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Time to live for find and subscribe messages.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00075",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "16777215",
+                    "MIN": "1"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "SdInstanceDemEventParameterRefs",
+              "path": "/Sd/SdConfig/SdInstance/SdInstanceDemEventParameterRefs",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00120",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "SD_E_MALFORMED_MSG",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceDemEventParameterRefs/SD_E_MALFORMED_MSG",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when the SD Instance received malformed messsage.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00121",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SD_E_OUT_OF_RES",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceDemEventParameterRefs/SD_E_OUT_OF_RES",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when the SD Instance does not have enough resources to handle client.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00122",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SD_E_SUBSCR_NACK_RECV",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceDemEventParameterRefs/SD_E_SUBSCR_NACK_RECV",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when receiving SubscribeEventgroupNack entry.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00123",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "SdInstanceMulticastRxPdu",
+              "path": "/Sd/SdConfig/SdInstance/SdInstanceMulticastRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies the received PDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00081",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "SdRxPduId",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceMulticastRxPdu/SdRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "ID of the PDU that will be received via the API Sd_SoAdIfRxIndication().",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00028",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdRxPduRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceMulticastRxPdu/SdRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00029",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "SdInstanceTxPdu",
+              "path": "/Sd/SdConfig/SdInstance/SdInstanceTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies the transmitted PDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00030",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "SdTxPduRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceTxPdu/SdTxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00109",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "SdInstanceUnicastRxPdu",
+              "path": "/Sd/SdConfig/SdInstance/SdInstanceUnicastRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies the received PDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00027",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "SdRxPduId",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceUnicastRxPdu/SdRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "ID of the PDU that will be received via the API Sd_SoAdIfRxIndication().",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00082",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdRxPduRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdInstanceUnicastRxPdu/SdRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00083",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "SdServerService",
+              "path": "/Sd/SdConfig/SdInstance/SdServerService",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container specifies all parameters used by Server services.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00004",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "SdServerServiceAutoAvailable",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceAutoAvailable",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "If existing and set to true, this Service will be set to \"Available\" on start.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00085",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceHandleId",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceHandleId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The HandleId by which the BswM can identify this Server Service Instance.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00110",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceId",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Id to identify the service. This is unique for the service interface.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00009",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65534",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceInstanceId",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceInstanceId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configuration parameter to specify Instance Id of the Service implemented by the Server Service.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00011",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65534",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceMajorVersion",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceMajorVersion",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Major version number of the Service as used in SD Entries.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00068",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "254",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceMinorVersion",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceMinorVersion",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Minor version number of the Service as used e.g. in Offer Service entries.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00069",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967294",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceTcpRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceTcpRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to SoAdSocketConnectionGroup used for methods.",
+                  "metadata": {
+                    "INTRODUCTION": "This is used to access the local IP address and port for building the endpoint option for offers of this service.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00088",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceTimerRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceTimerRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The reference of the SdServerTimer container for this service.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00086",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Sd/SdConfig/SdInstance/SdServerTimer"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerServiceUdpRef",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerServiceUdpRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to SoAdSocketConnectionGroup used for methods.",
+                  "metadata": {
+                    "INTRODUCTION": "This is used to access the local IP address and port for building the endpoint option for offers of this service.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00089",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdEventHandler",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Container Element for representing an EventGroup as part of the Service Instance.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00055",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "SdEventHandlerEventGroupId",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerEventGroupId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The EventGroup Id of this EventGroup as a unique identifier of the EventGroup in this service. This identifier is used for EventGroup entries as well.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00061",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65534",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdEventHandlerHandleId",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerHandleId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The HandleId by which the BswM can identify this EventGroup.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00112",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdEventHandlerMulticastThreshold",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerMulticastThreshold",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the number of subscribed clients that trigger the Server to change the transmission of events to Multicast.",
+                      "metadata": {
+                        "INTRODUCTION": "If configured to 0 only unicast will be used. If configured to 1 the first client will be already served by multicast. If configured to 2 the first client will be served with unicast and as soon as the second client arrives both will be served by multicast. This does not influence the handling of initial events, which are served using unicast only.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00097",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdEventHandlerTimerRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerTimerRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The reference of the SdServerTimer container for this EventGroup.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00113",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/Sd/SdConfig/SdInstance/SdServerTimer"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdEventHandlerMulticast",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerMulticast",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The subcontainer including the Routing Group for Activation of Events sent over Multicast.",
+                      "metadata": {
+                        "INTRODUCTION": "The activation ref is also being used for identification of the related Socket Connection in order to find the Multicast Address used in the Multicast Option referenced by the Subscribe EventGroup Ack entry.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00094",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": [
+                        {
+                          "name": "SdEventActivationRef",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerMulticast/SdEventActivationRef",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to a SoAdRoutingGroup for activation of the data path for a subscribed client (start sending events after subscribe).",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00096",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "SdMulticastEventSoConRef",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerMulticast/SdMulticastEventSoConRef",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to the SoAdSocketConnection representing the multicast data path (UDP).",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00118",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection"
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "SdEventHandlerTcp",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerTcp",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The subcontainer including the Routing Groups for Activation and Trigger Transmit for Events sent over TCP.",
+                      "metadata": {
+                        "INTRODUCTION": "The activation ref (or triggering ref if no activation ref exists) is also being used for identification of the related socket connections in order to find the related client by iterating the SdEventHandlerTcp elements (remote address statically configured or automatically set by opening TCP connection before subscription).",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00093",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": [
+                        {
+                          "name": "SdEventActivationRef",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerTcp/SdEventActivationRef",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to a SoAdRoutingGroup for activation of the data path for a subscribed client (start sending events after subscribe).",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00096",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "SdEventTriggeringRef",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerTcp/SdEventTriggeringRef",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to a SoAdRoutingGroup that is used for triggered transmit. Triggering is needed to sent out initial events on the server side after a client got subscribed.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00095",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "SdEventHandlerUdp",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerUdp",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The subcontainer including the Routing Groups for Activation and Trigger Transmit for Events sent over UDP.",
+                      "metadata": {
+                        "INTRODUCTION": "The activation ref (or triggering ref if no activation ref exists) is also being used for identification of the related socket connections in order to set the remote address of the client or find the related client by iterating the SdEventHandlerUdp elements (remote address statically configured or automatically set by method call before subscription).",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00092",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": [
+                        {
+                          "name": "SdEventActivationRef",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerUdp/SdEventActivationRef",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to a SoAdRoutingGroup for activation of the data path for a subscribed client (start sending events after subscribe).",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00096",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "SdEventTriggeringRef",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdEventHandlerUdp/SdEventTriggeringRef",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to a SoAdRoutingGroup that is used for triggered transmit. Triggering is needed to sent out initial events on the server side after a client got subscribed.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00095",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "SdServerCapabilityRecord",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdServerCapabilityRecord",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": null,
+                      "infinite": "true",
+                      "description": "Sd uses capability records to store arbitrary name/value pairs conveying additional information about the named service.",
+                      "metadata": {
+                        "INTRODUCTION": "The following use cases are supported: 1) Key present, with no value (e.g. \"passreq\" -- password required for this service) 2) Key present, with empty value (e.g. \"PlugIns=\" server supports plugins, but none are presently installed) 3) Key present, with non-empty value (e.g. \"PlugIns=JPEG,MPEG2,MPEG4\")",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00032",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY-INFINITE": "true"
+                      },
+                      "children": [
+                        {
+                          "name": "SdServerCapabilityRecordKey",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdServerCapabilityRecord/SdServerCapabilityRecordKey",
+                          "type": "ECUC-STRING-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Defines a CapabilityRecord key.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00033",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "SdServerCapabilityRecordValue",
+                          "path": "/Sd/SdConfig/SdInstance/SdServerService/SdEventHandler/SdServerCapabilityRecord/SdServerCapabilityRecordValue",
+                          "type": "ECUC-STRING-PARAM-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Defines the corresponding CapabilityRecord value.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00034",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "SdProvidedMethods",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdProvidedMethods",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Container element for representing the needed elements of the data path for the methods provided by the service.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00087",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "SdServerServiceActivationRef",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdProvidedMethods/SdServerServiceActivationRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to a SoAdRoutingGroup to activated and deactivate the data path for methods of the service.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00090",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "SdServerCapabilityRecord",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerCapabilityRecord",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Sd uses capability records to store arbitrary name/value pairs conveying additional information about the named service.",
+                  "metadata": {
+                    "INTRODUCTION": "The following use cases are supported: 1) Key present, with no value (e.g. \"passreq\" -- password required for this service) 2) Key present, with empty value (e.g. \"PlugIns=\" server supports plugins, but none are presently installed) 3) Key present, with non-empty value (e.g. \"PlugIns=JPEG,MPEG2,MPEG4\")",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00032",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "SdServerCapabilityRecordKey",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerCapabilityRecord/SdServerCapabilityRecordKey",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines a CapabilityRecord key.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00033",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SdServerCapabilityRecordValue",
+                      "path": "/Sd/SdConfig/SdInstance/SdServerService/SdServerCapabilityRecord/SdServerCapabilityRecordValue",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines the corresponding CapabilityRecord value.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00034",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "SdServerTimer",
+              "path": "/Sd/SdConfig/SdInstance/SdServerTimer",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container specifies all timers used by the Service Discovery module for Server Services.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SD_00035",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "SdServerTimerInitialOfferDelayMax",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerInitialOfferDelayMax",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Max value in [s] to delay randomly the first offer. This parameter is mandatory for ServerService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00039",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerTimerInitialOfferDelayMin",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerInitialOfferDelayMin",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Min value in [s] to delay randomly the first offer. This parameter is mandatory for ServerService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00038",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerTimerInitialOfferRepetitionBaseDelay",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerInitialOfferRepetitionBaseDelay",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The base delay in [s] for offer repetitions. Successive offers have an exponential back off delay (1x base delay, 2x base delay, 4x base delay, ...). This parameter is mandatory for ServerService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00041",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerTimerInitialOfferRepetitionsMax",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerInitialOfferRepetitionsMax",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configure the maximum amount of offer repetition. This parameter is mandatory for ServerService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00040",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "10",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerTimerOfferCyclicDelay",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerOfferCyclicDelay",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Interval between cyclic offers in the main phase. This parameter is mandatory for ServerService.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00076",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerTimerRequestResponseMaxDelay",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerRequestResponseMaxDelay",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Maximum allowable response delay to entries received by multicast in seconds.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00114",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerTimerRequestResponseMinDelay",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerRequestResponseMinDelay",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Minimum allowable response delay to entries received by multicast in seconds.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00115",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SdServerTimerTTL",
+                  "path": "/Sd/SdConfig/SdInstance/SdServerTimer/SdServerTimerTTL",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Time to live for offer service.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SD_00037",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "16777215",
+                    "MIN": "1"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SdGeneral",
+      "path": "/Sd/SdGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container lists the general configuration parameters for the Service Discovery module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SD_00002",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "SdDevErrorDetect",
+          "path": "/Sd/SdGeneral/SdDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SdMainFunctionCycleTime",
+          "path": "/Sd/SdGeneral/SdMainFunctionCycleTime",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the cycle time in seconds of the periodic calling of Sd main function.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "1",
+            "MIN": "1E-4"
+          },
+          "children": []
+        },
+        {
+          "name": "SdVersionInfoApi",
+          "path": "/Sd/SdGeneral/SdVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables and disables the version info API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SD_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

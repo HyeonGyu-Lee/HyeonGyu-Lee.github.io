@@ -1,0 +1,788 @@
+{
+  "name": "EthIf",
+  "path": "/EthIf",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the EthIf (Ethernet Interface) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "EthIfConfigSet",
+      "path": "/EthIf/EthIfConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Collecting container for all parameters with post-build configuration classes.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00010",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EthIfController",
+          "path": "/EthIf/EthIfConfigSet/EthIfController",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration of EthIfController.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00025",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "EthIfCtrlIdx",
+              "path": "/EthIf/EthIfConfigSet/EthIfController/EthIfCtrlIdx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter provides a zero-based consecutive index of the Ethernet Communication Controllers. Upper layer BSW modules and the EthIf itself use this index to identify a Ethernet CC.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00026",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthIfCtrlMtu",
+              "path": "/EthIf/EthIfConfigSet/EthIfController/EthIfCtrlMtu",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the maximum transmission unit (MTU) of the EthIfCtrl in [bytes].",
+              "metadata": {
+                "INTRODUCTION": "Note: in case a VLAN tag is used for the EthIfCtrl, the MTU is 4 bytes smaller than the maximum payload size of an Ethernet frame which can be transmitted on the network.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00032",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "9000",
+                "MIN": "64"
+              },
+              "children": []
+            },
+            {
+              "name": "EthIfMaxTxBufsTotal",
+              "path": "/EthIf/EthIfConfigSet/EthIfController/EthIfMaxTxBufsTotal",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Limits the total number of transmit buffers.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00002",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "EthIfVlanId",
+              "path": "/EthIf/EthIfConfigSet/EthIfController/EthIfVlanId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "A virtual-LAN is identified by this attribute according to IEEE 802.1Q.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00029",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "4095",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthIfEthCtrlRef",
+              "path": "/EthIf/EthIfConfigSet/EthIfController/EthIfEthCtrlRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a Controller, which is handled by a specific Driver. This reference is unique for the ECU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00027",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Eth/EthConfigSet/EthCtrlConfig"
+              },
+              "children": []
+            },
+            {
+              "name": "EthIfEthTrcvRef",
+              "path": "/EthIf/EthIfConfigSet/EthIfController/EthIfEthTrcvRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a Ethernet Transceiver.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00028",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EthTrcv/EthTrcvConfigSet/EthTrcvConfig"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "EthIfFrameOwnerConfig",
+          "path": "/EthIf/EthIfConfigSet/EthIfFrameOwnerConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of Ethernet frame owner",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "EthIfFrameType",
+              "path": "/EthIf/EthIfConfigSet/EthIfFrameOwnerConfig/EthIfFrameType",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Selects the Ethernet frame type.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00012",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthIfOwner",
+              "path": "/EthIf/EthIfConfigSet/EthIfFrameOwnerConfig/EthIfOwner",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Selects the owner of an Ethernet frame type. The owner is a zero based index into the callback function configuration 'EthIfRxIndicationConfig'. I.e. an Ethernet frame of type IPv4 (0x800) at index 0 will call the first callback function configured in 'EthIfRxIndicationConfig'.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "EthIfRxIndicationConfig",
+          "path": "/EthIf/EthIfConfigSet/EthIfRxIndicationConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of receive callback functions.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00014",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "EthIfRxIndicationFunction",
+              "path": "/EthIf/EthIfConfigSet/EthIfRxIndicationConfig/EthIfRxIndicationFunction",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies receive indication callback function.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00015",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "EthIfSwitch",
+          "path": "/EthIf/EthIfConfigSet/EthIfSwitch",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration of EthIfSwitches.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00036",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "EthIfSwitchIdx",
+              "path": "/EthIf/EthIfConfigSet/EthIfSwitch/EthIfSwitchIdx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter provides a zero-based consecutive index of the Ethernet Interface Switches. Upper layer BSW modules and the EthIf itself use this index to identify a Ethernet Switch.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00037",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthIfSwitchRef",
+              "path": "/EthIf/EthIfConfigSet/EthIfSwitch/EthIfSwitchRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a Ethernet Switch, which is handled by a specific Ethernet Switch driver.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00038",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EthSwt/EthSwtConfig"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "EthIfTrcvLinkStateChgConfig",
+          "path": "/EthIf/EthIfConfigSet/EthIfTrcvLinkStateChgConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Specifies link state change callback function",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00018",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "EthIfTrcvLinkStateChgFunction",
+              "path": "/EthIf/EthIfConfigSet/EthIfTrcvLinkStateChgConfig/EthIfTrcvLinkStateChgFunction",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies link state change callback function",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00019",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "EthIfTxConfirmationConfig",
+          "path": "/EthIf/EthIfConfigSet/EthIfTxConfirmationConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of transmit indication callback functions.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00016",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "EthIfTxConfirmationFunction",
+              "path": "/EthIf/EthIfConfigSet/EthIfTxConfirmationConfig/EthIfTxConfirmationFunction",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies transmit indication callback function",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00017",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EthIfGeneral",
+      "path": "/EthIf/EthIfGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the general configuration parameters of the Ethernet Interface.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EthIfDevErrorDetect",
+          "path": "/EthIf/EthIfGeneral/EthIfDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfEnableRxInterrupt",
+          "path": "/EthIf/EthIfGeneral/EthIfEnableRxInterrupt",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables receive interrupt.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfEnableTxInterrupt",
+          "path": "/EthIf/EthIfGeneral/EthIfEnableTxInterrupt",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables the transmit interrupt.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfGetBaudRate",
+          "path": "/EthIf/EthIfGeneral/EthIfGetBaudRate",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables GetBaudRate API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00034",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfGetCounterState",
+          "path": "/EthIf/EthIfGeneral/EthIfGetCounterState",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables GetCounterState API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00035",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfGetTransceiverWakeupModeApi",
+          "path": "/EthIf/EthIfGeneral/EthIfGetTransceiverWakeupModeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthIf_GetTransceiverWakeupMode API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00041",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfGlobalTimeSupport",
+          "path": "/EthIf/EthIfGeneral/EthIfGlobalTimeSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables/Disables the Global Time APIs used amongst others by Global Time Synchronization over Ethernet.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00039",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfMainFunctionPeriod",
+          "path": "/EthIf/EthIfGeneral/EthIfMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the period of main function EthIf_MainFunctionRx and EthIf_MainFunctionTx in seconds. Ethernet Interface does not require this information but the BSW scheduler.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00023",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfMainFunctionRxTimeout",
+          "path": "/EthIf/EthIfGeneral/EthIfMainFunctionRxTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter is deprecated and will be removed in future. Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+          "metadata": {
+            "INTRODUCTION": "Old description: Timeout in seconds after which the EthIf stops to receive frames in an EthIfMainFunctionRx period. This element is obsolete and will be removed in a future revision.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00031",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfMaxTrcvsTotal",
+          "path": "/EthIf/EthIfGeneral/EthIfMaxTrcvsTotal",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Limits the total number of transceivers.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfPublicCddHeaderFile",
+          "path": "/EthIf/EthIfGeneral/EthIfPublicCddHeaderFile",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines header files for callback functions which shall be included in case of CDDs. Range of characters is 1.. 32.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00024",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": "32 1"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfRxIndicationIterations",
+          "path": "/EthIf/EthIfGeneral/EthIfRxIndicationIterations",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of Ethernet frames per Ethernet controller polled from the Ethernet driver within EthIf_MainFunctionRx.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00030",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfStartAutoNegotiation",
+          "path": "/EthIf/EthIfGeneral/EthIfStartAutoNegotiation",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables StartAutoNegotiation API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00033",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfTrcvLinkStateChgMainReload",
+          "path": "/EthIf/EthIfGeneral/EthIfTrcvLinkStateChgMainReload",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the frequency of transceiver link state change checks in each",
+          "metadata": {
+            "INTRODUCTION": "period of main function EthIf_MainFunctionTx.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00009",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfVersionInfoApi",
+          "path": "/EthIf/EthIfGeneral/EthIfVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables version info API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfVersionInfoApiMacro",
+          "path": "/EthIf/EthIfGeneral/EthIfVersionInfoApiMacro",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables version info API macro implementation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthIfWakeUpSupport",
+          "path": "/EthIf/EthIfGeneral/EthIfWakeUpSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configures if wakeup is supported or not.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthIf_00040",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

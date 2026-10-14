@@ -1,0 +1,1122 @@
+{
+  "name": "FrTp",
+  "path": "/FrTp",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the FlexRay Transport Protocol module according to ISO 10681-2.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "FrTpGeneral",
+      "path": "/FrTp/FrTpGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the general configuration parameters of the FlexRay Transport Protocol module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00009",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrTpAckRt",
+          "path": "/FrTp/FrTpGeneral/FrTpAckRt",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch for enabling the Acknowledgement and retry mechanisms.",
+          "metadata": {
+            "INTRODUCTION": "True: Acknowledge and Retry is enabled False: Acknowledge and Retry is disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpChanNum",
+          "path": "/FrTp/FrTpGeneral/FrTpChanNum",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch for defining the number of concurrent channels the module supports. Up to 32 channels shall be definable here.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "32",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpChangeParamApi",
+          "path": "/FrTp/FrTpGeneral/FrTpChangeParamApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch for enabling the API to change FrTp communication",
+          "metadata": {
+            "INTRODUCTION": "parameters. True: ChangeParameter API is enabled False: ChangeParameter API is disabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00052",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpDevErrorDetect",
+          "path": "/FrTp/FrTpGeneral/FrTpDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpFullDuplexEnable",
+          "path": "/FrTp/FrTpGeneral/FrTpFullDuplexEnable",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch for enabling full duplex mechanisms for all channels.",
+          "metadata": {
+            "INTRODUCTION": "True: Full duplex is enabled False: Fullduplex is disabled (Half duplex is enabled)",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00051",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpMainFuncCycle",
+          "path": "/FrTp/FrTpGeneral/FrTpMainFuncCycle",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter contains the calling period of the TPs Main Function. The parameter is specified in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpTransmitCancellation",
+          "path": "/FrTp/FrTpGeneral/FrTpTransmitCancellation",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch for enabling Transmit Cancellation and Receive Cancellation.",
+          "metadata": {
+            "INTRODUCTION": "True: Transmit/Receive Cancellation is enabled False: Transmit/Receive Cancellation is disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00036",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpUnknownMsgLength",
+          "path": "/FrTp/FrTpGeneral/FrTpUnknownMsgLength",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to support data transfer with unknown message length.",
+          "metadata": {
+            "INTRODUCTION": "True: Transmission with unknown message length is enabled False: Transmission with unknown message length is disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00044",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpVersionInfoApi",
+          "path": "/FrTp/FrTpGeneral/FrTpVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch for enabling the Version info API.",
+          "metadata": {
+            "INTRODUCTION": "True: Version Info API is enabled False: Version Info API is disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00045",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "FrTpMultipleConfig",
+      "path": "/FrTp/FrTpMultipleConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR FrTp module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00018",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrTpMaxConnectionCnt",
+          "path": "/FrTp/FrTpMultipleConfig/FrTpMaxConnectionCnt",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of TP connections. This parameter is needed only in case of post-build loadable implementation using static memory allocation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00054",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "18446744073709551615",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrTpConnection",
+          "path": "/FrTp/FrTpMultipleConfig/FrTpConnection",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the connection specific parameters to transfer N-PDUs via FlexRay TP.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "FrTpBandwidthLimitation",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpBandwidthLimitation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter indicates whether the connection requires a bandwidth limitation or not. If FrTpBandwidthLimitation=True the sender shall send a StartFrame always on the first PDU of a PDU-Pool.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00050",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpLa",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpLa",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the Local Address for the respective connection. When the local instance is the sender, this is the Source Address within the TP frame. When the local instance is the receiver, this is the Target Address within the TP frame.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00010",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMultipleReceiverCon",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpMultipleReceiverCon",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines, whether this connection is an 1:1 ('false') or an 1:n ('true') connection. If data segmentation is required this parameter is used to check whether segmentation is possible or not. If the connection is 1:n segmentation is not possible and an error will occur.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00019",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpRa",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpRa",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the Remote Address for the respective connection. When the local instance is the sender, this is the Target Address within the TP frame. When the local instance is the receiver, this is the Source Address within the TP frame.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00021",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpConCtrlRef",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpConCtrlRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "FrTpConnectionControlReference:",
+              "metadata": {
+                "INTRODUCTION": "This parameter defines a reference to a connection control container.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00005",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrTp/FrTpMultipleConfig/FrTpConnectionControl"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpRxPduPoolRef",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpRxPduPoolRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines a reference to a RxPduPool.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00025",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrTp/FrTpMultipleConfig/FrTpRxPduPool"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTxPduPoolRef",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpTxPduPoolRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines a reference to a TxPduPool.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00039",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrTp/FrTpMultipleConfig/FrTpTxPduPool"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpRxSdu",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpRxSdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the Rx Service Data Unit Identifier (Sdu Id) which uniquely identifies a data transfer (inter-module communication) between FrTp and PDUR.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00027",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrTpRxSduId",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpRxSdu/FrTpRxSduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This unique identifier is used for change parameter request or receive cancellation from PduR to FrTp.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: PduIdType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00053",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTpRxSduRef",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpRxSdu/FrTpRxSduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a PDU in the global PDU structure.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00028",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "FrTpTxSdu",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpTxSdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the Tx Service Data Unit Identifier (Sdu Id) which uniquely identifies a data transfer (inter-module communication) between FrTp and PDUR.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00041",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrTpTxSduId",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpTxSdu/FrTpTxSduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is a unique identifier for a to be transmitted message from the PduR to the FrTp.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: PduIdType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00042",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTpTxSduRef",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpConnection/FrTpTxSdu/FrTpTxSduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a PDU in the global PDU structure.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00043",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FrTpConnectionControl",
+          "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration parameters to control a FlexRay TP connection.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "FrTpAckType",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpAckType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the type of acknowledgement which is used for the specific channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00003",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "FRTP_ACK_WITH_RT AUTOSAR_ECUC FRTP_NO AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMaxAr",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpMaxAr",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the maximum number of trying to send a frame when a TIMEOUT AR occurs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00012",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMaxAs",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpMaxAs",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the maximum number of trying to send a frame when a TIMEOUT AS occurs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMaxBufferSize",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpMaxBufferSize",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Limits the maximal buffer size the FrTp can choose in order to limit the amount of Tx buffer that will be requested at the sender side in a segmented transfer.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00015",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMaxFCWait",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpMaxFCWait",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the maximum number of FlowControl N-PDUs with FlowState \"WAIT\"",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00014",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMaxFrIf",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpMaxFrIf",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the maximum number of trying to send a frame when the FrIf returns an error.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00016",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMaxNbrOfNPduPerCycle",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpMaxNbrOfNPduPerCycle",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter is part of the ISO 10681-2 protocol's FlowControl parameter \"Bandwidth Control (BC)\". It limits the number of N-Pdus the sender is allowed to transmit within a FlexRay cycle.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00029",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "31",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpMaxRn",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpMaxRn",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the maximum number of retries (if retry is configured).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00017",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpSCexp",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpSCexp",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter is part of the ISO 10681-2 protocol's FlowControl parameter \"Bandwidth Control (BC)\". It represents the exponent to calculate the minimum number of \"Separation Cycles\" the sender has to wait for the next transmission of an FrTp N-Pdu.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00020",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "7",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeBr",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeBr",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the time in seconds the FrTp requires to transmit a corresponding FlowControl Frame. According to ISO 10681-2 this parameter is a performance requirement.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00047",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "0.255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeCs",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeCs",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the time in seconds between the sending of two CFs or between the sending of a CF and LF or between the reception of a FC and sending of the next CF.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00056",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeFrIf",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeFrIf",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the time in seconds of waiting for the next try (if retry is activated) to send via FrIf_Transmit.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00031",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "0.255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeoutAr",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeoutAr",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter states the timeout in seconds between the PDU transmit request of the Transport Layer to the FlexRay Interface and the corresponding confirmation of the FlexRay Interface on the receiver side (for FC or AF).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00032",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeoutAs",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeoutAs",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter specifies the timeout in seconds the FrIf shall confirm a transmitted Pdu to the FrTp.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00033",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeoutBr",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeoutBr",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter specifies the timeout in seconds between the PDU receive indication of the Transport Layer to the FlexRay Interface and the corresponding PDU transmission of the FlexRay Interface on the receiver side.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00058",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeoutBs",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeoutBs",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the timeout in seconds for waiting for an FC or AF on the sender side in a 1:1 connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00034",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeoutCr",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeoutCr",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the timeout value in seconds a receiver is waiting for a CF or a LF.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00035",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrTpTimeoutCs",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpConnectionControl/FrTpTimeoutCs",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter specifies the timeout in seconds to transmit the next ConsecutiveFrame N-PDU or the last frame N-PDU after receiving the flow control frame (CTS) from the sender side.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00057",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FrTpRxPduPool",
+          "path": "/FrTp/FrTpMultipleConfig/FrTpRxPduPool",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains all Pdus that are assigned to that Pdu Pool.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00024",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "FrTpRxPdu",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpRxPduPool/FrTpRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Container to hold the PDU parameters.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: PduInfoType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00022",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+              },
+              "children": [
+                {
+                  "name": "FrTpRxPduId",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpRxPduPool/FrTpRxPdu/FrTpRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is a unique identifier for a received message which is forwarded from the FrIf to the FrTp.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: PduIdType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00023",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTpRxPduRef",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpRxPduPool/FrTpRxPdu/FrTpRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a PDU in the global PDU structure.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00026",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FrTpTxPduPool",
+          "path": "/FrTp/FrTpMultipleConfig/FrTpTxPduPool",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains all Pdus that are assigned to that Pdu Pool.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00038",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "FrTpTxPdu",
+              "path": "/FrTp/FrTpMultipleConfig/FrTpTxPduPool/FrTpTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Container to hold the PDU parameters.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: PduInfoType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00037",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+              },
+              "children": [
+                {
+                  "name": "FrTpTxConfirmationPduId",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpTxPduPool/FrTpTxPdu/FrTpTxConfirmationPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Handle Id to be used by the FrIf to confirm the transmission of the FrTpTxPdu to the FrIf module (FrTp_TxConfirmation) and for TriggerTransmit (FrTp_TriggerTransmit).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00049",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrTpTxPduRef",
+                  "path": "/FrTp/FrTpMultipleConfig/FrTpTxPduPool/FrTpTxPdu/FrTpTxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a PDU in the global PDU structure.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrTp_00040",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

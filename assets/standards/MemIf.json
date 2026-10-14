@@ -1,0 +1,100 @@
+{
+  "name": "MemIf",
+  "path": "/MemIf",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the MemIf (Memory Abstraction Interface) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_MemIf_00025",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "MemIfGeneral",
+      "path": "/MemIf/MemIfGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Configuration of the memory abstraction interface (Memif) module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_MemIf_00034",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "MemIfDevErrorDetect",
+          "path": "/MemIf/MemIfGeneral/MemIfDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemIf_00035",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "MemIfNumberOfDevices",
+          "path": "/MemIf/MemIfGeneral/MemIfNumberOfDevices",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Concrete number of underlying memory abstraction modules.",
+          "metadata": {
+            "INTRODUCTION": "Calculation Formula: Count number of configured EA and FEE modules.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemIf_00033",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "2",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "MemIfVersionInfoApi",
+          "path": "/MemIf/MemIfGeneral/MemIfVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch to enable / disable the API to read out the modules version information.",
+          "metadata": {
+            "INTRODUCTION": "true: Version info API enabled. false: Version info API disabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemIf_00032",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

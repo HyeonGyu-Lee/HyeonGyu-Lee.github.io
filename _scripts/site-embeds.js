@@ -1,4 +1,17 @@
 const components = new Map([
+  [
+    "site:embed:autosar-nvm-explorer",
+    'components/standard-explorer.html module="NvM"',
+  ],
+  [
+    "site:embed:autosar-can-explorer",
+    'components/standard-explorer.html module="Can"',
+  ],
+  [
+    "site:embed:autosar-lin-explorer",
+    'components/standard-explorer.html module="Lin"',
+  ],
+  ["site:embed:autosar-standard-explorer", "components/standard-explorer.html"],
   ["site:embed:mcu-peripheral-map", "components/mcu-map.html"],
   ["site:embed:autosar-architecture", "components/autosar-map.html"],
 ])

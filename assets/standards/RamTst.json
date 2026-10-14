@@ -1,0 +1,978 @@
+{
+  "name": "RamTst",
+  "path": "/RamTst",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the RamTst module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00150",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "RamTstCommon",
+      "path": "/RamTst/RamTstCommon",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds a list of all available functions in the RamTst module. Each function is turned ON or OFF before compiling so that only the desired functions and test algorithms are in the compiled code.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00070",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "RamTstAllowApi",
+          "path": "/RamTst/RamTstCommon/RamTstAllowApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function \"RamTst_Allow\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00120",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstChangeNumOfTestedCellsApi",
+          "path": "/RamTst/RamTstCommon/RamTstChangeNumOfTestedCellsApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function \"RamTst_ChangeNumberOfTestedCells\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00118",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstDevErrorDetect",
+          "path": "/RamTst/RamTstCommon/RamTstDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00121",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstGetAlgParamsApi",
+          "path": "/RamTst/RamTstCommon/RamTstGetAlgParamsApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function \"RamTst_GetAlgParams\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00183",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstGetExecutionStatusApi",
+          "path": "/RamTst/RamTstCommon/RamTstGetExecutionStatusApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_GetExecutionStatus\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00122",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstGetNumberOfTestedCellsApi",
+          "path": "/RamTst/RamTstCommon/RamTstGetNumberOfTestedCellsApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function \"RamTst_GetNumberOfTestedCells\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00123",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstGetTestAlgorithmApi",
+          "path": "/RamTst/RamTstCommon/RamTstGetTestAlgorithmApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_GetTestAlgorithm\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00124",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstGetTestResultApi",
+          "path": "/RamTst/RamTstCommon/RamTstGetTestResultApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_GetTestResult\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00125",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstGetTestResultPerBlockApi",
+          "path": "/RamTst/RamTstCommon/RamTstGetTestResultPerBlockApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_GetTestResultPerBlock\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00126",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstGetVersionInfoApi",
+          "path": "/RamTst/RamTstCommon/RamTstGetVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_GetVersionInfo\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00128",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstResumeApi",
+          "path": "/RamTst/RamTstCommon/RamTstResumeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function \"RamTst_Resume\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00155",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstRunFullTestApi",
+          "path": "/RamTst/RamTstCommon/RamTstRunFullTestApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_RunFullTest\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00184",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstRunPartialTestApi",
+          "path": "/RamTst/RamTstCommon/RamTstRunPartialTestApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_RunPartialTest\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00185",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstSelectAlgParamsApi",
+          "path": "/RamTst/RamTstCommon/RamTstSelectAlgParamsApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function \"RamTst_SelectAlgParams\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00182",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstStopApi",
+          "path": "/RamTst/RamTstCommon/RamTstStopApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function",
+          "metadata": {
+            "INTRODUCTION": "\"RamTst_Stop\"",
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00127",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstSuspendApi",
+          "path": "/RamTst/RamTstCommon/RamTstSuspendApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to disable / enable the function \"RamTst_Suspend\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00156",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RamTstAlgorithms",
+          "path": "/RamTst/RamTstCommon/RamTstAlgorithms",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container holds all of the available test algorithms for the specific microcontroller. Each test algorithm is selected ON or OFF before compiling so that only the desired test algorithms are in the compiled code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00065",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "RamTstAbrahamTestSelected",
+              "path": "/RamTst/RamTstCommon/RamTstAlgorithms/RamTstAbrahamTestSelected",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Preprocessor switch to select the Abraham Test ON or OFF",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00129",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstCheckerboardTestSelected",
+              "path": "/RamTst/RamTstCommon/RamTstAlgorithms/RamTstCheckerboardTestSelected",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Preprocessor switch to select the Checkerboard Test ON or OFF",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00130",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstGalpatTestSelected",
+              "path": "/RamTst/RamTstCommon/RamTstAlgorithms/RamTstGalpatTestSelected",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Preprocessor switch to select the Galpat Test ON or OFF",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00132",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstMarchTestSelected",
+              "path": "/RamTst/RamTstCommon/RamTstAlgorithms/RamTstMarchTestSelected",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Preprocessor switch to select the March Test ON or OFF",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00133",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstTranspGalpatTestSelected",
+              "path": "/RamTst/RamTstCommon/RamTstAlgorithms/RamTstTranspGalpatTestSelected",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Preprocessor switch to select the Transparent Galpat Test ON or OFF",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00134",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstWalkPathTestSelected",
+              "path": "/RamTst/RamTstCommon/RamTstAlgorithms/RamTstWalkPathTestSelected",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Preprocessor switch to select the Walking Path Test ON or OFF",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00135",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RamTstConfigParams",
+          "path": "/RamTst/RamTstCommon/RamTstConfigParams",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container specifies configuration parameters which are set at pre-compile or link time.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00066",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "RamTstDefaultAlgParamsId",
+              "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstDefaultAlgParamsId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This is the identifier for the default \"RamTstAlgParams\" valid after the \"RamTst_Init(..)\" function. It is the initial value for a RAM variable which could be changed by the function \"RamTst_SelectAlgParams\".",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00181",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstMinNumberOfTestedCells",
+              "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstMinNumberOfTestedCells",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Minimum number of tested cells for one cycle of a background test, as defined by implementer.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00154",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "4294967295",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstNumberOfAlgParamSets",
+              "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstNumberOfAlgParamSets",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of configured parameter sets for the available test algorithms.",
+              "metadata": {
+                "INTRODUCTION": "calculationFormula = count of the container RamTst_AlgParams",
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00180",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstTestCompletedNotification",
+              "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstTestCompletedNotification",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This function will be called from a background test after finishing the RAM test without an error.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00138",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstTestErrorNotification",
+              "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstTestErrorNotification",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This function will be called from a background test if an error occurs during the RAM test.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00139",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "RamTstAlgParams",
+              "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "255",
+              "infinite": null,
+              "description": "This container holds parameters for configuring an algorithm. For each algorithm selected in the RamTst_Algorithms container there can be one or more RamTstAlgParams containers. The multiplicity of the included container RamTstBlockParams depends on the number of separate blocks of RAM which are defined for the particular test configuration.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00090",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "255"
+              },
+              "children": [
+                {
+                  "name": "RamTstAlgParamsId",
+                  "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstAlgParamsId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the identifier by which this RamTstAlgParams set can be selected.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00179",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RamTstAlgorithm",
+                  "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstAlgorithm",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the algorithm for which this RamTstAlgParams set is defined. Note that the same algorithm can be used in more than one RamTstAlgParams.",
+                  "metadata": {
+                    "INTRODUCTION": "Constraint: Only the algorithms selected by RamTstCommon/ RamTstAlgorithms can be used.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00178",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "RAMTST_ABRAHAM_TEST AUTOSAR_ECUC RAMTST_CHECKERBOARD_TEST AUTOSAR_ECUC RAMTST_GALPAT_TEST AUTOSAR_ECUC RAMTST_MARCH_TEST AUTOSAR_ECUC RAMTST_TRANSP_GALPAT_TEST AUTOSAR_ECUC RAMTST_WALK_PATH_TEST AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RamTstExtNumberOfTestedCells",
+                  "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstExtNumberOfTestedCells",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the absolute maximum value for the number of cells that NUMBER_OF_TESTED_CELLS and MAX_NUMBER_OF_TESTED_CELLS can be.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00152",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RamTstMaxNumberOfTestedCells",
+                  "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstMaxNumberOfTestedCells",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the maximum value for the number of cells that can be tested in one cycle of a background test.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00153",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RamTstNumberOfBlocks",
+                  "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstNumberOfBlocks",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Number of RAM blocks configured using the container",
+                  "metadata": {
+                    "INTRODUCTION": "\"RamTst_BlockParams\" calculationFormula = Count of RamTstBlockParams contained in this RamTstAlgParams.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00141",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RamTstNumberOfTestedCells",
+                  "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstNumberOfTestedCells",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the initial value for a RAM variable, which can be changed by the function \"RamTst_ChangeNumberOfTestedCells\"",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00142",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RamTstBlockParams",
+                  "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "65535",
+                  "infinite": null,
+                  "description": "This container holds the description for one block of RAM. For each RAM block to be tested by a given algorithm, there is one container which describes the block. Multiple instances of this container are included in each container RamTst_AlgParams.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00091",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "65535"
+                  },
+                  "children": [
+                    {
+                      "name": "RamTstBlockId",
+                      "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "ID of the RAM block",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00143",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "1"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "RamTstEndAddress",
+                      "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "End Address of the RAM block.",
+                      "metadata": {
+                        "INTRODUCTION": "Constraint: It must be larger than the RamTstStartAddress.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00144",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "4294967295",
+                        "MIN": "1"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "RamTstFillPattern",
+                      "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Pattern to be filled into each memory cell after destructive test of this block.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00176",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "4294967295",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "RamTstStartAddress",
+                      "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Start Address of the RAM block.",
+                      "metadata": {
+                        "INTRODUCTION": "Constraint: It must be smaller than the RamTstEndAddress.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00145",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "4294967295",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "RamTstTestPolicy",
+                      "path": "/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Policy regarding destruction or non-destruction of memory content.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00177",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "RAMTEST_DESTRUCTIVE AUTOSAR_ECUC RAMTEST_NON_DESTRUCTIVE AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RamTstDemEventParameterRefs",
+      "path": "/RamTst/RamTstDemEventParameterRefs",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value.",
+      "metadata": {
+        "INTRODUCTION": "The standardized errors are provided in the container and can be extended by vendor-specific error references.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00188",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "RAMTST_E_RAM_FAILURE",
+          "path": "/RamTst/RamTstDemEventParameterRefs/RAMTST_E_RAM_FAILURE",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the DemEventParameter which shall be issued when the error \"RAM failure\" has occurred.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00189",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "RamTstPublishedInformation",
+      "path": "/RamTst/RamTstPublishedInformation",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container holding all RamTst specific published information parameter.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00186",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "RamTstCellSize",
+          "path": "/RamTst/RamTstPublishedInformation/RamTstCellSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Size of RAM cells (in bits) which can be tested individually by the given implementation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_RamTst_00187",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PUBLISHED-INFORMATION VARIANT-LINK-TIME PUBLISHED-INFORMATION VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "64",
+            "MIN": "1"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

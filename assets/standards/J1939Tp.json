@@ -1,0 +1,1253 @@
+{
+  "name": "J1939Tp",
+  "path": "/J1939Tp",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the J1939Tp (J1939 Transport Protocol) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00127",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "J1939TpConfiguration",
+      "path": "/J1939Tp/J1939TpConfiguration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the J1939Tp module that define the communication paths.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00052",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "J1939TpRxChannel",
+          "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container describes a reception channel of the J1939Tp module. A channel referencing N-PDUs without MetaData is used for all N-SDUs that share the same source address (SA) and the same destination address (BAM: DA = 0xFF, CMDT: DA != 0xFF). A channel with N-PDUs with MetaData is used for all possible source and destination addresses.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00053",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "J1939TpRxCancellationSupport",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxCancellationSupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enable receive cancellation using the API J1939Tp_CancelReceive() for this channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00186",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxDa",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxDa",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Destination address (DA) of this channel. This parameter is only required for channels with fixed DA which use N-PDUs with MetaData containing the DA.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00178",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "253",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxDynamicBlockCalculation",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxDynamicBlockCalculation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enable dynamic calculation of \"number of packets that can be sent\" value in TP.CM_CTS, based on the size of buffers in upper layers reported via StartOfReception and PduR_J1939TpCopyRxData.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00187",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxDynamicBufferRatio",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxDynamicBufferRatio",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Percentage of available buffer that shall be used for retry.",
+              "metadata": {
+                "INTRODUCTION": "This parameter is only applicable when \"J1939TpRxRetrySupport\" and \"J1939TpRxDynamicBlockCalculation\" are enabled.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00188",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "80",
+                "MAX": "100",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxPacketsPerBlock",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPacketsPerBlock",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of TP.DT frames the receiving J1939Tp module allows the sender to send before waiting for another TP.CM_CTS. This parameter is transmitted in the TP.CM_CTS frame, and is thus only relevant for reception of messages via CMDT. When J1939TpRxDynamicBlockCalculation is enabled, this parameter specifies a maximum for the calculated value. For further details on this parameter value see SAE J1939/21.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00189",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "16",
+                "MAX": "255",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxProtocolType",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxProtocolType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Protocol type used by this channel. This parameter is only required for channels with fixed destination address.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00029",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "J1939TP_PROTOCOL_BAM AUTOSAR_ECUC J1939TP_PROTOCOL_CMDT AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxRetrySupport",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxRetrySupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enable support for triggering repetition of failed transmission using TP.CM_CTS with a packet number that has already been sent. Retransmission is triggered when a sequence number is missing or a timeout occurs during reception.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00185",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxSa",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxSa",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Source address (SA) of this channel. This parameter is only required for channels with fixed SA which use N-PDUs with MetaData.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00179",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "253",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxCmNPdu",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxCmNPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This N-PDU represents the TP.CM frame of a J1939 transport protocol session. TP.CM is used both by BAM and CMDT to initialize the connection. For CMDT, it is also used to abort the connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00128",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939TpRxCmNPduId",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxCmNPdu/J1939TpRxCmNPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The N-PDU identifier used for communication with CanIf.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00129",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpRxCmNPduRef",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxCmNPdu/J1939TpRxCmNPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the N-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00158",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939TpRxDtNPdu",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxDtNPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This N-PDU represents the TP.DT frame of a J1939 transport protocol session. TP.DT is used both by BAM and CMDT to transfer the contents of an N-SDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00117",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939TpRxDtNPduId",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxDtNPdu/J1939TpRxDtNPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The N-PDU identifier used for communication with CanIf.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00133",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpRxDtNPduRef",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxDtNPdu/J1939TpRxDtNPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the N-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00134",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939TpRxPg",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Parameter group received by the J1939 transport layer.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00050",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "J1939TpRxPgDynLength",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxPgDynLength",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This flag is set to TRUE when the N-SDU refers to a PGN with variable length.",
+                  "metadata": {
+                    "INTRODUCTION": "Please note: When this attribute is TRUE, the sub container J1939TpRxDirectNPdu is required.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00066",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpRxPgPGN",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxPgPGN",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "PGN of the referenced N-SDUs.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00065",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "262143",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpRxDirectNPdu",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxDirectNPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This N-PDU represents the short frame that is used for a dynamic length PGN when it has a length of less that 8 bytes.",
+                  "metadata": {
+                    "INTRODUCTION": "Please note: This sub container is only necessary when J1939TpRxPgDynLength is TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00130",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "J1939TpRxDirectNPduId",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxDirectNPdu/J1939TpRxDirectNPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The N-PDU identifier used for communication with CanIf.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00131",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "J1939TpRxDirectNPduRef",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxDirectNPdu/J1939TpRxDirectNPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the Pdu object representing the N-PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00132",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "J1939TpRxNSdu",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxNSdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "This container describes the parameters that are relevant for the reception of a specific N-SDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00063",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "J1939TpRxNSduId",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxNSdu/J1939TpRxNSduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This is a unique identifier for a received N-SDU. This Id is used in the CancelReceive and ChangeParameter API call.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00184",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "J1939TpRxNSduRef",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpRxPg/J1939TpRxNSdu/J1939TpRxNSduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the Pdu object representing the N-SDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00069",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "J1939TpTxFcNPdu",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpTxFcNPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This N-PDU represents the TP.CM frame that is used in reverse direction for a J1939 transport protocol session using the CMDT protocol type. TP.CM in reverse direction is used for intermediate and final acknowledgement of received data and to abort the connection.",
+              "metadata": {
+                "INTRODUCTION": "Please note: This sub container is only required when J1939TpRxProtocolType is J1939TP_PROTOCOL_CMDT or when it is not configured at all.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00135",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939TpTxFcNPduTxConfId",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpTxFcNPdu/J1939TpTxFcNPduTxConfId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The N-PDU identifier used for Tx confirmation from CanIf.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00168",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpTxFcNPduRef",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpRxChannel/J1939TpTxFcNPdu/J1939TpTxFcNPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the N-PDU.",
+                  "metadata": {
+                    "INTRODUCTION": "Please note: When two channels have identical but exchanged source and destination addresses, the Pdu referenced by this parameter is shared with J1939TpTxCmNPduRef of the corresponding J1939TpTxChannel.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00136",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "J1939TpTxChannel",
+          "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container describes a transmission channel of the J1939Tp module. A channel referencing N-PDUs without MetaData is used for all N-SDUs that share the same source address (SA) and the same destination address (BAM: DA = 0xFF, CMDT: DA != 0xFF). A channel with N-PDUs with MetaData is used for all possible source and destination addresses.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00059",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "J1939TpTxCancellationSupport",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCancellationSupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enable transmit cancellation using the API J1939Tp_CancelTransmit() for this channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00192",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpTxDa",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDa",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Destination address (DA) of this channel. This parameter is only required for channels with fixed DA which use N-PDUs with MetaData containing the DA.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00180",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "253",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpTxDynamicBlockCalculation",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDynamicBlockCalculation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enable dynamic calculation of \"maximum number of packets that can be sent\" value in TP.CM_RTS, based on the available amount of data in upper layers reported via PduR_J1939TpCopyTxData.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00191",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpTxMaxPacketsPerBlock",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxMaxPacketsPerBlock",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum number of TP.DT frames the transmitting J1939Tp module is ready to send before waiting for another TP.CM_CTS. This parameter is transmitted in the TP.CM_RTS frame, and is thus only relevant for transmission of messages via CMDT. When J1939TpTxDynamicBlockCalculation is enabled, this parameter specifies a maximum for the calculated value. For further details on this parameter value see SAE J1939/21.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00190",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "255",
+                "MAX": "255",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpTxProtocolType",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxProtocolType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Protocol type used by this channel. This parameter is only required for channels with fixed destination address.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00137",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "J1939TP_PROTOCOL_BAM AUTOSAR_ECUC J1939TP_PROTOCOL_CMDT AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpTxRetrySupport",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxRetrySupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enable support for repetition of failed transmission using TP.CM_CTS with a packet number that has already been sent. Retransmission is handled via the retry feature of PduR_J1939TpCopyTxData.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00193",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpTxSa",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxSa",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Source address (SA) of this channel. This parameter is only required for channels with fixed SA which use N-PDUs with MetaData.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00181",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "253",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939TpRxFcNPdu",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpRxFcNPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This N-PDU represents the TP.CM frame that is used in reverse direction for a J1939 transport protocol session using the CMDT protocol type. TP.CM in reverse direction is used for intermediate and final acknowledgement of received data and to abort the connection.",
+              "metadata": {
+                "INTRODUCTION": "Please note: This sub container is only required when J1939TpRxProtocolType is J1939TP_PROTOCOL_CMDT or when it is not configured at all.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00144",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939TpRxFcNPduId",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpRxFcNPdu/J1939TpRxFcNPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The N-PDU identifier used for communication with CanIf.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00145",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpRxFcNPduRef",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpRxFcNPdu/J1939TpRxFcNPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the N-PDU.",
+                  "metadata": {
+                    "INTRODUCTION": "Please note: When two channels have identical but exchanged source and destination addresses, the Pdu referenced by this parameter is shared with J1939TpRxCmNPduRef of the corresponding J1939TpRxChannel.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00146",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939TpTxCmNPdu",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This N-PDU represents the TP.CM frame of a J1939 transport protocol session. TP.CM is used both by BAM and CMDT to initialize the connection. For CMDT, it is also used to abort the connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00138",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939TpTxCmNPduTxConfId",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduTxConfId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The N-PDU identifier used for Tx confirmation from CanIf.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00170",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpTxCmNPduRef",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the N-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00139",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939TpTxDtNPdu",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This N-PDU represents the TP.DT frame of a J1939 transport protocol session. TP.DT is used both by BAM and CMDT to transfer the contents of an N-SDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00142",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939TpTxDtNPduTxConfId",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduTxConfId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The N-PDU identifier used for Tx confirmation from CanIf.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00171",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpTxDtNPduRef",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the N-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00143",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939TpTxPg",
+              "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Parameter group transmitted by the J1939 transport layer.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00070",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "J1939TpTxPgDynLength",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This flag is set to TRUE when the N-SDU refers to a PGN with variable length.",
+                  "metadata": {
+                    "INTRODUCTION": "Please note: When this attribute is TRUE, the sub container J1939TpTxDirectNPdu is required.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00148",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpTxPgPGN",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "PGN of the referenced N-SDUs.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00150",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "262143",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939TpTxDirectNPdu",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxDirectNPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This N-PDU represents the short frame that is used for a dynamic length PGN when it has a length of less that 8 bytes.",
+                  "metadata": {
+                    "INTRODUCTION": "Please note: This sub container is only necessary when J1939TpTxPgDynLength is TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00140",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "J1939TpTxDirectNPduTxConfId",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxDirectNPdu/J1939TpTxDirectNPduTxConfId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The N-PDU identifier used for Tx confirmation from CanIf.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00169",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "J1939TpTxDirectNPduRef",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxDirectNPdu/J1939TpTxDirectNPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the Pdu object representing the N-PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00141",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "J1939TpTxNSdu",
+                  "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "This container describes the parameters that are relevant for the transmission of a specific N-SDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00147",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "J1939TpTxNSduId",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The N-SDU identifier used for communication with PduR.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00149",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "J1939TpTxNSduRef",
+                      "path": "/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the Pdu object representing the N-SDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00151",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "J1939TpGeneral",
+      "path": "/J1939Tp/J1939TpGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container describes the general configuration parameters of the J1939Tp module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00033",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "J1939TpCancellationSupport",
+          "path": "/J1939Tp/J1939TpGeneral/J1939TpCancellationSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enable transmit and receive cancellation.",
+          "metadata": {
+            "INTRODUCTION": "The APIs J1939Tp_CancelTransmit() and J1939Tp_CancelReceive() will only be available when this parameter is enabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00174",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939TpDevErrorDetect",
+          "path": "/J1939Tp/J1939TpGeneral/J1939TpDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00042",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939TpMainFunctionPeriod",
+          "path": "/J1939Tp/J1939TpGeneral/J1939TpMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Allow to configure the time for the MainFunction (in seconds).",
+          "metadata": {
+            "INTRODUCTION": "Please note: This configuration value shall be equal to the value in the ScheduleManager module.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00044",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "0.255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939TpTxConfTimeout",
+          "path": "/J1939Tp/J1939TpGeneral/J1939TpTxConfTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Timeout in seconds for the CanIf Tx confirmation. After this time the J1939Tp assumes that an N-PDU could not be transmitted.",
+          "metadata": {
+            "INTRODUCTION": "Please note: The Tx confirmation timeout should be set to a value that enabled detection of a lost Tx confirmation in time, and that ensures that normal transmission delay caused by lower message priority does not lead to an error.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939TpVersionInfoApi",
+          "path": "/J1939Tp/J1939TpGeneral/J1939TpVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The function J1939Tp_GetVersionInfo is configurable (On/Off) by this configuration parameter.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Tp_00051",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

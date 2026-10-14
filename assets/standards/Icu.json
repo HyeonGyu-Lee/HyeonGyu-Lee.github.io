@@ -1,0 +1,707 @@
+{
+  "name": "Icu",
+  "path": "/Icu",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of the Icu (Input Capture Unit) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "IcuConfigSet",
+      "path": "/Icu/IcuConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Icu module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00219",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "IcuMaxChannel",
+          "path": "/Icu/IcuConfigSet/IcuMaxChannel",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter contains the number of Channels configured. It will be gathered by tools during the configuration stage.",
+          "metadata": {
+            "INTRODUCTION": "calculationFormula = Number of configured Icu Channels Implementation Type: Icu_ChannelType",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00220",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuChannel",
+          "path": "/Icu/IcuConfigSet/IcuChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of an individual ICU channel.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00027",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "IcuChannelId",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuChannelId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Channel Id of the ICU channel. This value will be assigned to the symbolic name derived of the IcuChannel container short name.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00354",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "IcuDefaultStartEdge",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuDefaultStartEdge",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Configures the default-activation-edge which shall be used for this channel if there was no activation-edge configured by the call of service Icu_SetActivationCondition().",
+              "metadata": {
+                "INTRODUCTION": "In case the Measurement Mode is \"IcuSignalMeasurement\" and the properties \"DutyCycle\" or \"Period\" are set, the edge configured here is used as Default Period Start Edge. Implementation Type: Icu_ActivationType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00222",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "ICU_BOTH_EDGES AUTOSAR_ECUC ICU_FALLING_EDGE AUTOSAR_ECUC ICU_RISING_EDGE AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "IcuMeasurementMode",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuMeasurementMode",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Configures the measurement mode of this channel.",
+              "metadata": {
+                "INTRODUCTION": "Implementation Type: Icu_MeasurementModeType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00223",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "ICU_MODE_EDGE_COUNTER AUTOSAR_ECUC ICU_MODE_SIGNAL_EDGE_DETECT AUTOSAR_ECUC ICU_MODE_SIGNAL_MEASUREMENT AUTOSAR_ECUC ICU_MODE_TIMESTAMP AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "IcuWakeupCapability",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuWakeupCapability",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Information about the wakeup-capability of this channel.",
+              "metadata": {
+                "INTRODUCTION": "true: Channel is wakeup capable. false: Channel is not wakeup capable.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00224",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "IcuSignalEdgeDetection",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the configuration (parameters) in case the measurement mode is \"IcuSignalEdgeDetection\"",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00021",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "IcuSignalNotification",
+                  "path": "/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection/IcuSignalNotification",
+                  "type": "ECUC-FUNCTION-NAME-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Notification function for signal notification.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00225",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "IcuSignalMeasurement",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuSignalMeasurement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the configuration (parameters) in case the measurement mode is \"IcuSignalMeasurement\"",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00226",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "IcuSignalMeasurementProperty",
+                  "path": "/Icu/IcuConfigSet/IcuChannel/IcuSignalMeasurement/IcuSignalMeasurementProperty",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configures the property that could be measured in case the mode is \"IcuSignalMeasurement\".",
+                  "metadata": {
+                    "INTRODUCTION": "This property can not be changed during runtime. Implementation Type: Icu_SignalMeasurementPropertyType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00227",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ICU_DUTY_CYCLE AUTOSAR_ECUC ICU_HIGH_TIME AUTOSAR_ECUC ICU_LOW_TIME AUTOSAR_ECUC ICU_PERIOD_TIME AUTOSAR_ECUC"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "IcuTimestampMeasurement",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuTimestampMeasurement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the configuration (parameters) in case the measurement mode is \"IcuTimestamp\"",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00228",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "IcuTimestampMeasurementProperty",
+                  "path": "/Icu/IcuConfigSet/IcuChannel/IcuTimestampMeasurement/IcuTimestampMeasurementProperty",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configures the handling of the buffer in case the mode is \"Timestamp\"",
+                  "metadata": {
+                    "INTRODUCTION": "Implementation Type: Icu_TimestampBufferType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00229",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ICU_CIRCULAR_BUFFER AUTOSAR_ECUC ICU_LINEAR_BUFFER AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "IcuTimestampNotification",
+                  "path": "/Icu/IcuConfigSet/IcuChannel/IcuTimestampMeasurement/IcuTimestampNotification",
+                  "type": "ECUC-FUNCTION-NAME-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Notification function if the number of requested timestamps",
+                  "metadata": {
+                    "INTRODUCTION": "(Notification interval > 0) are acquired.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00230",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "IcuWakeup",
+              "path": "/Icu/IcuConfigSet/IcuChannel/IcuWakeup",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the configuration (parameters) needed to configure a wakeup capable channel",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00126",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "IcuChannelWakeupInfo",
+                  "path": "/Icu/IcuConfigSet/IcuChannel/IcuWakeup/IcuChannelWakeupInfo",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "If the wakeup-capability is true the wakeup source referenced is transmitted to the ECU State Manager (EcuM) .",
+                  "metadata": {
+                    "INTRODUCTION": "Implementation Type: reference to EcuM_WakeupSourceType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00231",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IcuGeneral",
+      "path": "/Icu/IcuGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Configuration of general ICU parameters.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00026",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "IcuDevErrorDetect",
+          "path": "/Icu/IcuGeneral/IcuDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00232",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuIndex",
+          "path": "/Icu/IcuGeneral/IcuIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00221",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuReportWakeupSource",
+          "path": "/Icu/IcuGeneral/IcuReportWakeupSource",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch for enabling Wakeup source reporting.",
+          "metadata": {
+            "INTRODUCTION": "true: Report Wakeup source. false: Do not report Wakeup source.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00233",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "IcuOptionalApis",
+      "path": "/Icu/IcuOptionalApis",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains all configuration switches for configuring optional API services of the ICU driver.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00114",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "IcuDeInitApi",
+          "path": "/Icu/IcuOptionalApis/IcuDeInitApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_DeInit() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_DeInit() can be used. false: Icu_DeInit() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00234",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuDisableWakeupApi",
+          "path": "/Icu/IcuOptionalApis/IcuDisableWakeupApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_DisableWakeup() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_DisableWakeup() can be used. false: Icu_DisableWakeup() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00235",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuEdgeCountApi",
+          "path": "/Icu/IcuOptionalApis/IcuEdgeCountApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes all services related to the edge counting functionality as listed below, from the code: Icu_ResetEdgeCount(), Icu_EnableEdgeCount(), Icu_DisableEdgeCount(), Icu_GetEdgeNumbers().",
+          "metadata": {
+            "INTRODUCTION": "true: The services listed above can be used. false: The services listed above can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00124",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuEdgeDetectApi",
+          "path": "/Icu/IcuOptionalApis/IcuEdgeDetectApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the services related to the edge detection functionality, from the code:",
+          "metadata": {
+            "INTRODUCTION": "Icu_EnableEdgeDetection() and Icu_DisableEdgeDetection(). true: These services can be used. false: These services can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00356",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuEnableWakeupApi",
+          "path": "/Icu/IcuOptionalApis/IcuEnableWakeupApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_EnableWakeup() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_EnableWakeup() can be used. false: Icu_EnableWakeup() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00236",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuGetDutyCycleValuesApi",
+          "path": "/Icu/IcuOptionalApis/IcuGetDutyCycleValuesApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_GetDutyCycleValues() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_GetDutyCycleValues() can be used. false: Icu_GetDutyCycleValues() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00237",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuGetInputStateApi",
+          "path": "/Icu/IcuOptionalApis/IcuGetInputStateApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_GetInputState() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_GetInputState() can be used. false: Icu_GetInputState() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00238",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuGetTimeElapsedApi",
+          "path": "/Icu/IcuOptionalApis/IcuGetTimeElapsedApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_GetTimeElapsed() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_GetTimeElapsed() can be used. false: Icu_GetTimeElapsed() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00239",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuGetVersionInfoApi",
+          "path": "/Icu/IcuOptionalApis/IcuGetVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_GetVersionInfo() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_GetVersionInfo() can be used. false: Icu_GetVersionInfo() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00240",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuSetModeApi",
+          "path": "/Icu/IcuOptionalApis/IcuSetModeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_SetMode() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_SetMode() can be used. false: Icu_SetMode() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00241",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuSignalMeasurementApi",
+          "path": "/Icu/IcuOptionalApis/IcuSignalMeasurementApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the services Icu_StartSignalMeasurement() and Icu_StopSignalMeasurement() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_StartSignalMeasurement() and Icu_StopSignalMeasurement() can be used. false: Icu_StartSignalMeasurement() and Icu_StopSignalMeasurement() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00242",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuTimestampApi",
+          "path": "/Icu/IcuOptionalApis/IcuTimestampApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes all services related to the timestamping functionality as listed below from the code: Icu_StartTimestamp(), Icu_StopTimestamp(), Icu_GetTimestampIndex().",
+          "metadata": {
+            "INTRODUCTION": "true: The services listed above can be used. false: The services listed above can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00123",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "IcuWakeupFunctionalityApi",
+          "path": "/Icu/IcuOptionalApis/IcuWakeupFunctionalityApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Icu_CheckWakeup() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Icu_CheckWakeup() can be used. false: Icu_CheckWakeup() cannot be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Icu_00355",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

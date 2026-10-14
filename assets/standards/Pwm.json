@@ -1,0 +1,589 @@
+{
+  "name": "Pwm",
+  "path": "/Pwm",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of Pwm (Pulse Width Modulation) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "PwmChannelConfigSet",
+      "path": "/Pwm/PwmChannelConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Pwm module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00140",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "PwmChannel",
+          "path": "/Pwm/PwmChannelConfigSet/PwmChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of an individual PWM channel.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00027",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "PwmChannelClass",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelClass",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Class of PWM Channel.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: Pwm_ChannelClassType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00136",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "PWM_FIXED_PERIOD AUTOSAR_ECUC PWM_FIXED_PERIOD_SHIFTED AUTOSAR_ECUC PWM_VARIABLE_PERIOD AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "PwmChannelId",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Channel Id of the PWM channel. This value will be assigned to the symbolic name derived of the PwmChannel container short name.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00137",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "PwmDutycycleDefault",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmDutycycleDefault",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Value of duty cycle used for Initialization",
+              "metadata": {
+                "INTRODUCTION": "0, represents 0% 0x8000 represents 100%",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00138",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "32768",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "PwmIdleState",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmIdleState",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The parameter PWM_IDLE_STATE represents the output state of the PWM after the signal is stopped (e.g. call of Pwm_SetOutputToIdle).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00122",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "PWM_HIGH AUTOSAR_ECUC PWM_LOW AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "PwmNotification",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmNotification",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Definition of the Callback function.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00123",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": "\"NULL\""
+              },
+              "children": []
+            },
+            {
+              "name": "PwmPeriodDefault",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmPeriodDefault",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Value of period used for Initialization.(in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00124",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "PwmPolarity",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmPolarity",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the starting polarity of each PWM channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00125",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "PWM_HIGH AUTOSAR_ECUC PWM_LOW AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "PwmMcuClockReferencePoint",
+              "path": "/Pwm/PwmChannelConfigSet/PwmChannel/PwmMcuClockReferencePoint",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains reference to the McuClockReferencePoint",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00147",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PwmConfigurationOfOptApiServices",
+      "path": "/Pwm/PwmConfigurationOfOptApiServices",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": null,
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00126",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "PwmDeInitApi",
+          "path": "/Pwm/PwmConfigurationOfOptApiServices/PwmDeInitApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Pwm_DeInit() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00141",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmGetOutputState",
+          "path": "/Pwm/PwmConfigurationOfOptApiServices/PwmGetOutputState",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": null,
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00127",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmSetDutyCycle",
+          "path": "/Pwm/PwmConfigurationOfOptApiServices/PwmSetDutyCycle",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": null,
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00128",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmSetOutputToIdle",
+          "path": "/Pwm/PwmConfigurationOfOptApiServices/PwmSetOutputToIdle",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": null,
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00129",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmSetPeriodAndDuty",
+          "path": "/Pwm/PwmConfigurationOfOptApiServices/PwmSetPeriodAndDuty",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": null,
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00130",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmVersionInfoApi",
+          "path": "/Pwm/PwmConfigurationOfOptApiServices/PwmVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to indicate that the Pwm_ GetVersionInfo is supported",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00135",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "PwmGeneral",
+      "path": "/Pwm/PwmGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": null,
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00004",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "PwmDevErrorDetect",
+          "path": "/Pwm/PwmGeneral/PwmDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00131",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmDutycycleUpdatedEndperiod",
+          "path": "/Pwm/PwmGeneral/PwmDutycycleUpdatedEndperiod",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch for enabling the update of the duty cycle parameter at the end of the current period.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: update of duty cycle is done at the end of period of currently generated waveform (current waveform is finished). FALSE: update of duty cycle is done immediately (just after service call, current waveform is cut).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00132",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmIndex",
+          "path": "/Pwm/PwmGeneral/PwmIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00139",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmLowPowerStatesSupport",
+          "path": "/Pwm/PwmGeneral/PwmLowPowerStatesSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes all power state management related APIs (PWM_SetPowerState, PWM_GetCurrentPowerState, PWM_GetTargetPowerState, PWM_PreparePowerState, PWM_Main_PowerTransitionManager), indicating if the HW offers low power state management.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00142",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmNotificationSupported",
+          "path": "/Pwm/PwmGeneral/PwmNotificationSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to indicate that the notifications are supported",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00133",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmPeriodUpdatedEndperiod",
+          "path": "/Pwm/PwmGeneral/PwmPeriodUpdatedEndperiod",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch for enabling the update of the period parameter at the end of the current period.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: update of period/duty cycle is done at the end of period of currently generated waveform (current waveform is finished). FALSE: update of period/duty cycle is done immediately (just after service call, current waveform is cut).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00134",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmPowerStateAsynchTransitionMode",
+          "path": "/Pwm/PwmGeneral/PwmPowerStateAsynchTransitionMode",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / disables support of the PWM Driver to the asynchronous power state transition.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00143",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "PwmPowerStateConfig",
+          "path": "/Pwm/PwmGeneral/PwmPowerStateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Each instance of this parameter defines a power state and the callback to be called when this power state is reached.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00144",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "PwmPowerState",
+              "path": "/Pwm/PwmGeneral/PwmPowerStateConfig/PwmPowerState",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Each instance of this parameter describes a different power state supported by the PWM HW. It should be defined by the HW supplier and used by the PWMDriver to reference specific HW configurations which set the PWM HW module in the referenced power state.",
+              "metadata": {
+                "INTRODUCTION": "At least the power mode corresponding to full power state shall be always configured.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00146",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "PwmPowerStateReadyCbkRef",
+              "path": "/Pwm/PwmGeneral/PwmPowerStateConfig/PwmPowerStateReadyCbkRef",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Each instance of this parameter contains a reference to a power mode callback defined in a CDD or IoHwAbs component.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Pwm_00145",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

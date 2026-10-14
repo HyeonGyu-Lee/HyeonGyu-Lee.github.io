@@ -1,0 +1,1352 @@
+{
+  "name": "UdpNm",
+  "path": "/UdpNm",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": null,
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "UdpNmGlobalConfig",
+      "path": "/UdpNm/UdpNmGlobalConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains all global configuration parameters of UDP NM configured from the CanTrcv Module perspective.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "UdpNmBusSynchronizationEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmBusSynchronizationEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling bus synchronization support.",
+          "metadata": {
+            "INTRODUCTION": "This feature is required for gateway nodes only. It must not be defined if UDPNM_PASSIVE_MODE_ENABLED is defined. This parameter shall be derived from NM_BUS_SYNCHRONIZATION_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmCarWakeUpFilterEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmCarWakeUpFilterEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If CWU filtering is supported, only the CWU bit within the NM PDU with source node identifier UdpNmCarWakeUpFilterNodeId is considered as CWU request.",
+          "metadata": {
+            "INTRODUCTION": "FALSE - CWU filtering is not supported TRUE - CWU filtering is supported.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00077",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmCarWakeUpFilterNodeId",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmCarWakeUpFilterNodeId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Source node identifier for CWU filtering. If CWU filtering is supported, only the CWU bit within the NM PDU with source node identifier UdpNmCarWakeUpFilterNodeId is considered as CWU request.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00078",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmCarWakeUpRxEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmCarWakeUpRxEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables or disables support of CarWakeUp bit evaluation in received NM PDUs.",
+          "metadata": {
+            "INTRODUCTION": "FALSE - CarWakeUp not supported. TRUE - CarWakeUp supported.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00076",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmComControlEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmComControlEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling the Communication Control support.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_COM_CONTROL_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00013",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmComUserDataSupport",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmComUserDataSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enable/disable the user data support.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00055",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmCoordinatorEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmCoordinatorEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enable/disable the NM Coordination algorithm to being able to initiate the synchronization algorithm.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: Option is enabled FALSE: The parameter shall be FALSE by default and shall only be allowed to be TRUE if the parameter UDPNM_REMOTE_SLEEP_IND_ENABLED is TRUE.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00040",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmCoordinatorId",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmCoordinatorId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Set the NM coordination ID for this gateway.",
+          "metadata": {
+            "INTRODUCTION": "0x00: passive coordinator only 0x01 - 0x03: coordinator priority Only valid, if UDPNM_COORDINATOR_ENABLED is TRUE.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00041",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "3",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmCoordinatorSyncSupport",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmCoordinatorSyncSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables/disables the coordinator synchronization support.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00059",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmDevErrorDetect",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmImmediateRestartEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmImmediateRestartEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling the asynchronous transmission of a NM PACKET upon bus-communication request in Prepare-Bus-Sleep mode.",
+          "metadata": {
+            "INTRODUCTION": "Must not be defined if UDPNM_PASSIVE_MODE_ENABLED is defined.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00009",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmNodeDetectionEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmNodeDetectionEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling the node detection support.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_NODE_DETECTION_ENABLED. This parameter shall only be enabled if UDPNM_NODE_ID_ENABLED is defined. If(UdpNmPduCbvPosition != UDPNM_PDU_OFF) then Equal(NmNodeDetectionEnabled) else Equal(False).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmNodeIdEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmNodeIdEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling the source node identifier.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_NODE_ID_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmNumberOfChannels",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmNumberOfChannels",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Number of NM channels allowed within one ECU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00014",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmPassiveModeEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPassiveModeEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling support of the Passive Mode.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_PASSIVE_MODE_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00010",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmPduRxIndicationEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPduRxIndicationEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling the PDU Rx Indication.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_PDU_RX_INDICATION_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmPnEiraCalcEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnEiraCalcEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if UdpNm calculates the PN request information for internal and external requests. (EIRA) true: PN request are calculated",
+          "metadata": {
+            "INTRODUCTION": "false: PN request are not calculated",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00066",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmPnResetTime",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnResetTime",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the runtime of the reset timer in seconds. This reset time is valid for the reset of PN requests in the EIRA and in the ERA. The value shall be the same for every channel. Thus it is a global config parameter.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00065",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmRemoteSleepIndEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmRemoteSleepIndEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling remote sleep indication support.",
+          "metadata": {
+            "INTRODUCTION": "This feature is required for gateway nodes only. It must not be defined if UDPNM_PASSIVE_MODE_ENABLED is defined. This parameter shall be derived from NM_REMOTE_SLEEP_IND_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmRepeatMsgIndEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmRepeatMsgIndEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enable/disable the notification that a RepeatMessageRequest bit has been received.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_REPEAT_MSG_IND_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00015",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmStateChangeIndEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmStateChangeIndEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling the UDP NM state change notification.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_STATE_CHANGE_IND_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmUserDataEnabled",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmUserDataEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling user data support.",
+          "metadata": {
+            "INTRODUCTION": "This parameter shall be derived from NM_USER_DATA_ENABLED.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmVersionInfoApi",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling version info API support.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmPnEiraRxNSduRef",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnEiraRxNSduRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to a Pdu in the COM-Stack. Only one SduRef is required for UdpNm because the EIRA is the aggregation over all Ethernet Channels.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00062",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+          },
+          "children": []
+        },
+        {
+          "name": "UdpNmChannelConfig",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the channel-specific configuration parameters of the UdpNm.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00017",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "UdpNmActiveWakeupBitEnabled",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmActiveWakeupBitEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables/Disables the handling of the Active Wakeup Bit in the UdpNm module.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00074",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmImmediateNmTransmissions",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmImmediateNmTransmissions",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the number of immediate NM PDUs which shall be transmitted. If the value is zero no immediate NM PDUs are transmitted.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00075",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmMainFunctionPeriod",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmMainFunctionPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Call cycle of UdpNm_MainFunction_x for the respective instance in [s].",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00032",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "0.255",
+                "MIN": "0.001"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmMsgCycleOffset",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmMsgCycleOffset",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Time offset in the periodic transmission node. It determines the start delay of the transmission.",
+              "metadata": {
+                "INTRODUCTION": "< UDPNM_MSG_CYCLE_TIME This parameter is only valid if UDPNM_PASSIVE_MODE_ENABLED is disabled.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00029",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmMsgCycleTime",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmMsgCycleTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Period of a NM-message. It determines the periodic rate and is the basis for transmit scheduling.",
+              "metadata": {
+                "INTRODUCTION": "NM_TIMEOUT_TIME = n * UDPNM_MSG_CYCLE_TIME This parameter is only valid if UDPNM_PASSIVE_MODE_ENABLED is disabled.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00028",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0.001"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmMsgTimeoutTime",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmMsgTimeoutTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Transmission Timout of NM-message. If there is no transmission confirmation by the UDP Interface within this timeout, the UDPNM module shall gibe an error notification.",
+              "metadata": {
+                "INTRODUCTION": "This parameter is only valid if UDPNM_PASSIVE_MODE_ENABLED is disabled. UDPNM_MSG_TIMEOUT_TIME should be a multiple of UDPNM_MSG_CYCLE_TIME.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00030",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0.001"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmNodeId",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmNodeId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Node identifier of local node.",
+              "metadata": {
+                "INTRODUCTION": "This parameter is only valid if UDPNM_PASSIVE_MODE_ENABLED is set to OFF and UDPNM_NODE_DETECTION_ENABLED is set to ON.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00031",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPduCbvPosition",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmPduCbvPosition",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the position of the control bit vector within the NM PACKET.",
+              "metadata": {
+                "INTRODUCTION": "The value of the parameter represents the location of the control bit vector in the NM PACKET (UDPNM_PDU_BYTE_0 means byte 0, UDPNM_PDU_BYTE_1 means byte 1, UDPNM_PDU_OFF means the control bit vector is not part of the NM PACKET) See also UDPNM_PDU_NID_POSITION if (UDPNM_PDU_CBV_POSITION != UDPNM_PDU_OFF && UDPNM_PDU_NID_POSITION != UDPNM_PDU_OFF) then UDPNM_PDU_CBV_POSITION != UDPNM_PDU_NID_POSITION if (UDPNM_PDU_CBV_POSITION != UDPNM_PDU_OFF && UDPNM_PDU_NID_POSITION == UDPNM_PDU_OFF) then UDPNM_PDU_CBV_POSITION = UDPNM_PDU_BYTE0",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00026",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "UDPNM_PDU_BYTE_0 AUTOSAR_ECUC UDPNM_PDU_BYTE_1 AUTOSAR_ECUC UDPNM_PDU_OFF AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPduLength",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmPduLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the length of the NM PACKET in bytes.",
+              "metadata": {
+                "INTRODUCTION": "Valid values are within the range 0 <= UDPNM_PDU_LENGTH <= 8.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00024",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "8",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPduNidPosition",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmPduNidPosition",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the position of the source node identifier within the NM PACKET.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: UdpNm_PduPositionType The value of the parameter represents the location of the source node identifier in the NM PACKET (UDPNM_PDU_BYTE_0 means byte 0, UDPNM_PDU_BYTE_1 means byte 1, UDPNM_PDU_OFF means source node identifier is not part of the NM PACKET) See also UDPNM_PDU_CBV_POSITION if (UDPNM_PDU_NID_POSITION != UDPNM_PDU_OFF && UDPNM_PDU_CBV_POSITION != UDPNM_PDU_OFF) then UDPNM_PDU_NID_POSITION != UDPNM_PDU_CBV_POSITION if (UDPNM_PDU_NID_POSITION != UDPNM_PDU_OFF && UDPNM_PDU_CBV_POSITION == UDPNM_PDU_OFF) then UDPNM_PDU_IND_POSITION = UDPNM_PDU_BYTE0",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00025",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "UDPNM_PDU_BYTE_0 AUTOSAR_ECUC UDPNM_PDU_BYTE_1 AUTOSAR_ECUC UDPNM_PDU_OFF AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPnEnabled",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmPnEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables or disables support of partial networking.",
+              "metadata": {
+                "INTRODUCTION": "false: Partial networking Range not supported true: Partial networking supported",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00061",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPnEraCalcEnabled",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmPnEraCalcEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if UdpNm calculates the PN request information for external requests. (ERA)",
+              "metadata": {
+                "INTRODUCTION": "false: PN request are not calculated true: PN request are calculated.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00060",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPnHandleMultipleNetworkRequests",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmPnHandleMultipleNetworkRequests",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "false: UdpNm_NetworkRequest is ignored in NO.",
+              "metadata": {
+                "INTRODUCTION": "true: UdpNm_NetworkRequest triggers a change from NO to RM.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00063",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmRemoteSleepIndTime",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmRemoteSleepIndTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Timeout for Remote Sleep Indication.",
+              "metadata": {
+                "INTRODUCTION": "It defines the time in [s] how long it shall take to recognize that all other nodes are ready to sleep. Typically it should be equal to: n * UDPNM_MSG_CYCLE_TIME, where n denotes the number of NM packets that are normally sent before Remote Sleep Indication is detected. The value of n decremented by one determines the amount of lost NM packets that can be tolerated by the Remote Sleep Indication procedure.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00023",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0.001"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmRepeatMessageTime",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmRepeatMessageTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Timeout for Repeat Message State.",
+              "metadata": {
+                "INTRODUCTION": "It defines the time in [s] how long the NM shall stay in the Repeat Message State. Typically it should be equal to: n * UDPNM_MSG_CYCLE_TIME, where n denotes the number of NM packets that are normally sent in the Repeat Message State. The value of n decremented by one determines the amount of lost NM packets that can be tolerated by the node detection procedure. The value 0 denotes that no Repeat Message State is configured. It means that Repeat Message State is transient what implicates that it is left immediately after entrance and in result no start-up stability is guaranteed and no node detection procedure is possible.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00022",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmTimeoutTime",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmTimeoutTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Network Timeout for NM packets.",
+              "metadata": {
+                "INTRODUCTION": "It denotes the time in [s] how long the NM shall stay in the Network Mode before transition into Prepare Bus-Sleep Mode shall take place. It shall be equal for all nodes in the cluster. It shall be greater than UDPNM_MSG_CYCLE_TIME. Typically, it should be equal to: x * UDPNM_MSG_CYCLE_TIME, where n denotes the number of NM PACKET cycle times in the Ready Sleep State before transition into the Bus-Sleep Mode is initiated. The value of n decremented by one determines the amount of lost NM packets that can be tolerated by the coordination algorithm.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00020",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0.002"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmWaitBusSleepTime",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmWaitBusSleepTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Timeout for bus calm down phase.",
+              "metadata": {
+                "INTRODUCTION": "It denotes the time in [s] how long the NM shall stay in the Prepare Bus-Sleep Mode before transition into Bus-Sleep Mode shall take place. It shall be equal for all nodes in the cluster. It shall be long enough to empty all Tx-buffer empty.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00021",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0.001"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPnEraRxNSduRef",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmPnEraRxNSduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a Pdu in the COM-Stack. The SduRef is required for every UdpNm Channel, because ERA is reported per channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00073",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmComMNetworkHandleRef",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmComMNetworkHandleRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This reference points to the unique channel defined by the ComMChannel and provides access to the unique channel index value in ComMChannelId.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00018",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmRxPdu",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container describes the UdpNm RX PDU's.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00038",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "UdpNmRxPduId",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmRxPdu/UdpNmRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "ID of the RxPdu that will be used by a RxIndication of the lower layer.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00043",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "4294967296",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "UdpNmRxPduRef",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmRxPdu/UdpNmRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The reference to a PDU in the global PDU structure described in the AUTOSAR ECU Configuration Specification. This reference will be used by the UdpNm module to derive the PDU Id.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00039",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "UdpNmTxPdu",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container describes the UdpNm TX PDU's.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00036",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "UdpNmTxConfirmationPduId",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmTxPdu/UdpNmTxConfirmationPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Id of the TxPdu that will be used by a TxConfirmation from the lower layer.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00042",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "4294967296",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "UdpNmTxPduRef",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmTxPdu/UdpNmTxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The reference to a PDU in the global PDU structure described in the AUTOSAR ECU Configuration Specification. This reference will be used by the UdpNm module to derive the PDU Id.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00037",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "UdpNmUserDataTxPdu",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmUserDataTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This optional container is used to configure the UserNm PDU. This container is only available if UdpNmComUserDataSupport is enabled.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00056",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "UdpNmTxUserDataPduId",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmUserDataTxPdu/UdpNmTxUserDataPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines the Handle ID of the NM User Data I-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00058",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "UdpNmTxUserDataPduRef",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmChannelConfig/UdpNmUserDataTxPdu/UdpNmTxUserDataPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the NM User Data I-PDU in the global PDU collection.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00057",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "UdpNmDemEventParameterRefs",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmDemEventParameterRefs",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00050",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "UDPNM_E_NETWORK_TIMEOUT",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmDemEventParameterRefs/UDPNM_E_NETWORK_TIMEOUT",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the DemEventParameter which shall be issued when the error \"NM-Timeout Timer has abnormally expired outside of the Ready Sleep State\" has occured. Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00053",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+              },
+              "children": []
+            },
+            {
+              "name": "UDPNM_E_TCPIP_TRANSMIT_ERROR",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmDemEventParameterRefs/UDPNM_E_TCPIP_TRANSMIT_ERROR",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the DemEventParameter which shall be issued when the error \"A call to the TCP/IP stack has failedA call to the TCP/IP stack has failed\" has occured. Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00052",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "UdpNmPnInfo",
+          "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnInfo",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "PN information configuration",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00067",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "UdpNmPnInfoLength",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnInfo/UdpNmPnInfoLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the length of the PN request information in the NM message.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00069",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "1",
+                "MAX": "7",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPnInfoOffset",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnInfo/UdpNmPnInfoOffset",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the offset of the PN request information in the NM message.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00068",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "1",
+                "MAX": "7",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "UdpNmPnFilterMaskByte",
+              "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnInfo/UdpNmPnFilterMaskByte",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "7",
+              "infinite": null,
+              "description": "PN information configuration",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00070",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "7"
+              },
+              "children": [
+                {
+                  "name": "UdpNmPnFilterMaskByteIndex",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnInfo/UdpNmPnFilterMaskByte/UdpNmPnFilterMaskByteIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index of the filter mask byte. Specifies the position within the filter mask byte array.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00071",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "6",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "UdpNmPnFilterMaskByteValue",
+                  "path": "/UdpNm/UdpNmGlobalConfig/UdpNmPnInfo/UdpNmPnFilterMaskByte/UdpNmPnFilterMaskByteValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Parameter to configure the filter mask byte.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_UdpNm_00072",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "0",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

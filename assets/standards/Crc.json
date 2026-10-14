@@ -1,0 +1,149 @@
+{
+  "name": "Crc",
+  "path": "/Crc",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Crc (Crc routines) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "CrcGeneral",
+      "path": "/Crc/CrcGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "General configuration of CRC module",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Crc_00006",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "Crc16Mode",
+          "path": "/Crc/CrcGeneral/Crc16Mode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to select one of the available CRC 16-bit (CCITT) calculation methods",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Crc_00025",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "CRC_16_HARDWARE AUTOSAR_ECUC CRC_16_RUNTIME AUTOSAR_ECUC CRC_16_TABLE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "Crc32Mode",
+          "path": "/Crc/CrcGeneral/Crc32Mode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to select one of the available CRC 32-bit (IEEE-802.3 CRC32 Ethernet Standard) calculation methods",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Crc_00026",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "CRC_32_HARDWARE AUTOSAR_ECUC CRC_32_RUNTIME AUTOSAR_ECUC CRC_32_TABLE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "Crc32P4Mode",
+          "path": "/Crc/CrcGeneral/Crc32P4Mode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to select one of the available CRC 32-bit E2E Profile 4 calculation methods.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Crc_00032",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "CRC_32P4_HARDWARE AUTOSAR_ECUC CRC_32P4_RUNTIME AUTOSAR_ECUC CRC_32P4_TABLE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "Crc8H2FMode",
+          "path": "/Crc/CrcGeneral/Crc8H2FMode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to select one of the available CRC 8-bit (2Fh polynomial) calculation methods",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Crc_00031",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "CRC_8H2F_HARDWARE AUTOSAR_ECUC CRC_8H2F_RUNTIME AUTOSAR_ECUC CRC_8H2F_TABLE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "Crc8Mode",
+          "path": "/Crc/CrcGeneral/Crc8Mode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to select one of the available CRC 8-bit (SAE J1850) calculation methods",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Crc_00030",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "CRC_8_HARDWARE AUTOSAR_ECUC CRC_8_RUNTIME AUTOSAR_ECUC CRC_8_TABLE AUTOSAR_ECUC"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

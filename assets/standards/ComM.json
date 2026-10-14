@@ -1,0 +1,978 @@
+{
+  "name": "ComM",
+  "path": "/ComM",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the ComM (Communications Manager) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "ComMConfigSet",
+      "path": "/ComM/ComMConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR ComM module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00879",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "ComMPncEnabled",
+          "path": "/ComM/ComMConfigSet/ComMPncEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines whether in this configuration set the partial networking is enabled.",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled false: Disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00878",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMChannel",
+          "path": "/ComM/ComMConfigSet/ComMChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "256",
+          "infinite": null,
+          "description": "This container contains the configuration (parameters) of the bus channel(s). The channel parameters shall be harmonized within the whole communication stack.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00565",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "256"
+          },
+          "children": [
+            {
+              "name": "ComMBusType",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMBusType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Identifies the bus type of the channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00567",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "COMM_BUS_TYPE_CAN AUTOSAR_ECUC COMM_BUS_TYPE_CDD AUTOSAR_ECUC COMM_BUS_TYPE_ETH AUTOSAR_ECUC COMM_BUS_TYPE_FR AUTOSAR_ECUC COMM_BUS_TYPE_INTERNAL AUTOSAR_ECUC COMM_BUS_TYPE_LIN AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMCDDBusPrefix",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMCDDBusPrefix",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Prefix to be used for API calls to CDD.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00888",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "ComMChannelId",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMChannelId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Channel identification number of the corresponding channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00635",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMFullCommRequestNotificationEnabled",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMFullCommRequestNotificationEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines if the optional SenderReceiver Port of Interface ComM_CurrentChannelRequest will be provided for this channel.",
+              "metadata": {
+                "INTRODUCTION": "True means enabled. False means disabled",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00787",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMMainFunctionPeriod",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMMainFunctionPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the period in seconds that the MainFunction has to be triggered with.",
+              "metadata": {
+                "INTRODUCTION": "Comment: ComM scheduling shall be at least as fast as the communication stack and a schedule longer than 100ms makes no sense for communication.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00556",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0.02",
+                "MAX": "0.1",
+                "MIN": "0.001"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMNoCom",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMNoCom",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Not allowed to change state of ComM channel to COMM_SILENT_COMMUNICATION or COMM_FULL_COMMUNICATION.",
+              "metadata": {
+                "INTRODUCTION": "true: Enabled - Not allowed to switch to Communication Modes above. false: Disabled - Allowed to switch Communication Modes above. Shall be possible to change parameter during runtime with ComM API's. ECU/All channels: ComM_LimitECUToNoComMode(). Separate channels: ComM_LimitChannelToNoComMode().",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00571",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMNoWakeUpInhibitionNvmStorage",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMNoWakeUpInhibitionNvmStorage",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "If this parameter is set to \"true\", the NoWakeUp inhibition state of the channel shall be stored (in some implementation specific way) in the block pointed to by ComMGlobalNvmBlockDescriptor.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00789",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMNoWakeup",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMNoWakeup",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines if an ECU is not allowed to wake-up the channel.",
+              "metadata": {
+                "INTRODUCTION": "true: Enabled (not allowed to wake-up)) false: Disabled This is the default/init value of a runtime variable that can be changed during runtime using ComM_PreventWakeUp().",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00569",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMPncGatewayType",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMPncGatewayType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Identifies the Partial Network Gateway behaviour of a ComMChannel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00842",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "COMM_GATEWAY_TYPE_ACTIVE AUTOSAR_ECUC COMM_GATEWAY_TYPE_PASSIVE AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMNetworkManagement",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMNetworkManagement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the configuration parameters of the networkmanagement.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00607",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "ComMNmLightTimeout",
+                  "path": "/ComM/ComMConfigSet/ComMChannel/ComMNetworkManagement/ComMNmLightTimeout",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the timeout (in seconds) after COMM_FULL_COMMUNICATION sub-state COMM_FULL_COM_READY_SLEEP is left.",
+                  "metadata": {
+                    "INTRODUCTION": "The range shall be greater than 0.0 and less or equal to 255.0.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00606",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "10",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "ComMNmVariant",
+                  "path": "/ComM/ComMConfigSet/ComMChannel/ComMNetworkManagement/ComMNmVariant",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the functionality of the networkmanagement.",
+                  "metadata": {
+                    "INTRODUCTION": "Shall be harmonized with NM configuration.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00568",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "FULL",
+                    "LITERALS": "FULL AUTOSAR_ECUC LIGHT AUTOSAR_ECUC NONE AUTOSAR_ECUC PASSIVE AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "ComMPncNmRequest",
+                  "path": "/ComM/ComMConfigSet/ComMChannel/ComMNetworkManagement/ComMPncNmRequest",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "If this parameter equals true then every time a FULL Communication is requested due to a change in the PNC state machine to PNC_REQUESTED Nm shall be called using the API Nm_NetworkRequest.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00886",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "ComMUserPerChannel",
+              "path": "/ComM/ComMConfigSet/ComMChannel/ComMUserPerChannel",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "255",
+              "infinite": null,
+              "description": "This container contains a list of identifiers that are needed to refer to a user in the system which is linked to a channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00657",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "255"
+              },
+              "children": [
+                {
+                  "name": "ComMUserChannel",
+                  "path": "/ComM/ComMConfigSet/ComMChannel/ComMUserPerChannel/ComMUserChannel",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the ComMUser that corresponds to this channel user.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: COMM_UserHandleType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00658",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMUser"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ComMPnc",
+          "path": "/ComM/ComMConfigSet/ComMPnc",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "56",
+          "infinite": null,
+          "description": "This container contains the configuration of the partial network cluster (PNC).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00843",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "56"
+          },
+          "children": [
+            {
+              "name": "ComMPncId",
+              "path": "/ComM/ComMConfigSet/ComMPnc/ComMPncId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Partial network cluster identification number.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00874",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "63",
+                "MIN": "8"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMChannelPerPnc",
+              "path": "/ComM/ComMConfigSet/ComMPnc/ComMChannelPerPnc",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "256",
+              "infinite": null,
+              "description": "Reference to the ComMChannel that is required for this PNC.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: NetworkHandleType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00880",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "256",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMUserPerPnc",
+              "path": "/ComM/ComMConfigSet/ComMPnc/ComMUserPerPnc",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "255",
+              "infinite": null,
+              "description": "Reference to the ComMUsers that correspond to this PNC.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: COMM_UserHandleType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00876",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "255",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMUser"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMPncComSignal",
+              "path": "/ComM/ComMConfigSet/ComMPnc/ComMPncComSignal",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Represents the PncComSignals which are used to communicate the EIRA and ERA status of this PNC.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00881",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "ComMPncComSignalDirection",
+                  "path": "/ComM/ComMConfigSet/ComMPnc/ComMPncComSignal/ComMPncComSignalDirection",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Indicates the communication direction of this PncComSignal.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00885",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "RX AUTOSAR_ECUC TX AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "ComMPncComSignalKind",
+                  "path": "/ComM/ComMConfigSet/ComMPnc/ComMPncComSignal/ComMPncComSignalKind",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Indicates whether this PncComSignal represents EIRA or ERA PNC information.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter ComMPncComSignalKind is optional and shall be ignored when ComMPncComSignalDirection equals TX.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00883",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "EIRA AUTOSAR_ECUC ERA AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "ComMPncComSignalChannelRef",
+                  "path": "/ComM/ComMConfigSet/ComMPnc/ComMPncComSignal/ComMPncComSignalChannelRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the ComMChannel which is used to determine whether this PncComSignal shall participate in the active or passive role (via the parameter ComMPncGatewayType of the ComMChannel).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00884",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "ComMPncComSignalRef",
+                  "path": "/ComM/ComMConfigSet/ComMPnc/ComMPncComSignal/ComMPncComSignalRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the ComSignal which is used to transport the partial network channel request information.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00882",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Com/ComConfig/ComSignal"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ComMUser",
+          "path": "/ComM/ComMConfigSet/ComMUser",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "255",
+          "infinite": null,
+          "description": "This container contains a list of identifiers that are needed to refer to a user in the system which is designated to request Communication modes.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00653",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "255"
+          },
+          "children": [
+            {
+              "name": "ComMUserIdentifier",
+              "path": "/ComM/ComMConfigSet/ComMUser/ComMUserIdentifier",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "An identifier that is needed to refer to a user in the system which is designated to request Communication Modes.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: ComM_UserHandleType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00654",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "254",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "ComMUserEcucPartitionRef",
+              "path": "/ComM/ComMConfigSet/ComMUser/ComMUserEcucPartitionRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Denotes in which \"EcucPartition\" the requester is executed. When the partition is stopped, the communication request shall be cancelled in the ComM",
+              "metadata": {
+                "INTRODUCTION": "to avoid a stay-awake situation of the bus due to a stopped partition.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00786",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ComMGeneral",
+      "path": "/ComM/ComMGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "General configuration parameters of the Communication Manager.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00554",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "ComMDevErrorDetect",
+          "path": "/ComM/ComMGeneral/ComMDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00555",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMDirectUserMapping",
+          "path": "/ComM/ComMGeneral/ComMDirectUserMapping",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If this parameter is set to true the configuration tool shall automatically create a ComMUser per ComMPnc and a ComMUser per ComMChannel.",
+          "metadata": {
+            "INTRODUCTION": "The shortName of the generated ComMUsers shall follow the following naming convention: PNCUser_ComMPncId, e.g. PNCUser_13 ChannelUser_ComMChannelId, e.g. ChannelUser_25 Restriction: ComMUser, which are created due to this configuration parameter, shall not be used by SWCs (only available for BswM).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00840",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMEcuGroupClassification",
+          "path": "/ComM/ComMGeneral/ComMEcuGroupClassification",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines whether a mode inhibition affects the ECU or not.",
+          "metadata": {
+            "INTRODUCTION": "Examples: 000: No mode inhibition can be activated 001: Wake up inhibition can be enabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00563",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "3",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMModeLimitationEnabled",
+          "path": "/ComM/ComMGeneral/ComMModeLimitationEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "true if mode limitation functionality shall be enabled.",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled false: Disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00560",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMNmPassiveModeEnable",
+          "path": "/ComM/ComMGeneral/ComMNmPassiveModeEnable",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables support of Passive Mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00889",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMPncGatewayEnabled",
+          "path": "/ComM/ComMGeneral/ComMPncGatewayEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables or disables support of Partial Network Gateway.",
+          "metadata": {
+            "INTRODUCTION": "False: Partial Networking Gateway is disabled True: Partial Networking Gateway is enabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00887",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMPncPrepareSleepTimer",
+          "path": "/ComM/ComMGeneral/ComMPncPrepareSleepTimer",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Time in seconds the PNC state machine shall wait in PNC_PREPARE_SLEEP.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00841",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "63",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMPncSupport",
+          "path": "/ComM/ComMGeneral/ComMPncSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables or disables support of partial networking.",
+          "metadata": {
+            "INTRODUCTION": "False: Partial Networking is disabled True: Partial Networking is enabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00839",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMResetAfterForcingNoComm",
+          "path": "/ComM/ComMGeneral/ComMResetAfterForcingNoComm",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "ComM shall perform a reset after entering \"No Communication\" mode because of an active mode limitation to \"No Communication\" mode.",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled false: Disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00558",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMSynchronousWakeUp",
+          "path": "/ComM/ComMGeneral/ComMSynchronousWakeUp",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Wake up of one channel shall lead to a wake up of all channels if true.",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled false: Disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00695",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMTMinFullComModeDuration",
+          "path": "/ComM/ComMGeneral/ComMTMinFullComModeDuration",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Minimum time duration in seconds, spent in the COMM_FULL_COMMUNICATION sub-state COMM_FULL_COM_NETWORK_REQUESTED.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00557",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "5",
+            "MAX": "65",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMVersionInfoApi",
+          "path": "/ComM/ComMGeneral/ComMVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the possibility to read the published information with the service ComM_GetPublishedInformation().",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled false: Disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00622",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMWakeupInhibitionEnabled",
+          "path": "/ComM/ComMGeneral/ComMWakeupInhibitionEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "true if wake up inhibition functionality enabled.",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled false: Disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00559",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "ComMGlobalNvMBlockDescriptor",
+          "path": "/ComM/ComMGeneral/ComMGlobalNvMBlockDescriptor",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to NVRAM block containing the none volatile data. If this parameter is not configured it means that no NVRam is used at all.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_ComM_00783",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/NvM/NvMBlockDescriptor"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

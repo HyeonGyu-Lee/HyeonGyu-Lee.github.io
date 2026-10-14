@@ -1,0 +1,2171 @@
+{
+  "name": "Can",
+  "path": "/Can",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "This container holds the configuration of a single CAN Driver.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "CanConfigSet",
+      "path": "/Can/CanConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Can module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00343",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CanController",
+          "path": "/Can/CanConfigSet/CanController",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration parameters of the CAN controller(s).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00354",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "CanBusoffProcessing",
+              "path": "/Can/CanConfigSet/CanController/CanBusoffProcessing",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables / disables API Can_MainFunction_BusOff() for handling busoff events in polling mode.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00314",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "INTERRUPT AUTOSAR_ECUC POLLING AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanControllerActivation",
+              "path": "/Can/CanConfigSet/CanController/CanControllerActivation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines if a CAN controller is used in the configuration.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00315",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "CanControllerBaseAddress",
+              "path": "/Can/CanConfigSet/CanController/CanControllerBaseAddress",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the CAN controller base address.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00382",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanControllerId",
+              "path": "/Can/CanConfigSet/CanController/CanControllerId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter provides the controller ID which is unique in a given CAN Driver. The value for this parameter starts with 0 and continue without any gaps.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00316",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanRxProcessing",
+              "path": "/Can/CanConfigSet/CanController/CanRxProcessing",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables / disables API Can_MainFunction_Read() for handling PDU reception events in polling mode.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00317",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "INTERRUPT AUTOSAR_ECUC POLLING AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTxProcessing",
+              "path": "/Can/CanConfigSet/CanController/CanTxProcessing",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables / disables API Can_MainFunction_Write() for handling PDU transmission events in polling mode.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00318",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "INTERRUPT AUTOSAR_ECUC POLLING AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanWakeupFunctionalityAPI",
+              "path": "/Can/CanConfigSet/CanController/CanWakeupFunctionalityAPI",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Adds / removes the service Can_CheckWakeup() from the code.",
+              "metadata": {
+                "INTRODUCTION": "True: Can_CheckWakeup can be used. False: Can_CheckWakeup cannot be used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00466",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "CanWakeupProcessing",
+              "path": "/Can/CanConfigSet/CanController/CanWakeupProcessing",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables / disables API Can_MainFunction_Wakeup() for handling wakeup events in polling mode.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00319",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "INTERRUPT AUTOSAR_ECUC POLLING AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanWakeupSupport",
+              "path": "/Can/CanConfigSet/CanController/CanWakeupSupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "CAN driver support for wakeup over CAN Bus.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00330",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "CanControllerDefaultBaudrate",
+              "path": "/Can/CanConfigSet/CanController/CanControllerDefaultBaudrate",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to baudrate configuration container configured for the Can Controller.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00435",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig"
+              },
+              "children": []
+            },
+            {
+              "name": "CanCpuClockRef",
+              "path": "/Can/CanConfigSet/CanController/CanCpuClockRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the CPU clock configuration, which is set in the MCU driver configuration",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00313",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"
+              },
+              "children": []
+            },
+            {
+              "name": "CanWakeupSourceRef",
+              "path": "/Can/CanConfigSet/CanController/CanWakeupSourceRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains a reference to the Wakeup Source for this controller as defined in the ECU State Manager.",
+              "metadata": {
+                "INTRODUCTION": "Implementation Type: reference to EcuM_WakeupSourceType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00359",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+              },
+              "children": []
+            },
+            {
+              "name": "CanControllerBaudrateConfig",
+              "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains bit timing related configuration parameters of the CAN controller(s).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00387",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "CanControllerBaudRate",
+                  "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRate",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the baudrate of the controller in kbps.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00005",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "2000",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanControllerBaudRateConfigID",
+                  "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRateConfigID",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Uniquely identifies a specific baud rate configuration. This ID is used by SetBaudrate API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00471",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "0",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanControllerPropSeg",
+                  "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerPropSeg",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies propagation delay in time quantas.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00073",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanControllerSeg1",
+                  "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg1",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies phase segment 1 in time quantas.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00074",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanControllerSeg2",
+                  "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg2",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies phase segment 2 in time quantas.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00075",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanControllerSyncJumpWidth",
+                  "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSyncJumpWidth",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the synchronization jump width for the controller in time quantas.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00383",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanControllerFdBaudrateConfig",
+                  "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This optional container contains bit timing related configuration parameters of the CAN controller(s) for payload and CRC of a CAN FD frame. If this container exists the controller supports CAN FD frames.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00473",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "CanControllerFdBaudRate",
+                      "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig/CanControllerFdBaudRate",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the data segment baud rate of the controller in kbps.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00481",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "16000",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "CanControllerPropSeg",
+                      "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig/CanControllerPropSeg",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies propagation delay in time quantas.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00476",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "CanControllerSeg1",
+                      "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig/CanControllerSeg1",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies phase segment 1 in time quantas.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00477",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "CanControllerSeg2",
+                      "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig/CanControllerSeg2",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies phase segment 2 in time quantas.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00478",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "CanControllerSyncJumpWidth",
+                      "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig/CanControllerSyncJumpWidth",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the synchronization jump width for the controller in time quantas.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00479",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "CanControllerTrcvDelayCompensationOffset",
+                      "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig/CanControllerTrcvDelayCompensationOffset",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the Transceiver Delay Compensation Offset in ns. If not specified Transceiver Delay Compensation is disabled.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00480",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "400",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "CanControllerTxBitRateSwitch",
+                      "path": "/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerFdBaudrateConfig/CanControllerTxBitRateSwitch",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies if the bit rate switching shall be used for transmissions.",
+                      "metadata": {
+                        "INTRODUCTION": "If FALSE: CAN FD frames shall be sent without bit rate switching.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00475",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "true"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CanTTController",
+              "path": "/Can/CanConfigSet/CanController/CanTTController",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "CanTTController is specified in the SWS TTCAN and contains the configuration parameters of the TTCAN controller(s) (which are needed in addition to the configuration parameters of the CAN controller(s)).",
+              "metadata": {
+                "INTRODUCTION": "This container is only included and valid if TTCAN is supported by the controller, enabled (see CanSupportTTCANRef, ECUC_Can_00430), and used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00001",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "CanTTControllerApplWatchdogLimit",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerApplWatchdogLimit",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the maximum time period (unit is 256 times NTU) after which the application has to serve the watchdog.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00139",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerCycleCountMax",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerCycleCountMax",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the value for cycle_count_max.",
+                  "metadata": {
+                    "INTRODUCTION": "Allowed values: 0x00: 1 basic cycle 0x01: 2 basic cycles 0x03: 4 basic cycles 0x07: 8 basic cycles 0x0F: 16 basic cycles 0x1F: 32 basic cycles 0x3F: 64 basic cycles",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00138",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "63",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerExpectedTxTrigger",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerExpectedTxTrigger",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Number of expected_tx_trigger.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00136",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerExternalClockSynchronisation",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerExternalClockSynchronisation",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables/disables the external clock synchronization.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE: External clock synchronization enabled. FALSE: External clock synchronization disabled. This parameter shall only be configurable if parameter CanTTControllerLevel2 equals TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00135",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerGlobalTimeFiltering",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerGlobalTimeFiltering",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables/disables the global time filtering.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE: Global time filtering enabled. FALSE: Global time filtering disabled. This parameter shall only be configurable if parameter CanTTControllerLevel2 equals TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00134",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerInitialRefOffset",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerInitialRefOffset",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the initial value for ref trigger offset.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00128",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "127",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerInterruptEnable",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerInterruptEnable",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables/disables the respective interrupts.",
+                  "metadata": {
+                    "INTRODUCTION": "Bit Position set to 1: Enable respective interrupt. Bit Position set to 0: Disable respective interrupt. Bit Position / Interrupt Source: 10: Application Watchdog. 9: Watch Trigger reached. 8: Initialization Watch Trigger reached. 7: Change of Error Level. 6: Tx Overflow. 5: Tx Underflow. 4: Global Time Error. 3: Gap. 2: Start of Cycle. 1: Time Discontinuity. 0: Master State Change. Bit position \"1: Time Discontinuity\" and \"4: Global Time Error\" shall only be configurable if parameter CanTTControllerLevel2 equals TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00140",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "1023",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerLevel2",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerLevel2",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines whether Level 2 or Level 1 is used.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE: Level 2. FALSE: Level 1. If this parameter is set to FALSE then all parameters with dependency to CanTTControllerLevel2 need not be configured.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00131",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerNTUConfig",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerNTUConfig",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the config value for NTU (network time unit).",
+                  "metadata": {
+                    "INTRODUCTION": "Value given in microseconds. The value configured shall be greater than 0. Together with the local oscillator period, the TUR (time unit ratio) can be derived from the NTU. This parameter shall only be configurable if parameter CanTTControllerLevel2 equals TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00141",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "100",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerOperationMode",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerOperationMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the operation mode.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00127",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "CAN_TT_EVENT_SYNC_TIME_TRIGGERED AUTOSAR_ECUC CAN_TT_EVENT_TRIGGERED AUTOSAR_ECUC CAN_TT_TIME_TRIGGERED AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerSyncDeviation",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerSyncDeviation",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the maximum synchronization deviation:",
+                  "metadata": {
+                    "INTRODUCTION": "Given as a percentage value of the NTU (network time unit). The value configured shall be greater than 0. This parameter shall only be configurable if parameter CanTTControllerLevel2 equals TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00132",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "100",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerTURRestore",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerTURRestore",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables/disables the TUR restore.",
+                  "metadata": {
+                    "INTRODUCTION": "Note that the value configured for TUR can be derived from the value configured for NTU and the local oscillator preriod. TRUE: TUR restore enabled. FALSE: TUR restore disabled. This parameter shall only be configurable if parameter CanTTControllerLevel2 equals TRUE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00133",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerTimeMaster",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerTimeMaster",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines whether the controller acts as a potential time master.",
+                  "metadata": {
+                    "INTRODUCTION": "TRUE: Potential time master. FALSE: Time slave.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00129",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerTimeMasterPriority",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerTimeMasterPriority",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the time master priority.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00130",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "7",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerTxEnableWindowLength",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerTxEnableWindowLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Length of the tx enable window given in CAN bit times.",
+                  "metadata": {
+                    "INTRODUCTION": "Definition parameter \"CanTTControllerTxEnableWindowlength\" is used such that: Length of enable window = CanTTControllerTxEnableWindowLength + 1",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00137",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "16",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerWatchTriggerGapTimeMark",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerWatchTriggerGapTimeMark",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "watch trigger time mark after a gap",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00158",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTControllerWatchTriggerTimeMark",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTControllerWatchTriggerTimeMark",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "watch trigger time mark",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00157",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTIRQProcessing",
+                  "path": "/Can/CanConfigSet/CanController/CanTTController/CanTTIRQProcessing",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables / disables API Can_MainFunction_BusOff() for handling busoff events in polling mode.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00142",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "INTERRUPT AUTOSAR_ECUC POLLING AUTOSAR_ECUC"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CanHardwareObject",
+          "path": "/Can/CanConfigSet/CanHardwareObject",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration (parameters) of CAN Hardware Objects.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00324",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "CanFdPaddingValue",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanFdPaddingValue",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the value which is used to pad unspecified data in CAN FD frames > 8 bytes for transmission. This is necessary due to the discrete possible values of the DLC if > 8 bytes.",
+              "metadata": {
+                "INTRODUCTION": "If the length of a PDU which was requested to be sent does not match the allowed DLC values, the remaining bytes up to the next possible value shall be padded with this value.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00485",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanHandleType",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanHandleType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the type (Full-CAN or Basic-CAN) of a hardware object.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00323",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "BASIC AUTOSAR_ECUC FULL AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanHwObjectCount",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanHwObjectCount",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of hardware objects used to implement one HOH. In case of a HRH this parameter defines the number of elements in the hardware FIFO or the number of shadow buffers, in case of a HTH it defines the number of hardware objects used for multiplexed transmission or for a hardware FIFO used by a FullCAN HTH.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00467",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "1",
+                "MAX": "65535",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "CanIdType",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanIdType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies whether the IdValue is of type",
+              "metadata": {
+                "INTRODUCTION": "- standard identifier - extended identifier - mixed mode ImplementationType: Can_IdType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00065",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "EXTENDED AUTOSAR_ECUC MIXED AUTOSAR_ECUC STANDARD AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanObjectId",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanObjectId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Holds the handle ID of HRH or HTH. The value of this parameter is unique in a given CAN Driver, and it should start with 0 and continue without any gaps.",
+              "metadata": {
+                "INTRODUCTION": "The HRH and HTH Ids share a common ID range. Example: HRH0-0, HRH1-1, HTH0-2, HTH1-3",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00326",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanObjectType",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanObjectType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if the HardwareObject is used as Transmit or as Receive object",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00327",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "RECEIVE AUTOSAR_ECUC TRANSMIT AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTriggerTransmitEnable",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanTriggerTransmitEnable",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines if or if not Can supports the trigger-transmit API for this handle.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00486",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "CanControllerRef",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanControllerRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to CAN Controller to which the HOH is associated to.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00322",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController"
+              },
+              "children": []
+            },
+            {
+              "name": "CanMainFunctionRWPeriodRef",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanMainFunctionRWPeriodRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to CanMainFunctionPeriod",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00438",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Can/CanGeneral/CanMainFunctionRWPeriods"
+              },
+              "children": []
+            },
+            {
+              "name": "CanHwFilter",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanHwFilter",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container is only valid for HRHs and contains the configuration (parameters) of one hardware filter.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00468",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "CanHwFilterCode",
+                  "path": "/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterCode",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies (together with the filter mask) the identifiers range that passes the hardware filter.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00469",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanHwFilterMask",
+                  "path": "/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Describes a mask for hardware-based filtering of CAN identifiers. The CAN identifiers of incoming messages are masked with the appropriate CanFilterMaskValue. Bits holding a 0 mean don't care, i.e. do not compare the message's identifier in the respective bit position.",
+                  "metadata": {
+                    "INTRODUCTION": "The mask shall be build by filling with leading 0. In case of CanIdType EXTENDED or MIXED a 29 bit mask shall be build. In case of CanIdType STANDARD a 11 bit mask shall be build",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00470",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "CanTTHardwareObjectTrigger",
+              "path": "/Can/CanConfigSet/CanHardwareObject/CanTTHardwareObjectTrigger",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "CanTTHardwareObjectTrigger is specified in the SWS TTCAN and contains the configuration (parameters) of TTCAN triggers for Hardware Objects, which are additional to the configuration (parameters) of CAN Hardware Objects.",
+              "metadata": {
+                "INTRODUCTION": "This container is only included and valid if TTCAN is supported by the controller and, enabled (see CanSupportTTCANRef, ECUC_Can_00430), and used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00002",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "CanTTHardwareObjectBaseCycle",
+                  "path": "/Can/CanConfigSet/CanHardwareObject/CanTTHardwareObjectTrigger/CanTTHardwareObjectBaseCycle",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the cycle_offset.",
+                  "metadata": {
+                    "INTRODUCTION": "CanTTHardwareObjectBaseCycle must be not greater than cycle_count_max.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00147",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "63",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTHardwareObjectCycleRepetition",
+                  "path": "/Can/CanConfigSet/CanHardwareObject/CanTTHardwareObjectTrigger/CanTTHardwareObjectCycleRepetition",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the repeat_factor.",
+                  "metadata": {
+                    "INTRODUCTION": "CanTTHardwareObjectCycleRepetition shall be a power of two (2), greater than cycle_offset but not greater than cycle_count_max + 1.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00148",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "64",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTHardwareObjectTimeMark",
+                  "path": "/Can/CanConfigSet/CanHardwareObject/CanTTHardwareObjectTrigger/CanTTHardwareObjectTimeMark",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the point in time, when the trigger will be activated.",
+                  "metadata": {
+                    "INTRODUCTION": "Value is given in cycle time.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00146",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTHardwareObjectTriggerId",
+                  "path": "/Can/CanConfigSet/CanHardwareObject/CanTTHardwareObjectTrigger/CanTTHardwareObjectTriggerId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Sequential number which allows separation of different TTCAN triggers configured for one and the same hardware object.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00155",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "63",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTTHardwareObjectTriggerType",
+                  "path": "/Can/CanConfigSet/CanHardwareObject/CanTTHardwareObjectTrigger/CanTTHardwareObjectTriggerType",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines the type of the trigger associated with the hardware object. This parameter depends on plain CAN parameter CAN_OBJECT_TYPE.",
+                  "metadata": {
+                    "INTRODUCTION": "If CAN_OBJECT_TYPE equals RECEIVE than this parameter is fixed to CAN_TT_RX_TRIGGER. If CAN_OBJECT_TYPE equals TRANSMIT than one of the following literals is configurable: CAN_TT_TX_REF_TRIGGER, CAN_TT_TX_REF_TRIGGER_GAP, CAN_TT_TX_TRIGGER_MERGED, CAN_TT_TX_TRIGGER_SINGLE, CAN_TT_TX_TRIGGER_EXCLUSIVE.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00145",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "CAN_TT_RX_TRIGGER AUTOSAR_ECUC CAN_TT_TX_REF_TRIGGER AUTOSAR_ECUC CAN_TT_TX_REF_TRIGGER_GAP AUTOSAR_ECUC CAN_TT_TX_TRIGGER_EXCLUSIVE AUTOSAR_ECUC CAN_TT_TX_TRIGGER_MERGED AUTOSAR_ECUC CAN_TT_TX_TRIGGER_SINGLE AUTOSAR_ECUC"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CanIcom",
+          "path": "/Can/CanConfigSet/CanIcom",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains the parameters for configuring pretended networking",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00440",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanIcomConfig",
+              "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains the configuration parameters of the ICOM Configuration.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00459",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "CanIcomConfigId",
+                  "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomConfigId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter identifies the ID of the ICOM configuration.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00441",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanIcomWakeOnBusOff",
+                  "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeOnBusOff",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines that the MCU shall wake if the bus off is detected or not.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00442",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "true"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanIcomWakeupCauses",
+                  "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container contains the configuration parameters of the wakeup causes to leave the power saving mode.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Can_00443",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "CanIcomRxMessage",
+                      "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "1",
+                      "upper": null,
+                      "infinite": "true",
+                      "description": "This container contains the configuration parameters for the wakeup causes for matching received messages. It has to be configured as often as received messages are defined as wakeup cause.",
+                      "metadata": {
+                        "INTRODUCTION": "constraint: For all CanIcomRxMessage instances the Message IDs which are defined in CanIcomMessageId and in CanIcomRxMessageIdMask shall not overlap.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00447",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY-INFINITE": "true"
+                      },
+                      "children": [
+                        {
+                          "name": "CanIcomCounterValue",
+                          "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomCounterValue",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines that the MCU shall wake if the message with the ID is received n times on the communication channel.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00448",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "MAX": "65536",
+                            "MIN": "1"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "CanIcomMessageId",
+                          "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomMessageId",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines the message ID the wakeup causes of this CanIcomRxMessage are configured for. In addition a mask (CanIcomMessageIdMask) can be defined, in that case it is possible to define a range of rx messages, which can create a wakeup condition.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00449",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "MAX": "536870912",
+                            "MIN": "0"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "CanIcomMessageIdMask",
+                          "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomMessageIdMask",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Describes a mask for filtering of CAN identifiers. The CAN identifiers of incoming messages are masked with this CanIcomMessageIdMask. If the masked identifier matches the masked value of CanIcomMessageId, it can create a wakeup condition for this CanIcomRxMessage. Bits holding a 0 mean don't care, i.e. do not compare the message's identifier in the respective bit position. The mask shall be build by filling with leading 0.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00465",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "MAX": "536870912",
+                            "MIN": "0"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "CanIcomMissingMessageTimerValue",
+                          "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomMissingMessageTimerValue",
+                          "type": "ECUC-FLOAT-PARAM-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines that the MCU shall wake if the message with the ID is not received for a specific time in s on the",
+                          "metadata": {
+                            "INTRODUCTION": "communication channel.",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00450",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "CanIcomPayloadLengthError",
+                          "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomPayloadLengthError",
+                          "type": "ECUC-BOOLEAN-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines that the MCU shall wake if a payload error occurs",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00451",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "DEFAULT-VALUE": "false"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "CanIcomRxMessageSignalConfig",
+                          "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomRxMessageSignalConfig",
+                          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                          "lower": "0",
+                          "upper": null,
+                          "infinite": "true",
+                          "description": "This container contains the configuration parameters for the wakeup causes for matching signals.",
+                          "metadata": {
+                            "INTRODUCTION": "It has to be configured as often as a signal is defined as wakeup cause. If at least one Signal conditions defined in a CanIcomRxMessageSignalConfig evaluates to true or if no CanIcomRxMessageSignalConfig are defined, the whole wakeup condition is considered to be true. All instances of this container refer to the same frame/pdu (see CanIcomMessageId).",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00452",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY-INFINITE": "true"
+                          },
+                          "children": [
+                            {
+                              "name": "CanIcomSignalMask",
+                              "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomRxMessageSignalConfig/CanIcomSignalMask",
+                              "type": "ECUC-INTEGER-PARAM-DEF",
+                              "lower": "1",
+                              "upper": "1",
+                              "infinite": null,
+                              "description": "This parameter shall be used to mask a signal in the payload of a CAN message.",
+                              "metadata": {
+                                "INTRODUCTION": "The mask is binary AND with the signal payload. The result will be used in combination of the operations defined in CanIcomSignalOperation with the CanIcomSignalValue.",
+                                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00487",
+                                "LOWER-MULTIPLICITY": "1",
+                                "UPPER-MULTIPLICITY": "1",
+                                "SCOPE": "LOCAL",
+                                "ORIGIN": "AUTOSAR_ECUC",
+                                "POST-BUILD-VARIANT-VALUE": "false",
+                                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                                "SYMBOLIC-NAME-VALUE": "false",
+                                "MAX": "18446744073709551615",
+                                "MIN": "0"
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "CanIcomSignalOperation",
+                              "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomRxMessageSignalConfig/CanIcomSignalOperation",
+                              "type": "ECUC-ENUMERATION-PARAM-DEF",
+                              "lower": "1",
+                              "upper": "1",
+                              "infinite": null,
+                              "description": "This parameter defines the operation, which shall be used to verify the signal value creates a wakeup condition.",
+                              "metadata": {
+                                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00462",
+                                "LOWER-MULTIPLICITY": "1",
+                                "UPPER-MULTIPLICITY": "1",
+                                "SCOPE": "ECU",
+                                "ORIGIN": "AUTOSAR_ECUC",
+                                "POST-BUILD-VARIANT-VALUE": "false",
+                                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                                "SYMBOLIC-NAME-VALUE": "false",
+                                "LITERALS": "AND AUTOSAR_ECUC EQUAL AUTOSAR_ECUC GREATER AUTOSAR_ECUC SMALLER AUTOSAR_ECUC XOR AUTOSAR_ECUC"
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "CanIcomSignalValue",
+                              "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomRxMessageSignalConfig/CanIcomSignalValue",
+                              "type": "ECUC-INTEGER-PARAM-DEF",
+                              "lower": "1",
+                              "upper": "1",
+                              "infinite": null,
+                              "description": "This parameter shall be used to define a signal value which shall be compared (CanIcomSignalOperation) with the masked CanIcomSignalMask value of the received signal (CanIcomSignalRef).",
+                              "metadata": {
+                                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00488",
+                                "LOWER-MULTIPLICITY": "1",
+                                "UPPER-MULTIPLICITY": "1",
+                                "SCOPE": "LOCAL",
+                                "ORIGIN": "AUTOSAR_ECUC",
+                                "POST-BUILD-VARIANT-VALUE": "false",
+                                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                                "SYMBOLIC-NAME-VALUE": "false",
+                                "MAX": "18446744073709551615",
+                                "MIN": "0"
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "CanIcomSignalRef",
+                              "path": "/Can/CanConfigSet/CanIcom/CanIcomConfig/CanIcomWakeupCauses/CanIcomRxMessage/CanIcomRxMessageSignalConfig/CanIcomSignalRef",
+                              "type": "ECUC-REFERENCE-DEF",
+                              "lower": "0",
+                              "upper": "1",
+                              "infinite": null,
+                              "description": "This parameter defines a reference to the signal which shall be checked additional to the message id (CanIcomMessageId).",
+                              "metadata": {
+                                "INTRODUCTION": "This reference is used for documentation to define which ComSignal originates this filter setting. All signals being referred by this reference shall point to the same PDU.",
+                                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00456",
+                                "LOWER-MULTIPLICITY": "0",
+                                "UPPER-MULTIPLICITY": "1",
+                                "SCOPE": "ECU",
+                                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                                "ORIGIN": "AUTOSAR_ECUC",
+                                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                                "POST-BUILD-VARIANT-VALUE": "false",
+                                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Com/ComConfig/ComSignal"
+                              },
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CanGeneral",
+      "path": "/Can/CanGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the parameters related each CAN Driver Unit.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Can_00328",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CanDevErrorDetection",
+          "path": "/Can/CanGeneral/CanDevErrorDetection",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00064",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanIndex",
+          "path": "/Can/CanGeneral/CanIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00320",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanLPduReceiveCalloutFunction",
+          "path": "/Can/CanGeneral/CanLPduReceiveCalloutFunction",
+          "type": "ECUC-FUNCTION-NAME-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the existence and the name of a callout function that is called after a successful",
+          "metadata": {
+            "INTRODUCTION": "reception of a received CAN Rx L-PDU. If this parameter is omitted no callout shall take place.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00434",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "CanMainFunctionBusoffPeriod",
+          "path": "/Can/CanGeneral/CanMainFunctionBusoffPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter describes the period for cyclic call to Can_MainFunction_Busoff. Unit is seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00355",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "CanMainFunctionModePeriod",
+          "path": "/Can/CanGeneral/CanMainFunctionModePeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter describes the period for cyclic call to Can_MainFunction_Mode. Unit is seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00376",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "CanMainFunctionWakeupPeriod",
+          "path": "/Can/CanGeneral/CanMainFunctionWakeupPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter describes the period for cyclic call to Can_MainFunction_Wakeup. Unit is seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00357",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "CanMultiplexedTransmission",
+          "path": "/Can/CanGeneral/CanMultiplexedTransmission",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if multiplexed transmission shall be supported.ON or OFF",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00095",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanPublicIcomSupport",
+          "path": "/Can/CanGeneral/CanPublicIcomSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Selects support of Pretended Network features in Can driver.",
+          "metadata": {
+            "INTRODUCTION": "True: Enabled False: Disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00483",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanSetBaudrateApi",
+          "path": "/Can/CanGeneral/CanSetBaudrateApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "The support of the Can_SetBaudrate API is optional.",
+          "metadata": {
+            "INTRODUCTION": "If this parameter is set to true the Can_SetBaudrate API shall be supported. Otherwise the API is not supported.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00482",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTimeoutDuration",
+          "path": "/Can/CanGeneral/CanTimeoutDuration",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the maximum time for blocking function until a timeout is detected. Unit is seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00113",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "1E-6"
+          },
+          "children": []
+        },
+        {
+          "name": "CanVersionInfoApi",
+          "path": "/Can/CanGeneral/CanVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Can_GetVersionInfo() API ON or OFF.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00106",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanOsCounterRef",
+          "path": "/Can/CanGeneral/CanOsCounterRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter contains a reference to the OsCounter, which is used by the CAN driver.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00431",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+          },
+          "children": []
+        },
+        {
+          "name": "CanSupportTTCANRef",
+          "path": "/Can/CanGeneral/CanSupportTTCANRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The parameter refers to CanIfSupportTTCAN parameter in the CAN Interface Module configuration.",
+          "metadata": {
+            "INTRODUCTION": "The CanIfSupportTTCAN parameter defines whether TTCAN is supported.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00430",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/CanIf/CanIfPrivateCfg"
+          },
+          "children": []
+        },
+        {
+          "name": "CanIcomGeneral",
+          "path": "/Can/CanGeneral/CanIcomGeneral",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains the general configuration parameters of the ICOM Configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00444",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanIcomLevel",
+              "path": "/Can/CanGeneral/CanIcomGeneral/CanIcomLevel",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the level of Pretended Networking.",
+              "metadata": {
+                "INTRODUCTION": "This parameter is reserved for future implementations (Pretended Networking level 2).",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00445",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "CAN_ICOM_LEVEL_ONE",
+                "LITERALS": "CAN_ICOM_LEVEL_ONE AUTOSAR_ECUC CAN_ICOM_LEVEL_TWO AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanIcomVariant",
+              "path": "/Can/CanGeneral/CanIcomGeneral/CanIcomVariant",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the variant, which is supported by this CanController",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00446",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "CAN_ICOM_VARIANT_NONE",
+                "LITERALS": "CAN_ICOM_VARIANT_HW AUTOSAR_ECUC CAN_ICOM_VARIANT_NONE AUTOSAR_ECUC CAN_ICOM_VARIANT_SW AUTOSAR_ECUC"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "CanMainFunctionRWPeriods",
+          "path": "/Can/CanGeneral/CanMainFunctionRWPeriods",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the parameter for configuring the period for cyclic call to Can_MainFunction_Read or Can_MainFunction_Write depending on the referring item.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Can_00437",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "CanMainFunctionPeriod",
+              "path": "/Can/CanGeneral/CanMainFunctionRWPeriods/CanMainFunctionPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter describes the period for cyclic call to Can_MainFunction_Read or Can_MainFunction_Write depending on the referring item. Unit is seconds. Different poll-cycles will be configurable if more than one CanMainFunctionPeriod is configured. In this case multiple Can_MainFunction_Read() or Can_MainFunction_Write() will be provided by the CAN Driver module.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Can_00484",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0.001"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

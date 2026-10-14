@@ -1,0 +1,396 @@
+{
+  "name": "StbM",
+  "path": "/StbM",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Synchronized Time-base Manager (StbM) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "StbMGeneral",
+      "path": "/StbM/StbMGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general parameters of the Synchronized Time-base Manager",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00002",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "StbMDevErrorDetect",
+          "path": "/StbM/StbMGeneral/StbMDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMGetCurrentTimeExtendedAvailable",
+          "path": "/StbM/StbMGeneral/StbMGetCurrentTimeExtendedAvailable",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This allows to define whether an additional variant of the API GetCurrentTime with a 64 bit argument is provided.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00032",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMMainFunctionPeriod",
+          "path": "/StbM/StbMGeneral/StbMMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Schedule period of the main function StbM_MainFunction. Unit: [s].",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00027",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "1E-6"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMVersionInfo",
+          "path": "/StbM/StbMGeneral/StbMVersionInfo",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activate/Deactivate the version information API (StbM_GetVersionInfo). True: version information API activated False: version information API deactivated.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00013",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "StbMSynchronizedTimeBase",
+      "path": "/StbM/StbMSynchronizedTimeBase",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "Synchronized time.base collects the information about a specific time-base provider within the system.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "StbMIsSystemWideGlobalTimeMaster",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTimeMaster",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter shall be set to true for a global time master that acts as a system-wide source of time information with respect to global time.",
+          "metadata": {
+            "INTRODUCTION": "It is possible that several global time masters exist that have set this parameter set to true because the global time masters exist once per global time domain and one ECU may start several global time domains on different busses it is connected to.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00036",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMStoreTimebaseNonVolatile",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMStoreTimebaseNonVolatile",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This allows for specifying that the timebase shall be stored in the NvRam",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00031",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "NO_STORAGE AUTOSAR_ECUC STORAGE_AT_SHUTDOWN AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMSyncLossThreshold",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMSyncLossThreshold",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This represents the minimum delta between the time value in two sync messages for which the sync loss flag is set. Unit: seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00029",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMSyncLossTimeout",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMSyncLossTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This attribute describes the timeout for the situation that the time synchronization gets lost in the scope of the time domain. Unit: seconds",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00028",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMSynchronizedTimeBaseIdentifier",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMSynchronizedTimeBaseIdentifier",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Identification of a synchronized time-base via a unique identifier.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00021",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "true",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMEthGlobalTimeDomainRef",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMEthGlobalTimeDomainRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Optional sub container in case a local time shall be accessed on an Ethernet bus.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00033",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EthTSyn/EthTSynGlobalTimeDomain"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMLocalTimeRef",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMLocalTimeRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This represents an optional sub-container in case a local time shall be accessed.",
+          "metadata": {
+            "INTRODUCTION": "In this case, the designated OS counter has to be configured properly, meaning: * the counter is directly driven by a HW timer. * the counter's OsCounterTicksPerBase is one tick in x nanoseconds (ns).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00006",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMOffsetTimeBase",
+          "path": "/StbM/StbMSynchronizedTimeBase/StbMOffsetTimeBase",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This is the reference to the Synchronized Time-Base this Offset Time-Base is based on. This reference makes the containing StbMSynchronizedTimeBase an Offset Time-Base.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00030",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "StbMTriggeredCustomer",
+      "path": "/StbM/StbMTriggeredCustomer",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "The triggered customer is directly triggered by the Synchronized Time-base Manager by getting synchronized with the current (global) definition of time and passage of time.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00004",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "StbMTriggeredCustomerPeriod",
+          "path": "/StbM/StbMTriggeredCustomer/StbMTriggeredCustomerPeriod",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The triggering period of the triggered customer, called by the StbM_MainFunction.",
+          "metadata": {
+            "INTRODUCTION": "The period is documented in microseconds.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00020",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMOSScheduleTableRef",
+          "path": "/StbM/StbMTriggeredCustomer/StbMOSScheduleTableRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Mandatory reference to synchronized OS ScheduleTable, which will be explicitly synchronized by the StbM.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsScheduleTable"
+          },
+          "children": []
+        },
+        {
+          "name": "StbMSynchronizedTimeBaseRef",
+          "path": "/StbM/StbMTriggeredCustomer/StbMSynchronizedTimeBaseRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Mandatory reference to the required synchronized time-base.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_StbM_00010",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

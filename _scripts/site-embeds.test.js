@@ -25,3 +25,14 @@ test("legacy AUTOSAR canvas is upgraded outside code examples", () => {
   const example = `\`\`\`html\n${old}\n\`\`\``
   assert.equal(renderSiteEmbeds(example), example)
 })
+
+test("standard explorer tokens select their documented module", () => {
+  assert.equal(
+    renderSiteEmbeds("site:embed:autosar-standard-explorer"),
+    "{% include components/standard-explorer.html %}"
+  )
+  assert.equal(
+    renderSiteEmbeds("site:embed:autosar-nvm-explorer"),
+    '{% include components/standard-explorer.html module="NvM" %}'
+  )
+})

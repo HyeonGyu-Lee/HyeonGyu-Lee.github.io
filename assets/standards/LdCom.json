@@ -1,0 +1,403 @@
+{
+  "name": "LdCom",
+  "path": "/LdCom",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the AUTOSAR LdCom module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "LdComConfig",
+      "path": "/LdCom/LdComConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR LdCom module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LdComIPdu",
+          "path": "/LdCom/LdComConfig/LdComIPdu",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Contains the configuration parameters of the IPdu inside LdCom.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00006",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "LdComApiType",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComApiType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines if this I-PDU is a normal I-PDU that shall be sent unfragmented or if this is a large I-PDU that shall be sent via the Transport Protocol of the underlying bus.",
+              "metadata": {
+                "INTRODUCTION": "This setting is used by RTE to invoke the proper API.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00002",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "LDCOM_IF AUTOSAR_ECUC LDCOM_TP AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "LdComHandleId",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComHandleId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This is the ID used by RTE to invoke LdCom.",
+              "metadata": {
+                "INTRODUCTION": "A corresponding shortName is created, which is used for the invocations of the RTE. The same ID is used for invocations by PduR.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00005",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "LdComIPduDirection",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComIPduDirection",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The direction defines if this IPdu, and therefore the contributing signal, shall be sent or received.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00007",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "LDCOM_RECEIVE AUTOSAR_ECUC LDCOM_SEND AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "LdComRxCopyRxData",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComRxCopyRxData",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on receiver side: Name of Rte_LdComCbkCopyRxData callback function to be called.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00013",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComRxIndication",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComRxIndication",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on receiver side: Name of Rte_LdComCbkRxIndication callback function to be called.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00014",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComRxStartOfReception",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComRxStartOfReception",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on receiver side: Name of Rte_LdComCbkStartOfReception callback function to be called.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00015",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComTpRxIndication",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComTpRxIndication",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on receiver side: Name of Rte_LdComCbkTpRxIndication callback function to be called.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00016",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComTpTxConfirmation",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComTpTxConfirmation",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on sender side: Name of Rte_LdComCbkTpTxConfirmation callback function to be called.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00017",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComTxConfirmation",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComTxConfirmation",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on sender side: Name of Rte_LdComCbkTxConfirmation callback function to be called.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00021",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComTxCopyTxData",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComTxCopyTxData",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on sender side: Name of Rte_LdComCbkCopyTxData callback function to be called.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00018",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComTxTriggerTransmit",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComTxTriggerTransmit",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Only on sender side: Name of Rte_LdComCbkTriggerTransmit callback function to be called. If defined TriggerTransmit has to be supported for this signal.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00019",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "LdComSystemTemplateSignalRef",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComSystemTemplateSignalRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the ISignalToIPduMapping that contains a reference to the ISignal (System Template) which this LdCom signal represents.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00011",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "I-SIGNAL-TO-I-PDU-MAPPING"
+              },
+              "children": []
+            },
+            {
+              "name": "LdComPduRef",
+              "path": "/LdCom/LdComConfig/LdComIPdu/LdComPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the global Pdu.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00010",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LdComGeneral",
+      "path": "/LdCom/LdComGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Contains the general configuration parameters of the LdCom module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00004",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LdComDevErrorDetect",
+          "path": "/LdCom/LdComGeneral/LdComDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00020",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LdComVersionInfoApi",
+          "path": "/LdCom/LdComGeneral/LdComVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activate/Deactivate the version information API (LdCom_GetVersionInfo).",
+          "metadata": {
+            "INTRODUCTION": "* True: version information API activated * False: version information API deactivated",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LdCom_00012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

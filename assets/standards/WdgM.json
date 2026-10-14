@@ -1,0 +1,1200 @@
+{
+  "name": "WdgM",
+  "path": "/WdgM",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the WdgM (Watchdog Manager) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "WdgMConfigSet",
+      "path": "/WdgM/WdgMConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container describes one of multiple configuration sets of WdgM.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00337",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "WdgMInitialMode",
+          "path": "/WdgM/WdgMConfigSet/WdgMInitialMode",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The mode that the Watchdog Manager is in after it has been initialized.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00336",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMConfigSet/WdgMMode"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMDemEventParameterRefs",
+          "path": "/WdgM/WdgMConfigSet/WdgMDemEventParameterRefs",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00353",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "WDGM_E_IMPROPER_CALLER",
+              "path": "/WdgM/WdgMConfigSet/WdgMDemEventParameterRefs/WDGM_E_IMPROPER_CALLER",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the DemEventParameter which shall be issued when the defensive behavior checks have detected an improper caller. Tags: atp.Status=obsolete, atp.StatusComment=This reference is set to obsolete and will be removed in R 4.3, atp.StatusRevisionBegin=4.2.2",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00357",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+              },
+              "children": []
+            },
+            {
+              "name": "WDGM_E_MONITORING",
+              "path": "/WdgM/WdgMConfigSet/WdgMDemEventParameterRefs/WDGM_E_MONITORING",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the DemEventParameter which shall be issued when the error \"Monitoring has failed (Global Supervision Status has reached WDGM_GLOBAL_STATUS_STOPPED) and a watchdog reset will occur\" has occurred. Tags: atp.Status=obsolete, atp.StatusComment=use WDGM_E_SUPERVISION instead, atp.StatusRevisionBegin=4.2.2",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00354",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+              },
+              "children": []
+            },
+            {
+              "name": "WDGM_E_SET_MODE",
+              "path": "/WdgM/WdgMConfigSet/WdgMDemEventParameterRefs/WDGM_E_SET_MODE",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the DemEventParameter which shall be issued when the error \"Watchdog drivers' mode switch has failed\" has occurred.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00355",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+              },
+              "children": []
+            },
+            {
+              "name": "WDGM_E_SUPERVISION",
+              "path": "/WdgM/WdgMConfigSet/WdgMDemEventParameterRefs/WDGM_E_SUPERVISION",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the DemEventParameter which shall be issued when the error \"Supervision has failed (Global Supervision Status has reached WDGM_GLOBAL_STATUS_STOPPED) and a watchdog reset will occur\" has occurred.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00362",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "WdgMMode",
+          "path": "/WdgM/WdgMConfigSet/WdgMMode",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "255",
+          "infinite": null,
+          "description": "The container describes one of several modes of the Watchdog Manager.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00335",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "255"
+          },
+          "children": [
+            {
+              "name": "WdgMExpiredSupervisionCycleTol",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMExpiredSupervisionCycleTol",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter shall be used to define a value that fixes the amount of expired supervision cycles for how long the blocking of watchdog triggering shall be postponed, AFTER THE GLOBAL SUPERVISION STATUS HAS REACHED THE STATE EXPIRED.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00329",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMModeId",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMModeId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter fixes the identifier for the mode. This identifier is for instance passed as a parameter to the WdgM_SetMode service.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00307",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMSupervisionCycle",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMSupervisionCycle",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the schedule period of the main function WdgM_MainFunction.",
+              "metadata": {
+                "INTRODUCTION": "Unit: [s]",
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00330",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMAliveSupervision",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMAliveSupervision",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "65535",
+              "infinite": null,
+              "description": "This container collects all configuration parameters of Alive-Supervision of one Checkpoint. Note that each Checkpoint may have different parameters. For example, it may have different min and max margin.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00308",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "65535"
+              },
+              "children": [
+                {
+                  "name": "WdgMExpectedAliveIndications",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMAliveSupervision/WdgMExpectedAliveIndications",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the amount of expected alive indications of the Checkpoint within the referenced amount of defined supervision cycles according to corresponding SE.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00311",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMMaxMargin",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMAliveSupervision/WdgMMaxMargin",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the amount of alive indications of the Checkpoint that are acceptable to be additional to the expected alive indications within the corresponding supervision reference cycle.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00313",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMMinMargin",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMAliveSupervision/WdgMMinMargin",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the amount of alive indications of the Checkpoint that are acceptable to be missed from the expected alive indications within the corresponding supervision reference cycle.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00312",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMSupervisionReferenceCycle",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMAliveSupervision/WdgMSupervisionReferenceCycle",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter shall contain the amount of supervision cycles to be used as reference by the alive-supervision mechanism to perform the checkup with counted alive indications according to corresponding SE.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00310",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMAliveSupervisionCheckpointRef",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMAliveSupervision/WdgMAliveSupervisionCheckpointRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to Checkpoint within a Supervised Entity that shall be supervised.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00309",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "WdgMDeadlineSupervision",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMDeadlineSupervision",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "65535",
+              "infinite": null,
+              "description": "This container collects all configuration parameters for Deadline Supervision for a Supervised Entity.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00314",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "65535"
+              },
+              "children": [
+                {
+                  "name": "WdgMDeadlineMax",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMDeadlineSupervision/WdgMDeadlineMax",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the longest time span after which the deadline is considered to be met.",
+                  "metadata": {
+                    "INTRODUCTION": "Unit: [s]",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00318",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMDeadlineMin",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMDeadlineSupervision/WdgMDeadlineMin",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the shortest time span after which the deadline is considered to be met.",
+                  "metadata": {
+                    "INTRODUCTION": "Unit: [s]",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00317",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMDeadlineStartRef",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMDeadlineSupervision/WdgMDeadlineStartRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the reference to the start Checkpoint for Deadline Supervision.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00315",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMDeadlineStopRef",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMDeadlineSupervision/WdgMDeadlineStopRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the reference to the stop Checkpoint for Deadline Supervision.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00316",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "WdgMExternalLogicalSupervision",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMExternalLogicalSupervision",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "65535",
+              "infinite": null,
+              "description": "This container collects all configuration parameters for Logical Supervision for one external graph.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00319",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "65535"
+              },
+              "children": [
+                {
+                  "name": "WdgMExternalCheckpointFinalRef",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMExternalLogicalSupervision/WdgMExternalCheckpointFinalRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "65535",
+                  "infinite": null,
+                  "description": "This is the reference to the final Checkpoint(s) for this External Graph.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00324",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "65535",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMExternalCheckpointInitialRef",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMExternalLogicalSupervision/WdgMExternalCheckpointInitialRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "65535",
+                  "infinite": null,
+                  "description": "This is the reference to the initial Checkpoint(s) for this External Graph.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00323",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "65535",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMExternalTransition",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMExternalLogicalSupervision/WdgMExternalTransition",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "65535",
+                  "infinite": null,
+                  "description": "This container collects the Checkpoints for an External Transition across Supervised Entities.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00320",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "65535"
+                  },
+                  "children": [
+                    {
+                      "name": "WdgMExternalTransitionDestRef",
+                      "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMExternalLogicalSupervision/WdgMExternalTransition/WdgMExternalTransitionDestRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This is the reference to the destination Checkpoint of an External Transition.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00322",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "WdgMExternalTransitionSourceRef",
+                      "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMExternalLogicalSupervision/WdgMExternalTransition/WdgMExternalTransitionSourceRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This is the reference to the source Checkpoint of an External Transition.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00321",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "WdgMLocalStatusParams",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMLocalStatusParams",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "65535",
+              "infinite": null,
+              "description": "This container collects all configuration parameters for the Local Status of a Supervised Entity.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00325",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "65535"
+              },
+              "children": [
+                {
+                  "name": "WdgMFailedAliveSupervisionRefCycleTol",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMLocalStatusParams/WdgMFailedAliveSupervisionRefCycleTol",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter shall contain the acceptable amount of reference cycles with incorrect/failed alive supervisions for this Supervised Entity.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00327",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMLocalStatusSupervisedEntityRef",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMLocalStatusParams/WdgMLocalStatusSupervisedEntityRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the reference to the Supervised Entity for which the Local Status parameters are specified.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00326",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "WdgMTrigger",
+              "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMTrigger",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "255",
+              "infinite": null,
+              "description": "This container collects all configuration parameters for the triggering of hardware watchdogs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00331",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "255"
+              },
+              "children": [
+                {
+                  "name": "WdgMTriggerConditionValue",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMTrigger/WdgMTriggerConditionValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter shall contain the value that is passed to WdgIf_SetTriggerCondition for this watchdog.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00333",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMWatchdogMode",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMTrigger/WdgMWatchdogMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the watchdog mode that shall be used for the referenced watchdog in this Watchdog Manager mode.",
+                  "metadata": {
+                    "INTRODUCTION": "Implementation Type: WdgIf_ModeType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00332",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "WDGIF_FAST_MODE AUTOSAR_ECUC WDGIF_OFF_MODE AUTOSAR_ECUC WDGIF_SLOW_MODE AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMTriggerWatchdogRef",
+                  "path": "/WdgM/WdgMConfigSet/WdgMMode/WdgMTrigger/WdgMTriggerWatchdogRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is a reference to the configured watchdog.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00334",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMWatchdog"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WdgMGeneral",
+      "path": "/WdgM/WdgMGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container defines all general configuration parameters of the Watchdog Manager.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00300",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "WdgMDefensiveBehavior",
+          "path": "/WdgM/WdgMGeneral/WdgMDefensiveBehavior",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to enable/disable the defensive behavior of the Watchdog Manager module. Tags: atp.Status=obsolete, atp.StatusComment=This parameter is set to obsolete and will be removed in R 4.3, atp.StatusRevisionBegin=4.2.2",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00352",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMDemStoppedSupervisionReport",
+          "path": "/WdgM/WdgMGeneral/WdgMDemStoppedSupervisionReport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Parameter to enable/disable the error reporting to DEM.",
+          "metadata": {
+            "INTRODUCTION": "true: A notification to DEM is sent if the Watchdog Manager reaches the state WDGM_GLOBAL_STATUS_STOPPED. false: The notification is disabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00338",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMDevErrorDetect",
+          "path": "/WdgM/WdgMGeneral/WdgMDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00301",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMImmediateReset",
+          "path": "/WdgM/WdgMGeneral/WdgMImmediateReset",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter enables/disablse the immediate reset feature in case of alive-supervision failure.",
+          "metadata": {
+            "INTRODUCTION": "true: Immediate reset is enabled false: Immediate reset is disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00339",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMOffModeEnabled",
+          "path": "/WdgM/WdgMGeneral/WdgMOffModeEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter enables/disables the selection of the \"OffMode\" of the watchdog driver.",
+          "metadata": {
+            "INTRODUCTION": "true: \"OffMode\" selection is allowed false: \"OffMode\" selection is disallowed",
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00340",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMVersionInfoApi",
+          "path": "/WdgM/WdgMGeneral/WdgMVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Preprocessor switch to enable/disable the existence of the API WdgM_GetVersionInfo. Shall be used to remove unneeded code segments.",
+          "metadata": {
+            "INTRODUCTION": "true: API is enabled false: API is disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00302",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMCallerIds",
+          "path": "/WdgM/WdgMGeneral/WdgMCallerIds",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Contains the definition of valid CallerIds for the callers who have permission to call the function WdgM_SetMode. Tags: atp.Status=obsolete, atp.StatusComment=This container is set to obsolete and will be removed in R4.3, atp.StatusRevisionBegin=4.2.2",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00358",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "WdgMCallerId",
+              "path": "/WdgM/WdgMGeneral/WdgMCallerIds/WdgMCallerId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "255",
+              "infinite": null,
+              "description": "This parameter defines one valid CallerId for the callers who have permission to call the function WdgM_SetMode. Tags: atp.Status=obsolete, atp.StatusComment=This parameter is set to obsolete and will be removed in R4.3, atp.StatusRevisionBegin=4.2.2",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00359",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "255",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "WdgMSupervisedEntity",
+          "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "65535",
+          "infinite": null,
+          "description": "This container collects all common (mode-independent) parameters of a Supervised Entity to be supervised by the Watchdog Manager.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00303",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "65535"
+          },
+          "children": [
+            {
+              "name": "WdgMSupervisedEntityId",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMSupervisedEntityId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter shall contain the unique identifier of the supervised entity.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00304",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMEcucPartitionRef",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMEcucPartitionRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Denotes in which \"EcucPartition\" the supervised entity is executed. When the partition is stopped, the supervised entity shall be de-activated in the WdgM to avoid an ECU reset.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00360",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMOSCounter",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMOSCounter",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "OS counter used by Watchdog Manager to perform the deadline supervision of the Supervised Entity.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00361",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMOsApplicationRef",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMOsApplicationRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Optional reference to an OS Application. Beware, the Watchdog Manager module will trigger a partition restart of this OS Application when the corresponding Supervised Entity reaches WDGM_LOCAL_STATUS_FAILED.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00346",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMInternalCheckpointInitialRef",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMInternalCheckpointInitialRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This is the reference to the initial Checkpoint for this Supervised Entity.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00343",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMInternallCheckpointFinalRef",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMInternallCheckpointFinalRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "65535",
+              "infinite": null,
+              "description": "This is the reference to the final Checkpoint(s) for this Supervised Entity.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00344",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "65535",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMCheckpoint",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "65535",
+              "infinite": null,
+              "description": "This container collects all Checkpoints of this Supervised Entity. Each Supervised Entity has at least one Checkpoint.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00305",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "65535"
+              },
+              "children": [
+                {
+                  "name": "WdgMCheckpointId",
+                  "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint/WdgMCheckpointId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter shall contain the unique identifier of Checkpoint.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00306",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "WdgMInternalTransition",
+              "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMInternalTransition",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "65535",
+              "infinite": null,
+              "description": "This container defines the graph of Internal Transitions within this Supervised Entity.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00345",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "65535"
+              },
+              "children": [
+                {
+                  "name": "WdgMInternalTransitionDestRef",
+                  "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMInternalTransition/WdgMInternalTransitionDestRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the reference to the destination Checkpoint of a Internal Transition within this Supervised Entity.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00351",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "WdgMInternalTransitionSourceRef",
+                  "path": "/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMInternalTransition/WdgMInternalTransitionSourceRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the reference to the source Checkpoint of a Internal Transition within this Supervised Entity.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00350",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgM/WdgMGeneral/WdgMSupervisedEntity/WdgMCheckpoint"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "WdgMWatchdog",
+          "path": "/WdgM/WdgMGeneral/WdgMWatchdog",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "255",
+          "infinite": null,
+          "description": "This container collects all common (mode-independent) parameters of a Watchdog to be triggered by the Watchdog Manager.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00347",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "255"
+          },
+          "children": [
+            {
+              "name": "WdgMWatchdogName",
+              "path": "/WdgM/WdgMGeneral/WdgMWatchdog/WdgMWatchdogName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter shall contain the symbolic name of the watchdog instance.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00348",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "WdgMWatchdogDeviceRef",
+              "path": "/WdgM/WdgMGeneral/WdgMWatchdog/WdgMWatchdogDeviceRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to one device container of Watchdog Interface. In the referenced container WdgIfDevice, the parameter WdgIfDeviceIndex contains the Index parameter that WdgM has to use for WdgIf_SetTriggerCondition calls for that watchdog instance.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_WdgM_00349",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/WdgIf/WdgIfDevice"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

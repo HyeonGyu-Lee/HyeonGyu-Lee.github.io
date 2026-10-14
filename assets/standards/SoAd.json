@@ -1,0 +1,1519 @@
+{
+  "name": "SoAd",
+  "path": "/SoAd",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the SoAd (Socket Adaptor) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "SoAdBswModules",
+      "path": "/SoAd/SoAdBswModules",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Each container describes a specific BSW module that the SoAd shall interface to.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00102",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "SoAdIf",
+          "path": "/SoAd/SoAdBswModules/SoAdIf",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the Communication Interface APIs or not. Value true means that the APIs are supported. A module can have both Communication Interface APIs and Transport Protocol APIs (e.g. the PduR module).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00104",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdIfTriggerTransmit",
+          "path": "/SoAd/SoAdBswModules/SoAdIfTriggerTransmit",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the TriggerTransmit API or not. Value true means that the API is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00145",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdIfTxConfirmation",
+          "path": "/SoAd/SoAdBswModules/SoAdIfTxConfirmation",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the TxConfirmation API or not. Value true means that the API is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00106",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdLocalIpAddrAssigmentChg",
+          "path": "/SoAd/SoAdBswModules/SoAdLocalIpAddrAssigmentChg",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the LocalIpAddrAssigmentChg API or not. Value true means that the API is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00143",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdSoConModeChg",
+          "path": "/SoAd/SoAdBswModules/SoAdSoConModeChg",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the SoConModeChg API or not. Value true means that the API is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00107",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdTp",
+          "path": "/SoAd/SoAdBswModules/SoAdTp",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the BSW module supports the TransportProtocol APIs or not. Value true means that the APIs are supported. A module can have both Communication Interface APIs and Transport Protocol APIs (e.g. the PduR module).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00105",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdUseCallerInfix",
+          "path": "/SoAd/SoAdBswModules/SoAdUseCallerInfix",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if SoAd shall use (TRUE) the infix \"SoAd\" when calling an upper layer module function or not (FALSE). E.g. if SoAdUseCallerInfix is TRUE for the upper layer \"ABC\" then SoAd will call ABC_SoAdIfRxIndication() otherwise SoAd would call ABC_IfRxIndication().",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00128",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdUseTypeInfix",
+          "path": "/SoAd/SoAdBswModules/SoAdUseTypeInfix",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if SoAd shall use (TRUE) the API type infix \"Tp\" or \"If\" when calling an upper layer module function or not (FALSE). E.g. if SoAdUseTypeInfix is TRUE for the upper layer \"ABC\" then SoAd will call ABC_IfRxIndication(), otherwise SoAd would call ABC_RxIndication().",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00129",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdBswModuleRef",
+          "path": "/SoAd/SoAdBswModules/SoAdBswModuleRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This is a reference to one BSW module's configuration (i.e. not the ECUC parameter definition template).",
+          "metadata": {
+            "INTRODUCTION": "Example, there could be several configurations of PduR and this reference selects one of them. SoAd has to figure out from the structure of the referenced BSW module's configuration, what kind of upper layer he deals with. In case of a CDD SoAd expects UL-APIs in form of _SoAd<If|Tp><function> and expects CDD Pdu configuration structures according to the Ecu Configuration specification (chapter CDD module\\Socket Adaptor). In case it is one of the standardized AUTOSAR BSW modules, the configuration structures and API names for interaction with SoAd are defined in the corresponding SWS.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00124",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "SoAdConfig",
+      "path": "/SoAd/SoAdConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR SoAd module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00103",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "SoAdPduRoute",
+          "path": "/SoAd/SoAdConfig/SoAdPduRoute",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Describes the path of a PDU from an upper layer of the SoAd to the socket in the TCP/IP stack for transmission.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00007",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "SoAdTxPduId",
+              "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdTxPduId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Tx PDU ID of the PDU coming from the PDU Router.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00031",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdTxUpperLayerType",
+              "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdTxUpperLayerType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the upper layer interface type (must be \"IF\" in case of multiple PduRoutes).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00118",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "IF AUTOSAR_ECUC TP AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdTxPduRef",
+              "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdTxPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the global PDU structure",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00030",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdPduRouteDest",
+              "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdPduRouteDest",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Specifies the PDU route destination.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00119",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "SoAdTxPduHeaderId",
+                  "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdPduRouteDest/SoAdTxPduHeaderId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "ID to be sent on the TCP/IP connection if the PDU header option is enabled.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00120",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967296",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdTxUdpTriggerMode",
+                  "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdPduRouteDest/SoAdTxUdpTriggerMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies whether a PDU triggers the transmission of the nPduUdpTxBuffer.",
+                  "metadata": {
+                    "INTRODUCTION": "If this parameter is set to TRIGGER_NEVER, SoAd shall use an nPduUdpTxBuffer for the related socket connection. nPduUdpTxBuffer can only be used for upper layers with IF API, i.e. this parameter shall only be set to TRIGGER_NEVER if all upper layers belonging to the related socket connection have SoAdTxUpperLayerType set to \"IF\". This parameter is only relevant for UDP connections.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00136",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "TRIGGER_ALWAYS AUTOSAR_ECUC TRIGGER_NEVER AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdTxUdpTriggerTimeout",
+                  "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdPduRouteDest/SoAdTxUdpTriggerTimeout",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the timeout in [s] the nPduUdpTxBuffer shall be transmitted at the latest after this PDU is put into the buffer. This optional parameter is only relevant if SoAdTxUdpTriggerMode is TRIGGER_NEVER.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00150",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdTxSocketConnOrSocketConnBundleRef",
+                  "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdPduRouteDest/SoAdTxSocketConnOrSocketConnBundleRef",
+                  "type": "ECUC-CHOICE-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Choice Reference to a SocketConnection or to a SocketConnectionGroup on which the PDU is to be sent on. The reference to a SocketConnectionGroup shall only be used for upper layers with IF API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00034",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REFS": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection /AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdTxRoutingGroupRef",
+                  "path": "/SoAd/SoAdConfig/SoAdPduRoute/SoAdPduRouteDest/SoAdTxRoutingGroupRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Reference to the routing group.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00123",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SoAdRoutingGroup",
+          "path": "/SoAd/SoAdConfig/SoAdRoutingGroup",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Each container describes a specific routing group which can be enabled or disabled. A routing group consists of PDUs. Routing of PDUs can either be forwarding of PDUs from the upper layer to a TCP or UDP socket of the TCP/IP stack specified by a SoAdPduRoute or the other way around specified by a SoAdSocketRoute.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00109",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "SoAdRoutingGroupId",
+              "path": "/SoAd/SoAdConfig/SoAdRoutingGroup/SoAdRoutingGroupId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Unique ID of Routing Group",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00121",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdRoutingGroupIsEnabledAtInit",
+              "path": "/SoAd/SoAdConfig/SoAdRoutingGroup/SoAdRoutingGroupIsEnabledAtInit",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "If set to true this routing group will be enabled after initializing the SoAd module (i.e. enabled in the SoAd_Init function).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00122",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdRoutingGroupTxTriggerable",
+              "path": "/SoAd/SoAdConfig/SoAdRoutingGroup/SoAdRoutingGroupTxTriggerable",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if the If-TxPDUs related to the PduRouteDest containers",
+              "metadata": {
+                "INTRODUCTION": "referenced by this routing group can be triggered via SoAd_IfRoutingGroupTransmit (TRUE) or not (FALSE).",
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00146",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SoAdSocketConnectionGroup",
+          "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Specifies the configuration of a socket connection group, i.e. specifies the socket connections belonging to the group and the parameters which are common for all socket connections of the group. A socket connection specifies how data can be received and transmited via a TCP or UDP socket.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00130",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "SoAdPduHeaderEnable",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdPduHeaderEnable",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables the transmission of the PDU header (ID, length) on this socket connection.",
+              "metadata": {
+                "INTRODUCTION": "TRUE: add SoAd PDU header before PDU data FALSE: No SoAd PDU header is used",
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00131",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdResourceManagementEnable",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdResourceManagementEnable",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables the resource management option for this socket.",
+              "metadata": {
+                "INTRODUCTION": "May not be activated for UDP sockets in receive. TRUE: resource management option enabled FALSE: resource management option disabled",
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00067",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketAutomaticSoConSetup",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketAutomaticSoConSetup",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if the setup of the socket connection shall be done automatically (TRUE) or manually (FALSE) via SoAd_OpenSoCon() and SoAd_CloseSoCon().",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00110",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "true"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketFramePriority",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketFramePriority",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the priority of the Ethernet frame.",
+              "metadata": {
+                "INTRODUCTION": "If IEEE 802.1Q VLAN Tags are used, the specified priority will be used in the VLAN Tag PCP filed. If this optional parameter is not available the default priority specified in the TcpIp module is used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00138",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "7",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketIpAddrAssignmentChgNotification",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketIpAddrAssignmentChgNotification",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if the local IP address assignment change notification callback function of the upper layer shall be called if the assignment of the local IP address used by this socket connection changes.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00112",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketLocalPort",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketLocalPort",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Local UDP or TCP port used for this connection. If this parameter set to 0 SoAd requests TcpIp to select an ephemeral port.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00018",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketMsgAcceptanceFilterEnabled",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketMsgAcceptanceFilterEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if the message acceptance filter is enabled (TRUE) or not (FALSE).",
+              "metadata": {
+                "INTRODUCTION": "Note: if a wildcard is used in SoAdSocketRemoteAddress AND SoAdSocketUdpListenOnly is FALSE, this parameter must be TRUE. Note: if multiple SoAdSocketConnections are configured for one SoAdSocketConnectionGroup, this parameter must be TRUE.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00137",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "true"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketSoConModeChgNotification",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketSoConModeChgNotification",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if the SoCon mode change notification callback function of the upper layer shall be called in case of SoCon mode change.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00111",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketTpRxBufferMin",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketTpRxBufferMin",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the amount of data in bytes (PDU data for the upper layer and PDU Header if used) the SoAd shall at least be able to buffer for data reception via each socket connection of the socket connection group and using an upper layer with TP.",
+              "metadata": {
+                "INTRODUCTION": "Note: in case of a TCP socket where PduHeaderMode is used and an upper layer with IF-API, the required buffer size can be determined automatically.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00134",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketLocalAddressRef",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketLocalAddressRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Local IP address and interface used for this connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00017",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/TcpIp/TcpIpConfig/TcpIpLocalAddr"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketConnection",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Specifies the socket connection (Id and remote address information).",
+              "metadata": {
+                "INTRODUCTION": "Note: Parameters which are common to all socket connections of a socket connection group are specified directly at the group.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00009",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "SoAdSocketId",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection/SoAdSocketId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Socket connection identifier used as SoConId in the interaction with upper layers.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00016",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdSocketRemoteAddress",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection/SoAdSocketRemoteAddress",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Subcontainer of SoAdSocketConnection to specify the remote address (IP address and port) for a socket connection.",
+                  "metadata": {
+                    "INTRODUCTION": "If SoAdSocketRemoteAddress is not specified the remote address has to be set by the upper layer via SoAd_SetRemoteAddr().",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00113",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "SoAdSocketRemoteIpAddress",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection/SoAdSocketRemoteAddress/SoAdSocketRemoteIpAddress",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "IP address of remote node. The configured address must be of the same TcpIpDomainType (i.e. IPv4 or IPv6) as the TcpIpLocalAddr referred by SoAdSocketLocalAddressRef .",
+                      "metadata": {
+                        "INTRODUCTION": "To accept any remote IP address, set SoAdSocketRemoteIpAddress to \"ANY\". See message acceptance policy for more details.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00019",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketRemotePort",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection/SoAdSocketRemoteAddress/SoAdSocketRemotePort",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Remote UDP or TCP port used for this connection.",
+                      "metadata": {
+                        "INTRODUCTION": "To accept any remote port, set SoAdSocketRemotePort to 0. See message acceptance policy for more details.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00020",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "SoAdSocketProtocol",
+              "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol",
+              "type": "ECUC-CHOICE-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the transport protocol and transport protocol specific parameters used for the socket connections of the socket connection group.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00139",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "SoAdSocketTcp",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies that TCP is used as transport protocol for the socket connection group and parameters only related to TCP socket connections.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00141",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "SoAdSocketTcpImmediateTpTxConfirmation",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpImmediateTpTxConfirmation",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "If set to FALSE, SoAd notifies the TP upper layer via transmit confirmation after a Tcp Ack has been received. If set to TRUE, SoAd notifies the TP upper layer via transmit confirmation immediately after transmit has been accepted by TcpIp.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00147",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketTcpInitiate",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpInitiate",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the initiator for this TCP connection. It will not be defined for UDP sockets.",
+                      "metadata": {
+                        "INTRODUCTION": "TRUE: This TCP connection is initiated by this module. FALSE: This TCP connection is to be initiated in the listen mode.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00022",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketTcpKeepAlive",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpKeepAlive",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies to use the keep-alive mechanism for this connection. It will not be defined for UDP sockets.",
+                      "metadata": {
+                        "INTRODUCTION": "TRUE: This TCP connection will use the keep-alive mechanism. FALSE: This TCP connection will not use the keep-alive mechanism. Note: This parameter must not be set to TRUE if TcpIpTcpKeepAliveEnabled is set to FALSE.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00148",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketTcpKeepAliveInterval",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpKeepAliveInterval",
+                      "type": "ECUC-FLOAT-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the interval in seconds between subsequent keepalive probes.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00152",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "Inf",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketTcpKeepAliveProbesMax",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpKeepAliveProbesMax",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Maximum number of times that TCP retransmits an individual data segment before aborting the connection.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00151",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketTcpKeepAliveTime",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpKeepAliveTime",
+                      "type": "ECUC-FLOAT-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the time in seconds between the last data packet sent and the first keepalive probe.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00153",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "7200",
+                        "MAX": "Inf",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketTcpNoDelay",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpNoDelay",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies not to use the congestion control mechanism for this connection. It will not be defined for UDP sockets.",
+                      "metadata": {
+                        "INTRODUCTION": "TRUE: This TCP connection will NOT use congestion control. FALSE: This TCP connection will use congestion control. If the optional parameter is not enabled, the default behavior configured for TcpIp via the parameter TcpIpTcpNagleEnabled is applied. Note: This parameter must not be set to FALSE if TcpIpTcpNagleEnabled is set to FALSE.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00023",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketTcpTxQuota",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketTcp/SoAdSocketTcpTxQuota",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the maximum amount of bytes (PDU data provided by the upper layer and PDU Header if used) the SoAd may queue for transmission via TCP at the TcpIp module for each socket connection of this socket connection group.",
+                      "metadata": {
+                        "INTRODUCTION": "Rationale: prohibits that a socket connection consumes all available transmit buffers at the TcpIp and blocks transmissions via other socket connections. If the optional parameter is not enabled, the amount of data is not limited.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00142",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "4294967295",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "SoAdSocketUdp",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketUdp",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies that UDP is used as transport protocol for the socket connection group and parameters only related to UDP socket connections.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00140",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "SoAdSocketUdpAliveSupervisionTimeout",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketUdp/SoAdSocketUdpAliveSupervisionTimeout",
+                      "type": "ECUC-FLOAT-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the time in [s] a UDP socket connection remains in the mode SOAD_SOCON_ONLINE after the latest reception of a frame from the remote peer specified by the remote address. If this optional parameter is not enabled UDP Alive Supervision is deactivated for the related socket connection group.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00149",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "Inf",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketUdpListenOnly",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketUdp/SoAdSocketUdpListenOnly",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies if the socket connection group is only used for reception (TRUE) or used for both reception and transmission (FALSE).",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00024",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketUdpStrictHeaderLenCheckEnabled",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketUdp/SoAdSocketUdpStrictHeaderLenCheckEnabled",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies if UDP messages shall be dropped (TRUE) if the length of all contained PDUs does not match the length of the whole message or not (FALSE). Shall only be set to TRUE if SoAdPduHeaderEnable is also set to TRUE.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00154",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketUdpTriggerTimeout",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketUdp/SoAdSocketUdpTriggerTimeout",
+                      "type": "ECUC-FLOAT-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the timeout in [s] a nPduUdpTxBuffer is waiting for a PDU with TriggerMode = TRIGGER_ALWAYS, i.e. when the timeout expires the nPduUdpTxBuffer is transmitted. Timer is reset after each UDP transmission. This optional parameter is only relevant if a nPduUdpTxBuffer is used.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00133",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "Inf",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "SoAdSocketnPduUdpTxBufferMin",
+                      "path": "/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketProtocol/SoAdSocketUdp/SoAdSocketnPduUdpTxBufferMin",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Specifies the amount of data in bytes (PDU data provided by the upper layer and PDU Header if used) the SoAd shall be able to buffer for data transmission via this socket connection in case the UDP message shall be buffered for transmission of multiple PDUs per UDP.",
+                      "metadata": {
+                        "INTRODUCTION": "Note: in case of a UDP socket and an upper layer with TP API is configured, the required buffer size can be determined automatically. This optional parameter is only relevant if a nPduUdpTxBuffer is used.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00135",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SoAdSocketRoute",
+          "path": "/SoAd/SoAdConfig/SoAdSocketRoute",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Describes the path of a PDU from a socket in the TCP/IP stack to an upper layer of the SoAd after reception in the TCP/IP Stack.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00008",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "SoAdRxPduHeaderId",
+              "path": "/SoAd/SoAdConfig/SoAdSocketRoute/SoAdRxPduHeaderId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "ID contained in the packet received on the TCP/IP connection if the PDU header option is enabled.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00036",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "4294967296",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdRxSocketConnOrSocketConnBundleRef",
+              "path": "/SoAd/SoAdConfig/SoAdSocketRoute/SoAdRxSocketConnOrSocketConnBundleRef",
+              "type": "ECUC-CHOICE-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Choice Reference to a SocketConnection or to a SocketConnectionGroup on which the PDU was received. The reference to a SocketConnectionGroup shall only be used for upper layers with IF API.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00035",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REFS": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup/SoAdSocketConnection /AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdSocketConnectionGroup"
+              },
+              "children": []
+            },
+            {
+              "name": "SoAdSocketRouteDest",
+              "path": "/SoAd/SoAdConfig/SoAdSocketRoute/SoAdSocketRouteDest",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Describes the upper layer destination PDU for a message received on a TcpIp socket.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00114",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "SoAdRxPduId",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketRoute/SoAdSocketRouteDest/SoAdRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This unique identifier is used for a receive cancellation request from an upper layer of the SoAd.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00116",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdRxUpperLayerType",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketRoute/SoAdSocketRouteDest/SoAdRxUpperLayerType",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the upper layer interface type (must be \"IF\" in case of multiple RxPdus).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00115",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "IF AUTOSAR_ECUC TP AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdRxPduRef",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketRoute/SoAdSocketRouteDest/SoAdRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the global PDU structure",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00038",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "SoAdRxRoutingGroupRef",
+                  "path": "/SoAd/SoAdConfig/SoAdSocketRoute/SoAdSocketRouteDest/SoAdRxRoutingGroupRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Reference to the routing group.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00117",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/SoAd/SoAdConfig/SoAdRoutingGroup"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SoAdGeneral",
+      "path": "/SoAd/SoAdGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains all global configuration parameters of SoAd.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "SoAdDevErrorDetect",
+          "path": "/SoAd/SoAdGeneral/SoAdDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdIPv6AddressEnabled",
+          "path": "/SoAd/SoAdGeneral/SoAdIPv6AddressEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Allows for increased memory allocation to store IPv6 addresses.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: Enables support for IPv6 addresses FALSE: Only IPv4 addresses are supported",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00039",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdMainFunctionPeriod",
+          "path": "/SoAd/SoAdGeneral/SoAdMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Determines the frequency at which the SoAd_MainFunction() is called in [s].",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00062",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdRoutingGroupMax",
+          "path": "/SoAd/SoAdGeneral/SoAdRoutingGroupMax",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the maximum number of SoAd routing groups. Furthermore it defines the platform type used for RoutingGroupIdType. If SoAdRoutingGroupMax is not greater than 256, an uint8 is used,",
+          "metadata": {
+            "INTRODUCTION": "otherwise an uint16.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00127",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdSoConMax",
+          "path": "/SoAd/SoAdGeneral/SoAdSoConMax",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the maximum number of SoAd socket connections.",
+          "metadata": {
+            "INTRODUCTION": "Furthermore it defines the platform type used for SoAd_SoConIdType. If SoAdSoConMax is not greater than 256, an uint8 is used, otherwise uint16.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00126",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SoAdVersionInfoApi",
+          "path": "/SoAd/SoAdGeneral/SoAdVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activates the SoAd_GetVersionInfo() API.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: Enables the SoAd_GetVersionInfo() API. FALSE: SoAd_GetVersionInfo() API is not included.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SoAd_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

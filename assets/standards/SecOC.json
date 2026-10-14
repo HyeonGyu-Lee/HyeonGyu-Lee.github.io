@@ -1,0 +1,985 @@
+{
+  "name": "SecOC",
+  "path": "/SecOC",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the SecOC (SecureOnboardCommunication) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "SecOCGeneral",
+      "path": "/SecOC/SecOCGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Contains the general configuration parameters of the SecOC module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00002",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "SecOCDevErrorDetect",
+          "path": "/SecOC/SecOCGeneral/SecOCDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCMainFunctionPeriod",
+          "path": "/SecOC/SecOCGeneral/SecOCMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Allows to configure the time for the MainFunction (as float in seconds).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "0.255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCMaxAlignScalarType",
+          "path": "/SecOC/SecOCGeneral/SecOCMaxAlignScalarType",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The scalar type which has the maximum alignment restrictions on the given platform. This type can be e.g. uint8, uint16 or uint32.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00047",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCVerificationStatusCallout",
+          "path": "/SecOC/SecOCGeneral/SecOCVerificationStatusCallout",
+          "type": "ECUC-FUNCTION-NAME-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Entry address of the customer specific call out routine which shall be invoked in case of a verification attempt.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00004",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCVersionInfoApi",
+          "path": "/SecOC/SecOCGeneral/SecOCVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If true the SecOC_GetVersionInfo API is available.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCNvMBlockDescriptor",
+          "path": "/SecOC/SecOCGeneral/SecOCNvMBlockDescriptor",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to NVRAM block containing the none volatile data. If this parameter is not configured it means that no NVRAM is used at all.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/NvM/NvMBlockDescriptor"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "SecOCRxPduProcessing",
+      "path": "/SecOC/SecOCRxPduProcessing",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Contains the parameters to configure the RxPdus to be verified by the SecOC module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00011",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "SecOCAuthInfoTxLength",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the length in bits of the authentication code to be included in the payload of the Secured I-PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00034",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCDataId",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCDataId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines a unique numerical identifier for the Secured I-PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00030",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessCounterSyncAttempts",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCFreshnessCounterSyncAttempts",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the number of Freshness Counter re-synchronization attempts when a verification failed for a Secured I-PDU. If the value is zero, there will be no additional verification attempt to synchronize with a potentially better fitting Freshness Counter value. This parameter is only applicable if SecOCUseFreshnessTimestamp is FALSE.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00037",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessTimestampTimePeriodFactor",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCFreshnessTimestampTimePeriodFactor",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines a factor that specifies the time period for the Freshness Timestamp. It holds a multiplication factor that specifies the concrete meaning of a Freshness Timestamp increment by one on basis of microseconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00033",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessValueId",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the Id of the Freshness Value.",
+          "metadata": {
+            "INTRODUCTION": "The Freshness Value might be a normal counter or a time value.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00038",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessValueLength",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the complete length in bits of the Freshness Value. As long as the key doesn't change the counter shall not overflow. The length of the counter shall be determined based on the expected life time of the corresponding key and frequency of usage of the counter.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00031",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "64",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessValueTxLength",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the length in bits of the Freshness Value to be included in the payload of the Secured I-PDU. This length is specific to the least significant bits of the complete Freshness Counter. If the parameter is 0 no Freshness Value is included in the Secured I-PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00032",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "64",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCKeyId",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCKeyId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter specifies the local Key identifier of the stored Key used to generate or verify a MAC.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00035",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCRxAcceptanceWindow",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCRxAcceptanceWindow",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the maximum allowed deviation in seconds from the expected timestamp for which a Secured I-PDU is still deemed authentic.",
+          "metadata": {
+            "INTRODUCTION": "This parameter is only applicable if SecOCUseFreshnessTimestamp is TRUE.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00040",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCSecondaryFreshnessValueId",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCSecondaryFreshnessValueId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the Id of the Secondary Freshness Value.",
+          "metadata": {
+            "INTRODUCTION": "The Secondary Freshness Value might be a normal counter or a time value.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00039",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCUseFreshnessTimestamp",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCUseFreshnessTimestamp",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter specifies whether the Freshness Value is generated through individual Freshness Counters or by a Timestamps. The value is set to TRUE when Timestamps are used.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00036",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCVerificationStatusPropagationMode",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter is used to describe the propagation of the status of each verification attempt from the SecOC module to SWCs.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00046",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "BOTH AUTOSAR_ECUC FAILURE_ONLY AUTOSAR_ECUC NONE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCRxAuthServiceConfigRef",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef",
+          "type": "ECUC-CHOICE-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This choice container is used to define which module and which service is used for verification.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00048",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "DESTINATION-REFS": "/AUTOSAR/EcucDefs/Cal/CalMacVerify/CalMacVerifyConfig /AUTOSAR/EcucDefs/Cal/CalSignatureVerify/CalSignatureVerifyConfig /AUTOSAR/EcucDefs/Csm/CsmMacVerify/CsmMacVerifyConfig /AUTOSAR/EcucDefs/Csm/CsmSignatureVerify/CsmSignatureVerifyConfig"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCSameBufferPduRef",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCSameBufferPduRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This reference is used to collect Pdus that are using the same SecOC buffer.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00049",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SecOC/SecOCSameBufferPduCollection"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCRxAuthenticPduLayer",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container specifies the Pdu that is transmitted by the SecOC module to the PduR after the Mac was verified.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00044",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "SecOCRxAuthenticLayerPduRef",
+              "path": "/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the global Pdu.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00045",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SecOCRxSecuredPduLayer",
+          "path": "/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container specifies the Pdu that is received by the SecOC module from the PduR. For this Pdu the Mac verification is provided.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00041",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "SecOCRxSecuredLayerPduId",
+              "path": "/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredLayerPduId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "PDU identifier assigned by SecOC module. Used by PduR for SecOC_PduRRxIndication.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00043",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SecOCRxSecuredLayerPduRef",
+              "path": "/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredLayerPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the global Pdu.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00042",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SecOCSameBufferPduCollection",
+      "path": "/SecOC/SecOCSameBufferPduCollection",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "SecOCBuffer configuration that may be used by a collection of Pdus.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00009",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "SecOCBufferLength",
+          "path": "/SecOC/SecOCSameBufferPduCollection/SecOCBufferLength",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the Buffer in bytes that is used by the SecOC module.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "SecOCTxPduProcessing",
+      "path": "/SecOC/SecOCTxPduProcessing",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Contains the parameters to configure the TxPdus to be secured by the SecOC module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00012",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "SecOCAuthInfoTxLength",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCAuthInfoTxLength",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the length in bits of the authentication code to be included in the payload of the Secured I-PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00018",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCAuthenticationRetries",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCAuthenticationRetries",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the additional number of authentication attempts that are to be carried out when the generation of the authentication information failed for a given Secured I-PDU. If zero is set than only one authentication attempt is done.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00022",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCDataId",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCDataId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines a unique numerical identifier for the Secured I-PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00014",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessTimestampTimePeriodFactor",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCFreshnessTimestampTimePeriodFactor",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines a factor that specifies the time period for the Freshness Timestamp. It holds a multiplication factor that specifies the concrete meaning of a Freshness Timestamp increment by one on basis of microseconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00017",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessValueId",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the Id of the Freshness Value.",
+          "metadata": {
+            "INTRODUCTION": "The Freshness Value might be a normal counter or a time value.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00021",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessValueLength",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueLength",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the complete length in bits of the Freshness Value. As long as the key doesn't change the counter shall not overflow. The length of the counter shall be determined based on the expected life time of the corresponding key and frequency of usage of the counter.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00015",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "64",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCFreshnessValueTxLength",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueTxLength",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the length in bits of the Freshness Value to be included in the payload of the Secured I-PDU. This length is specific to the least significant bits of the complete Freshness Counter. If the parameter is 0 no Freshness Value is included in the Secured I-PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00016",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "64",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCKeyId",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCKeyId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter specifies the local Key identifier of the stored Key used to generate or verify a MAC.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00019",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCUseFreshnessTimestamp",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCUseFreshnessTimestamp",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter specifies whether the Freshness Value is generated through individual Freshness Counters or by a Timestamps. The value is set to TRUE when Timestamps are used.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00020",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCTxAuthServiceConfigRef",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCTxAuthServiceConfigRef",
+          "type": "ECUC-CHOICE-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This choice container is used to define which module and which service is used for authentication.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00013",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "DESTINATION-REFS": "/AUTOSAR/EcucDefs/Cal/CalMacGenerate/CalMacGenerateConfig /AUTOSAR/EcucDefs/Cal/CalSignatureGenerate/CalSignatureGenerateConfig /AUTOSAR/EcucDefs/Csm/CsmMacGenerate/CsmMacGenerateConfig /AUTOSAR/EcucDefs/Csm/CsmSignatureGenerate/CsmSignatureGenerateConfig"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCSameBufferPduRef",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCSameBufferPduRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This reference is used to collect Pdus that are using the same SecOC buffer.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00010",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/SecOC/SecOCSameBufferPduCollection"
+          },
+          "children": []
+        },
+        {
+          "name": "SecOCTxAuthenticPduLayer",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container specifies the Pdu that is received by the SecOC module from the PduR. For this Pdu the Mac generation is provided.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00023",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "SecOCTxAuthenticLayerPduId",
+              "path": "/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "PDU identifier assigned by SecOC module. Used by PduR for SecOC_PduRTransmit.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00026",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SecOCTxAuthenticLayerPduRef",
+              "path": "/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the global Pdu.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00025",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SecOCTxSecuredPduLayer",
+          "path": "/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container specifies the Pdu that is transmitted by the SecOC module to the PduR after the Mac was generated.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00024",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "SecOCTxSecuredLayerPduId",
+              "path": "/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredLayerPduId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "PDU identifier assigned by SecOC module. Used by PduR for confirmation (SecOC_PduRTxConfirmation) and for TriggerTransmit.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00028",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "SecOCTxSecuredLayerPduRef",
+              "path": "/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredLayerPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the global Pdu.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_SecOC_00027",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

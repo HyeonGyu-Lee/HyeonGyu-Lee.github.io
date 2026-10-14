@@ -40,15 +40,7 @@ redirect_from:
 ---
 
 
-<div class="arxml-container">
-<div class="tree-container">
-<div class="arxml" id="Dcm" data-files="_files/422.arxml"></div>
-<div id="arxmlContent" markdown="1"></div>
-</div>
-<div class="details-container">
-<div id="nodeDetails"></div>
-</div>
-</div>
+{% include components/standard-explorer.html %}
 
 
 ---

@@ -1,0 +1,274 @@
+{
+  "name": "Dio",
+  "path": "/Dio",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Dio (Digital IO) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "DioConfig",
+      "path": "/Dio/DioConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR DIO module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00152",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DioPort",
+          "path": "/Dio/DioConfig/DioPort",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of individual DIO ports, consisting of channels and possible channel groups.",
+          "metadata": {
+            "INTRODUCTION": "Note that this container definition does not explicitly define a symbolic name parameter. Instead, the container's short name will be used in the Ecu Configuration Description to specify the symbolic name of the port.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00144",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "DioPortId",
+              "path": "/Dio/DioConfig/DioPort/DioPortId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Numeric identifier of the DIO port. Not all MCU ports may be used for DIO, thus there may be \"gaps\" in the list of all IDs. This value will be",
+              "metadata": {
+                "INTRODUCTION": "assigned to the DIO port symbolic name (i.e. the SHORT-NAME of the DioPort container).",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00145",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "DioChannel",
+              "path": "/Dio/DioConfig/DioPort/DioChannel",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Configuration of an individual DIO channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00146",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "DioChannelId",
+                  "path": "/Dio/DioConfig/DioPort/DioChannel/DioChannelId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Channel Id of the DIO channel. This value will be assigned to the symbolic names.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00147",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "DioChannelGroup",
+              "path": "/Dio/DioConfig/DioPort/DioChannelGroup",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Definition and configuration of DIO channel groups. A channel group represents several adjoining DIO channels represented by a logical group.",
+              "metadata": {
+                "INTRODUCTION": "Note hat this container definition does not explicitly define a symbolic name parameter. Instead, the container's short name will be used in the Ecu Configuration Description to specify the symbolic name of the channel group.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00148",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "DioChannelGroupIdentification",
+                  "path": "/Dio/DioConfig/DioPort/DioChannelGroup/DioChannelGroupIdentification",
+                  "type": "ECUC-STRING-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The DIO channel group is identified in DIO API by a pointer to a data structure (of type Dio_ChannelGroupType). That data structure contains the channel group information.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter contains the code fragment that has to be inserted in the API call of the calling module to get the address of the variable in memory which holds the channel group information. Example values are \"&MyDioGroup1\" or \"&MyDioGroupArray[0]\"",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00149",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DioPortMask",
+                  "path": "/Dio/DioConfig/DioPort/DioChannelGroup/DioPortMask",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This shall be the mask which defines the positions of the channel",
+                  "metadata": {
+                    "INTRODUCTION": "group. The channels shall consist of adjoining bits in the same port. The data type depends on the port width.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00150",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DioPortOffset",
+                  "path": "/Dio/DioConfig/DioPort/DioChannelGroup/DioPortOffset",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The position of the Channel Group on the port, counted",
+                  "metadata": {
+                    "INTRODUCTION": "from the LSB. This value can be derived from DioPortMask. calculationFormula = Position of the first bit of DioPortMask which is set to '1' counted from LSB",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00151",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "31",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DioGeneral",
+      "path": "/Dio/DioGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "General DIO module configuration parameters.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00141",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DioDevErrorDetect",
+          "path": "/Dio/DioGeneral/DioDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00142",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DioFlipChannelApi",
+          "path": "/Dio/DioGeneral/DioFlipChannelApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Dio_FlipChannel() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00153",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DioVersionInfoApi",
+          "path": "/Dio/DioGeneral/DioVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Dio_ GetVersionInfo() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dio_00143",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

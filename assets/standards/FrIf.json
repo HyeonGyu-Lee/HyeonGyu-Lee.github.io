@@ -1,0 +1,2691 @@
+{
+  "name": "FrIf",
+  "path": "/FrIf",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the FrIf (FlexRay Interface) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06087",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "FrIfConfig",
+      "path": "/FrIf/FrIfConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR FrIf module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrIfMaxPduCnt",
+          "path": "/FrIf/FrIfConfig/FrIfMaxPduCnt",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of Pdus. This parameter is needed only in case of post-build loadable implementation using static memory allocation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06121",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "18446744073709551615",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfCluster",
+          "path": "/FrIf/FrIfConfig/FrIfCluster",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container specifies a FrIf Cluster and all related data which is required to enable communication of the Cluster. A Cluster may consist of more than one Controller.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05366",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false"
+          },
+          "children": [
+            {
+              "name": "FrIfClstIdx",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClstIdx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter provides a zero-based consecutive index of the FlexRay Clusters. Upper layer BSW modules and the FrIf itself use this index to identify a FlexRay Cluster.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06002",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "63",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfDetectNITError",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfDetectNITError",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Indicates whether NIT error status of each cluster shall be detected or not.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00003",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGChannels",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGChannels",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The channels that are used by the cluster.",
+              "metadata": {
+                "INTRODUCTION": "Implementation Type: Fr_ChannelType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06006",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "FR_CHANNEL_A AUTOSAR_ECUC FR_CHANNEL_AB AUTOSAR_ECUC FR_CHANNEL_B AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGColdStartAttempts",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGColdStartAttempts",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum number of times a node in the cluster is permitted to attempt to start the cluster by initiating schedule synchronization",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06008",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "31",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGCycleCountMax",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGCycleCountMax",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum cycle counter value in a given cluster.",
+              "metadata": {
+                "INTRODUCTION": "Remark: Set to 63 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06086",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "63",
+                "MIN": "7"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGListenNoise",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGListenNoise",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Upper limit for the start up listen timeout and wake up listen timeout in the presence of noise. It is used as a multiplier of the node",
+              "metadata": {
+                "INTRODUCTION": "parameter pdListenTimeout.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06009",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "16",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGMacroPerCycle",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGMacroPerCycle",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of macroticks in a communication cycle.",
+              "metadata": {
+                "INTRODUCTION": "Note: Lower limit 10 for FlexRay Protocol 2.1 Rev. A compliance",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06010",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "16000",
+                "MIN": "8"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGMaxWithoutClockCorrectFatal",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGMaxWithoutClockCorrectFatal",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Threshold used for testing the vClockCorrectionFailed counter. Defines the number of consecutive even/odd Cycle pairs with missing clock correction terms that will cause the protocol to transition from the POC:normal active or POC:normal passive state into the POC:halt state. [Even/odd cycle pairs].",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06011",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "15",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGMaxWithoutClockCorrectPassive",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGMaxWithoutClockCorrectPassive",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Threshold used for testing the vClockCorrectionFailed counter. Defines the number of consecutive even/odd Cycle pairs with missing clock correction terms that will cause the protocol to transition from the POC:normal active state to the POC:normal passive state. [Even/Odd cycle pairs]",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06012",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "15",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGNetworkManagementVectorLength",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGNetworkManagementVectorLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Length of the Network Management vector in a cluster [bytes]",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "12",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGNumberOfMinislots",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGNumberOfMinislots",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of minislots in the dynamic segment",
+              "metadata": {
+                "INTRODUCTION": "Remark: Upper limit 7986 for FlexRay Protocol 2.1 Rev. A compliance",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06014",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "7988",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGNumberOfStaticSlots",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGNumberOfStaticSlots",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of static slots in the static segment",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06015",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "1023",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGPayloadLengthStatic",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGPayloadLengthStatic",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Payload length of a static frame [16 bit words]",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06018",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "127",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGSyncFrameIDCountMax",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGSyncFrameIDCountMax",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum number of distinct syncframe identifiers present in a given cluster. This parameter maps to FlexRay Protocol 2.1 Rev. A parameter gSyncNodeMax.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06019",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "15",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdActionPointOffset",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdActionPointOffset",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of macroticks the action point is offset from the beginning of a static slot.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06020",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "63",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdBit",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdBit",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Nominal bit time in seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06021",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "T100NS AUTOSAR_ECUC T200NS AUTOSAR_ECUC T400NS AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdCasRxLowMax",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdCasRxLowMax",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Upper limit of the CAS acceptance windows [gdBit]",
+              "metadata": {
+                "INTRODUCTION": "Remark: Range 67 to 99 for FlexRay Protocol 2.1 Rev. A compliance",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06024",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "254",
+                "MIN": "28"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdCycle",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdCycle",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Length of the cycle, expressed in [s]",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 0.000024 for FlexRay Protocol 3.0 compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06025",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "0.016",
+                "MIN": "2.4E-5"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdDynamicSlotIdlePhase",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdDynamicSlotIdlePhase",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration of the idle phase within a dynamic slot [Minislots].",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06026",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "2",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdIgnoreAfterTx",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdIgnoreAfterTx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration for which the bitstrobing is paused after transmission [gdBit].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Set to 0 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00012",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "15",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdMacrotick",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdMacrotick",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration of the cluster wide nominal macrotick, expressed in s",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06027",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "6E-6",
+                "MIN": "1E-6"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdMiniSlotActionPointOffset",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdMiniSlotActionPointOffset",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of Macroticks the Minislot action point is offset from the beginning of a Minislot [Macroticks].",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06032",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "31",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdMinislot",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdMinislot",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration of a minislot [Macroticks]",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06033",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "63",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdNit",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdNit",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration of the Network Idle Time [Macroticks]",
+              "metadata": {
+                "INTRODUCTION": "Remark: Upper limit 805 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06034",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "15978",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdSampleClockPeriod",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdSampleClockPeriod",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Sample clock period",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06035",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "T12_5NS AUTOSAR_ECUC T25NS AUTOSAR_ECUC T50NS AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdStaticSlot",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdStaticSlot",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration of a static slot [Macroticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Range 4-661 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06036",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "664",
+                "MIN": "3"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdSymbolWindow",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdSymbolWindow",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration of the symbol window [Macroticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Range 0-142 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06037",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "162",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdSymbolWindowActionPointOffset",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdSymbolWindowActionPointOffset",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of macroticks the action point offset is from the beginning of the symbol window [Macroticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Set to GdActionPointOffset for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00011",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "63",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdTSSTransmitter",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdTSSTransmitter",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of bits in the Transmission Start Sequence [gdBits].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 3 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06038",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "15",
+                "MIN": "1"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdWakeupRxIdle",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdWakeupRxIdle",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of bits used by the node to test the duration of the 'idle' or HIGH phase of a received wakeup [gdBit]. Remarks: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter gdWakeupSymbolRxIdle. Lower limit 14 for FlexRay Protocol 2.1 Rev. A compliance.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06039",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "59",
+                "MIN": "8"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdWakeupRxLow",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdWakeupRxLow",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of bits used by the node to test the duration of the LOW phase of a received wakeup [gdBit].",
+              "metadata": {
+                "INTRODUCTION": "Remarks: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter gdWakeupSymbolRxLow. Lower limit 11 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06040",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "59",
+                "MIN": "8"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdWakeupRxWindow",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdWakeupRxWindow",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The size of the window used to detect wakeups [gdBit].",
+              "metadata": {
+                "INTRODUCTION": "Remarks: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter gdWakeupSymbolRxWindow. Upper limit 301 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06041",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "485",
+                "MIN": "76"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdWakeupTxActive",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdWakeupTxActive",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of bits used by the node to transmit the LOW phase of awakeup symbol and the HIGH and LOW phases of a WUDOP [gdBit].",
+              "metadata": {
+                "INTRODUCTION": "Remarks: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter gdWakeupSymbolTxLow.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06043",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "60",
+                "MIN": "15"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfGdWakeupTxIdle",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfGdWakeupTxIdle",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of bits used by the node to transmit the 'idle' part of a",
+              "metadata": {
+                "INTRODUCTION": "wakeup symbol [gdBit]. Remarks: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter gdWakeupSymbolTxIdle.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06042",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "180",
+                "MIN": "45"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfMainFunctionPeriod",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfMainFunctionPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The execution cycle of the FrIf_MainFunction_<cluster>() in seconds. The FrIf does not require this information but the BSW scheduler, which invokes the cluster main functions, needs it in order to plan its tasks.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06003",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfSafetyMargin",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfSafetyMargin",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Additional timespan in macroticks which takes jitter into account to be able to set the JobListPointer to the next possible job which can be executed in case the FlexRay Job List Execution Function has be resynchronized.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00004",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "1024000",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfClusterDemEventParameterRefs",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClusterDemEventParameterRefs",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06091",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FRIF_E_ACS_CH_A",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClusterDemEventParameterRefs/FRIF_E_ACS_CH_A",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when an error in ACS on channel A was detected. If the reference is not configured the error shall not be reported (neither to DET nor to DEM).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06097",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FRIF_E_ACS_CH_B",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClusterDemEventParameterRefs/FRIF_E_ACS_CH_B",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when an error in ACS on channel B was detected. If the reference is not configured the error shall not be reported (neither to DET nor to DEM).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06098",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FRIF_E_NIT_CH_A",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClusterDemEventParameterRefs/FRIF_E_NIT_CH_A",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when an error in NIT on channel A was detected. If the reference is not configured the error shall not be reported (neither to DET nor to DEM).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06093",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FRIF_E_NIT_CH_B",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClusterDemEventParameterRefs/FRIF_E_NIT_CH_B",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when an error in NIT on channel B was detected. If the reference is not configured the error shall not be reported (neither to DET nor to DEM).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06094",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FRIF_E_SW_CH_A",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClusterDemEventParameterRefs/FRIF_E_SW_CH_A",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when an error in SW on channel A was detected. If the reference is not configured the error shall not be reported (neither to DET nor to DEM).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06095",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FRIF_E_SW_CH_B",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfClusterDemEventParameterRefs/FRIF_E_SW_CH_B",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when an error in SW on channel B was detected. If the reference is not configured the error shall not be reported (neither to DET nor to DEM).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06096",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "FrIfController",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains the configuration of FlexRay CC.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05363",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false"
+              },
+              "children": [
+                {
+                  "name": "FrIfCtrlIdx",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfCtrlIdx",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter provides a zero-based consecutive index of the FlexRay Communication Controllers. Upper layer BSW modules and the FrIf itself use this index to identify a FlexRay CC.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06045",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "31",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrIfFrCtrlRef",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrCtrlRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a Controller, which is handled by a specific Driver. This reference is unique for the ECU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06044",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Fr/FrMultipleConfiguration/FrController"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrIfFrameTriggering",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "A Frame triggering contains the communication parameters of the FlexRay Frame as well as a reference to the Frame Construction Plan.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06090",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "FrIfAllowDynamicLSduLength",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfAllowDynamicLSduLength",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Allows L-PDU length reduction ('FrIfLSduLength' defines max. length) and indicates that the related CC buffer has to be reconfigured for the actual length and Header-CRC before transmission of the L-PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06049",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfAlwaysTransmit",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfAlwaysTransmit",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines whether the driver's API function Fr_TransmitTxLPdu() shall always be called for this L-PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00013",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfBaseCycle",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfBaseCycle",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter contains the FlexRay Base Cycle used to transmit this FlexRay Frame.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06051",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "63",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfChannel",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfChannel",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter contains the FlexRay Channel used to transmit this FlexRay Frame.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06052",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "FRIF_CHANNEL_A AUTOSAR_ECUC FRIF_CHANNEL_AB AUTOSAR_ECUC FRIF_CHANNEL_B AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfCycleRepetition",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfCycleRepetition",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter contains the FlexRay Cycle Repetition used to transmit this FlexRay Frame..",
+                      "metadata": {
+                        "INTRODUCTION": "possible Values: 1,2,4,8,16,32,64",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06053",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "64",
+                        "MIN": "1"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfLSduLength",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfLSduLength",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The payload length of the Frame is given here. This parameter is required for validation if configured PDUs and update information fits into the Frame at configuration time [bytes].",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06054",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "254",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfMessageId",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfMessageId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The first two bytes of the payload segment of the FlexRay frame format for frames transmitted in the",
+                      "metadata": {
+                        "INTRODUCTION": "dynamic segment can be used as receiver filterable data called the message ID.",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00010",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfPayloadPreamble",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfPayloadPreamble",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Switching the Payload Preamble bit.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06055",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfSlotId",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfSlotId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter contains the FlexRay Slot ID used to transmit this FlexRay Frame.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06056",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "2047",
+                        "MIN": "1"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfFrameStructureRef",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfFrameStructureRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the Construction Plan of the FlexRay Frame.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06048",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrIf/FrIfConfig/FrIfFrameStructure"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfFrameTriggeringDemEventParameterRefs",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfFrameTriggeringDemEventParameterRefs",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06099",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": [
+                        {
+                          "name": "FRIF_E_LPDU_SLOTSTATUS",
+                          "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering/FrIfFrameTriggeringDemEventParameterRefs/FRIF_E_LPDU_SLOTSTATUS",
+                          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to DEM event Id that is reported when FlexRay driver module detects slot errors. If this parameter is not configured, no event reporting happens.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00009",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "FrIfLPdu",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfLPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Reference to a L-PDU index",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05364",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "FrIfLPduIdx",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfLPdu/FrIfLPduIdx",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter identifies the L-PDU in the interaction between FlexRay Interface and FlexRay Driver.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06058",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "4095",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfReconfigurable",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfLPdu/FrIfReconfigurable",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter specifies that this LPdu is reconfigurable using FrIf_ReconfigLPdu. This means that this LPdu can be assigned to a different FrameTriggering at runtime. However, this reconfiguration is limited by hardware constraints. The direction of the LPdu cannot be reconfigured.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00008",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfVBTriggeringRef",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfLPdu/FrIfVBTriggeringRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the assigned Frame triggering.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06057",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfFrameTriggering"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "FrIfTransceiver",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfTransceiver",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "2",
+                  "infinite": null,
+                  "description": "Up to two FlexRay Transceivers may connect a Controller to a Cluster. This container realizes a Controller-Transceiver assignment.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05391",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "2"
+                  },
+                  "children": [
+                    {
+                      "name": "FrIfClusterChannel",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfTransceiver/FrIfClusterChannel",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter identifies to which one of the two Channels (A, B, A and B) of the Cluster the Transceiver is connected. FrIfClusterChannel shall map to Fr_ChannelType: FRIF_CHANNEL_A == FR_CHANNEL_A FRIF_CHANNEL_B == FR_CHANNEL_B FR_CHANNEL_AB shall not be used.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06062",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "FRIF_CHANNEL_A AUTOSAR_ECUC FRIF_CHANNEL_B AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfFrTrcvChannelRef",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfTransceiver/FrIfFrTrcvChannelRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to a Transceiver Driver Channel. This reference is unique for the ECU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06061",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrTrcv/FrTrcvChannel"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "FrIfJobList",
+              "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies a list of all FlexRay Jobs of the Cluster to be performed by FrIf_JobListExec_<ClstIdx>().",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05367",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrIfAbsTimerRef",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfAbsTimerRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the absolute timer to be used to trigger the interrupt whose ISR contains the FrIf_JobListExec_<ClstIdx>() function.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06063",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Fr/FrMultipleConfiguration/FrController/FrAbsoluteTimer"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrIfJob",
+                  "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "A job may contain more than one operation that are executed at a specific point in time.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05368",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "FrIfCycle",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfCycle",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The FlexRay Cycle in which the communication operation will execute this job",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06064",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "63",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfMacrotick",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfMacrotick",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Macrotick offset in the Cycle [Macrotick]",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06065",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "10240000",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfMaxIsrDelay",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfMaxIsrDelay",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The maximum delay in macroticks the FrIf_JoblistExec_<cluster>() function is processed after the absolute timer interrupt was triggered.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06004",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "10240000",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfCommunicationOperation",
+                      "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfCommunicationOperation",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "1",
+                      "upper": null,
+                      "infinite": "true",
+                      "description": "A separate operation which is part of a FlexRay Job and defines what type of action is executed.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05369",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY-INFINITE": "true",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                      },
+                      "children": [
+                        {
+                          "name": "FrIfCommunicationAction",
+                          "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfCommunicationOperation/FrIfCommunicationAction",
+                          "type": "ECUC-ENUMERATION-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "The action to be performed in the FlexRay Operation",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06067",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "LITERALS": "DECOUPLED_TRANSMISSION AUTOSAR_ECUC FREE_OP_A AUTOSAR_ECUC FREE_OP_B AUTOSAR_ECUC PREPARE_LPDU AUTOSAR_ECUC RECEIVE_AND_INDICATE AUTOSAR_ECUC RECEIVE_AND_STORE AUTOSAR_ECUC RX_INDICATION AUTOSAR_ECUC TX_CONFIRMATION AUTOSAR_ECUC"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "FrIfCommunicationOperationIdx",
+                          "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfCommunicationOperation/FrIfCommunicationOperationIdx",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "For each FlexRay Communication Job, this index spans a range of zero-based consecutive values and thus defines the order of the FlexRay Communication Operation in the respective FlexRay Communication Job.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06068",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "MAX": "255",
+                            "MIN": "0"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "FrIfRxComOpMaxLoop",
+                          "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfCommunicationOperation/FrIfRxComOpMaxLoop",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Defines the maximum number of loops for the receive RECEIVE_AND_INDICATE (Use case: emptying a FIFO).",
+                          "metadata": {
+                            "INTRODUCTION": "Please note that the parameter is mandatory if FrIfCommunicationAction parameter is set to RECEIVE_AND_INDICATE. For all other operations this parameter can be ignored.",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00007",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "MAX": "512",
+                            "MIN": "1"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "FrIfLPduIdxRef",
+                          "path": "/FrIf/FrIfConfig/FrIfCluster/FrIfJobList/FrIfJob/FrIfCommunicationOperation/FrIfLPduIdxRef",
+                          "type": "ECUC-REFERENCE-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to a L-PDu index",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06066",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfLPdu"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FrIfFrameStructure",
+          "path": "/FrIf/FrIfConfig/FrIfFrameStructure",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "The Frame structure specifies a Construction Plan how a Frame is assembled with PDUs and their respective Update-Bits.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05370",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "FrIfByteOrder",
+              "path": "/FrIf/FrIfConfig/FrIfFrameStructure/FrIfByteOrder",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the ByteOrder of all Pdus that are mapped into the Frame.",
+              "metadata": {
+                "INTRODUCTION": "The absolute position of a Pdu in the Frame is determined by the definition of the ByteOrder parameter: If BIG_ENDIAN is specified, the FrIfPduOffset indicates the position of the most significant bit in the Frame. If LITTLE_ENDIAN is specified, the FrIfPduOffset indicates the position of the least significant bit in the Frame.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06113",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "BIG_ENDIAN AUTOSAR_ECUC LITTLE_ENDIAN AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrIfPdusInFrame",
+              "path": "/FrIf/FrIfConfig/FrIfFrameStructure/FrIfPdusInFrame",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container holds all the information about a PDU in a FlexRay Frame.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05371",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+              },
+              "children": [
+                {
+                  "name": "FrIfPduOffset",
+                  "path": "/FrIf/FrIfConfig/FrIfFrameStructure/FrIfPdusInFrame/FrIfPduOffset",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The value specifies the offset of the PDU within the Frame [bytes].",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06070",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "253",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrIfPduUpdateBitOffset",
+                  "path": "/FrIf/FrIfConfig/FrIfFrameStructure/FrIfPdusInFrame/FrIfPduUpdateBitOffset",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This value specifies where the PDU's Update-Bit is stored in the Frame (bit location of PDU's Update-Bit in the FlexRay Frame).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06071",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "2031",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrIfPduRef",
+                  "path": "/FrIf/FrIfConfig/FrIfFrameStructure/FrIfPdusInFrame/FrIfPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the reference to the local definition of a PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06069",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrIf/FrIfConfig/FrIfPdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FrIfPdu",
+          "path": "/FrIf/FrIfConfig/FrIfPdu",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Contains PDU information. A PDU may be either a transmission PDU or a reception PDU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05372",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "FrIfPduDirection",
+              "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection",
+              "type": "ECUC-CHOICE-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "A PDU is either transmit or receive",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06072",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrIfRxPdu",
+                  "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfRxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Receive PDU",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05373",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "FrIfRxIndicationName",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfRxPdu/FrIfRxIndicationName",
+                      "type": "ECUC-FUNCTION-NAME-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines the name of the <User_RxIndication>. This parameter depends on the parameter FRIF_USERRXINDICATION_UL. If FRIF_USERRXINDICATION_UL equals FR_TP, FR_NM, PDUR or XCP, the name of the <User_RxIndication> is fixed. If FRIF_USERRXINDICATION_UL equals CDD, the name of the <User_RxIndication> is selectable.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00016",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfUserRxIndicationUL",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfRxPdu/FrIfUserRxIndicationUL",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines the upper layer (UL) module to which the indication of the successfully received FRIFRXPDU has to be routed via <User_RxIndication>. This <User_RxIndication> has to be invoked when the indication of the configured FRIFRXPDU will be received by a Rx indication event from the FR Driver module. If no upper layer (UL) module is configured, no <User_RxIndication> has to be called in case of a Rx indication event of the FRIFRXPDU from the FR Driver module.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00017",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "CDD AUTOSAR_ECUC FR_AR_TP AUTOSAR_ECUC FR_NM AUTOSAR_ECUC FR_TP AUTOSAR_ECUC PDUR AUTOSAR_ECUC XCP AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfRxPduRef",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfRxPdu/FrIfRxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the external PDU definition.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06073",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "FrIfTxPdu",
+                  "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container specifies transmission PDUs.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05374",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "FrIfConfirm",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfConfirm",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines whether the transmission of a PDU should be checked and confirmed to the PDU owning BSW module.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06075",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfCounterLimit",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfCounterLimit",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This value states the maximum number of indication of ready PDU data to the FrIf (i.e. maximum number of invocations of FrIf_Transmit) without an intermediate transmission of the PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06076",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "1"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfImmediate",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfImmediate",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Defines whether the PDU is transmitted immediate or decoupled.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06077",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfNoneMode",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfNoneMode",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Using the \"None-Mode\" which means that there is no API FrIf_Transmit call of the upper layer for this PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06050",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfTxConfirmationName",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfTxConfirmationName",
+                      "type": "ECUC-FUNCTION-NAME-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines the name of the <User_TxConfirmation>. This parameter depends on the parameter FrIfUserTxUL. If FrIfUserTxUL equals FR_TP, FR_AR_TP, FR_NM, PDUR, FR_TSYN or XCP, the name of the <User_TxConfirmation> is fixed. If FrIfUserTxUL equals CDD, the name of the <User_TxConfirmation> is selectable.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00014",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfTxPduId",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfTxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The global PDU identifier, which has to be used by the upper layer BSW module. The identifier has to be zero based and consecutive.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06078",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfUserTriggerTransmitName",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfUserTriggerTransmitName",
+                      "type": "ECUC-FUNCTION-NAME-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines the name of the <User_TriggerTransmit>. This parameter depends on the parameter FrIfUserTxUL. If FrIfUserTxUL equals FR_TP, FR_NM, PDUR, FR_TSYN or XCP the name of the <User_TriggerTransmit> is fixed. If FrIfUserTxUL equals CDD, the name of the <User_TriggerTransmit> is selectable.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06084",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfUserTxUL",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfUserTxUL",
+                      "type": "ECUC-ENUMERATION-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines the upper layer (UL) module to which the trigger of the Pdu to be transmitted (via the <User_TriggerTransmit>) or the confirmation of the successfully transmitted Pdu has to be routed (via the <User_TxConfirmation>). Please note that handle IDs which are used in callback functions are defined by the upper layer module.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00015",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "LITERALS": "CDD AUTOSAR_ECUC FR_AR_TP AUTOSAR_ECUC FR_NM AUTOSAR_ECUC FR_TP AUTOSAR_ECUC FR_TSYN AUTOSAR_ECUC PDUR AUTOSAR_ECUC XCP AUTOSAR_ECUC"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrIfTxPduRef",
+                      "path": "/FrIf/FrIfConfig/FrIfPdu/FrIfPduDirection/FrIfTxPdu/FrIfTxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the external PDU definition.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06074",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FrIfGeneral",
+      "path": "/FrIf/FrIfGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the general configuration parameters of the FlexRay Interface.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_05360",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrIfAbsTimerIdx",
+          "path": "/FrIf/FrIfGeneral/FrIfAbsTimerIdx",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of supported absolute timers.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06112",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "15",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfAllSlotsSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfAllSlotsSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to enable/disable of switching from key-slot / single-slot mode to all slot mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06108",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfCancelTransmitSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfCancelTransmitSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to request the cancellation of the I-PDU transmission to FrDrv.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfDevErrorDetect",
+          "path": "/FrIf/FrIfGeneral/FrIfDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06080",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfDisableLPduSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfDisableLPduSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to disables the hardware resource of a LPdu for transmission/reception.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06110",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfDisableTransceiverBranchSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfDisableTransceiverBranchSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to disable branches of an active star.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06102",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfEnableTransceiverBranchSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfEnableTransceiverBranchSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to enable branches of an active star.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06103",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfFreeOpAApiName",
+          "path": "/FrIf/FrIfGeneral/FrIfFreeOpAApiName",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "API name that is called when FREE_OP_A is selected as communication operation. See also chapter 8.8.3 Configurable Interfaces.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06118",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfFreeOpBApiName",
+          "path": "/FrIf/FrIfGeneral/FrIfFreeOpBApiName",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "API name that is called when FREE_OP_B is selected as communication operation. See also chapter 8.8.3 Configurable Interfaces.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06119",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfFreeOpsHeader",
+          "path": "/FrIf/FrIfGeneral/FrIfFreeOpsHeader",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines header file for configurable FREE_OP_A / FREE_OP_B functions.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06120",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfGetClockCorrectionSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfGetClockCorrectionSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to enable/disable of polling the FlexRay Driver to getting CC clock correction values.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06106",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfGetGetChannelStatusSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfGetGetChannelStatusSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to enable/disable of polling the FlexRay Driver to getting error information about the FlexRay communications bus.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06105",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfGetNmVectorSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfGetNmVectorSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to request the FlexRay hardware NMVector.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06114",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfGetNumOfStartupFramesSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfGetNumOfStartupFramesSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to enable/disable of polling the FlexRay Driver for the actual number of received startup frames on the bus.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06104",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfGetSyncFrameListSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfGetSyncFrameListSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to enable/disable of polling the FlexRay Driver to getting a list of actual received sync frames.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06107",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfGetTransceiverErrorSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfGetTransceiverErrorSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to get the FlexRay Transceiver errors by calling the FlexRay Transceiver module.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06101",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfGetWakeupRxStatusSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfGetWakeupRxStatusSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to get the wakeup received information from the FlexRay controller.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06111",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfNumClstSupported",
+          "path": "/FrIf/FrIfGeneral/FrIfNumClstSupported",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of FlexRay Clusters that the FlexRay Interface supports.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06081",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "15",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfNumCtrlSupported",
+          "path": "/FrIf/FrIfGeneral/FrIfNumCtrlSupported",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of FlexRay CCs that the FlexRay Interface supports",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06082",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "15",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfPublicCddHeaderFile",
+          "path": "/FrIf/FrIfGeneral/FrIfPublicCddHeaderFile",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines header files for callback functions which shall be included in case of CDDs. Range of characters is 1.. 32.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06116",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfReadCCConfigApi",
+          "path": "/FrIf/FrIfGeneral/FrIfReadCCConfigApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable the optional FrIf_ReadCCConfig API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06117",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfReconfigLPduSupport",
+          "path": "/FrIf/FrIfGeneral/FrIfReconfigLPduSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrIf support to enable/disable the reconfiguration of a given LPdu according to the parameters (FrameId, Channel, CycleRepetition, CycleOffset, PayloadLength, HeaderCRC) at runtime.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06109",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfUnusedBitValue",
+          "path": "/FrIf/FrIfGeneral/FrIfUnusedBitValue",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Set unused bits to a defined value.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_00001",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "1",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIfVersionInfoApi",
+          "path": "/FrIf/FrIfGeneral/FrIfVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables/disables the existence of the FrIf_GetVersionInfo() API service",
+          "metadata": {
+            "INTRODUCTION": "true: FrIf_GetVersionInfo() API service exists false: FrIf_GetVersionInfo() API service does not exist",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrIf_06083",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

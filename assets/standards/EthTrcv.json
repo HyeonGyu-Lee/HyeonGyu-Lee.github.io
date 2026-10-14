@@ -1,0 +1,670 @@
+{
+  "name": "EthTrcv",
+  "path": "/EthTrcv",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of Ethernet Transceiver Driver module",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "EthTrcvConfigSet",
+      "path": "/EthTrcv/EthTrcvConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR EthTrcv module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00016",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EthTrcvConfig",
+          "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of the individual transceiver",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "EthTrcvAutoNegotiationEnabled",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvAutoNegotiationEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if Auto-Negotiation is enabled (TRUE) or disabled (FALSE) for determination of the Ethernet transceiver speed.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00021",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvConnNeg",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvConnNeg",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the connection negotiation of the Ethernet transceiver link.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00025",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "TRCV_CONN_NEG_AUTO AUTOSAR_ECUC TRCV_CONN_NEG_MASTER AUTOSAR_ECUC TRCV_CONN_NEG_SLAVE AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvCtrlIdx",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvCtrlIdx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the controller used for MII access to the transceiver",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00014",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvDuplexMode",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvDuplexMode",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the duplex mode of the Ethernet transceiver link if Auto-Negotiation is disabled. This parameter is ignored if Auto-Negotiation is enabled.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00023",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "ETHTRCV_DUPLEX_MODE_FULL AUTOSAR_ECUC ETHTRCV_DUPLEX_MODE_HALF AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvIdx",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvIdx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the instance ID of the configured transceiver.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvMiiIdx",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvMiiIdx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the transceiver index used for MII access to the transceiver",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00015",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvPhysLayerType",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvPhysLayerType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the physical layer type of the Ethernet transceiver link.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00024",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "TRCV_PHYS_LAYER_TYPE_BASE_T AUTOSAR_ECUC TRCV_PHYS_LAYER_TYPE_BROADR_REACH AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvSpeed",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvSpeed",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the speed of the Ethernet transceiver link in [MBit/s]. If AutoNegotiation is enabled this is the maximum speed advertised for Auto-Negotiation.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00022",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "TRCV_SPEED_10 AUTOSAR_ECUC TRCV_SPEED_100 AUTOSAR_ECUC TRCV_SPEED_1000 AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvWakeUpCallout",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvWakeUpCallout",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Configuration of the call-out name.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00028",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvIcuChannelRef",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvIcuChannelRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the IcuChannel to enable/disable the interrupts for wakeups.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00026",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Icu/IcuConfigSet/IcuChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTrcvDemEventParameterRefs",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvDemEventParameterRefs",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00017",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "ETHTRCV_E_ACCESS",
+                  "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvDemEventParameterRefs/ETHTRCV_E_ACCESS",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when the error \"Transceiver access failed\" has occurred.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00018",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EthTrcvWakeupMap",
+              "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvWakeupMap",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "7",
+              "infinite": null,
+              "description": "Container for the mapping of wake up reasons to wake up sources. At least one container is needed if EthTrcvWakeUpSupport is not ETHTRCV_WAKEUP_NOT_SUPPORTED.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00027",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "7"
+              },
+              "children": [
+                {
+                  "name": "EthTrcvWakeupReason",
+                  "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvWakeupMap/EthTrcvWakeupReason",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines the transceiver wake up reasons.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00033",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ETHTRCV_WUR_BUS AUTOSAR_ECUC ETHTRCV_WUR_GENERAL AUTOSAR_ECUC ETHTRCV_WUR_INTERNAL AUTOSAR_ECUC ETHTRCV_WUR_PIN AUTOSAR_ECUC ETHTRCV_WUR_POWER_ON AUTOSAR_ECUC ETHTRCV_WUR_RESET AUTOSAR_ECUC ETHTRCV_WUR_SYSERR AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "EthTrcvWakeupSourceRef",
+                  "path": "/EthTrcv/EthTrcvConfigSet/EthTrcvConfig/EthTrcvWakeupMap/EthTrcvWakeupSourceRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configures the wake-up source defined in EcuM.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00029",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EthTrcvGeneral",
+      "path": "/EthTrcv/EthTrcvGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "General configuration of Ethernet Transceiver Driver module",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EthTrcvDevErrorDetect",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvGetBaudRateApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvGetBaudRateApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthTrcv_GetBaudRate API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00010",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvGetDuplexModeApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvGetDuplexModeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthTrcv_GetDuplexMode API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvGetLinkStateApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvGetLinkStateApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthTrcv_GetLinkState API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00009",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvGetTransceiverModeApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvGetTransceiverModeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthTrcv_GetTransceiverMode API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvGetTransceiverWakeupModeApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvGetTransceiverWakeupModeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthTrcv_GetTransceiverWakeupMode API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00031",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvIndex",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00020",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvMainFunctionPeriod",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the period of main function EthTrcv_MainFunction in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00032",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvMaxTrcvsSupported",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvMaxTrcvsSupported",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": null,
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "1",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvSetTransceiverModeApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvSetTransceiverModeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthTrcv_SetTransceiverMode API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvStartAutoNegotiationApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvStartAutoNegotiationApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables EthTrcv_StartAutoNegotiation API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvVersionInfoApi",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables version info API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvVersionInfoApiMacro",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvVersionInfoApiMacro",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / Disables version info API macro implementation",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTrcvWakeUpSupport",
+          "path": "/EthTrcv/EthTrcvGeneral/EthTrcvWakeUpSupport",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configures wake-up to polling or interrupt or to not used/not supported. In case no wake up is supported by the hardware, the BSWMD pre-configuration shall be set to ETHTRCV_WAKEUP_NOT_SUPPORTED.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTrcv_00030",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "ETHTRCV_WAKEUP_BY_INTERRUPT AUTOSAR_ECUC ETHTRCV_WAKEUP_BY_POLLING AUTOSAR_ECUC ETHTRCV_WAKEUP_NOT_SUPPORTED AUTOSAR_ECUC"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

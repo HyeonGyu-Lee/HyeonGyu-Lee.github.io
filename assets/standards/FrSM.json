@@ -1,0 +1,567 @@
+{
+  "name": "FrSM",
+  "path": "/FrSM",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the FlexRay State Manager",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "FrSMConfig",
+      "path": "/FrSM/FrSMConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container comprises the cluster specific configuration of the FlexRay State Manager.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00146",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrSMCluster",
+          "path": "/FrSM/FrSMConfig/FrSMCluster",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container specifies a FlexRay cluster and all related data. A FlexRay cluster may consist of more than one controller per ECU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00067",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "FrSMCheckWakeupReason",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMCheckWakeupReason",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "If FrSMCheckWakeupReason is true, the FrSM will check the wakeup reason in order to skip the wakeup in case of wakeup by bus. If FrSMCheckWakeupReason is false, the FrSM will always try to perform a wakeup.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00001",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMDelayStartupWithoutWakeup",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMDelayStartupWithoutWakeup",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "If true, timer t1 shall be started instead of immediately calling FrIf_AllowColdstart in case of a startup without wakeup.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00166",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMDurationT1",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMDurationT1",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The duration of timer t1 in seconds.",
+              "metadata": {
+                "INTRODUCTION": "A value of 0 shall imply that the timer is not used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00102",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMDurationT2",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMDurationT2",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The duration of timer t2 in seconds.",
+              "metadata": {
+                "INTRODUCTION": "A value of 0 shall imply that the timer is not used. The value of this parameter shall be larger than the value of FrSMDurationT1 parameter.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00089",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMDurationT3",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMDurationT3",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The duration of timer t3 in seconds. The value of this parameter shall be larger than the value of FrSMDurationT1 parameter.",
+              "metadata": {
+                "INTRODUCTION": "A value of 0 shall imply that the timer is not used. It shall only be possible to configure a value 0 if no FrNm is used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00162",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMIsColdstartEcu",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMIsColdstartEcu",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "True: The ECU is a coldstart node for this FlexRay cluster.",
+              "metadata": {
+                "INTRODUCTION": "False: The ECU is no coldstart node for this FlexRay cluster.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00068",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMIsWakeupEcu",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMIsWakeupEcu",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "True: FrSM shall perform a wakeup for this cluster.",
+              "metadata": {
+                "INTRODUCTION": "False: FrSM shall never perform a wakeup for this FlexRay cluster.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00109",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMMainFunctionCycleTime",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMMainFunctionCycleTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the cycle time in seconds of the periodic calling of FrSM main function.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00115",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMMinNumberOfColdstarter",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMMinNumberOfColdstarter",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the number of coldstarter that should not be underrun. If this parameter is not configured the mainfunction shall not check the number of startup frames.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00168",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMNumWakeupPatterns",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMNumWakeupPatterns",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum number of Wakeup Patterns the node may send before going to FRSM_STARTUP.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00165",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMStartupRepetitions",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMStartupRepetitions",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The number of times an ECU may repeat the startup procedure for a FlexRay cluster.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00069",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMStartupRepetitionsWithWakeup",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMStartupRepetitionsWithWakeup",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The number of times an ECU may repeat the startup procedure including a wakeup for a FlexRay cluster.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00094",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMTrcvStdbyDelay",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMTrcvStdbyDelay",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The duration of timer t_TrcvStdbyDelay in seconds. The granularity of this parameter shall be restricted to full FlexRay cycles (FrIfGdCycle).",
+              "metadata": {
+                "INTRODUCTION": "A value of 0 shall imply that the timer is not used.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00170",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMComMNetworkHandleRef",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMComMNetworkHandleRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the unique handle to identify one certain FlexRay network correspond to one of the network handles of the ComM configuration.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00070",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMFrIfClusterRef",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMFrIfClusterRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "References the cluster configuration in the FlexRay Interface configuration.",
+              "metadata": {
+                "INTRODUCTION": "Note that the assigned controllers and transceivers are defined in the FrIf configuration and can be accessed via this reference.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00116",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrIf/FrIfConfig/FrIfCluster"
+              },
+              "children": []
+            },
+            {
+              "name": "FrSMClusterDemEventParameterRefs",
+              "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMClusterDemEventParameterRefs",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value.",
+              "metadata": {
+                "INTRODUCTION": "The standardized errors are provided in this container and can be extended by vendor specific error references.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00163",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FRSM_E_CLUSTER_STARTUP",
+                  "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMClusterDemEventParameterRefs/FRSM_E_CLUSTER_STARTUP",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when the error \"FRSM_E_CLUSTER_STARTUP\" has occurred. If the reference is not configured the error shall be reported as DET error.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00164",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FRSM_E_CLUSTER_SYNC_LOSS",
+                  "path": "/FrSM/FrSMConfig/FrSMCluster/FrSMClusterDemEventParameterRefs/FRSM_E_CLUSTER_SYNC_LOSS",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the DemEventParameter which shall be issued when the error \"FRSM_E_CLUSTER_SYNC_LOSS\" has occurred. If the reference is not configured the error shall be reported as DET error.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00169",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FrSMGeneral",
+      "path": "/FrSM/FrSMGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the general configuration parameters of the FlexRay State Manager.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00107",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrSMAllSlotsSupport",
+          "path": "/FrSM/FrSMGeneral/FrSMAllSlotsSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration parameter to enable/disable FrSM support to enable/disable the switching from key-slot/single-slot mode to all-slot mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00172",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrSMCddHeaderFile",
+          "path": "/FrSM/FrSMGeneral/FrSMCddHeaderFile",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines header files for callback functions which are implemented by CDD, e.g. <Cdd>_SyncLossErrorIndication.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00171",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "FrSMDevErrorDetect",
+          "path": "/FrSM/FrSMGeneral/FrSMDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00066",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrSMSyncLossErrorIndicationName",
+          "path": "/FrSM/FrSMGeneral/FrSMSyncLossErrorIndicationName",
+          "type": "ECUC-FUNCTION-NAME-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Name of <Cdd>_SyncLossErrorIndication function that shall be called on loss of synchronization. If this parameter is omitted no indication shall take place.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00167",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "FrSMVersionInfoApi",
+          "path": "/FrSM/FrSMGeneral/FrSMVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables and disables the version info API",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrSM_00108",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

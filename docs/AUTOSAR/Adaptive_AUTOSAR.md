@@ -3,7 +3,7 @@ layout: default
 title: "Adaptive AUTOSAR"
 has_children: true
 published_date: 2024-06-03T04:50:00.000Z
-last_modified_date: 2026-10-14T13:26:00.000Z
+last_modified_date: 2026-10-14T16:00:00.000Z
 nav_order: 2
 parent: "AUTOSAR"
 permalink: '/AUTOSAR/Adaptive_AUTOSAR'
@@ -11,101 +11,46 @@ redirect_from:
  - "/420a299530e5405fb9ca1c2680cc8386"
 ---
 
-## 핵심 요약
+## Table of contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
+## Adaptive AUTOSAR가 등장한 배경
+> Adaptive Platform은 고성능 차량 컴퓨팅에서 application을 process와 service 단위로 구성하고, 실행·통신·데이터·software lifecycle을 관리하기 위한 표준이다.
+차량 기능이 고정된 주기 제어를 넘어 복잡한 연산과 외부 연결, 장기간 software 변경을 요구하면서, 제어 중심의 Classic과는 다른 실행·배포 관점이 필요해졌다. Adaptive는 Classic을 대체하기보다 이 요구 영역을 맡으며 차량 내부에서 두 platform이 공존할 수 있다.
+## Classic과 다른 아키텍처 관점
+| 관점 | Classic | Adaptive |
+| --- | --- | --- |
+| 기능 단위 | SWC와 runnable을 RTE·OS 구성에 연결 | Application process와 service interface |
+| 통합의 중심 | ECU configuration과 생성된 RTE/BSW 구성 | Application 실행 설정과 service deployment |
+| 통신의 관점 | Signal/PDU와 SWC interface의 mapping | Service instance의 제공·발견·이용 |
+| 변경의 관점 | 통합된 ECU software 구성 | Application과 platform의 version·lifecycle 관계 |
+| OS와 API | AUTOSAR OS/BSW interface | POSIX 관련 OS 요구와 ara API 등 platform interface |
 
-> 서비스 제공·탐색·호출·재시작을 시험하고 실행·통신 상태를 구분해 분석한다.
+Adaptive는 Linux의 다른 이름이 아니며 모든 POSIX application이 Adaptive application인 것도 아니다. 또한 service discovery가 가능하다는 사실이 interface·배포·실행 설정이 필요 없다는 뜻은 아니다.
+## Functional Cluster 지도
+| 영역 | 책임과 다른 영역과의 관계 |
+| --- | --- |
+| Execution Management | Process 실행과 종료, 실행 상태에 관련된 기능. Application의 업무상 준비 상태와 구분 |
+| State Management | Machine/Function Group 등의 상태와 전환에 대한 조정. 개별 process 실행과 system 상태를 연결 |
+| Communication Management | Service 제공·탐색·event/method/field 통신을 application에 제공 |
+| Persistency | Application이 유지해야 하는 데이터의 저장·접근에 관한 기능 |
+| Diagnostics | 외부 진단 요구와 application/platform의 진단 기능 연결 |
+| Log and Trace | 동작 상태와 문제 분석을 위한 관찰 정보 |
+| Platform Health Management | 감시 대상의 동작과 health 관련 supervision |
+| Update and Configuration Management | Software package와 update lifecycle 관련 기능 |
+| Security 관련 기능 | Identity·권한·암호 기능 등 신뢰 경계와 접근 통제에 필요한 기능 |
 
-
-## 적용 범위
-
-
-<blockquote class="notice">
-<div class="callout">
-<div class="callout-icon" markdown="1">
-💡
-</div>
-<div class="callout-content" markdown="1">
-실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
-</div>
-</div>
-</blockquote>
-
-
-
-## 본문
-
-
-### 핵심 요약
-
-
-Adaptive AUTOSAR는 고성능 차량 컴퓨팅 환경을 위한 표준 플랫폼이다. 애플리케이션과 플랫폼 기능을 서비스·API 관점에서 이해하고, 실제 기능과 제약은 사용하는 릴리스 및 구현 제품을 확인한다.
-
-
-### Classic과 비교할 관점
-
-
-Classic은 MCU 기반 제어와 정적으로 구성된 실행·통신 환경을 이해하는 데 초점을 둔다. Adaptive는 프로세스 기반 애플리케이션, 서비스 지향 통신, 실행·상태 관리 등의 관점으로 읽는다. 두 플랫폼의 역할은 실제 차량 아키텍처에 따라 함께 구성될 수 있다.
-
-
-### 주요 학습 영역
-
-
-| **항목**                       | **설명 및 적용 기준**         |
-| ---------------------------- | ---------------------- |
-| **Execution Management**     | 애플리케이션 프로세스 실행과 수명 주기. |
-| **State Management**         | 상태와 동작 모드의 조정.         |
-| **Communication Management** | 서비스 제공·탐색·호출과 이벤트 전달.  |
-| **Persistency**              | 애플리케이션 데이터의 지속 저장.     |
-| **Diagnostics**              | 진단 기능과 서비스의 연계.        |
-| **Log and Trace**            | 실행 상태·문제 분석을 위한 관찰 정보. |
-
-
-### 서비스 통신을 읽는 순서
-
-
-서비스 인터페이스와 배포 설정을 구분한다. 서비스 제공 측, 소비 측, 인스턴스 식별, 탐색, 연결 상태, 요청·응답과 이벤트를 순서대로 확인한다.
-
-
-인터페이스가 동일하더라도 사용하는 바인딩·릴리스·구현의 제약이 다를 수 있다. 모든 API 호출이 같은 시간 특성이나 가용성을 보장한다고 가정하지 않는다.
-
-
-### 검증 시나리오
-
-- 서비스 제공 전과 후의 탐색 결과.
-- 제공 프로세스 종료·재시작과 소비 측의 복구 동작.
-- 연결 단절, 요청 실패, 이벤트 구독 변경.
-- 상태 전환과 실행 순서에 따른 가용성.
-- 로그와 시간 정보로 요청·응답 및 복구 과정을 연결하는 방법.
-
-### 릴리스별 문서 작성 원칙
-
-
-R17-10, R19-11, R20-11, R21-11 페이지에는 해당 릴리스의 공식 개요와 변경 이력을 근거로 차이를 작성한다. 연도만으로 기능 추가·삭제를 추정하거나 최신 API 설명을 과거 릴리스에 적용하지 않는다.
-
-
-### 공식 출처
-
-
-AUTOSAR Adaptive Platform: https://www.autosar.org/standards/adaptive-platform
-
-
-현재 본문은 릴리스 공통 개념의 학습 안내다. 특정 제품 적용 경험이나 릴리스별 요구사항 원문 검증을 주장하지 않는다.
-
-
-### 실습: 서비스 가용성 시험
-
-
-서비스 제공자와 소비자의 interface·instance·endpoint·manifest 버전을 맞춘다. 제공자 미기동 → 기동 → 호출 → 제공자 재시작 → 재탐색·복구 순서를 시험한다.
-
-
-실행 상태, 서비스 발견 시각, 요청 ID, 응답 결과와 오류를 같은 시간축으로 기록한다. 서비스 발견 성공과 데이터의 유효성을 별도로 판정한다.
-
-
-### 장애 분석 방법
-
-
-프로세스가 시작되지 않으면 실행 설정·의존성·권한·종료 코드를 확인한다. 프로세스는 동작하지만 서비스가 없으면 deployment·상태 조건·통신 경로·SD 설정을 확인한다.
-
-
-API와 manifest 예시는 적용 릴리스와 제품마다 달라 실제 헤더·도구 문서와 함께 작성한다.
+이 표는 기능별 읽기 지도다. 모든 cluster가 모든 과거 release에서 같은 이름·범위·성숙도로 제공됐다는 의미는 아니다. 적용 release의 문서 목록과 cluster별 변경 이력을 함께 읽는다.
+## Service-oriented architecture의 의미
+Interface는 어떤 data·operation을 교환하는지, instance는 그 기능의 어떤 제공 대상을 뜻하는지, deployment는 그 instance가 어느 실행·통신 환경에 놓이는지를 나타낸다. Service availability와 데이터의 유효성은 별개다. Field, event, method는 같은 정보를 전달하더라도 접근 방식과 계약이 다르다.
+## 실행과 상태를 분리하는 이유
+Process가 실행 중이라는 사실만으로 기능이 준비됐다고 볼 수 없다. 초기화·resource·기능 의존성이 존재하기 때문이다. Execution Management와 State Management는 서로 다른 수준의 책임을 담당하며, health supervision은 또 다른 관찰 관점이다. 이 구분은 software 기능을 독립적으로 구성하면서 system 전체 상태를 일관되게 유지하려는 목적과 연결된다.
+## Manifest와 배포 정보
+Application binary만으로는 어떤 process가 어떤 instance를 제공하고 어느 상태에서 실행될지 알 수 없다. Manifest와 관련 모델은 application의 실행·통신·machine 연결을 기술한다. Interface 정의와 deployment 설정을 구분하는 것은 같은 기능 정의를 다른 machine과 통신 환경에 배치하기 위한 기반이다.
+## 장기 유지와 update 관점
+Software가 바뀌면 binary뿐 아니라 interface, persistency data 형식, package dependency와 권한도 영향을 받는다. Adaptive의 lifecycle 관점은 설치 여부를 넘어 실행 가능한 조합과 application/platform 관계를 다룬다. Update 전달 경로, package 검증, activation과 boot 검증은 동일한 기능이 아니다.
+## 릴리스 흐름을 읽는 방법
+2017년의 초기 Adaptive release 계열은 process·service 기반 platform이라는 새로운 방향을 이해하는 출발점이다. 이후 연도별 baseline은 여러 functional cluster의 요구사항과 관계를 비교해 읽어야 한다. R17-10은 Adaptive 최초 release와 동일하지 않으며, R17-03과 구분한다.
+R19-11·R20-11·R21-11 같은 이름만으로 AI, cloud, 특정 보안 기능이 신규 도입됐다고 단정할 수 없다. 아래 릴리스 페이지는 각 문서 집합을 읽는 관점과 표준 간 관계를 정리하고, 확인되지 않은 최초 도입 주장은 넣지 않는다.

@@ -1,0 +1,1312 @@
+{
+  "name": "Fr",
+  "path": "/Fr",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of the Fr (FlexRay driver) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "FrGeneral",
+      "path": "/Fr/FrGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "General configuration (parameters) of the FlexRay Driver module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00392",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrCtrlTestCount",
+          "path": "/Fr/FrGeneral/FrCtrlTestCount",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maxmimum number of iterations the FlexRay controller hardware test is performed during controller initialization.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00001",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "1",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrDevErrorDetect",
+          "path": "/Fr/FrGeneral/FrDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00393",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrDisableLPduSupport",
+          "path": "/Fr/FrGeneral/FrDisableLPduSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables or disabled API function Fr_DisableLPdu.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00455",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrIndex",
+          "path": "/Fr/FrGeneral/FrIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00439",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FrNumCtrlSupported",
+          "path": "/Fr/FrGeneral/FrNumCtrlSupported",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Determines the maximum number of communication controllers that the driver supports.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00394",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "256",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "FrPrepareLPduSupport",
+          "path": "/Fr/FrGeneral/FrPrepareLPduSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables or disables API function Fr_PrepareLPdu.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00453",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrReconfigLPduSupport",
+          "path": "/Fr/FrGeneral/FrReconfigLPduSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables or disabled API function Fr_ReconfigLPdu.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00454",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrRxStringentCheck",
+          "path": "/Fr/FrGeneral/FrRxStringentCheck",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If stringent check is enabled (true), received frames are accepted only if no slot status error occurred.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrRxStringentLengthCheck",
+          "path": "/Fr/FrGeneral/FrRxStringentLengthCheck",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If stringent check is enabled (true), received frames are accepted only if the received payload length matches the configured payload length.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00016",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FrVersionInfoApi",
+          "path": "/Fr/FrGeneral/FrVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables/disables the existence of the Fr_GetVersionInfo API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00396",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "FrMultipleConfiguration",
+      "path": "/Fr/FrMultipleConfiguration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Fr module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00397",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrController",
+          "path": "/Fr/FrMultipleConfiguration/FrController",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of the individual controller.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00083",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "FrCtrlIdx",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrCtrlIdx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Determines index of CC within Fr.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00400",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPAllowHaltDueToClock",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPAllowHaltDueToClock",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Boolean flag that controls the transition to the POC:halt state due to a clock synchronization errors. If set to true, the CC is allowed to transition to POC:halt. If set to false, the CC will not transition to the POC:halt state but will enter or remain in the POC:normal passive state (self healing would still be possible)",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00402",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPAllowPassiveToActive",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPAllowPassiveToActive",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of consecutive even/odd cycle pairs that must have valid clock correction terms before the CC will be allowed to transition from the POC:normal passive state to POC:normal active state. If set to zero, the CC is not allowed to transition from POC:normal passive to POC:normal active",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00403",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "31",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPChannels",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPChannels",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Channels to which the node is connected.",
+              "metadata": {
+                "INTRODUCTION": "Implementation Type: Fr_ChannelType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00404",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "FR_CHANNEL_A AUTOSAR_ECUC FR_CHANNEL_AB AUTOSAR_ECUC FR_CHANNEL_B AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPClusterDriftDamping",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPClusterDriftDamping",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Local cluster drift damping factor used for rate correction [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Upper limit 10 for FlexRay Protocol 3.0 compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00405",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "20",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPDecodingCorrection",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPDecodingCorrection",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Value used by the receiver to calculate the difference between primary time reference point and secondary time reference point [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 14 for FlexRay Protocol 2.1 Rev. A compliance. Upper limit 136 for FlexRay Protocol 3.0 compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00406",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "143",
+                "MIN": "12"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPDelayCompensationA",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPDelayCompensationA",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Value used to compensate for reception delays on the indicated channel. This covers assumed propagation delay up to cPropagationDelayMax for microticks in the range of 0.0125us to 0.05us [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 4 for FlexRay Protocol 3.0 compliance. Remark: Upper limit 200 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00407",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "211",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPDelayCompensationB",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPDelayCompensationB",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Value used to compensate for reception delays on the indicated channel. This covers assumed propagation delay up to cPropagationDelayMax for microticks in the range of 0.0125us to 0.05us [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 4 for FlexRay Protocol 3.0 compliance. Remark: Upper limit 200 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00408",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "211",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPExternalSync",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPExternalSync",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Flag indicating whether the node is externally synchronized (operating as time gateway sink in an TT-E cluster) or locally synchronized.",
+              "metadata": {
+                "INTRODUCTION": "If FrPExternalSync is set to 'true' then FrPTwoKeySlotMode must also be set to 'true'. Remarks: Set to 'false' for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00448",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPFallBackInternal",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPFallBackInternal",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Flag indicating whether a time gateway sink node will switch to local clock operation when synchronization with the time gateway source node is lost (FrPFallBackInternal = true) or will instead go to POC:ready (FrPFallBackInternal =false).",
+              "metadata": {
+                "INTRODUCTION": "Remarks: Set to 'false' for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00447",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPKeySlotId",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPKeySlotId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "ID of the key slot, i.e., the slot used to transmit the startup frame, sync frame, or designated key slot frame. If this parameter is set to zero the node does not have a key slot.",
+              "metadata": {
+                "INTRODUCTION": "For Fr3.0: if the value is not provided in System Description it shall be configured to 0. For Fr2.1: if the value is not provided in System Description it is driver implementation specific which value to configure.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00411",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "1023",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPKeySlotOnlyEnabled",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPKeySlotOnlyEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Flag indicating whether or not the node shall enter key slot only mode following startup.",
+              "metadata": {
+                "INTRODUCTION": "Remarks: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter pSingleSlotEnabled.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00425",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPKeySlotUsedForStartup",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPKeySlotUsedForStartup",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Flag indicating whether the key slot is used to transmit a startup frame.",
+              "metadata": {
+                "INTRODUCTION": "If FrPKeySlotUsedForStartup is set to true then FrPKeySlotUsedForSync must also be set to true. If FrPTwoKeySlotMode is set to true then both FrPKeySlotUsedForSync and FrPKeySlotUsedForStartup must also be set to true.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00412",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPKeySlotUsedForSync",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPKeySlotUsedForSync",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Flag indicating whether the key slot is used to transmit a sync frame.",
+              "metadata": {
+                "INTRODUCTION": "If FrPKeySlotUsedForStartup is set to true then FrPKeySlotUsedForSync must also be set to true. If FrPTwoKeySlotMode is set to true then both FrPKeySlotUsedForSync and FrPKeySlotUsedForStartup must also be set to true.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00413",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPLatestTx",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPLatestTx",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of the last minislot in which a frame transmission can start in the dynamic segment.",
+              "metadata": {
+                "INTRODUCTION": "Remark: Upper limit 7980 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00414",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "7988",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPMacroInitialOffsetA",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPMacroInitialOffsetA",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Integer number of macroticks between the static slot boundary and the following macrotick boundary of the secondary time reference point based on the nominal macrotick duration [Macroticks].",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00415",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "68",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPMacroInitialOffsetB",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPMacroInitialOffsetB",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Integer number of macroticks between the static slot boundary and the following macrotick boundary of the secondary time reference point based on the nominal macrotick duration [Macroticks].",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00416",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "68",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPMicroInitialOffsetA",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPMicroInitialOffsetA",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of microticks between the secondary time reference point",
+              "metadata": {
+                "INTRODUCTION": "and the macrotick boundary immediately following the secondary time reference point. The parameter depends on FrPDelayCompensationA and therefore it has to be set independently for each channel [Microticks].",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00417",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "239",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPMicroInitialOffsetB",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPMicroInitialOffsetB",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of microticks between the secondary time reference point",
+              "metadata": {
+                "INTRODUCTION": "and the macrotick boundary immediately following the secondary time reference point. The parameter depends on FrPDelayCompensationB and therefore it has to be set independently for each channel [Microticks].",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00418",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "239",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPMicroPerCycle",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPMicroPerCycle",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Nominal number of microticks in the communication cycle of the local node. If nodes have different microtick durations this number will differ from node to node [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 960 for FlexRay Protocol 3.0 compliance. Upper limit 640000 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00419",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "1280000",
+                "MIN": "640"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPNmVectorEarlyUpdate",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPNmVectorEarlyUpdate",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Flag indicating when the update of the Network Management Vector",
+              "metadata": {
+                "INTRODUCTION": "in the CHI shall take place. If FrPNmVectorEarlyUpdate is set to false, the update shall take place after the NIT. If FrPNmVectorEarlyUpdate is set to true, the update shall take place after the end of the static segment. Remarks: Set to 'false' for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00444",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPOffsetCorrectionOut",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPOffsetCorrectionOut",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Magnitude of the maximum permissible offset correction value [Microticks]. Remark: Upper limit 15567 for FlexRay Protocol 2.1 Rev A compliance. Remark: Lower limit 15 for FlexRay Protocol 3.0 compliance.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00421",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "16082",
+                "MIN": "13"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPOffsetCorrectionStart",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPOffsetCorrectionStart",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Start of the offset correction phase within the NIT, expressed as the number of macroticks from the start of cycle [Macroticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter gOffsetCorrectionStart. Remark: Lower limit 9 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00450",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "15999",
+                "MIN": "7"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPPayloadLengthDynMax",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPPayloadLengthDynMax",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum payload length for dynamic frames [16 bit words].",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00422",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "127",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPRateCorrectionOut",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPRateCorrectionOut",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Magnitude of the maximum permissible rate correction value and the maximum drift offset between two nodes operating with unsynchronized clocks for one communication cycle [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remarks: This parameter maps to FlexRay Protocol 2.1 Rev. A parameter pdMaxDrift. Lower limit 3 for FlexRay Protocol 3.0 compliance. Upper limit 1923 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00423",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "3846",
+                "MIN": "2"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPSamplesPerMicrotick",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPSamplesPerMicrotick",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of samples per microtick. Remark: Allowed range N1SAMPLES, N2SAMPLES for FlexRay Protocol 3.0 compliance.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00424",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "N1SAMPLES AUTOSAR_ECUC N2SAMPLES AUTOSAR_ECUC N4SAMPLES AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPSecondKeySlotId",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPSecondKeySlotId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "ID of the second key slot, in which a second startup frame shall be sent when operating as a coldstart node in a TT-L or TT-D cluster. If this parameter is set to zero the node does not have a second key slot.",
+              "metadata": {
+                "INTRODUCTION": "Remark: Set to 0 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00445",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "1023",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPTwoKeySlotMode",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPTwoKeySlotMode",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Flag indicating whether node operates as a coldstart node in a TT-E or TT-L cluster.",
+              "metadata": {
+                "INTRODUCTION": "If pTwoKeySlotMode is set to true then both pKeySlotUsedForSync and pKeySlotUsedForStartup must also be set to true. If pExternalSync is set to true then pTwoKeySlotMode must also be set to true. Remark: Set to false for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00446",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPWakeupChannel",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPWakeupChannel",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Channel used by the node to send a wakeup pattern.",
+              "metadata": {
+                "INTRODUCTION": "FrPWakeupChannel must be selected from among the channels configured by FrPChannels.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00426",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "FR_CHANNEL_A AUTOSAR_ECUC FR_CHANNEL_B AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPWakeupPattern",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPWakeupPattern",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of repetitions of the wakeup symbol that are combined to form a wakeup pattern when the node enters the POC:wakeup send state.",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 2 for FlexRay Protocol 2.1 Rev A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00427",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "63",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPdAcceptedStartupRange",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPdAcceptedStartupRange",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Expanded range of measured clock deviation allowed for startup frames during integration [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Upper limit 1875 for FlexRay Protocol 2.1 Rev A compliance. Remark: Lower limit 29 for FlexRay Protocol 3.0 compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00428",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "2743",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPdListenTimeout",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPdListenTimeout",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Value for the startup listen timeout and wakeup listen timeout. Although this is a node local parameter, the real time equivalent of this value should be the same for all nodes in the cluster [Microticks].",
+              "metadata": {
+                "INTRODUCTION": "Remark: Lower limit 1926 for FlexRay Protocol 3.0 compliance. Upper limit 1283846 for FlexRay Protocol 2.1 Rev. A compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00429",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "2567692",
+                "MIN": "1284"
+              },
+              "children": []
+            },
+            {
+              "name": "FrPdMicrotick",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrPdMicrotick",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Duration of a microtick.",
+              "metadata": {
+                "INTRODUCTION": "Remark: Allowed range T12_5NS, T25NS, T50NS for FlexRay Protocol 3.0 compliance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00431",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "T100NS AUTOSAR_ECUC T12_5NS AUTOSAR_ECUC T200NS AUTOSAR_ECUC T25NS AUTOSAR_ECUC T50NS AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "FrAbsoluteTimer",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrAbsoluteTimer",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Specifies the absolute timer configuration parameters of the Fr.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00432",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "FrAbsTimerIdx",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrAbsoluteTimer/FrAbsTimerIdx",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Contains the index of an absolute timer contained in Fr on a certain FlexRay CC.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00433",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "254",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "FrControllerDemEventParameterRefs",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrControllerDemEventParameterRefs",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00452",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FR_E_CTRL_TESTRESULT",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrControllerDemEventParameterRefs/FR_E_CTRL_TESTRESULT",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to DEM event Id that is reported for FlexRay",
+                  "metadata": {
+                    "INTRODUCTION": "controller hardware test failure. If this parameter is not configured, no event reporting happens.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00005",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "FrFifo",
+              "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "One First In First Out (FIFO) queued receive structure, defining the admittance criteria to the FIFO, and mandating the ability to admit messages into the FIFO based on Message Id filtering criteria.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00009",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "FrAdmitWithoutMessageId",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrAdmitWithoutMessageId",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Determines whether or not frames received in the dynamic segment that don't contain a message ID will be admitted into the FIFO.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00006",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrBaseCycle",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrBaseCycle",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "FIFO cycle counter acceptance criteria.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00007",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "63",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrChannels",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrChannels",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "FIFO channel admittance criteria.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00449",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "FR_CHANNEL_A AUTOSAR_ECUC FR_CHANNEL_AB AUTOSAR_ECUC FR_CHANNEL_B AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrCycleRepetition",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrCycleRepetition",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "FIFO cycle counter acceptance criteria. Valid values are 1,2,4,5,8,10,16,20,32,40,50,64.",
+                  "metadata": {
+                    "INTRODUCTION": "Remark: Values 1,2,4,8,16,32,64 are valid only for FlexRay Protocol 2.1 Rev A compliance.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00008",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "64",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrFifoDepth",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrFifoDepth",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "FrFifoDepth configures the maximum number of rx-frames which can be contained in the FIFO.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00010",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "2048",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrMsgIdMask",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrMsgIdMask",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "FIFO message identifier acceptance criteria (Mask filter).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00011",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrMsgIdMatch",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrMsgIdMatch",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "FIFO message identifier acceptance criteria (Match filter).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00012",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrRange",
+                  "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrRange",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "FIFO Frame Id range acceptance criteria.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00013",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "FrRangeMax",
+                      "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrRange/FrRangeMax",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Last FrameId of this range that will be accepted by the FIFO.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00014",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "2047",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrRangeMin",
+                      "path": "/Fr/FrMultipleConfiguration/FrController/FrFifo/FrRange/FrRangeMin",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "First FrameId of this range that will be accepted by the FIFO.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Fr_00015",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "2047",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

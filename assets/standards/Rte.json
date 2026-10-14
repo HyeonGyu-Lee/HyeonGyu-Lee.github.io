@@ -1,0 +1,2696 @@
+{
+  "name": "Rte",
+  "path": "/Rte",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Rte (Runtime Environment) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09000",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "RteBswGeneral",
+      "path": "/Rte/RteBswGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "General configuration parameters of the Bsw Scheduler section.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09061",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "RteSchMVersionInfoApi",
+          "path": "/Rte/RteBswGeneral/RteSchMVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables the generation of the SchM_GetVersionInfo() API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09062",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteUseComShadowSignalApi",
+          "path": "/Rte/RteBswGeneral/RteUseComShadowSignalApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines whether the ComShadowSignalAPIs ((Com_UpdateShadowSignal, Com_InvalidateShadowSignal, Com_ReceiveShadowSignal) are used or not.",
+          "metadata": {
+            "INTRODUCTION": "If this parameter is set to true the ShadowSignal APIs and Signal APIs (Com_SendSignal, Com_InvalidateSignal, Com_ReceiveSignal) are used. If this parameter is set to false only the Signal APIs (Com_SendSignal, Com_InvalidateSignal, Com_ReceiveSignal) are used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09107",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "RteBswModuleInstance",
+      "path": "/Rte/RteBswModuleInstance",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Represents one instance of a Bsw-Module configured on one ECU.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09002",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "RteBswImplementationRef",
+          "path": "/Rte/RteBswModuleInstance/RteBswImplementationRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the BswImplementation for which the Rte /SchM is configured.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09066",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "BSW-IMPLEMENTATION"
+          },
+          "children": []
+        },
+        {
+          "name": "RteBswModuleConfigurationRef",
+          "path": "/Rte/RteBswModuleInstance/RteBswModuleConfigurationRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the ECU Configuration Values provided for this BswImplementation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09001",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+          },
+          "children": []
+        },
+        {
+          "name": "RteBswEventToTaskMapping",
+          "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Maps a BswModuleEntity onto an OsTask based on the activating BswEvent. A BswModuleEntity can be activated by more than one BswEvent and thus be mapped to more than one OsTask. In the case of a BswSchedulableEntity executed via a direct function call this RteBswEventToTaskMapping is still specified but no RteBswMappedToTaskRef element is included. The RteBswPositionInTask parameter is necessary to provide an ordering of events invoked by the same RTE API.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09065",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteBswActivationOffset",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswActivationOffset",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Activation offset in seconds.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09063",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswImmediateRestart",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswImmediateRestart",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "When RteBswImmediateRestart is set to true the BswSchedulableEntitiy shall be immediately re-started after termination if it was activated by this BswEvent while it was already started.",
+              "metadata": {
+                "INTRODUCTION": "This parameter shall not be set to true when the mapped BswEvent refers to a BswSchedulableEntitiy which minimumStartInterval attribute is > 0.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09093",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswPositionInTask",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswPositionInTask",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Each BswSchedulableEntity activation mapped to an OsTask has a specific position within the task execution.",
+              "metadata": {
+                "INTRODUCTION": "For periodic activation this is the order of execution. For event driver activation this is the order of evaluation which actual BswSchedulableEntity has to be executed. In case of direct function calls this parameter is necessary to provide an ordering of events when several ExecutableEntities are invoked by the same RTE API.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09068",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteOsSchedulePoint",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteOsSchedulePoint",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Introduce a schedule point by explicitly calling Os Schedule service after the execution of the ExecutableEntity. The Rte generator is allowed to optimize several consecutive calls to Os schedule into one single call if the ExecutableEntity executions in between have been skipped.",
+              "metadata": {
+                "INTRODUCTION": "The absence of this parameter is interpreted as \"NONE\". It shall be considered an invalid configuration if the task is preemptable and the value of this parameter is not set to \"NONE\" or the parameter is absent.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09022",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CONDITIONAL AUTOSAR_ECUC NONE AUTOSAR_ECUC UNCONDITIONAL AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswEventRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswEventRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the BswEvent.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09064",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "BSW-EVENT"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswEventPredecessorSyncPointRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswEventPredecessorSyncPointRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The RteBswEventPredecessorSyncPointRef is necessary to provide a cross core synchronization in case of BswEvents triggered by the same event source but mapped to tasks belonging to different partitions on different cores.",
+              "metadata": {
+                "INTRODUCTION": "The synchronization point must be reached by all referencing BswEvents before the execution in all related tasks is continued. In case of RteBswEventPredecessorSyncPointRef the BswModuleEntity activated by the mapped BswEvent is executed after the synchronization point is passed.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09130",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteOsInteraction/RteSyncPoint"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswEventSuccessorSyncPointRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswEventSuccessorSyncPointRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The RteBswEventSuccessorSyncPointRef is necessary to provide a cross core synchronization in case of BswEvents triggered by the same event source but mapped to tasks belonging to different partitions on different cores.",
+              "metadata": {
+                "INTRODUCTION": "The synchronization point must be reached by all referencing BswEvents before the execution in all related tasks is continued. In case of RteBswEventSuccessorSyncPointRef the BswModuleEntity activated by the mapped BswEvent is executed before the synchronization point is entered.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09131",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteOsInteraction/RteSyncPoint"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswMappedToTaskRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswMappedToTaskRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the OsTask the BswSchedulableEntity activated by the RteBswEventRef is mapped to.",
+              "metadata": {
+                "INTRODUCTION": "If no reference to the OsTask is specified the BswSchedulableEntity activated by this BswEvent is executed in the context of the caller.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09067",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswUsedOsAlarmRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If an OsAlarm is used to activate the OsTask this BswEvent is mapped to it shall be referenced here.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09069",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAlarm"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswUsedOsEventRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If an OsEvent is used to activate the OsTask this BswEvent is mapped to it shall be referenced here.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09070",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsEvent"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswUsedOsSchTblExpiryPointRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsSchTblExpiryPointRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If an OsScheduleTableExpiryPoint is used to activate the OsTask this BswEvent is mapped to it shall be referenced here.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09071",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsScheduleTable/OsScheduleTableExpiryPoint"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteBswExclusiveAreaImpl",
+          "path": "/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Represents one ExclusiveArea of one BswImplementation. Used to specify the implementation means of this ExclusiveArea.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09072",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteExclusiveAreaImplMechanism",
+              "path": "/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl/RteExclusiveAreaImplMechanism",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "To be used implementation mechanism for the specified ExclusiveArea.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09029",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "ALL_INTERRUPT_BLOCKING AUTOSAR_ECUC COOPERATIVE_RUNNABLE_PLACEMENT AUTOSAR_ECUC OS_INTERRUPT_BLOCKING AUTOSAR_ECUC OS_RESOURCE AUTOSAR_ECUC OS_SPINLOCK AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswExclusiveAreaRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl/RteBswExclusiveAreaRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the ExclusiveArea for which the implementation mechanism shall be specified.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09074",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "EXCLUSIVE-AREA"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswExclusiveAreaOsResourceRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl/RteBswExclusiveAreaOsResourceRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Optional reference to an OsResource in case RteExclusiveAreaImplMechanism is configured to OS_RESOURCE for this ExclusiveArea.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09073",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswExclusiveAreaOsSpinlockRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl/RteBswExclusiveAreaOsSpinlockRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Optional reference to an OsSpinlock in case RteExclusiveAreaImplMechanism is configured to OS_SPINLOCK for this ExclusiveArea.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09112",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsSpinlock"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteBswExternalTriggerConfig",
+          "path": "/Rte/RteBswModuleInstance/RteBswExternalTriggerConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the configuration of Inter Basic Software Module Entity Triggering",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09099",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteBswTriggerSourceQueueLength",
+              "path": "/Rte/RteBswModuleInstance/RteBswExternalTriggerConfig/RteBswTriggerSourceQueueLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Length of trigger queue on the trigger source side.",
+              "metadata": {
+                "INTRODUCTION": "The queue is implemented by the RTE. A value greater or equal to 1 requests an queued behavior. Setting the value of RteTriggerSourceQueueLength to 0 requests an none queued implementation of the trigger communication. If there is no RteBswTriggerSourceQueueLength configured for a Trigger Emitter the default value of 0 applies as well.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09101",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswTriggerSourceRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswExternalTriggerConfig/RteBswTriggerSourceRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a Trigger instance in the role releasedTrigger of the related BSW Module instance.",
+              "metadata": {
+                "INTRODUCTION": "The referenced Trigger has to belong to the same BSW Module instance as the RteBswModuleInstance owning this parameter configures.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09100",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "TRIGGER"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteBswInternalTriggerConfig",
+          "path": "/Rte/RteBswModuleInstance/RteBswInternalTriggerConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the configuration of internal Basic Software Module Entity Triggering",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09102",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteBswTriggerSourceQueueLength",
+              "path": "/Rte/RteBswModuleInstance/RteBswInternalTriggerConfig/RteBswTriggerSourceQueueLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Length of trigger queue on the trigger source side.",
+              "metadata": {
+                "INTRODUCTION": "The queue is implemented by the RTE. A value greater or equal to 1 requests an queued behavior. Setting the value of RteTriggerSourceQueueLength to 0 requests an none queued implementation of the trigger communication. If there is no RteBswTriggerSourceQueueLength configured for a Trigger Emitter the default value of 0 applies as well.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09104",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswTriggerSourceRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswInternalTriggerConfig/RteBswTriggerSourceRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a BswInternalTriggeringPoint of the related BSW Module instance.",
+              "metadata": {
+                "INTRODUCTION": "The referenced BswInternalTriggeringPoint has to belong to the same BSW Module instance as the RteBswModuleInstance owning this parameter configures.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09103",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "BSW-INTERNAL-TRIGGERING-POINT"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteBswRequiredClientServerConnection",
+          "path": "/Rte/RteBswModuleInstance/RteBswRequiredClientServerConnection",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the connection between one requiredClientServerEntry and one providedClientServerEntry of a BswModuleDescription. This container shall be provided on the client side of the connection.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09117",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteBswProvidedClientServerEntryRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredClientServerConnection/RteBswProvidedClientServerEntryRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference the providedClientServerEntry for this connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09119",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "BSW-MODULE-CLIENT-SERVER-ENTRY"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswRequiredClientServerEntryRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredClientServerConnection/RteBswRequiredClientServerEntryRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference the requiredClientServerEntry for this connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09118",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "BSW-MODULE-CLIENT-SERVER-ENTRY"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswProvidedClientServerEntryModInstRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredClientServerConnection/RteBswProvidedClientServerEntryModInstRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the RteBswModuleInstance configuration container which identifies the instance of the BSW Module.",
+              "metadata": {
+                "INTRODUCTION": "Used with the RteBswProvidedClientServerEntryRef to unambiguously identify the BswModuleClientServerEntry instance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09124",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteBswRequiredModeGroupConnection",
+          "path": "/Rte/RteBswModuleInstance/RteBswRequiredModeGroupConnection",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the connection between one requiredModeGroup of this BSW Module instance and one providedModeGroup instance.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09081",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteBswProvidedModeGroupRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredModeGroupConnection/RteBswProvidedModeGroupRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "References the providedModeGroupPrototype to which this requiredModeGroup shall be connected.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09079",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "MODE-DECLARATION-GROUP-PROTOTYPE"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswRequiredModeGroupRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredModeGroupConnection/RteBswRequiredModeGroupRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "References requiredModeGroupPrototype which shall be connected to the providedModeGroupPrototype.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09082",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "MODE-DECLARATION-GROUP-PROTOTYPE"
+              },
+              "children": []
+            },
+            {
+              "name": "RteModeDeclarationMappingSetRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredModeGroupConnection/RteModeDeclarationMappingSetRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This defines the effective ModeDeclarationMappingSet in the case that the provided ModeDeclarationGroupPrototype and the required ModeDeclarationGroupPrototype are not compatible.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09125",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "MODE-DECLARATION-MAPPING-SET"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswProvidedModeGrpModInstRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredModeGroupConnection/RteBswProvidedModeGrpModInstRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the RteBswModuleInstance configuration container which identifies the instance of the BSW Module.",
+              "metadata": {
+                "INTRODUCTION": "Used with the RteBswProvidedModeGroupRef to unambiguously identify the ModeDeclarationGroupPrototype instance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09080",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteBswRequiredSenderReceiverConnection",
+          "path": "/Rte/RteBswModuleInstance/RteBswRequiredSenderReceiverConnection",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the connection between one requiredData and one providedData of a BswModuleDescription. This container shall be provided on the receiver side of the connection.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09120",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteBswProvidedVariableDataPrototypeRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredSenderReceiverConnection/RteBswProvidedVariableDataPrototypeRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference the providedData for this connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09122",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "VARIABLE-DATA-PROTOTYPE"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswRequiredVariableDataPrototypeRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredSenderReceiverConnection/RteBswRequiredVariableDataPrototypeRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference the requiredData for this connection.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09121",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "VARIABLE-DATA-PROTOTYPE"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswProvidedDataModInstRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredSenderReceiverConnection/RteBswProvidedDataModInstRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the RteBswModuleInstance configuration container which identifies the instance of the BSW Module.",
+              "metadata": {
+                "INTRODUCTION": "Used with the RteBswProvidedVariableDataPrototypeRef to unambiguously identify the VariableDataPrototype instance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09123",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteBswRequiredTriggerConnection",
+          "path": "/Rte/RteBswModuleInstance/RteBswRequiredTriggerConnection",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the connection between one requiredTrigger of this BSW Module instance and one releasedTrigger instance.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09077",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteBswReleasedTriggerRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredTriggerConnection/RteBswReleasedTriggerRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "References the releasedTrigger to which this requiredTrigger shall be connected.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09076",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "TRIGGER"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswRequiredTriggerRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredTriggerConnection/RteBswRequiredTriggerRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "References one requiredTrigger which shall be connected to the releasedTrigger.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09078",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "TRIGGER"
+              },
+              "children": []
+            },
+            {
+              "name": "RteBswReleasedTriggerModInstRef",
+              "path": "/Rte/RteBswModuleInstance/RteBswRequiredTriggerConnection/RteBswReleasedTriggerModInstRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the RteBswModuleInstance configuration container which identifies the instance of the BSW Module.",
+              "metadata": {
+                "INTRODUCTION": "Used with the RteBswReleasedTriggerRef to unambiguously identify the Trigger instance.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09075",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RteGeneration",
+      "path": "/Rte/RteGeneration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the parameters for the configuration of the RTE Generation.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09009",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "RteBypassSupport",
+          "path": "/Rte/RteGeneration/RteBypassSupport",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "General switch to enable and select the bypass support method.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09113",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "NONE",
+            "LITERALS": "COMPONENT_WRAPPER AUTOSAR_ECUC NONE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "RteCalibrationSupport",
+          "path": "/Rte/RteGeneration/RteCalibrationSupport",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The RTE generator shall have the option to switch off support for calibration for generated RTE code. This option shall influence complete RTE code at once.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "NONE",
+            "LITERALS": "DOUBLE_POINTERED AUTOSAR_ECUC INITIALIZED_RAM AUTOSAR_ECUC NONE AUTOSAR_ECUC SINGLE_POINTERED AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "RteCodeVendorId",
+          "path": "/Rte/RteGeneration/RteCodeVendorId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Holds the vendor ID of the generated Rte code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09086",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "RteDevErrorDetect",
+          "path": "/Rte/RteGeneration/RteDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteDevErrorDetectUninit",
+          "path": "/Rte/RteGeneration/RteDevErrorDetectUninit",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The Rte shall detect if it is started when its APIs are called, and the BSW Scheduler shall check if it is initialized when its APIs are called.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09085",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteGenerationMode",
+          "path": "/Rte/RteGeneration/RteGenerationMode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch between the two available generation modes of the RTE generator.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09010",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "COMPATIBILITY_MODE",
+            "LITERALS": "COMPATIBILITY_MODE AUTOSAR_ECUC VENDOR_MODE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "RteInExclusiveAreaCheckEnabled",
+          "path": "/Rte/RteGeneration/RteInExclusiveAreaCheckEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables the check for RTE_E_IN_EXCLUSIVE_AREA (for blocking APIs).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09126",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "RteIocInteractionReturnValue",
+          "path": "/Rte/RteGeneration/RteIocInteractionReturnValue",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines whether the return value of RTE APIs is based on RTE-IOC interaction or RTE-COM interaction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09094",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "RTE_IOC",
+            "LITERALS": "RTE_COM AUTOSAR_ECUC RTE_IOC AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "RteMeasurementSupport",
+          "path": "/Rte/RteGeneration/RteMeasurementSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The RTE generator shall have the option to switch off support for measurement for generated RTE code. This option shall influence complete RTE code at once.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteOptimizationMode",
+          "path": "/Rte/RteGeneration/RteOptimizationMode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch between the two available optimization modes of the RTE generator.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "RUNTIME",
+            "LITERALS": "MEMORY AUTOSAR_ECUC RUNTIME AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "RteToolChainSignificantCharacters",
+          "path": "/Rte/RteGeneration/RteToolChainSignificantCharacters",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If present, the RTE generator shall provide the list of C RTE identifiers whose name is not unique when only the first RteToolChainSignificantCharacters characters are considered.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09013",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "31",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "RteValueRangeCheckEnabled",
+          "path": "/Rte/RteGeneration/RteValueRangeCheckEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If set to true the RTE generator shall enable the value range checking for the specified VariableDataPrototypes.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09014",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteVfbTraceClientPrefix",
+          "path": "/Rte/RteGeneration/RteVfbTraceClientPrefix",
+          "type": "ECUC-LINKER-SYMBOL-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines an additional prefix for all VFB trace functions to be generated. With this approach it is possible to have debugging and DLT trace functions at the same time.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09016",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-LINKER-SYMBOL-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "RteVfbTraceEnabled",
+          "path": "/Rte/RteGeneration/RteVfbTraceEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The RTE generator shall globally enable VFB tracing when RteVfbTrace is set to \"true\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09015",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteVfbTraceFunction",
+          "path": "/Rte/RteGeneration/RteVfbTraceFunction",
+          "type": "ECUC-FUNCTION-NAME-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "The RTE generator shall enable VFB tracing for a given hook function when there is a #define in the RTE configuration header file for the hook function name and tracing is globally enabled.",
+          "metadata": {
+            "INTRODUCTION": "Example: #define Rte_WriteHook_i1_p1_a_Start This also applies to VFB trace functions with a RteVfbTraceClientPrefix, e.g. Rte_Dbg_WriteHook_I1_P1_a_Start.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09017",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "RteImplicitCommunication",
+      "path": "/Rte/RteImplicitCommunication",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Configuration of the Implicit Communication behavior to be generated.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09034",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "RteCoherentAccess",
+          "path": "/Rte/RteImplicitCommunication/RteCoherentAccess",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If set to true the referenced VariableAccess'es of this RteImplicitCommunication container are in one CoherencyGroup.",
+          "metadata": {
+            "INTRODUCTION": "Data values for Coherent Implicit Read Access'es are read before the first reading RunnbaleEntity starts and are stable during the execution of all the reading RunnableEntitys; except Coherent Implicit Write Access'es belongs to the same Coherency Group. Data values written by Coherent Implicit Write Access'es are available for readers not belonging to the Coherency Group after the last writing RunnableEntity has terminated. Please note that a Coherent Implicit Data Access can be defined for VariableAccess'es to same and different data element. Nevertheless all Coherent Implicit Data Access'es of one Coherency Group have to be executed in the same task.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09091",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteImmediateBufferUpdate",
+          "path": "/Rte/RteImplicitCommunication/RteImmediateBufferUpdate",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If set to true the RTE will perform preemption area specific buffer update immediately before (for VariableAccess in the role dataReadAccess) resp. after (for VariableAccess in the role dataWriteAccess) Runnable execution.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09033",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteVariableReadAccessRef",
+          "path": "/Rte/RteImplicitCommunication/RteVariableReadAccessRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to the VariableAccess in the dataReadAccess role.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09035",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "VARIABLE-ACCESS"
+          },
+          "children": []
+        },
+        {
+          "name": "RteVariableWriteAccessRef",
+          "path": "/Rte/RteImplicitCommunication/RteVariableWriteAccessRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to the VariableAccess in the dataWriteAccess role.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09036",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "VARIABLE-ACCESS"
+          },
+          "children": []
+        },
+        {
+          "name": "RteSoftwareComponentInstanceRef",
+          "path": "/Rte/RteImplicitCommunication/RteSoftwareComponentInstanceRef",
+          "type": "ECUC-INSTANCE-REFERENCE-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to a SwComponentPrototype.",
+          "metadata": {
+            "INTRODUCTION": "This denotes the instances of the VariableAccess belonging to the RteImplicitCommunication.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09090",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-CONTEXT": "ROOT-SW-COMPOSITION-PROTOTYPE",
+            "DESTINATION-TYPE": "SW-COMPONENT-PROTOTYPE"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "RteInitializationBehavior",
+      "path": "/Rte/RteInitializationBehavior",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "Specifies the initialization strategy for variables allocated by RTE with the purpose to implement VariableDataPrototypes.",
+      "metadata": {
+        "INTRODUCTION": "The container defines a set of RteSectionInitializationPolicys and one RteInitializationStrategy which is applicable for this set.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09087",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "RteInitializationStrategy",
+          "path": "/Rte/RteInitializationBehavior/RteInitializationStrategy",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Definition of the initialization strategy applicable for the SectionInitializationPolicys selected by RteSectionInitializationPolicy.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09089",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION AUTOSAR_ECUC RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART AUTOSAR_ECUC RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART AUTOSAR_ECUC RTE_INITIALIZATION_STRATEGY_NONE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "RteSectionInitializationPolicy",
+          "path": "/Rte/RteInitializationBehavior/RteSectionInitializationPolicy",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This parameter describes the SectionInitializationPolicys for which a particular RTE initialization strategy applies.",
+          "metadata": {
+            "INTRODUCTION": "The SectionInitializationPolicy describes the intended initialization of MemorySections. The following values are standardized in AUTOSAR Methodology: * '''NO-INIT''': No initialization and no clearing is performed. Such data elements must not be read before one has written a value into it. * '''INIT''': To be used for data that are initialized by every reset to the specified value (initValue). * '''POWER-ON-INIT''': To be used for data that are initialized by \"Power On\" to the specified value (initValue). Note: there might be several resets between power on resets. * '''CLEARED''': To be used for data that are initialized by every reset to zero. * '''POWER-ON-CLEARED''': To be used for data that are initialized by \"Power On\" to zero. Note: there might be several resets between power on resets.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09088",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "RteInitializationRunnableBatch",
+      "path": "/Rte/RteInitializationRunnableBatch",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "This container corresponds to an Rte_Init_<shortName of this container> function invoking the mapped RunnableEntities.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09115",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": []
+    },
+    {
+      "name": "RteOsInteraction",
+      "path": "/Rte/RteOsInteraction",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "Interaction of the Rte with the Os.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09059",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "RteModeToScheduleTableMapping",
+          "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Provides configuration input in which Modes of a ModeDeclarionGroupPrototype of a Mode Manager a OsScheudleTable shall be active.",
+          "metadata": {
+            "INTRODUCTION": "The Mode Manager is either specified as a SwComponentPrototype (RteModeSchtblMapSwc) or as a BSW-Module (RteModeSchtblMapBsw).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09058",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteModeSchtblMapModeDeclarationRef",
+              "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeSchtblMapModeDeclarationRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Reference to the ModeDeclarations.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09054",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "MODE-DECLARATION"
+              },
+              "children": []
+            },
+            {
+              "name": "RteModeScheduleTableRef",
+              "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeScheduleTableRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the OsScheduleTable which shall be active in the specified RteModeSchblMapModeDeclarationRefs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09050",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsScheduleTable"
+              },
+              "children": []
+            },
+            {
+              "name": "RteModeSchtblMapBsw",
+              "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeSchtblMapBsw",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies an instance of a ModeDeclarationGroupPrototype of a Bsw-Module.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09051",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "RteModeSchtblMapBswProvidedModeGroupRef",
+                  "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeSchtblMapBsw/RteModeSchtblMapBswProvidedModeGroupRef",
+                  "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to an instance of a ModeDeclarationGroupPrototype of a Bsw-Module.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09053",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-TYPE": "MODE-DECLARATION-GROUP-PROTOTYPE"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RteModeSchtblMapBswInstanceRef",
+                  "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeSchtblMapBsw/RteModeSchtblMapBswInstanceRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to an instance specification of a Bsw-Module.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09052",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "RteModeSchtblMapSwc",
+              "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeSchtblMapSwc",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies an instance of a ModeDeclarationGroupPrototype of a SwComponentPrototype.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09055",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "RteModeSchtblMapSwcPortRef",
+                  "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeSchtblMapSwc/RteModeSchtblMapSwcPortRef",
+                  "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the PPortPrototype of a SwComponentPrototype.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09057",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-TYPE": "ABSTRACT-PROVIDED-PORT-PROTOTYPE"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "RteModeSchtblMapSwcInstanceRef",
+                  "path": "/Rte/RteOsInteraction/RteModeToScheduleTableMapping/RteModeSchtblMapSwc/RteModeSchtblMapSwcInstanceRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to an instance specification of a SwComponentPrototype.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09056",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "RteSyncPoint",
+          "path": "/Rte/RteOsInteraction/RteSyncPoint",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "The RteSyncPoint is necessary to provide an cross core synchronization in case of RteEvents triggered by the same event source but mapped to tasks belonging to different partitions on different cores.",
+          "metadata": {
+            "INTRODUCTION": "The synchronization point must be reached by all referencing RteEvents before the execution in all related tasks is continued. In case of Rte(Bsw)EventSuccessorSyncPointRef the ExecutableEntity activated by the mapped event is executed before the synchronization point is entered. In case of Rte(Bsw)EventPredecessorSyncPointRef the ExecutableEntity activated by the mapped event is executed after the synchronization point is passed.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09127",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "RteUsedOsActivation",
+          "path": "/Rte/RteOsInteraction/RteUsedOsActivation",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Attributes used in the activation of OsTasks and Runnable Entities.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09060",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteExpectedActivationOffset",
+              "path": "/Rte/RteOsInteraction/RteUsedOsActivation/RteExpectedActivationOffset",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Activation offset in seconds.",
+              "metadata": {
+                "INTRODUCTION": "Important: This is a requirement from the Rte towards the Os/Mcu setup. The Rte Generator shall assume this activation offset to be fulfilled.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09048",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteExpectedTickDuration",
+              "path": "/Rte/RteOsInteraction/RteUsedOsActivation/RteExpectedTickDuration",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The expected tick duration in seconds which shall be configured to drive the OsScheduleTables or OsAlarm.",
+              "metadata": {
+                "INTRODUCTION": "Important: This is a requirement from the Rte towards the Os/Mcu setup. The Rte Generator shall assume this tick duration to be fulfilled.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09049",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteActivationOsAlarmRef",
+              "path": "/Rte/RteOsInteraction/RteUsedOsActivation/RteActivationOsAlarmRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to an OsAlarm.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09045",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAlarm"
+              },
+              "children": []
+            },
+            {
+              "name": "RteActivationOsSchTblRef",
+              "path": "/Rte/RteOsInteraction/RteUsedOsActivation/RteActivationOsSchTblRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to an OsScheduleTable.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09046",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsScheduleTable"
+              },
+              "children": []
+            },
+            {
+              "name": "RteActivationOsTaskRef",
+              "path": "/Rte/RteOsInteraction/RteUsedOsActivation/RteActivationOsTaskRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to an OsTask.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09047",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RtePostBuildVariantConfiguration",
+      "path": "/Rte/RtePostBuildVariantConfiguration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Specifies the PostbuildVariantSets for each of the PostBuild configurations of the RTE.",
+      "metadata": {
+        "INTRODUCTION": "The shortName of this container defines the name of the RtePostBuildVariant.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09084",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "RtePostBuildUsedPredefinedVariant",
+          "path": "/Rte/RtePostBuildVariantConfiguration/RtePostBuildUsedPredefinedVariant",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to the PredefinedVariant element which defines the values for PostBuildVariationCriterion elements.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09083",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "PREDEFINED-VARIANT"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "RteSwComponentInstance",
+      "path": "/Rte/RteSwComponentInstance",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Representation of one SwComponentPrototype located on the to be configured ECU. All subcontainer configuration aspects are in relation to this SwComponentPrototype.",
+      "metadata": {
+        "INTRODUCTION": "The RteSwComponentInstance can be associated with either a AtomicSwComponentType or ParameterSwComponentType.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09005",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "RteSoftwareComponentInstanceRef",
+          "path": "/Rte/RteSwComponentInstance/RteSoftwareComponentInstanceRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to a SwComponentPrototype.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09004",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "SW-COMPONENT-PROTOTYPE"
+          },
+          "children": []
+        },
+        {
+          "name": "RteEventToTaskMapping",
+          "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Maps an instance of a RunnableEntity onto one OsTask based on the activating RTEEvent.",
+          "metadata": {
+            "INTRODUCTION": "In the case of a RunnableEntity executed via a direct function call this RteEventToTaskMapping is still specified but no RteMappedToTask element is included. The RtePositionInTask parameter is necessary to provide an ordering of events invoked by the same RTE API.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09020",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteActivationOffset",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteActivationOffset",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Activation offset in seconds.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09018",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteImmediateRestart",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteImmediateRestart",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "When RteImmediateRestart is set to true the RunnableEntitiy shall be immediately re-started after termination if it was activated by this RTEEvent while it was already started.",
+              "metadata": {
+                "INTRODUCTION": "This parameter shall not be set to true when the mapped RTEEvent refers to a RunnableEntity which minimumStartInterval attribute is > 0.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09092",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RteOsSchedulePoint",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteOsSchedulePoint",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Introduce a schedule point by explicitly calling Os Schedule service after the execution of the ExecutableEntity. The Rte generator is allowed to optimize several consecutive calls to Os schedule into one single call if the ExecutableEntity executions in between have been skipped.",
+              "metadata": {
+                "INTRODUCTION": "The absence of this parameter is interpreted as \"NONE\". It shall be considered an invalid configuration if the task is preemptable and the value of this parameter is not set to \"NONE\" or the parameter is absent.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09022",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CONDITIONAL AUTOSAR_ECUC NONE AUTOSAR_ECUC UNCONDITIONAL AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "RtePositionInTask",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RtePositionInTask",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Each RunnableEntity mapped to an OsTask has a specific position within the task execution.",
+              "metadata": {
+                "INTRODUCTION": "For periodic activation this is the order of execution. For event driver activation this is the order of evaluation which actual RunnableEntity has to be executed. In case of direct function calls this parameter is necessary to provide an ordering of events when several ExecutableEntities are invoked by the same RTE API.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09023",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteEventRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteEventRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the description of the RTEEvent which is pointing to the RunnableEntity being mapped. This allows a fine grained mapping of RunnableEntites based on the activating RTEEvent.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09019",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "RTE-EVENT"
+              },
+              "children": []
+            },
+            {
+              "name": "RteEventPredecessorSyncPointRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteEventPredecessorSyncPointRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The RteEventPredecessorSyncPointRef is necessary to provide a cross core synchronization in case of RteEvents triggered by the same event source but mapped to tasks belonging to different partitions on different cores.",
+              "metadata": {
+                "INTRODUCTION": "The synchronization point must be reached by all referencing RteEvents before the execution in all related tasks is continued. In case of RteEventPredecessorSyncPointRef the RunnableEntity activated by the mapped RteEvent is executed after the synchronization point is passed.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09128",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteOsInteraction/RteSyncPoint"
+              },
+              "children": []
+            },
+            {
+              "name": "RteEventSuccessorSyncPointRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteEventSuccessorSyncPointRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The RteEventSuccessorSyncPointRef is necessary to provide a cross core synchronization in case of RteEvents triggered by the same event source but mapped to tasks belonging to different partitions on different cores.",
+              "metadata": {
+                "INTRODUCTION": "The synchronization point must be reached by all referencing RteEvents before the execution in all related tasks is continued. In case of RteEventSuccessorSyncPointRef the RunnableEntity activated by the mapped RteEvent is executed before the synchronization point is entered.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09129",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteOsInteraction/RteSyncPoint"
+              },
+              "children": []
+            },
+            {
+              "name": "RteMappedToTaskRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the OsTask the RunnableEntity activated by the RteEventRef is mapped to.",
+              "metadata": {
+                "INTRODUCTION": "If no reference to the OsTask is specified the RunnableEntity shall be executed via a direct function call. The fact that no reference to an OsTask is specified for a RunnableEntity does not necessarily imply that every RTE generator has to support the implementation of this RunnableEntity as a direct function call. The standard set of use cases for direct function calls that has to be supported by every RTE generator is explicitly stated as requirements in this document. For further optimization RTE vendors are free to support additional scenarios of direct function call implementations that are not explicitly required in this document.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09021",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+              },
+              "children": []
+            },
+            {
+              "name": "RteUsedInitFnc",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedInitFnc",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The RunnableEntity is executed during initialization in the context of the Rte_Init_<InitContainer> function.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09116",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Rte/RteInitializationRunnableBatch"
+              },
+              "children": []
+            },
+            {
+              "name": "RteUsedOsAlarmRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If an OsAlarm is used to activate the OsTask this RteEvent is mapped to it shall be referenced here.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09024",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAlarm"
+              },
+              "children": []
+            },
+            {
+              "name": "RteUsedOsEventRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsEventRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If an OsEvent is used to activate the OsTask this RteEvent is mapped to it shall be referenced here.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09025",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsEvent"
+              },
+              "children": []
+            },
+            {
+              "name": "RteUsedOsSchTblExpiryPointRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsSchTblExpiryPointRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If an OsScheduleTableExpiryPoint is used to activate the OsTask this RteEvent is mapped to it shall be referenced here.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09026",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsScheduleTable/OsScheduleTableExpiryPoint"
+              },
+              "children": []
+            },
+            {
+              "name": "RteVirtuallyMappedToTaskRef",
+              "path": "/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteVirtuallyMappedToTaskRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Optional reference to an OsTask where the activation of this RteEvent shall be evaluated. The actual execution of the Runnable Entity shall happen in the OsTask referenced by RteMappedToTaskRef.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09027",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteExclusiveAreaImplementation",
+          "path": "/Rte/RteSwComponentInstance/RteExclusiveAreaImplementation",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Specifies the implementation to be used for the data consistency of this ExclusiveArea.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09030",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteExclusiveAreaImplMechanism",
+              "path": "/Rte/RteSwComponentInstance/RteExclusiveAreaImplementation/RteExclusiveAreaImplMechanism",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "To be used implementation mechanism for the specified ExclusiveArea.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09029",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "ALL_INTERRUPT_BLOCKING AUTOSAR_ECUC COOPERATIVE_RUNNABLE_PLACEMENT AUTOSAR_ECUC OS_INTERRUPT_BLOCKING AUTOSAR_ECUC OS_RESOURCE AUTOSAR_ECUC OS_SPINLOCK AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "RteExclusiveAreaRef",
+              "path": "/Rte/RteSwComponentInstance/RteExclusiveAreaImplementation/RteExclusiveAreaRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the ExclusiveArea.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09032",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "EXCLUSIVE-AREA"
+              },
+              "children": []
+            },
+            {
+              "name": "RteExclusiveAreaOsResourceRef",
+              "path": "/Rte/RteSwComponentInstance/RteExclusiveAreaImplementation/RteExclusiveAreaOsResourceRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Optional reference to an OsResource in case RteExclusiveAreaImplMechanism is configured to OS_RESOURCE for this ExclusiveArea.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09031",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteExternalTriggerConfig",
+          "path": "/Rte/RteSwComponentInstance/RteExternalTriggerConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the configuration of External Trigger Event Communication for Software Components",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09105",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteTriggerSourceQueueLength",
+              "path": "/Rte/RteSwComponentInstance/RteExternalTriggerConfig/RteTriggerSourceQueueLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Length of trigger queue on the trigger source side.",
+              "metadata": {
+                "INTRODUCTION": "The queue is implemented by the RTE. A value greater or equal to 1 requests an queued behavior. Setting the value of RteTriggerSourceQueueLength to 0 requests an none queued implementation of the trigger communication. If there is no RteTriggerSourceQueueLength configured for a Trigger Emitter the default value of 0 applies as well.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09095",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteSwcTriggerSourceRef",
+              "path": "/Rte/RteSwComponentInstance/RteExternalTriggerConfig/RteSwcTriggerSourceRef",
+              "type": "ECUC-INSTANCE-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a Trigger instance in the pPortPrototype of the related component instance.",
+              "metadata": {
+                "INTRODUCTION": "The referenced Trigger instance has to belong to the same software component instance as the RteSwComponentInstance owning this parameter configures.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09106",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-CONTEXT": "ABSTRACT-PROVIDED-PORT-PROTOTYPE",
+                "DESTINATION-TYPE": "TRIGGER"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteInternalTriggerConfig",
+          "path": "/Rte/RteSwComponentInstance/RteInternalTriggerConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines the configuration of Inter Runnable Triggering for Software Components",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09096",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteTriggerSourceQueueLength",
+              "path": "/Rte/RteSwComponentInstance/RteInternalTriggerConfig/RteTriggerSourceQueueLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Length of trigger queue on the trigger source side.",
+              "metadata": {
+                "INTRODUCTION": "The queue is implemented by the RTE. A value greater or equal to 1 requests an queued behavior. Setting the value of RteTriggerSourceQueueLength to 0 requests an none queued implementation of the trigger communication. If there is no RteTriggerSourceQueueLength configured for a Trigger Emitter the default value of 0 applies as well.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09098",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "RteSwcTriggerSourceRef",
+              "path": "/Rte/RteSwComponentInstance/RteInternalTriggerConfig/RteSwcTriggerSourceRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to an InternalTriggeringPoint of the related component instance.",
+              "metadata": {
+                "INTRODUCTION": "The referenced InternalTriggeringPoint has to belong to the same software component instance as the RteSwComponentInstance owning this parameter configures.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09097",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "INTERNAL-TRIGGERING-POINT"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RteNvRamAllocation",
+          "path": "/Rte/RteSwComponentInstance/RteNvRamAllocation",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Specifies the relationship between the AtomicSwComponentType's NVRAMMapping / NVRAM needs and the NvM module configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09040",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "RteNvmRamBlockLocationSymbol",
+              "path": "/Rte/RteSwComponentInstance/RteNvRamAllocation/RteNvmRamBlockLocationSymbol",
+              "type": "ECUC-LINKER-SYMBOL-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This is the name of the linker object name where the NVRam Block will be mirrored by the Nvm.",
+              "metadata": {
+                "INTRODUCTION": "This symbol will be resolved into the parameter \"NvmRamBlockDataAddress\" from the \"NvmBlockDescriptor\".",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09042",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-LINKER-SYMBOL-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "RteNvmRomBlockLocationSymbol",
+              "path": "/Rte/RteSwComponentInstance/RteNvRamAllocation/RteNvmRomBlockLocationSymbol",
+              "type": "ECUC-LINKER-SYMBOL-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This is the name of the linker object name where the NVRom Block will be accessed by the Nvm.",
+              "metadata": {
+                "INTRODUCTION": "This symbol will be resolved into the parameter \"NvmRomBlockDataAddress\" from the \"NvmBlockDescriptor\".",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09043",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-LINKER-SYMBOL-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "RteSwNvBlockDescriptorRef",
+              "path": "/Rte/RteSwComponentInstance/RteNvRamAllocation/RteSwNvBlockDescriptorRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the NvBlockDescriptor in case the RTE needs to call the NvM directly (e.g. for the supportDirtyFlag feature).",
+              "metadata": {
+                "INTRODUCTION": "XOR",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09132",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "NV-BLOCK-DESCRIPTOR"
+              },
+              "children": []
+            },
+            {
+              "name": "RteSwNvRamMappingRef",
+              "path": "/Rte/RteSwComponentInstance/RteNvRamAllocation/RteSwNvRamMappingRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the SwSeriveDependency which is used to specify the NvBlockNeeds.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09044",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "SWC-SERVICE-DEPENDENCY"
+              },
+              "children": []
+            },
+            {
+              "name": "RteNvmBlockRef",
+              "path": "/Rte/RteSwComponentInstance/RteNvRamAllocation/RteNvmBlockRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the used NvM block for storage of the NVRAMMapping information.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09041",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/NvM/NvMBlockDescriptor"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RteSwComponentType",
+      "path": "/Rte/RteSwComponentType",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Representation of one SwComponentType for the base of all configuration parameter which are affecting the whole type and not a specific instance.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09006",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "RteBypassSupportEnabled",
+          "path": "/Rte/RteSwComponentType/RteBypassSupportEnabled",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Individual switch to enable the bypass support for this software component type.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09114",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "RteComponentTypeRef",
+          "path": "/Rte/RteSwComponentType/RteComponentTypeRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to either AtomicSwComponentType or ParameterSwComponentType.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "SW-COMPONENT-TYPE"
+          },
+          "children": []
+        },
+        {
+          "name": "RteImplementationRef",
+          "path": "/Rte/RteSwComponentType/RteImplementationRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "The Implementation which shall be assigned to the SwComponentType.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09028",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "SWC-IMPLEMENTATION"
+          },
+          "children": []
+        },
+        {
+          "name": "RteComponentTypeCalibration",
+          "path": "/Rte/RteSwComponentType/RteComponentTypeCalibration",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies for each ParameterSwComponentType or AtomicSwComponentType whether calibration is enabled.",
+          "metadata": {
+            "INTRODUCTION": "If references to SwAddrMethod are provided in RteCalibrationSwAddrMethodRef only ParameterDataPrototypes with the referenced SwAddrMethod shall have software calibration support enabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09039",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "RteCalibrationSupportEnabled",
+              "path": "/Rte/RteSwComponentType/RteComponentTypeCalibration/RteCalibrationSupportEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables calibration support for the specified ParameterSwComponentType or AtomicSwComponentType.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09037",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "RteCalibrationSwAddrMethodRef",
+              "path": "/Rte/RteSwComponentType/RteComponentTypeCalibration/RteCalibrationSwAddrMethodRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Reference to the SwAddrMethod for which software calibration support shall be enabled.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Rte_09038",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "SW-ADDR-METHOD"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3107 @@
+{
+  "name": "Cal",
+  "path": "/Cal",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Cal (CryptoAbstractionLibrary) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "CalAsymDecrypt",
+      "path": "/Cal/CalAsymDecrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymDecrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00626",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalAsymDecryptMaxCtxBufByteSize",
+          "path": "/Cal/CalAsymDecrypt/CalAsymDecryptMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement an asymmetrical decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00754",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymDecryptMaxKeySize",
+          "path": "/Cal/CalAsymDecrypt/CalAsymDecryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement an asymmetrical decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00716",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymDecryptConfig",
+          "path": "/Cal/CalAsymDecrypt/CalAsymDecryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymDecrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00592",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalAsymDecryptInitConfiguration",
+              "path": "/Cal/CalAsymDecrypt/CalAsymDecryptConfig/CalAsymDecryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00595",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalAsymDecryptPrimitiveName",
+              "path": "/Cal/CalAsymDecrypt/CalAsymDecryptConfig/CalAsymDecryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00594",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalAsymEncrypt",
+      "path": "/Cal/CalAsymEncrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymEncrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00625",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalAsymEncryptMaxCtxBufByteSize",
+          "path": "/Cal/CalAsymEncrypt/CalAsymEncryptMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement an asymmetrical encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00753",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymEncryptMaxKeySize",
+          "path": "/Cal/CalAsymEncrypt/CalAsymEncryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement an asymmetrical encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00715",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymEncryptConfig",
+          "path": "/Cal/CalAsymEncrypt/CalAsymEncryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymEncrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00588",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalAsymEncryptInitConfiguration",
+              "path": "/Cal/CalAsymEncrypt/CalAsymEncryptConfig/CalAsymEncryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00591",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalAsymEncryptPrimitiveName",
+              "path": "/Cal/CalAsymEncrypt/CalAsymEncryptConfig/CalAsymEncryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00590",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalAsymPrivateKeyExtract",
+      "path": "/Cal/CalAsymPrivateKeyExtract",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPrivateKeyExtract primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00686",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalAsymPrivateKeyExtractMaxCtxBufByteSize",
+          "path": "/Cal/CalAsymPrivateKeyExtract/CalAsymPrivateKeyExtractMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement an asymmetrical private key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00763",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyExtractMaxKeySize",
+          "path": "/Cal/CalAsymPrivateKeyExtract/CalAsymPrivateKeyExtractMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement an asymmetrical private key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00726",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyExtractConfig",
+          "path": "/Cal/CalAsymPrivateKeyExtract/CalAsymPrivateKeyExtractConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymPrivateKeyExtract.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00687",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalAsymPrivateKeyExtractInitConfiguration",
+              "path": "/Cal/CalAsymPrivateKeyExtract/CalAsymPrivateKeyExtractConfig/CalAsymPrivateKeyExtractInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00690",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalAsymPrivateKeyExtractPrimitiveName",
+              "path": "/Cal/CalAsymPrivateKeyExtract/CalAsymPrivateKeyExtractConfig/CalAsymPrivateKeyExtractPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00689",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalAsymPrivateKeyWrapAsym",
+      "path": "/Cal/CalAsymPrivateKeyWrapAsym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPrivateKeyWrapAsym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00767",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalAsymPrivateKeyWrapAsymMaxCtxBufByteSize",
+          "path": "/Cal/CalAsymPrivateKeyWrapAsym/CalAsymPrivateKeyWrapAsymMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a asymmetrical wrapping of the private part of an asymmetric key.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00802",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyWrapAsymMaxPrivKeySize",
+          "path": "/Cal/CalAsymPrivateKeyWrapAsym/CalAsymPrivateKeyWrapAsymMaxPrivKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CPL primitives which implement an asymmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00771",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyWrapAsymMaxPubKeySize",
+          "path": "/Cal/CalAsymPrivateKeyWrapAsym/CalAsymPrivateKeyWrapAsymMaxPubKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all public key types used in all CPL primitives which implement an asymmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00787",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyWrapAsymConfig",
+          "path": "/Cal/CalAsymPrivateKeyWrapAsym/CalAsymPrivateKeyWrapAsymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymPrivateKeyWrapAsym.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00768",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalAsymPrivateKeyWrapAsymInitConfiguration",
+              "path": "/Cal/CalAsymPrivateKeyWrapAsym/CalAsymPrivateKeyWrapAsymConfig/CalAsymPrivateKeyWrapAsymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00770",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalAsymPrivateKeyWrapAsymPrimitiveName",
+              "path": "/Cal/CalAsymPrivateKeyWrapAsym/CalAsymPrivateKeyWrapAsymConfig/CalAsymPrivateKeyWrapAsymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00769",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalAsymPrivateKeyWrapSym",
+      "path": "/Cal/CalAsymPrivateKeyWrapSym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPrivateKeyWrapSym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00766",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalAsymPrivateKeyWrapSymMaxCtxBufByteSize",
+          "path": "/Cal/CalAsymPrivateKeyWrapSym/CalAsymPrivateKeyWrapSymMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a symmetrical wrapping of the private part of an asymmetric key.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00803",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyWrapSymMaxPrivKeySize",
+          "path": "/Cal/CalAsymPrivateKeyWrapSym/CalAsymPrivateKeyWrapSymMaxPrivKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CPL primitives which implement an asymmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00775",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyWrapSymMaxSymKeySize",
+          "path": "/Cal/CalAsymPrivateKeyWrapSym/CalAsymPrivateKeyWrapSymMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement an asymmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00776",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPrivateKeyWrapSymConfig",
+          "path": "/Cal/CalAsymPrivateKeyWrapSym/CalAsymPrivateKeyWrapSymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymPrivateKeyWrapSym.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00772",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalAsymPrivateKeyWrapSymInitConfiguration",
+              "path": "/Cal/CalAsymPrivateKeyWrapSym/CalAsymPrivateKeyWrapSymConfig/CalAsymPrivateKeyWrapSymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00774",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalAsymPrivateKeyWrapSymPrimitiveName",
+              "path": "/Cal/CalAsymPrivateKeyWrapSym/CalAsymPrivateKeyWrapSymConfig/CalAsymPrivateKeyWrapSymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00773",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalAsymPublicKeyExtract",
+      "path": "/Cal/CalAsymPublicKeyExtract",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPublicKeyExtract primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00634",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalAsymPublicKeyExtractMaxCtxBufByteSize",
+          "path": "/Cal/CalAsymPublicKeyExtract/CalAsymPublicKeyExtractMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement an asymmetrical public key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00762",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPublicKeyExtractMaxKeySize",
+          "path": "/Cal/CalAsymPublicKeyExtract/CalAsymPublicKeyExtractMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement an asymmetrical public key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00725",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalAsymPublicKeyExtractConfig",
+          "path": "/Cal/CalAsymPublicKeyExtract/CalAsymPublicKeyExtractConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymPublicKeyExtract.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00550",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalAsymPublicKeyExtractInitConfiguration",
+              "path": "/Cal/CalAsymPublicKeyExtract/CalAsymPublicKeyExtractConfig/CalAsymPublicKeyExtractInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00553",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalAsymPublicKeyExtractPrimitiveName",
+              "path": "/Cal/CalAsymPublicKeyExtract/CalAsymPublicKeyExtractConfig/CalAsymPublicKeyExtractPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00552",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalChecksum",
+      "path": "/Cal/CalChecksum",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Checksum primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00629",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalChecksumMaxCtxBufByteSize",
+          "path": "/Cal/CalChecksum/CalChecksumMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a checksum computation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00757",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalChecksumConfig",
+          "path": "/Cal/CalChecksum/CalChecksumConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Checksum. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00604",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalChecksumInitConfiguration",
+              "path": "/Cal/CalChecksum/CalChecksumConfig/CalChecksumInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00607",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalChecksumPrimitiveName",
+              "path": "/Cal/CalChecksum/CalChecksumConfig/CalChecksumPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00606",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalCompression",
+      "path": "/Cal/CalCompression",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Compression primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00789",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalCompressMaxCtxBufByteSize",
+          "path": "/Cal/CalCompression/CalCompressMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a compression computation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00790",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalCompressionConfig",
+          "path": "/Cal/CalCompression/CalCompressionConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Compression. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00791",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalCompressInitConfiguration",
+              "path": "/Cal/CalCompression/CalCompressionConfig/CalCompressInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00792",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalCompressPrimitiveName",
+              "path": "/Cal/CalCompression/CalCompressionConfig/CalCompressPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00793",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalDecompression",
+      "path": "/Cal/CalDecompression",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Decompression primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00794",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalDecompressMaxCtxBufByteSize",
+          "path": "/Cal/CalDecompression/CalDecompressMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a decompression computation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00795",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalDecompressionConfig",
+          "path": "/Cal/CalDecompression/CalDecompressionConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Decompression. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00796",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalDecompressInitConfiguration",
+              "path": "/Cal/CalDecompression/CalDecompressionConfig/CalDecompressInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00797",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalDecompressPrimitiveName",
+              "path": "/Cal/CalDecompression/CalDecompressionConfig/CalDecompressPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00798",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalGeneral",
+      "path": "/Cal/CalGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for common configuration options.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00554",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalMaxAlignScalarType",
+          "path": "/Cal/CalGeneral/CalMaxAlignScalarType",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The scalar type which has the maximum alignment restrictions on the given platform.",
+          "metadata": {
+            "INTRODUCTION": "This type can be e.g. uint8, uint16 or uint32.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00744",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "CalVersionInfoApi",
+          "path": "/Cal/CalGeneral/CalVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch to enable and disable availability of the API Cal_GetVersionInfo(). True: API Cal_GetVersionInfo() is available. False: API Cal_GetVersionInfo() is not available.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00799",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "CalHash",
+      "path": "/Cal/CalHash",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Hash primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00559",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalHashMaxCtxBufByteSize",
+          "path": "/Cal/CalHash/CalHashMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a hash computation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00745",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalHashConfig",
+          "path": "/Cal/CalHash/CalHashConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Configurations for the Hash service. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00560",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalHashInitConfiguration",
+              "path": "/Cal/CalHash/CalHashConfig/CalHashInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00563",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalHashPrimitiveName",
+              "path": "/Cal/CalHash/CalHashConfig/CalHashPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00562",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalKeyDerive",
+      "path": "/Cal/CalKeyDerive",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of KeyDerive primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00630",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalKeyDeriveMaxCtxBufByteSize",
+          "path": "/Cal/CalKeyDerive/CalKeyDeriveMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a key derivation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00758",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyDeriveMaxKeySize",
+          "path": "/Cal/CalKeyDerive/CalKeyDeriveMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRL primitives which implement a key derivation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00719",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyDeriveConfig",
+          "path": "/Cal/CalKeyDerive/CalKeyDeriveConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service KeyDerive. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00608",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalKeyDeriveInitConfiguration",
+              "path": "/Cal/CalKeyDerive/CalKeyDeriveConfig/CalKeyDeriveInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00611",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalKeyDerivePrimitiveName",
+              "path": "/Cal/CalKeyDerive/CalKeyDeriveConfig/CalKeyDerivePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00610",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalKeyExchangeCalcPubVal",
+      "path": "/Cal/CalKeyExchangeCalcPubVal",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of KeyExchangeCalcPubVal primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00631",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalKeyExchangeCalcPubValMaxBaseTypeSize",
+          "path": "/Cal/CalKeyExchangeCalcPubVal/CalKeyExchangeCalcPubValMaxBaseTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all base types used in all CPL primitives which implement a public value calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00720",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyExchangeCalcPubValMaxCtxBufByteSize",
+          "path": "/Cal/CalKeyExchangeCalcPubVal/CalKeyExchangeCalcPubValMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a public value calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00759",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyExchangeCalcPubValMaxPrivateTypeSize",
+          "path": "/Cal/CalKeyExchangeCalcPubVal/CalKeyExchangeCalcPubValMaxPrivateTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CPL primitives which implement a public value calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00721",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyExchangeCalcPubValConfig",
+          "path": "/Cal/CalKeyExchangeCalcPubVal/CalKeyExchangeCalcPubValConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service KeyExchangeCalcPubVal. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00612",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalKeyExchangeCalcPubValInitConfiguration",
+              "path": "/Cal/CalKeyExchangeCalcPubVal/CalKeyExchangeCalcPubValConfig/CalKeyExchangeCalcPubValInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00615",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalKeyExchangeCalcPubValPrimitiveName",
+              "path": "/Cal/CalKeyExchangeCalcPubVal/CalKeyExchangeCalcPubValConfig/CalKeyExchangeCalcPubValPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00614",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalKeyExchangeCalcSecret",
+      "path": "/Cal/CalKeyExchangeCalcSecret",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of KeyExchangeCalcSecret primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00632",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalKeyExchangeCalcSecretMaxBaseTypeSize",
+          "path": "/Cal/CalKeyExchangeCalcSecret/CalKeyExchangeCalcSecretMaxBaseTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all base types used in all CPL primitives which implement a shared secret calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00722",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyExchangeCalcSecretMaxCtxBufByteSize",
+          "path": "/Cal/CalKeyExchangeCalcSecret/CalKeyExchangeCalcSecretMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a shared secret calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00760",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyExchangeCalcSecretMaxPrivateTypeSize",
+          "path": "/Cal/CalKeyExchangeCalcSecret/CalKeyExchangeCalcSecretMaxPrivateTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CPL primitives which implement a shared secret calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00723",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalKeyExchangeCalcSecretConfig",
+          "path": "/Cal/CalKeyExchangeCalcSecret/CalKeyExchangeCalcSecretConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service KeyExchangeCalcSecret. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00616",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalKeyExchangeCalcSecretInitConfiguration",
+              "path": "/Cal/CalKeyExchangeCalcSecret/CalKeyExchangeCalcSecretConfig/CalKeyExchangeCalcSecretInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00545",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalKeyExchangeCalcSecretPrimitiveName",
+              "path": "/Cal/CalKeyExchangeCalcSecret/CalKeyExchangeCalcSecretConfig/CalKeyExchangeCalcSecretPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00618",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalMacGenerate",
+      "path": "/Cal/CalMacGenerate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of MacGenerate primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00635",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalMacGenerateMaxCtxBufByteSize",
+          "path": "/Cal/CalMacGenerate/CalMacGenerateMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a MAC generation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00746",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalMacGenerateMaxKeySize",
+          "path": "/Cal/CalMacGenerate/CalMacGenerateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a MAC generation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00709",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalMacGenerateConfig",
+          "path": "/Cal/CalMacGenerate/CalMacGenerateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Configurations for the MacGenerate service. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00564",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalMacGenerateInitConfiguration",
+              "path": "/Cal/CalMacGenerate/CalMacGenerateConfig/CalMacGenerateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00567",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalMacGeneratePrimitiveName",
+              "path": "/Cal/CalMacGenerate/CalMacGenerateConfig/CalMacGeneratePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00566",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalMacVerify",
+      "path": "/Cal/CalMacVerify",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of MacVerify primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00636",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalMacVerifyMaxCtxBufByteSize",
+          "path": "/Cal/CalMacVerify/CalMacVerifyMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a MAC verification.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00747",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalMacVerifyMaxKeySize",
+          "path": "/Cal/CalMacVerify/CalMacVerifyMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a MAC verification.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00710",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalMacVerifyConfig",
+          "path": "/Cal/CalMacVerify/CalMacVerifyConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service MacVerify. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00568",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalMacVerifyInitConfiguration",
+              "path": "/Cal/CalMacVerify/CalMacVerifyConfig/CalMacVerifyInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00571",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalMacVerifyPrimitiveName",
+              "path": "/Cal/CalMacVerify/CalMacVerifyConfig/CalMacVerifyPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00570",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalRandomGenerate",
+      "path": "/Cal/CalRandomGenerate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of RandomGenerate primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00620",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalRandomGenerateConfig",
+          "path": "/Cal/CalRandomGenerate/CalRandomGenerateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service RandomGenerate. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00637",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalRandomGenerateInitConfiguration",
+              "path": "/Cal/CalRandomGenerate/CalRandomGenerateConfig/CalRandomGenerateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00640",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalRandomGeneratePrimitiveName",
+              "path": "/Cal/CalRandomGenerate/CalRandomGenerateConfig/CalRandomGeneratePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00639",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalRandomSeed",
+      "path": "/Cal/CalRandomSeed",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of RandomSeed primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00641",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalRandomMaxCtxBufByteSize",
+          "path": "/Cal/CalRandomSeed/CalRandomMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement seeding or generating a random number.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00748",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalRandomSeedConfig",
+          "path": "/Cal/CalRandomSeed/CalRandomSeedConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service RandomSeed. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00642",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalRandomSeedInitConfiguration",
+              "path": "/Cal/CalRandomSeed/CalRandomSeedConfig/CalRandomSeedInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00645",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalRandomSeedPrimitiveName",
+              "path": "/Cal/CalRandomSeed/CalRandomSeedConfig/CalRandomSeedPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00644",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSignatureGenerate",
+      "path": "/Cal/CalSignatureGenerate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SignatureGenerate primitives",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00627",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSignatureGenerateMaxCtxBufByteSize",
+          "path": "/Cal/CalSignatureGenerate/CalSignatureGenerateMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a signature generation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00755",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSignatureGenerateMaxKeySize",
+          "path": "/Cal/CalSignatureGenerate/CalSignatureGenerateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a signature generation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00717",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSignatureGenerateConfig",
+          "path": "/Cal/CalSignatureGenerate/CalSignatureGenerateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SignatureGenerate. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00596",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSignatureGenerateInitConfiguration",
+              "path": "/Cal/CalSignatureGenerate/CalSignatureGenerateConfig/CalSignatureGenerateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00599",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSignatureGeneratePrimitiveName",
+              "path": "/Cal/CalSignatureGenerate/CalSignatureGenerateConfig/CalSignatureGeneratePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00598",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSignatureVerify",
+      "path": "/Cal/CalSignatureVerify",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SignatureVerify primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00628",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSignatureVerifyMaxCtxBufByteSize",
+          "path": "/Cal/CalSignatureVerify/CalSignatureVerifyMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a signature verification.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00756",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSignatureVerifyMaxKeySize",
+          "path": "/Cal/CalSignatureVerify/CalSignatureVerifyMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a signature verification.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00718",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSignatureVerifyConfig",
+          "path": "/Cal/CalSignatureVerify/CalSignatureVerifyConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SignatureVerify. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00600",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSignatureVerifyInitConfiguration",
+              "path": "/Cal/CalSignatureVerify/CalSignatureVerifyConfig/CalSignatureVerifyInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00603",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSignatureVerifyPrimitiveName",
+              "path": "/Cal/CalSignatureVerify/CalSignatureVerifyConfig/CalSignatureVerifyPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00602",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSymBlockDecrypt",
+      "path": "/Cal/CalSymBlockDecrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymBlockDecrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00622",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSymBlockDecryptMaxCtxBufByteSize",
+          "path": "/Cal/CalSymBlockDecrypt/CalSymBlockDecryptMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a symmetrical block decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00750",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymBlockDecryptMaxKeySize",
+          "path": "/Cal/CalSymBlockDecrypt/CalSymBlockDecryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a symmetrical block decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00712",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymBlockDecryptConfig",
+          "path": "/Cal/CalSymBlockDecrypt/CalSymBlockDecryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymBlockDecrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00576",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSymBlockDecryptInitConfiguration",
+              "path": "/Cal/CalSymBlockDecrypt/CalSymBlockDecryptConfig/CalSymBlockDecryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00579",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSymBlockDecryptPrimitiveName",
+              "path": "/Cal/CalSymBlockDecrypt/CalSymBlockDecryptConfig/CalSymBlockDecryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00578",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSymBlockEncrypt",
+      "path": "/Cal/CalSymBlockEncrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymBlockEncrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00621",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSymBlockEncryptMaxCtxBufByteSize",
+          "path": "/Cal/CalSymBlockEncrypt/CalSymBlockEncryptMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a symmetrical block encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00749",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymBlockEncryptMaxKeySize",
+          "path": "/Cal/CalSymBlockEncrypt/CalSymBlockEncryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a symmetrical block encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00711",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymBlockEncryptConfig",
+          "path": "/Cal/CalSymBlockEncrypt/CalSymBlockEncryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymBlockEncrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00572",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSymBlockEncryptInitConfiguration",
+              "path": "/Cal/CalSymBlockEncrypt/CalSymBlockEncryptConfig/CalSymBlockEncryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00575",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSymBlockEncryptPrimitiveName",
+              "path": "/Cal/CalSymBlockEncrypt/CalSymBlockEncryptConfig/CalSymBlockEncryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00574",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSymDecrypt",
+      "path": "/Cal/CalSymDecrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymDecrypt primitives",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00624",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSymDecryptMaxCtxBufByteSize",
+          "path": "/Cal/CalSymDecrypt/CalSymDecryptMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a symmetrical decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00752",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymDecryptMaxKeySize",
+          "path": "/Cal/CalSymDecrypt/CalSymDecryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a symmetrical decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00714",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymDecryptConfig",
+          "path": "/Cal/CalSymDecrypt/CalSymDecryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymDecrypt.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00584",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSymDecryptInitConfiguration",
+              "path": "/Cal/CalSymDecrypt/CalSymDecryptConfig/CalSymDecryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00587",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSymDecryptPrimitiveName",
+              "path": "/Cal/CalSymDecrypt/CalSymDecryptConfig/CalSymDecryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00586",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSymEncrypt",
+      "path": "/Cal/CalSymEncrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymEncrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00623",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSymEncryptMaxCtxBufByteSize",
+          "path": "/Cal/CalSymEncrypt/CalSymEncryptMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a symmetrical encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00751",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymEncryptMaxKeySize",
+          "path": "/Cal/CalSymEncrypt/CalSymEncryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a symmetrical encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00713",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymEncryptConfig",
+          "path": "/Cal/CalSymEncrypt/CalSymEncryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymEncrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00580",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSymEncryptInitConfiguration",
+              "path": "/Cal/CalSymEncrypt/CalSymEncryptConfig/CalSymEncryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00583",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSymEncryptPrimitiveName",
+              "path": "/Cal/CalSymEncrypt/CalSymEncryptConfig/CalSymEncryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00582",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSymKeyExtract",
+      "path": "/Cal/CalSymKeyExtract",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymKeyExtract primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00633",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSymKeyExtractMaxCtxBufByteSize",
+          "path": "/Cal/CalSymKeyExtract/CalSymKeyExtractMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a symmetrical key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00761",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymKeyExtractMaxKeySize",
+          "path": "/Cal/CalSymKeyExtract/CalSymKeyExtractMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a symmetrical key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00724",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymKeyExtractConfig",
+          "path": "/Cal/CalSymKeyExtract/CalSymKeyExtractConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymKeyExtract. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00546",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSymKeyExtractInitConfiguration",
+              "path": "/Cal/CalSymKeyExtract/CalSymKeyExtractConfig/CalSymKeyExtractInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00549",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSymKeyExtractPrimitiveName",
+              "path": "/Cal/CalSymKeyExtract/CalSymKeyExtractConfig/CalSymKeyExtractPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00548",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSymKeyWrapAsym",
+      "path": "/Cal/CalSymKeyWrapAsym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymKeyWrapAsym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00765",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSymKeyWrapAsymMaxCtxBufByteSize",
+          "path": "/Cal/CalSymKeyWrapAsym/CalSymKeyWrapAsymMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a asymmetrical wrapping of a symmetric key.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00800",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymKeyWrapAsymMaxPubKeySize",
+          "path": "/Cal/CalSymKeyWrapAsym/CalSymKeyWrapAsymMaxPubKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all public key types used in all CPL primitives which implement a symmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00785",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymKeyWrapAsymMaxSymKeySize",
+          "path": "/Cal/CalSymKeyWrapAsym/CalSymKeyWrapAsymMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a symmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00786",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymKeyWrapAsymConfig",
+          "path": "/Cal/CalSymKeyWrapAsym/CalSymKeyWrapAsymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymKeyWrapAsym.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00782",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSymKeyWrapAsymInitConfiguration",
+              "path": "/Cal/CalSymKeyWrapAsym/CalSymKeyWrapAsymConfig/CalSymKeyWrapAsymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00784",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSymKeyWrapAsymPrimitiveName",
+              "path": "/Cal/CalSymKeyWrapAsym/CalSymKeyWrapAsymConfig/CalSymKeyWrapAsymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00783",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CalSymKeyWrapSym",
+      "path": "/Cal/CalSymKeyWrapSym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymKeyWrapSym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00764",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CalSymKeyWrapSymMaxCtxBufByteSize",
+          "path": "/Cal/CalSymKeyWrapSym/CalSymKeyWrapSymMaxCtxBufByteSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all context buffers used in all CPL primitives which implement a symmetrical wrapping of a symmetric key.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00801",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymKeyWrapSymMaxSymKeySize",
+          "path": "/Cal/CalSymKeyWrapSym/CalSymKeyWrapSymMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CPL primitives which implement a symmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00781",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CalSymKeyWrapSymConfig",
+          "path": "/Cal/CalSymKeyWrapSym/CalSymKeyWrapSymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymKeyWrapSym.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00777",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CalSymKeyWrapSymInitConfiguration",
+              "path": "/Cal/CalSymKeyWrapSym/CalSymKeyWrapSymConfig/CalSymKeyWrapSymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00779",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CalSymKeyWrapSymPrimitiveName",
+              "path": "/Cal/CalSymKeyWrapSym/CalSymKeyWrapSymConfig/CalSymKeyWrapSymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Cal_00778",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

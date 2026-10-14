@@ -1,0 +1,324 @@
+{
+  "name": "Xfrm",
+  "path": "/Xfrm",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": null,
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00014",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "XfrmGeneral",
+      "path": "/Xfrm/XfrmGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Contains the general configuration parameters of the module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00012",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "XfrmDevErrorDetect",
+          "path": "/Xfrm/XfrmGeneral/XfrmDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00013",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "XfrmImplementationMapping",
+      "path": "/Xfrm/XfrmImplementationMapping",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "For each transformer (TransformationTechnology) in a transformer chain (DataTransformation) which is applied to an ISignal it is necessary to specify the BswModuleEntry which implements it. This is the container to hold these mappings.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "XfmTransformationBswModuleEntryRef",
+          "path": "/Xfrm/XfrmImplementationMapping/XfmTransformationBswModuleEntryRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter is set to obsolete and will be removed in future. Please use XfrmTransformerBswModuleEntryRef instead. Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+          "metadata": {
+            "INTRODUCTION": "Old description: Reference to the BswModuleEntry which implements the referenced transformer on the sending/calling side. This element is obsolete and will be removed in a future revision.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00004",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "BSW-MODULE-ENTRY"
+          },
+          "children": []
+        },
+        {
+          "name": "XfrmInvTransformerBswModuleEntryRef",
+          "path": "/Xfrm/XfrmImplementationMapping/XfrmInvTransformerBswModuleEntryRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the BswModuleEntry which implements the referenced inverse transformer on the receiving/called side.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00005",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "BSW-MODULE-ENTRY"
+          },
+          "children": []
+        },
+        {
+          "name": "XfrmTransformationTechnologyRef",
+          "path": "/Xfrm/XfrmImplementationMapping/XfrmTransformationTechnologyRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the TransformationTechnology in the DataTransformation of the system description for which the implementation (BswModuleEntry) shall be mapped.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "TRANSFORMATION-TECHNOLOGY"
+          },
+          "children": []
+        },
+        {
+          "name": "XfrmTransformerBswModuleEntryRef",
+          "path": "/Xfrm/XfrmImplementationMapping/XfrmTransformerBswModuleEntryRef",
+          "type": "ECUC-FOREIGN-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the BswModuleEntry which implements the referenced transformer on the sending/calling side.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00018",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-TYPE": "BSW-MODULE-ENTRY"
+          },
+          "children": []
+        },
+        {
+          "name": "XfrmVariableDataPrototypeInstanceRef",
+          "path": "/Xfrm/XfrmImplementationMapping/XfrmVariableDataPrototypeInstanceRef",
+          "type": "ECUC-INSTANCE-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Instance Reference to a VariableDataPrototype in case a dedicated transformer BswModuleEntry is required per VariableDataPrototype access.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00011",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-CONTEXT": "SW-COMPONENT-PROTOTYPE PORT-PROTOTYPE",
+            "DESTINATION-TYPE": "VARIABLE-DATA-PROTOTYPE"
+          },
+          "children": []
+        },
+        {
+          "name": "XfrmDemEventParameterRefs",
+          "path": "/Xfrm/XfrmImplementationMapping/XfrmDemEventParameterRefs",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00016",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "XFRM_E_MALFORMED_MESSAGE",
+              "path": "/Xfrm/XfrmImplementationMapping/XfrmDemEventParameterRefs/XFRM_E_MALFORMED_MESSAGE",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to configured DEM event to report if malformed messages were received by the transformer.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00015",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "XfrmSignal",
+          "path": "/Xfrm/XfrmImplementationMapping/XfrmSignal",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the signal in the system description that transports the transformed data.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00002",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "XfrmSignalChoice",
+              "path": "/Xfrm/XfrmImplementationMapping/XfrmSignal/XfrmSignalChoice",
+              "type": "ECUC-CHOICE-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Choice whether an ISignal or an ISignalGroup shall be referenced.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00006",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "XfrmISignalGroupRefChoice",
+                  "path": "/Xfrm/XfrmImplementationMapping/XfrmSignal/XfrmSignalChoice/XfrmISignalGroupRefChoice",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the ISignalGroup in the system description that transports the transformed data.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00009",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "XfrmISignalGroupRef",
+                      "path": "/Xfrm/XfrmImplementationMapping/XfrmSignal/XfrmSignalChoice/XfrmISignalGroupRefChoice/XfrmISignalGroupRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the ISignalGroup in the system description that transports the transformed data.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00010",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "I-SIGNAL-GROUP"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "XfrmISignalRefChoice",
+                  "path": "/Xfrm/XfrmImplementationMapping/XfrmSignal/XfrmSignalChoice/XfrmISignalRefChoice",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the ISignal in the system description that transports the transformed data.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00007",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "XfrmISignalRef",
+                      "path": "/Xfrm/XfrmImplementationMapping/XfrmSignal/XfrmSignalChoice/XfrmISignalRefChoice/XfrmISignalRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the ISignal in the system description that transports the transformed data.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Xfrm_00008",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "I-SIGNAL"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

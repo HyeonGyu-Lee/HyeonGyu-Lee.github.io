@@ -1,0 +1,3909 @@
+{
+  "name": "Csm",
+  "path": "/Csm",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Csm (CryptoServiceManager) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "CsmAsymDecrypt",
+      "path": "/Csm/CsmAsymDecrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymDecrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00626",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymDecryptMaxKeySize",
+          "path": "/Csm/CsmAsymDecrypt/CsmAsymDecryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetrical decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00716",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymDecryptConfig",
+          "path": "/Csm/CsmAsymDecrypt/CsmAsymDecryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymDecrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00592",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymDecryptInitConfiguration",
+              "path": "/Csm/CsmAsymDecrypt/CsmAsymDecryptConfig/CsmAsymDecryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00595",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymDecryptPrimitiveName",
+              "path": "/Csm/CsmAsymDecrypt/CsmAsymDecryptConfig/CsmAsymDecryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00594",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymDecrypt",
+              "path": "/Csm/CsmAsymDecrypt/CsmAsymDecryptConfig/CsmCallbackAsymDecrypt",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00593",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmAsymEncrypt",
+      "path": "/Csm/CsmAsymEncrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymEncrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00625",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymEncryptMaxKeySize",
+          "path": "/Csm/CsmAsymEncrypt/CsmAsymEncryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetrical encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00715",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymEncryptConfig",
+          "path": "/Csm/CsmAsymEncrypt/CsmAsymEncryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymEncrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00588",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymEncryptInitConfiguration",
+              "path": "/Csm/CsmAsymEncrypt/CsmAsymEncryptConfig/CsmAsymEncryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00591",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymEncryptPrimitiveName",
+              "path": "/Csm/CsmAsymEncrypt/CsmAsymEncryptConfig/CsmAsymEncryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00590",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymEncrypt",
+              "path": "/Csm/CsmAsymEncrypt/CsmAsymEncryptConfig/CsmCallbackAsymEncrypt",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00589",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmAsymPrivateKeyExtract",
+      "path": "/Csm/CsmAsymPrivateKeyExtract",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPrivateKeyExtract primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00686",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymPrivateKeyExtractMaxKeySize",
+          "path": "/Csm/CsmAsymPrivateKeyExtract/CsmAsymPrivateKeyExtractMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetrical private key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00726",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPrivateKeyExtractConfig",
+          "path": "/Csm/CsmAsymPrivateKeyExtract/CsmAsymPrivateKeyExtractConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymPrivateKeyExtract.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00687",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymPrivateKeyExtractInitConfiguration",
+              "path": "/Csm/CsmAsymPrivateKeyExtract/CsmAsymPrivateKeyExtractConfig/CsmAsymPrivateKeyExtractInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00690",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymPrivateKeyExtractPrimitiveName",
+              "path": "/Csm/CsmAsymPrivateKeyExtract/CsmAsymPrivateKeyExtractConfig/CsmAsymPrivateKeyExtractPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00689",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymPrivateKeyExtract",
+              "path": "/Csm/CsmAsymPrivateKeyExtract/CsmAsymPrivateKeyExtractConfig/CsmCallbackAsymPrivateKeyExtract",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00688",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmAsymPrivateKeyUpdate",
+      "path": "/Csm/CsmAsymPrivateKeyUpdate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Asymmetric Private Key Update primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00798",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymPrivateKeyUpdateMaxKeySize",
+          "path": "/Csm/CsmAsymPrivateKeyUpdate/CsmAsymPrivateKeyUpdateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetrical private key update.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00806",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPrivateKeyUpdateConfig",
+          "path": "/Csm/CsmAsymPrivateKeyUpdate/CsmAsymPrivateKeyUpdateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Asymmetric Private Key Update. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00799",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymPrivateKeyUpdateInitConfiguration",
+              "path": "/Csm/CsmAsymPrivateKeyUpdate/CsmAsymPrivateKeyUpdateConfig/CsmAsymPrivateKeyUpdateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00801",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymPrivateKeyUpdatePrimitiveName",
+              "path": "/Csm/CsmAsymPrivateKeyUpdate/CsmAsymPrivateKeyUpdateConfig/CsmAsymPrivateKeyUpdatePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00802",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymPrivateKeyUpdate",
+              "path": "/Csm/CsmAsymPrivateKeyUpdate/CsmAsymPrivateKeyUpdateConfig/CsmCallbackAsymPrivateKeyUpdate",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00800",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmAsymPrivateKeyWrapAsym",
+      "path": "/Csm/CsmAsymPrivateKeyWrapAsym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPrivateKeyWrapSym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00759",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymPrivateKeyWrapAsymMaxPrivKeySize",
+          "path": "/Csm/CsmAsymPrivateKeyWrapAsym/CsmAsymPrivateKeyWrapAsymMaxPrivKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private key types used in all CRY primitives which implement an asymmetrical private key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00765",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPrivateKeyWrapAsymMaxPubKeySize",
+          "path": "/Csm/CsmAsymPrivateKeyWrapAsym/CsmAsymPrivateKeyWrapAsymMaxPubKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all public key types used in all CRY primitives which implement an asymmetrical private key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00764",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPrivateKeyWrapAsymConfig",
+          "path": "/Csm/CsmAsymPrivateKeyWrapAsym/CsmAsymPrivateKeyWrapAsymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymKeyWrapAsym. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00760",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymPrivateKeyWrapAsymInitConfiguration",
+              "path": "/Csm/CsmAsymPrivateKeyWrapAsym/CsmAsymPrivateKeyWrapAsymConfig/CsmAsymPrivateKeyWrapAsymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00763",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymPrivateKeyWrapAsymPrimitiveName",
+              "path": "/Csm/CsmAsymPrivateKeyWrapAsym/CsmAsymPrivateKeyWrapAsymConfig/CsmAsymPrivateKeyWrapAsymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00762",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymPrivateKeyWrapAsym",
+              "path": "/Csm/CsmAsymPrivateKeyWrapAsym/CsmAsymPrivateKeyWrapAsymConfig/CsmCallbackAsymPrivateKeyWrapAsym",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00761",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmAsymPrivateKeyWrapSym",
+      "path": "/Csm/CsmAsymPrivateKeyWrapSym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPrivateKeyWrapSym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00752",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymPrivateKeyWrapSymMaxPrivKeySize",
+          "path": "/Csm/CsmAsymPrivateKeyWrapSym/CsmAsymPrivateKeyWrapSymMaxPrivKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CRY primitives which implement an asymmetric private key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00758",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPrivateKeyWrapSymMaxSymKeySize",
+          "path": "/Csm/CsmAsymPrivateKeyWrapSym/CsmAsymPrivateKeyWrapSymMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetric private key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00757",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPrivateKeyWrapSymConfig",
+          "path": "/Csm/CsmAsymPrivateKeyWrapSym/CsmAsymPrivateKeyWrapSymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymPrivateKeyWrapSym. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00753",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymPrivateKeyWrapSymInitConfiguration",
+              "path": "/Csm/CsmAsymPrivateKeyWrapSym/CsmAsymPrivateKeyWrapSymConfig/CsmAsymPrivateKeyWrapSymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00756",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymPrivateKeyWrapSymPrimitiveName",
+              "path": "/Csm/CsmAsymPrivateKeyWrapSym/CsmAsymPrivateKeyWrapSymConfig/CsmAsymPrivateKeyWrapSymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00755",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymPrivateKeyWrapSym",
+              "path": "/Csm/CsmAsymPrivateKeyWrapSym/CsmAsymPrivateKeyWrapSymConfig/CsmCallbackAsymPrivateKeyWrapSym",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00754",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmAsymPublicKeyExtract",
+      "path": "/Csm/CsmAsymPublicKeyExtract",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of AsymPublicKeyExtract primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00634",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymPublicKeyExtractMaxKeySize",
+          "path": "/Csm/CsmAsymPublicKeyExtract/CsmAsymPublicKeyExtractMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetrical public key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00725",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPublicKeyExtractConfig",
+          "path": "/Csm/CsmAsymPublicKeyExtract/CsmAsymPublicKeyExtractConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service AsymPublicKeyExtract.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00550",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymPublicKeyExtractInitConfiguration",
+              "path": "/Csm/CsmAsymPublicKeyExtract/CsmAsymPublicKeyExtractConfig/CsmAsymPublicKeyExtractInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00553",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymPublicKeyExtractPrimitiveName",
+              "path": "/Csm/CsmAsymPublicKeyExtract/CsmAsymPublicKeyExtractConfig/CsmAsymPublicKeyExtractPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00552",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymPublicKeyExtract",
+              "path": "/Csm/CsmAsymPublicKeyExtract/CsmAsymPublicKeyExtractConfig/CsmCallbackAsymPublicKeyExtract",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00551",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmAsymPublicKeyUpdate",
+      "path": "/Csm/CsmAsymPublicKeyUpdate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Asymmetric Public Key Update primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00793",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmAsymPublicKeyUpdateMaxKeySize",
+          "path": "/Csm/CsmAsymPublicKeyUpdate/CsmAsymPublicKeyUpdateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetrical public key update.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00805",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmAsymPublicKeyUpdateConfig",
+          "path": "/Csm/CsmAsymPublicKeyUpdate/CsmAsymPublicKeyUpdateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Asymmetric Public Key Update. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00794",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmAsymPublicKeyUpdateInitConfiguration",
+              "path": "/Csm/CsmAsymPublicKeyUpdate/CsmAsymPublicKeyUpdateConfig/CsmAsymPublicKeyUpdateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00796",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmAsymPublicKeyUpdatePrimitiveName",
+              "path": "/Csm/CsmAsymPublicKeyUpdate/CsmAsymPublicKeyUpdateConfig/CsmAsymPublicKeyUpdatePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00797",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCallbackAsymPublicKeyUpdate",
+              "path": "/Csm/CsmAsymPublicKeyUpdate/CsmAsymPublicKeyUpdateConfig/CsmCallbackAsymPublicKeyUpdate",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00795",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmChecksum",
+      "path": "/Csm/CsmChecksum",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Checksum primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00629",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmChecksumConfig",
+          "path": "/Csm/CsmChecksum/CsmChecksumConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Checksum. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00604",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackChecksum",
+              "path": "/Csm/CsmChecksum/CsmChecksumConfig/CsmCallbackChecksum",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00605",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmChecksumInitConfiguration",
+              "path": "/Csm/CsmChecksum/CsmChecksumConfig/CsmChecksumInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00607",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmChecksumPrimitiveName",
+              "path": "/Csm/CsmChecksum/CsmChecksumConfig/CsmChecksumPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00606",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmCompression",
+      "path": "/Csm/CsmCompression",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Compression primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00807",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmCompressionConfig",
+          "path": "/Csm/CsmCompression/CsmCompressionConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Compression. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00808",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackCompression",
+              "path": "/Csm/CsmCompression/CsmCompressionConfig/CsmCallbackCompression",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00809",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCompressionInitConfiguration",
+              "path": "/Csm/CsmCompression/CsmCompressionConfig/CsmCompressionInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00810",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmCompressionPrimitiveName",
+              "path": "/Csm/CsmCompression/CsmCompressionConfig/CsmCompressionPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00811",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmDecompression",
+      "path": "/Csm/CsmDecompression",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Decompression primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00812",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmDecompressionConfig",
+          "path": "/Csm/CsmDecompression/CsmDecompressionConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Decompression. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00813",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackDecompression",
+              "path": "/Csm/CsmDecompression/CsmDecompressionConfig/CsmCallbackDecompression",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00814",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmDecompressionInitConfiguration",
+              "path": "/Csm/CsmDecompression/CsmDecompressionConfig/CsmDecompressionInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00815",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmDecompressionPrimitiveName",
+              "path": "/Csm/CsmDecompression/CsmDecompressionConfig/CsmDecompressionPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00816",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmGeneral",
+      "path": "/Csm/CsmGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for common configuration options.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00554",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmDevErrorDetect",
+          "path": "/Csm/CsmGeneral/CsmDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00555",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmMainFunctionPeriod",
+          "path": "/Csm/CsmGeneral/CsmMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the period of main function Csm_MainFunction in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00773",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmMaxAlignScalarType",
+          "path": "/Csm/CsmGeneral/CsmMaxAlignScalarType",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The scalar type which has the maximum alignment restrictions on the given platform.",
+          "metadata": {
+            "INTRODUCTION": "This type can be e.g. uint8, uint16 or uint32.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00729",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "CsmUseSyncJobProcessing",
+          "path": "/Csm/CsmGeneral/CsmUseSyncJobProcessing",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch to enable and disable synchronous job processing.",
+          "metadata": {
+            "INTRODUCTION": "True: synchronous job processing enabled False: synchronous job processing disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00557",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmVersionInfoApi",
+          "path": "/Csm/CsmGeneral/CsmVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch to enable and disable availability of the API Csm_GetVersionInfo(). True: API Csm_GetVersionInfo() is available. False: API Csm_GetVersionInfo() is not available.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00708",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "CsmHash",
+      "path": "/Csm/CsmHash",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Hash primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00559",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmHashConfig",
+          "path": "/Csm/CsmHash/CsmHashConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Configurations for the Hash service. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00560",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackHash",
+              "path": "/Csm/CsmHash/CsmHashConfig/CsmCallbackHash",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00561",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmHashInitConfiguration",
+              "path": "/Csm/CsmHash/CsmHashConfig/CsmHashInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00563",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmHashPrimitiveName",
+              "path": "/Csm/CsmHash/CsmHashConfig/CsmHashPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00562",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmKeyDerive",
+      "path": "/Csm/CsmKeyDerive",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of KeyDerive primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00630",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmKeyDeriveMaxKeySize",
+          "path": "/Csm/CsmKeyDerive/CsmKeyDeriveMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a key derivation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00719",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyDeriveConfig",
+          "path": "/Csm/CsmKeyDerive/CsmKeyDeriveConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service KeyDerive. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00608",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackKeyDerive",
+              "path": "/Csm/CsmKeyDerive/CsmKeyDeriveConfig/CsmCallbackKeyDerive",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00609",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyDeriveInitConfiguration",
+              "path": "/Csm/CsmKeyDerive/CsmKeyDeriveConfig/CsmKeyDeriveInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00611",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyDerivePrimitiveName",
+              "path": "/Csm/CsmKeyDerive/CsmKeyDeriveConfig/CsmKeyDerivePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00610",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmKeyDeriveSymKey",
+      "path": "/Csm/CsmKeyDeriveSymKey",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of CsmKeyDeriveSymKey primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00767",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmKeyDeriveSymKeyMaxSymKeySize",
+          "path": "/Csm/CsmKeyDeriveSymKey/CsmKeyDeriveSymKeyMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a key derivation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00769",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyDeriveSymKeyConfig",
+          "path": "/Csm/CsmKeyDeriveSymKey/CsmKeyDeriveSymKeyConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service CsmKeyDeriveSymKey. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00768",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackKeyDeriveSymKey",
+              "path": "/Csm/CsmKeyDeriveSymKey/CsmKeyDeriveSymKeyConfig/CsmCallbackKeyDeriveSymKey",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00770",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyDeriveSymKeyInitConfiguration",
+              "path": "/Csm/CsmKeyDeriveSymKey/CsmKeyDeriveSymKeyConfig/CsmKeyDeriveSymKeyInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00772",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyDeriveSymKeyPrimitiveName",
+              "path": "/Csm/CsmKeyDeriveSymKey/CsmKeyDeriveSymKeyConfig/CsmKeyDeriveSymKeyPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00771",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmKeyExchangeCalcPubVal",
+      "path": "/Csm/CsmKeyExchangeCalcPubVal",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of KeyExchangeCalcPubVal primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00631",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmKeyExchangeCalcPubValMaxBaseTypeSize",
+          "path": "/Csm/CsmKeyExchangeCalcPubVal/CsmKeyExchangeCalcPubValMaxBaseTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all base types used in all CRY primitives which implement a public value calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00720",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyExchangeCalcPubValMaxPrivateTypeSize",
+          "path": "/Csm/CsmKeyExchangeCalcPubVal/CsmKeyExchangeCalcPubValMaxPrivateTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CRY primitives which implement a public value calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00721",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyExchangeCalcPubValConfig",
+          "path": "/Csm/CsmKeyExchangeCalcPubVal/CsmKeyExchangeCalcPubValConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service KeyExchangeCalcPubVal. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00612",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackKeyExchangeCalcPubVal",
+              "path": "/Csm/CsmKeyExchangeCalcPubVal/CsmKeyExchangeCalcPubValConfig/CsmCallbackKeyExchangeCalcPubVal",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00613",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyExchangeCalcPubValInitConfiguration",
+              "path": "/Csm/CsmKeyExchangeCalcPubVal/CsmKeyExchangeCalcPubValConfig/CsmKeyExchangeCalcPubValInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00615",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyExchangeCalcPubValPrimitiveName",
+              "path": "/Csm/CsmKeyExchangeCalcPubVal/CsmKeyExchangeCalcPubValConfig/CsmKeyExchangeCalcPubValPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00614",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmKeyExchangeCalcSecret",
+      "path": "/Csm/CsmKeyExchangeCalcSecret",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of KeyExchangeCalcSecret primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00632",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmKeyExchangeCalcSecretMaxBaseTypeSize",
+          "path": "/Csm/CsmKeyExchangeCalcSecret/CsmKeyExchangeCalcSecretMaxBaseTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all base types used in all CRY primitives which implement a shared secret calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00722",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyExchangeCalcSecretMaxPrivateTypeSize",
+          "path": "/Csm/CsmKeyExchangeCalcSecret/CsmKeyExchangeCalcSecretMaxPrivateTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CRY primitives which implement a shared secret calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00723",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyExchangeCalcSecretConfig",
+          "path": "/Csm/CsmKeyExchangeCalcSecret/CsmKeyExchangeCalcSecretConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service KeyExchangeCalcSecret. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00616",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackKeyExchangeCalcSecret",
+              "path": "/Csm/CsmKeyExchangeCalcSecret/CsmKeyExchangeCalcSecretConfig/CsmCallbackKeyExchangeCalcSecret",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00617",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyExchangeCalcSecretInitConfiguration",
+              "path": "/Csm/CsmKeyExchangeCalcSecret/CsmKeyExchangeCalcSecretConfig/CsmKeyExchangeCalcSecretInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00545",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyExchangeCalcSecretPrimitiveName",
+              "path": "/Csm/CsmKeyExchangeCalcSecret/CsmKeyExchangeCalcSecretConfig/CsmKeyExchangeCalcSecretPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00618",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmKeyExchangeCalcSymKey",
+      "path": "/Csm/CsmKeyExchangeCalcSymKey",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of KeyExchangeCalcSymKey primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00732",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmKeyExchangeCalcSymKeyMaxBaseTypeSize",
+          "path": "/Csm/CsmKeyExchangeCalcSymKey/CsmKeyExchangeCalcSymKeyMaxBaseTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all base types used in all CRY primitives which implement a symmetrical key calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00738",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyExchangeCalcSymKeyMaxPrivateTypeSize",
+          "path": "/Csm/CsmKeyExchangeCalcSymKey/CsmKeyExchangeCalcSymKeyMaxPrivateTypeSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all private information types used in all CRY primitives which implement a symmetrical key calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00737",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyExchangeCalcSymKeyMaxSymKeySize",
+          "path": "/Csm/CsmKeyExchangeCalcSymKey/CsmKeyExchangeCalcSymKeyMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical key calculation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00739",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmKeyExchangeCalcSymKeyConfig",
+          "path": "/Csm/CsmKeyExchangeCalcSymKey/CsmKeyExchangeCalcSymKeyConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service KeyExchangeCalcSymKey. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00736",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackKeyExchangeCalcSymKey",
+              "path": "/Csm/CsmKeyExchangeCalcSymKey/CsmKeyExchangeCalcSymKeyConfig/CsmCallbackKeyExchangeCalcSymKey",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00733",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyExchangeCalcSymKeyInitConfiguration",
+              "path": "/Csm/CsmKeyExchangeCalcSymKey/CsmKeyExchangeCalcSymKeyConfig/CsmKeyExchangeCalcSymKeyInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00735",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmKeyExchangeCalcSymKeyPrimitiveName",
+              "path": "/Csm/CsmKeyExchangeCalcSymKey/CsmKeyExchangeCalcSymKeyConfig/CsmKeyExchangeCalcSymKeyPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00734",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmMacGenerate",
+      "path": "/Csm/CsmMacGenerate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of MacGenerate primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00635",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmMacGenerateMaxKeySize",
+          "path": "/Csm/CsmMacGenerate/CsmMacGenerateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a MAC generation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00709",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmMacGenerateConfig",
+          "path": "/Csm/CsmMacGenerate/CsmMacGenerateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Configurations for the MacGenerate service. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00564",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackMacGenerate",
+              "path": "/Csm/CsmMacGenerate/CsmMacGenerateConfig/CsmCallbackMacGenerate",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00565",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmMacGenerateInitConfiguration",
+              "path": "/Csm/CsmMacGenerate/CsmMacGenerateConfig/CsmMacGenerateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00567",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmMacGeneratePrimitiveName",
+              "path": "/Csm/CsmMacGenerate/CsmMacGenerateConfig/CsmMacGeneratePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00566",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmMacVerify",
+      "path": "/Csm/CsmMacVerify",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of MacVerify primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00636",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmMacVerifyMaxKeySize",
+          "path": "/Csm/CsmMacVerify/CsmMacVerifyMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a MAC verification.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00710",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmMacVerifyConfig",
+          "path": "/Csm/CsmMacVerify/CsmMacVerifyConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service MacVerify. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00568",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackMacVerify",
+              "path": "/Csm/CsmMacVerify/CsmMacVerifyConfig/CsmCallbackMacVerify",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00569",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmMacVerifyInitConfiguration",
+              "path": "/Csm/CsmMacVerify/CsmMacVerifyConfig/CsmMacVerifyInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00571",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmMacVerifyPrimitiveName",
+              "path": "/Csm/CsmMacVerify/CsmMacVerifyConfig/CsmMacVerifyPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00570",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmRandomGenerate",
+      "path": "/Csm/CsmRandomGenerate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of RandomGenerate primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00620",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmRandomGenerateConfig",
+          "path": "/Csm/CsmRandomGenerate/CsmRandomGenerateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service RandomGenerate. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00637",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackRandomGenerate",
+              "path": "/Csm/CsmRandomGenerate/CsmRandomGenerateConfig/CsmCallbackRandomGenerate",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00638",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmRandomGenerateInitConfiguration",
+              "path": "/Csm/CsmRandomGenerate/CsmRandomGenerateConfig/CsmRandomGenerateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00640",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmRandomGeneratePrimitiveName",
+              "path": "/Csm/CsmRandomGenerate/CsmRandomGenerateConfig/CsmRandomGeneratePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00639",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmRandomSeed",
+      "path": "/Csm/CsmRandomSeed",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of RandomSeed primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00641",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmRandomSeedConfig",
+          "path": "/Csm/CsmRandomSeed/CsmRandomSeedConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service RandomSeed. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00642",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackRandomSeed",
+              "path": "/Csm/CsmRandomSeed/CsmRandomSeedConfig/CsmCallbackRandomSeed",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00643",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmRandomSeedInitConfiguration",
+              "path": "/Csm/CsmRandomSeed/CsmRandomSeedConfig/CsmRandomSeedInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00645",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmRandomSeedPrimitiveName",
+              "path": "/Csm/CsmRandomSeed/CsmRandomSeedConfig/CsmRandomSeedPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00644",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSignatureGenerate",
+      "path": "/Csm/CsmSignatureGenerate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SignatureGenerate primitives",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00627",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSignatureGenerateMaxKeySize",
+          "path": "/Csm/CsmSignatureGenerate/CsmSignatureGenerateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a signature generation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00717",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSignatureGenerateConfig",
+          "path": "/Csm/CsmSignatureGenerate/CsmSignatureGenerateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SignatureGenerate. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00596",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSignatureGenerate",
+              "path": "/Csm/CsmSignatureGenerate/CsmSignatureGenerateConfig/CsmCallbackSignatureGenerate",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00597",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSignatureGenerateInitConfiguration",
+              "path": "/Csm/CsmSignatureGenerate/CsmSignatureGenerateConfig/CsmSignatureGenerateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00599",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSignatureGeneratePrimitiveName",
+              "path": "/Csm/CsmSignatureGenerate/CsmSignatureGenerateConfig/CsmSignatureGeneratePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00598",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSignatureVerify",
+      "path": "/Csm/CsmSignatureVerify",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SignatureVerify primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00628",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSignatureVerifyMaxKeySize",
+          "path": "/Csm/CsmSignatureVerify/CsmSignatureVerifyMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a signature verification.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00718",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSignatureVerifyConfig",
+          "path": "/Csm/CsmSignatureVerify/CsmSignatureVerifyConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SignatureVerify. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00600",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSignatureVerify",
+              "path": "/Csm/CsmSignatureVerify/CsmSignatureVerifyConfig/CsmCallbackSignatureVerify",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00601",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSignatureVerifyInitConfiguration",
+              "path": "/Csm/CsmSignatureVerify/CsmSignatureVerifyConfig/CsmSignatureVerifyInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00603",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSignatureVerifyPrimitiveName",
+              "path": "/Csm/CsmSignatureVerify/CsmSignatureVerifyConfig/CsmSignatureVerifyPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00602",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymBlockDecrypt",
+      "path": "/Csm/CsmSymBlockDecrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymBlockDecrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00622",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymBlockDecryptMaxKeySize",
+          "path": "/Csm/CsmSymBlockDecrypt/CsmSymBlockDecryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical block decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00712",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymBlockDecryptConfig",
+          "path": "/Csm/CsmSymBlockDecrypt/CsmSymBlockDecryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymBlockDecrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00576",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymBlockDecrypt",
+              "path": "/Csm/CsmSymBlockDecrypt/CsmSymBlockDecryptConfig/CsmCallbackSymBlockDecrypt",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00577",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymBlockDecryptInitConfiguration",
+              "path": "/Csm/CsmSymBlockDecrypt/CsmSymBlockDecryptConfig/CsmSymBlockDecryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00579",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymBlockDecryptPrimitiveName",
+              "path": "/Csm/CsmSymBlockDecrypt/CsmSymBlockDecryptConfig/CsmSymBlockDecryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00578",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymBlockEncrypt",
+      "path": "/Csm/CsmSymBlockEncrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymBlockEncrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00621",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymBlockEncryptMaxKeySize",
+          "path": "/Csm/CsmSymBlockEncrypt/CsmSymBlockEncryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical block encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00711",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymBlockEncryptConfig",
+          "path": "/Csm/CsmSymBlockEncrypt/CsmSymBlockEncryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymBlockEncrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00572",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymBlockEncrypt",
+              "path": "/Csm/CsmSymBlockEncrypt/CsmSymBlockEncryptConfig/CsmCallbackSymBlockEncrypt",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00573",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymBlockEncryptInitConfiguration",
+              "path": "/Csm/CsmSymBlockEncrypt/CsmSymBlockEncryptConfig/CsmSymBlockEncryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00575",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymBlockEncryptPrimitiveName",
+              "path": "/Csm/CsmSymBlockEncrypt/CsmSymBlockEncryptConfig/CsmSymBlockEncryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00574",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymDecrypt",
+      "path": "/Csm/CsmSymDecrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymDecrypt primitives",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00624",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymDecryptMaxKeySize",
+          "path": "/Csm/CsmSymDecrypt/CsmSymDecryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical decryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00714",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymDecryptConfig",
+          "path": "/Csm/CsmSymDecrypt/CsmSymDecryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymDecrypt.",
+          "metadata": {
+            "INTRODUCTION": "The container name serves as a symbolic name for the identifier of a service configuration.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00584",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymDecrypt",
+              "path": "/Csm/CsmSymDecrypt/CsmSymDecryptConfig/CsmCallbackSymDecrypt",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00585",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymDecryptInitConfiguration",
+              "path": "/Csm/CsmSymDecrypt/CsmSymDecryptConfig/CsmSymDecryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00587",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymDecryptPrimitiveName",
+              "path": "/Csm/CsmSymDecrypt/CsmSymDecryptConfig/CsmSymDecryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00586",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymEncrypt",
+      "path": "/Csm/CsmSymEncrypt",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymEncrypt primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00623",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymEncryptMaxKeySize",
+          "path": "/Csm/CsmSymEncrypt/CsmSymEncryptMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical encryption.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00713",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymEncryptConfig",
+          "path": "/Csm/CsmSymEncrypt/CsmSymEncryptConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymEncrypt. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00580",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymEncrypt",
+              "path": "/Csm/CsmSymEncrypt/CsmSymEncryptConfig/CsmCallbackSymEncrypt",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00581",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymEncryptInitConfiguration",
+              "path": "/Csm/CsmSymEncrypt/CsmSymEncryptConfig/CsmSymEncryptInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00583",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymEncryptPrimitiveName",
+              "path": "/Csm/CsmSymEncrypt/CsmSymEncryptConfig/CsmSymEncryptPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00582",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymKeyExtract",
+      "path": "/Csm/CsmSymKeyExtract",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymKeyExtract primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00633",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymKeyExtractMaxKeySize",
+          "path": "/Csm/CsmSymKeyExtract/CsmSymKeyExtractMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical key extraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00724",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymKeyExtractConfig",
+          "path": "/Csm/CsmSymKeyExtract/CsmSymKeyExtractConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymKeyExtract. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00546",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymKeyExtract",
+              "path": "/Csm/CsmSymKeyExtract/CsmSymKeyExtractConfig/CsmCallbackSymKeyExtract",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00547",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyExtractInitConfiguration",
+              "path": "/Csm/CsmSymKeyExtract/CsmSymKeyExtractConfig/CsmSymKeyExtractInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00549",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyExtractPrimitiveName",
+              "path": "/Csm/CsmSymKeyExtract/CsmSymKeyExtractConfig/CsmSymKeyExtractPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00548",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymKeyGenerate",
+      "path": "/Csm/CsmSymKeyGenerate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Symmetric Key Generate primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00783",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymKeyGenerateMaxKeySize",
+          "path": "/Csm/CsmSymKeyGenerate/CsmSymKeyGenerateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical key generation.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00803",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymKeyGenerateConfig",
+          "path": "/Csm/CsmSymKeyGenerate/CsmSymKeyGenerateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Symmetric Key Generate. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00784",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymKeyGenerate",
+              "path": "/Csm/CsmSymKeyGenerate/CsmSymKeyGenerateConfig/CsmCallbackSymKeyGenerate",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00785",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyGenerateInitConfiguration",
+              "path": "/Csm/CsmSymKeyGenerate/CsmSymKeyGenerateConfig/CsmSymKeyGenerateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00786",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyGeneratePrimitiveName",
+              "path": "/Csm/CsmSymKeyGenerate/CsmSymKeyGenerateConfig/CsmSymKeyGeneratePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00787",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymKeyUpdate",
+      "path": "/Csm/CsmSymKeyUpdate",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of Symmetric Key Update primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00788",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymKeyUpdateMaxKeySize",
+          "path": "/Csm/CsmSymKeyUpdate/CsmSymKeyUpdateMaxKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement a symmetrical key update.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00804",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymKeyUpdateConfig",
+          "path": "/Csm/CsmSymKeyUpdate/CsmSymKeyUpdateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service Symmetric Key Update. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00789",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymKeyUpdate",
+              "path": "/Csm/CsmSymKeyUpdate/CsmSymKeyUpdateConfig/CsmCallbackSymKeyUpdate",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00790",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyUpdateInitConfiguration",
+              "path": "/Csm/CsmSymKeyUpdate/CsmSymKeyUpdateConfig/CsmSymKeyUpdateInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00791",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyUpdatePrimitiveName",
+              "path": "/Csm/CsmSymKeyUpdate/CsmSymKeyUpdateConfig/CsmSymKeyUpdatePrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00792",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymKeyWrapAsym",
+      "path": "/Csm/CsmSymKeyWrapAsym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymKeyWrapSym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00746",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymKeyWrapAsymMaxPubKeySize",
+          "path": "/Csm/CsmSymKeyWrapAsym/CsmSymKeyWrapAsymMaxPubKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum length, in bytes, of all public key types used in all CRY primitives which implement an asymmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00766",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymKeyWrapAsymMaxSymKeySize",
+          "path": "/Csm/CsmSymKeyWrapAsym/CsmSymKeyWrapAsymMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an asymmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00748",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymKeyWrapAsymConfig",
+          "path": "/Csm/CsmSymKeyWrapAsym/CsmSymKeyWrapAsymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymKeyWrapAsym. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00747",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymKeyWrapAsym",
+              "path": "/Csm/CsmSymKeyWrapAsym/CsmSymKeyWrapAsymConfig/CsmCallbackSymKeyWrapAsym",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00749",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyWrapAsymInitConfiguration",
+              "path": "/Csm/CsmSymKeyWrapAsym/CsmSymKeyWrapAsymConfig/CsmSymKeyWrapAsymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00751",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyWrapAsymPrimitiveName",
+              "path": "/Csm/CsmSymKeyWrapAsym/CsmSymKeyWrapAsymConfig/CsmSymKeyWrapAsymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00750",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CsmSymKeyWrapSym",
+      "path": "/Csm/CsmSymKeyWrapSym",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for incorporation of SymKeyWrapSym primitives.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00740",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CsmSymKeyWrapSymMaxSymKeySize",
+          "path": "/Csm/CsmSymKeyWrapSym/CsmSymKeyWrapSymMaxSymKeySize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum, in bytes, of all key lengths used in all CRY primitives which implement an symmetrical key wrapping.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00745",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CsmSymKeyWrapSymConfig",
+          "path": "/Csm/CsmSymKeyWrapSym/CsmSymKeyWrapSymConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "32",
+          "infinite": null,
+          "description": "Container for configuration of service SymKeyWrapSym. The container name serves as a symbolic name for the identifier of a service configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00741",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "32"
+          },
+          "children": [
+            {
+              "name": "CsmCallbackSymKeyWrapSym",
+              "path": "/Csm/CsmSymKeyWrapSym/CsmSymKeyWrapSymConfig/CsmCallbackSymKeyWrapSym",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Callback function to be called if service has finished.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00742",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyWrapSymInitConfiguration",
+              "path": "/Csm/CsmSymKeyWrapSym/CsmSymKeyWrapSymConfig/CsmSymKeyWrapSymInitConfiguration",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of a C symbol which contains the configuration of the underlying cryptographic primitive.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00744",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "CsmSymKeyWrapSymPrimitiveName",
+              "path": "/Csm/CsmSymKeyWrapSym/CsmSymKeyWrapSymConfig/CsmSymKeyWrapSymPrimitiveName",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the cryptographic primitive to use.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Csm_00743",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "name": "J1939Dcm",
+  "path": "/J1939Dcm",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "The SAE J1939 Dcm module",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00005",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "J1939DcmConfigSet",
+      "path": "/J1939Dcm/J1939DcmConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR J1939Dcm module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00009",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "J1939DcmChannel",
+          "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Contains the J1939DcmChannel parameters.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "J1939DcmBusType",
+              "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmChannel/J1939DcmBusType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Identifies the communication port",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00039",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "J1939DCM_ISO9141 AUTOSAR_ECUC J1939DCM_J1587 AUTOSAR_ECUC J1939DCM_J1850 AUTOSAR_ECUC J1939DCM_J1922 AUTOSAR_ECUC J1939DCM_J1939_NETWORK_1 AUTOSAR_ECUC J1939DCM_J1939_NETWORK_2 AUTOSAR_ECUC J1939DCM_J1939_NETWORK_3 AUTOSAR_ECUC J1939DCM_OTHER AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939DcmComMChannelRef",
+              "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmChannel/J1939DcmComMChannelRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the ComMChannel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00038",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "J1939DcmNode",
+          "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Contains the parameters for the support of a logical J1939 node.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00010",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "J1939DcmSPNsInDataStream",
+              "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmSPNsInDataStream",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Defines the SPNs available in data stream for use in DM24.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00047",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "524287",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939DcmNmNodeRef",
+              "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmNmNodeRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the corresponding J1939Nm node.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/J1939Nm/J1939NmConfigSet/J1939NmNode"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939DcmNodeRmUserRef",
+              "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmNodeRmUserRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the J1939RmUser used by J1939Dcm.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00049",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939DcmDiagnosticMessageSupport",
+              "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Contains parameters to configure the diagnostic message support",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00014",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "J1939DcmDmxSupport",
+                  "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmDmxSupport",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is used to identify the actual DMx message.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00042",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "J1939DCM_DM01_SUPPORT AUTOSAR_ECUC J1939DCM_DM02_SUPPORT AUTOSAR_ECUC J1939DCM_DM03_SUPPORT AUTOSAR_ECUC J1939DCM_DM04_SUPPORT AUTOSAR_ECUC J1939DCM_DM05_SUPPORT AUTOSAR_ECUC J1939DCM_DM06_SUPPORT AUTOSAR_ECUC J1939DCM_DM07_SUPPORT AUTOSAR_ECUC J1939DCM_DM08_SUPPORT AUTOSAR_ECUC J1939DCM_DM09_SUPPORT AUTOSAR_ECUC J1939DCM_DM10_SUPPORT AUTOSAR_ECUC J1939DCM_DM11_SUPPORT AUTOSAR_ECUC J1939DCM_DM12_SUPPORT AUTOSAR_ECUC J1939DCM_DM13_SUPPORT AUTOSAR_ECUC J1939DCM_DM14_SUPPORT AUTOSAR_ECUC J1939DCM_DM15_SUPPORT AUTOSAR_ECUC J1939DCM_DM16_SUPPORT AUTOSAR_ECUC J1939DCM_DM17_SUPPORT AUTOSAR_ECUC J1939DCM_DM18_SUPPORT AUTOSAR_ECUC J1939DCM_DM19_SUPPORT AUTOSAR_ECUC J1939DCM_DM20_SUPPORT AUTOSAR_ECUC J1939DCM_DM21_SUPPORT AUTOSAR_ECUC J1939DCM_DM22_SUPPORT AUTOSAR_ECUC J1939DCM_DM23_SUPPORT AUTOSAR_ECUC J1939DCM_DM24_SUPPORT AUTOSAR_ECUC J1939DCM_DM25_SUPPORT AUTOSAR_ECUC J1939DCM_DM26_SUPPORT AUTOSAR_ECUC J1939DCM_DM27_SUPPORT AUTOSAR_ECUC J1939DCM_DM28_SUPPORT AUTOSAR_ECUC J1939DCM_DM29_SUPPORT AUTOSAR_ECUC J1939DCM_DM30_SUPPORT AUTOSAR_ECUC J1939DCM_DM31_SUPPORT AUTOSAR_ECUC J1939DCM_DM32_SUPPORT AUTOSAR_ECUC J1939DCM_DM33_SUPPORT AUTOSAR_ECUC J1939DCM_DM34_SUPPORT AUTOSAR_ECUC J1939DCM_DM35_SUPPORT AUTOSAR_ECUC J1939DCM_DM36_SUPPORT AUTOSAR_ECUC J1939DCM_DM37_SUPPORT AUTOSAR_ECUC J1939DCM_DM38_SUPPORT AUTOSAR_ECUC J1939DCM_DM39_SUPPORT AUTOSAR_ECUC J1939DCM_DM40_SUPPORT AUTOSAR_ECUC J1939DCM_DM41_SUPPORT AUTOSAR_ECUC J1939DCM_DM42_SUPPORT AUTOSAR_ECUC J1939DCM_DM43_SUPPORT AUTOSAR_ECUC J1939DCM_DM44_SUPPORT AUTOSAR_ECUC J1939DCM_DM45_SUPPORT AUTOSAR_ECUC J1939DCM_DM46_SUPPORT AUTOSAR_ECUC J1939DCM_DM47_SUPPORT AUTOSAR_ECUC J1939DCM_DM48_SUPPORT AUTOSAR_ECUC J1939DCM_DM49_SUPPORT AUTOSAR_ECUC J1939DCM_DM50_SUPPORT AUTOSAR_ECUC J1939DCM_DM51_SUPPORT AUTOSAR_ECUC J1939DCM_DM52_SUPPORT AUTOSAR_ECUC J1939DCM_DM53_SUPPORT AUTOSAR_ECUC J1939DCM_DM54_SUPPORT AUTOSAR_ECUC J1939DCM_DM55_SUPPORT AUTOSAR_ECUC J1939DCM_DM56_SUPPORT AUTOSAR_ECUC J1939DCM_DM57_SUPPORT AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939DcmDiagnosticMessageSupportChannelRef",
+                  "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmDiagnosticMessageSupportChannelRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to J1939DcmChannel for which this diagnostic message is supported.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00048",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/J1939Dcm/J1939DcmConfigSet/J1939DcmChannel"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939DcmRxPdu",
+                  "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmRxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Contains parameters to configure the J1939DcmRxPdu.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00046",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "J1939DcmRxPduId",
+                      "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmRxPdu/J1939DcmRxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The I-PDU identifier used for communication with PduR.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00016",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "J1939DcmRxPduRef",
+                      "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmRxPdu/J1939DcmRxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the global Pdu element in the Ecuc module.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00017",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "J1939DcmTxPdu",
+                  "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmTxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Contains parameters to configure the J1939DcmTxPdu.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00045",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "J1939DcmTxPduId",
+                      "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmTxPdu/J1939DcmTxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The I-PDU identifier used to identify the Tx message.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00044",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "J1939DcmTxPduRef",
+                      "path": "/J1939Dcm/J1939DcmConfigSet/J1939DcmNode/J1939DcmDiagnosticMessageSupport/J1939DcmTxPdu/J1939DcmTxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the global Pdu element in the Ecuc module.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00043",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "J1939DcmGeneral",
+      "path": "/J1939Dcm/J1939DcmGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Contains the general configuration parameters of the module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "J1939DcmCommonBufferSize",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmCommonBufferSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Size of common buffer (in Bytes). The buffer size should be as large as the longest command or response message.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00040",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939DcmDM01BufferSize",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmDM01BufferSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Size of DM01 buffer (in Bytes). The buffer size should be as large as the longest DM01 response message.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00041",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939DcmDevErrorDetect",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939DcmMainFunctionPeriod",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Call cycle in seconds of J1939Dcm_MainFunction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "0.255",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939DcmMaxDTCsPerMainFunction",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmMaxDTCsPerMainFunction",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum threshold of DTCs filtered in a single MainFunction cycle.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00006",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939DcmMaxFreezeFramesPerMainFunction",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmMaxFreezeFramesPerMainFunction",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum threshold of FreezeFrames filtered in a single MainFunction cycle.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00007",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939DcmMaxRatiosPerMainFunction",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmMaxRatiosPerMainFunction",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum threshold of Ratios filtered in a single MainFunction cycle.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00008",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939DcmVersionInfoApi",
+          "path": "/J1939Dcm/J1939DcmGeneral/J1939DcmVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling version info API support.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Dcm_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

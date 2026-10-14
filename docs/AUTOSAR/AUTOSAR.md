@@ -3,117 +3,61 @@ layout: default
 title: "AUTOSAR"
 has_children: true
 published_date: 2024-06-02T23:57:00.000Z
-last_modified_date: 2026-10-14T13:26:00.000Z
+last_modified_date: 2026-10-14T15:59:00.000Z
 nav_order: 1
 permalink: '/AUTOSAR'
 redirect_from:
  - "/e20f9e7df0d34378beea96efa4172089"
 ---
 
-## 핵심 요약
+## Table of contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
+## AUTOSAR가 해결하려는 문제
+> AUTOSAR는 ECU 소프트웨어를 구성하는 기능의 경계와 교환 가능한 기술 정보를 표준화한다. 핵심은 특정 운영체제나 통신 프로토콜 하나가 아니라, application·platform·hardware 사이의 책임을 분리하는 데 있다.
+자동차 기능이 여러 ECU와 공급사에 분산되면 같은 기능도 hardware, 통신 stack, 설정 도구에 따라 다시 통합해야 한다. AUTOSAR는 software component, interface, configuration description과 기본 소프트웨어의 역할을 정의해 이 결합을 줄이려는 접근이다. 표준을 채택했다는 사실만으로 안전성·실시간성·상호운용성이 자동으로 보장되는 것은 아니다.
+## 세 가지 표준 영역
+| 영역 | 중심 질문 | 주요 관점 |
+| --- | --- | --- |
+| Classic Platform | 제한된 자원의 제어 ECU에서 기능을 어떻게 일관되게 구성하는가? | SWC·RTE·BSW·MCAL, 정적 구성과 제어 중심 실행 |
+| Adaptive Platform | 고성능 ECU에서 독립 application과 service를 어떻게 관리하는가? | Process·service·execution/state·software lifecycle |
+| Foundation | 서로 다른 platform이 어떤 공통 계약으로 연결되는가? | 공통 protocol·방법론·상호운용성에 필요한 정의 |
 
-> Classic·Adaptive 플랫폼과 관련 문서를 연결하는 AUTOSAR 학습 기록의 진입점이다.
+Classic과 Adaptive는 이전·이후 버전 관계가 아니다. 빠르고 예측 가능한 제어와 고성능 연산·서비스 구성은 요구가 다르므로 차량 안에서 함께 사용될 수 있다. MCU=Classic, AP=Adaptive라는 단순 등식도 성립하지 않는다. 실제 플랫폼 채택은 제품 요구와 software stack에 의해 결정된다.
+## Classic이 나누는 책임
+| 계층 | 책임 |
+| --- | --- |
+| Application | 차량 기능을 SWC와 interface로 표현 |
+| RTE | SWC 간 통신과 SWC–BSW 접점을 구성에 맞게 연결 |
+| Services | OS·통신·진단·메모리 등 ECU 공통 기능 |
+| ECU Abstraction | ECU의 부품 배치와 외부 device 연결 차이를 추상화 |
+| MCAL | MCU 내부 peripheral과 hardware register 차이를 상위 계층으로부터 분리 |
+| Complex Drivers | 표준 interface만으로 수용하기 어려운 특정 hardware·timing 요구를 통합 |
 
+이 계층도는 모든 함수 호출이 반드시 한 층씩 통과한다는 뜻이 아니다. Module별 허용 interface와 resource ownership은 각 규격에서 정의한다.
+## Adaptive가 분리하는 책임
+Adaptive는 application process의 실행과 상태, service 통신, 지속 데이터, 진단, software update와 보안 관련 기능을 functional cluster 관점에서 다룬다. 서로 다른 cluster가 제공하는 API와 platform configuration을 조합해 application을 배치한다. Functional cluster를 반드시 하나의 독립 OS process와 동일시하지 않는다.
+## 표준의 발전을 보는 흐름
+| 변화의 배경 | 표준을 읽는 관점 |
+| --- | --- |
+| 제어 ECU의 복잡성과 공급사 간 재사용 | Application interface와 hardware 의존 부분을 분리 |
+| 차량 network와 진단·메모리 서비스 확대 | 통신·진단·저장 module의 책임과 configuration 관계 정교화 |
+| 고성능 연산과 연결 기능 확대 | Process·service 기반 Adaptive 영역 등장 |
+| 두 platform의 공존 | 공통 protocol, service/data 의미와 platform 경계의 명확화 |
+| 제품 수명 동안 software 변경 | Application lifecycle, configuration·compatibility·security의 중요성 증가 |
 
-## 적용 범위
+위 표는 아키텍처 발전의 배경이다. 특정 기능의 최초 도입 release나 개별 요구사항의 변경 시점을 뜻하지 않는다.
+## Release와 제품 version의 차이
+AUTOSAR release는 표준 문서 집합의 기준선이다. BSW/AP 공급사의 제품 version, generator version, compiler version과 동일하지 않다. 같은 표준 release를 기반으로 해도 지원 subset, 확장 기능과 제한이 다를 수 있다. Document version과 AUTOSAR release 표기 또한 구분해야 한다.
+## 릴리스 문서를 읽는 구조
+| 문서 종류 | 알 수 있는 내용 |
+| --- | --- |
+| Release Overview / 해당 문서 Change History | 변경 항목과 적용 시점 |
+| Platform Design / 설명 문서 | 아키텍처의 목적과 기능 사이의 관계 |
+| SWS | Module·functional cluster의 동작과 interface 요구사항 |
+| ECU Configuration Parameter Definitions | Classic 설정 구조, parameter, reference, multiplicity |
+| Methodology / Template | 모델과 교환 정보의 의미 |
 
-
-<blockquote class="notice">
-<div class="callout">
-<div class="callout-icon" markdown="1">
-💡
-</div>
-<div class="callout-content" markdown="1">
-정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
-</div>
-</div>
-</blockquote>
-
-
-
-## 본문
-
-
----
-
-
-# AUTOSAR 란?
-
-
-<blockquote class="notice">
-<div class="callout">
-<div class="callout-icon" markdown="1">
-💡
-</div>
-<div class="callout-content" markdown="1">
-AUTOSAR(Automotive Open System Architecture) : Software Infrastructure
-</div>
-</div>
-</blockquote>
-
-
-- 자동차 산업의 표준화를 위해 만들어진 글로벌 개발 파트너십이자 자동차 소프트웨어 아키텍처를 개발하기 위한 표준화된 플랫폼입니다. 이 표준은 자동차 전자/소프트웨어 시스템의 개발 및 구현을 표준화하고, 차량 내의 소프트웨어 아키텍처의 재사용과 상호 운용성을 높이기 위해 설계되었습니다. 전 세계 자동차 제조사, 공급업체, 소프트웨어 개발자가 차량의 복잡한 전자 시스템과 소프트웨어 아키텍처를 개발할 때 널리 사용되고 있으며, 지속적으로 발전하고 있습니다.
-
----
-
-
-# AUTOSAR의 목적
-
-- 자동차 산업이 점점 더 복잡하고 기능이 통합된 전자 시스템을 요구함에 따라 효율성과 신뢰성을 높이기 위함입니다. 자동차는 이제 단순한 이동 수단을 넘어 다양한 디지털 기술과 통합되는 고도의 기술적 플랫폼으로 발전하고 있습니다.
-
-| **핵심 목적**        | **특징**                                                                                                                                 |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **표준화**          | 자동차 산업은 글로벌 공급망과 다양한 기술 제품으로 구성되어 있습니다. AUTOSAR은 이러한 다양한 컴포넌트와 시스템이 표준화된 방식으로 서로 통신하고 작동할 수 있도록 지원합니다. 이는 개발 과정의 복잡성을 줄이고, 호환성을 보장합니다. |
-| **재사용성과 비용 효율성** | AUTOSAR 아키텍처는 모듈식 구성을 제공함으로써 소프트웨어의 재사용을 용이하게 합니다. 이는 개발 비용과 시간을 줄이고, 소프트웨어의 품질을 향상시킬 수 있습니다.                                          |
-| **안전성과 신뢰성**     | 자동차는 생명과 직결된 안전이 매우 중요한 제품입니다. AUTOSAR은 엄격한 안전 기준을 준수하며, 소프트웨어의 신뢰성을 높이는데 기여합니다.                                                       |
-| **확장성**          | 차량의 기능이 계속해서 추가되고 기술이 발전함에 따라, 소프트웨어 시스템은 쉽게 확장할 수 있어야 합니다. AUTOSAR은 이러한 확장성을 지원하며 새로운 기능의 통합을 용이하게 합니다.                               |
-| **미래 기술 적용**     | 자율 주행, 전기차, 커넥티드 카 기술 등 미래 자동차 기술의 적용을 위해서는 고도의 소프트웨어 통합이 필요합니다. AUTOSAR은 이러한 새로운 기술을 효율적으로 통합할 수 있는 플랫폼을 제공합니다.                       |
-
-
----
-
-
-# AUTOSAR가 탄생한 배경
-
-1. **소프트웨어의 안전성 및 신뢰성 강화 필요**: 차량의 안전과 직결된 소프트웨어 시스템의 안전성과 신뢰성을 확보하기 위한 체계적인 접근이 필요함을 강조했습니다.
-2. **표준화의 중요성**: 다양한 제조사와 공급업체의 부품과 소프트웨어가 통합되면서 발생할 수 있는 문제들을 예방하기 위해, 호환성과 표준화가 매우 중요함을 드러냈습니다.
-3. **오류 진단 및 관리 체계의 필요성**: 소프트웨어 및 전자 시스템의 오류를 효과적으로 진단하고 관리할 수 있는 체계적인 접근이 필요함을 보여주었습니다.
-
-| **AUTOSAR 주요 릴리즈 연혁** |                                                                      |                       |                                              |   |
-| --------------------- | -------------------------------------------------------------------- | --------------------- | -------------------------------------------- | - |
-| **Classic Platform**  |                                                                      | **Adaptive Platform** |                                              |   |
-| Release 4.0 (2009)    | - 첫 번째 공식 릴리즈<br>- 베이직 소프트웨어 모듈, 개발 도구, 그리고 일반적인 차량 기능의 지원이 포함되었습니다. | Release 17-03 (2017)  | - 첫 번째 릴리즈<br>- 고성능 컴퓨팅과 인터넷 연결 기능이 도입되었습니다. |   |
-|                       |                                                                      | Release 17-10 (2017)  | - 서비스 지향 커뮤니케이션과 자동차 업데이트 기능이 개선되었습니다.       |   |
-| Release 4.1 (2011)    | - 네트워킹 기능 개선과 메모리 스택 확장 등의 기능이 강화되었습니다.                              | Release 18-03 (2018)  | - 머신 러닝 및 고급 데이터 분석을 위한 API가 추가되었습니다.        |   |
-| Release 4.2 (2013)    | - 시스템 서비스와 디바이스 드라이버 지원이 향상되었습니다.                                    | Release 18-10 (2018)  | - 개선된 보안 기능과 오류 처리 능력이 강화되었습니다.              |   |
-| Release 4.3 (2015)    | - 기능 안전 요구사항과 다중 코어 프로세서 지원이 추가되었습니다.                                | Release 19-03 (2019)  | - 시스템 모니터링 및 진단 기능이 포함되었습니다.                 |   |
-| Release 4.4 (2017)    | - 보안 기능 강화 및 사용자 인터페이스 개선이 포함되었습니다.                                  | Release 19-11 (2019)  | 클라우드 연결 및 고급 사용자 인터페이스 지원이 추가되었습니다.          |   |
-
-
----
-
-
-# Classic AUTOSAR와 Adaptive AUTOSAR
-
-- Classic AUTOSAR와 Adaptive AUTOSAR는 모두 AUTOSAR (AUTomotive Open System ARchitecture) 표준의 일부이지만, 각각의 목적과 설계 철학에 있어서 상당한 차이가 있습니다. 이 두 플랫폼은 자동차 산업의 다양한 요구사항을 충족시키기 위해 개발되었습니다.
-
-<blockquote class="notice">
-<div class="callout">
-<div class="callout-icon" markdown="1">
-💡
-</div>
-<div class="callout-content" markdown="1">
-**Classic AUTOSAR**는 전통적인 차량 전자제어장치(ECU)를 위한 플랫폼으로, 특히 제한된 자원을 가진 ECU에서의 실시간 운영을 목적으로 합니다. 이 플랫폼은 높은 신뢰성과 예측 가능한 실시간 성능을 제공하는 데 중점을 둡니다.<br>**Adaptive AUTOSAR**는 고성능 계산과 다양한 운영 체제에서의 작동을 목적으로 하는, 더 유연하고 확장 가능한 플랫폼입니다. 이는 주로 고급 운전자 보조 시스템(ADAS), 인포테인먼트, 커넥티드 카 기술 등 최신 자동차 기술의 요구사항을 충족하기 위해 설계되었습니다.
-</div>
-</div>
-</blockquote>
-
-
-
-|           | **Classic AUTOSAR**                                                                                                          | **Adaptive AUTOSAR**                                                                                                                                        |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **구조**    | 더 단순하고 정적인 구조로, 소프트웨어 컴포넌트는 미리 정의된 방식으로 통합됩니다.                                                                               | 동적이고 모듈화된 구조로, 고성능 컴퓨팅 환경에서의 유연성을 제공합니다.                                                                                                                    |
-| **컴포넌트**  | 베이직 소프트웨어(BSW), 런타임 환경(RTE), 애플리케이션 소프트웨어 컴포넌트(ASW)로 구성됩니다.                                                                  | 서비스 지향 아키텍처(<span class="tooltip">SOA<span class="tooltiptext">Service Oriented Architecture</span></span>)를 기반으로 하며, 마이크로서비스와 같은 현대적 소프트웨어 개발 패러다임을 사용합니다. |
-| **목적**    | 기능 안전성(<span class="tooltip">FuSa<span class="tooltiptext">Functional Safety</span></span>) 요구사항을 만족시키며, 전통적인 자동차 기능에 적합합니다. | 데이터 처리와 고급 연결성을 처리하며, 빠르게 변화하는 기술 요구사항에 대응합니다.                                                                                                              |
-| **적용 사례** | 엔진 제어, 전자 제동 시스템, 에어백 시스템 등의 필수적인 차량 제어 기능을 처리합니다.                                                                           | 자율 주행, 고급 인포테인먼트 시스템, 온라인 업데이트와 같은 복잡하고 동적인 기능을 지원합니다.                                                                                                      |
+페이지에 표시된 Explorer는 저장소의 AUTOSAR 4.2.2 ECUC 원본을 보여준다. 이것을 최신 Classic 또는 Adaptive 전체 규격으로 해석하지 않는다.

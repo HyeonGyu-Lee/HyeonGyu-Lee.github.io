@@ -1,0 +1,1555 @@
+{
+  "name": "DoIP",
+  "path": "/DoIP",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the DoIP (Diagnostic over IP) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "DoIPConfigSet",
+      "path": "/DoIP/DoIPConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR DoIP module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DoIPEid",
+          "path": "/DoIP/DoIPConfigSet/DoIPEid",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configured EID (Entity ID of) for vehicle identification/vehicle announcement. Only necessary if DoIPUseMacAddressForIdentification is set to FALSE.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00014",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "281474976710655",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPGid",
+          "path": "/DoIP/DoIPConfigSet/DoIPGid",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configured GID (Group ID of) for vehicle identification/vehicle announcement.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00015",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "281474976710655",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPLogicalAddress",
+          "path": "/DoIP/DoIPConfigSet/DoIPLogicalAddress",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Describes the logical address of the DoIP entity, i.e. the LA that will route diagnostic requests to the Dcm of the DoIP entity.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00020",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPChannel",
+          "path": "/DoIP/DoIPConfigSet/DoIPChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "65536",
+          "infinite": null,
+          "description": "Configuration of one DoIPChannel.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00069",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "65536"
+          },
+          "children": [
+            {
+              "name": "DoIPChannelSARef",
+              "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPChannelSARef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the DoIPTester.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00070",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/DoIP/DoIPConfigSet/DoIPTester"
+              },
+              "children": []
+            },
+            {
+              "name": "DoIPChannelTARef",
+              "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPChannelTARef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the target address.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00071",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/DoIP/DoIPConfigSet/DoIPConnections/DoIPTargetAddress"
+              },
+              "children": []
+            },
+            {
+              "name": "DoIPPduRRxPdu",
+              "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPPduRRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the Rx Pdus to connect with the Rx Pdus of the PduR.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00055",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "DoIPPduRRxPduId",
+                  "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPPduRRxPdu/DoIPPduRRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The DoIPPduRRxPduId is required by the API call DoIP_TpCancelReceive.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00057",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DoIPPduRRxPduRef",
+                  "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPPduRRxPdu/DoIPPduRRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00058",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "DoIPPduRTxPdu",
+              "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPPduRTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the Tx Pdus to connect with the Tx Pdus of the PduR. If the parameter is not configured the channel is for functional addressing.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00056",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "DoIPPduRTxPduId",
+                  "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPPduRTxPdu/DoIPPduRTxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The DoIPPduRTxPduId is required by DoIP_TpTransmit or DoIP_IfTransmit and DoIP_TpCancelTransmit.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00060",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DoIPPduType",
+                  "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPPduRTxPdu/DoIPPduType",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "API Type to use for communication with PduR. DOIP_IFPDU for UUDT messages, DOIP_TPPDU for all other diagnostic messages.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00075",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "DOIP_TPPDU",
+                    "LITERALS": "DOIP_IFPDU AUTOSAR_ECUC DOIP_TPPDU AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DoIPPduRTxPduRef",
+                  "path": "/DoIP/DoIPConfigSet/DoIPChannel/DoIPPduRTxPdu/DoIPPduRTxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00059",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DoIPConnections",
+          "path": "/DoIP/DoIPConfigSet/DoIPConnections",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Container contains all lower layer connection specific information, i.e. the single Pdu References and Handle IDs to the SoAd.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00032",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "DoIPTargetAddress",
+              "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTargetAddress",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "255",
+              "infinite": null,
+              "description": "This container describes a possible TargetAddress that is supported by DoIP.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00053",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "255"
+              },
+              "children": [
+                {
+                  "name": "DoIPTargetAddressValue",
+                  "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTargetAddress/DoIPTargetAddressValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Valid Target Address of a DoIP target address.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00054",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "DoIPTcpConnection",
+              "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTcpConnection",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "2",
+              "upper": "255",
+              "infinite": null,
+              "description": "This container describes a tcp connection to the lower layer SoAd module.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00045",
+                "LOWER-MULTIPLICITY": "2",
+                "UPPER-MULTIPLICITY": "255"
+              },
+              "children": [
+                {
+                  "name": "DoIPSoAdRxPdu",
+                  "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTcpConnection/DoIPSoAdRxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container contains the Rx Pdus received by DoIP",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00046",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DoIPSoAdRxPduId",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTcpConnection/DoIPSoAdRxPdu/DoIPSoAdRxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The DoIPSoAdRxPduId is required by the API call DoIP_SoAdTpRxIndication to receive I-PDUs from the SoAd.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00048",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DoIPSoAdRxPduRef",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTcpConnection/DoIPSoAdRxPdu/DoIPSoAdRxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00049",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "DoIPSoAdTxPdu",
+                  "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTcpConnection/DoIPSoAdTxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container describes the TxPdu sent via the SoAd",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00047",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DoIPSoAdTxPduId",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTcpConnection/DoIPSoAdTxPdu/DoIPSoAdTxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The DoIPSoAdTxPduId is required by the API call DoIP_SoAdTpTxConfirmation that is called by the SoAd to confirm that the IPdu has been transmitted successfully.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00051",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DoIPSoAdTxPduRef",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPTcpConnection/DoIPSoAdTxPdu/DoIPSoAdTxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00050",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "DoIPUdpConnection",
+              "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPUdpConnection",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "255",
+              "infinite": null,
+              "description": "This Container describes a udp connection to the lower layer SoAd module.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00052",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "255"
+              },
+              "children": [
+                {
+                  "name": "DoIPSoAdRxPdu",
+                  "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPUdpConnection/DoIPSoAdRxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container contains the Rx Pdus received by DoIP",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00046",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DoIPSoAdRxPduId",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPUdpConnection/DoIPSoAdRxPdu/DoIPSoAdRxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The DoIPSoAdRxPduId is required by the API call DoIP_SoAdTpRxIndication to receive I-PDUs from the SoAd.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00048",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DoIPSoAdRxPduRef",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPUdpConnection/DoIPSoAdRxPdu/DoIPSoAdRxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00049",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "DoIPSoAdTxPdu",
+                  "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPUdpConnection/DoIPSoAdTxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container describes the TxPdu sent via the SoAd",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00047",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DoIPSoAdTxPduId",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPUdpConnection/DoIPSoAdTxPdu/DoIPSoAdTxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The DoIPSoAdTxPduId is required by the API call DoIP_SoAdTpTxConfirmation that is called by the SoAd to confirm that the IPdu has been transmitted successfully.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00051",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DoIPSoAdTxPduRef",
+                      "path": "/DoIP/DoIPConfigSet/DoIPConnections/DoIPUdpConnection/DoIPSoAdTxPdu/DoIPSoAdTxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the \"global\" Pdu structure to allow harmonization of handle IDs in the COM-Stack.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00050",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DoIPRoutingActivation",
+          "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "255",
+          "infinite": null,
+          "description": "This container describes the routing activation possibilities by representing for each container a possible routing activation request message to the DoIP entity and the according references to the activated diagnostic messages.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00030",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "255",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "DoIPRoutingActivationNumber",
+              "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationNumber",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Identifies the Routing activation Number which is received for a DoIP routing activation request message.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00033",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "DoIPTargetAddressRef",
+              "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPTargetAddressRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "255",
+              "infinite": null,
+              "description": "Reference to all DoIPTargetAddress which are activated on this Routing activation.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00034",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "255",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/DoIP/DoIPConfigSet/DoIPConnections/DoIPTargetAddress"
+              },
+              "children": []
+            },
+            {
+              "name": "DoIPRoutingActivationAuthenticationCallback",
+              "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationAuthenticationCallback",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container describes the Callbackfunction to call on a Routing Activation Request for Authentication. If this container is configured but the DoIPRoutingActivationAuthenticationFunc parameter is not present, the DoIP module will use an RPort of ServiceInterface <RoutingActivation>_RoutingActivation with the name \"CB<RoutingActivation>RoutingActivation\". <RoutingActivation> is the ShortName of the DoIPRoutingActiviation container.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00035",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "DoIPRoutingActivationAuthenticationFunc",
+                  "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationAuthenticationCallback/DoIPRoutingActivationAuthenticationFunc",
+                  "type": "ECUC-FUNCTION-NAME-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Direct C Callback function to trigger the authentication function for routing activation. If the DoIPRoutingActivationAuthenticationFunc parameter is present, the DoIP module will not use an RPort of ServiceInterface <RoutingActivation>_RoutingActivation but call the configured function.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00039",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DoIPRoutingActivationAuthenticationReqLength",
+                  "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationAuthenticationCallback/DoIPRoutingActivationAuthenticationReqLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Describes the amount of bytes used to handle to the authentication function on routing activation. If 0 is configured as length the parameter AuthenticationReqData will not be handled to the API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00040",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DoIPRoutingActivationAuthenticationResLength",
+                  "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationAuthenticationCallback/DoIPRoutingActivationAuthenticationResLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Describes the amount of bytes used to read by the authentication function on routing activation. If 0 is configured as length the parameter AuthenticationResData will not be fetched via the API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00041",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "DoIPRoutingActivationConfirmationCallback",
+              "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationConfirmationCallback",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container describes the Callbackfunction to call on a Routing Activation Request for Confirmation. If this container is configured but the DoIPRoutingActivationConfirmationFunc parameter is not present the DoIP module will use an RPort of ServiceInterface <RoutingActivation>_RoutingActivation with the name \"CB<RoutingActivation>RoutingActivation\". <RoutingActivation> is the ShortName of the DoIPRoutingActiviation container.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00061",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "DoIPRoutingActivationConfirmationFunc",
+                  "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationConfirmationCallback/DoIPRoutingActivationConfirmationFunc",
+                  "type": "ECUC-FUNCTION-NAME-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Direct C Callback function to trigger the confirmation function for routing activation. If the DoIPRoutingActivationConfirmationFunc parameter is present the DoIP module will not use an RPort of ServiceInterface <RoutingActivation>_RoutingActivation but call the configured function.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00036",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DoIPRoutingActivationConfirmationReqLength",
+                  "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationConfirmationCallback/DoIPRoutingActivationConfirmationReqLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Describes the amount of bytes used to handle to the confirmation function on routing activation. If 0 is configured as length the parameter ConfirmedReqData will not be handled to the API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00037",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DoIPRoutingActivationConfirmationResLength",
+                  "path": "/DoIP/DoIPConfigSet/DoIPRoutingActivation/DoIPRoutingActivationConfirmationCallback/DoIPRoutingActivationConfirmationResLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Describes the amount of bytes used to read by the confirmation function on routing activation. If 0 is configured as length the parameter ConfirmedResData will not be fetched via the API.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00038",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DoIPTester",
+          "path": "/DoIP/DoIPConfigSet/DoIPTester",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "255",
+          "infinite": null,
+          "description": "This container describes the properties of the possible connectable Tester for the DoIP entity.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00031",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "255",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "DoIPNumByteDiagAckNack",
+              "path": "/DoIP/DoIPConfigSet/DoIPTester/DoIPNumByteDiagAckNack",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the number of original Diagnostic request bytes the DoIP entity responses on a NACK of a diagnostic response message to the Tester.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00042",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "DoIPTesterSA",
+              "path": "/DoIP/DoIPConfigSet/DoIPTester/DoIPTesterSA",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Source Address of the Tester sent via routing activation or diagnostic message.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00043",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "DoIPRoutingActivationRef",
+              "path": "/DoIP/DoIPConfigSet/DoIPTester/DoIPRoutingActivationRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "255",
+              "infinite": null,
+              "description": "Reference to a DoIPRoutingActivation describing the possible routing activations of the DoIPTester",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00062",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "255",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/DoIP/DoIPConfigSet/DoIPRoutingActivation"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DoIPGeneral",
+      "path": "/DoIP/DoIPGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container specifies the general configuration parameters of the DoIP module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00002",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DoIPAliveCheckResponseTimeout",
+          "path": "/DoIP/DoIPGeneral/DoIPAliveCheckResponseTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Timeout in [s] for waiting for a response to an Alive Check request before the connection is considered to be disconnected. Represents parameter T_TCP_AliveCheck of ISO 13400-2:2012.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00009",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPDevelopmentErrorDetect",
+          "path": "/DoIP/DoIPGeneral/DoIPDevelopmentErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPDhcpOptionVinUse",
+          "path": "/DoIP/DoIPGeneral/DoIPDhcpOptionVinUse",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "If DoIPDhcpOptionVinUse is set to true the DoIP module will add the VIN to the Dhcp host name if no valid Dhcp host name is already set.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00067",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPEntityStatusMaxByteFieldUse",
+          "path": "/DoIP/DoIPGeneral/DoIPEntityStatusMaxByteFieldUse",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter is used to distinguish the optional support of the Max data size element of a diagnostic entity status response.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00064",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPGIDInvalidityPattern",
+          "path": "/DoIP/DoIPGeneral/DoIPGIDInvalidityPattern",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the Byte pattern that is used for response messages if no valid GID could be retrieved.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00065",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPGeneralInactivityTime",
+          "path": "/DoIP/DoIPGeneral/DoIPGeneralInactivityTime",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Timeout in [s] for maximum inactivity of a TCP socket connection before the DoIP module will close the according socket connection. Represents parameter T_TCP_General_Inactivity of ISO 13400-2:2012",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00068",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPHeaderFileInclusion",
+          "path": "/DoIP/DoIPGeneral/DoIPHeaderFileInclusion",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Name of the header file(s) to be included by the DoIP module containing the used C-callback declarations.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00072",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPHostNameSizeMax",
+          "path": "/DoIP/DoIPGeneral/DoIPHostNameSizeMax",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum Size of the DHCP HostName in ASCII. This parameter is necessary to reserve the correct amount of bytes for working with the DHCP HostName option. Minimum range is 5 because Dhcp Host Name should be at least \"DoIP-\" on any configuration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00073",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": "255 5"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPInitialInactivityTime",
+          "path": "/DoIP/DoIPGeneral/DoIPInitialInactivityTime",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Timeout in [s] used for initial inactivity of a connected TCP socket connection directly after socket connection. Represents parameter T_TCP_Initial_Inactivity of ISO 13400-2:2012",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00010",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPInitialVehicleAnnouncementTime",
+          "path": "/DoIP/DoIPGeneral/DoIPInitialVehicleAnnouncementTime",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Time to wait in [s] for sending first vehicle anouncement message after IP address assignment. Represents parameter A_DoIP_Announce_Wait of ISO 13400-2:2012",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00008",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPMainFunctionPeriod",
+          "path": "/DoIP/DoIPGeneral/DoIPMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Determines the frequency at which the DoIP_MainFunction() is called in [s].",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPMaxRequestBytes",
+          "path": "/DoIP/DoIPGeneral/DoIPMaxRequestBytes",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the maximum allowed bytes of a DoIP message request without the DoIP header.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00019",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "18446744073709551615",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPMaxTesterConnections",
+          "path": "/DoIP/DoIPGeneral/DoIPMaxTesterConnections",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum ammount of tester connections that shall be maintained at one time before alive check is performed.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPMaxUDPRequestPerMessage",
+          "path": "/DoIP/DoIPGeneral/DoIPMaxUDPRequestPerMessage",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter captures the maximum amont of UDP Requests necessary to handle paralel within a single UDP connection.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00074",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPNodeType",
+          "path": "/DoIP/DoIPGeneral/DoIPNodeType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Describes the Type of the DoIP node.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00021",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "DOIP_GATEWAY AUTOSAR_ECUC DOIP_NODE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPUseEIDasGID",
+          "path": "/DoIP/DoIPGeneral/DoIPUseEIDasGID",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the DoIP entity shall use its EID if it is the Master for vehicle identification gid on the vehicle identification/vehicle announcement.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00018",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPUseMacAddressForIdentification",
+          "path": "/DoIP/DoIPGeneral/DoIPUseMacAddressForIdentification",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Provided the information if a configured EID at vehicle identification response/vehicle announment is used or the MAC address.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: Use MAC Address instead of EID for Vehicle identification/announcement. FALSE: Use configured EID for vehicle identification/announcement. Dependencies: DoIPEID",
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00013",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPUseVehicleIdentificationSyncStatus",
+          "path": "/DoIP/DoIPGeneral/DoIPUseVehicleIdentificationSyncStatus",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines if the optional VIN/GID synchronization status is used additionally in the vehicle identification/announcement.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00016",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPVehicleAnnouncementInterval",
+          "path": "/DoIP/DoIPGeneral/DoIPVehicleAnnouncementInterval",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Time to wait in [s] for sending subsequent vehicle anouncement messages. Represents parameter A_DoIP_Announce_Interval of ISO 13400-2:2012",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPVehicleAnnouncementRepetition",
+          "path": "/DoIP/DoIPGeneral/DoIPVehicleAnnouncementRepetition",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Amount of repetitions of the vehicle announcement message on IP address assignment. Represents parameter A_DoIP_Annunce_Num of ISO 13400-2:2012",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPVersionInfoApi",
+          "path": "/DoIP/DoIPGeneral/DoIPVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activates the DoIP_GetVersionInfo() API.",
+          "metadata": {
+            "INTRODUCTION": "TRUE: Enables the DoIP_GetVersionInfo() API. FALSE: DoIP_GetVersionInfo() API is not included.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPVinGidMaster",
+          "path": "/DoIP/DoIPGeneral/DoIPVinGidMaster",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies if the DoIP entity is the Vehicle identification Master for the GID (Group ID).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00017",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPVinInvalidityPattern",
+          "path": "/DoIP/DoIPGeneral/DoIPVinInvalidityPattern",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the Byte pattern that is used for response messages if no valid VIN could be retrieved.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00066",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DoIPGetGidCallback",
+          "path": "/DoIP/DoIPGeneral/DoIPGetGidCallback",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container describes the usage of a callback function to get the GID. (If this container is not present no callback function shall be used by DoIP module to retrive the GID.)",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00024",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "DoIPGetGidDirect",
+              "path": "/DoIP/DoIPGeneral/DoIPGetGidCallback/DoIPGetGidDirect",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If the DoIPGetGidDirect parameter exist the DoIP module shall call the configured callback function (<User>_DoIPGetGID) direct. (It is not needed to specify a service port to the DoIP service component.)",
+              "metadata": {
+                "INTRODUCTION": "If the DoIPGetGidDirect parameter does NOT exist the DoIP module shall use a RPort with a CallbackGetGID type of client-server port interface to retrive the GID.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00028",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "DoIPPowerModeCallback",
+          "path": "/DoIP/DoIPGeneral/DoIPPowerModeCallback",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container describes the usage of a callback function to retrieve the current power mode. This container shall always be present.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00023",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "DoIPPowerModeDirect",
+              "path": "/DoIP/DoIPGeneral/DoIPPowerModeCallback/DoIPPowerModeDirect",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If the DoIPPowerModeDirect parameter exist the DoIP module shall call the configured callback function (<User>_DoIPGetPowerModeCallback) direct. (It is not needed to specify a service port to the DoIP service component.)",
+              "metadata": {
+                "INTRODUCTION": "If the DoIPPowerModeDirect parameter does NOT present the DoIP module shall use a RPort with a CallbackGetPowerMode type of client-server port interface to retrive the current power mode.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00027",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "DoIPTriggerGidSyncCallback",
+          "path": "/DoIP/DoIPGeneral/DoIPTriggerGidSyncCallback",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container describes the usage of a callback function to trigger the GID synchronization. (If this container does not exist no callback function shall be used by DoIP module to trigger the GID synchronization.)",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00025",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "DoIPTriggerGidSyncDirect",
+              "path": "/DoIP/DoIPGeneral/DoIPTriggerGidSyncCallback/DoIPTriggerGidSyncDirect",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "If the DoIPTriggerGidSyncDirect parameter exist the DoIP module shall call the configured callback function (<User>_DoIPTriggerGidSyncCallback) direct. (It is not needed to specify a service port to the DoIP service component.)",
+              "metadata": {
+                "INTRODUCTION": "If the DoIPTriggerGidSyncDirect parameter does NOT present the DoIP module shall use a RPort with a CallbackTriggerGIDSynchnonization type of client-server port interface to trigger the GID synchronization.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_DoIP_00029",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

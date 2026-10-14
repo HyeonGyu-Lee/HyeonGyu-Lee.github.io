@@ -1,0 +1,1433 @@
+{
+  "name": "Dbg",
+  "path": "/Dbg",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the debugging module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00835",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "DbgBuffering",
+      "path": "/Dbg/DbgBuffering",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the parameters to manage the storage of debugging data in RAM.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00809",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DbgBufferSize",
+          "path": "/Dbg/DbgBuffering/DbgBufferSize",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Size in bytes of the RAM for the ring buffer. A size of 0 means that no buffer exists. All data records are directly transferred.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00806",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgBufferStrategy",
+          "path": "/Dbg/DbgBuffering/DbgBufferStrategy",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Strategy of buffer operations when it is full: overwrite oldest entries or stop the storage.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00807",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "StopStorage",
+            "LITERALS": "OverwriteOldestEntries AUTOSAR_ECUC StopStorage AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgBufferTransmission",
+          "path": "/Dbg/DbgBuffering/DbgBufferTransmission",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Automatic or requested transmission of the buffer.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00808",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "StartOnHostRequest",
+            "LITERALS": "StartAfterInitialization AUTOSAR_ECUC StartOnHostRequest AUTOSAR_ECUC"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "DbgCommunication",
+      "path": "/Dbg/DbgCommunication",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds all configuration parameters for communication.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00810",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DbgRxPdu",
+          "path": "/Dbg/DbgCommunication/DbgRxPdu",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container holds configuration parameters for the receive-pdu.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00860",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "DbgRxPduId",
+              "path": "/Dbg/DbgCommunication/DbgRxPdu/DbgRxPduId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Handle Id to be used by the PduR to indicate the reception of the DbgRxPdu to the Dbg module. The actual value of this parameter is fixed to 0 since there is only one RxPdu for the Dbg module.",
+              "metadata": {
+                "INTRODUCTION": "The existence of this parameter is essential for the PduR generation tool to actually find a symbolicNameValue for the RxPdu.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00862",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PUBLISHED-INFORMATION VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "DEFAULT-VALUE": "0",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgReceiveIPduRef",
+              "path": "/Dbg/DbgCommunication/DbgRxPdu/DbgReceiveIPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the receive I-PDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00825",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "DbgTxPdu",
+          "path": "/Dbg/DbgCommunication/DbgTxPdu",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container holds configuration parameters for the transmit-pdu.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00859",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "DbgTxConfirmationPduId",
+              "path": "/Dbg/DbgCommunication/DbgTxPdu/DbgTxConfirmationPduId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Handle Id to be used by the PduR to confirm the transmission of the DbgTxPdu to the Dbg module. The actual value of this parameter is fixed to 0 since there is only one TxPdu for the Dbg module.",
+              "metadata": {
+                "INTRODUCTION": "The existence of this parameter is essential for the PduR generation tool to actually find a symbolicNameValue for the TxPdu.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00861",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PUBLISHED-INFORMATION VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "DEFAULT-VALUE": "0",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgSendIPduRef",
+              "path": "/Dbg/DbgCommunication/DbgTxPdu/DbgSendIPduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the send I-PDU.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00826",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DbgDIDConfiguration",
+      "path": "/Dbg/DbgDIDConfiguration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container holding the sub-structure for DID configuration.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00818",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DbgMaxDynamicDID",
+          "path": "/Dbg/DbgDIDConfiguration/DbgMaxDynamicDID",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of dynamic DIDs. This value is only needed to reserve memory for dynamic DIDs added by the host at runtime. If this parameter is not supplied it is automatically set to the configured number of static DIDs.",
+          "metadata": {
+            "INTRODUCTION": "The sum of configured number of static DIDs and MaxDynamicDID must not exceed 200. Dynamic DIDs are based on the configured number of static DIDs and consecutive.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00816",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "200",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgPredefinedDID",
+          "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "16",
+          "infinite": null,
+          "description": "This container holds all configuration parameters for predefined DIDs. For predefined DIDs, only certain values can be changed.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00820",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "16"
+          },
+          "children": [
+            {
+              "name": "DbgPredefinedDIDActivation",
+              "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDActivation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Activation or not of the DID for debugging.",
+              "metadata": {
+                "INTRODUCTION": "* true: DIDOn. * false: DIDOff.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00821",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgPredefinedDIDBuffering",
+              "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDBuffering",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Buffer the data or transmit directly.",
+              "metadata": {
+                "INTRODUCTION": "* true: BufferingOn. * false: BufferingOff.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00822",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgPredefinedDIDName",
+              "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDName",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "List of possible names for predefined DIDs.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00823",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "Dbg_PostTaskHook AUTOSAR_ECUC Dbg_PreTaskHook AUTOSAR_ECUC Dbg_TraceDetCall AUTOSAR_ECUC Dbg_TraceFunctionEntry AUTOSAR_ECUC Dbg_TraceFunctionExit AUTOSAR_ECUC Dbg_TraceRTECall AUTOSAR_ECUC Dbg_TraceRTEComCallback AUTOSAR_ECUC Dbg_TraceRTEComSignalIv AUTOSAR_ECUC Dbg_TraceRTEComSignalRx AUTOSAR_ECUC Dbg_TraceRTEComSignalTx AUTOSAR_ECUC Dbg_TraceRTEVfbSignalReceive AUTOSAR_ECUC Dbg_TraceRTEVfbSignalSend AUTOSAR_ECUC Dbg_TraceRunnableStart AUTOSAR_ECUC Dbg_TraceRunnableTermination AUTOSAR_ECUC Dbg_TraceTimestamps AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgPredefinedDIDTimeStampActivation",
+              "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDTimeStampActivation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Using or not of time stamp.",
+              "metadata": {
+                "INTRODUCTION": "* true: TimeStampOn. * false: TimeStampOff.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00824",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgPredefinedDIDAddInfo",
+              "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo",
+              "type": "ECUC-CHOICE-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Additional information in case the Predefined DID needs further configuration parameters.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00848",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "DbgAddInfoComSignal",
+                  "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoComSignal",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Additional information for DIDs with the DbgPredefinedDIDName set to:",
+                  "metadata": {
+                    "INTRODUCTION": "* Dbg_TraceRTEComSignalTx * Dbg_TraceRTEComSignalRx * Dbg_TraceRTEComSignalIv * Dbg_TraceRTEComCallback The actual SignalId used in the debugging trace APIs is taken from the ComHandleId available at the ComSignal configuration of the Com module.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00836",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DbgComSignalName",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoComSignal/DbgComSignalName",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Optional name of the traced signal. If present it shall be used in the display of the debugging tool.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00845",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgBswModuleEntryRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoComSignal/DbgBswModuleEntryRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the BSWModuleEntry describing the trace function implementation.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00840",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "BSW-MODULE-ENTRY"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgComSignalRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoComSignal/DbgComSignalRef",
+                      "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the ComSignal which shall be traced.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00846",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/Com/ComConfig/ComSignal"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "DbgAddInfoRteCall",
+                  "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRteCall",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Additional information for DIDs with the DbgPredefinedDIDName set to:",
+                  "metadata": {
+                    "INTRODUCTION": "* Dbg_TraceRTECall",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00837",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DbgCallComponentId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRteCall/DbgCallComponentId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the SW-Component Type.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00841",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgCallInstanceId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRteCall/DbgCallInstanceId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the SW-Component Instance.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00842",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgCallPortId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRteCall/DbgCallPortId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the Port.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00843",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgCallServiceId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRteCall/DbgCallServiceId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the OperationProtoype.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00844",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgBswModuleEntryRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRteCall/DbgBswModuleEntryRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the BSWModuleEntry describing the trace function implementation.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00840",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "BSW-MODULE-ENTRY"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgServiceInstanceRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRteCall/DbgServiceInstanceRef",
+                      "type": "ECUC-INSTANCE-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the actual OperationPrototype which shall be traced.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00853",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-CONTEXT": "SW-COMPONENT-PROTOTYPE PORT-PROTOTYPE",
+                        "DESTINATION-TYPE": "CLIENT-SERVER-OPERATION"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "DbgAddInfoRunnable",
+                  "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRunnable",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Additional information for DIDs with the DbgPredefinedDIDName set to:",
+                  "metadata": {
+                    "INTRODUCTION": "* Dbg_TraceRunnableStart * Dbg_TraceRunnableTermination",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00838",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DbgRunnableComponentId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRunnable/DbgRunnableComponentId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the SW-Component Type.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00849",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgRunnableId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRunnable/DbgRunnableId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the RunnableEntity.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00851",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgRunnableInstanceId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRunnable/DbgRunnableInstanceId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the SW-Component Instance.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00852",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgBswModuleEntryRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRunnable/DbgBswModuleEntryRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the BSWModuleEntry describing the trace function implementation.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00840",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "BSW-MODULE-ENTRY"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgRunnableEntityRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRunnable/DbgRunnableEntityRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the actual RunnableEntity which shall be traced.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00850",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "RUNNABLE-ENTITY"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgSoftwareComponentInstanceRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoRunnable/DbgSoftwareComponentInstanceRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the SW-ComponentProtoype which shall be traced.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00854",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "SW-COMPONENT-PROTOTYPE"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "DbgAddInfoVfbSignal",
+                  "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoVfbSignal",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Additional information for DIDs with the DbgPredefinedDIDName set to:",
+                  "metadata": {
+                    "INTRODUCTION": "* Dbg_TraceRTEVfbSignalSend * Dbg_TraceRTEVfbSignalReceive",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00839",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DbgVfbComponentId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoVfbSignal/DbgVfbComponentId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the SW-Component Type.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00855",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgVfbDataElementId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoVfbSignal/DbgVfbDataElementId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the VariableDataPrototype.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00856",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgVfbInstanceId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoVfbSignal/DbgVfbInstanceId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the SW-Component Instance.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00857",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgVfbPortId",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoVfbSignal/DbgVfbPortId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Id used to identify the Port.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00858",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgBswModuleEntryRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoVfbSignal/DbgBswModuleEntryRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Foreign reference to the BSWModuleEntry describing the trace function implementation.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00840",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "BSW-MODULE-ENTRY"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgDataElementInstanceRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgPredefinedDID/DbgPredefinedDIDAddInfo/DbgAddInfoVfbSignal/DbgDataElementInstanceRef",
+                      "type": "ECUC-INSTANCE-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the actual VariableDataPrototype which shall be traced.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00847",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-CONTEXT": "SW-COMPONENT-PROTOTYPE PORT-PROTOTYPE",
+                        "DESTINATION-TYPE": "VARIABLE-DATA-PROTOTYPE"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DbgStaticDID",
+          "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "200",
+          "infinite": null,
+          "description": "This container holds all configuration parameters for static DIDs. For predefined DIDs, only certain values can be changed.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00827",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "200"
+          },
+          "children": [
+            {
+              "name": "DbgAutomaticCollectionFrequency",
+              "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgAutomaticCollectionFrequency",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Cycle time of collection in DataCollectionTicks. A value of \"0\" indicates that the collection takes place only on request.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00805",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "0",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgStaticDIDActivation",
+              "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDActivation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Activation or not of the DID for debugging.",
+              "metadata": {
+                "INTRODUCTION": "* true: DIDOn. * false: DIDOff.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00828",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgStaticDIDBuffering",
+              "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDBuffering",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Buffer the data or transmit directly.",
+              "metadata": {
+                "INTRODUCTION": "* true: BufferingOn. * false: BufferingOff.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00829",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgStaticDIDNameRef",
+              "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDNameRef",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Name of the DID, translated by the configuration/generation tool into consecutive DID numbers starting from 0.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00830",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "DbgStaticTimeStampActivation",
+              "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticTimeStampActivation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Using or not of time stamp.",
+              "metadata": {
+                "INTRODUCTION": "* true: TimeStampOn. * false: TimeStampOff.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00831",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "DbgStaticDIDData",
+              "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData",
+              "type": "ECUC-CHOICE-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "65535",
+              "infinite": null,
+              "description": "Choice how the DID is to be configured.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00863",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "65535"
+              },
+              "children": [
+                {
+                  "name": "DbgAddressSizePair",
+                  "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgAddressSizePair",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This container describes address/size pairs. It is used for static DIDs and dynamic DIDs.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00803",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DbgASAbsoluteAddress",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgAddressSizePair/DbgASAbsoluteAddress",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Absolute address of memory location to be debugged.",
+                      "metadata": {
+                        "INTRODUCTION": "max = (2**32)-1",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00800",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "4294967295",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgASNameRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgAddressSizePair/DbgASNameRef",
+                      "type": "ECUC-LINKER-SYMBOL-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Symbolic name of the variable, translated by the configuration/generation tool into the address and size of the variable.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00801",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-LINKER-SYMBOL-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "DbgASSize",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgAddressSizePair/DbgASSize",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Absolute size in Bytes of memory location to be debugged.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00802",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "DbgDebugData",
+                  "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgDebugData",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to staticMemory used for Debug Data.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00866",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DbgDebugDataRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgDebugData/DbgDebugDataRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to staticMemory used for Debug Data.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00867",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "VARIABLE-DATA-PROTOTYPE"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "DbgLocalDebugData",
+                  "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgLocalDebugData",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a localDebugData.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00864",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "DbgLocalDebugDataRef",
+                      "path": "/Dbg/DbgDIDConfiguration/DbgStaticDID/DbgStaticDIDData/DbgLocalDebugData/DbgLocalDebugDataRef",
+                      "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to a localDebugData.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00865",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-TYPE": "IMPLEMENTATION-DATA-TYPE-ELEMENT"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DbgGeneral",
+      "path": "/Dbg/DbgGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general parameters of the debugging module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00813",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DbgDevErrorDetect",
+          "path": "/Dbg/DbgGeneral/DbgDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00812",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgHeaderFileInclusion",
+          "path": "/Dbg/DbgGeneral/DbgHeaderFileInclusion",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Name of the header file(s) to be included by the Dbg module.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00868",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": "[a-zA-Z]([a-zA-Z0-9_])*\\.h"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgVersionInfoApi",
+          "path": "/Dbg/DbgGeneral/DbgVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activate/Deactivate the version information API (Dbg_GetVersionInfo).",
+          "metadata": {
+            "INTRODUCTION": "* true: version information API activated. * false: version information API deactivated.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00834",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "DbgPeriodicDataCollection",
+      "path": "/Dbg/DbgPeriodicDataCollection",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the parameters to manage the time base of the debugging module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00819",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DbgDataCollectionTick",
+          "path": "/Dbg/DbgPeriodicDataCollection/DbgDataCollectionTick",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Number of OS counter ticks to be used as data collection tick. The OS alarm used for periodic collection of DIDs is set with this value.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00811",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgAlarmReference",
+          "path": "/Dbg/DbgPeriodicDataCollection/DbgAlarmReference",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the OS alarm used for periodic collection of DIDs.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00804",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAlarm"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "DbgTimestampConfiguration",
+      "path": "/Dbg/DbgTimestampConfiguration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the parameters to manage the time stamps of the debugging module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00833",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "DbgGlobalTimestampActivation",
+          "path": "/Dbg/DbgTimestampConfiguration/DbgGlobalTimestampActivation",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Initial value for timestamp collection.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00814",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "TimestampOff",
+            "LITERALS": "TimestampOff AUTOSAR_ECUC TimestampOn AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgTimeStampSize",
+          "path": "/Dbg/DbgTimestampConfiguration/DbgTimeStampSize",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Memory size used for the time stamps of all DIDs.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00832",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "TimeStampSize_16Bit",
+            "LITERALS": "TimeStampSize_16Bit AUTOSAR_ECUC TimeStampSize_32Bit AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "DbgGptChannel",
+          "path": "/Dbg/DbgTimestampConfiguration/DbgGptChannel",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the hardware free running timer of the GPT module for time stamps (if no HWFRT is applied, calls to add timestamps are ignored)",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Dbg_00815",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Gpt/GptChannelConfigSet/GptChannelConfiguration"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

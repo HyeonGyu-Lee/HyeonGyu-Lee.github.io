@@ -1,0 +1,1105 @@
+{
+  "name": "Adc",
+  "path": "/Adc",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Adc (Analog Digital Conversion) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "AdcConfigSet",
+      "path": "/Adc/AdcConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR Adc module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00390",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "AdcHwUnit",
+          "path": "/Adc/AdcConfigSet/AdcHwUnit",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the Driver configuration (parameters) depending on grouping of channels",
+          "metadata": {
+            "INTRODUCTION": "This container could contain HW specific parameters which are not defined in the Standardized Module Definition. They must be added in the Vendor Specific Module Definition.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00242",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "AdcClockSource",
+              "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcClockSource",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The ADC module specific clock input for the conversion unit can",
+              "metadata": {
+                "INTRODUCTION": "statically be configured to select different clock sources if provided by hardware. Enumeration literals are defined vendor specific.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00087",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "AdcHwUnitId",
+              "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcHwUnitId",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Description: Numeric ID of the HW Unit. This symbolic name allows accessing Hw Unit data. Enumeration literals are defined vendor specific.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00389",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "AdcPrescale",
+              "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcPrescale",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Optional ADC module specific clock prescale factor, if supported by hardware.",
+              "metadata": {
+                "INTRODUCTION": "ImplementationType: Adc_PrescaleType",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00088",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "AdcChannel",
+              "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains the channel configuration (parameters) depending on the hardware capability.",
+              "metadata": {
+                "INTRODUCTION": "The organization of this data structure could contain dependencies to the microcontroller so this is left up to the implementer and its location is left up to the configuration. Note: Since a AdcChannel can be part of several AdcGroups, this container is not realized as a subcontainer of AdcGroup but instead as a subcontainer of AdcHwUnit.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00268",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "AdcChannelConvTime",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configuration of conversion time, i.e. the time during which the analogue value is converted into digital representation, (in clock cycles) for each channel, if supported by hardware.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_ConversionTimeType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00011",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelHighLimit",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "High limit - used for limit checking.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00455",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelId",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines the assignment of the channel to the physical ADC hardware channel.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_ChannelType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00392",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "1024",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelLimitCheck",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables or disables limit checking for an ADC channel.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00453",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelLowLimit",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Low limit - used for limit checking.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00454",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelRangeSelect",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "In case of active limit checking: defines which conversion values are taken into account related to the boarders defined with AdcChannelLowLimit and AdcChannelHighLimit.",
+                  "metadata": {
+                    "INTRODUCTION": "Implementation Type: Adc_ChannelRangeSelectType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00456",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ADC_RANGE_ALWAYS AUTOSAR_ECUC ADC_RANGE_BETWEEN AUTOSAR_ECUC ADC_RANGE_NOT_BETWEEN AUTOSAR_ECUC ADC_RANGE_NOT_OVER_HIGH AUTOSAR_ECUC ADC_RANGE_NOT_UNDER_LOW AUTOSAR_ECUC ADC_RANGE_OVER_HIGH AUTOSAR_ECUC ADC_RANGE_UNDER_LOW AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelRefVoltsrcHigh",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Upper reference voltage source for each channel.",
+                  "metadata": {
+                    "INTRODUCTION": "Enumeration literals are defined vendor specific.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00089",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelRefVoltsrcLow",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Lower reference voltage source for each channel.",
+                  "metadata": {
+                    "INTRODUCTION": "Enumeration literals are defined vendor specific.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00023",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelResolution",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Channel resolution in bits.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_ResolutionType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00019",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "63",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcChannelSampTime",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configuration of sampling time, i.e. the time during which the value is sampled, (in clock cycles) for each channel, if supported by hardware.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_SamplingTimeType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00290",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "AdcGroup",
+              "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains the Group configuration (parameters).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00028",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "AdcGroupAccessMode",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupAccessMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Type of access mode to group conversion results.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_GroupAccessModeType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00317",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ADC_ACCESS_MODE_SINGLE AUTOSAR_ECUC ADC_ACCESS_MODE_STREAMING AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcGroupConversionMode",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupConversionMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Type of conversion mode supported by the driver.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_GroupConvModeType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00397",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ADC_CONV_MODE_CONTINUOUS AUTOSAR_ECUC ADC_CONV_MODE_ONESHOT AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcGroupId",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Numeric ID of the group. This parameter is the symbolic name to be used on the API. This symbolic name allows accessing Channel Group data. This value will be assigned to the symbolic name derived of the AdcGroup container shortName.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_GroupType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00398",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "1023",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcGroupPriority",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupPriority",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Priority level of the AdcGroup.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_GroupPriorityType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00287",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcGroupReplacement",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupReplacement",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Replacement mechanism, which is used on ADC group level, if a group conversion is interrupted by a group which has a higher priority.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_GroupReplacementType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00435",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ADC_GROUP_REPL_ABORT_RESTART AUTOSAR_ECUC ADC_GROUP_REPL_SUSPEND_RESUME AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcGroupTriggSrc",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupTriggSrc",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Type of source event that starts a group conversion.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_TriggerSourceType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00399",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ADC_TRIGG_SRC_HW AUTOSAR_ECUC ADC_TRIGG_SRC_SW AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcHwTrigSignal",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcHwTrigSignal",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configures on which edge of the hardware trigger signal the driver should react, i.e. start the conversion (only if supported by the ADC hardware).",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_HwTriggerSignalType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00400",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ADC_HW_TRIG_BOTH_EDGES AUTOSAR_ECUC ADC_HW_TRIG_FALLING_EDGE AUTOSAR_ECUC ADC_HW_TRIG_RISING_EDGE AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcHwTrigTimer",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcHwTrigTimer",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reload value of the ADC module embedded timer (only if supported by ADC hardware).",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_HwTriggerTimerType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00401",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcNotification",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcNotification",
+                  "type": "ECUC-FUNCTION-NAME-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Callback function for each group",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00402",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcStreamingBufferMode",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcStreamingBufferMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configure streaming buffer as \"linear buffer\" (i.e. the ADC Driver stops the conversion as soon as the stream buffer is full) or as \"ring buffer\" (wraps around if the end of the stream buffer is reached).",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_StreamBufferModeType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00316",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ADC_STREAM_BUFFER_CIRCULAR AUTOSAR_ECUC ADC_STREAM_BUFFER_LINEAR AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcStreamingNumSamples",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcStreamingNumSamples",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Number of ADC values to be acquired per channel in streaming access mode.",
+                  "metadata": {
+                    "INTRODUCTION": "Note: in single access mode this parameter assumes value 1, since only one sample per channel is processed. ImplementationType: Adc_StreamNumSampleType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00292",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "1",
+                    "MAX": "255",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "AdcGroupDefinition",
+                  "path": "/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Assignment of AdcChannels to a AdcGroups.",
+                  "metadata": {
+                    "INTRODUCTION": "ImplementationType: Adc_GroupDefType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00014",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Adc/AdcConfigSet/AdcHwUnit/AdcChannel"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AdcGeneral",
+      "path": "/Adc/AdcGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "General configuration (parameters) of the ADC Driver software module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00027",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "AdcDeInitApi",
+          "path": "/Adc/AdcGeneral/AdcDeInitApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Adc_DeInit() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Adc_DeInit() can be used. false: Adc_DeInit() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00404",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcDevErrorDetect",
+          "path": "/Adc/AdcGeneral/AdcDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00405",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcEnableLimitCheck",
+          "path": "/Adc/AdcGeneral/AdcEnableLimitCheck",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables or disables limit checking feature in the ADC driver.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00452",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcEnableQueuing",
+          "path": "/Adc/AdcGeneral/AdcEnableQueuing",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Determines, if the queuing mechanism is active in case of priority mechanism disabled.",
+          "metadata": {
+            "INTRODUCTION": "Note: If priority mechanism is enabled, queuing mechanism is always active and the parameter ADC_ENABLE_QUEUING is not evaluated. true: Enabled. false: Disabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00391",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcEnableStartStopGroupApi",
+          "path": "/Adc/AdcGeneral/AdcEnableStartStopGroupApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the services Adc_StartGroupConversion() and Adc_StopGroupConversion() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Adc_StartGroupConversion() and Adc_StopGroupConversion() can be used. false: Adc_StartGroupConversion() and Adc_StopGroupConversion() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00406",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcGrpNotifCapability",
+          "path": "/Adc/AdcGeneral/AdcGrpNotifCapability",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Determines, if the group notification mechanism (the functions to enable and disable the notifications) is available at runtime.",
+          "metadata": {
+            "INTRODUCTION": "true: Enabled. false: Disabled.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00105",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcHwTriggerApi",
+          "path": "/Adc/AdcGeneral/AdcHwTriggerApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the services Adc_EnableHardwareTrigger() and Adc_DisableHardwareTrigger() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Adc_EnableHardwareTrigger() and Adc_DisableHardwareTrigger() can be used. false: Adc_EnableHardwareTrigger() and Adc_DisableHardwareTrigger() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00408",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcLowPowerStatesSupport",
+          "path": "/Adc/AdcGeneral/AdcLowPowerStatesSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes all power state management related APIs (ADC_SetPowerState, ADC_GetCurrentPowerState, ADC_GetTargetPowerState, ADC_PreparePowerState, ADC_Main_PowerTransitionManager), indicating if the HW offers low power state management.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00457",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcPowerStateAsynchTransitionMode",
+          "path": "/Adc/AdcGeneral/AdcPowerStateAsynchTransitionMode",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables / disables support of the ADCDriver to the asynchronous power state transition.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00458",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcPriorityImplementation",
+          "path": "/Adc/AdcGeneral/AdcPriorityImplementation",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Determines whether a priority mechanism is available for prioritization of the conversion requests and if available, the type of prioritization mechanism. The selection applies for groups with trigger source software and trigger source hardware. Two",
+          "metadata": {
+            "INTRODUCTION": "types of prioritization mechanism can be selected. The hardware prioritization mechanism (AdcPriorityHw) uses the ADC hardware features for prioritization of the software conversion requests and hardware trigger signals for groups with trigger source hardware. The mixed hardware and software prioritization mechanism (AdcPriorityHwSw) uses the ADC hardware features for prioritization of ADC hardware trigger for groups with trigger source hardware and a software implemented prioritization mechanism for groups with trigger source software. The group priorities for software triggered groups are typically configured with lower priority levels than the group priorities for hardware triggered groups. ImplementationType: Adc_PriorityImplementationType",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00393",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "ADC_PRIORITY_HW AUTOSAR_ECUC ADC_PRIORITY_HW_SW AUTOSAR_ECUC ADC_PRIORITY_NONE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcReadGroupApi",
+          "path": "/Adc/AdcGeneral/AdcReadGroupApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Adc_ReadGroup() and from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Adc_ReadGroup() can be used. false: Adc_ReadGroup() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00394",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcResultAlignment",
+          "path": "/Adc/AdcGeneral/AdcResultAlignment",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Alignment of ADC raw results in ADC result buffer (left/right alignment).",
+          "metadata": {
+            "INTRODUCTION": "Implementation Type: Adc_ResultAlignmentType",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00444",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "ADC_ALIGN_LEFT AUTOSAR_ECUC ADC_ALIGN_RIGHT AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcVersionInfoApi",
+          "path": "/Adc/AdcGeneral/AdcVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Adc_GetVersionInfo() from the code.",
+          "metadata": {
+            "INTRODUCTION": "true: Adc_GetVersionInfo() can be used. false: Adc_GetVersionInfor() can not be used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00409",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcPowerStateConfig",
+          "path": "/Adc/AdcGeneral/AdcPowerStateConfig",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Each instance of this parameter defines a power state and the callback to be called when this power state is reached.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00459",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "AdcPowerState",
+              "path": "/Adc/AdcGeneral/AdcPowerStateConfig/AdcPowerState",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Each instance of this parameter describes a different power state supported by the ADC HW. It should be defined by the HW supplier and used by the ADCDriver to reference specific HW configurations which set the ADC HW module in the referenced power state.",
+              "metadata": {
+                "INTRODUCTION": "At least the power mode corresponding to full power state shall be always configured.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00461",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "AdcPowerStateReadyCbkRef",
+              "path": "/Adc/AdcGeneral/AdcPowerStateConfig/AdcPowerStateReadyCbkRef",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Each instance of this parameter contains a reference to a power mode callback defined in a CDD or IoHwAbs component.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00460",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AdcPublishedInformation",
+      "path": "/Adc/AdcPublishedInformation",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Additional published parameters not covered by \"Common\" Published Information. Note that these parameters have \"PUBLISHED-INFORMATION\" configuration class setting, since they are published information.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00030",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "AdcChannelValueSigned",
+          "path": "/Adc/AdcPublishedInformation/AdcChannelValueSigned",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Information whether the result value of the ADC driver has sign information (true) or not (false). If the result shall be interpreted as signed value it shall apply to C-language rules.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00410",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PUBLISHED-INFORMATION VARIANT-POST-BUILD PUBLISHED-INFORMATION VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcGroupFirstChannelFixed",
+          "path": "/Adc/AdcPublishedInformation/AdcGroupFirstChannelFixed",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Information whether the first channel of an ADC Channel group can be configured (false) or is fixed (true) to a value determined by the ADC HW Unit.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00411",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PUBLISHED-INFORMATION VARIANT-POST-BUILD PUBLISHED-INFORMATION VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "AdcMaxChannelResolution",
+          "path": "/Adc/AdcPublishedInformation/AdcMaxChannelResolution",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum Channel resolution in bits (does not specify accuracy).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Adc_00412",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PUBLISHED-INFORMATION VARIANT-POST-BUILD PUBLISHED-INFORMATION VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "63",
+            "MIN": "1"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

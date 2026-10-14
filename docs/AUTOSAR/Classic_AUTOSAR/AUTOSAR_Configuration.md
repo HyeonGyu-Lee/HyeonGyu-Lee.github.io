@@ -3,7 +3,7 @@ layout: default
 title: "AUTOSAR Configuration"
 has_children: true
 published_date: 2024-06-05T03:53:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+last_modified_date: 2026-10-14T16:01:00.000Z
 nav_order: 8
 parent: "Classic AUTOSAR"
 permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration'
@@ -12,85 +12,50 @@ redirect_from:
  - "/AUTOSAR/Classic_AUTOSAR/Configure_Parameters"
 ---
 
-## 핵심 요약
+## Table of contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
+## ECU Configuration의 의미
+> ECU Configuration은 단순 옵션 목록이 아니라, BSW module의 구조·parameter·reference와 허용되는 구성 범위를 정의하는 모델이다.
+Module Definition은 어떤 설정을 구성할 수 있는지 정의하고, ECU Configuration Values는 특정 ECU에서 선택한 실제 인스턴스와 값을 담는다. Explorer는 실제 차량 설정값이 아니라 표준의 정의를 읽는 도구다.
+## AUTOSAR 표준 Explorer
+{% include components/standard-explorer.html %}
+## Explorer에서 읽는 계층
+| 항목 | 의미 |
+| --- | --- |
+| Module | Dcm, NvM, Can, Lin 등 모듈 정의 |
+| Container | 의미상 함께 묶인 설정의 구조 단위. 하위 container를 포함할 수 있음 |
+| Parameter | Boolean, integer, enum, string 등 실제 설정 가능한 값의 정의 |
+| Reference | 다른 container나 대상 객체에 대한 연결 정의 |
+| Choice | 여러 구조 중 선택 관계가 있는 정의. 각 항목을 독립적인 필수 구성으로 세지 않음 |
 
-> 설정 변경을 생성 결과·빌드·런타임 시험으로 검증하고 변경 영향을 기록한다.
+트리에서는 XML의 CONTAINERS·PARAMETERS 같은 포장 노드를 생략하고 의미 있는 이름을 보여준다. 설명 영역은 type, description, multiplicity와 condition/configuration 관련 원본 metadata를 표시한다.
+## Multiplicity: 필수 여부와 개수
+| 표시 | 의미 | 읽을 때의 전제 |
+| --- | --- | --- |
+| [1] | 정확히 1개 | 해당 부모 인스턴스 안에서의 개수 |
+| [0..1] | 없거나 1개 | 선택 구성. default가 있다는 사실과 별개 |
+| [0..*] | 0개 이상 | 흔히 [*]로 줄여 표현하지만 lower bound를 명확히 표시 |
+| [1..*] | 1개 이상 | [1~*]와 같은 취지의 범위 표현. 무제한이 곧 구현 resource 무제한은 아님 |
+| [m..n] | m개 이상 n개 이하 | 원본 lower/upper 값 사용 |
+| [미기재] | 원본에 범위를 확정할 정보가 없음 | 선택 항목이나 [0..*]로 추정하지 않음 |
 
+LOWER-MULTIPLICITY가 1인 자식이라도 부모가 선택 구성이라면 ECU 전체에서 무조건 존재해야 한다는 뜻은 아니다. 부모를 구성했을 때 자식의 lower bound가 적용된다. Feature 조건·choice·variant·별도 constraint도 함께 확인해야 한다. Multiplicity는 parameter 값의 MIN/MAX가 아니라 설정 인스턴스의 개수다.
+## Configuration과 Variant
+| 정의 | 해석 |
+| --- | --- |
+| Default Value | 값 생략 시의 의미를 관련 규격과 함께 읽는 기본값. 필수 개수를 변경하지 않음 |
+| Min / Max | 숫자 parameter의 값 범위. 개수 범위와 별개 |
+| Supported Config Variants | 지원 구성 variant의 범위 |
+| Value Config Classes | 값에 적용되는 구성 시점/분류 |
+| Multiplicity Config Classes | 인스턴스 개수의 구성 시점/분류 |
+| Post-build 관련 항목 | 값 또는 개수의 post-build 지원 의미를 각각 읽음 |
 
-## 적용 범위
-
-
-<blockquote class="notice">
-<div class="callout">
-<div class="callout-icon" markdown="1">
-💡
-</div>
-<div class="callout-content" markdown="1">
-실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
-</div>
-</div>
-</blockquote>
-
-
-
-## 본문
-
-
-### 핵심 요약
-
-
-설정 파라미터는 기능을 켜고 끄는 옵션 목록만이 아니라, 모듈의 동작과 연결 관계를 결정하는 구성 정보다. 설정을 읽을 때 적용 릴리스, 컨테이너 구조, 참조 관계, 생성 결과를 함께 확인한다.
-
-
-### 설정 분석 순서
-
-- 적용 AUTOSAR 릴리스와 설정 도구·BSW 구현 제품의 버전을 기록한다.
-- 파라미터의 컨테이너 경로, 데이터 타입, 허용 범위, 다중성을 확인한다.
-- 다른 컨테이너·모듈에 대한 참조와 필수 조건을 확인한다.
-- 설정 변형과 구성 시점의 지원 범위를 제품 문서에서 확인한다.
-- 생성 코드나 생성 설정에 기대한 값이 반영됐는지 확인한다.
-
-### Dcm에서 연결해 볼 항목
-
-
-진단 프로토콜·연결, 요청·응답 PDU, 세션·보안 접근, 서비스·DID·루틴, 타이밍과 버퍼 구성을 연결해 읽는다. 구체적인 파라미터명과 위치는 해당 릴리스의 DCM 설정 규격을 따른다.
-
-
-### 변경을 검증하는 방법
-
-
-변경 전후 설정 차이와 기대 동작을 먼저 정리한다. 도구 유효성 검사 → 생성 결과 검토 → 빌드 → 대상 기능 시험으로 확인하며, 도구 검사 통과와 런타임 동작 검증을 구분한다.
-
-
-### 자주 발생하는 해석 오류
-
-- 존재하는 파라미터가 모든 구현 제품에서 지원된다고 가정하는 것.
-- 이름이 비슷한 다른 릴리스의 파라미터를 같은 의미로 취급하는 것.
-- 생성 성공만으로 모듈 간 연결과 타이밍이 올바르다고 판단하는 것.
-
-### 읽을 자료
-
-
-하위 Dcm 문서와 공식 Classic Platform 규격을 함께 확인한다: https://www.autosar.org/standards/classic-platform
-
-
-실제 설정 예시는 제품별 비공개 정보가 포함될 수 있으므로 공개용 예제와 실제 설정을 구분한다.
-
-
-### 실습: 진단 설정 변경 검증
-
-
-설명용 변경: 프로젝트 요구에 따라 진단 서비스의 지원 DID를 추가한다. 적용 릴리스의 DID 정의, 세션·보안 조건, 콜백·포트 참조와 길이를 먼저 정리한다.
-
-
-설정 도구 검증 → 생성 결과 diff → 빌드 → 정상 DID 요청 → 미지원 DID 요청 → 조건 불충족 시험 순서로 확인한다. 생성 성공과 정상 런타임 응답은 별도의 결과다.
-
-
-### 변경 기록 양식
-
-
-설정 경로 / 기존값·변경값 / 요구사항 / 영향 모듈 / 생성 파일 차이 / 시험 ID / 결과 / 복구 방법.
-
-
-타이밍을 바꾸는 경우 ECU 처리 시간과 tester의 timeout도 함께 확인한다. 다른 릴리스의 비슷한 파라미터명을 그대로 복사하지 않는다.
+Pre-compile, link-time, post-build는 값이 결정되는 구성 시점과 관련된 구분이며, 모든 parameter가 모든 방식을 지원하는 것은 아니다.
+## 제공 범위와 원본
+현재 Explorer는 저장소의 _files/422.arxml을 기준으로 84개 module을 제공한다. 파일의 schema는 AUTOSAR_4-2-2.xsd이며 header에는 Part of Release 4.2, Revision 2, Document Version 4.6.0이 기록돼 있다. Document version과 platform release를 혼동하지 않는다.
+Dcm, NvM, Can/CanIf/CanTp/CanSM, Lin/LinIf/LinTp/LinSM, Com, PduR, Dem, EcuM, BswM, OS, Ethernet 및 memory·watchdog·MCAL 관련 module을 선택할 수 있다. Adaptive의 functional cluster 전체를 이 Classic ECUC 파일에서 탐색할 수 있는 것은 아니다.
+## IoHwAb의 위치
+IoHwAb는 I/O Hardware Abstraction의 책임을 다루는 영역이다. 이 원본의 module 목록에는 IoHwAb가 없으므로 Explorer에 표준 container와 multiplicity를 임의 생성하지 않는다. 해당 release의 IoHwAb 규격·설명과 공급사 정의가 확보되면 출처를 구분해 추가할 수 있다.

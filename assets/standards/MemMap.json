@@ -1,0 +1,403 @@
+{
+  "name": "MemMap",
+  "path": "/MemMap",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Memory Mapping and Compiler Abstraction module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "MemMapAddressingModeSet",
+      "path": "/MemMap/MemMapAddressingModeSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Defines a set of addressing modes which might apply to a SwAddrMethod.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00002",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "MemMapCompilerMemClassSymbolImpl",
+          "path": "/MemMap/MemMapAddressingModeSet/MemMapCompilerMemClassSymbolImpl",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines the implementation behind a MemClassSymbol and configures the Compiler Abstraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00018",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "MemMapSupportedAddressingMethodOption",
+          "path": "/MemMap/MemMapAddressingModeSet/MemMapSupportedAddressingMethodOption",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This constrains the usage of this addressing mode set for Generic Mappings to swAddrMethods.",
+          "metadata": {
+            "INTRODUCTION": "The attribute option of a swAddrMethod mapped via MemMapGenericMapping to this MemMapAddressingModeSet shall be equal to one of the configured MemMapSupportedAddressMethodOption's",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00009",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": "[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?"
+          },
+          "children": []
+        },
+        {
+          "name": "MemMapSupportedMemoryAllocationKeywordPolicy",
+          "path": "/MemMap/MemMapAddressingModeSet/MemMapSupportedMemoryAllocationKeywordPolicy",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This constrains the usage of this addressing mode set for Generic Mappings to swAddrMethods.",
+          "metadata": {
+            "INTRODUCTION": "The attribute MemoryAllocationKeywordPolicy of a swAddrMethod mapped via MemMapGenericMapping to this MemMapAddressingModeSet shall be equal to one of the configured MemMapSupportedMemoryAllocationKeywordPolicy's",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00017",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "MEMMAP_ALLOCATION_KEYWORD_POLICY_ADDR_METHOD_SHORT_NAME AUTOSAR_ECUC MEMMAP_ALLOCATION_KEYWORD_POLICY_ADDR_METHOD_SHORT_NAME_AND_ALIGNMENT AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "MemMapSupportedSectionInitializationPolicy",
+          "path": "/MemMap/MemMapAddressingModeSet/MemMapSupportedSectionInitializationPolicy",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This constrains the usage of this addressing mode set for Generic Mappings to swAddrMethods.",
+          "metadata": {
+            "INTRODUCTION": "The sectionIntializationPolicy attribute value of a swAddrMethod mapped via MemMapGenericMapping to this MemMapAddressingModeSet shall be equal to one of the configured MemMapSupportedSectionIntializationPolicy's Please note that SectionInitializationPolicyType describes the intended initialization of MemorySections. The following values are standardized in AUTOSAR Methodology: * '''NO-INIT''': No initialization and no clearing is performed. Such data elements must not be read before one has written a value into it. * '''INIT''': To be used for data that are initialized by every reset to the specified value (initValue). * '''POWER-ON-INIT''': To be used for data that are initialized by \"Power On\" to the specified value (initValue). Note: there might be several resets between power on resets. * '''CLEARED''': To be used for data that are initialized by every reset to zero. * '''POWER-ON-CLEARED''': To be used for data that are initialized by \"Power On\" to zero. Note: there might be several resets between power on resets. Please note that the values are defined similar to the representation of enumeration types in the XML schema to ensure backward compatibility.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00008",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "MemMapSupportedSectionType",
+          "path": "/MemMap/MemMapAddressingModeSet/MemMapSupportedSectionType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This constrains the usage of this addressing mode set for Generic Mappings to swAddrMethods.",
+          "metadata": {
+            "INTRODUCTION": "The attribute sectionType of a swAddrMethod mapped via MemMapGenericMapping or MemMapSectionSpecificMapping to this MemMapAddressingModeSet shall be equal to one of the configured MemMapSupportedSectionType's.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00007",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "MEMMAP_SECTION_TYPE_CALIBRATION_OFFLINE AUTOSAR_ECUC MEMMAP_SECTION_TYPE_CALIBRATION_ONLINE AUTOSAR_ECUC MEMMAP_SECTION_TYPE_CAL_PRM AUTOSAR_ECUC MEMMAP_SECTION_TYPE_CODE AUTOSAR_ECUC MEMMAP_SECTION_TYPE_CONFIG_DATA AUTOSAR_ECUC MEMMAP_SECTION_TYPE_CONST AUTOSAR_ECUC MEMMAP_SECTION_TYPE_EXCLUDE_FROM_FLASH AUTOSAR_ECUC MEMMAP_SECTION_TYPE_USER_DEFINED AUTOSAR_ECUC MEMMAP_SECTION_TYPE_VAR AUTOSAR_ECUC MEMMAP_SECTION_TYPE_VAR_FAST AUTOSAR_ECUC MEMMAP_SECTION_TYPE_VAR_NO_INIT AUTOSAR_ECUC MEMMAP_SECTION_TYPE_VAR_POWER_ON_INIT AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "MemMapAddressingMode",
+          "path": "/MemMap/MemMapAddressingModeSet/MemMapAddressingMode",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines a addressing mode with a set of #pragma statements implementing the start and the stop of a section.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "MemMapAddressingModeStart",
+              "path": "/MemMap/MemMapAddressingModeSet/MemMapAddressingMode/MemMapAddressingModeStart",
+              "type": "ECUC-MULTILINE-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines a set of #pragma statements implementing the start of a section.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00004",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-MULTILINE-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "MemMapAddressingModeStop",
+              "path": "/MemMap/MemMapAddressingModeSet/MemMapAddressingMode/MemMapAddressingModeStop",
+              "type": "ECUC-MULTILINE-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines a set of #pragma statements implementing the start of a section.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00005",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-MULTILINE-STRING-PARAM-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "MemMapAlignmentSelector",
+              "path": "/MemMap/MemMapAddressingModeSet/MemMapAddressingMode/MemMapAlignmentSelector",
+              "type": "ECUC-STRING-PARAM-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Defines a the alignments for which the MemMapAddressingMode applies.",
+              "metadata": {
+                "INTRODUCTION": "The to be used alignment is defined in the alignment attribute of the MemorySection. If the MemMapAlignmentSelector fits to alignment attribute of the MemorySection the set of #pragmas of the related MemMapAddressingMode shall be used to implement the start and the stop of a section. Please note that the same MemMapAddressingMode can be applicable for several alignments, e.g. \"8\" bit and \"UNSPECIFIED\".",
+                "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00006",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-STRING-PARAM-DEF-VARIANTS": "[1-9][0-9]*|0x[0-9a-f]*|0[0-7]*|0b[0-1]*|UNSPECIFIED|UNKNOWN|BOOLEAN|"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MemMapAllocation",
+      "path": "/MemMap/MemMapAllocation",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Defines which MemorySection of a BSW Module or a Software Component is implemented with which MemMapAddressingModeSet.",
+      "metadata": {
+        "INTRODUCTION": "This can either be specified for a set of MemorySections which refer to an identical SwAddrMethod (MemMapGenericMapping) or for individual MemorySections (MemMapSectionSpecificMapping). If both are defined for the same MemorySection the MemMapSectionSpecificMapping overrules the MemMapGenericMapping.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00010",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "MemMapGenericMapping",
+          "path": "/MemMap/MemMapAllocation/MemMapGenericMapping",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines which SwAddrMethod is implemented with which MemMapAddressingModeSet.",
+          "metadata": {
+            "INTRODUCTION": "The pragmas for the implementation of the MemorySelectorKeywords are taken from the MemMapAddressingModeStart and MemMapAddressingModeStop parameters of the MemMapAddressingModeSet for the individual alignments. That this mapping becomes valid requires matching MemMapSupportedSectionType's, MemMapSupportedSectionInitializationPolicy's and MemMapSupportedAddressingMethodOption's. The MemMapGenericMapping applies only if it is not overruled by an MemMapSectionSpecificMapping",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00011",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "MemMapSwAddressMethodRef",
+              "path": "/MemMap/MemMapAllocation/MemMapGenericMapping/MemMapSwAddressMethodRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the SwAddrMethod which applies to the MemMapGenericMapping.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "SW-ADDR-METHOD"
+              },
+              "children": []
+            },
+            {
+              "name": "MemMapAddressingModeSetRef",
+              "path": "/MemMap/MemMapAllocation/MemMapGenericMapping/MemMapAddressingModeSetRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the MemMapAddressingModeSet which applies to the MemMapGenericMapping.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00012",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/MemMap/MemMapAddressingModeSet"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "MemMapSectionSpecificMapping",
+          "path": "/MemMap/MemMapAllocation/MemMapSectionSpecificMapping",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines which MemorySection of a BSW Module or a Software Component is implemented with which MemMapAddressingModeSet.",
+          "metadata": {
+            "INTRODUCTION": "The pragmas for the implementation of the MemorySelectorKeywords are taken from the MemMapAddressingModeStart and MemMapAddressingModeStop parameters of the MemMapAddressingModeSet for the specific alignment of the MemorySection. The MemMapSectionSpecificMapping precedes a mapping defined by MemMapGenericMapping.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00014",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "MemMapMemorySectionRef",
+              "path": "/MemMap/MemMapAllocation/MemMapSectionSpecificMapping/MemMapMemorySectionRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the MemorySection which applies to the MemMapSectionSpecificMapping.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00016",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "MEMORY-SECTION"
+              },
+              "children": []
+            },
+            {
+              "name": "MemMapAddressingModeSetRef",
+              "path": "/MemMap/MemMapAllocation/MemMapSectionSpecificMapping/MemMapAddressingModeSetRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the MemMapAddressingModeSet which applies to the MemMapModuleSectionSpecificMapping.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00015",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/MemMap/MemMapAddressingModeSet"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MemMapGenericCompilerMemClass",
+      "path": "/MemMap/MemMapGenericCompilerMemClass",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "The shortName of the container defines the name of the generic Compiler memclass which is global for all using modules, e.g. REGSPACE.",
+      "metadata": {
+        "INTRODUCTION": "The configures the Compiler Abstraction.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00019",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "MemMapGenericCompilerMemClassSymbolImpl",
+          "path": "/MemMap/MemMapGenericCompilerMemClass/MemMapGenericCompilerMemClassSymbolImpl",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines the implementation behind the generic MemClassSymbol and configures the Compiler Abstraction.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_MemMap_00020",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

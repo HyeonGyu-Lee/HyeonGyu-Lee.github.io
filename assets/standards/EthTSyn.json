@@ -1,0 +1,405 @@
+{
+  "name": "EthTSyn",
+  "path": "/EthTSyn",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Synchronized Time-base Manager (StbM) module with respect to global time handling on Ethernet.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "EthTSynGeneral",
+      "path": "/EthTSyn/EthTSynGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general parameters of the Ethernet-specific Synchronized Time-base Manager",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "EthTSynDevErrorDetect",
+          "path": "/EthTSyn/EthTSynGeneral/EthTSynDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTSynHardwareTimestampSupport",
+          "path": "/EthTSyn/EthTSynGeneral/EthTSynHardwareTimestampSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activate/Deactivate the hardware time stamping functionality of the Ethernet hardware.",
+          "metadata": {
+            "INTRODUCTION": "True: Timestamp is retrieved from the Ethernet hardware False: Timestamp is retrieved from the StbM",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00018",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTSynMainFunctionPeriod",
+          "path": "/EthTSyn/EthTSynGeneral/EthTSynMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Schedule period of the main function EthTSyn_MainFunction. Unit: [s].",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00012",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTSynVersionInfo",
+          "path": "/EthTSyn/EthTSynGeneral/EthTSynVersionInfo",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activate/Deactivate the version information API (EthTSyn_GetVersionInfo). True: version information API activated False: version information API deactivated.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00015",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "EthTSynGlobalTimeDomain",
+      "path": "/EthTSyn/EthTSynGlobalTimeDomain",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "This represents the existence of a global time domain on Ethernet. The EthTSyn module can administrate several global time domains at the same time that in itself form a hierarchy of domains and sub-domains.",
+      "metadata": {
+        "INTRODUCTION": "If the EthTSyn exists it is assumed that at least one global time domain exists.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00004",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "EthTSynGlobalTimeDomainId",
+          "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeDomainId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This Parameter is deprecated and will be removed in future. Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+          "metadata": {
+            "INTRODUCTION": "Old description: The global time domain ID. This element is obsolete and will be removed in a future revision.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00005",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "31",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTSynGlobalTimeFollowUpTimeout",
+          "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeFollowUpTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00007",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTSynSynchronizedTimeBaseRef",
+          "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynSynchronizedTimeBaseRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Mandatory reference to the required synchronized time-base.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00013",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase"
+          },
+          "children": []
+        },
+        {
+          "name": "EthTSynGlobalTimeMaster",
+          "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeMaster",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration of the global time master. Each global time domain is required to have exactly one global time master. This master may or may not exist on the configured ECU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00008",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "EthTSynGlobalTimeTxFollowUpOffset",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeMaster/EthTSynGlobalTimeTxFollowUpOffset",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents configuration of the TX offset for Follow_Up / Pdelay_Resp_Follow_Up messages. Unit: seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00020",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTSynGlobalTimeTxPdelayReqPeriod",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeMaster/EthTSynGlobalTimeTxPdelayReqPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents configuration of the TX period for Pdelay_Req messages. Unit: seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00019",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTSynGlobalTimeTxPeriod",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeMaster/EthTSynGlobalTimeTxPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents configuration of the TX period. Unit: seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00010",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTSynGlobalTimeEthIfRef",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeMaster/EthTSynGlobalTimeEthIfRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents the reference to the Ethernet interface taken to fetch the global time information.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00016",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EthIf/EthIfConfigSet/EthIfController"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "EthTSynGlobalTimeSlave",
+          "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeSlave",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration of a time slave. Each global time domain is required to have at least one time slave. The configured ECU may or may not represent a time slave.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00009",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "EthTSynGlobalTimeTxFollowUpOffset",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeSlave/EthTSynGlobalTimeTxFollowUpOffset",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents configuration of the TX offset for Follow_Up / Pdelay_Resp_Follow_Up messages. Unit: seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00022",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTSynGlobalTimeTxPdelayReqPeriod",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeSlave/EthTSynGlobalTimeTxPdelayReqPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents configuration of the TX period for Pdelay_Req messages. Unit: seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00021",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTSynTimeHardwareCorrectionThreshold",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeSlave/EthTSynTimeHardwareCorrectionThreshold",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter can be taken to define the maximum deviation between the local time and the time obtained from SYNC message that triggers a correction of the time drift caused by the hardware on the local node.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00014",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "EthTSynGlobalTimeEthIfRef",
+              "path": "/EthTSyn/EthTSynGlobalTimeDomain/EthTSynGlobalTimeSlave/EthTSynGlobalTimeEthIfRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents the reference to the Ethernet interface taken to fetch the global time information.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_EthTSyn_00017",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EthIf/EthIfConfigSet/EthIfController"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

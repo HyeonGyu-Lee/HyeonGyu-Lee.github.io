@@ -1,0 +1,2829 @@
+{
+  "name": "Os",
+  "path": "/Os",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Os (Operating System) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "OsAlarm",
+      "path": "/Os/OsAlarm",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "An OsAlarm may be used to asynchronously inform or activate a specific task. It is possible to start alarms automatically at system start-up depending on the application mode.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00003",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsAlarmAccessingApplication",
+          "path": "/Os/OsAlarm/OsAlarmAccessingApplication",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to applications which have an access to this object.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00004",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAlarmCounterRef",
+          "path": "/Os/OsAlarm/OsAlarmCounterRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the assigned counter for that alarm",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAlarmAction",
+          "path": "/Os/OsAlarm/OsAlarmAction",
+          "type": "ECUC-CHOICE-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container defines which type of notification is used when the alarm expires.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsAlarmActivateTask",
+              "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmActivateTask",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies the parameters to activate a task.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00007",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "OsAlarmActivateTaskRef",
+                  "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmActivateTask/OsAlarmActivateTaskRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the task that will be activated by that alarm action",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00008",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OsAlarmCallback",
+              "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmCallback",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies the parameters to call a callback OS alarm action.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00014",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "OsAlarmCallbackName",
+                  "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmCallback/OsAlarmCallbackName",
+                  "type": "ECUC-FUNCTION-NAME-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Name of the function that is called when this alarm callback is triggered.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00087",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OsAlarmIncrementCounter",
+              "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmIncrementCounter",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies the parameters to increment a counter.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00302",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "OsAlarmIncrementCounterRef",
+                  "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmIncrementCounter/OsAlarmIncrementCounterRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the counter that will be incremented by that alarm action",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00015",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OsAlarmSetEvent",
+              "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmSetEvent",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container specifies the parameters to set an event",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00016",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "OsAlarmSetEventRef",
+                  "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmSetEvent/OsAlarmSetEventRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the event that will be set by that alarm action",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00017",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsEvent"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsAlarmSetEventTaskRef",
+                  "path": "/Os/OsAlarm/OsAlarmAction/OsAlarmSetEvent/OsAlarmSetEventTaskRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the task that will be activated by that event",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00018",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "OsAlarmAutostart",
+          "path": "/Os/OsAlarm/OsAlarmAutostart",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If present this container defines if an alarm is started automatically at system start-up depending on the application mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00009",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsAlarmAlarmTime",
+              "path": "/Os/OsAlarm/OsAlarmAutostart/OsAlarmAlarmTime",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The relative or absolute tick value when the alarm expires for the first time. Note that for an alarm which is RELATIVE the value must be at bigger than 0.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00010",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsAlarmAutostartType",
+              "path": "/Os/OsAlarm/OsAlarmAutostart/OsAlarmAutostartType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This specifies the type of autostart for the alarm..",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00011",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "ABSOLUTE AUTOSAR_ECUC RELATIVE AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "OsAlarmCycleTime",
+              "path": "/Os/OsAlarm/OsAlarmAutostart/OsAlarmCycleTime",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Cycle time of a cyclic alarm in ticks. If the value is 0 than the alarm is not cyclic.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00012",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsAlarmAppModeRef",
+              "path": "/Os/OsAlarm/OsAlarmAutostart/OsAlarmAppModeRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Reference to the application modes for which the AUTOSTART shall be performed",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00013",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAppMode"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OsAppMode",
+      "path": "/Os/OsAppMode",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "OsAppMode is the object used to define OSEK OS properties for an OSEK OS application mode.",
+      "metadata": {
+        "INTRODUCTION": "No standard attributes are defined for AppMode. In a CPU, at least one AppMode object has to be defined. [source: OSEK OIL Spec. 2.5] An OsAppMode called OSDEFAULTAPPMODE must always be there for OSEK compatibility.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00022",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": []
+    },
+    {
+      "name": "OsApplication",
+      "path": "/Os/OsApplication",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "An AUTOSAR OS must be capable of supporting a collection of OS objects (tasks, interrupts, alarms, hooks etc.) that form a cohesive functional unit. This collection of objects is termed an OS-Application.",
+      "metadata": {
+        "INTRODUCTION": "All objects which belong to the same OS-Application have access to each other. Access means to allow to use these objects within API services. Access by other applications can be granted separately.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00114",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsTrusted",
+          "path": "/Os/OsApplication/OsTrusted",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Parameter to specify if an OS-Application is trusted or not.",
+          "metadata": {
+            "INTRODUCTION": "true: OS-Application is trusted false: OS-Application is not trusted (default)",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00115",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTrustedApplicationDelayTimingViolationCall",
+          "path": "/Os/OsApplication/OsTrustedApplicationDelayTimingViolationCall",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Parameter to specify if a timing violation which occurs within an trusted OS-Application is raised immediately of if it is delayed until the current task returns to the calling OS-Application (return of CallTrustedFunction)",
+          "metadata": {
+            "INTRODUCTION": "true: violation / call to ProtectionHook() is delayed false: timing violation cause an immediate call to the ProtectionHook().",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00395",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTrustedApplicationWithProtection",
+          "path": "/Os/OsApplication/OsTrustedApplicationWithProtection",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Parameter to specify if a trusted OS-Application is executed with memory protection or not.",
+          "metadata": {
+            "INTRODUCTION": "true: OS-Application runs within a protected environment. This means that write access is limited. false: OS-Application has full write access (default)",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00394",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAppAlarmRef",
+          "path": "/Os/OsApplication/OsAppAlarmRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Specifies the OsAlarms that belong to the OsApplication.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00231",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAlarm"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAppCounterRef",
+          "path": "/Os/OsApplication/OsAppCounterRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "References the OsCounters that belong to the OsApplication.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00234",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAppEcucPartitionRef",
+          "path": "/Os/OsApplication/OsAppEcucPartitionRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Denotes which \"EcucPartition\" is implemented by this \"OSApplication\".",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00392",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAppIsrRef",
+          "path": "/Os/OsApplication/OsAppIsrRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "references which OsIsrs belong to the OsApplication",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00221",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsIsr"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAppScheduleTableRef",
+          "path": "/Os/OsApplication/OsAppScheduleTableRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "References the OsScheduleTables that belong to the OsApplication.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00230",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsScheduleTable"
+          },
+          "children": []
+        },
+        {
+          "name": "OsAppTaskRef",
+          "path": "/Os/OsApplication/OsAppTaskRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "references which OsTasks belong to the OsApplication",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00116",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+          },
+          "children": []
+        },
+        {
+          "name": "OsRestartTask",
+          "path": "/Os/OsApplication/OsRestartTask",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Optionally one task of an OS-Application may be defined as Restart Task.",
+          "metadata": {
+            "INTRODUCTION": "Multiplicity = 1: Restart Task is activated by the Operating System if the protection hook requests it. Multiplicity = 0: No task is automatically started after a protection error happened.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00120",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+          },
+          "children": []
+        },
+        {
+          "name": "OsApplicationCoreRef",
+          "path": "/Os/OsApplication/OsApplicationCoreRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the Core Definition in the Ecuc Module where the CoreId is defined. This reference is used to describe to which Core the OsApplication is bound.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00393",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition"
+          },
+          "children": []
+        },
+        {
+          "name": "OsApplicationHooks",
+          "path": "/Os/OsApplication/OsApplicationHooks",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Container to structure the OS-Application-specific hooks",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00020",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsAppErrorHook",
+              "path": "/Os/OsApplication/OsApplicationHooks/OsAppErrorHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Select the OS-Application error hook.",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00213",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "OsAppShutdownHook",
+              "path": "/Os/OsApplication/OsApplicationHooks/OsAppShutdownHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Select the OS-Application specific shutdown hook for the OS-Application.",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00125",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "OsAppStartupHook",
+              "path": "/Os/OsApplication/OsApplicationHooks/OsAppStartupHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Select the OS-Application specific startup hook for the OS-Application.",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00124",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "OsApplicationTrustedFunction",
+          "path": "/Os/OsApplication/OsApplicationTrustedFunction",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Container to structure the configuration parameters of trusted functions",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00021",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "OsTrustedFunctionName",
+              "path": "/Os/OsApplication/OsApplicationTrustedFunction/OsTrustedFunctionName",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Trusted function (as part of a trusted OS-Application) available to other OS-Applications. This also supersedes the OSEK OIL attribute TRUSTED in APPLICATION because the optionality of this parameter is describing that already.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00254",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OsCounter",
+      "path": "/Os/OsCounter",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Configuration information for the counters that belong to the OsApplication.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00026",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsCounterMaxAllowedValue",
+          "path": "/Os/OsCounter/OsCounterMaxAllowedValue",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum possible allowed value of the system counter in ticks.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00027",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "18446744073709551615",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "OsCounterMinCycle",
+          "path": "/Os/OsCounter/OsCounterMinCycle",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The MINCYCLE attribute specifies the minimum allowed number of counter ticks for a cyclic alarm linked to the counter.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00028",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "18446744073709551615",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "OsCounterTicksPerBase",
+          "path": "/Os/OsCounter/OsCounterTicksPerBase",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The TICKSPERBASE attribute specifies the number of ticks required to reach a counterspecific unit. The interpretation is implementation-specific.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00029",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "OsCounterType",
+          "path": "/Os/OsCounter/OsCounterType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter contains the natural type or unit of the counter.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00255",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "HARDWARE AUTOSAR_ECUC SOFTWARE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "OsSecondsPerTick",
+          "path": "/Os/OsCounter/OsSecondsPerTick",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Time of one counter tick in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00030",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "OsCounterAccessingApplication",
+          "path": "/Os/OsCounter/OsCounterAccessingApplication",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to applications which have an access to this object.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00031",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+          },
+          "children": []
+        },
+        {
+          "name": "OsDriver",
+          "path": "/Os/OsCounter/OsDriver",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This Container contains the information who will drive the counter.",
+          "metadata": {
+            "INTRODUCTION": "This configuration is only valid if the counter has OsCounterType set to HARDWARE. If the container does not exist (multiplicity=0) the timer is managed by the OS internally (OSINTERNAL). If the container exists the OS can use the GPT interface to manage the timer. The user have to supply the GPT channel. If the counter is driven by some other (external to the OS) source (like a TPU for example) this must be described as a vendor specific extension.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00371",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsGptChannelRef",
+              "path": "/Os/OsCounter/OsDriver/OsGptChannelRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the GPT channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00032",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Gpt/GptChannelConfigSet/GptChannelConfiguration"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "OsTimeConstant",
+          "path": "/Os/OsCounter/OsTimeConstant",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Allows the user to define constants which can be e.g. used to compare time values with timer tick values.",
+          "metadata": {
+            "INTRODUCTION": "A time value will be converted to a timer tick value during generation and can later on accessed via the OsConstName. The conversation is done by rounding time values to the nearest fitting tick value.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00386",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "OsTimeValue",
+              "path": "/Os/OsCounter/OsTimeConstant/OsTimeValue",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains the value of the constant in seconds.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00002",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OsEvent",
+      "path": "/Os/OsEvent",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "Representation of OS events in the configuration context. Adopted from the OSEK OIL specification.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00033",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsEventMask",
+          "path": "/Os/OsEvent/OsEventMask",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "If event mask would be set to AUTO in OIL, this parameter should be omitted here.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00034",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "18446744073709551615",
+            "MIN": "0"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "OsIoc",
+      "path": "/Os/OsIoc",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Configuration of the IOC (Inter OS Application Communicator).",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_01000",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "OsIocCommunication",
+          "path": "/Os/OsIoc/OsIocCommunication",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Representation of a 1:1 or N:1 or N:M (unqueued only) communication between software parts located in different OS-Applications that are bound to the same or to different cores.",
+          "metadata": {
+            "INTRODUCTION": "The name shall begin with the name of the sending software service and be followed by a unique identifier delivered by the sending software service. In the case of RTE as user attention shall be paid on the fact that uniqueness for identifier names has to be reached over ports, data elements, object instances and maybe additional identification properties (E.g. Case 1:N mapping to 1:1). Example: - <NameSpace>_UniqueID",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_01003",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "OsIocBufferLength",
+              "path": "/Os/OsIoc/OsIocCommunication/OsIocBufferLength",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This attribute defines the size of the IOC internal queue to be allocated for a queued communication.",
+              "metadata": {
+                "INTRODUCTION": "This configuration information shall allow the optimization of the needed memory for communications requiring buffers within the RTE and within the IOC.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_01001",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsIocDataProperties",
+              "path": "/Os/OsIoc/OsIocCommunication/OsIocDataProperties",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Data properties of the data to be transferred on the IOC communication channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_01023",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "OsIocDataPropertyIndex",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocDataProperties/OsIocDataPropertyIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is used to define in which order the data is send, e.g. whether IocSendGroup(A,B) or IocSendGroup(B,A) shall be used.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01035",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsIocInitValue",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocDataProperties/OsIocInitValue",
+                  "type": "ECUC-STRING-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Initial Value for the data to be transferred on the IOC communication channel.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01024",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsIocDataTypeRef",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocDataProperties/OsIocDataTypeRef",
+                  "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the type of the data to be transferred on the IOC communication channel. This attribute is necessary to generate the parameter type of the Ioc functions. Additionally this information should be used to compute the data size for necessary data copy operations within the Ioc module.",
+                  "metadata": {
+                    "INTRODUCTION": "If more than one attribute is defined, the IOC generator should generate an IocXxxGroup function (Xxx= CHOICE [Send, Receive, Write, Read]). N:1 or N:M communication (Multiplicity of OsIocSenderProperties > 1) is only allowed for multiplicity of OsIocDataTypeRef = 1",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01005",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-TYPE": "IMPLEMENTATION-DATA-TYPE"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OsIocReceiverProperties",
+              "path": "/Os/OsIoc/OsIocCommunication/OsIocReceiverProperties",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Representation of receiver properties for one communication. For each OsIocCommunication one (1:1) or many receivers (N:M) have to be defined. This container should be instantiated within an OsIocCommunication.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_01017",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "OsIocFunctionImplementationKind",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocReceiverProperties/OsIocFunctionImplementationKind",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is used to select whether this communication is implemented as a macro or as a function.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01037",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "DO_NOT_CARE",
+                    "LITERALS": "DO_NOT_CARE AUTOSAR_ECUC FUNCTION AUTOSAR_ECUC MACRO AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsIocReceiverPullCB",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocReceiverProperties/OsIocReceiverPullCB",
+                  "type": "ECUC-FUNCTION-NAME-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This attribute defines the name of a callback function that the IOC shall call on the receiving core for each data reception.",
+                  "metadata": {
+                    "INTRODUCTION": "In case of non existence of this attribute no ReceiverPullCB notification shall be applied by the IOC. The name of the function shall begin with the name of the receiving module, followed with a callback name and followed by the IocId. Example: void RTE_ReceiverPullCB_RTE25 (void). If this attribute does not exist, it means that no ReceiverPullCB shall be called (No notification from IOC is required). If this attribute exists the IOC shall call the callback function on the receiving core.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01010",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsIocReceivingOsApplicationRef",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocReceiverProperties/OsIocReceivingOsApplicationRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This attribute is a reference to the receiving OsApplication instance defined in the configuration file of the OS.",
+                  "metadata": {
+                    "INTRODUCTION": "This information allows for the generator to get additional information necessary for the code generation like: * The protection properties of the communicating OsApplications to find out which protections have to be crossed * The core identifiers to find out if an intra or an inter core communication has to be realized * Interrupt details in case of cross core notification to realize over IRQs",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01012",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OsIocSenderProperties",
+              "path": "/Os/OsIoc/OsIocCommunication/OsIocSenderProperties",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Representation of sender properties for one communication. For each OsIocCommunication one (1:1) or many senders (N:1 or N:M) have to be defined. Multiplicity > 1 (N:1 or N:M communication) is only allowed for Multiplicity of OsIocDataTypeRef = 1.",
+              "metadata": {
+                "INTRODUCTION": "This container should be instantiated within an OsIocCommunication.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_01015",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "OsIocFunctionImplementationKind",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocSenderProperties/OsIocFunctionImplementationKind",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is used to select whether this communication is implemented as a macro or as a function.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01036",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "DO_NOT_CARE",
+                    "LITERALS": "DO_NOT_CARE AUTOSAR_ECUC FUNCTION AUTOSAR_ECUC MACRO AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsIocSenderId",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocSenderProperties/OsIocSenderId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Representation of a sender in a N:1 or N:M communication to distinguish between senders.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter does not exist in 1:1 communication.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01016",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsIocSendingOsApplicationRef",
+                  "path": "/Os/OsIoc/OsIocCommunication/OsIocSenderProperties/OsIocSendingOsApplicationRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This attribute is a reference to the sending OS-Application instance defined in the configuration file of the OS.",
+                  "metadata": {
+                    "INTRODUCTION": "This information shall allows the generator to get additional information necessary for the code generation like: * The protection properties of the communicating OS-Applications to find out which protection boundaries have to be crossed. * The core identifiers to find out if an intra or an inter core communication has to be realized * Interrupt details in case of cross core notification to realize over IRQs",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_01014",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OsIsr",
+      "path": "/Os/OsIsr",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "The OsIsr container represents an OSEK interrupt service routine.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00041",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsIsrCategory",
+          "path": "/Os/OsIsr/OsIsrCategory",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This attribute specifies the category of this ISR.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00042",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "CATEGORY_1 AUTOSAR_ECUC CATEGORY_2 AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "OsIsrResourceRef",
+          "path": "/Os/OsIsr/OsIsrResourceRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This reference defines the resources accessed by this ISR.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00043",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+          },
+          "children": []
+        },
+        {
+          "name": "OsIsrTimingProtection",
+          "path": "/Os/OsIsr/OsIsrTimingProtection",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains all parameters which are related to timing protection",
+          "metadata": {
+            "INTRODUCTION": "If the container exists, the timing protection is used for this interrupt. If the container does not exist, the interrupt is not supervised regarding timing violations.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00326",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsIsrAllInterruptLockBudget",
+              "path": "/Os/OsIsr/OsIsrTimingProtection/OsIsrAllInterruptLockBudget",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains the maximum time for which the ISR is allowed to lock all interrupts (via SuspendAllInterrupts() or DisableAllInterrupts()) (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00229",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsIsrExecutionBudget",
+              "path": "/Os/OsIsr/OsIsrTimingProtection/OsIsrExecutionBudget",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The parameter contains the maximum allowed execution time of the interrupt (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00222",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsIsrOsInterruptLockBudget",
+              "path": "/Os/OsIsr/OsIsrTimingProtection/OsIsrOsInterruptLockBudget",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains the maximum time for which the ISR is allowed to lock all Category 2 interrupts (via SuspendOSInterrupts()) (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00387",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsIsrTimeFrame",
+              "path": "/Os/OsIsr/OsIsrTimingProtection/OsIsrTimeFrame",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains the minimum inter-arrival time between successive interrupts (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00223",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsIsrResourceLock",
+              "path": "/Os/OsIsr/OsIsrTimingProtection/OsIsrResourceLock",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains a list of times the interrupt uses resources.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00388",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "OsIsrResourceLockBudget",
+                  "path": "/Os/OsIsr/OsIsrTimingProtection/OsIsrResourceLock/OsIsrResourceLockBudget",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the maximum time the interrupt is allowed to hold the given resource (in seconds).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00389",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsIsrResourceLockResourceRef",
+                  "path": "/Os/OsIsr/OsIsrTimingProtection/OsIsrResourceLock/OsIsrResourceLockResourceRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the resource the locking time is depending on",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00390",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OsOS",
+      "path": "/Os/OsOS",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "OS is the object used to define OSEK OS properties for an OSEK application.",
+      "metadata": {
+        "INTRODUCTION": "Per CPU exactly one OS object has to be defined.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00044",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "OsNumberOfCores",
+          "path": "/Os/OsOS/OsNumberOfCores",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Maximum number of cores that are controlled by the OS.",
+          "metadata": {
+            "INTRODUCTION": "The OS uses the value internally. It depends on the ECU HW.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_01019",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65535",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "OsScalabilityClass",
+          "path": "/Os/OsOS/OsScalabilityClass",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "A scalability class for each System Object \"OS\" has to be selected. In order to customize the operating system to the needs of the user and to take full advantage of the processor features the operating system can be scaled according to the scalability classes.",
+          "metadata": {
+            "INTRODUCTION": "If the scalability class is omitted this translates to the OIL AUTO mechanism.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00259",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "SC1 AUTOSAR_ECUC SC2 AUTOSAR_ECUC SC3 AUTOSAR_ECUC SC4 AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "OsStackMonitoring",
+          "path": "/Os/OsOS/OsStackMonitoring",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Select stack monitoring of Tasks/Category 2 ISRs",
+          "metadata": {
+            "INTRODUCTION": "true: Stacks are monitored false: Stacks are not monitored",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00307",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "OsStatus",
+          "path": "/Os/OsOS/OsStatus",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The Status attribute specifies whether a system with standard or extended status has to be used. Automatic assignment is not supported for this attribute.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00046",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "EXTENDED AUTOSAR_ECUC STANDARD AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "OsUseGetServiceId",
+          "path": "/Os/OsOS/OsUseGetServiceId",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "As defined by OSEK",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00047",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "OsUseParameterAccess",
+          "path": "/Os/OsOS/OsUseParameterAccess",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "As defined by OSEK",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00048",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "OsUseResScheduler",
+          "path": "/Os/OsOS/OsUseResScheduler",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The OsUseResScheduler attribute defines whether the resource RES_SCHEDULER is used within the application.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00049",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "OsHooks",
+          "path": "/Os/OsOS/OsHooks",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Container to structure all hooks belonging to the OS",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00035",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsErrorHook",
+              "path": "/Os/OsOS/OsHooks/OsErrorHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Error hook as defined by OSEK",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00036",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "OsPostTaskHook",
+              "path": "/Os/OsOS/OsHooks/OsPostTaskHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Post-task hook as defined by OSEK",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00037",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "OsPreTaskHook",
+              "path": "/Os/OsOS/OsHooks/OsPreTaskHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-task hook as defined by OSEK",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00038",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "OsProtectionHook",
+              "path": "/Os/OsOS/OsHooks/OsProtectionHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Switch to enable/disable the call to the (user supplied) protection hook.",
+              "metadata": {
+                "INTRODUCTION": "true: Protection hook is called on protection error false: Protection hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00214",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "OsShutdownHook",
+              "path": "/Os/OsOS/OsHooks/OsShutdownHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Shutdown hook as defined by OSEK",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00039",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "OsStartupHook",
+              "path": "/Os/OsOS/OsHooks/OsStartupHook",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Startup hook as defined by OSEK",
+              "metadata": {
+                "INTRODUCTION": "true: Hook is called false: Hook is not called",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00040",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OsResource",
+      "path": "/Os/OsResource",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "An OsResource object is used to co-ordinate the concurrent access by tasks and ISRs to a shared resource, e.g. the scheduler, any program sequence, memory or any hardware area.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00252",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsResourceProperty",
+          "path": "/Os/OsResource/OsResourceProperty",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This specifies the type of the resource.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00050",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "INTERNAL AUTOSAR_ECUC LINKED AUTOSAR_ECUC STANDARD AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "OsResourceAccessingApplication",
+          "path": "/Os/OsResource/OsResourceAccessingApplication",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to applications which have an access to this object.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00051",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+          },
+          "children": []
+        },
+        {
+          "name": "OsResourceLinkedResourceRef",
+          "path": "/Os/OsResource/OsResourceLinkedResourceRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "The link to the resource. Must be valid if OsResourceProperty is LINKED. If OsResourceProperty is not LINKED the value is ignored.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00052",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "OsScheduleTable",
+      "path": "/Os/OsScheduleTable",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "An OsScheduleTable addresses the synchronization issue by providing an encapsulation of a statically defined set of alarms that cannot be modified at runtime.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00141",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsScheduleTableDuration",
+          "path": "/Os/OsScheduleTable/OsScheduleTableDuration",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter defines the modulus of the schedule table (in ticks).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00053",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "18446744073709551615",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "OsScheduleTableRepeating",
+          "path": "/Os/OsScheduleTable/OsScheduleTableRepeating",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "true: first expiry point on the schedule table shall be processed at final expiry point delay ticks after the final expiry point is processed.",
+          "metadata": {
+            "INTRODUCTION": "false: the schedule table processing stops when the final expiry point is processed.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00144",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "OsSchTblAccessingApplication",
+          "path": "/Os/OsScheduleTable/OsSchTblAccessingApplication",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to applications which have an access to this object.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00054",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+          },
+          "children": []
+        },
+        {
+          "name": "OsScheduleTableCounterRef",
+          "path": "/Os/OsScheduleTable/OsScheduleTableCounterRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter contains a reference to the counter which drives the schedule table.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00145",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsCounter"
+          },
+          "children": []
+        },
+        {
+          "name": "OsScheduleTableAutostart",
+          "path": "/Os/OsScheduleTable/OsScheduleTableAutostart",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container specifies if and how the schedule table is started on startup of the Operating System. The options to start a schedule table correspond to the API calls to start schedule tables during runtime.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00335",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsScheduleTableAutostartType",
+              "path": "/Os/OsScheduleTable/OsScheduleTableAutostart/OsScheduleTableAutostartType",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This specifies the type of the autostart for the schedule table.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00056",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "ABSOLUTE AUTOSAR_ECUC RELATIVE AUTOSAR_ECUC SYNCHRON AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "OsScheduleTableStartValue",
+              "path": "/Os/OsScheduleTable/OsScheduleTableAutostart/OsScheduleTableStartValue",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Absolute autostart tick value when the schedule table starts. Only used if the OsScheduleTableAutostartType is ABSOLUTE.",
+              "metadata": {
+                "INTRODUCTION": "Relative offset in ticks when the schedule table starts. Only used if the OsScheduleTableAutostartType is RELATIVE.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00057",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsScheduleTableAppModeRef",
+              "path": "/Os/OsScheduleTable/OsScheduleTableAutostart/OsScheduleTableAppModeRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Reference in which application modes the schedule table should be started during startup",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00058",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAppMode"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "OsScheduleTableExpiryPoint",
+          "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "The point on a Schedule Table at which the OS activates tasks and/or sets events",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00143",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "OsScheduleTblExpPointOffset",
+              "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTblExpPointOffset",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "The offset from zero (in ticks) at which the expiry point is to be processed.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00062",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsScheduleTableEventSetting",
+              "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableEventSetting",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Event that is triggered by that schedule table.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00059",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "OsScheduleTableSetEventRef",
+                  "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableEventSetting/OsScheduleTableSetEventRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to event that will be set by action",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00060",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsEvent"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsScheduleTableSetEventTaskRef",
+                  "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableEventSetting/OsScheduleTableSetEventTaskRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": null,
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00061",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OsScheduleTableTaskActivation",
+              "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Task that is triggered by that schedule table.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00066",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "OsScheduleTableActivateTaskRef",
+                  "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation/OsScheduleTableActivateTaskRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to task that will be activated by action",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00067",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsTask"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OsScheduleTblAdjustableExpPoint",
+              "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTblAdjustableExpPoint",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Adjustable expiry point",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00068",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "OsScheduleTableMaxLengthen",
+                  "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTblAdjustableExpPoint/OsScheduleTableMaxLengthen",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The maximum positive adjustment that can be made to the expiry point offset (in ticks).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00069",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsScheduleTableMaxShorten",
+                  "path": "/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTblAdjustableExpPoint/OsScheduleTableMaxShorten",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The maximum negative adjustment that can be made to the expiry point offset (in ticks).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00070",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "OsScheduleTableSync",
+          "path": "/Os/OsScheduleTable/OsScheduleTableSync",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container specifies the synchronization parameters of the schedule table.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00063",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsScheduleTblExplicitPrecision",
+              "path": "/Os/OsScheduleTable/OsScheduleTableSync/OsScheduleTblExplicitPrecision",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This configuration is only valid if the explicit synchronization is used.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00064",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsScheduleTblSyncStrategy",
+              "path": "/Os/OsScheduleTable/OsScheduleTableSync/OsScheduleTblSyncStrategy",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "AUTOSAR OS provides support for synchronization in two ways: explicit and implicit.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00065",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "NONE",
+                "LITERALS": "EXPLICIT AUTOSAR_ECUC IMPLICIT AUTOSAR_ECUC NONE AUTOSAR_ECUC"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OsSpinlock",
+      "path": "/Os/OsSpinlock",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "An OsSpinlock object is used to co-ordinate concurrent access by TASKs/ISR2s on different cores to a shared resource.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00258",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsSpinlockLockMethod",
+          "path": "/Os/OsSpinlock/OsSpinlockLockMethod",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Lock method which is used when a spinlock is taken. Note that it is possible that a user (e.g. a Task) might hold more than one spinlock. In this case the last lock taken is forced to use at least a lock methode which locks as strong as the current one.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_01038",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "LOCK_NOTHING",
+            "LITERALS": "LOCK_ALL_INTERRUPTS AUTOSAR_ECUC LOCK_CAT2_INTERRUPTS AUTOSAR_ECUC LOCK_NOTHING AUTOSAR_ECUC LOCK_WITH_RES_SCHEDULER AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "OsSpinlockAccessingApplication",
+          "path": "/Os/OsSpinlock/OsSpinlockAccessingApplication",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to OsApplications that have an access to this object.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_01021",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+          },
+          "children": []
+        },
+        {
+          "name": "OsSpinlockSuccessor",
+          "path": "/Os/OsSpinlock/OsSpinlockSuccessor",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to OsApplications that have an access to this object.",
+          "metadata": {
+            "INTRODUCTION": "To check whether a spinlock can be occupied (in a nested way) without any danger of deadlock, a linked list of spinlocks can be defined. A spinlock can only be occupied in the order of the linked list. It is allowed to skip a spinlock. If no linked list is specified, spinlocks cannot be nested.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_01022",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsSpinlock"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "OsTask",
+      "path": "/Os/OsTask",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": null,
+      "infinite": "true",
+      "description": "This container represents an OSEK task.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Os_00073",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "OsTaskActivation",
+          "path": "/Os/OsTask/OsTaskActivation",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This attribute defines the maximum number of queued activation requests for the task. A value equal to \"1\" means that at any time only a single activation is permitted for this task. Note that the value must be a natural number starting at 1.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00074",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTaskPriority",
+          "path": "/Os/OsTask/OsTaskPriority",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The priority of a task is defined by the value of this attribute. This value has to be understood as a relative value, i.e. the values show only the relative ordering of the tasks.",
+          "metadata": {
+            "INTRODUCTION": "OSEK OS defines the lowest priority as zero (0); larger values correspond to higher priorities.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00075",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTaskSchedule",
+          "path": "/Os/OsTask/OsTaskSchedule",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The OsTaskSchedule attribute defines the preemptability of the task.",
+          "metadata": {
+            "INTRODUCTION": "If this attribute is set to NON, no internal resources may be assigned to this task.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00076",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "FULL AUTOSAR_ECUC NON AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTaskAccessingApplication",
+          "path": "/Os/OsTask/OsTaskAccessingApplication",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Reference to applications which have an access to this object.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00077",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsApplication"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTaskEventRef",
+          "path": "/Os/OsTask/OsTaskEventRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This reference defines the list of events the extended task may react on.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00078",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsEvent"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTaskResourceRef",
+          "path": "/Os/OsTask/OsTaskResourceRef",
+          "type": "ECUC-REFERENCE-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "This reference defines a list of resources accessed by this task.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00079",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+          },
+          "children": []
+        },
+        {
+          "name": "OsTaskAutostart",
+          "path": "/Os/OsTask/OsTaskAutostart",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container determines whether the task is activated during the system start-up procedure or not for some specific application modes.",
+          "metadata": {
+            "INTRODUCTION": "If the task shall be activated during the system start-up, this container is present and holds the references to the application modes in which the task is auto-started.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00080",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsTaskAppModeRef",
+              "path": "/Os/OsTask/OsTaskAutostart/OsTaskAppModeRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Reference to application modes in which that task is activated on startup of the OS",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00081",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsAppMode"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "OsTaskTimingProtection",
+          "path": "/Os/OsTask/OsTaskTimingProtection",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains all parameters regarding timing protection of the task.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Os_00325",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "OsTaskAllInterruptLockBudget",
+              "path": "/Os/OsTask/OsTaskTimingProtection/OsTaskAllInterruptLockBudget",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains the maximum time for which the task is allowed to lock all interrupts (via SuspendAllInterrupts() or DisableAllInterrupts()) (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00085",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsTaskExecutionBudget",
+              "path": "/Os/OsTask/OsTaskTimingProtection/OsTaskExecutionBudget",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains the maximum allowed execution time of the task (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00185",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsTaskOsInterruptLockBudget",
+              "path": "/Os/OsTask/OsTaskTimingProtection/OsTaskOsInterruptLockBudget",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter contains the maximum time for which the task is allowed to lock all Category 2 interrupts (via SuspendOSInterrupts()) (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00086",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsTaskTimeFrame",
+              "path": "/Os/OsTask/OsTaskTimingProtection/OsTaskTimeFrame",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "The minimum inter-arrival time between activations and/or releases of a task (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00391",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "OsTaskResourceLock",
+              "path": "/Os/OsTask/OsTaskTimingProtection/OsTaskResourceLock",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container contains the worst case time between getting and releasing a given resource (in seconds).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Os_00082",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "OsTaskResourceLockBudget",
+                  "path": "/Os/OsTask/OsTaskTimingProtection/OsTaskResourceLock/OsTaskResourceLockBudget",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter contains the maximum time the task is allowed to lock the resource (in seconds)",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00083",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "Inf",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "OsTaskResourceLockResourceRef",
+                  "path": "/Os/OsTask/OsTaskTimingProtection/OsTaskResourceLock/OsTaskResourceLockResourceRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the resource used by the task",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Os_00084",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Os/OsResource"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

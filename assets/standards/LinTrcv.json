@@ -1,0 +1,440 @@
+{
+  "name": "LinTrcv",
+  "path": "/LinTrcv",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of LIN Transceiver Driver module",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "false",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "LinTrcvChannel",
+      "path": "/LinTrcv/LinTrcvChannel",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "Container gives LIN transceiver driver information about a single LIN transceiver channel. Any LIN transceiver driver has such LIN transceiver channels.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00091",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "LinTrcvChannelId",
+          "path": "/LinTrcv/LinTrcvChannel/LinTrcvChannelId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Unique identifier of the LIN Transceiver Channel.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "true",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvChannelUsed",
+          "path": "/LinTrcv/LinTrcvChannel/LinTrcvChannelUsed",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Shall the related LIN transceiver channel be used?",
+          "metadata": {
+            "INTRODUCTION": "True: Is used False Is not used",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvInitState",
+          "path": "/LinTrcv/LinTrcvChannel/LinTrcvInitState",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "State of LIN transceiver after call to LinTrcv_Init.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "LINTRCV_TRCV_MODE_NORMAL AUTOSAR_ECUC LINTRCV_TRCV_MODE_SLEEP AUTOSAR_ECUC LINTRCV_TRCV_MODE_STANDBY AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvWakeupByBusUsed",
+          "path": "/LinTrcv/LinTrcvChannel/LinTrcvWakeupByBusUsed",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Is wake up by bus supported? If LIN transceiver hardware does not support wake up by bus value is always FALSE. If LIN transceiver hardware supports wake up by bus value is TRUE or FALSE depending whether it is used or not.",
+          "metadata": {
+            "INTRODUCTION": "TRUE = Is used. FALSE = Is not used.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvIcuChannelRef",
+          "path": "/LinTrcv/LinTrcvChannel/LinTrcvIcuChannelRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the IcuChannel to enable/disable the interrupts for wakeups.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00157",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Icu/IcuConfigSet/IcuChannel"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvWakeupSourceRef",
+          "path": "/LinTrcv/LinTrcvChannel/LinTrcvWakeupSourceRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to a wakeup source in the EcuM configuration. This reference is only needed if LinTrcvWakeupByBusUsed is true. Implementation Type: reference to EcuM_WakeupSourceType.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00012",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvAccess",
+          "path": "/LinTrcv/LinTrcvChannel/LinTrcvAccess",
+          "type": "ECUC-CHOICE-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Container gives LIN transceiver driver access about a single LIN transceiver channel.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00154",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "LinTrcvDioAccess",
+              "path": "/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container gives LIN transceiver driver information about accessing ports and port pins. In addition relation between LIN transceiver hardware pin names and Dio port access information is given. If a LIN transceiver hardware has no Dio interface, there is no instance of this container.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00094",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "LinTrcvDioChannelAccess",
+                  "path": "/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Container gives DIO channel access by single Lin transceiver channel.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00158",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "LinTrcvHardwareInterfaceName",
+                      "path": "/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvHardwareInterfaceName",
+                      "type": "ECUC-STRING-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "LIN transceiver hardware interface name. It is typically the name of a pin. From a Dio point of view it is either a port, a single channel or a channel group. Depending on this fact either LINTRCV_DIO_PORT_SYMBOLIC_NAME or LINTRCV_DIO_CHANNEL_SYMBOLIC_NAME or LINTRCV_DIO_CHANNEL_GROUP_SYMBOLIC_NAME shall reference a Dio configuration. The LIN transceiver driver implementation description shall list up this name for the appropriate LIN transceiver hardware.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00009",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "ECUC-STRING-PARAM-DEF-VARIANTS": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "LinTrcvDioSymRefName",
+                      "path": "/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvDioSymRefName",
+                      "type": "ECUC-CHOICE-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Choice Reference to a DIO Port, DIO Channel or DIO Channel Group. This reference replaces the LINTRCV_DIO_PORT_SYM_NAME, LINTRCV_DIO_CHANNEL_SYM_NAME and LINTRCV_DIO_GROUP_SYM_NAME references in the Lin Trcv SWS.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00102",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REFS": "/AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannel /AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannelGroup /AUTOSAR/EcucDefs/Dio/DioConfig/DioPort"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "LinTrcvSpiSequence",
+              "path": "/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvSpiSequence",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Container gives LIN transceiver driver information about one SPI sequence.",
+              "metadata": {
+                "INTRODUCTION": "One SPI sequence used by LIN transceiver driver is in exclusive use for it. No other driver is allowed to access this sequence. LIN transceiver driver may use one sequence to access n LIN transceiver hardwares chips of the same type or n sequences are used to access one single LIN transceiver hardware chip. If a LIN transceiver hardware has no SPI interface, there is no instance of this container.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00155",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "LinTrcvSpiSequenceName",
+                  "path": "/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvSpiSequence/LinTrcvSpiSequenceName",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a Spi sequence configuration container.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00156",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LinTrcvGeneral",
+      "path": "/LinTrcv/LinTrcvGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container gives LIN transceiver driver basic information.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00090",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LinTrcvDevErrorDetect",
+          "path": "/LinTrcv/LinTrcvGeneral/LinTrcvDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF). If switched on, #define LINTRCV_DEV_ERROR_DETECT ON shall be generated. If switched off, #define LINTRCV_DEV_ERROR_DETECT OFF shall be generated. Define shall be part of file LinTrcv_Cfg.h.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00001",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvGetVersionInfo",
+          "path": "/LinTrcv/LinTrcvGeneral/LinTrcvGetVersionInfo",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches version information API on and off. If switched off, function need not be present in compiled code.",
+          "metadata": {
+            "INTRODUCTION": "True: Is used False: Is not used",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvIndex",
+          "path": "/LinTrcv/LinTrcvGeneral/LinTrcvIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00153",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvTimerType",
+          "path": "/LinTrcv/LinTrcvGeneral/LinTrcvTimerType",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Type of the Time Service Predefined Timer.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00159",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "None AUTOSAR_ECUC Timer_1us16bit AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvWaitTime",
+          "path": "/LinTrcv/LinTrcvGeneral/LinTrcvWaitTime",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Wait time for transceiver state changes in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00160",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "2.55E-4",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "LinTrcvWakeUpSupport",
+          "path": "/LinTrcv/LinTrcvGeneral/LinTrcvWakeUpSupport",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Informs whether wake up is supported or not. In case wake up is not supported by LIN transceiver hardware the setting shall be false. The wake up ability may be switched on or off for each channel of one LIN transceiver by LinTrcvWakeupSourceRef.",
+          "metadata": {
+            "INTRODUCTION": "True: Is used False: Is not used",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinTrcv_00107",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

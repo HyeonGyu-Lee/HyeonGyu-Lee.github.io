@@ -1,0 +1,843 @@
+{
+  "name": "FlsTst",
+  "path": "/FlsTst",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": null,
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00135",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "FlsTstConfigSet",
+      "path": "/FlsTst/FlsTstConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR FlsTst module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00152",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FlsTstBlockNumberBgnd",
+          "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockNumberBgnd",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter shall represent the number of test blocks available for the background test.",
+          "metadata": {
+            "INTRODUCTION": "calculationFormula = Number of configured FlsTstBlocks in the FlsTstBlockBgndConfigSet (or 0 if no FlsTstBlocks are configured).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00122",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstBlockNumberFgnd",
+          "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockNumberFgnd",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This parameter shall represent the number of test blocks available for the foreground test.",
+          "metadata": {
+            "INTRODUCTION": "calculationFormula = Number of configured FlsTstBlocks in the FlsTstBlockFgndConfigSet (or 0 if no FlsTstBlocks are configured).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00124",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstTestCompletedNotification",
+          "path": "/FlsTst/FlsTstConfigSet/FlsTstTestCompletedNotification",
+          "type": "ECUC-FUNCTION-NAME-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pointer to function, which shall be called after finishing the background Flash test interval.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00102",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstBlockBgndConfigSet",
+          "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container defines the blocks in background mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00103",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FlsTstBlock",
+              "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet/FlsTstBlock",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container specifies configuration parameters for an individual test block.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00105",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "FlsTstBlockBaseAddress",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet/FlsTstBlock/FlsTstBlockBaseAddress",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Start Address of the Flash block.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00106",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstBlockIndex",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet/FlsTstBlock/FlsTstBlockIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Foreground Test: Index identifies block to be tested by FlsTst_StartFgnd();",
+                  "metadata": {
+                    "INTRODUCTION": "Background Test: The scheduling for background test shall follow an order defined by this index. '0' means highest priority.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00151",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstBlockSize",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet/FlsTstBlock/FlsTstBlockSize",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter shall represent the Flash Test block size.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00107",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstNumberOfTestedCells",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet/FlsTstBlock/FlsTstNumberOfTestedCells",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configures the Number of cells to be tested in background mode during one scheduled task (FlsTst_MainFunction() call). Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+                  "metadata": {
+                    "INTRODUCTION": "Please note that this parameter is deprecated and is replaced by the FlsTstNumberOfTestedCells parameter in the FlsTstGeneral container. This element is obsolete and will be removed in a future revision.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00119",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstSignatureAddress",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet/FlsTstBlock/FlsTstSignatureAddress",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Address of the signature reference value of the Flash test block.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00123",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstTestAlgorithm",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockBgndConfigSet/FlsTstBlock/FlsTstTestAlgorithm",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the configuration of the test algorithm for foreground mode and background mode. The availability of algorithm is implementation specific.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00101",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "FLSTST_16BIT_CRC AUTOSAR_ECUC FLSTST_32BIT_CRC AUTOSAR_ECUC FLSTST_8BIT_CRC AUTOSAR_ECUC FLSTST_CHECKSUM AUTOSAR_ECUC FLSTST_DUPLICATED_MEMORY AUTOSAR_ECUC FLSTST_ECC AUTOSAR_ECUC"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FlsTstBlockFgndConfigSet",
+          "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container defines the blocks in foreground mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00104",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FlsTstBlock",
+              "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet/FlsTstBlock",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "This container specifies configuration parameters for an individual test block.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00105",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true"
+              },
+              "children": [
+                {
+                  "name": "FlsTstBlockBaseAddress",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet/FlsTstBlock/FlsTstBlockBaseAddress",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Start Address of the Flash block.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00106",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstBlockIndex",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet/FlsTstBlock/FlsTstBlockIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Foreground Test: Index identifies block to be tested by FlsTst_StartFgnd();",
+                  "metadata": {
+                    "INTRODUCTION": "Background Test: The scheduling for background test shall follow an order defined by this index. '0' means highest priority.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00151",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstBlockSize",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet/FlsTstBlock/FlsTstBlockSize",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter shall represent the Flash Test block size.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00107",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstNumberOfTestedCells",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet/FlsTstBlock/FlsTstNumberOfTestedCells",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Configures the Number of cells to be tested in background mode during one scheduled task (FlsTst_MainFunction() call). Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+                  "metadata": {
+                    "INTRODUCTION": "Please note that this parameter is deprecated and is replaced by the FlsTstNumberOfTestedCells parameter in the FlsTstGeneral container. This element is obsolete and will be removed in a future revision.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00119",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "4294967295",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstSignatureAddress",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet/FlsTstBlock/FlsTstSignatureAddress",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Address of the signature reference value of the Flash test block.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00123",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "18446744073709551615",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FlsTstTestAlgorithm",
+                  "path": "/FlsTst/FlsTstConfigSet/FlsTstBlockFgndConfigSet/FlsTstBlock/FlsTstTestAlgorithm",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the configuration of the test algorithm for foreground mode and background mode. The availability of algorithm is implementation specific.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00101",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "FLSTST_16BIT_CRC AUTOSAR_ECUC FLSTST_32BIT_CRC AUTOSAR_ECUC FLSTST_8BIT_CRC AUTOSAR_ECUC FLSTST_CHECKSUM AUTOSAR_ECUC FLSTST_DUPLICATED_MEMORY AUTOSAR_ECUC FLSTST_ECC AUTOSAR_ECUC"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FlsTstConfigurationOfOptApiServices",
+      "path": "/FlsTst/FlsTstConfigurationOfOptApiServices",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": null,
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00085",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FlsTstGetCurrentStateApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetCurrentStateApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_GetCurrentState() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00092",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstGetErrorDetailsApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetErrorDetailsApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_GetErrorDetails() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00098",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstGetTestResultBgndApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestResultBgndApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_GetTestResultBgnd() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00094",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstGetTestResultFgndApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestResultFgndApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_GetTestResultFgnd() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00150",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstGetTestSignatureBgndApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestSignatureBgndApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_GetTestSignatureBgnd() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00096",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstGetTestSignatureFgndApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestSignatureFgndApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_GetTestSignatureFgnd() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00097",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstStartFgndApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstStartFgndApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_StartFgnd() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00086",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstSuspendResumeApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstSuspendResumeApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the services FlsTst_Suspend() and FlsTst_Resume() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00087",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstTestEccApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstTestEccApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_TestEcc() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00099",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstVersionInfoApi",
+          "path": "/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service FlsTst_GetVersionInfo() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00095",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "FlsTstDemEventParameterRefs",
+      "path": "/FlsTst/FlsTstDemEventParameterRefs",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00170",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FLSTST_E_FLSTST_FAILURE",
+          "path": "/FlsTst/FlsTstDemEventParameterRefs/FLSTST_E_FLSTST_FAILURE",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the DemEventParameter which shall be issued when the error \"Flash Failure\" has occurred.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00171",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "FlsTstGeneral",
+      "path": "/FlsTst/FlsTstGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": null,
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00082",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FlsTstDevErrorDetect",
+          "path": "/FlsTst/FlsTstGeneral/FlsTstDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00083",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstNumberOfTestedCells",
+          "path": "/FlsTst/FlsTstGeneral/FlsTstNumberOfTestedCells",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configures the Number of cells to be tested in background mode during one scheduled task (FlsTst_MainFunction() call).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00161",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstNumberOfTestedCellsAtomic",
+          "path": "/FlsTst/FlsTstGeneral/FlsTstNumberOfTestedCellsAtomic",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configures the Number of cells to be tested in background mode without checking user requests (Abort, Suspend).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00120",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstTestCompletedNotificationSupported",
+          "path": "/FlsTst/FlsTstGeneral/FlsTstTestCompletedNotificationSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switch to indicate that the notification is supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00084",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "true"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstTestIntervalIdEndValue",
+          "path": "/FlsTst/FlsTstGeneral/FlsTstTestIntervalIdEndValue",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines the end value of the Test Interval Id.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00158",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "4294967295",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "FlsTstTestResultSignature",
+          "path": "/FlsTst/FlsTstGeneral/FlsTstTestResultSignature",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configures the result of the test in background mode:",
+          "metadata": {
+            "INTRODUCTION": "True: Test Result is a signature (see SWS_FlsTst_00155, SWS_FlsTst_00054) False: Test Result is ok/not ok (see SWS_FlsTst_00153, SWS_FlsTst_00042)",
+            "RELATED-TRACE-ITEM-REF": "ECUC_FlsTst_00160",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "DEFAULT-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

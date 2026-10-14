@@ -1,0 +1,1178 @@
+{
+  "name": "LinIf",
+  "path": "/LinIf",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the LinIf (LIN Interface) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00370",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "LinIfGeneral",
+      "path": "/LinIf/LinIfGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the general parameters of LIN Interface module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00019",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LinIfCancelTransmitSupported",
+          "path": "/LinIf/LinIfGeneral/LinIfCancelTransmitSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Global Pre-Compile Switch to enable/disable the APIs LinIf_CancelTransmit/LinTp_CancelReceive.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00001",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfDevErrorDetect",
+          "path": "/LinIf/LinIfGeneral/LinIfDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00010",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfMultipleDriversSupported",
+          "path": "/LinIf/LinIfGeneral/LinIfMultipleDriversSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "States if multiple drivers are supported by the LIN Interface or not. The reason for this parameter is to reduce the size of LIN Interface if multiple drivers are not used.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00024",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfMultipleTrcvDriverSupported",
+          "path": "/LinIf/LinIfGeneral/LinIfMultipleTrcvDriverSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "States if multiple transceiver drivers are supported by the LIN Interface or not. The reason for this parameter is to reduce the size of LIN Interface if multiple transceiver drivers are not used.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00025",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfNcOptionalRequestSupported",
+          "path": "/LinIf/LinIfGeneral/LinIfNcOptionalRequestSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "States if the node configuration commands Assign NAD and Conditional Change NAD are supported.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00026",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfPublicCddHeaderFile",
+          "path": "/LinIf/LinIfGeneral/LinIfPublicCddHeaderFile",
+          "type": "ECUC-STRING-PARAM-DEF",
+          "lower": "0",
+          "upper": null,
+          "infinite": "true",
+          "description": "Defines header files for callback functions which shall be included in case of CDDs. Range of characters is 1.. 32.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00631",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "SCOPE": "ECU",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-STRING-PARAM-DEF-VARIANTS": "32 1"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfTpSupported",
+          "path": "/LinIf/LinIfGeneral/LinIfTpSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "States if the TP is included in the LIN Interface or not. The reason for this parameter is to reduce the size of LIN Interface if the TP is not used.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00045",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfTrcvDriverSupported",
+          "path": "/LinIf/LinIfGeneral/LinIfTrcvDriverSupported",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "States if transceiver driver support is included in the LIN Interface or not. The reason for this parameter is to reduce the size of LIN Interface if transceiver drivers are not used.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00635",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfVersionInfoApi",
+          "path": "/LinIf/LinIfGeneral/LinIfVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the LinIf_GetVersionInfo function ON or OFF.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00053",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "LinIfGlobalConfig",
+      "path": "/LinIf/LinIfGlobalConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the global configuration parameters of the LinIf.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00020",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "LinIfTimeBase",
+          "path": "/LinIf/LinIfGlobalConfig/LinIfTimeBase",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Defines the interval of calls to main functions in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00044",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "0.255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "LinIfChannel",
+          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Describes each LIN channel the LinIf is connected to.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00364",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false"
+          },
+          "children": [
+            {
+              "name": "LinIfGotoSleepConfirmationUL",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfGotoSleepConfirmationUL",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the upper layer (UL) module to which the confirmation of the goto-sleep command shall be sent.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00601",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CDD AUTOSAR_ECUC LIN_SM AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfMaxFrameCnt",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfMaxFrameCnt",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum number of Frames. This parameter is needed only in case of post-build loadable implementation using static memory allocation.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00636",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65535",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfScheduleRequestConfirmationUL",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleRequestConfirmationUL",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the upper layer (UL) module to which the confirmation of the successfully performed schedule table change shall be sent.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00600",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CDD AUTOSAR_ECUC LIN_SM AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfStartupState",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfStartupState",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Defines the state of each LIN channel after startup",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00069",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "NORMAL AUTOSAR_ECUC SLEEP AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfWakeupConfirmationUL",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfWakeupConfirmationUL",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This parameter defines the upper layer (UL) module to which the confirmation of the wake-up shall be sent.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00602",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CDD AUTOSAR_ECUC LIN_SM AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfCddRef",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfCddRef",
+              "type": "ECUC-FOREIGN-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the CDD module description. This parameter is only required when LinIfWakeupConfirmationUL, LinIfScheduleRequestConfirmationUL, and/or LinIfGotoSleepConfirmationUL is set to CDD.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00637",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfChannelRef",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfChannelRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the channel definition in the LIN driver.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00003",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Lin/LinGlobalConfig/LinChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfComMNetworkHandleRef",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfComMNetworkHandleRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Unique handle to identify one LIN network. Reference to one of the network handles configured for the ComM.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00626",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "LinIfFrame",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": null,
+              "infinite": "true",
+              "description": "Generic container for all types of LIN frames.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00367",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+              },
+              "children": [
+                {
+                  "name": "LinIfChecksumType",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfChecksumType",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Type of checksum that the frame is using.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00005",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "CLASSIC AUTOSAR_ECUC ENHANCED AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "LinIfFrameId",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfFrameId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "ID of the LIN frame. The Protected ID including parity is calculated by the generation tool.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00638",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "LinIfFrameType",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfFrameType",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Type of frame/slot. A sporadic slot may be used by a set of unconditional frames in the role of substitution frames.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00017",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "ASSIGN AUTOSAR_ECUC ASSIGN_FRAME_ID_RANGE AUTOSAR_ECUC ASSIGN_NAD AUTOSAR_ECUC CONDITIONAL AUTOSAR_ECUC EVENT_TRIGGERED AUTOSAR_ECUC FREE AUTOSAR_ECUC MRF AUTOSAR_ECUC SAVE_CONFIGURATION AUTOSAR_ECUC SPORADIC AUTOSAR_ECUC SRF AUTOSAR_ECUC UNASSIGN AUTOSAR_ECUC UNCONDITIONAL AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "LinIfFixedFrameSdu",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfFixedFrameSdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "In case this is a fixed frame this is the SDU (response).",
+                  "metadata": {
+                    "INTRODUCTION": "This container represents an eight byte array. The Byte order shall be MSB first.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00012",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "LinIfFixedFrameSduByte",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfFixedFrameSdu/LinIfFixedFrameSduByte",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "8",
+                      "upper": "8",
+                      "infinite": null,
+                      "description": "This container represents a byte within the 8 byte array.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00013",
+                        "LOWER-MULTIPLICITY": "8",
+                        "UPPER-MULTIPLICITY": "8"
+                      },
+                      "children": [
+                        {
+                          "name": "LinIfFixedFrameSduBytePos",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfFixedFrameSdu/LinIfFixedFrameSduByte/LinIfFixedFrameSduBytePos",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Index of the Byte in the SDU (response) 8 byte array.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00014",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "MAX": "7",
+                            "MIN": "0"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "LinIfFixedFrameSduByteVal",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfFixedFrameSdu/LinIfFixedFrameSduByte/LinIfFixedFrameSduByteVal",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Byte value in the SDU (response) 8-byte array.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00015",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "MAX": "255",
+                            "MIN": "0"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "LinIfPduDirection",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection",
+                  "type": "ECUC-CHOICE-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Direction of the frame",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00027",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "LinIfInternalPdu",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfInternalPdu",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Represents a Diagnostic or Configuration frame : no Message ID (no PduId).",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00021",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "LinIfRxPdu",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfRxPdu",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "represents a received PDU/frame",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00035",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": [
+                        {
+                          "name": "LinIfRxIndicationUL",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfRxPdu/LinIfRxIndicationUL",
+                          "type": "ECUC-FUNCTION-NAME-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines the name of the <User_RxIndication>. This parameter depends on the parameter LinIfUserRxIndicationUL.",
+                          "metadata": {
+                            "INTRODUCTION": "If LinIfUserRxIndicationUL equals PDUR, the name of the <User_RxIndication> is fixed. If LinIfUserRxIndicationUL equals CDD, the name of the <User_RxIndication> is selectable.",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00055",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "LinIfUserRxIndicationUL",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfRxPdu/LinIfUserRxIndicationUL",
+                          "type": "ECUC-ENUMERATION-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines the upper layer (UL) module to which the indication of the successfully received LinIfRxPdu has to be routed via <User_RxIndication>.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00610",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "LITERALS": "CDD AUTOSAR_ECUC PDUR AUTOSAR_ECUC"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "LinIfRxPduRef",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfRxPdu/LinIfRxPduRef",
+                          "type": "ECUC-REFERENCE-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to the PDU that is received in this frame.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00036",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "LinIfSlaveToSlavePdu",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfSlaveToSlavePdu",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Represents a slave-to-slave PDU/frame. Master does only send the header but doesn't receive the response.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00040",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "LinIfTxPdu",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfTxPdu",
+                      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "represents a transmitted PDU/frame",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00049",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1"
+                      },
+                      "children": [
+                        {
+                          "name": "LinIfTxConfirmationUL",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfTxPdu/LinIfTxConfirmationUL",
+                          "type": "ECUC-FUNCTION-NAME-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines the name of the <User_TxConfirmation>. This parameter depends on the parameter LinIfUserTxUL.",
+                          "metadata": {
+                            "INTRODUCTION": "If LinIfUserTxUL equals PDUR, the name of the <User_TxConfirmation> is fixed. If LinIfUserTxUL equals CDD, the name of the <User_TxConfirmation> is selectable.",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00054",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "LinIfTxPduId",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfTxPdu/LinIfTxPduId",
+                          "type": "ECUC-INTEGER-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Identifier of the Pdu for the upper layer.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00050",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "LOCAL",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "false",
+                            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "true",
+                            "MAX": "65535",
+                            "MIN": "0"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "LinIfTxTriggerTransmitUL",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfTxPdu/LinIfTxTriggerTransmitUL",
+                          "type": "ECUC-FUNCTION-NAME-DEF",
+                          "lower": "0",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines the name of the <User_TriggerTransmit>. This parameter depends on the parameter LinIfUserTxUL. If LinIfUserTxUL equals PDUR, the name of the <User_TriggerTransmit> is fixed.",
+                          "metadata": {
+                            "INTRODUCTION": "If LinIfUserTxUL equals CDD, the name of the <User_TriggerTransmit> is selectable.",
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00628",
+                            "LOWER-MULTIPLICITY": "0",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "LinIfUserTxUL",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfTxPdu/LinIfUserTxUL",
+                          "type": "ECUC-ENUMERATION-PARAM-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "This parameter defines the upper layer (UL) module to which the trigger of the transmitted LinTxPdu (via the <User_TriggerTransmit>) or the confirmation of the successfully transmitted LinTxPdu has to be routed (via the <User_TxConfirmation>).",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00609",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "SYMBOLIC-NAME-VALUE": "false",
+                            "LITERALS": "CDD AUTOSAR_ECUC PDUR AUTOSAR_ECUC"
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "LinIfTxPduRef",
+                          "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfPduDirection/LinIfTxPdu/LinIfTxPduRef",
+                          "type": "ECUC-REFERENCE-DEF",
+                          "lower": "1",
+                          "upper": "1",
+                          "infinite": null,
+                          "description": "Reference to the PDU that is transmitted in this frame.",
+                          "metadata": {
+                            "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00051",
+                            "LOWER-MULTIPLICITY": "1",
+                            "UPPER-MULTIPLICITY": "1",
+                            "SCOPE": "ECU",
+                            "ORIGIN": "AUTOSAR_ECUC",
+                            "POST-BUILD-VARIANT-VALUE": "true",
+                            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                            "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "LinIfSubstitutionFrames",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfSubstitutionFrames",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "List of sporadic frames that can be sent in a",
+                  "metadata": {
+                    "INTRODUCTION": "sporadic frame slot.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00042",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "LinIfFramePriority",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfSubstitutionFrames/LinIfFramePriority",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Priority of sporadic frame.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00513",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "LinIfSubstitutionFrameRef",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame/LinIfSubstitutionFrames/LinIfSubstitutionFrameRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to an unconditional Frame that is used as sporadic frame.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00041",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "LinIfMaster",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfMaster",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Each Master can only be connected to one physical channel. This could be compared to the Node parameter in a LDF file.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00512",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "LinIfJitter",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfMaster/LinIfJitter",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The jitter specifies the differences between the maximum and minimum delay from time base tick to the header sending start point in seconds.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00629",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "0.255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "LinIfScheduleTable",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Describes a schedule table. Each LinIfChannel may have several schedule tables. Each schedule table can only be connected to one channel.",
+              "metadata": {
+                "INTRODUCTION": "The SHORT-NAME of the LinIfScheduleTable container represents the symbolic name of the schedule table.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00365",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+              },
+              "children": [
+                {
+                  "name": "LinIfResumePosition",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfResumePosition",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Defines where a schedule table shall proceed in case it has been interrupted by a RUN_ONCE table.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00033",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "CONTINUE_AT_IT_POINT AUTOSAR_ECUC START_FROM_BEGINNING AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "LinIfRunMode",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfRunMode",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The schedule table can be executed in two different modes.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00034",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "RUN_CONTINUOUS AUTOSAR_ECUC RUN_ONCE AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "LinIfScheduleTableIndex",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfScheduleTableIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This is the unique index used by upper layers to identify a schedule. Note that the NULL_SCHEDULE for each channel must have index 0.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00037",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "LinIfEntry",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfEntry",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Describes an entry in the schedule table (also known as Frame Slot).",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00366",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "LinIfDelay",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfEntry/LinIfDelay",
+                      "type": "ECUC-FLOAT-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Delay to next entry in schedule table in seconds.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00009",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "0.255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "LinIfEntryIndex",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfEntry/LinIfEntryIndex",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Position of the Frame Entry in the Schedule Table. The first entry index in the schedule table is 0.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00011",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "LinIfCollisionResolvingRef",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfEntry/LinIfCollisionResolvingRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "0",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the schedule table, which resolves the collision. This parameter is only used if the referenced frames are event triggered frames.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00007",
+                        "LOWER-MULTIPLICITY": "0",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "LinIfFrameRef",
+                      "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfScheduleTable/LinIfEntry/LinIfFrameRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the frames that belong to this schedule table entry.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00016",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfFrame"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "LinIfTransceiverDrvConfig",
+              "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfTransceiverDrvConfig",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains the configuration parameters of each underlying LIN Transceiver Driver.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00046",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "LinIfTrcvIdRef",
+                  "path": "/LinIf/LinIfGlobalConfig/LinIfChannel/LinIfTransceiverDrvConfig/LinIfTrcvIdRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Logical handle of the underlying LIN transceiver to be served by the LIN Interface.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_LinIf_00047",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/LinTrcv/LinTrcvChannel"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

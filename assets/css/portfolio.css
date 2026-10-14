@@ -416,3 +416,26 @@ body .site-button {
 .autosar-layer-map .canvas-container { width: 100%; min-width: 760px; aspect-ratio: 16 / 9; }
 .autosar-layer-map canvas { display: block; }
 .autosar-layer-note { color: var(--folio-muted); font-size: .85rem; }
+
+.standard-explorer { margin: 1.5rem 0; border: 1px solid var(--folio-line); padding: 1rem; border-radius: 12px; }
+.standard-tools { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.standard-tools input { flex: 1; min-width: 180px; }
+.standard-tools input, .standard-tools select, .standard-tools button { padding: .5rem; background: var(--folio-surface); color: var(--folio-ink); border: 1px solid var(--folio-line); border-radius: 5px; }
+.standard-panes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+.standard-tree, .standard-detail { max-height: 650px; overflow: auto; overflow-wrap: anywhere; padding: .5rem; }
+.standard-tree summary { cursor: pointer; padding: .5rem 0; }
+.standard-children { padding-left: 1rem; border-left: 1px solid var(--folio-line); }
+.standard-select { background: transparent; border: 0; color: var(--folio-ink); text-align: left; padding: .45rem; cursor: pointer; overflow-wrap: anywhere; }
+.standard-select[aria-current="true"], .standard-select:hover { background: var(--folio-tint); color: var(--folio-accent); }
+.standard-explorer :focus-visible { outline: 2px solid var(--folio-accent); outline-offset: 2px; }
+.standard-detail dt { font-weight: 650; margin-top: .7rem; }
+.standard-detail dd { margin-left: 0; white-space: pre-wrap; }
+.standard-legend, .standard-path { font-size: .85rem; color: var(--folio-muted); }
+@media (max-width: 800px) { .standard-panes { grid-template-columns: minmax(0, 1fr); } .standard-tree { max-height: 350px; } }
+
+.standard-detail dl { display: block; }
+.standard-detail dt { text-align: left; }
+.standard-detail dt::after { content: none; }
+.standard-metadata { margin: 1rem 0; }
+.standard-metadata summary { cursor: pointer; font-weight: 600; }
+.standard-tree summary[aria-current="true"] { color: var(--folio-accent); background: var(--folio-tint); }

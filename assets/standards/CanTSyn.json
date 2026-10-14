@@ -1,0 +1,758 @@
+{
+  "name": "CanTSyn",
+  "path": "/CanTSyn",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Synchronized Time-base Manager (StbM) module with respect to global time handling on CAN.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00001",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "CanTSynGeneral",
+      "path": "/CanTSyn/CanTSynGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container holds the general parameters of the CAN-specific Synchronized Time-base Manager",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00003",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "CanTSynDevErrorDetect",
+          "path": "/CanTSyn/CanTSynGeneral/CanTSynDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTSynMainFunctionPeriod",
+          "path": "/CanTSyn/CanTSynGeneral/CanTSynMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Schedule period of the main function CanTSyn_MainFunction. Unit: [s].",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00019",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTSynVersionInfo",
+          "path": "/CanTSyn/CanTSynGeneral/CanTSynVersionInfo",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Activate/Deactivate the version information API (CanTSyn_GetVersionInfo). True: version information API activated False: version information API deactivated.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00023",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTSynGlobalTimeFupDataIDList",
+          "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeFupDataIDList",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The DataIDList for FUP messages ensures the identification of data elements due to CRC calculation process.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00025",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanTSynGlobalTimeFupDataIDListElement",
+              "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeFupDataIDList/CanTSynGlobalTimeFupDataIDListElement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "16",
+              "upper": "16",
+              "infinite": null,
+              "description": "Element of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation process.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00031",
+                "LOWER-MULTIPLICITY": "16",
+                "UPPER-MULTIPLICITY": "16"
+              },
+              "children": [
+                {
+                  "name": "CanTSynGlobalTimeFupDataIDListIndex",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeFupDataIDList/CanTSynGlobalTimeFupDataIDListElement/CanTSynGlobalTimeFupDataIDListIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00032",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "15",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTSynGlobalTimeFupDataIDListValue",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeFupDataIDList/CanTSynGlobalTimeFupDataIDListElement/CanTSynGlobalTimeFupDataIDListValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Value of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00033",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CanTSynGlobalTimeOfnsDataIDList",
+          "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfnsDataIDList",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation process.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00041",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanTSynGlobalTimeOfnsDataIDListElement",
+              "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfnsDataIDList/CanTSynGlobalTimeOfnsDataIDListElement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "16",
+              "upper": "16",
+              "infinite": null,
+              "description": "Element of the DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation process.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00037",
+                "LOWER-MULTIPLICITY": "16",
+                "UPPER-MULTIPLICITY": "16"
+              },
+              "children": [
+                {
+                  "name": "CanTSynGlobalTimeOfnsDataIDListIndex",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfnsDataIDList/CanTSynGlobalTimeOfnsDataIDListElement/CanTSynGlobalTimeOfnsDataIDListIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index of the DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00038",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "15",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTSynGlobalTimeOfnsDataIDListValue",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfnsDataIDList/CanTSynGlobalTimeOfnsDataIDListElement/CanTSynGlobalTimeOfnsDataIDListValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Value of the DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00039",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CanTSynGlobalTimeOfsDataIDList",
+          "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfsDataIDList",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00026",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanTSynGlobalTimeOfsDataIDListElement",
+              "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfsDataIDList/CanTSynGlobalTimeOfsDataIDListElement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "16",
+              "upper": "16",
+              "infinite": null,
+              "description": "Element of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00034",
+                "LOWER-MULTIPLICITY": "16",
+                "UPPER-MULTIPLICITY": "16"
+              },
+              "children": [
+                {
+                  "name": "CanTSynGlobalTimeOfsDataIDListIndex",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfsDataIDList/CanTSynGlobalTimeOfsDataIDListElement/CanTSynGlobalTimeOfsDataIDListIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00035",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "15",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTSynGlobalTimeOfsDataIDListValue",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeOfsDataIDList/CanTSynGlobalTimeOfsDataIDListElement/CanTSynGlobalTimeOfsDataIDListValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Value of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00036",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CanTSynGlobalTimeSyncDataIDList",
+          "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeSyncDataIDList",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00024",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanTSynGlobalTimeSyncDataIDListElement",
+              "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeSyncDataIDList/CanTSynGlobalTimeSyncDataIDListElement",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "16",
+              "upper": "16",
+              "infinite": null,
+              "description": "Element of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00028",
+                "LOWER-MULTIPLICITY": "16",
+                "UPPER-MULTIPLICITY": "16"
+              },
+              "children": [
+                {
+                  "name": "CanTSynGlobalTimeSyncDataIDListIndex",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeSyncDataIDList/CanTSynGlobalTimeSyncDataIDListElement/CanTSynGlobalTimeSyncDataIDListIndex",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Index for the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00029",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "15",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTSynGlobalTimeSyncDataIDListValue",
+                  "path": "/CanTSyn/CanTSynGeneral/CanTSynGlobalTimeSyncDataIDList/CanTSynGlobalTimeSyncDataIDListElement/CanTSynGlobalTimeSyncDataIDListValue",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Value of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation process.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00030",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CanTSynGlobalTimeDomain",
+      "path": "/CanTSyn/CanTSynGlobalTimeDomain",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": null,
+      "infinite": "true",
+      "description": "This represents the existence of a global time domain on CAN. The CanTSyn module can administrate several global time domains at the same time that in itself form a hierarchy of domains and sub-domains.",
+      "metadata": {
+        "INTRODUCTION": "If the CanTSyn exists it is assumed that at least one global time domain exists.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00004",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY-INFINITE": "true"
+      },
+      "children": [
+        {
+          "name": "CanTSynGlobalTimeDomainId",
+          "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeDomainId",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The global time domain ID.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "31",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTSynGlobalTimeFollowUpTimeout",
+          "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeFollowUpTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Rx timeout for the follow-up message. This is only relevant for selected bus systems Unit:seconds",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "Inf",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTSynGlobalTimeSequenceCounterJumpWidth",
+          "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeSequenceCounterJumpWidth",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The SequenceCounterJumpWidth specifies the maximum allowed gap of the Sequence Counter between two SYNC resp. two OFS messages.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00011",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "15",
+            "MIN": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTSynSynchronizedTimeBaseRef",
+          "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynSynchronizedTimeBaseRef",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Mandatory reference to the required synchronized time-base.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00022",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase"
+          },
+          "children": []
+        },
+        {
+          "name": "CanTSynGlobalTimeMaster",
+          "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration of the global time master. Each global time domain is required to have exactly one global time master. This master may or may not exist on the configured ECU.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00007",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanTSynGlobalTimeTxCrcSecured",
+              "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster/CanTSynGlobalTimeTxCrcSecured",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents the configuration of whether or not CRC is supported.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00015",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CRC_NOT_SUPPORTED AUTOSAR_ECUC CRC_SUPPORTED AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTSynGlobalTimeTxFollowUpOffset",
+              "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster/CanTSynGlobalTimeTxFollowUpOffset",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents the transmission time offset between a SYNC message and the related FUP message resp. OFS message and related OFNS message. Unit: seconds.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00016",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTSynGlobalTimeTxPeriod",
+              "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster/CanTSynGlobalTimeTxPeriod",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents configuration of the TX period. Unit: seconds",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00017",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTSynMasterConfirmationTimeout",
+              "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster/CanTSynMasterConfirmationTimeout",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This represents the confirmation timeout after transmission of a SYNC message resp. OFS message. Unit: seconds.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00020",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTSynGlobalTimeMasterPdu",
+              "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster/CanTSynGlobalTimeMasterPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container encloses the configuration of the PDU that is supposed to contain the global time information.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00009",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "CanTSynGlobalTimeMasterConfirmationHandleId",
+                  "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster/CanTSynGlobalTimeMasterPdu/CanTSynGlobalTimeMasterConfirmationHandleId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the handle ID of the PDU that contains the global time information.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00008",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTSynGlobalTimePduRef",
+                  "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeMaster/CanTSynGlobalTimeMasterPdu/CanTSynGlobalTimePduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00027",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CanTSynGlobalTimeSlave",
+          "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeSlave",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration of a global time slave. Each global time domain is required to have at least one time slave. The configured ECU may or may not represent a time slave.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00012",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "CanTSynRxCrcValidated",
+              "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeSlave/CanTSynRxCrcValidated",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Definition of whether or not validation of the CRC is supported.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00021",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "CRC_IGNORED AUTOSAR_ECUC CRC_NOT_VALIDATED AUTOSAR_ECUC CRC_VALIDATED AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "CanTSynGlobalTimeSlavePdu",
+              "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeSlave/CanTSynGlobalTimeSlavePdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container encloses the configuration of the PDU that is supposed to contain the global time information.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00014",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "CanTSynGlobalTimeSlaveHandleId",
+                  "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeSlave/CanTSynGlobalTimeSlavePdu/CanTSynGlobalTimeSlaveHandleId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the handle ID of the PDU that contains the global time information.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00013",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "CanTSynGlobalTimePduRef",
+                  "path": "/CanTSyn/CanTSynGlobalTimeDomain/CanTSynGlobalTimeSlave/CanTSynGlobalTimeSlavePdu/CanTSynGlobalTimePduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_CanTSyn_00040",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

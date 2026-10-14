@@ -1,0 +1,933 @@
+{
+  "name": "J1939Rm",
+  "path": "/J1939Rm",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the J1939 Request Manager.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00043",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "J1939RmConfigSet",
+      "path": "/J1939Rm/J1939RmConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters and sub containers of the AUTOSAR J1939Rm module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00017",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "J1939RmChannel",
+          "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Contains the parameters for a CAN channel supported by the J1939 Request Manager.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00009",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "J1939RmAckQueueSize",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmAckQueueSize",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of transmitted acknowledgements that can be stored.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00007",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939RmRequestQueueSize",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRequestQueueSize",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of transmitted requests that can be stored.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00006",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939RmRequestTimeoutMonitors",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRequestTimeoutMonitors",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of transmitted requests that can be monitored for timeout.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00008",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939RmComMNetworkHandleRef",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmComMNetworkHandleRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the channel defined by the ComMChannel providing access to the unique channel index ComMChannelId.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00051",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939RmAckmRxPdu",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmAckmRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Contains the configuration of the I-PDU used to receive the Acknowledgement PG.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00011",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939RmAckmRxPduId",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmAckmRxPdu/J1939RmAckmRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The I-PDU identifier used for RxIndication from PduR.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00015",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmAckmRxPduRef",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmAckmRxPdu/J1939RmAckmRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the I-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00016",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939RmAckmTxPdu",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmAckmTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Contains the configuration of the I-PDU used to transmit the Acknowledgement PG.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00012",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939RmAckmTxPduId",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmAckmTxPdu/J1939RmAckmTxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The I-PDU identifier used for TxConfirmation from PduR.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00018",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmAckmTxPduRef",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmAckmTxPdu/J1939RmAckmTxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the I-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00019",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939RmRqstRxPdu",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRqstRxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Contains the configuration of the I-PDU used to receive the Request PG.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00013",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939RmRqstRxPduId",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRqstRxPdu/J1939RmRqstRxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The I-PDU identifier used for RxIndication from PduR.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00020",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmRqstRxPduRef",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRqstRxPdu/J1939RmRqstRxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the I-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00021",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "J1939RmRqstTxPdu",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRqstTxPdu",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Contains the configuration of the I-PDU used to transmit the Request PG.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00014",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "J1939RmRqstTxPduId",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRqstTxPdu/J1939RmRqstTxPduId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "The I-PDU identifier used for TxConfirmation from PduR.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00022",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmRqstTxPduRef",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmChannel/J1939RmRqstTxPdu/J1939RmRqstTxPduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the Pdu object representing the I-PDU.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00023",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "J1939RmNode",
+          "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Contains the parameters for the support of a logical J1939 node (identified by an ECU address).",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00049",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+          },
+          "children": [
+            {
+              "name": "J1939RmNodeChannelRef",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmNodeChannelRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Reference to the channels this node has access to.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00052",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/J1939Rm/J1939RmConfigSet/J1939RmChannel"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939RmNmNodeRef",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmNmNodeRef",
+              "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the corresponding J1939Nm node.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00005",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/J1939Nm/J1939NmConfigSet/J1939NmNode"
+              },
+              "children": []
+            },
+            {
+              "name": "J1939RmUser",
+              "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": null,
+              "infinite": "true",
+              "description": "Contains the configuration of a module that uses the request and acknowledgement interfaces of J1939Rm.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00010",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY-INFINITE": "true",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+              },
+              "children": [
+                {
+                  "name": "J1939RmUserAckIndication",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserAckIndication",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enable AckIndication for this module. In case of CDD, the name is <apiServicePrefix>_AckIndication. In case of RTE, the operation AckIndication of the required port J1939Rm_AckIndication_{user} is called.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter shall not be set for J1939RmUserType J1939RM_USER_J1939NM, J1939RM_USER_J1939DCM, or J1939RM_USER_COM.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00028",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserAckPGN",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserAckPGN",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "PGN supported to be acknowledged to this module. The PGNs supported by different modules should usually be disjunctive.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter shall not be set for J1939RmUserType J1939RM_USER_J1939NM, J1939RM_USER_J1939DCM, and J1939RM_USER_COM.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00061",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "262143",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserId",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Identifier used by a module using J1939Rm. This parameter is only required when the module uses transmission of requests.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00025",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "true",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserPGN",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserPGN",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "PGN supported to be requested from this module. The PGNs supported by different modules should usually be disjunctive.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter is predefined to AC (0x0EE00) for J1939RmUserType J1939RM_USER_J1939NM and is derived from the J1939Dcm PDUs in the system description for J1939RmUserType J1939RM_USER_J1939DCM. It shall not be set for J1939RmUserType J1939RM_USER_COM.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00026",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "262143",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserRequestIndication",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserRequestIndication",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enable RequestIndication for this module. In case of J1939Nm or J1939Dcm, the name is fixed. In case of CDD, the name is <apiServicePrefix>_RequestIndication. In case of RTE, J1939Rm will call the operation RequestIndication of the required port J1939Rm_RequestIndication_{user}.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter shall not be set for J1939RmUserType J1939RM_USER_COM.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00027",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserSendAck",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserSendAck",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enable the SendAck API for this module. In case of RTE, the operation SendAck of the provided port J1939Rm_SendAck_{user} is called.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter shall not be set for J1939RmUserType J1939RM_USER_J1939NM or J1939RM_USER_COM.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00030",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserSendRequest",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserSendRequest",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enable the SendRequest API for this module. In case of RTE, the operation SendRequest of the provided port J1939Rm_SendRequest_{user} is called.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter shall not be set for J1939RmUserType J1939RM_USER_J1939NM, J1939RM_USER_J1939DCM, or J1939RM_USER_COM.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00029",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserTimeoutSupervision",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserTimeoutSupervision",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enable RequestTimeoutIndication and CancelRequestTimeout for this module.",
+                  "metadata": {
+                    "INTRODUCTION": "RequestTimeoutIndication: In case of CDD, the name is <apiServicePrefix>_RequestTimeoutIndication. In case of RTE, the operation RequestTimeoutIndication of the required port J1939Rm_RequestTimeoutIndication_{user} is called. CancelRequestTimeout: In case of RTE, the operation CancelRequestTimeout of the provided port J1939Rm_CancelRequestTimeout_{user} is called. This parameter shall not be set for J1939RmUserType J1939RM_USER_J1939NM, J1939RM_USER_J1939DCM, or J1939RM_USER_COM.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00031",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserType",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserType",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Type of module using J1939Rm.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00024",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "J1939RM_USER_CDD AUTOSAR_ECUC J1939RM_USER_COM AUTOSAR_ECUC J1939RM_USER_J1939DCM AUTOSAR_ECUC J1939RM_USER_J1939NM AUTOSAR_ECUC J1939RM_USER_RTE AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmUserCddRef",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmUserCddRef",
+                  "type": "ECUC-FOREIGN-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to the CDD module description.",
+                  "metadata": {
+                    "INTRODUCTION": "This parameter is only required for J1939RmUserType J1939RM_USER_CDD.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00042",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-TYPE": "ECUC-MODULE-CONFIGURATION-VALUES"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "J1939RmComIPdu",
+                  "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmComIPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "Contains the configuration of an I-PDU that is to be transmitted on request by COM. This configuration container is only relevant for J1939RmUserType J1939RM_USER_COM.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00032",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY-INFINITE": "true",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "J1939RmComIPduPGN",
+                      "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmComIPdu/J1939RmComIPduPGN",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "PGN of the COM I-PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00033",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "262143",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "J1939RmComIPduRef",
+                      "path": "/J1939Rm/J1939RmConfigSet/J1939RmNode/J1939RmUser/J1939RmComIPdu/J1939RmComIPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the Pdu object representing the I-PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00065",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "J1939RmGeneral",
+      "path": "/J1939Rm/J1939RmGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Contains the general configuration parameters of the module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "J1939RmDevErrorDetect",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmMainFunctionPeriod",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmMainFunctionPeriod",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Execution cycle of J1939Rm_MainFunction in seconds.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "0.255",
+            "MIN": "0.001"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmSupportAckIndication",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmSupportAckIndication",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling support of acknowledgement indications.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00054",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmSupportAckTransmission",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmSupportAckTransmission",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling support of acknowledgement transmission.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00055",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmSupportRequestIndication",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmSupportRequestIndication",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling support of request indications.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00056",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmSupportRequestTransmission",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmSupportRequestTransmission",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling support of request transmission.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00057",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmSupportTimeoutSupervision",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmSupportTimeoutSupervision",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling support of request timeout supervision.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00058",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmTxConfirmationTimeout",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmTxConfirmationTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Time in seconds to wait for a confirmation after transmission of a message. The behaviour when the time elapses depends on the transmitted message.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00059",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "J1939RmVersionInfoApi",
+          "path": "/J1939Rm/J1939RmGeneral/J1939RmVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Pre-processor switch for enabling version info API support.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_J1939Rm_00002",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

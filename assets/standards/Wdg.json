@@ -1,0 +1,427 @@
+{
+  "name": "Wdg",
+  "path": "/Wdg",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": null,
+  "infinite": "true",
+  "description": "Configuration of the Wdg (Watchdog driver) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00073",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY-INFINITE": "true",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "WdgDemEventParameterRefs",
+      "path": "/Wdg/WdgDemEventParameterRefs",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "0",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value.",
+      "metadata": {
+        "INTRODUCTION": "The standardized errors are provided in the container and can be extended by vendor-specific error references.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00148",
+        "LOWER-MULTIPLICITY": "0",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "WDG_E_DISABLE_REJECTED",
+          "path": "/Wdg/WdgDemEventParameterRefs/WDG_E_DISABLE_REJECTED",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the DemEventParameter which shall be issued when the error \"Initialization or mode switch failed because it would disable the watchdog\" has occurred.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00150",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+          },
+          "children": []
+        },
+        {
+          "name": "WDG_E_MODE_FAILED",
+          "path": "/Wdg/WdgDemEventParameterRefs/WDG_E_MODE_FAILED",
+          "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Reference to the DemEventParameter which shall be issued when the error \"Setting a watchdog mode failed (during initialization or mode switch)\" has occurred.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00149",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "DESTINATION-REF": "/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "WdgGeneral",
+      "path": "/Wdg/WdgGeneral",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "All general parameters of the watchdog driver are collected here.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00114",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "WdgDevErrorDetect",
+          "path": "/Wdg/WdgGeneral/WdgDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00115",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgDisableAllowed",
+          "path": "/Wdg/WdgGeneral/WdgDisableAllowed",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Compile switch to allow / forbid disabling the watchdog driver during runtime.",
+          "metadata": {
+            "INTRODUCTION": "True: Disabling the watchdog driver at runtime is allowed. False: Disabling the watchdog driver at runtime is not allowed.",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00116",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgIndex",
+          "path": "/Wdg/WdgGeneral/WdgIndex",
+          "type": "ECUC-INTEGER-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Represents the watchdog driver's ID so that it can be referenced by the watchdog interface.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00117",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "true",
+            "MAX": "255",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgInitialTimeout",
+          "path": "/Wdg/WdgGeneral/WdgInitialTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The initial timeout (sec) for the trigger condition to be initialized during Init function. It shall be not larger than WdgMaxTimeout.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00130",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgMaxTimeout",
+          "path": "/Wdg/WdgGeneral/WdgMaxTimeout",
+          "type": "ECUC-FLOAT-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "The maximum timeout (sec) to which the watchdog trigger condition can be initialized.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00131",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "MAX": "65.535",
+            "MIN": "0"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgRunArea",
+          "path": "/Wdg/WdgGeneral/WdgRunArea",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Represents the watchdog driver execution area is either from ROM(Flash) or RAM as required with the particular microcontroller.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00147",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "RAM AUTOSAR_ECUC ROM AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgTriggerLocation",
+          "path": "/Wdg/WdgGeneral/WdgTriggerLocation",
+          "type": "ECUC-FUNCTION-NAME-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Location (memory address) of the watchdog trigger routine.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00118",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+          },
+          "children": []
+        },
+        {
+          "name": "WdgVersionInfoApi",
+          "path": "/Wdg/WdgGeneral/WdgVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Compile switch to enable / disable the version information API",
+          "metadata": {
+            "INTRODUCTION": "* True: API enabled * False: API disabled",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00119",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "WdgPublishedInformation",
+      "path": "/Wdg/WdgPublishedInformation",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Container holding all Wdg specific published information parameters",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00074",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "WdgTriggerMode",
+          "path": "/Wdg/WdgPublishedInformation/WdgTriggerMode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Watchdog trigger mode (toggle/window/both)",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00127",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PUBLISHED-INFORMATION VARIANT-LINK-TIME PUBLISHED-INFORMATION VARIANT-POST-BUILD PUBLISHED-INFORMATION VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "WDG_BOTH AUTOSAR_ECUC WDG_TOGGLE AUTOSAR_ECUC WDG_WINDOW AUTOSAR_ECUC"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "WdgSettingsConfig",
+      "path": "/Wdg/WdgSettingsConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "Configuration items for the different watchdog settings, including those for external watchdog hardware.",
+      "metadata": {
+        "INTRODUCTION": "Note: All postbuild parameters are handled via this container.",
+        "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00082",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "WdgDefaultMode",
+          "path": "/Wdg/WdgSettingsConfig/WdgDefaultMode",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Default mode for watchdog driver initialization.",
+          "metadata": {
+            "INTRODUCTION": "ImplementationType: WdgIf_ModeType",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00120",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "true",
+            "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "WDGIF_FAST_MODE AUTOSAR_ECUC WDGIF_OFF_MODE AUTOSAR_ECUC WDGIF_SLOW_MODE AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgExternalConfiguration",
+          "path": "/Wdg/WdgSettingsConfig/WdgExternalConfiguration",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "0",
+          "upper": "1",
+          "infinite": null,
+          "description": "Configuration items for an external watchdog hardware",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00112",
+            "LOWER-MULTIPLICITY": "0",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "WdgExternalContainerRef",
+              "path": "/Wdg/WdgSettingsConfig/WdgExternalConfiguration/WdgExternalContainerRef",
+              "type": "ECUC-CHOICE-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to either",
+              "metadata": {
+                "INTRODUCTION": "- a DioChannelGroup container in case the hardware watchdog is connected via DIO pins - an SpiSequenceConfiguration container in case the watchdog hardware is accessed via SPI",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00113",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REFS": "/AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannelGroup /AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "WdgSettingsFast",
+          "path": "/Wdg/WdgSettingsConfig/WdgSettingsFast",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Hardware dependent settings for the watchdog driver's \"fast\" mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00121",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgSettingsOff",
+          "path": "/Wdg/WdgSettingsConfig/WdgSettingsOff",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Hardware dependent settings for the watchdog driver's \"off\" mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00122",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": []
+        },
+        {
+          "name": "WdgSettingsSlow",
+          "path": "/Wdg/WdgSettingsConfig/WdgSettingsSlow",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Hardware dependent settings for the watchdog driver's \"slow\" mode.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Wdg_00123",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

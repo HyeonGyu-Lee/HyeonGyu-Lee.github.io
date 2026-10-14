@@ -1,0 +1,1538 @@
+{
+  "name": "FrNm",
+  "path": "/FrNm",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "The Flexray Nm module",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-LINK-TIME VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "FrNmChannelConfig",
+      "path": "/FrNm/FrNmChannelConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the configuration parameters for all FlexRay NM channels.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00002",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrNmChannel",
+          "path": "/FrNm/FrNmChannelConfig/FrNmChannel",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains the configuration parameters for a FlexRay NM Channel.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00006",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true",
+            "MULTIPLICITY-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "POST-BUILD-VARIANT-MULTIPLICITY": "false"
+          },
+          "children": [
+            {
+              "name": "FrNmChannelIdentifiers",
+              "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains instance specific identifiers related to the respective FlexRay Channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00007",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrNmActiveWakeupBitEnabled",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmActiveWakeupBitEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables/Disables the handling of the Active Wakeup Bit in the FrNm module.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00082",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmCarWakeUpBitPosition",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmCarWakeUpBitPosition",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the Bit position of the CWU within the NM-Message.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00076",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "7",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmCarWakeUpBytePosition",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmCarWakeUpBytePosition",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the Byte position of the CWU within the NM-Message.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00075",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "7",
+                    "MIN": "2"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmCarWakeUpFilterEnabled",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmCarWakeUpFilterEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "If CWU filtering is supported, only the CWU bit within the NM message with source node identifier",
+                  "metadata": {
+                    "INTRODUCTION": "FrNmCarWakeUpFilterNodeId is considered as CWU request. FALSE - CWU Filtering is not supported TRUE - CWU Filtering is supported",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00077",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmCarWakeUpFilterNodeId",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmCarWakeUpFilterNodeId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Source node identifier for CWU filtering. If CWU filtering is supported, only the CWU bit within the NM",
+                  "metadata": {
+                    "INTRODUCTION": "message with source node identifier FrNmCarWakeUpFilterNodeId is considered as CWU request.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00078",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmCarWakeUpRxEnabled",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmCarWakeUpRxEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables or disables support of CarWakeUp bit evaluation in received NM messages.",
+                  "metadata": {
+                    "INTRODUCTION": "FALSE - CarWakeUp not supported TRUE - CarWakeUp supported",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00074",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmControlBitVectorActive",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmControlBitVectorActive",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter is used to activate or deactivate the control bit vector support for a Fr Nm Channel.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00020",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmNodeId",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmNodeId",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "NM node identifier configured for the respective FlexRay Channel.",
+                  "metadata": {
+                    "INTRODUCTION": "It is used for identifying the respective NM node in the NM-cluster. It must be unique for each NM node within one NM cluster.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00017",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "255",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmPduScheduleVariant",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmPduScheduleVariant",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines the PDU scheduling variant that should be used for this channel.",
+                  "metadata": {
+                    "INTRODUCTION": "Option 1 NM-Vote and NM-Data in static segment (one PDU) Option 2 NM-Vote and NM-Data in dynamic segment (one PDU) Option 3 NM-Vote and NM-Data in static segment (separate PDU) Option 4 NM-Vote in static segment and NM-Data in dynamic segment Option 5 NM-Vote in dynamic segment and NM-Data in static segment Option 6 NM-Vote and NM-Data in dynamic segment (separate PDU) Option 7 Combined NM-Vote and CBV in static segment and NM-Data in dynamic segment",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00022",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "ECUC_AUTOSAR",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "FRNM_PDU_SCHEDULE_VARIANT_1 AUTOSAR_ECUC FRNM_PDU_SCHEDULE_VARIANT_2 AUTOSAR_ECUC FRNM_PDU_SCHEDULE_VARIANT_3 AUTOSAR_ECUC FRNM_PDU_SCHEDULE_VARIANT_4 AUTOSAR_ECUC FRNM_PDU_SCHEDULE_VARIANT_5 AUTOSAR_ECUC FRNM_PDU_SCHEDULE_VARIANT_6 AUTOSAR_ECUC FRNM_PDU_SCHEDULE_VARIANT_7 AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmPnEnabled",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmPnEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Enables or disables support of partial networking.",
+                  "metadata": {
+                    "INTRODUCTION": "false: Partial networking Range not supported true: Partial networking supported",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00072",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmPnEraCalcEnabled",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmPnEraCalcEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies if FrNm calculates the PN request information for external requests. (ERA)",
+                  "metadata": {
+                    "INTRODUCTION": "false: PN request are not calculated true: PN request are calculated",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00071",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmSynchronizationPointEnabled",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmSynchronizationPointEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines if this channel shall provide the synchronization point indication to the NM Interface.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00021",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmPnEraRxNSduRef",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmPnEraRxNSduRef",
+                  "type": "ECUC-REFERENCE-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Reference to a global Pdu. The SduRef is required for every FrNm Channel, because ERA is reported per channel.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00070",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmChannelHandle",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmChannelHandle",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Channel identifier configured for the respective instance of the NM.",
+                  "metadata": {
+                    "INTRODUCTION": "The FrNmChannelHandle shall be encoded in the FrNmRxPduId parameter which is passed to FrNm_RxIndication() function called by the FrIf.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00013",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/FrIf/FrIfConfig/FrIfCluster"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmComMNetworkHandleRef",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmComMNetworkHandleRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This reference points to the unique channel defined by the ComMChannel and provides access to the unique channel index value in ComMChannelId.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00014",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmRxPdu",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmRxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "1",
+                  "upper": null,
+                  "infinite": "true",
+                  "description": "This container describes the FlexRay NM RX PDU:s.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00010",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY-INFINITE": "true"
+                  },
+                  "children": [
+                    {
+                      "name": "FrNmRxPduContainsData",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmRxPdu/FrNmRxPduContainsData",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines if the PDU contains NM Data.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00027",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmRxPduContainsVote",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmRxPdu/FrNmRxPduContainsVote",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines if the PDU contains NM Vote information.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00026",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmRxPduId",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmRxPdu/FrNmRxPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "PDU identifier configured for the respective FlexRay Channel.",
+                      "metadata": {
+                        "INTRODUCTION": "It is used for referring to the FlexRay Interface receive function. It must be consistent with the value configured in the FlexRay Interface. This ID is used for the combined reception of NM Vote and NM Data or for the reception of the NM Vote if NM Data is received in a separate PDU. ImplementationType: PduIdType",
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00025",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmRxPduRef",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmRxPdu/FrNmRxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The reference to a PDU in the global PDU structure described in the AUTOSAR ECU Configuration Specification. This reference will be used by the FrIf module to derive the PDU Id.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00012",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "FrNmTxPdu",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmTxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "4",
+                  "infinite": null,
+                  "description": "This container describes the FlexRay NM TX PDU:s.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00009",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "4"
+                  },
+                  "children": [
+                    {
+                      "name": "FrNmTxConfirmationPduId",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmTxPdu/FrNmTxConfirmationPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Handle Id used by the Lower Layer when calling FrNm_TriggerTransmit() or FrNm_TxConfirmation().",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00018",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmTxPduContainsData",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmTxPdu/FrNmTxPduContainsData",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameted defines if the PDU contains NM Data.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00024",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmTxPduContainsVote",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmTxPdu/FrNmTxPduContainsVote",
+                      "type": "ECUC-BOOLEAN-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameted defines if the PDU contains NM Vote information.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00023",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmTxPduRef",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmTxPdu/FrNmTxPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "The reference to a PDU in the global PDU structure described in the AUTOSAR ECU Configuration Specification. This reference is used to derive the PDU Id that is defined by the FrIf module.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00011",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "ECU",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "FrNmUserDataTxPdu",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmUserDataTxPdu",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This optional container is used to configure the UserNm PDU. This container is only available if FrNmComUserDataSupport is enabled.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00055",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1"
+                  },
+                  "children": [
+                    {
+                      "name": "FrNmTxUserDataPduId",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmUserDataTxPdu/FrNmTxUserDataPduId",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "This parameter defines the Handle ID of the NM User Data I-PDU.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00056",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "true",
+                        "MAX": "65535",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmTxUserDataPduRef",
+                      "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelIdentifiers/FrNmUserDataTxPdu/FrNmTxUserDataPduRef",
+                      "type": "ECUC-REFERENCE-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Reference to the NM User Data I-PDU in the global PDU collection.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00057",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "FrNmChannelTiming",
+              "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "This container contains instance-specific timing related to the respective FlexRay Channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00008",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrNmDataCycle",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmDataCycle",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Number of FlexRay Schedule Cycles needed to transmit the NM Data of all ECUs on the FlexRay bus",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00031",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "FRNM_CYCLE_VALUE_1 AUTOSAR_ECUC FRNM_CYCLE_VALUE_16 AUTOSAR_ECUC FRNM_CYCLE_VALUE_2 AUTOSAR_ECUC FRNM_CYCLE_VALUE_32 AUTOSAR_ECUC FRNM_CYCLE_VALUE_4 AUTOSAR_ECUC FRNM_CYCLE_VALUE_64 AUTOSAR_ECUC FRNM_CYCLE_VALUE_8 AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmMainFunctionPeriod",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmMainFunctionPeriod",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "This parameter defines the processing cycle of the main function of FrNm module in seconds.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00035",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "0.02",
+                    "MIN": "0.001"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmMsgTimeoutTime",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmMsgTimeoutTime",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "0",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Timeout of a NM-message. It determines in seconds how long the NM shall wait with notification of transmission failure while communication errors occur on the bus.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00028",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "0",
+                    "MAX": "65.535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmReadySleepCnt",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmReadySleepCnt",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "FrNm switches to bus sleep mode at the end of the FrNmReadySleepCnt+1 repetition cycle without any NM vote. E.g. on a value of \"1\", the NM-State Machine will leave the Ready Sleep State after two NM Repetition Cycles with no \"keep awake\" votes.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00051",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmRemoteSleepIndTime",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmRemoteSleepIndTime",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Timeout for Remote Sleep Indication. It defines the time in seconds how long it shall take to recognize that all other nodes are ready to sleep.",
+                  "metadata": {
+                    "INTRODUCTION": "The value \"0\" denotes that no Remote Sleep Indication functionality is configured.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00029",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65.535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmRepeatMessageTime",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmRepeatMessageTime",
+                  "type": "ECUC-FLOAT-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Timeout for Repeat Message State. Defines the time in seconds how long the NM shall stay in the Repeat Message State.",
+                  "metadata": {
+                    "INTRODUCTION": "The value \"0\" denotes that no Repeat Message State is configured, which means that Repeat Message State is transient and implies that it is left immediately after entry and consequently no startup stability is guaranteed and no node detection procedure is possible.",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00030",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "ECU",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "MAX": "65.535",
+                    "MIN": "0"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmRepetitionCycle",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmRepetitionCycle",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Number of Flexray Schedule Cycles used to repeat the transmission of the Nm vote of all ECUs on the Flexray Bus.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00033",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "FRNM_CYCLE_VALUE_1 AUTOSAR_ECUC FRNM_CYCLE_VALUE_16 AUTOSAR_ECUC FRNM_CYCLE_VALUE_2 AUTOSAR_ECUC FRNM_CYCLE_VALUE_32 AUTOSAR_ECUC FRNM_CYCLE_VALUE_4 AUTOSAR_ECUC FRNM_CYCLE_VALUE_64 AUTOSAR_ECUC FRNM_CYCLE_VALUE_8 AUTOSAR_ECUC"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmVoteInhibitionEnabled",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmVoteInhibitionEnabled",
+                  "type": "ECUC-BOOLEAN-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Pre-processor switch for enabling the inhibition of vote changes from the next-to-last repetition cycle to the last repetition cycle before the Ready Sleep Counter expires.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00053",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmVotingCycle",
+                  "path": "/FrNm/FrNmChannelConfig/FrNmChannel/FrNmChannelTiming/FrNmVotingCycle",
+                  "type": "ECUC-ENUMERATION-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Number of FlexRay Schedule Cycles needed to transmit the Nm vote of all ECUs on the FlexRay Bus.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00032",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "LITERALS": "FRNM_CYCLE_VALUE_1 AUTOSAR_ECUC FRNM_CYCLE_VALUE_16 AUTOSAR_ECUC FRNM_CYCLE_VALUE_2 AUTOSAR_ECUC FRNM_CYCLE_VALUE_32 AUTOSAR_ECUC FRNM_CYCLE_VALUE_4 AUTOSAR_ECUC FRNM_CYCLE_VALUE_64 AUTOSAR_ECUC FRNM_CYCLE_VALUE_8 AUTOSAR_ECUC"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FrNmGlobalConfig",
+      "path": "/FrNm/FrNmGlobalConfig",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains all global configuration parameters for the FrNm module.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00001",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "FrNmGlobalConstants",
+          "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalConstants",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains module constants related to the FlexRay NM functionality.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00005",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FrNmNumberOfClusters",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalConstants/FrNmNumberOfClusters",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Number of AUTOSAR FR NM clusters allowed within one ECU. Tags: atp.Status=obsolete, atp.StatusRevisionBegin=4.2.2",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00034",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "255",
+                "MIN": "1"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FrNmGlobalFeatures",
+          "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains module features related to the FlexRay NM functionality.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00004",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FrNmBusSynchronizationEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmBusSynchronizationEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling the bus synchronization.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00048",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmComUserDataSupport",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmComUserDataSupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enable/disable the user data support.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00054",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmControlBitVectorEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmControlBitVectorEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling control bit vector support.",
+              "metadata": {
+                "INTRODUCTION": "calculationFormula = If (FrNmNodeDetectionEnabled == False) then Equal(False) else Equal(False or True)",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00041",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmCoordinatorSyncSupport",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmCoordinatorSyncSupport",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables/disables the coordinator synchronization support.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00081",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmCycleCounterEmulation",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmCycleCounterEmulation",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling the cycle counter emulation.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00060",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmDualChannelPduEnable",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmDualChannelPduEnable",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling the support of dual channel transmission and reception of NM messages.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00049",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmHwVoteEnable",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmHwVoteEnable",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling the processing of FlexRay Hardware aggregated NM-Votes. This switch enables/disables the optional API FrIf_GetNmVector.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00050",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmNodeDetectionEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmNodeDetectionEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling node detection support.",
+              "metadata": {
+                "INTRODUCTION": "calculationFormula = If (FrNmPassiveModeEnabled == False) then Equal(NmNodeDetectionEnabled) else Equal(False)",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00040",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmPassiveModeEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPassiveModeEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling Passive Node Configuration support.",
+              "metadata": {
+                "INTRODUCTION": "calculationFormula = Equal(NmPassiveModeEnabled)",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00043",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmPduRxIndicationEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPduRxIndicationEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling PDU reception indication.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00046",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmPnEiraCalcEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnEiraCalcEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies if FrNm calculates the PN request information for internal an external requests. (EIRA)",
+              "metadata": {
+                "INTRODUCTION": "true: PN request are calculated false: PN request are not calculated",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00067",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "DEFAULT-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmPnResetTime",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnResetTime",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the runtime of the reset timer in seconds. This reset time is valid for the reset of PN requests in the EIRA and in the ERA. The value shall be the same for every channel. Thus it is a global config parameter.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00068",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "65.535",
+                "MIN": "0.001"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmRemoteSleepIndicationEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmRemoteSleepIndicationEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling remote sleep indication.",
+              "metadata": {
+                "INTRODUCTION": "calculationFormula = If (FrNmPassiveModeEnabled == True) then Equal(False) else Equal(False or True)",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00044",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmRepeatMessageBitEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmRepeatMessageBitEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling the repeat message bit support.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00059",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmSourceNodeIdentifierEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmSourceNodeIdentifierEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling SourceNodeIdentifier support.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00042",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmStateChangeIndicationEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmStateChangeIndicationEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling state change indication.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00047",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmUserDataEnabled",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmUserDataEnabled",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling user data support.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00039",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmVotingNextToLastRepetitionCycleDisable",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmVotingNextToLastRepetitionCycleDisable",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for disabling vote changes in the last two",
+              "metadata": {
+                "INTRODUCTION": "repetition cycles before the Ready Sleep Counter expires.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00073",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmPnEiraRxNSduRef",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnEiraRxNSduRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a Pdu in the COM-Stack.",
+              "metadata": {
+                "INTRODUCTION": "Only one SduRef is required for FrNm because the EIRA is the aggregation over all FlexRay Channels.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00069",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "false",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmPnInfo",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnInfo",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "PN information configuration",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00061",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "FrNmPnInfoLength",
+                  "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnInfo/FrNmPnInfoLength",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the length of the PN request information in the NM message.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00063",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "1",
+                    "MAX": "7",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmPnInfoOffset",
+                  "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnInfo/FrNmPnInfoOffset",
+                  "type": "ECUC-INTEGER-PARAM-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "Specifies the offset of the PN request information in the NM message.",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00062",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "false",
+                    "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "SYMBOLIC-NAME-VALUE": "false",
+                    "DEFAULT-VALUE": "1",
+                    "MAX": "7",
+                    "MIN": "1"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "FrNmPnFilterMaskByte",
+                  "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnInfo/FrNmPnFilterMaskByte",
+                  "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+                  "lower": "0",
+                  "upper": "7",
+                  "infinite": null,
+                  "description": "Filter mask byte configuration",
+                  "metadata": {
+                    "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00064",
+                    "LOWER-MULTIPLICITY": "0",
+                    "UPPER-MULTIPLICITY": "7"
+                  },
+                  "children": [
+                    {
+                      "name": "FrNmPnFilterMaskByteIndex",
+                      "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnInfo/FrNmPnFilterMaskByte/FrNmPnFilterMaskByteIndex",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Index of the filter mask byte. Specifies the position within the filter mask byte array.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00065",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "false",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "MAX": "6",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "FrNmPnFilterMaskByteValue",
+                      "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalFeatures/FrNmPnInfo/FrNmPnFilterMaskByte/FrNmPnFilterMaskByteValue",
+                      "type": "ECUC-INTEGER-PARAM-DEF",
+                      "lower": "1",
+                      "upper": "1",
+                      "infinite": null,
+                      "description": "Parameter to configure the filter mask byte.",
+                      "metadata": {
+                        "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00066",
+                        "LOWER-MULTIPLICITY": "1",
+                        "UPPER-MULTIPLICITY": "1",
+                        "SCOPE": "LOCAL",
+                        "ORIGIN": "AUTOSAR_ECUC",
+                        "POST-BUILD-VARIANT-VALUE": "true",
+                        "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                        "SYMBOLIC-NAME-VALUE": "false",
+                        "DEFAULT-VALUE": "0",
+                        "MAX": "255",
+                        "MIN": "0"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FrNmGlobalProperties",
+          "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalProperties",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "This container contains module properties related to the FlexRay NM functionality.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00003",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1"
+          },
+          "children": [
+            {
+              "name": "FrNmDevErrorDetect",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalProperties/FrNmDevErrorDetect",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+              "metadata": {
+                "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00036",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmMainAcrossFrCycle",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalProperties/FrNmMainAcrossFrCycle",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "If the FlexRay NM MainFunction is executed completely within the FlexRay communication cycle where the last NM vote of the current vote cycle is received, the FrNmMainAcrossFrCycle shall be configured to FALSE.",
+              "metadata": {
+                "INTRODUCTION": "If the FlexRay NM MainFunction is executed completely within the FlexRay communication cycle subsequent to the one where the last NM vote of the current vote cycle is received, the FrNmMainAcrossFrCycle shall be configured to TRUE.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00038",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "LINK VARIANT-LINK-TIME LINK VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "FrNmVersionInfoApi",
+              "path": "/FrNm/FrNmGlobalConfig/FrNmGlobalProperties/FrNmVersionInfoApi",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Pre-processor switch for enabling version info API support.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_FrNm_00037",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-LINK-TIME PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

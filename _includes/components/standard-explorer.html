@@ -1,0 +1,4 @@
+<section class="standard-explorer" data-standard-module="{{ include.module | default: 'Dcm' }}" data-standard-base="{{ '/assets/standards/' | relative_url }}" aria-label="AUTOSAR 표준 Explorer">
+  <p>표준 정의를 불러오는 중입니다.</p>
+</section>
+<script defer src="{{ '/assets/js/standard-explorer.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

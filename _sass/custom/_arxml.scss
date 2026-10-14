@@ -59,11 +59,11 @@
   transform: rotate(90deg);
 }
 
-ul ul {
+.arxml-container ul ul {
   display: none;
   padding-left: 10px; /* Adjust indentation for child lists */
 }
 
-.collapsed > ul {
+.arxml-container .collapsed > ul {
   display: block;
 }

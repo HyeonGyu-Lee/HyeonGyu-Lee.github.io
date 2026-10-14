@@ -1,0 +1,510 @@
+{
+  "name": "Gpt",
+  "path": "/Gpt",
+  "type": "ECUC-MODULE-DEF",
+  "lower": "0",
+  "upper": "1",
+  "infinite": null,
+  "description": "Configuration of the Gpt (General Purpose Timer) module.",
+  "metadata": {
+    "ADMIN-DATA": "4.2.2 AUTOSAR 2014-10-31",
+    "LOWER-MULTIPLICITY": "0",
+    "UPPER-MULTIPLICITY": "1",
+    "POST-BUILD-VARIANT-SUPPORT": "true",
+    "SUPPORTED-CONFIG-VARIANTS": "VARIANT-POST-BUILD VARIANT-PRE-COMPILE"
+  },
+  "children": [
+    {
+      "name": "GptChannelConfigSet",
+      "path": "/Gpt/GptChannelConfigSet",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container is the base of a Configuration Set which contains the configured GPT channels. This way, different configuration sets can be defined for post-build process.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00269",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "GptChannelConfiguration",
+          "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "Configuration of an individual GPT channel.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00184",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "GptChannelId",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelId",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Channel Id of the GPT channel. This value will be assigned to the symbolic name derived of the GptChannelConfiguration container short name.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00308",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "true",
+                "MAX": "4294967295",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "GptChannelMode",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelMode",
+              "type": "ECUC-ENUMERATION-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the behavior of the timer channel after the target time is reached.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00309",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "LITERALS": "GPT_CH_MODE_CONTINUOUS AUTOSAR_ECUC GPT_CH_MODE_ONESHOT AUTOSAR_ECUC"
+              },
+              "children": []
+            },
+            {
+              "name": "GptChannelTickFrequency",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelTickFrequency",
+              "type": "ECUC-FLOAT-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Specifies the tick frequency of the timer channel in Hz.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00331",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "Inf",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "GptChannelTickValueMax",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelTickValueMax",
+              "type": "ECUC-INTEGER-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Maximum value in ticks, the timer channel is able to count. With the next tick, the timer rolls over to zero.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00332",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "ECU",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "MAX": "18446744073709551615",
+                "MIN": "0"
+              },
+              "children": []
+            },
+            {
+              "name": "GptEnableWakeup",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptEnableWakeup",
+              "type": "ECUC-BOOLEAN-PARAM-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Enables wakeup capability of MCU for a channel.",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00311",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false"
+              },
+              "children": []
+            },
+            {
+              "name": "GptNotification",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptNotification",
+              "type": "ECUC-FUNCTION-NAME-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Function pointer to callback function (for non-wakeup notification)",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00312",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "MULTIPLICITY-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-MULTIPLICITY": "true",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "SYMBOLIC-NAME-VALUE": "false",
+                "ECUC-FUNCTION-NAME-DEF-VARIANTS": ""
+              },
+              "children": []
+            },
+            {
+              "name": "GptChannelClkSrcRef",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelClkSrcRef",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to the GptClockReferencePoint from which the channel",
+              "metadata": {
+                "INTRODUCTION": "clock is derived.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00333",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "true",
+                "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Gpt/GptDriverConfiguration/GptClockReferencePoint"
+              },
+              "children": []
+            },
+            {
+              "name": "GptWakeupConfiguration",
+              "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptWakeupConfiguration",
+              "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+              "lower": "0",
+              "upper": "1",
+              "infinite": null,
+              "description": "Function pointer to callback function (for wakeup notification).",
+              "metadata": {
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00235",
+                "LOWER-MULTIPLICITY": "0",
+                "UPPER-MULTIPLICITY": "1"
+              },
+              "children": [
+                {
+                  "name": "GptWakeupSourceRef",
+                  "path": "/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptWakeupConfiguration/GptWakeupSourceRef",
+                  "type": "ECUC-SYMBOLIC-NAME-REFERENCE-DEF",
+                  "lower": "1",
+                  "upper": "1",
+                  "infinite": null,
+                  "description": "In case the wakeup-capability is true this value is transmitted to the Ecu State Manager.",
+                  "metadata": {
+                    "INTRODUCTION": "Implementation Type: reference to EcuM_WakeupSourceType",
+                    "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00313",
+                    "LOWER-MULTIPLICITY": "1",
+                    "UPPER-MULTIPLICITY": "1",
+                    "SCOPE": "LOCAL",
+                    "ORIGIN": "AUTOSAR_ECUC",
+                    "POST-BUILD-VARIANT-VALUE": "true",
+                    "VALUE-CONFIG-CLASSES": "POST-BUILD VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                    "DESTINATION-REF": "/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GptConfigurationOfOptApiServices",
+      "path": "/Gpt/GptConfigurationOfOptApiServices",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains all configuration switches for configuring optional API services of the GPT driver.",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00193",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "GptDeinitApi",
+          "path": "/Gpt/GptConfigurationOfOptApiServices/GptDeinitApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Gpt_DeInit() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00314",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptEnableDisableNotificationApi",
+          "path": "/Gpt/GptConfigurationOfOptApiServices/GptEnableDisableNotificationApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the services Gpt_EnableNotification() and Gpt_DisableNotification from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00315",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptTimeElapsedApi",
+          "path": "/Gpt/GptConfigurationOfOptApiServices/GptTimeElapsedApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Gpt_GetTimeElapsed() from the code",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00317",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptTimeRemainingApi",
+          "path": "/Gpt/GptConfigurationOfOptApiServices/GptTimeRemainingApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Gpt_GetTimeRemaining() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00318",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptVersionInfoApi",
+          "path": "/Gpt/GptConfigurationOfOptApiServices/GptVersionInfoApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the service Gpt_GetVersionInfo() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00319",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptWakeupFunctionalityApi",
+          "path": "/Gpt/GptConfigurationOfOptApiServices/GptWakeupFunctionalityApi",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Adds / removes the services Gpt_SetMode(), Gpt_EnableWakeup() Gpt_DisableWakeup() and Gpt_CheckWakeup() from the code.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00320",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "GptDriverConfiguration",
+      "path": "/Gpt/GptDriverConfiguration",
+      "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+      "lower": "1",
+      "upper": "1",
+      "infinite": null,
+      "description": "This container contains the module-wide configuration (parameters) of the GPT Driver",
+      "metadata": {
+        "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00183",
+        "LOWER-MULTIPLICITY": "1",
+        "UPPER-MULTIPLICITY": "1"
+      },
+      "children": [
+        {
+          "name": "GptDevErrorDetect",
+          "path": "/Gpt/GptDriverConfiguration/GptDevErrorDetect",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Switches the Default Error Tracer (Det) detection and notification ON or OFF.",
+          "metadata": {
+            "INTRODUCTION": "* true: enabled (ON). * false: disabled (OFF).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00321",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptPredefTimer100us32bitEnable",
+          "path": "/Gpt/GptDriverConfiguration/GptPredefTimer100us32bitEnable",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables/disables the GPT Predef Timer 100µs32bit.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00335",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptPredefTimer1usEnablingGrade",
+          "path": "/Gpt/GptDriverConfiguration/GptPredefTimer1usEnablingGrade",
+          "type": "ECUC-ENUMERATION-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Specifies the grade of enabling the GPT Predef Timers with 1µs tick duration.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00334",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "ECU",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false",
+            "LITERALS": "GPT_PREDEF_TIMER_1US_16BIT_ENABLED AUTOSAR_ECUC GPT_PREDEF_TIMER_1US_16_24BIT_ENABLED AUTOSAR_ECUC GPT_PREDEF_TIMER_1US_16_24_32BIT_ENABLED AUTOSAR_ECUC GPT_PREDEF_TIMER_1US_DISABLED AUTOSAR_ECUC"
+          },
+          "children": []
+        },
+        {
+          "name": "GptReportWakeupSource",
+          "path": "/Gpt/GptDriverConfiguration/GptReportWakeupSource",
+          "type": "ECUC-BOOLEAN-PARAM-DEF",
+          "lower": "1",
+          "upper": "1",
+          "infinite": null,
+          "description": "Enables/Disables wakeup source reporting.",
+          "metadata": {
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00322",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY": "1",
+            "SCOPE": "LOCAL",
+            "ORIGIN": "AUTOSAR_ECUC",
+            "POST-BUILD-VARIANT-VALUE": "false",
+            "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+            "SYMBOLIC-NAME-VALUE": "false"
+          },
+          "children": []
+        },
+        {
+          "name": "GptClockReferencePoint",
+          "path": "/Gpt/GptDriverConfiguration/GptClockReferencePoint",
+          "type": "ECUC-PARAM-CONF-CONTAINER-DEF",
+          "lower": "1",
+          "upper": null,
+          "infinite": "true",
+          "description": "This container contains a parameter, which represents a reference to a container of the type McuClockReferencePoint (defined in module MCU).",
+          "metadata": {
+            "INTRODUCTION": "A container is needed to support multiple clock references (hardware dependent).",
+            "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00329",
+            "LOWER-MULTIPLICITY": "1",
+            "UPPER-MULTIPLICITY-INFINITE": "true"
+          },
+          "children": [
+            {
+              "name": "GptClockReference",
+              "path": "/Gpt/GptDriverConfiguration/GptClockReferencePoint/GptClockReference",
+              "type": "ECUC-REFERENCE-DEF",
+              "lower": "1",
+              "upper": "1",
+              "infinite": null,
+              "description": "Reference to a container of the type McuClockReferencePoint, to select an input clock.",
+              "metadata": {
+                "INTRODUCTION": "The configuration editor for the GPT module can support the integrator by only allowing a selection of those clock reference points that can be connected physically to the GPT hardware peripheral. The desired frequency (desired by GPT) has to be the same as the selected and provided frequency of the MCU configuration. This has to be checked automatically.",
+                "RELATED-TRACE-ITEM-REF": "ECUC_Gpt_00330",
+                "LOWER-MULTIPLICITY": "1",
+                "UPPER-MULTIPLICITY": "1",
+                "SCOPE": "LOCAL",
+                "ORIGIN": "AUTOSAR_ECUC",
+                "POST-BUILD-VARIANT-VALUE": "false",
+                "VALUE-CONFIG-CLASSES": "PRE-COMPILE VARIANT-POST-BUILD PRE-COMPILE VARIANT-PRE-COMPILE",
+                "DESTINATION-REF": "/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
