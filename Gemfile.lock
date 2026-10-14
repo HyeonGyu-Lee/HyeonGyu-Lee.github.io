@@ -182,6 +182,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (>= 2.3.5)
   html-proofer (~> 5.2)
+  jekyll (~> 4.4.1)
   jekyll-github-metadata (>= 2.15)
   jekyll-include-cache
   jekyll-redirect-from
