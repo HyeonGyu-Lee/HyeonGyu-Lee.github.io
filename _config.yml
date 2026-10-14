@@ -200,17 +200,12 @@ callouts:
 ga_tracking: G-TSCTJW9RLN, GTM-P99H826J
 ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
 
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
   - jekyll-include-cache
   - jekyll-redirect-from
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-github-metadata
-  - jekyll-include-cache
-  
 whitelist:
   - jekyll-redirect-from
 

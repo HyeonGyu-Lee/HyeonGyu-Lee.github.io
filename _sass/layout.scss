@@ -474,7 +474,7 @@ a.disabled {
     padding: 0.125rem 0.3125rem;
     border-radius: 0.1875rem;
     border: 1px solid var(--scroll-nav-line-color);
-    box-shadow: 0 0.125rem 0.25rem rgb(0, 0, 0, 0.2);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
     white-space: nowrap;
     max-width: Max(#{$tooltip-min-width}, var(--tooltip-max-width));
     overflow: hidden;

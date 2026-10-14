@@ -67,7 +67,7 @@ a:not([class]) {
   text-underline-offset: 2px;
 
   &:hover {
-    text-decoration-color: rgb(var(--link-color), 0.45);
+    text-decoration-color: rgba(var(--link-color), 0.45);
   }
 }
 
