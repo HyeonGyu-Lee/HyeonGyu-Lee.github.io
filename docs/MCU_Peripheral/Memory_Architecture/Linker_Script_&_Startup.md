@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Linker Script & Startup
+title: "Linker Script & Startup"
 has_children: false
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 2
-parent: 'Memory Architecture'
+parent: "Memory Architecture"
 permalink: '/MCU_Peripheral/Memory_Architecture/Linker_Script_&_Startup'
 redirect_from:
- - /3f91b412900a818892aac82a6b1d2b38
- - /undefined
+ - "/3f91b412900a818892aac82a6b1d2b38"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -62,4 +62,3 @@ map file에서 vector table, boot metadata, application entry, DMA buffer, stack
 
 
 초기값 있는 전역·zero 전역·const·큰 배열의 map 배치를 비교한다. cold/warm reset에서 값이 요구대로 초기화되는지 관찰한다. 실제 메모리 주소가 맞는지 검증하지 않은 예제 linker script를 보드에 적용하지 않는다.
-

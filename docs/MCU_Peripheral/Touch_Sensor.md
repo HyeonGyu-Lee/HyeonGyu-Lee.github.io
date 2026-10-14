@@ -1,20 +1,22 @@
 ---
 layout: default
-title: Touch Sensor
+title: "Touch Sensor"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:25:00.000Z
+last_modified_date: 2026-10-14T13:55:00.000Z
 nav_order: 4
-parent: 'MCU Peripheral'
+parent: "MCU Peripheral"
 permalink: '/MCU_Peripheral/Touch_Sensor'
 redirect_from:
- - /3f91b412900a81d09942c1e319a88c65
- - /undefined
+ - "/3f91b412900a81d09942c1e319a88c65"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
@@ -37,6 +39,22 @@ redirect_from:
 - 시작 시 손가락이 닿아 있는 경우, startup calibration 실패, 장시간 누름, 통신 timeout과 센서 reset을 상태 머신에 포함한다.
 
 ## raw·baseline·delta 분리
+
+
+<figure><a href="/assets/images/diagrams/touch-timing.png" data-fslightbox="touch"><img src="/assets/images/diagrams/touch-timing.png" width="1983" height="793" loading="lazy" decoding="async" alt="Delta=raw−baseline, ON threshold=50, OFF threshold=30, 연속 3회 판정의 설명용 그래프다. Sample 3~5에서 ON 조건이 유지되어 5에서 pressed가 되고, 8~10에서 OFF 조건이 유지되어 10에서 해제된다. 실제 측정 파형이 아니다."></a><figcaption>Delta=raw−baseline, ON threshold=50, OFF threshold=30, 연속 3회 판정의 설명용 그래프다. Sample 3~5에서 ON 조건이 유지되어 5에서 pressed가 되고, 8~10에서 OFF 조건이 유지되어 10에서 해제된다. 실제 측정 파형이 아니다.</figcaption></figure>
+
+
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
+그림 읽기와 실측 확인: Threshold 사이에서는 현재 상태를 유지한다. 본문 C 예제의 ON 조건은 delta\>50, OFF 조건은 delta\<=30이다. 그림의 scan period와 threshold는 실제 센서 보장값이 아니며, baseline 추적과 filtering을 포함한 실측 데이터로 보정한다.
+</div>
+</div>
+</blockquote>
+
 
 
 센서마다 touch가 raw 증가 또는 감소로 나타날 수 있다. delta를 항상 raw−baseline으로 가정하지 말고 부품의 표현을 확인한다. 비터치 상태에서는 baseline이 느린 온도·습도 변화를 따라가게 하되, 터치 중에는 baseline이 손가락 신호를 흡수하지 않도록 업데이트 정책을 둔다.
@@ -67,7 +85,6 @@ int main(void) {
 ```
 
 
-
 threshold 50/30, 연속 3회, 계수 0.01은 알고리즘 설명용이다. 실제 센서 raw 범위·샘플 주기·비터치 분산·최약 터치 delta를 측정해 정한다. 외부 IC가 이미 filtering과 debounce를 제공하면 MCU가 추가한 지연까지 합산해 응답시간을 평가한다.
 
 
@@ -88,3 +105,16 @@ threshold 50/30, 연속 3회, 계수 0.01은 알고리즘 설명용이다. 실�
 
 IC·firmware 버전, 전극·overlay 조건, scan period, raw/baseline/delta 분포, on/off threshold, debounce 시간, 응답시간과 false/missed 비율을 함께 기록한다. 통신 성공, 센서 감지 성공, 사용자 이벤트 품질을 별도로 검증한다.
 
+
+## Touch Pad 구현 방식과 Peripheral 선택
+
+
+| 방식                 | 사용하는 기능                                                    | 확인할 점                                                                             |
+| ------------------ | ---------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| RC 시간 측정           | GPIO drive/high-impedance 전환 + Timer/Capture 또는 Comparator | 전극 capacitance·저항·입력 threshold·시간 해상도·leakage가 측정에 영향을 준다.                        |
+| ADC 기반 측정          | GPIO 제어 + charge transfer/분압 등 회로 + ADC                    | 전용 analog 회로와 acquisition sequence가 필요하다. 단순 analogRead만으로 touch가 검출된다고 가정하지 않는다. |
+| 전용 Touch IC/engine | 전극 + 해당 sensor engine, MCU I2C/SPI·IRQ                     | Sensor가 raw/baseline/filter를 제공하는지 확인하고 MCU에서 중복 filtering 지연을 계산한다.              |
+| Resistive touch    | 전극 drive GPIO + ADC                                        | 접촉 좌표를 전압으로 읽는 방식이다. Capacitive pad와 물리 원리가 다르다.                                  |
+
+
+S32K312에서 사용할 방식은 실제 회로와 지원 Peripheral로 결정한다. GPIO·ADC를 모두 써야 하는 것이 아니며, 어느 조합이든 전극/overlay·ESD·noise·baseline 추적·hysteresis·debounce 검증이 필요하다.

@@ -1,16 +1,16 @@
 ---
 layout: default
-title: ROS 2
+title: "ROS 2"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 1
-parent: 'Middleware & Robotics'
+parent: "Middleware & Robotics"
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/ROS_2'
 redirect_from:
- - /3f91b412900a810b8ab4d2e9bbada142
- - /undefined
+ - "/3f91b412900a810b8ab4d2e9bbada142"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -79,4 +79,3 @@ Single-threaded Executor에서도 callback이 오래 걸리면 다른 callback �
 
 
 Node 종료·재시작, 서로 다른 Domain, QoS 불일치, subscriber 처리 지연, 네트워크 인터페이스 변경을 시험한다. topic hz는 관측 지점의 수신 빈도이며 원래 센서 sampling 주기나 End-to-End Latency를 직접 증명하지 않는다.
-

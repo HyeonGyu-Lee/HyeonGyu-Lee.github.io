@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Key Management & Provisioning
+title: "Key Management & Provisioning"
 has_children: false
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 2
-parent: 'Security & Boot'
+parent: "Security & Boot"
 permalink: '/MCU_Peripheral/Security_&_Boot/Key_Management_&_Provisioning'
 redirect_from:
- - /3f91b412900a813abce6c90f8c54794b
- - /undefined
+ - "/3f91b412900a813abce6c90f8c54794b"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -56,4 +56,3 @@ Key ID, 용도, 알고리즘, owner, 저장 위치, export 허용 여부, 활성
 
 
 다른 장치용 이미지, 폐기된 key, 잘못된 usage, 중단된 provisioning, debug 접근 정책을 시험한다. error log에는 key 값 대신 key ID·status·단계만 남긴다. 실제 절차는 제조·보안 운영과 제품의 vendor security manual에 맞춘다.
-

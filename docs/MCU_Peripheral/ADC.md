@@ -1,20 +1,22 @@
 ---
 layout: default
-title: ADC
+title: "ADC"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:25:00.000Z
+last_modified_date: 2026-10-14T13:55:00.000Z
 nav_order: 3
-parent: 'MCU Peripheral'
+parent: "MCU Peripheral"
 permalink: '/MCU_Peripheral/ADC'
 redirect_from:
- - /3f91b412900a81029051d305edc556b5
- - /undefined
+ - "/3f91b412900a81029051d305edc556b5"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
@@ -32,6 +34,22 @@ redirect_from:
 ## 획득 시간과 샘플링 주기
 
 
+<figure><a href="/assets/images/diagrams/adc-timing.png" data-fslightbox="adc"><img src="/assets/images/diagrams/adc-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="ADC clock=40 MHz, acquisition=80 cycles를 가정한 설명용 timing diagram이다. Acquisition 2 μs는 전체 변환 시간이 아니다. 실제 측정 파형이 아니다."></a><figcaption>ADC clock=40 MHz, acquisition=80 cycles를 가정한 설명용 timing diagram이다. Acquisition 2 μs는 전체 변환 시간이 아니다. 실제 측정 파형이 아니다.</figcaption></figure>
+
+
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
+그림 읽기와 실측 확인: Trigger latency, Acquisition, Conversion, EOC, DMA 전달을 구분한다. 수치가 지정되지 않은 구간의 길이는 개념 표현이다. 입력 소스 임피던스와 실제 acquisition 설정을 바꾸어 settling 오차를 검증한다.
+</div>
+</div>
+</blockquote>
+
+
+
 ADC 내부 샘플 커패시터는 입력 소스 저항을 통해 충전된다. 임피던스가 높을수록 짧은 acquisition time에서 오차가 커질 수 있다. 데이터시트의 입력 모델과 허용 임피던스 표를 우선 사용한다. 이상적인 1차 RC 모델에서는 0.5 LSB 이내 settling에 대략 R×C×ln(2^(N+1))가 필요하지만 스위치 저항·누설·보드 조건을 포함한 보장값은 아니다.
 
 
@@ -44,7 +62,6 @@ ADC 내부 샘플 커패시터는 입력 소스 저항을 통해 충전된다. �
 획득 시간 = 80 / 40 MHz = 2 us
 이 2 us는 전체 변환 시간이 아니다.
 ```
-
 
 
 ## 전압·센서 값 변환 예제
@@ -77,7 +94,6 @@ int main(void) {
 ```
 
 
-
 저항 허용 오차·기준 전압 오차·ADC offset/gain·센서 출력 오차를 분리해 평가한다. 측정 대상 전압이 6.6V라고 해서 3.3V 기준 ADC 핀에 직접 연결해도 된다는 뜻은 아니다.
 
 
@@ -98,3 +114,11 @@ DMA buffer 길이·채널 순서·전송 폭·완료 이벤트를 확인한다. 
 - 안정된 입력원으로 0V·중간 전압·상한에 가까운 전압을 주고 DMM 실측값과 비교한다. ADC 최대 허용 범위를 초과하지 않는다.
 - sample time과 소스 저항을 바꾸어 오차 변화를 측정한다. 디지털 통신·PWM 출력 동작 시 노이즈를 비교한다.
 - 오버런·DMA 누락·trigger 속도 초과·보정 실패·전원 변동·저전력 복귀를 시험하고 raw 데이터·필터 후 값·실제 샘플 간격을 함께 기록한다.
+
+## Potentiometer와 ADC 연결
+
+
+가변저항의 양 끝을 ADC가 허용하는 전원과 GND에 연결하고 wiper를 analog 입력으로 읽는다. Wiper 전압은 이상적으로 위치 비율에 비례하지만 저항 허용오차·접촉 노이즈·입력 부하를 고려한다. ADC reference와 가변저항 공급 전원을 공유하는 ratiometric 구성에서는 공급 변동의 영향을 줄일 수 있다.
+
+
+Wiper의 source impedance는 위치에 따라 달라진다. ADC acquisition time과 입력 모델을 기준으로 오차를 확인하고 필요 시 buffer·RC filter를 검토한다. 범위 밖·단선·wiper 접촉 불량은 moving average만으로 숨기지 않는다. 기존 adc_voltage 예제와 raw/min/max 보정값을 이용해 위치를 정규화한다.

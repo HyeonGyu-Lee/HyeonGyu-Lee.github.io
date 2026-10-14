@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Global Variables & State Ownership
+title: "Global Variables & State Ownership"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:29:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 1
-parent: 'Concurrency & Synchronization'
+parent: "Concurrency & Synchronization"
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Global_Variables_&_State_Ownership'
 redirect_from:
- - /3f91b412900a813f99a5db9e21ef3050
- - /undefined
+ - "/3f91b412900a813f99a5db9e21ef3050"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -108,4 +108,3 @@ unsigned read_drop_count(void) {
 
 
 모든 공유 변수에 writer, reader, 실행 문맥, 보호 수단, 수명, 초기화 시점을 적는다. 읽기 전용 데이터·task 전용 데이터·ISR 공유·DMA 공유를 구분한 뒤 불필요한 전역 공유를 줄인다. PC에서 race detector를 사용할 수 있어도 MCU의 IRQ·DMA·cache 오류까지 검출하지는 못한다.
-

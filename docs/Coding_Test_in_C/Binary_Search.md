@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Binary Search
+title: "Binary Search"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T12:54:00.000Z
 nav_order: 3
-parent: 'Coding Test in C'
+parent: "Coding Test in C"
 permalink: '/Coding_Test_in_C/Binary_Search'
 redirect_from:
- - /3f91b412900a815ea22bfbb00013f19c
- - /undefined
+ - "/3f91b412900a815ea22bfbb00013f19c"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -55,4 +55,3 @@ int main(void) {
 
 
 답의 범위를 이분 탐색하려면 feasible(x)가 단조적이어야 한다. 처리량·최소 시간 문제에서 이 조건을 먼저 증명하고 overflow 가능한 누적 합과 lo/hi의 의미를 정의한다.
-

@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Middleware & Robotics
+title: "Middleware & Robotics"
 has_children: true
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 4
-parent: 'SDV & Vehicle Architecture'
+parent: "SDV & Vehicle Architecture"
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics'
 redirect_from:
- - /3f91b412900a8175b1fede20bb9f4f97
- - /undefined
+ - "/3f91b412900a8175b1fede20bb9f4f97"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -45,4 +45,3 @@ flowchart TD
 
 
 ROS 2 전체 스택을 S32K312에 그대로 올리는 전제로 시작하지 않는다. MCU는 CAN/Ethernet adapter, 지원되는 micro-ROS 구성 또는 별도 IPC를 통해 Linux 애플리케이션과 연결할 수 있다. micro-ROS는 RTOS·transport·메모리·Agent 지원 여부와 실제 board port가 필요하다.
-

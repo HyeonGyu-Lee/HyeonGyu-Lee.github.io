@@ -1,16 +1,16 @@
 ---
 layout: default
-title: DTC (Diagnostic Trouble Code)
+title: "DTC (Diagnostic Trouble Code)"
 has_children: false
-published_date: 2024-06-20-09-06-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2024-06-20T00:40:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 3
-parent: 'UDS (Unified Diagnostic Services)'
+parent: "UDS (Unified Diagnostic Services)"
 permalink: '/UDS_(Unified_Diagnostic_Services)/DTC_(Diagnostic_Trouble_Code)'
 redirect_from:
- - /6a79edc83476430b85fbc4dc270ad541
- - /undefined
+ - "/6a79edc83476430b85fbc4dc270ad541"
 ---
+
 ## 핵심 요약
 
 
@@ -23,7 +23,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
@@ -122,7 +122,7 @@ int main(void) {
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 Diagnostic Trouble Code : 차량의 On-Board Diagnostics (OBD) 시스템에서 차량의 문제를 진단하고 경고할 때 사용하는 코드입니다. DTC는 차량의 전자 제어 장치(ECU)가 차량의 특정 문제를 감지하면 생성되며, 이를 통해 정비사는 문제를 식별하고 수정할 수 있습니다.
@@ -138,7 +138,7 @@ Diagnostic Trouble Code : 차량의 On-Board Diagnostics (OBD) 시스템에서 �
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 DTC 정보를 포함한 응답 메시지의 일부<br>Read DTC Information (0x19) 서비스 요청 시 반환
@@ -161,4 +161,3 @@ DTC 정보를 포함한 응답 메시지의 일부<br>Read DTC Information (0x19
 | 5     | 0x20 | testFailedSinceLastClear           | DTC test failed at least once since last code clear   |
 | 6     | 0x40 | testNotCompletedThisOperationCycle | DTC test not completed this operation cycle           |
 | 7     | 0x80 | warningIndicatorRequested          | Server is requesting warningIndicator to be active    |
-

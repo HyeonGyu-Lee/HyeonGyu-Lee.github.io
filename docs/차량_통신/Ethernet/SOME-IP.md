@@ -1,16 +1,16 @@
 ---
 layout: default
-title: SOME-IP
+title: "SOME/IP"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T04:27:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
 nav_order: 5
-parent: 'Ethernet'
+parent: "Ethernet"
 permalink: '/차량_통신/Ethernet/SOME-IP'
 redirect_from:
- - /3f71b412900a81ef8662f3595c5c474b
- - /undefined
+ - "/3f71b412900a81ef8662f3595c5c474b"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 표기는 SOME/IP. AUTOSAR 적용 릴리스의 SOME/IP·SOME/IP-SD 규격과 deployment 설정을 확인한다.
@@ -85,4 +85,3 @@ Offer가 보이는데 호출이 실패하면 interface version, instance·endpoi
 
 
 제공자를 재시작한 뒤 TTL·재탐색·재구독과 오래된 상태의 정리를 확인한다. Wireshark의 someip·someipsd dissector 지원과 decode-as 설정도 확인한다.
-

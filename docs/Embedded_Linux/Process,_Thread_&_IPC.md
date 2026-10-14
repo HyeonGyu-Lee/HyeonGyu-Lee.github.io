@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Process, Thread & IPC
+title: "Process, Thread & IPC"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 3
-parent: 'Embedded Linux'
+parent: "Embedded Linux"
 permalink: '/Embedded_Linux/Process,_Thread_&_IPC'
 redirect_from:
- - /3f91b412900a81f5bdeaca2cefa7b4c5
- - /undefined
+ - "/3f91b412900a81f5bdeaca2cefa7b4c5"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -62,4 +62,3 @@ int write_all(int fd, const void *data, size_t size) {
 
 
 partial read/write, EINTR, peer 종료, Queue full, shutdown 중 callback, file descriptor 누수를 시험한다. TCP recv 한 번이 메시지 하나라는 가정을 하지 않는다. 길이·framing·상한·timeout을 application protocol에 정의한다.
-

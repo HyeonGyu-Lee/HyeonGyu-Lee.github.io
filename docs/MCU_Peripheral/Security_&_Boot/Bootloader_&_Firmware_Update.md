@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Bootloader & Firmware Update
+title: "Bootloader & Firmware Update"
 has_children: false
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 4
-parent: 'Security & Boot'
+parent: "Security & Boot"
 permalink: '/MCU_Peripheral/Security_&_Boot/Bootloader_&_Firmware_Update'
 redirect_from:
- - /3f91b412900a81e9bd01f70e03d1f81f
- - /undefined
+ - "/3f91b412900a81e9bd01f70e03d1f81f"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -87,4 +87,3 @@ Cortex-M에서 vector table·stack·interrupt·timer·DMA·cache 상태를 고�
 
 
 각 chunk 전후, erase 중, verify 후 commit 전, metadata 갱신 중 전원 차단을 시험한다. 중복·순서 뒤바뀐 chunk와 재연결을 처리하고 인증되지 않은 부분 이미지를 실행하지 않는다. UDS download sequence와 실제 설치 상태를 구분해 진단 응답을 설계한다.
-

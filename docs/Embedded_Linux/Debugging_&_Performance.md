@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Debugging & Performance
+title: "Debugging & Performance"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T12:54:00.000Z
 nav_order: 5
-parent: 'Embedded Linux'
+parent: "Embedded Linux"
 permalink: '/Embedded_Linux/Debugging_&_Performance'
 redirect_from:
- - /3f91b412900a819e8471ee8bd29d7b5d
- - /undefined
+ - "/3f91b412900a819e8471ee8bd29d7b5d"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -57,4 +57,3 @@ CPU 사용률이 낮아도 lock·I/O wait로 응답이 느릴 수 있다. 평균
 
 
 boot/session ID, build ID, request ID, monotonic timestamp와 오류 코드를 남긴다. 로그의 개인정보·키를 제거하고 rate limiting을 적용한다. crash dump는 실행 binary와 symbol version을 맞춰 분석한다.
-

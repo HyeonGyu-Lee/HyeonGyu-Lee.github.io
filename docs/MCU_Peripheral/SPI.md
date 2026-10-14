@@ -1,20 +1,23 @@
 ---
 layout: default
-title: SPI
+title: "SPI"
 has_children: false
-published_date: 2026-10-14-13-10-00
-last_modified_date: 2026-10-14-22-10-00
-nav_order: 11
-parent: '차량 통신'
-permalink: '/차량_통신/SPI'
+published_date: 2026-10-14T04:25:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
+nav_order: 8
+parent: "MCU Peripheral"
+permalink: '/MCU_Peripheral/SPI'
 redirect_from:
- - /3f91b412900a8135840edb0bb5672e10
- - /undefined
+ - "/3f91b412900a8135840edb0bb5672e10"
+ - "/차량_통신/SPI"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
@@ -27,7 +30,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 MCU는 S32K312, 주변장치는 아직 특정하지 않은 상태를 기준으로 한다. S32K3 프로젝트에서는 일반적으로 S32 Design Studio와 S32 RTD의 LPSPI IP 드라이버 또는 AUTOSAR Spi 드라이버를 사용한다. S32K1용 S32 SDK의 LPSPI_DRV_* API를 S32K312 코드에 그대로 복사하지 않는다. 설치한 RTD 버전·패키지의 예제와 생성 헤더에서 실제 함수명과 설정 구조체를 확인한다.
@@ -95,7 +98,6 @@ SCK 주기 = 200 ns
 ```
 
 
-
 80 MHz는 계산을 위한 가정이며 사용 보드의 기본값이라는 뜻이 아니다. 설정 도구가 이미 Hz 단위 bitrate를 받아 분주값을 계산한다면 레지스터 인코딩 값을 API의 bitrate에 넣지 않는다. 계산 후 생성 코드의 선택된 prescaler/divider와 오실로스코프의 SCK 주기를 대조한다. 목표 속도를 정확히 만들 수 없으면 주변장치 최대 속도를 넘지 않는 후보를 선택한다.
 
 
@@ -125,28 +127,13 @@ int main(void) {
 ```
 
 
-
 ## 5. CS 유지와 레지스터 읽기 transaction
 
 
 다음은 설명용 가상 센서다. 실제 부품의 명령 코드가 아니다. 가상 계약은 8비트 프레임, mode 0, MSB first, 읽기 명령 0x80 \| register, 명령 다음 바이트에 응답, 전체 두 바이트 동안 CS Low로 정의한다.
 
-<div class="image-flex">
-<div class="image-item">
-<div class="image-item-img">
-<a data-fslightbox="/_images/차량_통신/SPI/1.webp" href="/_images/차량_통신/SPI/1.webp" data-type="image" aria-label="This is fslightbox">
-<div class="skeleton-loading">
-<div class="skeleton-img"></div>
-</div>
-<figure>
-<img loading="lazy" alt src="/_images/차량_통신/SPI/1.webp" title="" class="lazyload" />
-<figcaption>SPI Mode 0의 가상 Register Read 예제. 0x8F = READ(0x80) \| Register(0x0F). CS를 유지한 채 0x00을 dummy로 송신해 rx[1]을 읽고 rx[0]은 무시한다. 실제 측정 파형이 아니며, 명령 형식과 응답 위치는 장치 데이터시트에 따른다.</figcaption>
-</figure>
-</a>
-</div>
-</div>
-</div>
 
+<figure><a href="/assets/images/diagrams/spi-timing.png" data-fslightbox="spi"><img src="/assets/images/diagrams/spi-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="SPI Mode 0의 가상 Register Read 예제. 0x8F = READ(0x80) | Register(0x0F). CS를 유지한 채 0x00을 dummy로 송신해 rx[1]을 읽고 rx[0]은 무시한다. 실제 측정 파형이 아니며, 명령 형식과 응답 위치는 장치 데이터시트에 따른다."></a><figcaption>SPI Mode 0의 가상 Register Read 예제. 0x8F = READ(0x80) | Register(0x0F). CS를 유지한 채 0x00을 dummy로 송신해 rx[1]을 읽고 rx[0]은 무시한다. 실제 측정 파형이 아니며, 명령 형식과 응답 위치는 장치 데이터시트에 따른다.</figcaption></figure>
 
 
 ```c
@@ -170,7 +157,6 @@ int read_example_register(uint8_t *value)
     return 0;
 }
 ```
-
 
 
 SPI는 클록이 있어야 수신한다. 읽기만 하더라도 dummy TX가 필요할 수 있다. 송신 명령과 수신 데이터 사이에 PCS가 자동으로 올라가면 일부 주변장치는 명령을 종료하므로 하나의 transaction으로 구성하거나 드라이버의 continuous PCS 설정을 사용한다. null TX/RX 허용 여부와 dummy fill 값은 드라이버마다 다르다.
@@ -204,4 +190,3 @@ AUTOSAR Spi는 Channel(데이터와 buffer), Job(CS 대상·통신 속성), Sequ
 
 
 검증 과제: loopback으로 TX/RX 일치 확인 → 실제 장치 ID 읽기 → 읽기 전용·가역 설정 register 확인 → 반복 송수신 및 timeout 주입 → DMA 전환 순으로 진행한다. loopback 성공은 실제 장치의 명령·CS 조건을 검증하지 않는다. 결과에는 RTD 버전, pin mux, functional clock, SCK 실측값, CPOL/CPHA, PCS 파형과 송수신 바이트를 함께 기록한다.
-

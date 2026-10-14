@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Coding Test in C
+title: "Coding Test in C"
 has_children: true
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
-nav_order: 10
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
+nav_order: 9
 permalink: '/Coding_Test_in_C'
 redirect_from:
- - /3f91b412900a8108ba94f6f79dd14903
- - /undefined
+ - "/3f91b412900a8108ba94f6f79dd14903"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -43,4 +43,3 @@ flowchart LR
 
 
 아래 하위 문서의 예제는 C11 PC 실행용이다. main의 assert를 실행한 후 온라인 채점 입력 형식으로 바꾼다. 임베디드 API 예제와 달리 독립적인 알고리즘 검증에 초점을 둔다.
-

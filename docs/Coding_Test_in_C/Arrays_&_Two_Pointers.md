@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Arrays & Two Pointers
+title: "Arrays & Two Pointers"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T12:54:00.000Z
 nav_order: 2
-parent: 'Coding Test in C'
+parent: "Coding Test in C"
 permalink: '/Coding_Test_in_C/Arrays_&_Two_Pointers'
 redirect_from:
- - /3f91b412900a81f48b08c6abf5aa2600
- - /undefined
+ - "/3f91b412900a81f48b08c6abf5aa2600"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -58,4 +58,3 @@ int main(void) {
 
 
 정렬되지 않은 부분 배열의 합 문제는 이 방법과 다르다. Sliding Window는 양수·비음수 조건처럼 단조성이 있어야 적용되는 경우가 많다. 음수가 있으면 Prefix Sum과 hash 등 다른 접근을 검토한다.
-

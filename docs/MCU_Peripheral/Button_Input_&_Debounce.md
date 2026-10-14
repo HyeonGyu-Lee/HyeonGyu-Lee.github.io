@@ -1,20 +1,23 @@
 ---
 layout: default
-title: 물리 버튼
+title: "Button Input & Debounce"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:25:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
 nav_order: 2
-parent: 'MCU Peripheral'
-permalink: '/MCU_Peripheral/물리_버튼'
+parent: "MCU Peripheral"
+permalink: '/MCU_Peripheral/Button_Input_&_Debounce'
 redirect_from:
- - /3f91b412900a812d8969f4adcff04f00
- - /undefined
+ - "/3f91b412900a812d8969f4adcff04f00"
+ - "/MCU_Peripheral/물리_버튼"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
@@ -28,6 +31,22 @@ redirect_from:
 
 
 ## 시간 기반 debounce 예제
+
+
+<figure><a href="/assets/images/diagrams/button-timing.png" data-fslightbox="button"><img src="/assets/images/diagrams/button-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="Pull-up/active-low 버튼의 설명용 파형이다. 마지막 bounce가 10 ms에서 끝나고 20 ms 동안 안정된 뒤 30 ms에 press 이벤트가 한 번 발생한다. 실제 측정 파형이 아니다."></a><figcaption>Pull-up/active-low 버튼의 설명용 파형이다. 마지막 bounce가 10 ms에서 끝나고 20 ms 동안 안정된 뒤 30 ms에 press 이벤트가 한 번 발생한다. 실제 측정 파형이 아니다.</figcaption></figure>
+
+
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
+그림 읽기와 실측 확인: Raw GPIO와 pressed=true로 정규화한 값은 반대다. 그림은 edge가 1 ms polling 시점에 정렬된 예제이며, 실제 확인 시점에는 polling 지연이 추가될 수 있다. Bounce 중에는 안정화 timer가 다시 시작된다.
+</div>
+</div>
+</blockquote>
+
 
 
 1 ms 주기 작업에서 다음 함수를 호출한다. 20 ms는 실습용 시작값으로 실제 버튼 bounce와 요구 응답시간을 측정해 조정한다. now_ms는 단조 증가하는 uint32_t tick이며 짧은 간격으로 호출한다.
@@ -57,7 +76,6 @@ bool button_update(Button *b, bool raw, uint32_t now) {
     return false;
 }
 ```
-
 
 
 raw에는 전기 레벨이 아니라 눌림=true로 변환한 값을 넣는다. 초기화 시 현재 상태를 저장하므로 부팅 때 이미 눌린 버튼을 새 press 이벤트로 처리하지 않는다. 부팅 눌림을 의미 있는 입력으로 사용할지는 제품 요구에 따라 별도로 정의한다.

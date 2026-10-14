@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Git
+title: "Git"
 has_children: false
-published_date: 2026-10-14-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T04:17:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 7
-parent: '기타'
+parent: "기타"
 permalink: '/기타/Git'
 redirect_from:
- - /3f91b412900a81bc8bc8d2bc06670870
- - /undefined
+ - "/3f91b412900a81bc8bc8d2bc06670870"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 예제는 Git 2.23 이상과 bash를 기준으로 하며 기본 브랜치는 main, 원격 이름은 origin으로 가정한다. 실제 저장소의 브랜치 정책을 먼저 확인한다. \<commit\> 같은 표기는 실제 값으로 바꾸고 꺾쇠는 입력하지 않는다. 복구·이력 변경 예제는 별도의 실습 저장소에서 연습한다.
@@ -197,7 +197,7 @@ git stash show -p 'stash@{0}'
 # 원본 stash를 남겨 둔 채 적용
 git stash apply 'stash@{0}'
 # 반영 및 테스트를 확인한 뒤에만 보관본 삭제
-# git stash drop 'stash@{0}' 
+# git stash drop 'stash@{0}'
 ```
 
 
@@ -341,4 +341,3 @@ git diff --check
 
 
 완료 기준: 의도한 변경만 커밋되었고, 불필요한 파일이 추적되지 않으며, 충돌 마커가 없고, 프로젝트 테스트가 통과해야 한다. 원격을 사용하는 실습에서는 upstream과 push 대상 브랜치도 확인한다.
-

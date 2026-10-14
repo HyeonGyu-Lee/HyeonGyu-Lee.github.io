@@ -1,20 +1,22 @@
 ---
 layout: default
-title: LIN
+title: "LIN"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:36:00.000Z
 nav_order: 4
-parent: '차량 통신'
+parent: "차량 통신"
 permalink: '/차량_통신/LIN'
 redirect_from:
- - /3f71b412900a819d9d81cb75e7f4da79
- - /undefined
+ - "/3f71b412900a819d9d81cb75e7f4da79"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
@@ -27,7 +29,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 LIN 2.x 및 ISO 17987 시리즈의 일반 개념. 프로젝트의 적용 판과 LDF·트랜시버 사양을 확인한다.
@@ -50,6 +52,22 @@ LIN은 전형적으로 단일 신호선과 기준 접지를 사용하는 저속 
 
 
 ### 프레임 읽기
+
+
+<figure><a href="/assets/images/diagrams/lin-timing.png" data-fslightbox="lin"><img src="/assets/images/diagrams/lin-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="LIN Header와 Response의 설명용 구성도다. Break는 최소 13 nominal bit time의 dominant, Break delimiter는 최소 1 bit time의 recessive이며 Sync는 0x55이다. 실제 측정 파형이 아니다."></a><figcaption>LIN Header와 Response의 설명용 구성도다. Break는 최소 13 nominal bit time의 dominant, Break delimiter는 최소 1 bit time의 recessive이며 Sync는 0x55이다. 실제 측정 파형이 아니다.</figcaption></figure>
+
+
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
+그림 읽기와 실측 확인: Header와 Response의 송신 주체를 구분하고 Sync를 UART LSB first로 decode한다. PID parity·checksum 종류·response space·slot 길이는 LDF와 사용 규격을 기준으로 검증한다. 그림은 전체 프레임 길이에 비례하지 않는다. Sync·PID·Data·Checksum 박스는 필드 구간이며 내부 비트 파형을 나타내지 않는다.
+</div>
+</div>
+</blockquote>
+
 
 
 헤더는 break, sync, protected identifier로 구성된다. 응답은 데이터와 checksum을 포함한다. 데이터 길이는 최대 8바이트다.
@@ -102,7 +120,6 @@ int main(void) { assert(lin_pid(0x12) == 0x92); return 0; }
 ```
 
 
-
 ### checksum 계산 예시
 
 
@@ -130,6 +147,4 @@ int main(void) {
 ```
 
 
-
 첫 결과는 데이터만 포함한 classic 예제, 둘째는 PID를 포함한 enhanced 예제다. 실제 프레임의 적용 checksum 종류를 확인한다. 응답을 한 슬롯 누락시켜 timeout 처리와 다음 스케줄의 동작도 확인한다.
-

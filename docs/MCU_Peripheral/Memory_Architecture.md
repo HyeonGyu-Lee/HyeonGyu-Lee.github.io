@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Memory Architecture
+title: "Memory Architecture"
 has_children: true
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
-nav_order: 9
-parent: 'MCU Peripheral'
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
+nav_order: 15
+parent: "MCU Peripheral"
 permalink: '/MCU_Peripheral/Memory_Architecture'
 redirect_from:
- - /3f91b412900a81c6a41bfbb44afb6399
- - /undefined
+ - "/3f91b412900a81c6a41bfbb44afb6399"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -47,4 +47,3 @@ RAM, ROM & Flash → Linker Script & Startup → Stack, Heap & Memory Safety 순
 
 
 정확한 SRAM·Flash 크기, 접근 가능한 master, ECC 초기화, cache/TCM 존재와 영역은 대상 부품의 memory map을 기준으로 확인한다. 다른 S32K3 모델의 linker 주소와 크기를 그대로 사용하지 않는다.
-

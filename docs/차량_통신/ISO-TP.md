@@ -1,16 +1,16 @@
 ---
 layout: default
-title: ISO-TP
+title: "ISO-TP"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T04:27:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 8
-parent: '차량 통신'
+parent: "차량 통신"
 permalink: '/차량_통신/ISO-TP'
 redirect_from:
- - /3f71b412900a81c79699d4171ad95281
- - /undefined
+ - "/3f71b412900a81c79699d4171ad95281"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 ISO 15765-2 적용 판과 Classic CAN·CAN FD 링크 계층 설정을 확인한다.
@@ -95,4 +95,3 @@ candump를 함께 실행해 First Frame, Flow Control, Consecutive Frame을 관�
 
 
 First Frame 이후 진행되지 않으면 Flow Control 수신 여부 → 주소 방향 → timeout → Block Size·STmin 순서로 본다. UDS 0x78 응답과 전송 계층의 Flow Control을 혼동하지 않는다.
-

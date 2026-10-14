@@ -369,3 +369,41 @@ body .site-button {
   color: var(--folio-accent);
   font-family: inherit;
 }
+
+/* Feature-map embeds remain usable by mouse, keyboard, and touch. */
+.mcu-map { margin: 1.5rem 0; padding: 1rem; border: 1px solid #dce7e2; border-radius: 12px; background: #fff; }
+.mcu-map-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.mcu-map-toolbar span { flex: 1 1 200px; font-weight: 600; }
+.mcu-map-toolbar button { padding: .35rem .65rem; border: 1px solid #a5beb2; border-radius: 6px; background: #f3f8f5; color: #183c2d; cursor: pointer; }
+.mcu-map-legend { font-size: .8rem; color: #50655a; }
+.mcu-map-scroll { overflow: auto; max-height: 80vh; }
+.mcu-map-canvas { width: 100%; min-width: 900px; }
+.mcu-map-canvas svg { display: block; width: 100%; max-width: none !important; height: auto; }
+.mcu-map-canvas a { cursor: pointer; }
+.mcu-map-canvas a:hover rect, .mcu-map-canvas a:focus rect { stroke: #0d5e43 !important; stroke-width: 3px !important; }
+.mcu-map button:focus-visible, .mcu-map-scroll:focus-visible { outline: 3px solid #17805c; outline-offset: 3px; }
+.mcu-map-canvas [role="button"] { cursor: pointer; }
+.mcu-map-canvas [role="button"]:hover rect, .mcu-map-canvas [role="button"]:focus rect { stroke-width: 3px !important; stroke: #0d5e43 !important; }
+.mcu-map-detail { margin-top: 1rem; padding: 1rem; border-left: 4px solid #17805c; background: #f3f8f5; }
+.mcu-map-detail h3 { margin-top: 0; }
+
+/* Fixed document index: item positions do not depend on image loading. */
+.scroll-nav { position: fixed; top: 88px; right: 12px; bottom: auto; transform: none; width: 220px; height: auto; max-height: none; z-index: 50; pointer-events: none; }
+.scroll-nav details { pointer-events: auto; border: 1px solid #dce7e2; border-radius: 10px; background: #fff; color: #233e31; box-shadow: 0 4px 18px #173e2f14; }
+.scroll-nav details:not([open]) { width: max-content; margin-left: auto; }
+.scroll-nav summary { padding: .65rem .8rem; cursor: pointer; font-size: .85rem; font-weight: 600; }
+.scroll-nav summary span { font-variant-numeric: tabular-nums; color: #526c5e; }
+.scroll-nav ol { list-style: none; margin: 0; padding: .4rem; max-height: 65vh; overflow-y: auto; overscroll-behavior: contain; }
+.scroll-nav li { margin: 0; padding: 0; }
+.scroll-nav li::before { display: none; }
+.scroll-nav li[data-level="3"] a { padding-left: 1rem; font-size: .76rem; }
+.scroll-nav a { display: block; padding: .45rem .55rem; border-radius: 5px; color: #425c4e; font-size: .82rem; line-height: 1.4; text-decoration: none; }
+.scroll-nav a:hover, .scroll-nav a:focus-visible { background: #edf5f0; outline-offset: -2px; }
+.scroll-nav a[aria-current="location"] { color: #075c3d; background: #e0f0e7; font-weight: 700; }
+#main-content :is(h1,h2,h3,h4,h5,h6)[id] { scroll-margin-top: 100px; }
+.image-item img[width][height], #main-content img[width][height] { max-width: 100%; height: auto; }
+.image-item .skeleton-loading { display: none; }
+@media (max-width: 999px) { .scroll-nav { top: auto; bottom: 18px; right: 12px; width: min(290px, calc(100vw - 24px)); } }
+@media print { .scroll-nav, .mcu-map-toolbar { display: none !important; } }
+/* Reserve the interactive diagram viewport before its renderer loads. */
+.mcu-map-scroll { height: clamp(360px, 65vh, 680px); }

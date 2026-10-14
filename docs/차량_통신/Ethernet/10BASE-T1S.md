@@ -1,16 +1,16 @@
 ---
 layout: default
-title: 10BASE-T1S
+title: "10BASE-T1S"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 1
-parent: 'Ethernet'
+parent: "Ethernet"
 permalink: '/차량_통신/Ethernet/10BASE-T1S'
 redirect_from:
- - /3f71b412900a81a6a543d4e1f5c8fa9f
- - /undefined
+ - "/3f71b412900a81a6a543d4e1f5c8fa9f"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 IEEE 802.3cg-2019에서 정의된 10BASE-T1S를 중심으로 설명한다. 실제 거리·노드 수·매체 조건은 표준과 PHY 사양을 확인한다.
@@ -101,4 +101,3 @@ Unsupported 응답이면 PHY·드라이버 지원 여부를 먼저 확인한다.
 
 
 노드별로 동일 크기 프레임을 전송하고 ID·timestamp·손실을 기록한다. 단일 송신, 동시 송신, 노드 제거·복귀, coordinator 재시작을 구분한다. 공유 매체 처리량과 각 노드의 최악 대기 시간을 각각 측정한다.
-

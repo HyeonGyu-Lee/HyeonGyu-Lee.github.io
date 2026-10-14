@@ -1,15 +1,15 @@
 ---
 layout: default
-title: AUTOSAR
+title: "AUTOSAR"
 has_children: true
-published_date: 2024-06-03-08-06-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2024-06-02T23:57:00.000Z
+last_modified_date: 2026-10-14T13:26:00.000Z
 nav_order: 1
 permalink: '/AUTOSAR'
 redirect_from:
- - /e20f9e7df0d34378beea96efa4172089
- - /undefined
+ - "/e20f9e7df0d34378beea96efa4172089"
 ---
+
 ## 핵심 요약
 
 
@@ -22,7 +22,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
@@ -44,7 +44,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 AUTOSAR(Automotive Open System Architecture) : Software Infrastructure
@@ -101,7 +101,7 @@ AUTOSAR(Automotive Open System Architecture) : Software Infrastructure
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 **Classic AUTOSAR**는 전통적인 차량 전자제어장치(ECU)를 위한 플랫폼으로, 특히 제한된 자원을 가진 ECU에서의 실시간 운영을 목적으로 합니다. 이 플랫폼은 높은 신뢰성과 예측 가능한 실시간 성능을 제공하는 데 중점을 둡니다.<br>**Adaptive AUTOSAR**는 고성능 계산과 다양한 운영 체제에서의 작동을 목적으로 하는, 더 유연하고 확장 가능한 플랫폼입니다. 이는 주로 고급 운전자 보조 시스템(ADAS), 인포테인먼트, 커넥티드 카 기술 등 최신 자동차 기술의 요구사항을 충족하기 위해 설계되었습니다.
@@ -117,4 +117,3 @@ AUTOSAR(Automotive Open System Architecture) : Software Infrastructure
 | **컴포넌트**  | 베이직 소프트웨어(BSW), 런타임 환경(RTE), 애플리케이션 소프트웨어 컴포넌트(ASW)로 구성됩니다.                                                                  | 서비스 지향 아키텍처(<span class="tooltip">SOA<span class="tooltiptext">Service Oriented Architecture</span></span>)를 기반으로 하며, 마이크로서비스와 같은 현대적 소프트웨어 개발 패러다임을 사용합니다. |
 | **목적**    | 기능 안전성(<span class="tooltip">FuSa<span class="tooltiptext">Functional Safety</span></span>) 요구사항을 만족시키며, 전통적인 자동차 기능에 적합합니다. | 데이터 처리와 고급 연결성을 처리하며, 빠르게 변화하는 기술 요구사항에 대응합니다.                                                                                                              |
 | **적용 사례** | 엔진 제어, 전자 제동 시스템, 에어백 시스템 등의 필수적인 차량 제어 기능을 처리합니다.                                                                           | 자율 주행, 고급 인포테인먼트 시스템, 온라인 업데이트와 같은 복잡하고 동적인 기능을 지원합니다.                                                                                                      |
-

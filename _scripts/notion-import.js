@@ -1,3 +1,5 @@
+import { reserveImageSpace } from "./image-dimensions.js"
+import { renderSiteEmbeds } from "./site-embeds.js"
 import { Client } from "@notionhq/client"
 import { NotionToMarkdown } from "notion-to-md"
 import moment from "moment"
@@ -10,6 +12,12 @@ import { SitemapStream, streamToPromise } from "sitemap"
 import { Readable } from "stream"
 import sizeOf from "image-size"
 import { createNotionFetch } from "./notion-fetch.js"
+import {
+  queryAllPages,
+  indexDocuments,
+  redirectsFor,
+  writeDocument,
+} from "./notion-documents.js"
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -106,7 +114,7 @@ async function downloadImages(path, imageUrls) {
 
 function generateSitemap(links) {
   const stream = new SitemapStream({
-    hostname: "https://RapidAUTO.io/",
+    hostname: "https://autosar.dev/",
     lastmodDateOnly: true,
   })
   streamToPromise(Readable.from(links).pipe(stream)).then((data) => {
@@ -177,7 +185,7 @@ function convertLazyImage(body) {
 <div class="skeleton-img"></div>
 </div>
 <figure>
-<img loading="lazy" alt src="${urlPath}" title="" class="lazyload" />
+<img loading="lazy" decoding="async" width="${width}" height="${height}" alt="" src="${urlPath}" />
 <figcaption>${escapedCaption}</figcaption>
 </figure>
 </a>
@@ -196,7 +204,7 @@ function convertLazyImage(body) {
 <div class="skeleton-img"></div>
 </div>
 <figure>
-<img loading="lazy" alt src="${urlPath}" title="" class="lazyload" />
+<img loading="lazy" decoding="async" width="${width}" height="${height}" alt="" src="${urlPath}" />
 </figure>
 </a>
 </div>
@@ -282,19 +290,8 @@ async function uncheckCheckbox(databaseId, pageId) {
   const imageRoot = "_images"
 
   const databaseId = process.env.DATABASE_ID
-  const response = await notion.databases.query({
-    database_id: databaseId,
-    // filter: {
-    //   and: [
-    //     {
-    //       property: "공개",
-    //       checkbox: {
-    //         equals: true,
-    //       },
-    //     },
-    //   ],
-    // },
-  })
+  const response = { results: await queryAllPages(notion, databaseId) }
+  const existingDocuments = await indexDocuments(root)
 
   const links = []
   let count = 0
@@ -425,7 +422,13 @@ async function uncheckCheckbox(databaseId, pageId) {
         r.properties?.["상위폴더"]?.["rich_text"][0]?.["plain_text"]
 
       // 리다이렉트
-      let redirectlink = r.id.replace(/\-/g, "")
+      const previous = existingDocuments.get(r.id.replaceAll("-", "")) || []
+      const redirects = redirectsFor(
+        previous,
+        `${linkPath}${lTitle}`,
+        r.id,
+        r.properties?.["ID"]?.["unique_id"]?.["number"]
+      )
 
       // 목차
       let hasToc = r.properties?.["목차"]?.["checkbox"] || false
@@ -458,8 +461,7 @@ parent: '${parentTitle}'`
 permalink: '${linkPath}${lTitle}'`
       header += `
 redirect_from:
- - /${redirectlink}
- - /${r.properties?.["ID"]?.["unique_id"]?.["number"]}`
+${redirects.map((url) => ` - ${JSON.stringify(url)}`).join("\n")}`
       header += `
 ---`
       if (~hasChild && hasToc) {
@@ -503,15 +505,15 @@ redirect_from:
 
       //writing to file
       // debugLog(`writeFilepath=${folderPath}`)
-      fs.writeFile(path.join(folderPath, fTitle), header + body, (err) => {
-        if (err) {
-          console.log(`\nerr`)
-        } else {
-          if (launchType !== "dev" && launchType !== "all") {
-            uncheckCheckbox(databaseId, r.id)
-          }
-        }
-      })
+      body = await reserveImageSpace(renderSiteEmbeds(body))
+      await writeDocument(
+        path.join(folderPath, fTitle),
+        header + body,
+        previous
+      )
+      if (launchType !== "dev" && launchType !== "all") {
+        await uncheckCheckbox(databaseId, r.id)
+      }
     }
     updateProgress(((count / processSize) * 100).toFixed(2))
   }

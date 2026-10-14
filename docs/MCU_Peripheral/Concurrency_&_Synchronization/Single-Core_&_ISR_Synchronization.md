@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Single-Core & ISR Synchronization
+title: "Single-Core & ISR Synchronization"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:29:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 2
-parent: 'Concurrency & Synchronization'
+parent: "Concurrency & Synchronization"
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Single-Core_&_ISR_Synchronization'
 redirect_from:
- - /3f91b412900a811394dfc8437ec305c6
- - /undefined
+ - "/3f91b412900a811394dfc8437ec305c6"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -95,4 +95,3 @@ binary semaphore는 중복 이벤트가 합쳐질 수 있다. 모든 수신 이�
 
 
 높은 빈도의 IRQ와 task 부하로 강제 선점하고 카운터·queue 항목·완료 알림의 손실을 확인한다. Critical Section 최대 시간과 interrupt latency를 GPIO toggle·trace로 측정한다. 정상 실행 빈도만으로 race가 없다고 판단하지 않는다.
-

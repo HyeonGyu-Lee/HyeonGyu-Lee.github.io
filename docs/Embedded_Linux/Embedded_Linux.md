@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Embedded Linux
+title: "Embedded Linux"
 has_children: true
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
-nav_order: 9
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
+nav_order: 8
 permalink: '/Embedded_Linux'
 redirect_from:
- - /3f91b412900a81a0b8cdc8a1ab6c6c1d
- - /undefined
+ - "/3f91b412900a81a0b8cdc8a1ab6c6c1d"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -45,4 +45,3 @@ flowchart LR
 
 
 AP & MCU Integration → Boot & Device Tree → Process, Thread & IPC → Device I/O & Networking → Debugging & Performance 순서로 읽는다. 실습은 Linux PC에서 시작하고 보드 고유 부팅·드라이버 설정은 실제 BSP와 회로도에 맞춰 확인한다.
-

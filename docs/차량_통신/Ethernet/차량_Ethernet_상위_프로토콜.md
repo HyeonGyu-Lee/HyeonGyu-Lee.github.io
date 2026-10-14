@@ -1,16 +1,16 @@
 ---
 layout: default
-title: 차량 Ethernet 상위 프로토콜
+title: "차량 Ethernet 상위 프로토콜"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T04:27:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 4
-parent: 'Ethernet'
+parent: "Ethernet"
 permalink: '/차량_통신/Ethernet/차량_Ethernet_상위_프로토콜'
 redirect_from:
- - /3f71b412900a817e99e6e3bea577cd4b
- - /undefined
+ - "/3f71b412900a817e99e6e3bea577cd4b"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 일반적인 IP 네트워크 개념. 실제 IPv4·IPv6, 주소·VLAN·포트 정책은 시스템 사양을 따른다.
@@ -100,4 +100,3 @@ UDP 30490은 흔히 사용하는 SOME/IP-SD 포트 예시이며 프로젝트 설
 
 
 UDP datagram 하나와 애플리케이션 메시지의 관계를 먼저 정의한다. TCP로 옮기면 read 호출 한 번이 메시지 하나라는 가정이 성립하지 않으므로 길이 prefix 등 framing 규칙을 적용한다.
-

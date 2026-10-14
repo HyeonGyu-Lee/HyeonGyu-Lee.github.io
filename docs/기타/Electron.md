@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Electron
+title: "Electron"
 has_children: false
-published_date: 2026-10-12-11-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T02:28:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 5
-parent: '기타'
+parent: "기타"
 permalink: '/기타/Electron'
 redirect_from:
- - /3f71b412900a8118a22accad6ce0e215
- - /undefined
+ - "/3f71b412900a8118a22accad6ce0e215"
 ---
+
 ## 핵심 요약
 
 
@@ -23,7 +23,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
@@ -168,4 +168,3 @@ Renderer는 window.appInfo.version()을 호출하고 반환값을 textContent로
 
 
 정상 창에서 버전 표시 → 다른 프레임 요청 거부 → 창 재시작 → 배포 패키지에서 preload 경로 확인 순서로 시험한다. 파일 접근 API로 확장할 때는 경로 범위·타입·권한을 main에서 검증한다.
-

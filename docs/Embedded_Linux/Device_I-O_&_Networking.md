@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Device I/O & Networking
+title: "Device I/O & Networking"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 4
-parent: 'Embedded Linux'
+parent: "Embedded Linux"
 permalink: '/Embedded_Linux/Device_I-O_&_Networking'
 redirect_from:
- - /3f91b412900a81b79eaedd62648caf72
- - /undefined
+ - "/3f91b412900a81b79eaedd62648caf72"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -57,4 +57,3 @@ poll/epoll은 준비된 fd를 알려주며 완전한 application message를 보�
 
 
 device unplug, interface down, bus error, 권한 부족, fd 재사용과 서비스 재시작을 시험한다. application queue의 timestamp와 실제 wire capture를 대조해 지연 위치를 찾는다.
-

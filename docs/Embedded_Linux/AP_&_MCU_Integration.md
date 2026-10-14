@@ -1,16 +1,16 @@
 ---
 layout: default
-title: AP & MCU Integration
+title: "AP & MCU Integration"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 1
-parent: 'Embedded Linux'
+parent: "Embedded Linux"
 permalink: '/Embedded_Linux/AP_&_MCU_Integration'
 redirect_from:
- - /3f91b412900a816b8512da5b51f9d2fd
- - /undefined
+ - "/3f91b412900a816b8512da5b51f9d2fd"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -49,4 +49,3 @@ AP service restart, MCU reset, cable disconnect를 별도로 시험한다. 재�
 
 
 응답시간·유효 데이터 Age·메시지 손실·CPU 부하·재연결 시간을 기록한다. Linux 평균 지연이 작아도 최악 스케줄링 지연이 제어 요구를 만족하는지는 별도 검증한다. PREEMPT_RT도 모든 하드웨어·드라이버의 deadline을 자동 보장하지 않는다.
-

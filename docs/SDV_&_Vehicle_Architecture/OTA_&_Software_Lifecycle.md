@@ -1,16 +1,16 @@
 ---
 layout: default
-title: OTA & Software Lifecycle
+title: "OTA & Software Lifecycle"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 6
-parent: 'SDV & Vehicle Architecture'
+parent: "SDV & Vehicle Architecture"
 permalink: '/SDV_&_Vehicle_Architecture/OTA_&_Software_Lifecycle'
 redirect_from:
- - /3f91b412900a81ad9ddddaab14060fcd
- - /undefined
+ - "/3f91b412900a81ad9ddddaab14060fcd"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -61,4 +61,3 @@ trial boot 성공 판정 시점과 timeout, rollback 슬롯 유효성, boot coun
 
 
 각 상태에서 전원을 차단하고 재시작한다. 잘못된 서명·다른 하드웨어 이미지·부분 다운로드·저장 공간 부족·반복 부팅 실패를 시험한다. 업데이트 완료 응답뿐 아니라 실제 실행 버전·노드별 상태·복구 시간을 확인한다.
-

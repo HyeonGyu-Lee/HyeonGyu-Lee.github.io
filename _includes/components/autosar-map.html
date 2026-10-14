@@ -1,0 +1,15 @@
+<section class="mcu-map" data-mcu-map data-title="Classic AUTOSAR Architecture" data-source="{{ '/assets/diagrams/autosar-architecture.mmd' | relative_url }}" data-links="{{ '/assets/diagrams/autosar-architecture-links.json' | relative_url }}" data-baseurl="{{ site.baseurl }}" aria-label="Classic AUTOSAR Architecture">
+  <div class="mcu-map-toolbar">
+    <span>레이어를 선택하면 역할과 설정 관점을 확인할 수 있습니다.</span>
+    <button type="button" data-map-zoom="out" aria-label="관계도 축소">−</button>
+    <button type="button" data-map-zoom="in" aria-label="관계도 확대">＋</button>
+    <button type="button" data-map-zoom="fit">화면에 맞춤</button>
+  </div>
+  <p class="mcu-map-legend">Classic AUTOSAR의 대표 계층과 의존 관계입니다. 모듈별 상세 호출 경로와 release 차이는 설명 영역에서 확인하세요.</p>
+  <div class="mcu-map-scroll" tabindex="0" aria-label="확대된 관계도 스크롤 영역">
+    <div class="mcu-map-canvas" aria-live="polite">기능 관계도를 불러오는 중입니다.</div>
+  </div>
+  <aside class="mcu-map-detail" hidden aria-live="polite"></aside>
+  <noscript>기능 관계도를 사용하려면 JavaScript를 활성화해 주세요.</noscript>
+</section>
+<script defer src="{{ '/assets/js/mcu-map.js' | relative_url }}"></script>

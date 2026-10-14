@@ -1,16 +1,16 @@
 ---
 layout: default
-title: CAN XL
+title: "CAN XL"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T04:26:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 3
-parent: '차량 통신'
+parent: "차량 통신"
 permalink: '/차량_통신/CAN_XL'
 redirect_from:
- - /3f71b412900a813da3e5f539116b266e
- - /undefined
+ - "/3f71b412900a813da3e5f539116b266e"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 CAN XL의 개념 안내. 규격 판·컨트롤러·PHY의 실제 지원을 확인하기 전에는 제품 호환성을 주장하지 않는다.
@@ -78,4 +78,3 @@ CAN XL은 Classic CAN·CAN FD보다 큰 페이로드를 제공하며 최대 2048
 
 
 비교 시험은 64·512·1500·2048바이트 입력과 경쟁 트래픽을 포함한다. 송신 시각부터 수신 애플리케이션 처리까지 측정하고 오류·재전송·메모리 사용을 기록한다. 장치별 API가 달라 공통 명령만으로 모든 CAN XL 장비를 시험할 수는 없다.
-

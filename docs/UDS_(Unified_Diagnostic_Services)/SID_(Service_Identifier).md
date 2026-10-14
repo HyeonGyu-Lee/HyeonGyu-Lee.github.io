@@ -1,16 +1,17 @@
 ---
 layout: default
-title: SIDs (Serivce Identifiers)
+title: "SID (Service Identifier)"
 has_children: false
-published_date: 2024-06-20-08-06-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2024-06-19T23:39:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
 nav_order: 1
-parent: 'UDS (Unified Diagnostic Services)'
-permalink: '/UDS_(Unified_Diagnostic_Services)/SIDs_(Serivce_Identifiers)'
+parent: "UDS (Unified Diagnostic Services)"
+permalink: '/UDS_(Unified_Diagnostic_Services)/SID_(Service_Identifier)'
 redirect_from:
- - /6c434e6207fc42a89f62176ec69d00be
- - /undefined
+ - "/6c434e6207fc42a89f62176ec69d00be"
+ - "/UDS_(Unified_Diagnostic_Services)/SIDs_(Serivce_Identifiers)"
 ---
+
 ## 핵심 요약
 
 
@@ -23,7 +24,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 규격·도구 버전에 따른 동작 차이를 확인한다.
@@ -39,7 +40,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프로토콜에서 사용되는 주요 명령어들로, 특정 진단 서비스를 호출하는 데 사용됩니다. 각 SID는 특정 진단 기능을 수행하기 위한 요청을 나타내며, ECU(Electronic Control Unit)가 이 요청을 수신하고 해당 서비스에 대해 적절한 응답을 반환합니다.
@@ -92,7 +93,7 @@ Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x10 - 진단 세션을 시작하여 ECU를 테스트 모드로 전환
@@ -142,7 +143,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x11 - 하드 리셋 명령을 보내 ECU를 재부팅
@@ -168,7 +169,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x27 - ECU 보안 접근을 위해 암호화된 키를 요청
@@ -191,7 +192,7 @@ sequenceDiagram
   participant Dsd
   participant Dsp
   participant Dcm User
-  
+
   critical Request Seed
   PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
   activate PduR
@@ -230,7 +231,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x28 - ECU의 모든 통신을 비활성화
@@ -255,7 +256,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x29 - PKI 기반 인증을 사용하여 ECU 접근을 요청
@@ -272,7 +273,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x3E - ECU가 현재 세션을 종료하지 않도록 Heart Beat를 전송
@@ -293,7 +294,7 @@ sequenceDiagram
   participant Dsl
   participant Dsd
   participant Dsp
-  
+
   critical Tester Present with positive response
   PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
   activate PduR
@@ -323,7 +324,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x83 - 타이밍 매개변수를 수정하여 통신 지연 시간을 줄임
@@ -346,7 +347,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x84 - 암호화된 진단 데이터를 ECU에 전송
@@ -363,7 +364,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x85 - 특정 오류 코드 감지를 비활성화
@@ -386,7 +387,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x86 - 특정 조건이 만족되면 ECU가 응답하도록 설정
@@ -410,7 +411,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x87 - ECU와의 통신 속도를 500 kbps로 설정
@@ -436,7 +437,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x22 - 차량의 VIN 번호를 ECU로부터 읽어옴
@@ -453,7 +454,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x23 - ECU의 특정 메모리 주소에서 데이터를 읽어옴
@@ -465,12 +466,12 @@ sequenceDiagram
 
 ### Read Scaling Data By Identifier (0x24)
 
-- 데이터 식별자의 스케일링 정보를 읽어옴 
+- 데이터 식별자의 스케일링 정보를 읽어옴
 
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x24 - 센서 데이터의 스케일링 정보를 조회
@@ -487,7 +488,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x2A - ECU가 센서 데이터를 초당 1회 주기로 방송하도록 설정
@@ -504,7 +505,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x2C - 새로운 데이터 식별자를 동적으로 정의
@@ -528,7 +529,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x2E - ECU의 특정 설정 값을 업데이트
@@ -545,7 +546,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x3D - ECU의 특정 메모리 위치에 데이터를 작성
@@ -562,7 +563,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x14 - ECU에서 모든 DTC를 삭제
@@ -579,7 +580,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x19 - ECU에서 현재 저장된 모든 DTC를 읽어옴
@@ -627,7 +628,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x2F - 특정 출력 핀을 활성화
@@ -644,7 +645,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
  0x31 - ECU의 자가 테스트 루틴을 시작
@@ -668,7 +669,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x34 - ECU에 새로운 소프트웨어를 다운로드
@@ -685,7 +686,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x35 - ECU에서 데이터를 업로드
@@ -702,7 +703,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x36 - ECU로 데이터 전송을 수행
@@ -719,7 +720,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x37 - 현재 진행 중인 데이터 전송을 중지
@@ -736,7 +737,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x38 - ECU와 파일 업로드를 수행
@@ -753,12 +754,10 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝 
+📝
 </div>
 <div class="callout-content" markdown="1">
 0x7F - 요청된 서비스가 지원되지 않는 경우 부정 응답을 반환
 </div>
 </div>
 </blockquote>
-
-

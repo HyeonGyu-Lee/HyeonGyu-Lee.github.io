@@ -1,16 +1,16 @@
 ---
 layout: default
-title: DMA & Buffer Ownership
+title: "DMA & Buffer Ownership"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:29:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 5
-parent: 'Concurrency & Synchronization'
+parent: "Concurrency & Synchronization"
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/DMA_&_Buffer_Ownership'
 redirect_from:
- - /3f91b412900a81f58904c451020aff72
- - /undefined
+ - "/3f91b412900a81f58904c451020aff72"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -89,4 +89,3 @@ API timeout은 DMA 정지를 보장하지 않는다. abort 요청 후 하드웨�
 
 
 지연 consumer, 강제 timeout·abort, 잘못된 길이, 반복 재시작, IRQ masking, DMA error를 재현한다. buffer 경계 guard·sequence·누락 카운터로 손상을 찾되 검증용 guard가 하드웨어 bounds 보호를 대신하지는 않는다.
-

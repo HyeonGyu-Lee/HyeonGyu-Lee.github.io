@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Queue & Graph Traversal
+title: "Queue & Graph Traversal"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+published_date: 2026-10-14T12:53:00.000Z
+last_modified_date: 2026-10-14T12:54:00.000Z
 nav_order: 4
-parent: 'Coding Test in C'
+parent: "Coding Test in C"
 permalink: '/Coding_Test_in_C/Queue_&_Graph_Traversal'
 redirect_from:
- - /3f91b412900a817c8aa4d5d8e0f4b62f
- - /undefined
+ - "/3f91b412900a817c8aa4d5d8e0f4b62f"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -63,4 +63,3 @@ int main(void) {
 
 
 DFS는 연결 요소·cycle·topological 문제에 활용한다. directed/undirected cycle 판정은 다르다. 큰 입력의 recursion depth를 확인하고 필요한 경우 명시적 stack을 사용한다.
-

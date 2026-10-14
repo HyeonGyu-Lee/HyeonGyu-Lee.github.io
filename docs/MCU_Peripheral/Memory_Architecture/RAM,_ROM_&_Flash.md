@@ -1,16 +1,16 @@
 ---
 layout: default
-title: RAM, ROM & Flash
+title: "RAM, ROM & Flash"
 has_children: false
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 1
-parent: 'Memory Architecture'
+parent: "Memory Architecture"
 permalink: '/MCU_Peripheral/Memory_Architecture/RAM,_ROM_&_Flash'
 redirect_from:
- - /3f91b412900a81b2870fcba272b43118
- - /undefined
+ - "/3f91b412900a81b2870fcba272b43118"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -49,4 +49,3 @@ ECC 보호 RAM/Flash에서는 초기화되지 않은 영역 읽기와 올바르�
 
 
 메모리 보존 범위를 reset 종류별로 시험하고 초기화 누락·alignment 오류·Flash driver failure·record 손상을 주입한다. raw pointer로 memory map 전체를 읽는 방식은 MMIO 부작용과 접근 fault를 유발할 수 있으므로 디버거와 vendor 도구를 목적에 맞게 사용한다.
-

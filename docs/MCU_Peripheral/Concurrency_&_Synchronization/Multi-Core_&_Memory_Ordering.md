@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Multi-Core & Memory Ordering
+title: "Multi-Core & Memory Ordering"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:29:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 4
-parent: 'Concurrency & Synchronization'
+parent: "Concurrency & Synchronization"
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Multi-Core_&_Memory_Ordering'
 redirect_from:
- - /3f91b412900a8112a430d2f72b9a555d
- - /undefined
+ - "/3f91b412900a8112a430d2f72b9a555d"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -105,4 +105,3 @@ spinlock은 바쁜 대기이므로 아주 짧고 상한이 있는 구간에서, 
 
 
 동시 producer/consumer 부하, 강제 선점, 한 코어 정지·reset, queue full, stale notification을 시험한다. coherent/non-coherent 메모리 속성과 compiler optimization을 바꾸어도 정의된 프로토콜이 유지되는지 확인한다. PC thread test 통과는 MCU의 cache·IPC 구현 검증과 별개다.
-

@@ -1,0 +1,82 @@
+{
+  "GPIO": {
+    "title": "GPIO",
+    "url": "/3f91b412900a81e89986d913d9b0c254"
+  },
+  "ADC": {
+    "title": "ADC",
+    "url": "/3f91b412900a81029051d305edc556b5"
+  },
+  "BUTTON": {
+    "title": "Button Input & Debounce",
+    "url": "/3f91b412900a812d8969f4adcff04f00"
+  },
+  "POT": {
+    "title": "ADC",
+    "url": "/3f91b412900a81029051d305edc556b5"
+  },
+  "TOUCH": {
+    "title": "Touch Sensor",
+    "url": "/3f91b412900a81d09942c1e319a88c65"
+  },
+  "TIMER": {
+    "title": "Timer/Counter & Input Capture",
+    "url": "/3f91b412900a819a80c1c169cf52d6b9"
+  },
+  "PWM": {
+    "title": "PWM",
+    "url": "/3f91b412900a816b83f7e67afc9a7236"
+  },
+  "LED": {
+    "title": "GPIO",
+    "url": "/3f91b412900a81e89986d913d9b0c254"
+  },
+  "DIM": {
+    "title": "PWM",
+    "url": "/3f91b412900a816b83f7e67afc9a7236"
+  },
+  "SPI": {
+    "title": "SPI",
+    "url": "/3f91b412900a8135840edb0bb5672e10"
+  },
+  "I2C": {
+    "title": "I2C",
+    "url": "/3f91b412900a815bab37fa40ac87308d"
+  },
+  "UART": {
+    "title": "UART",
+    "url": "/3f91b412900a81af8221d49c3dd33cae"
+  },
+  "CAN": {
+    "title": "CAN Controller",
+    "url": "/3f91b412900a8190a2fbec71337381cc"
+  },
+  "ETH": {
+    "title": "Ethernet MAC & DMA",
+    "url": "/3f91b412900a81ebbf0fd6014d454ce5"
+  },
+  "IRQ": {
+    "title": "Interrupt & ISR",
+    "url": "/3f91b412900a8161a930fe91172d84cd"
+  },
+  "DMA": {
+    "title": "DMA & Buffer Ownership",
+    "url": "/3f91b412900a81f58904c451020aff72"
+  },
+  "SYNC": {
+    "title": "Concurrency & Synchronization",
+    "url": "/3f91b412900a817c90bfc1192aa0a8e6"
+  },
+  "WD": {
+    "title": "Watchdog & Reset Recovery",
+    "url": "/3f91b412900a81698454d9c0fc69a03a"
+  },
+  "MEM": {
+    "title": "Memory Architecture",
+    "url": "/3f91b412900a81c6a41bfbb44afb6399"
+  },
+  "BOOT": {
+    "title": "Security & Boot",
+    "url": "/3f91b412900a8157a786de9d2d8088d6"
+  }
+}

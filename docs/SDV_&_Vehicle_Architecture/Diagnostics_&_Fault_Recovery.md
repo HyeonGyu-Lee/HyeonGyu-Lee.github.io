@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Diagnostics & Fault Recovery
+title: "Diagnostics & Fault Recovery"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 7
-parent: 'SDV & Vehicle Architecture'
+parent: "SDV & Vehicle Architecture"
 permalink: '/SDV_&_Vehicle_Architecture/Diagnostics_&_Fault_Recovery'
 redirect_from:
- - /3f91b412900a8191abd4cd74c4ef4a11
- - /undefined
+ - "/3f91b412900a8191abd4cd74c4ef4a11"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -65,4 +65,3 @@ Sequence, Data ID, CRC, Timeout은 손상·누락·중복·잘못된 데이터 �
 
 
 네트워크 단절, 서비스 crash, MCU reset, queue overflow, 센서 stuck, timestamp 이상, 만료 명령, 중복 응답을 각각 주입한다. 검출 시간·복구 시간·출력 영향·기록 내용·재발 조건을 표로 관리한다. Safety 관련 허용 동작은 시스템 분석과 요구사항에 따라 별도로 확정한다.
-

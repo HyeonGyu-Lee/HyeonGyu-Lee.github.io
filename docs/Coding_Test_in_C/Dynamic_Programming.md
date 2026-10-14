@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Dynamic Programming
+title: "Dynamic Programming"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+published_date: 2026-10-14T12:53:00.000Z
+last_modified_date: 2026-10-14T12:54:00.000Z
 nav_order: 5
-parent: 'Coding Test in C'
+parent: "Coding Test in C"
 permalink: '/Coding_Test_in_C/Dynamic_Programming'
 redirect_from:
- - /3f91b412900a81529862ddf04ee2af17
- - /undefined
+ - "/3f91b412900a81529862ddf04ee2af17"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -60,4 +60,3 @@ int main(void) {
 
 
 순서를 세는 문제와 조합 수를 세는 문제는 반복문 순서에 따라 달라질 수 있다. 최소 개수와 경우의 수도 다른 상태 정의가 필요하다. 작은 입력을 완전 탐색해 DP 결과와 비교한다. assert는 여기서 전제 검사이며 외부 입력 검증을 대신하지 않는다.
-

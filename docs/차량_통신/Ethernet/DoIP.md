@@ -1,16 +1,16 @@
 ---
 layout: default
-title: DoIP
+title: "DoIP"
 has_children: false
-published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-12T04:27:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 6
-parent: 'Ethernet'
+parent: "Ethernet"
 permalink: '/차량_통신/Ethernet/DoIP'
 redirect_from:
- - /3f71b412900a81a3a5e1fc467ddd2058
- - /undefined
+ - "/3f71b412900a81a3a5e1fc467ddd2058"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 ISO 13400 시리즈의 적용 판과 ECU 논리 주소·라우팅 정책을 확인한다.
@@ -91,4 +91,3 @@ TCP 연결은 됐지만 진단이 실패하면 routing activation 결과, source
 
 
 연결을 강제로 종료한 뒤 재접속·routing activation·기존 요청의 처리 정책을 확인한다. 변경·초기화 서비스는 승인된 시험 대상에서만 실행한다.
-

@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Stack, Heap & Memory Safety
+title: "Stack, Heap & Memory Safety"
 has_children: false
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 3
-parent: 'Memory Architecture'
+parent: "Memory Architecture"
 permalink: '/MCU_Peripheral/Memory_Architecture/Stack,_Heap_&_Memory_Safety'
 redirect_from:
- - /3f91b412900a81fdbcf9efb9db920246
- - /undefined
+ - "/3f91b412900a81fdbcf9efb9db920246"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -76,4 +76,3 @@ int main(void) {
 
 
 PC 빌드의 AddressSanitizer/UndefinedBehaviorSanitizer와 경계 테스트, 보드의 fault status·stack trace·map을 함께 사용한다. 잘못된 길이·pool 소진·동시 요청·cancel 후 늦은 callback을 시험한다. 보안 경계의 입력 검증에 assert만 사용하지 않는다.
-

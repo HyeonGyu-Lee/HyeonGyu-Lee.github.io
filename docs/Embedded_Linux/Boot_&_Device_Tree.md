@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Boot & Device Tree
+title: "Boot & Device Tree"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T12:54:00.000Z
 nav_order: 2
-parent: 'Embedded Linux'
+parent: "Embedded Linux"
 permalink: '/Embedded_Linux/Boot_&_Device_Tree'
 redirect_from:
- - /3f91b412900a8121ba75f8d2e09b90a8
- - /undefined
+ - "/3f91b412900a8121ba75f8d2e09b90a8"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -66,4 +66,3 @@ UART console에서 Bootloader·Kernel·user service 중 어느 단계에서 실�
 
 
 Kernel, DTB, Modules, Root FS와 application version의 조합을 기록한다. 재현 가능한 BSP 빌드와 Artifact 서명·배포 정책을 사용한다. Bootloader 변경은 정상 부팅 경로와 복구 인터페이스를 준비한 보드에서 검증한다.
-

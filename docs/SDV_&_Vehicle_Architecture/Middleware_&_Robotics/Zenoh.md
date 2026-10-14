@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Zenoh
+title: "Zenoh"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 3
-parent: 'Middleware & Robotics'
+parent: "Middleware & Robotics"
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/Zenoh'
 redirect_from:
- - /3f91b412900a8173bcdfc45ba887d945
- - /undefined
+ - "/3f91b412900a8173bcdfc45ba887d945"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -69,4 +69,3 @@ Query는 Queryable의 응답을 요청하는 경로이며 모든 Publish 데이�
 
 
 Router 재시작·다중 경로·잘못된 endpoint·연결 단절·큰 payload·느린 subscriber를 시험한다. DDS와 비교할 때 같은 payload·QoS 의미·hop 수·보안·transport·CPU 조건을 맞춘다. 특정 기술이 항상 더 빠르다고 일반화하지 않는다.
-

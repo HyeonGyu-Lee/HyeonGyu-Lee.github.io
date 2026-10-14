@@ -1,0 +1,15 @@
+<section class="mcu-map" data-mcu-map data-title="MCU Peripheral 기능 관계도" data-source="{{ '/assets/diagrams/mcu-peripheral-map.mmd' | relative_url }}" data-links="{{ '/assets/diagrams/mcu-peripheral-links.json' | relative_url }}" data-baseurl="{{ site.baseurl }}" aria-label="MCU Peripheral 기능 관계도">
+  <div class="mcu-map-toolbar">
+    <span>기능을 선택하면 상세 설명으로 이동합니다.</span>
+    <button type="button" data-map-zoom="out" aria-label="관계도 축소">−</button>
+    <button type="button" data-map-zoom="in" aria-label="관계도 확대">＋</button>
+    <button type="button" data-map-zoom="fit">화면에 맞춤</button>
+  </div>
+  <p class="mcu-map-legend">초록: Peripheral · 노랑: 활용 기능 · 보라: 실행·복구. 점선은 구현 방식이나 하드웨어 지원에 따른 선택 관계입니다.</p>
+  <div class="mcu-map-scroll" tabindex="0" aria-label="확대된 관계도 스크롤 영역">
+    <div class="mcu-map-canvas" aria-live="polite">기능 관계도를 불러오는 중입니다.</div>
+  </div>
+  <aside class="mcu-map-detail" hidden aria-live="polite"></aside>
+  <noscript>기능 관계도를 사용하려면 JavaScript를 활성화해 주세요.</noscript>
+</section>
+<script defer src="{{ '/assets/js/mcu-map.js' | relative_url }}"></script>

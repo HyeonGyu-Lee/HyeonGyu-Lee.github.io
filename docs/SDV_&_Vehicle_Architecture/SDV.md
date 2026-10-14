@@ -1,16 +1,16 @@
 ---
 layout: default
-title: SDV
+title: "SDV"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:48:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 1
-parent: 'SDV & Vehicle Architecture'
+parent: "SDV & Vehicle Architecture"
 permalink: '/SDV_&_Vehicle_Architecture/SDV'
 redirect_from:
- - /3f91b412900a81289c3ac3d32fbec963
- - /undefined
+ - "/3f91b412900a81289c3ac3d32fbec963"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -60,4 +60,3 @@ Artifact ID, Software Version, Hardware Compatibility, Schema Version, Dependenc
 
 
 중앙 집중은 공통 기능 재사용에 유리하지만 장애 영향 범위와 자원 간섭이 커질 수 있다. 독립적인 제어·시간 제약·Safety 요구가 있는 기능을 무조건 중앙으로 옮기지 않는다. 기능 분할과 보안·안전 분석을 함께 수행한다.
-

@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Zonal Architecture
+title: "Zonal Architecture"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 1
-parent: 'E/E Architecture'
+parent: "E/E Architecture"
 permalink: '/SDV_&_Vehicle_Architecture/E-E_Architecture/Zonal_Architecture'
 redirect_from:
- - /3f91b412900a81f8ae51cf62a416b215
- - /undefined
+ - "/3f91b412900a81f8ae51cf62a416b215"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -57,4 +57,3 @@ flowchart TD
 
 
 센서 acquisition → MCU task 대기 → Gateway queue → Backbone → 중앙 처리 → 하행 전송 → 출력 반영으로 지연을 분해한다. 평균만 보지 말고 높은 부하·재연결 조건의 p99와 최악 관측값을 기록한다. 실측 최댓값은 WCET 증명과 다르다.
-

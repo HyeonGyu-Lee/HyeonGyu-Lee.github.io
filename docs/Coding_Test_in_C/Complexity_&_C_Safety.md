@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Complexity & C Safety
+title: "Complexity & C Safety"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-21-10-00
+published_date: 2026-10-14T12:52:00.000Z
+last_modified_date: 2026-10-14T12:54:00.000Z
 nav_order: 1
-parent: 'Coding Test in C'
+parent: "Coding Test in C"
 permalink: '/Coding_Test_in_C/Complexity_&_C_Safety'
 redirect_from:
- - /3f91b412900a81e0a23bdf42c8364019
- - /undefined
+ - "/3f91b412900a81e0a23bdf42c8364019"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -43,4 +43,3 @@ qsort comparator에서 return a-b는 overflow 위험이 있다. (a\>b)-(a\<b) �
 
 
 복잡도에 출력 크기와 정렬 비용이 포함됐는가? 입력을 수정해도 되는가? 함수가 포인터를 반환하면 수명은 누가 관리하는가? 데이터 구조의 capacity 초과를 어떻게 처리하는가?
-

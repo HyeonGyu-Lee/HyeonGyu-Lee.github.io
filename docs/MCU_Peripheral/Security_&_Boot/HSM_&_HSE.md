@@ -1,16 +1,16 @@
 ---
 layout: default
-title: HSM & HSE
+title: "HSM & HSE"
 has_children: false
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 1
-parent: 'Security & Boot'
+parent: "Security & Boot"
 permalink: '/MCU_Peripheral/Security_&_Boot/HSM_&_HSE'
 redirect_from:
- - /3f91b412900a8130825acce9df6db0b0
- - /undefined
+ - "/3f91b412900a8130825acce9df6db0b0"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -66,4 +66,3 @@ Hash는 데이터 요약이며 누구나 다시 계산할 수 있다. MAC은 공
 
 
 정상/변조 입력, 잘못된 key usage, 부팅 직후 서비스 준비 지연, 동시 요청과 reset을 시험한다. private key·평문 비밀·민감 descriptor를 로그에 남기지 않는다. 보드 검증 전에는 HSE 성공 응답을 실제 보안 요구 충족으로 단정하지 않는다.
-

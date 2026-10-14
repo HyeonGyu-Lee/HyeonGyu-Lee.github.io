@@ -1,16 +1,16 @@
 ---
 layout: default
-title: DDS & QoS
+title: "DDS & QoS"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 2
-parent: 'Middleware & Robotics'
+parent: "Middleware & Robotics"
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/DDS_&_QoS'
 redirect_from:
- - /3f91b412900a8128a99bfb9cc64d3859
- - /undefined
+ - "/3f91b412900a8128a99bfb9cc64d3859"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -66,4 +66,3 @@ ros2 topic echo /chatter --qos-reliability best_effort
 
 
 의도적으로 Reliability를 불일치시킨 경우와 일치시킨 경우를 비교한다. subscriber 재시작, packet loss, burst, CPU 지연 조건에서 전달률·최신 데이터 Age·메모리 사용량을 기록한다. QoS 설정은 Safety 메커니즘이나 네트워크 인증을 대체하지 않는다.
-

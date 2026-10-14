@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Security & Boot
+title: "Security & Boot"
 has_children: true
-published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-14-22-10-00
-nav_order: 8
-parent: 'MCU Peripheral'
+published_date: 2026-10-14T13:02:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
+nav_order: 16
+parent: "MCU Peripheral"
 permalink: '/MCU_Peripheral/Security_&_Boot'
 redirect_from:
- - /3f91b412900a8157a786de9d2d8088d6
- - /undefined
+ - "/3f91b412900a8157a786de9d2d8088d6"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -46,4 +46,3 @@ S32K3 계열의 보안 기능은 NXP HSE(인증·암호 서비스) 및 제품별
 
 
 HSM & HSE → Key Management & Provisioning → Secure Boot → Bootloader & Firmware Update 순으로 학습한다. Memory Architecture의 Flash 배치·Linker Script·Startup을 함께 이해해야 부팅 주소와 이미지 범위를 올바르게 검증할 수 있다.
-

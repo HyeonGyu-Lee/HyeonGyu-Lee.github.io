@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Service-Oriented Architecture
+title: "Service-Oriented Architecture"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 3
-parent: 'SDV & Vehicle Architecture'
+parent: "SDV & Vehicle Architecture"
 permalink: '/SDV_&_Vehicle_Architecture/Service-Oriented_Architecture'
 redirect_from:
- - /3f91b412900a8106ac9df5da77f3cced
- - /undefined
+ - "/3f91b412900a8106ac9df5da77f3cced"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -62,4 +62,3 @@ C 구조체의 메모리를 그대로 wire payload로 사용하지 않는다. �
 
 
 알 수 없는 enum, 이전 Schema, 중복 Request ID, 만료 요청, 재시작 중 요청과 늦게 도착한 응답을 시험한다. Interface unit test와 실제 네트워크 단절 시험을 분리해 수행한다.
-

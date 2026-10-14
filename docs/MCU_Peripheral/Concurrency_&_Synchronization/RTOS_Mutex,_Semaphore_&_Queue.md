@@ -1,16 +1,16 @@
 ---
 layout: default
-title: RTOS Mutex, Semaphore & Queue
+title: "RTOS Mutex, Semaphore & Queue"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:29:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 3
-parent: 'Concurrency & Synchronization'
+parent: "Concurrency & Synchronization"
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/RTOS_Mutex,_Semaphore_&_Queue'
 redirect_from:
- - /3f91b412900a814d9a43eddb3fc5a5f3
- - /undefined
+ - "/3f91b412900a814d9a43eddb3fc5a5f3"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -131,4 +131,3 @@ CAN/UART 수신은 ISR→queue→parser task, SPI bus는 owner task 또는 trans
 
 
 lock hold time·wait time·queue high-water mark·timeout 횟수를 기록한다. 고/중/저 우선순위 부하로 역전 시나리오를 재현하고, 강제 오류·timeout에서도 자원 반환과 다음 요청 처리가 가능한지 확인한다.
-

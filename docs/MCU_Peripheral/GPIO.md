@@ -1,20 +1,22 @@
 ---
 layout: default
-title: GPIO
+title: "GPIO"
 has_children: false
-published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T06:25:00.000Z
+last_modified_date: 2026-10-14T13:55:00.000Z
 nav_order: 1
-parent: 'MCU Peripheral'
+parent: "MCU Peripheral"
 permalink: '/MCU_Peripheral/GPIO'
 redirect_from:
- - /3f91b412900a81e89986d913d9b0c254
- - /undefined
+ - "/3f91b412900a81e89986d913d9b0c254"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
@@ -46,7 +48,6 @@ void led_on(bool on) { board_write_output(LED_PIN, on); }
 ```
 
 
-
 ## 인터럽트와 동시 접근
 
 
@@ -61,3 +62,11 @@ S32K312의 외부 인터럽트 사용 가능 핀·라인·라우팅을 확인한
 - 입력에 Low/High를 각각 인가하고 코드 값과 실제 핀 전압을 비교한다. 해당 핀의 절대 최대 전압·5V 허용 여부는 데이터시트로 확인한다.
 - 출력의 부하 전류·상승/하강 시간을 측정한다. 모터·릴레이·고전류 LED를 GPIO로 직접 구동하지 않고 적합한 구동 회로를 사용한다.
 - 부팅·리셋·저전력 진입/복귀 시 EN/CS 출력의 glitch와 입력 재설정을 점검한다.
+
+## LED On/Off와 Output 설정
+
+
+LED에는 current limiting resistor 또는 전류 driver가 필요하다. 대략적인 저항 계산 R=(V_supply−V_LED−V_switch)/I_LED를 시작점으로 전압·forward voltage·전력 허용오차를 확인한다. MCU pin과 port의 총 전류 한계를 넘는 부하는 transistor/driver로 구동한다.
+
+
+Active-high/low와 부팅·reset·pin mux 전환 중 output 초기값을 정의한다. GPIO로 On/Off를 구현하고 밝기 조절은 PWM 문서의 timer output·reload 정책으로 확장한다. ISR의 소프트웨어 toggle로 고정 frequency·duty를 보장했다고 가정하지 않는다.

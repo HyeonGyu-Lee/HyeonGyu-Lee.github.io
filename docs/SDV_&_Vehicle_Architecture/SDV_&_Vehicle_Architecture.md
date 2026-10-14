@@ -1,15 +1,15 @@
 ---
 layout: default
-title: SDV & Vehicle Architecture
+title: "SDV & Vehicle Architecture"
 has_children: true
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
-nav_order: 8
+published_date: 2026-10-14T12:48:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
+nav_order: 7
 permalink: '/SDV_&_Vehicle_Architecture'
 redirect_from:
- - /3f91b412900a81cb839fcf8ff38a7cce
- - /undefined
+ - "/3f91b412900a81cb839fcf8ff38a7cce"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -45,4 +45,3 @@ Zone MCU가 버튼·온도 입력을 수집하고 Central Compute가 조명 정�
 
 
 MCU 쪽 구현 예제는 C를 우선한다. ROS 2 CLI·운영 명령은 셸 코드로 제공한다. ROS 2 실습은 설치된 배포판의 demo_nodes_cpp를 전제로 하며 실제 차량 제어 장치 대신 격리된 테스트 네트워크에서 진행한다. ROS 2의 RMW·Zenoh API는 설치 버전을 기록하고 해당 버전 문서에 맞춘다.
-

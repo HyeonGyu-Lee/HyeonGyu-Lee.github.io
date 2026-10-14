@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Time Synchronization & Latency
+title: "Time Synchronization & Latency"
 has_children: false
-published_date: 2026-10-14-21-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-14T12:49:00.000Z
+last_modified_date: 2026-10-14T13:24:00.000Z
 nav_order: 5
-parent: 'SDV & Vehicle Architecture'
+parent: "SDV & Vehicle Architecture"
 permalink: '/SDV_&_Vehicle_Architecture/Time_Synchronization_&_Latency'
 redirect_from:
- - /3f91b412900a814c8d51ce571713d0bb
- - /undefined
+ - "/3f91b412900a814c8d51ce571713d0bb"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -57,4 +57,3 @@ IEEE 1588 PTP와 IEEE 802.1AS gPTP의 적용 profile·timestamp 지원·switch �
 
 
 CPU 부하·혼잡·sync loss·clock step·Grandmaster 변경을 주입한다. 만료 명령 처리에 잘못된 wall clock을 쓰면 과거 명령이 살아나거나 정상 명령이 거절될 수 있으므로 timestamp domain을 명시한다.
-

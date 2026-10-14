@@ -1,20 +1,22 @@
 ---
 layout: default
-title: OSP
+title: "OSP"
 has_children: false
-published_date: 2026-10-14-13-10-00
-last_modified_date: 2026-10-14-22-10-00
-nav_order: 12
-parent: '차량 통신'
+published_date: 2026-10-14T04:25:00.000Z
+last_modified_date: 2026-10-14T13:46:00.000Z
+nav_order: 11
+parent: "차량 통신"
 permalink: '/차량_통신/OSP'
 redirect_from:
- - /3f91b412900a812baf18ec687a76bdfa
- - /undefined
+ - "/3f91b412900a812baf18ec687a76bdfa"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
 {:toc}
+
+
 ## 핵심 요약
 
 
@@ -27,7 +29,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 이 문서는 OSRAM RGB 구동 경험과 관련한 학습 자료다. 실제 사용한 LED·보드·라이브러리가 확인되기 전이므로 특정 제품을 사용했다고 단정하지 않는다. 공개 구현의 대표 노드는 RGB가 내장된 OSIRE E3731i(RGBi), 외부 LED를 구동하는 AS1163(SAID)이다. 아래 제조사 예제는 OSP32/Arduino 기반이며 S32K312에 바로 빌드되는 코드는 아니다.
@@ -49,7 +51,6 @@ flowchart TD
 ```
 
 
-
 공개 aolibs는 aoosp가 telegram 생성·응답 해석을, aospi가 하드웨어 송수신을 담당하도록 분리한다. S32K312 포팅에서는 이 분리를 유지하여 검증된 telegram 로직과 CRC는 재사용하고 ESP32/Arduino 의존 전송·시간 측정·GPIO 부분을 별도로 구현한다.
 
 
@@ -62,6 +63,22 @@ flowchart TD
 
 
 ## 3. 일반 SPI와 다른 MCU 물리 모드
+
+
+<figure><a href="/assets/images/diagrams/osp-timing.png" data-fslightbox="osp"><img src="/assets/images/diagrams/osp-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="Type A Manchester의 mid-bit transition과 Type B의 별도 clock/data 경로를 설명하는 개념도다. 그림은 1=Low→High, 0=High→Low라는 설명용 convention을 명시한다. 실제 측정 파형이 아니다."></a><figcaption>Type A Manchester의 mid-bit transition과 Type B의 별도 clock/data 경로를 설명하는 개념도다. 그림은 1=Low→High, 0=High→Low라는 설명용 convention을 명시한다. 실제 측정 파형이 아니다.</figcaption></figure>
+
+
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡
+</div>
+<div class="callout-content" markdown="1">
+그림 읽기와 실측 확인: 이 convention을 실제 OSP encoder 설정값으로 복사하지 않는다. 사용 부품·MCU mode의 polarity, bit order, 인코딩과 idle 조건을 제조사 규격과 측정 파형으로 확인한다. 파형 생성용 SPI SCK와 OSP bit rate는 구분한다.
+</div>
+</div>
+</blockquote>
+
 
 
 제조사 aospi 문서는 MCU mode type A를 1-wire Manchester, type B를 2-wire SPI로 구분한다. RGBi와 기본 OTP의 SAID는 type A 관련 조건을 확인해야 하며 OSP32의 첫 SAID는 type B에 맞게 구성되어 있다. type B 기본 예제를 RGBi 직접 연결에 그대로 적용하면 통신하지 않을 수 있다.
@@ -92,7 +109,6 @@ Type A는 raw telegram을 그대로 보내는 대신 Manchester 인코딩이 필
 ```
 
 
-
 보드의 클록 트리에서 48 MHz가 허용되는지 먼저 확인한다. DMA 또는 FIFO를 이용해 telegram 중간의 불필요한 gap을 방지하고, 물리 전송 완료를 확인한 뒤 output enable을 해제한다. MCU가 송신을 멈춘 시점과 주변장치 핀을 실제 high-impedance로 만든 시점은 다를 수 있다.
 
 
@@ -116,7 +132,6 @@ INITLOOP, 시작 주소 1:  A0 04 03 86
 ```
 
 
-
 RESET 후 노드가 인터페이스 모드를 다시 판단할 수 있으므로 SIO.P/SIO.N의 pull 상태와 출력 buffer 해제 상태를 확인한다. 잘못된 idle/pull 조합으로 다른 모드가 선택되면 전원 재인가 전까지 통신이 되지 않는 상황이 생길 수 있다. 평가 보드의 특정 pull-up 실험 배선을 다른 회로에 그대로 적용하지 않는다.
 
 
@@ -134,7 +149,6 @@ RESET 후 노드가 인터페이스 모드를 다시 판단할 수 있으므로 
 8. 첫 노드 한 채널을 낮은 밝기로 점등
 9. R/G/B 단색 → 여러 노드 → 동기 갱신 순으로 확장
 ```
-
 
 
 주소 할당 결과가 예상 노드 수와 일치하는지 확인한다. 임의 노드 번호를 고정해 두고 PWM부터 보내면 재배선·체인 단선 시 다른 LED를 제어할 수 있다. 노드 종류에 따라 PWM 명령이 다르므로 RGBi용 setpwm과 SAID 채널용 setpwmchn을 구분한다.
@@ -164,7 +178,6 @@ int test_rgb(void) {
     return 0;
 }
 ```
-
 
 
 이 코드는 호출 형태를 보여주는 조각이며 전체 펌웨어가 아니다. 제품별 PWM 범위·허용 전류·상태 전환 조건을 확인한다. 색상 보정·온도 보상·휘도 매핑은 통신 성공과 별개의 단계다. 동일한 R/G/B 수치가 시각적으로 동일한 밝기 또는 정확한 백색을 보장하지 않는다.
@@ -206,7 +219,6 @@ int main(void) {
 ```
 
 
-
 CRC 일치만으로 응답이 올바른 것은 아니다. 최소 길이, preamble·길이 필드, 예상 command·주소·payload 길이, 수신 timeout도 검증한다. broadcast 명령에 항상 응답이 온다고 가정하지 말고 각 명령의 응답 유무를 명세에 따라 처리한다.
 
 
@@ -238,4 +250,3 @@ CRC 일치만으로 응답이 올바른 것은 아니다. 최소 길이, preambl
 
 
 구현 구분은 제조사 공개 프로젝트 OSP_aotop, OSP_aospi의 물리 계층·bring-up 설명, OSP_aoosp의 aoosp_min 및 CRC 구현을 기준으로 했다. 이 문서의 S32K312 포팅 항목과 계산 예제는 설계·학습용이며 보드에서 구동 검증한 결과를 의미하지 않는다.
-

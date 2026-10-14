@@ -1,16 +1,16 @@
 ---
 layout: default
-title: REST API
+title: "REST API"
 has_children: false
-published_date: 2026-10-14-08-10-00
-last_modified_date: 2026-10-14-22-10-00
+published_date: 2026-10-13T23:24:00.000Z
+last_modified_date: 2026-10-14T13:25:00.000Z
 nav_order: 6
-parent: '기타'
+parent: "기타"
 permalink: '/기타/REST_API'
 redirect_from:
- - /3f81b412900a81f297e0de21b1ee3596
- - /undefined
+ - "/3f81b412900a81f297e0de21b1ee3596"
 ---
+
 ## Table of contents
 {: .no_toc .text-delta }
 - TOC
@@ -27,7 +27,7 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡 
+💡
 </div>
 <div class="callout-content" markdown="1">
 아래 예제는 작업 관리 API /v1/tasks를 가정한 요청·응답 계약이다. 예제 서버를 제공하는 것은 아니므로 실제 호출 시 구현된 개발 서버 주소와 토큰으로 바꾼다. 운영 데이터 대신 테스트 계정을 사용하고, 예시 상태 코드·필드·제한 정책을 팀의 API 명세와 맞춘다.
@@ -58,7 +58,7 @@ bash 환경에서 API_BASE와 API_TOKEN을 사전에 설정한다. 토큰을 소
 : "${API_BASE:?개발 서버 주소를 설정하세요}"
 : "${API_TOKEN:?테스트 토큰을 설정하세요}"
 
-curl --fail-with-body -i --connect-timeout 5 --max-time 15   -X POST "$API_BASE/v1/tasks"   -H "Authorization: Bearer $API_TOKEN"   -H 'Content-Type: application/json'   -H 'Accept: application/json'   --data '{"title":"CAN 로그 분석","status":"todo"}' 
+curl --fail-with-body -i --connect-timeout 5 --max-time 15   -X POST "$API_BASE/v1/tasks"   -H "Authorization: Bearer $API_TOKEN"   -H 'Content-Type: application/json'   -H 'Accept: application/json'   --data '{"title":"CAN 로그 분석","status":"todo"}'
 ```
 
 
@@ -91,7 +91,7 @@ curl --fail-with-body -i --max-time 15   -X DELETE "$API_BASE/v1/tasks/$TASK_ID"
 
 
 ```bash
-curl --fail-with-body --get --max-time 15 "$API_BASE/v1/tasks"   -H "Authorization: Bearer $API_TOKEN"   --data-urlencode 'status=todo'   --data-urlencode 'limit=20'   --data-urlencode 'sort=-created_at' 
+curl --fail-with-body --get --max-time 15 "$API_BASE/v1/tasks"   -H "Authorization: Bearer $API_TOKEN"   --data-urlencode 'status=todo'   --data-urlencode 'limit=20'   --data-urlencode 'sort=-created_at'
 ```
 
 
@@ -143,7 +143,7 @@ POST는 타임아웃이 나도 서버에서 생성되었을 수 있다. 재전�
 # 서버가 Idempotency-Key를 지원할 때만 사용한다.
 # 같은 생성 작업의 재시도에는 같은 키와 본문을 유지한다.
 REQUEST_KEY=$(python3 -c 'import uuid; print(uuid.uuid4())')
-curl --fail-with-body -i --max-time 15 -X POST "$API_BASE/v1/tasks"   -H "Authorization: Bearer $API_TOKEN"   -H "Idempotency-Key: $REQUEST_KEY"   -H 'Content-Type: application/json'   --data '{"title":"진단 결과 정리","status":"todo"}' 
+curl --fail-with-body -i --max-time 15 -X POST "$API_BASE/v1/tasks"   -H "Authorization: Bearer $API_TOKEN"   -H "Idempotency-Key: $REQUEST_KEY"   -H 'Content-Type: application/json'   --data '{"title":"진단 결과 정리","status":"todo"}'
 ```
 
 
@@ -156,7 +156,7 @@ GET 응답에 ETag를 제공하고 PATCH·PUT 요청에 If-Match를 요구하면
 
 ```bash
 # 먼저 GET 응답에서 얻은 실제 ETag를 사용한다.
-curl --fail-with-body -i --max-time 15 -X PATCH   "$API_BASE/v1/tasks/$TASK_ID"   -H "Authorization: Bearer $API_TOKEN"   -H 'If-Match: "task-version-3"'   -H 'Content-Type: application/json' --data '{"status":"done"}' 
+curl --fail-with-body -i --max-time 15 -X PATCH   "$API_BASE/v1/tasks/$TASK_ID"   -H "Authorization: Bearer $API_TOKEN"   -H 'If-Match: "task-version-3"'   -H 'Content-Type: application/json' --data '{"status":"done"}'
 ```
 
 
@@ -235,4 +235,3 @@ test('작업 생성·조회·삭제 계약', async () => {
 
 
 리소스·권한 모델 정의 → OpenAPI 3.1로 요청·응답·오류·인증 명세 → 모의 서버로 프론트엔드 연동 → 서버 구현 → 계약·권한·장애 테스트 → 개발 환경 검증 → 운영 지표 확인 순으로 진행한다. 필드 삭제·의미 변경은 호환성을 깨뜨리므로 버전·폐기 일정과 마이그레이션 경로를 제공한다. 문서의 예제를 CI에서 검증하면 구현과 명세의 차이를 줄일 수 있다.
-
