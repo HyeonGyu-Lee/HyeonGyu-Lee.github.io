@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 전역변수와 상태 소유권
+title: Global Variables & State Ownership
 has_children: false
 published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 1
-parent: '동시성과 동기화'
-permalink: '/MCU_주변장치/동시성과_동기화/전역변수와_상태_소유권'
+parent: 'Concurrency & Synchronization'
+permalink: '/MCU_주변장치/Concurrency_&_Synchronization/Global_Variables_&_State_Ownership'
 redirect_from:
  - /3f91b412900a813f99a5db9e21ef3050
  - /undefined
@@ -20,6 +20,22 @@ redirect_from:
 
 전역 상태는 어느 파일에서든 접근할 수 있게 만드는 대신, 쓰기 주체와 읽기 API를 정해 관리한다. 파일 범위 static으로 가시성을 제한해도 ISR이나 여러 task가 같은 상태에 접근하면 동기화가 필요하다.
 
+
+## Single Owner Pattern
+
+```mermaid
+flowchart LR
+ A["Task A"] -->|Request| Q["Request Queue"]
+ B["Task B"] -->|Request| Q
+ I["ISR"] -->|"ISR-safe event"| Q
+ Q --> O["Owner Task"]
+ O -->|"유일한 writer"| S["Module State"]
+ O -->|"일관된 복사본"| R["Snapshot / Response"]
+ R --> A
+ R --> B
+```
+
+여러 실행 문맥이 전역 구조체를 직접 수정하는 대신 Owner Task로 요청을 전달한다. Queue full 처리와 응답 timeout도 정의해야 한다. Snapshot을 공유 메모리로 직접 읽는 경우에는 별도 동기화가 필요하다.
 
 ## static·extern·const·volatile 구분
 
@@ -54,7 +70,7 @@ void can_state_snapshot(CanSnapshot *out);
 여러 필드를 읽을 때 각각의 읽기가 원자적이어도 동일 시점의 snapshot은 아닐 수 있다. count는 새 값, status는 옛 값으로 조합될 수 있으므로 같은 lock 아래 복사하거나 owner에게 snapshot을 요청한다. 값 복사 API라는 이유만으로 동기화가 자동 제공되지는 않는다.
 
 
-## 단순 카운터의 원자 연산 예제
+## 단순 카운터의 Atomic operation 예제
 
 
 ```c

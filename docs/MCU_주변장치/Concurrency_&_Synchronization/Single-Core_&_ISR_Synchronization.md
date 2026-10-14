@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 단일 코어와 인터럽트 동기화
+title: Single-Core & ISR Synchronization
 has_children: false
 published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 2
-parent: '동시성과 동기화'
-permalink: '/MCU_주변장치/동시성과_동기화/단일_코어와_인터럽트_동기화'
+parent: 'Concurrency & Synchronization'
+permalink: '/MCU_주변장치/Concurrency_&_Synchronization/Single-Core_&_ISR_Synchronization'
 redirect_from:
  - /3f91b412900a811394dfc8437ec305c6
  - /undefined
@@ -18,7 +18,7 @@ redirect_from:
 ## 핵심 요약
 
 
-단일 코어는 한 순간에 하나의 명령 흐름을 실행해도 task 선점과 ISR 진입 때문에 공유 상태가 손상될 수 있다. counter++는 보통 읽기·증가·쓰기이며 중간에 선점되면 증가분을 잃는다.
+단일 코어는 한 순간에 하나의 명령 흐름을 실행해도 task 선점과 ISR 진입 때문에 Shared State가 손상될 수 있다. counter++는 보통 읽기·증가·쓰기이며 중간에 선점되면 증가분을 잃는다.
 
 
 ```text
@@ -31,13 +31,30 @@ Task: 이전에 읽은 0에 +1, counter=1
 
 
 
-## 임계 구역 사용 원칙
+## Lost Update: Task Preempted by ISR
+
+```mermaid
+sequenceDiagram
+ participant T as Task
+ participant S as Shared counter
+ participant I as ISR
+ T->>S: read counter = 0
+ Note over T,I: IRQ 발생: Task 선점
+ I->>S: read 0, increment, write 1
+ Note over T,I: ISR 종료: Task 재개
+ T->>S: 이전 값 0에 1을 더해 write 1
+ Note over S: 두 번 증가했지만 결과는 1
+```
+
+단일 코어에서도 read-modify-write는 중간에 선점될 수 있다. 해당 플랫폼의 짧은 Critical Section 또는 ISR-safe임을 확인한 Atomic operation을 사용한다. volatile만으로 해결되지 않는다.
+
+## Critical Section 사용 원칙
 
 
 플랫폼이 제공하는 interrupt state 저장·복원 API를 사용한다. 진입 전 IRQ가 이미 비활성이었다면 종료 후 무조건 enable하면 안 된다. FreeRTOS의 taskENTER_CRITICAL 등과 ISR용 API는 역할·허용 문맥이 다르므로 설치 포트의 규칙을 따른다.
 
 - 잠금 안에서는 공유 값 복사·작은 queue 인덱스 변경처럼 짧고 상한이 분명한 작업만 수행한다.
-- delay·blocking 전송·printf·동적 할당·다른 lock 대기·ISR 완료 대기를 임계 구역에 넣지 않는다. 필요한 IRQ를 막은 채 완료를 기다리면 진행할 수 없다.
+- delay·blocking 전송·printf·동적 할당·다른 lock 대기·ISR 완료 대기를 Critical Section에 넣지 않는다. 필요한 IRQ를 막은 채 완료를 기다리면 진행할 수 없다.
 - 일부 RTOS는 특정 우선순위 범위의 IRQ만 mask한다. 더 높은 우선순위 IRQ, NMI 등은 계속 접근할 수 있으므로 실제 보호 범위를 확인한다.
 - scheduler lock은 task 전환을 막을 수 있지만 IRQ를 막는 것과 같지 않다. 단일 코어의 interrupt mask는 다른 코어나 DMA도 막지 않는다.
 
@@ -73,5 +90,5 @@ binary semaphore는 중복 이벤트가 합쳐질 수 있다. 모든 수신 이�
 ## 검증
 
 
-높은 빈도의 IRQ와 task 부하로 강제 선점하고 카운터·queue 항목·완료 알림의 손실을 확인한다. 임계 구역 최대 시간과 interrupt latency를 GPIO toggle·trace로 측정한다. 정상 실행 빈도만으로 race가 없다고 판단하지 않는다.
+높은 빈도의 IRQ와 task 부하로 강제 선점하고 카운터·queue 항목·완료 알림의 손실을 확인한다. Critical Section 최대 시간과 interrupt latency를 GPIO toggle·trace로 측정한다. 정상 실행 빈도만으로 race가 없다고 판단하지 않는다.
 

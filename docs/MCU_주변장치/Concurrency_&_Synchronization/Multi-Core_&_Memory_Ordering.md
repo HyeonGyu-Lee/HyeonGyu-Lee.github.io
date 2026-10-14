@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 멀티 코어와 메모리 순서
+title: Multi-Core & Memory Ordering
 has_children: false
 published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 4
-parent: '동시성과 동기화'
-permalink: '/MCU_주변장치/동시성과_동기화/멀티_코어와_메모리_순서'
+parent: 'Concurrency & Synchronization'
+permalink: '/MCU_주변장치/Concurrency_&_Synchronization/Multi-Core_&_Memory_Ordering'
 redirect_from:
  - /3f91b412900a8112a430d2f72b9a555d
  - /undefined
@@ -18,8 +18,27 @@ redirect_from:
 ## 핵심 요약
 
 
-멀티 코어에서는 로컬 IRQ 차단만으로 공유 상태가 보호되지 않는다. atomicity, compiler/CPU ordering, cache coherence, 메모리 접근 속성과 ownership을 별도로 검토해야 한다. 아래 C11 예제는 같은 coherent 공유 메모리를 사용하는 C 실행 환경이 전제다. 별도 펌웨어가 도는 AMP MCU에 자동 적용되지 않는다.
+멀티 코어에서는 로컬 IRQ 차단만으로 Shared State가 보호되지 않는다. atomicity, compiler/CPU ordering, cache coherence, 메모리 접근 속성과 ownership을 별도로 검토해야 한다. 아래 C11 예제는 같은 coherent 공유 메모리를 사용하는 C 실행 환경이 전제다. 별도 펌웨어가 도는 AMP MCU에 자동 적용되지 않는다.
 
+
+## SPSC Slot: Release / Acquire
+
+```mermaid
+sequenceDiagram
+ participant P as Producer
+ participant F as Atomic full
+ participant C as Consumer
+ P->>F: acquire load: false 확인
+ Note over P: payload 쓰기
+ P->>F: release store: true
+ C->>F: acquire load: true 확인
+ Note over C: payload 읽기
+ C->>F: release store: false
+ P->>F: acquire load: false 확인
+ Note over P: 다음 payload로 슬롯 재사용
+```
+
+Producer 1개와 Consumer 1개인 단일 슬롯 예제다. coherent 공유 메모리와 C11 memory model을 전제로 release/acquire가 payload 접근 순서를 연결한다. AMP의 cache maintenance나 mailbox 설정까지 자동 보장하는 것은 아니다.
 
 ## SMP와 AMP
 
@@ -63,7 +82,7 @@ payload는 atomic이 아니지만 슬롯 소유권과 happens-before 관계로 �
 ## Spinlock과 Mutex
 
 
-spinlock은 바쁜 대기이므로 아주 짧고 상한이 있는 구간에서, 해당 플랫폼의 선점·IRQ·코어 규칙과 함께 사용한다. 단일 코어에서 ISR이 선점된 task가 보유한 spinlock을 기다리면 task가 실행되지 못해 영원히 풀리지 않는다. 멀티 코어에서도 lock owner의 장시간 선점과 우선순위 역전·공정성을 고려한다.
+spinlock은 바쁜 대기이므로 아주 짧고 상한이 있는 구간에서, 해당 플랫폼의 선점·IRQ·코어 규칙과 함께 사용한다. 단일 코어에서 ISR이 선점된 task가 보유한 spinlock을 기다리면 task가 실행되지 못해 영원히 풀리지 않는다. 멀티 코어에서도 lock owner의 장시간 선점과 Priority Inversion·공정성을 고려한다.
 
 
 ## Barrier와 cache
@@ -75,7 +94,7 @@ spinlock은 바쁜 대기이므로 아주 짧고 상한이 있는 구간에서, 
 ## IPC와 복구
 
 
-공유 구조체에 version·length·sequence·owner 상태와 필요한 진단 정보를 포함한다. mailbox interrupt는 알림이며 payload 준비·cache 처리·메모리 순서를 대체하지 않는다. 한 코어 reset 시 남은 lock·queue·descriptor의 복구 owner와 epoch를 정의해 이전 응답을 새 요청으로 오인하지 않도록 한다.
+공유 구조체에 version·length·sequence·owner 상태와 필요한 진단 정보를 포함한다. mailbox interrupt는 알림이며 payload 준비·cache 처리·Memory Ordering를 대체하지 않는다. 한 코어 reset 시 남은 lock·queue·descriptor의 복구 owner와 epoch를 정의해 이전 응답을 새 요청으로 오인하지 않도록 한다.
 
 
 ## 검증

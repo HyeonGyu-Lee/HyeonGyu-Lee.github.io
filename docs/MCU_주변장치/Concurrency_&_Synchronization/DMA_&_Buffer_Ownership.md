@@ -1,12 +1,12 @@
 ---
 layout: default
-title: DMA와 버퍼 소유권
+title: DMA & Buffer Ownership
 has_children: false
 published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 5
-parent: '동시성과 동기화'
-permalink: '/MCU_주변장치/동시성과_동기화/DMA와_버퍼_소유권'
+parent: 'Concurrency & Synchronization'
+permalink: '/MCU_주변장치/Concurrency_&_Synchronization/DMA_&_Buffer_Ownership'
 redirect_from:
  - /3f91b412900a81f58904c451020aff72
  - /undefined
@@ -20,6 +20,27 @@ redirect_from:
 
 DMA는 CPU의 mutex나 IRQ mask를 따르지 않고 메모리를 읽고 쓸 수 있다. DMA가 접근하는 buffer의 소유권과 실제 전송 완료를 기준으로 재사용 시점을 결정한다.
 
+
+## RX Buffer Ownership
+
+```mermaid
+stateDiagram-v2
+ [*] --> FREE
+ FREE --> DMA_WRITING: RX 준비 / DMA 시작
+ DMA_WRITING --> READY: 실제 완료 확인
+ READY --> CPU_READING: CPU에 소유권 전달
+ CPU_READING --> FREE: 처리 완료
+ DMA_WRITING --> ABORTING: timeout / cancel
+ ABORTING --> FREE: DMA 정지와 늦은 callback 처리 확인
+ note right of DMA_WRITING
+ CPU는 해당 Buffer를 수정하거나 재사용하지 않음
+ end note
+ note right of READY
+ 필요 시 Cache Maintenance 후 읽기
+ end note
+```
+
+timeout이 발생해도 DMA가 즉시 정지했다고 가정하면 안 된다. abort 완료와 늦은 callback 처리까지 확인한 뒤 Buffer를 반환한다. 그림의 상태 전환 자체에도 실행 문맥에 맞는 동기화가 필요하다.
 
 ## 버퍼 상태 머신
 

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: RTOS Mutex Semaphore Queue
+title: RTOS Mutex, Semaphore & Queue
 has_children: false
 published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 3
-parent: '동시성과 동기화'
-permalink: '/MCU_주변장치/동시성과_동기화/RTOS_Mutex_Semaphore_Queue'
+parent: 'Concurrency & Synchronization'
+permalink: '/MCU_주변장치/Concurrency_&_Synchronization/RTOS_Mutex,_Semaphore_&_Queue'
 redirect_from:
  - /3f91b412900a814d9a43eddb3fc5a5f3
  - /undefined
@@ -20,6 +20,40 @@ redirect_from:
 
 Mutex는 소유권이 있는 상호 배제, Semaphore는 이벤트 또는 자원 개수, Queue는 데이터 전달에 사용한다. 이름이 비슷해도 역할·ISR 사용 가능 여부·우선순위 상속이 다르다.
 
+
+## Mutex vs Semaphore vs Queue
+
+```mermaid
+flowchart TD
+ A["공유 주변장치의 접근을 직렬화?"] -->|Yes| M["Mutex: Task가 획득하고 해제"]
+ B["완료 알림이나 자원 개수를 전달?"] -->|Yes| S["Semaphore / Task Notification"]
+ C["데이터 또는 요청을 전달?"] -->|Yes| Q["Queue: 복사 또는 소유권 이전"]
+ I["ISR에서 전달"] --> R["RTOS의 ISR-safe API 확인"]
+ R --> S
+ R --> Q
+ M --> P["Priority Inheritance 지원 여부 확인"]
+```
+
+Mutex는 ownership을 가진 상호 배제 도구이고 Semaphore는 신호·개수 전달에 사용한다. ISR에서는 Mutex를 기다리지 않는다. Queue에 pointer를 넣을 때는 대상 Buffer의 수명도 함께 관리한다.
+
+
+## Priority Inversion
+
+```mermaid
+sequenceDiagram
+ participant L as Low Task
+ participant M as Medium Task
+ participant H as High Task
+ L->>L: Mutex 획득
+ H->>L: 같은 Mutex 대기
+ M->>M: Low를 선점
+ Note over L,H: High도 Low가 Mutex를 풀 때까지 지연
+ Note over L: Priority Inheritance 지원 시 owner 우선순위 상승
+ L->>L: 작업 완료 / Mutex 해제
+ H->>H: Mutex 획득 후 실행
+```
+
+Priority Inheritance는 owner의 실행 지연을 줄이지만 긴 Critical Section이나 Deadlock을 없애지는 않는다. 실제 지원 범위와 nested Mutex 동작은 RTOS 구현을 확인한다.
 
 ## Mutex: 공유 자원 보호
 
@@ -52,7 +86,7 @@ board_spi_transaction은 timeout과 CS 복구를 포함해 반환한다는 계�
 - Event group: 여러 조건 비트의 조합 대기. 반복 횟수 보존용이 아니다. clear-on-exit와 여러 waiter의 의미를 확인한다.
 - Queue: payload 복사 또는 포인터 전달. 포인터 queue는 대상 데이터의 소유권·수명까지 정의해야 한다. full일 때 block/drop/overwrite 정책을 메시지 종류에 맞춘다.
 
-## 우선순위 역전
+## Priority Inversion
 
 
 ```text
@@ -69,7 +103,7 @@ Priority inheritance는 lock owner의 우선순위를 일시적으로 올려
 priority inheritance 구현의 nested mutex 제한과 복구 시점을 RTOS 문서에서 확인한다. AUTOSAR OS에서는 Resource의 priority ceiling과 multicore Spinlock을 별도 규칙으로 다루므로 FreeRTOS mutex를 그대로 대응시키지 않는다.
 
 
-## 데드락 예방과 timeout
+## Deadlock 예방과 timeout
 
 - 여러 lock을 잡아야 하면 전역적으로 같은 순서를 정한다. A→B와 B→A 획득 경로가 공존하지 않도록 한다.
 - lock을 보유한 채 다른 task의 응답을 기다리고, 그 task가 같은 lock을 필요로 하는 순환을 피한다.
