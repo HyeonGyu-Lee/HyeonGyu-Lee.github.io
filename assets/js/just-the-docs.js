@@ -22,6 +22,8 @@ jtd.onReady = function(ready) {
   });
 }
 
+{% include js/navigation-state.js %}
+
 // Show/hide mobile menu
 
 function initNav() {
@@ -34,6 +36,7 @@ function initNav() {
     if (target) {
       e.preventDefault();
       target.ariaPressed = target.parentNode.classList.toggle('active');
+      saveNavigationState();
     }
   });
 
@@ -520,7 +523,9 @@ jtd.onReady(function(){
   //hljs.highlightAll();
   initNav();
   initSearch();
+  restoreNavigationState();
   activateNav();
+  saveNavigationState();
   scrollNav();
   {%- if site.ga_tracking != nil %}
   {% assign ga_tracking_ids = site.ga_tracking | split: "," %}
