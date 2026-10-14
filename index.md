@@ -19,9 +19,9 @@ portfolio_home: true
 {% for topic in roots %}
 {% unless topic.parent %}
     <a class="topic-card" href="{{ topic.url | relative_url }}">
-      <span class="topic-index">0{{ topic.nav_order }} <span aria-hidden="true">↗</span></span>
+      <span class="topic-index">{% if topic.nav_order < 10 %}0{% endif %}{{ topic.nav_order }} <span aria-hidden="true">↗</span></span>
       <h3>{{ topic.title | escape }}</h3>
-      <p>{% case topic.title %}{% when 'AUTOSAR' %}Classic과 Adaptive 플랫폼, 버전별 구조와 설정을 살펴봅니다.{% when '차량 통신' %}CAN, LIN부터 Automotive Ethernet까지 연결과 검증을 다룹니다.{% when 'A-SPICE' %}요구사항부터 검증까지, 개발 프로세스와 산출물을 연결합니다.{% when 'ISO26262' %}기능 안전의 개념을 설계와 검증 관점으로 정리합니다.{% when '기타' %}Electron, Selenium, Markdown으로 개발과 문서화를 돕습니다.{% else %}진단 서비스와 응답 코드를 이해하고 통신 흐름을 분석합니다.{% endcase %}</p>
+      <p>{% case topic.title %}{% when 'AUTOSAR' %}Classic과 Adaptive 플랫폼, 버전별 구조와 설정을 살펴봅니다.{% when '차량 통신' %}CAN, LIN부터 Automotive Ethernet까지 연결과 검증을 다룹니다.{% when 'A-SPICE' %}요구사항부터 검증까지, 개발 프로세스와 산출물을 연결합니다.{% when 'ISO26262' %}기능 안전의 개념을 설계와 검증 관점으로 정리합니다.{% when '기타' %}Electron, Selenium, Markdown으로 개발과 문서화를 돕습니다.{% when 'MCU Peripheral' %}GPIO·ADC·Timer부터 RTOS와 Concurrency까지 구현과 검증을 연결합니다.{% when 'SDV & Vehicle Architecture' %}Zonal Architecture·ROS 2·Zenoh와 차량 소프트웨어 운영을 살펴봅니다.{% when 'Embedded Linux' %}AP의 부팅·IPC·Device I/O와 MCU 연동을 다룹니다.{% when 'Coding Test in C' %}자료구조와 알고리즘을 C 코드와 테스트로 연습합니다.{% when 'UDS (Unified Diagnostic Services)' %}진단 서비스와 응답 코드를 이해하고 통신 흐름을 분석합니다.{% else %}주제별 개념과 구현 예제를 살펴봅니다.{% endcase %}</p>
       {% assign children = site.pages | where: "parent", topic.title %}<span class="topic-meta">{% if children.size > 0 %}{{ children.size }}개 하위 문서 · {% endif %}살펴보기</span>
     </a>
 {% endunless %}

@@ -6,7 +6,7 @@ published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 1
 parent: 'Concurrency & Synchronization'
-permalink: '/MCU_주변장치/Concurrency_&_Synchronization/Global_Variables_&_State_Ownership'
+permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Global_Variables_&_State_Ownership'
 redirect_from:
  - /3f91b412900a813f99a5db9e21ef3050
  - /undefined

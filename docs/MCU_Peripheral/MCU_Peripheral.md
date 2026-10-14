@@ -1,11 +1,11 @@
 ---
 layout: default
-title: MCU 주변장치
+title: MCU Peripheral
 has_children: true
 published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 7
-permalink: '/MCU_주변장치'
+permalink: '/MCU_Peripheral'
 redirect_from:
  - /3f91b412900a810ab8d8eff3a8c51fbf
  - /undefined

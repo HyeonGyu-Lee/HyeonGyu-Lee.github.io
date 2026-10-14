@@ -6,7 +6,7 @@ published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 4
 parent: 'Concurrency & Synchronization'
-permalink: '/MCU_주변장치/Concurrency_&_Synchronization/Multi-Core_&_Memory_Ordering'
+permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Multi-Core_&_Memory_Ordering'
 redirect_from:
  - /3f91b412900a8112a430d2f72b9a555d
  - /undefined

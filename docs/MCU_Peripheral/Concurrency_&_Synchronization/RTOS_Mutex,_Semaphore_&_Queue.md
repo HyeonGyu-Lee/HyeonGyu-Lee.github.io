@@ -6,7 +6,7 @@ published_date: 2026-10-14-15-10-00
 last_modified_date: 2026-10-14-15-10-00
 nav_order: 3
 parent: 'Concurrency & Synchronization'
-permalink: '/MCU_주변장치/Concurrency_&_Synchronization/RTOS_Mutex,_Semaphore_&_Queue'
+permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/RTOS_Mutex,_Semaphore_&_Queue'
 redirect_from:
  - /3f91b412900a814d9a43eddb3fc5a5f3
  - /undefined
