@@ -2,15 +2,20 @@
 layout: default
 title: "Dcm"
 has_children: false
-published_date: 2024-06-05T03:54:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
-nav_order: 1
-parent: "AUTOSAR Configuration"
-permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Dcm'
+parent: "Diagnostics & Observability"
+nav_order: 2
+permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Diagnostics_&_Observability/Dcm'
+last_modified_date: 2026-10-14T16:38:00.000Z
 redirect_from:
  - "/6f1c6084d31946eebed1b8d172719bba"
+ - "/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Dcm"
  - "/AUTOSAR/Classic_AUTOSAR/Configure_Parameters/Dcm"
 ---
+
+## Table of contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 ## 핵심 요약
 

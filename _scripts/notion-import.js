@@ -1,3 +1,4 @@
+import { separateMarkdownTables } from "./markdown-tables.js"
 import { reserveImageSpace } from "./image-dimensions.js"
 import { renderSiteEmbeds } from "./site-embeds.js"
 import { Client } from "@notionhq/client"
@@ -505,7 +506,9 @@ ${redirects.map((url) => ` - ${JSON.stringify(url)}`).join("\n")}`
 
       //writing to file
       // debugLog(`writeFilepath=${folderPath}`)
-      body = await reserveImageSpace(renderSiteEmbeds(body))
+      body = await reserveImageSpace(
+        separateMarkdownTables(renderSiteEmbeds(body))
+      )
       await writeDocument(
         path.join(folderPath, fTitle),
         header + body,

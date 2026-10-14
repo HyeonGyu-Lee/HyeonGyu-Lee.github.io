@@ -439,3 +439,6 @@ body .site-button {
 .standard-metadata { margin: 1rem 0; }
 .standard-metadata summary { cursor: pointer; font-weight: 600; }
 .standard-tree summary[aria-current="true"] { color: var(--folio-accent); background: var(--folio-tint); }
+.standard-source-table { table-layout: fixed; width: 100%; display: table; }
+.standard-source-table th, .standard-source-table td { white-space: normal; overflow-wrap: anywhere; vertical-align: top; text-align: left; }
+.standard-source-table th:first-child { width: 35%; }

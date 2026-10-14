@@ -2,11 +2,13 @@
 layout: default
 title: "IoHwAb"
 has_children: false
-parent: "AUTOSAR Configuration"
-nav_order: 5
-permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/IoHwAb'
+parent: "MCAL & I-O"
+nav_order: 11
+permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/MCAL_&_I-O/IoHwAb'
+last_modified_date: 2026-10-14T16:40:00.000Z
 redirect_from:
  - "/3f91b412900a81a88584f0310f0d29b7"
+ - "/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/IoHwAb"
 ---
 
 ## Table of contents
@@ -16,7 +18,9 @@ redirect_from:
 
 ## I/O Hardware Abstraction
 > ECU의 sensor·actuator 연결과 신호 획득·출력 차이를 상위 software에서 분리하는 I/O 추상화 영역이다.
+
 ## 책임과 주변 모듈
+
 | 영역 | 의미 |
 | --- | --- |
 | Hardware 차이 | 같은 기능도 pin·외부 device·전기적 연결이 ECU마다 다를 수 있음 |

@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs"
 const components = new Map([
   [
     "site:embed:autosar-nvm-explorer",
@@ -15,6 +16,21 @@ const components = new Map([
   ["site:embed:mcu-peripheral-map", "components/mcu-map.html"],
   ["site:embed:autosar-architecture", "components/autosar-map.html"],
 ])
+
+const standardModules = JSON.parse(
+  readFileSync(
+    new URL("../assets/standards/index.json", import.meta.url),
+    "utf8"
+  )
+).modules
+for (const name of standardModules) {
+  if (!/^[A-Za-z][A-Za-z0-9]*$/.test(name))
+    throw new Error("Invalid standard module")
+  components.set(
+    `site:embed:autosar-${name.toLowerCase()}-explorer`,
+    `components/standard-explorer.html module="${name}"`
+  )
+}
 
 // Only standalone, registered tokens outside fenced code become components.
 export function renderSiteEmbeds(markdown) {

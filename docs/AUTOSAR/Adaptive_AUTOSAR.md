@@ -20,6 +20,7 @@ redirect_from:
 > Adaptive Platform은 고성능 차량 컴퓨팅에서 application을 process와 service 단위로 구성하고, 실행·통신·데이터·software lifecycle을 관리하기 위한 표준이다.
 차량 기능이 고정된 주기 제어를 넘어 복잡한 연산과 외부 연결, 장기간 software 변경을 요구하면서, 제어 중심의 Classic과는 다른 실행·배포 관점이 필요해졌다. Adaptive는 Classic을 대체하기보다 이 요구 영역을 맡으며 차량 내부에서 두 platform이 공존할 수 있다.
 ## Classic과 다른 아키텍처 관점
+
 | 관점 | Classic | Adaptive |
 | --- | --- | --- |
 | 기능 단위 | SWC와 runnable을 RTE·OS 구성에 연결 | Application process와 service interface |
@@ -30,6 +31,7 @@ redirect_from:
 
 Adaptive는 Linux의 다른 이름이 아니며 모든 POSIX application이 Adaptive application인 것도 아니다. 또한 service discovery가 가능하다는 사실이 interface·배포·실행 설정이 필요 없다는 뜻은 아니다.
 ## Functional Cluster 지도
+
 | 영역 | 책임과 다른 영역과의 관계 |
 | --- | --- |
 | Execution Management | Process 실행과 종료, 실행 상태에 관련된 기능. Application의 업무상 준비 상태와 구분 |

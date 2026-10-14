@@ -23,6 +23,7 @@ Module Definition은 어떤 설정을 구성할 수 있는지 정의하고, ECU 
 ## AUTOSAR 표준 Explorer
 {% include components/standard-explorer.html %}
 ## Explorer에서 읽는 계층
+
 | 항목 | 의미 |
 | --- | --- |
 | Module | Dcm, NvM, Can, Lin 등 모듈 정의 |
@@ -33,6 +34,7 @@ Module Definition은 어떤 설정을 구성할 수 있는지 정의하고, ECU 
 
 트리에서는 XML의 CONTAINERS·PARAMETERS 같은 포장 노드를 생략하고 의미 있는 이름을 보여준다. 설명 영역은 type, description, multiplicity와 condition/configuration 관련 원본 metadata를 표시한다.
 ## Multiplicity: 필수 여부와 개수
+
 | 표시 | 의미 | 읽을 때의 전제 |
 | --- | --- | --- |
 | [1] | 정확히 1개 | 해당 부모 인스턴스 안에서의 개수 |
@@ -44,6 +46,7 @@ Module Definition은 어떤 설정을 구성할 수 있는지 정의하고, ECU 
 
 LOWER-MULTIPLICITY가 1인 자식이라도 부모가 선택 구성이라면 ECU 전체에서 무조건 존재해야 한다는 뜻은 아니다. 부모를 구성했을 때 자식의 lower bound가 적용된다. Feature 조건·choice·variant·별도 constraint도 함께 확인해야 한다. Multiplicity는 parameter 값의 MIN/MAX가 아니라 설정 인스턴스의 개수다.
 ## Configuration과 Variant
+
 | 정의 | 해석 |
 | --- | --- |
 | Default Value | 값 생략 시의 의미를 관련 규격과 함께 읽는 기본값. 필수 개수를 변경하지 않음 |

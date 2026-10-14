@@ -526,7 +526,7 @@ jtd.onReady(function(){
   restoreNavigationState();
   activateNav();
   saveNavigationState();
-  scrollNav();
+  initializeNavigationScroll();
   {%- if site.ga_tracking != nil %}
   {% assign ga_tracking_ids = site.ga_tracking | split: "," %}
     loadScript('https://www.googletagmanager.com/gtag/js?id={{ ga_tracking_ids.first }}')

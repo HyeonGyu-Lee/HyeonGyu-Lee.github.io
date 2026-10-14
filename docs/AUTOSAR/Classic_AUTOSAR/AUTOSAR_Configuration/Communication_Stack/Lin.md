@@ -2,11 +2,13 @@
 layout: default
 title: "Lin"
 has_children: false
-parent: "AUTOSAR Configuration"
-nav_order: 4
-permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Lin'
+parent: "Communication Stack"
+nav_order: 31
+permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Communication_Stack/Lin'
+last_modified_date: 2026-10-14T16:40:00.000Z
 redirect_from:
  - "/3f91b412900a8180a065fe778a193148"
+ - "/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Lin"
 ---
 
 ## Table of contents
@@ -16,7 +18,9 @@ redirect_from:
 
 ## LIN Driver와 LIN Stack
 > Lin은 LIN hardware에 접근하는 driver이며, schedule과 frame 처리, 상태 관리 및 transport는 관련 상위 module과 역할을 나눈다.
+
 ## 책임과 주변 모듈
+
 | 영역 | 의미 |
 | --- | --- |
 | Lin | LIN hardware와 driver interface |

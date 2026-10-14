@@ -69,20 +69,31 @@
           make("p", node.path, "standard-path"),
           make("p", node.type + " " + cardinality(node))
         )
-        detail.append(
-          make(
-            "p",
-            node.description ||
-              "이 정의의 설명은 원본에 기재되어 있지 않습니다."
-          )
-        )
-        const dl = make("dl")
-        for (const [key, value] of Object.entries(node.metadata)) {
-          dl.append(make("dt", key), make("dd", value || "미기재"))
+        const table = make("table", null, "standard-source-table")
+        const header = make("tr")
+        for (const label of ["항목", "원문 값"]) {
+          const cell = make("th", label)
+          cell.scope = "col"
+          header.append(cell)
         }
-        const metadata = make("details", null, "standard-metadata")
-        metadata.append(make("summary", "범위·기본값·조건 원문"), dl)
-        detail.append(metadata)
+        const head = make("thead")
+        head.append(header)
+        const body = make("tbody")
+        const fields = {
+          "SHORT-NAME": node.name,
+          TYPE: node.type,
+          DESC: node.description,
+          ...node.metadata,
+        }
+        for (const [key, value] of Object.entries(fields)) {
+          const row = make("tr")
+          const label = make("th", key)
+          label.scope = "row"
+          row.append(label, make("td", value || "미기재"))
+          body.append(row)
+        }
+        table.append(head, body)
+        detail.append(table)
         const link = make("a", "원본 ARXML")
         link.href = base + "../../_files/422.arxml"
         detail.append(link)

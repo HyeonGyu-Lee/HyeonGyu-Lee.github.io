@@ -11,7 +11,9 @@ Standalone Notion tokens:
 - `site:embed:autosar-can-explorer`
 - `site:embed:autosar-lin-explorer`
 
-The browser renders descriptions and metadata as text, never as HTML. Missing multiplicity stays unknown. An infinite upper bound only applies when the source says true. Lower/upper bounds apply within a parent instance and must be read alongside conditions, choices, and variant rules. Enum literals are not given invented cardinalities.
+All 84 source modules register `site:embed:autosar-{lowercase module name}-explorer`, including `dem` and `cannm`. Module pages are organized into seven learning groups; these groups are not an official AUTOSAR layer taxonomy.
+
+The browser renders original definitions and metadata in a two-column table as text, never as HTML. Missing multiplicity stays unknown. An infinite upper bound only applies when the source says true. Lower/upper bounds apply within a parent instance and must be read alongside conditions, choices, and variant rules. Enum literals are not given invented cardinalities.
 
 IoHwAb is absent from this particular ECUC definition set. Its selector entry explains the limitation; do not invent a tree from vendor parameter names.
 
