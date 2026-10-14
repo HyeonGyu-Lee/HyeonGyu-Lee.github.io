@@ -3,7 +3,7 @@ layout: default
 title: Multi-Core & Memory Ordering
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 4
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Multi-Core_&_Memory_Ordering'
@@ -23,6 +23,7 @@ redirect_from:
 
 ## SPSC Slot: Release / Acquire
 
+
 ```mermaid
 sequenceDiagram
  participant P as Producer
@@ -38,7 +39,10 @@ sequenceDiagram
  Note over P: 다음 payload로 슬롯 재사용
 ```
 
+
+
 Producer 1개와 Consumer 1개인 단일 슬롯 예제다. coherent 공유 메모리와 C11 memory model을 전제로 release/acquire가 payload 접근 순서를 연결한다. AMP의 cache maintenance나 mailbox 설정까지 자동 보장하는 것은 아니다.
+
 
 ## SMP와 AMP
 

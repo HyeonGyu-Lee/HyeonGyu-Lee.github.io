@@ -3,7 +3,7 @@ layout: default
 title: OSP
 has_children: false
 published_date: 2026-10-14-13-10-00
-last_modified_date: 2026-10-14-13-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 12
 parent: '차량 통신'
 permalink: '/차량_통신/OSP'
@@ -137,17 +137,26 @@ RESET 후 노드가 인터페이스 모드를 다시 판단할 수 있으므로 
 제조사 aoosp_min 예제는 RESET·INIT 후 CLRERROR·GOACTIVE와 SAID 채널 PWM 설정을 수행한다. 실제 적용에서는 오류 원인을 확인하지 않고 반복해서 clear하지 않으며, 반환 상태가 실패하면 다음 단계로 진행하지 않는다.
 
 
-```c++
-// Arduino aoosp API 사용 예: transport 초기화와 주소 할당이 끝난 상태
-// node 1이 SAID이고 channel 0에 RGB가 연결되었을 때만 적용한다.
-// 각 호출 결과를 aoresult API로 검사한 뒤 다음 호출로 진행한다.
-aoosp_send_setpwmchn(0x001, 0, 0x0800, 0x0000, 0x0000); // 낮은 R
-// 충분한 관찰 시간 후
-aoosp_send_setpwmchn(0x001, 0, 0x0000, 0x0800, 0x0000); // 낮은 G
-// 충분한 관찰 시간 후
-aoosp_send_setpwmchn(0x001, 0, 0x0000, 0x0000, 0x0800); // 낮은 B
-// 소등
-aoosp_send_setpwmchn(0x001, 0, 0x0000, 0x0000, 0x0000);
+```c
+#include <stdint.h>
+/* 사용자 C transport/OSP 계층에서 구현할 어댑터. NXP/aoosp API가 아니다.
+ * 초기화·주소 할당·ACTIVE 전환이 완료된 SAID의 channel 0을 가정한다.
+ * 함수는 전송 결과를 반환하며 오류이면 다음 단계로 진행하지 않는다.
+ */
+extern int osp_set_pwm_channel(uint16_t node, uint8_t channel,
+                               uint16_t red, uint16_t green, uint16_t blue);
+extern void board_delay_ms(uint32_t ms);
+int test_rgb(void) {
+    const uint16_t colors[4][3] = {
+        {0x0800,0,0}, {0,0x0800,0}, {0,0,0x0800}, {0,0,0}
+    };
+    for (unsigned i=0; i<4; ++i) {
+        int rc=osp_set_pwm_channel(1,0,colors[i][0],colors[i][1],colors[i][2]);
+        if (rc != 0) return rc;
+        board_delay_ms(500); /* task/main 문맥에서만 호출 */
+    }
+    return 0;
+}
 ```
 
 
@@ -161,25 +170,33 @@ aoosp_send_setpwmchn(0x001, 0, 0x0000, 0x0000, 0x0000);
 공개 aoosp_crc 구현은 CRC-8 다항식 0x2F, 초기값 0, MSB-first, 최종 XOR 0에 해당한다. 아래 독립 구현은 공개 RESET·INIT telegram의 CRC와 대조한다. payload 또는 헤더를 바꾸면 CRC도 다시 계산해야 한다.
 
 
-```python
-def osp_crc(data):
-    crc = 0
-    for byte in data:
-        crc ^= byte
-        for _ in range(8):
-            crc = ((crc << 1) ^ (0x2F if crc & 0x80 else 0)) & 0xFF
-    return crc
-
-assert osp_crc(bytes.fromhex("A0 00 00")) == 0x22
-assert osp_crc(bytes.fromhex("A0 04 02")) == 0xA9
-assert osp_crc(bytes.fromhex("A0 04 03")) == 0x86
-
-def valid_crc(frame):
-    return len(frame) >= 4 and osp_crc(frame[:-1]) == frame[-1]
-
-assert valid_crc(bytes.fromhex("A0 00 00 22"))
-assert not valid_crc(bytes.fromhex("A0 00 01 22"))
-print("OSP CRC vectors passed")
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+static uint8_t osp_crc(const uint8_t *data, size_t size) {
+ uint8_t crc = 0;
+ for (size_t i = 0; i < size; ++i) {
+  crc ^= data[i];
+  for (unsigned bit = 0; bit < 8; ++bit)
+   crc = (uint8_t)((crc << 1) ^ ((crc & 0x80U) ? 0x2FU : 0U));
+ }
+ return crc;
+}
+static bool valid(const uint8_t *frame, size_t size) {
+ return size >= 4 && osp_crc(frame, size - 1) == frame[size - 1];
+}
+int main(void) {
+ const uint8_t reset[] = {0xA0,0x00,0x00,0x22};
+ const uint8_t bidir[] = {0xA0,0x04,0x02,0xA9};
+ const uint8_t loop[] = {0xA0,0x04,0x03,0x86};
+ const uint8_t broken[] = {0xA0,0x00,0x01,0x22};
+ assert(valid(reset,sizeof reset)); assert(valid(bidir,sizeof bidir));
+ assert(valid(loop,sizeof loop)); assert(!valid(broken,sizeof broken));
+ puts("OSP CRC vectors passed"); return 0;
+}
 ```
 
 

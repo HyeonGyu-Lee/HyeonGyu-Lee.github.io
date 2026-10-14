@@ -3,7 +3,7 @@ layout: default
 title: GPIO
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 1
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/GPIO'

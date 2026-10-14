@@ -3,7 +3,7 @@ layout: default
 title: UART
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 13
 parent: '차량 통신'
 permalink: '/차량_통신/UART'
@@ -56,35 +56,48 @@ baud_actual ≈ 116279.07 bit/s
 UART는 byte stream이다. RX callback 한 번이 애플리케이션 메시지 하나와 일치한다고 가정하지 않는다. ISR/DMA 완료에서 bytes를 ring buffer에 넣고 task에서 parser를 실행한다. buffer full 정책과 overrun 카운터를 정의한다. producer/consumer 공유 인덱스에는 플랫폼에 맞는 원자성·동기화가 필요하다.
 
 
-```python
-# 학습용 줄 단위 parser: 실제 펌웨어가 아니라 PC 테스트 예제
-class LineParser:
-    def __init__(self, limit=64):
-        self.buf = bytearray()
-        self.limit = limit
-        self.dropping = False
-
-    def feed(self, chunk):
-        lines = []
-        for value in chunk:
-            if value == 10:  # LF
-                if not self.dropping:
-                    lines.append(bytes(self.buf).rstrip(b"\r"))
-                self.buf.clear()
-                self.dropping = False
-            elif not self.dropping:
-                if len(self.buf) >= self.limit:
-                    self.buf.clear()
-                    self.dropping = True  # 다음 LF까지 폐기하여 재동기화
-                else:
-                    self.buf.append(value)
-        return lines
-
-p = LineParser()
-assert p.feed(b"PI") == []
-assert p.feed(b"NG\r\nOK\n") == [b"PING", b"OK"]
-p = LineParser(3)
-assert p.feed(b"TOOLONG\nOK\n") == [b"OK"]
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#define LINE_MAX 64U
+typedef struct { uint8_t data[LINE_MAX]; size_t used; bool dropping; } Parser;
+/* callback는 동기 호출된다. data 포인터를 저장하지 말고 필요하면 복사한다. */
+typedef void (*LineFn)(const uint8_t *, size_t, void *);
+static void feed(Parser *p, const uint8_t *bytes, size_t size, LineFn fn, void *ctx) {
+ for (size_t i=0; i<size; ++i) {
+  uint8_t v=bytes[i];
+  if (v == '\n') {
+   if (!p->dropping) {
+    size_t n=p->used;
+    if (n && p->data[n-1] == '\r') --n;
+    fn(p->data,n,ctx); /* 데이터는 null 종료 문자열이 아니다. */
+   }
+   p->used=0; p->dropping=false;
+  } else if (!p->dropping) {
+   if (p->used == LINE_MAX) { p->used=0; p->dropping=true; }
+   else p->data[p->used++]=v;
+  }
+ }
+}
+static void check(const uint8_t *data, size_t n, void *ctx) {
+ unsigned *count=ctx;
+ const char *expected=(*count == 0) ? "PING" : "OK";
+ assert(n == strlen(expected) && memcmp(data,expected,n)==0);
+ ++*count;
+}
+int main(void) {
+ Parser p={0}; unsigned count=0;
+ feed(&p,(const uint8_t *)"PI",2,check,&count); assert(count==0);
+ feed(&p,(const uint8_t *)"NG\r\nOK\n",7,check,&count); assert(count==2);
+ uint8_t overflow[LINE_MAX+1]; memset(overflow,'X',sizeof overflow);
+ feed(&p,overflow,sizeof overflow,check,&count);
+ feed(&p,(const uint8_t *)"\nOK\n",4,check,&count); assert(count==3);
+ return 0;
+}
 ```
 
 

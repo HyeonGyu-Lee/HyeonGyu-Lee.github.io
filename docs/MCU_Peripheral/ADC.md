@@ -3,7 +3,7 @@ layout: default
 title: ADC
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 3
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/ADC'
@@ -53,18 +53,27 @@ ADC 내부 샘플 커패시터는 입력 소스 저항을 통해 충전된다. �
 다음은 N=12, 기준 전압을 실제로 3.3 V로 확인한 unipolar ADC의 끝점 기준 근사다. S32K312 모든 설정이 12비트·3.3V라는 뜻이 아니다. ADC 데이터시트의 코드 전이 정의에 따라 2^N 또는 2^N−1 기준 및 offset 보정을 선택한다.
 
 
-```python
-def adc_voltage(raw, bits, vref):
-    maximum = (1 << bits) - 1
-    if not 0 <= raw <= maximum:
-        raise ValueError("ADC code outside range")
-    return raw * vref / maximum
-
-v_pin = adc_voltage(2048, 12, 3.3)
-# 상단 10kΩ, 하단 10kΩ의 이상적인 분압 예시
-v_input = v_pin * (10_000 + 10_000) / 10_000
-print(v_pin, v_input)
-assert abs(v_pin - 1.6504) < 0.001
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+static bool adc_voltage(uint32_t raw, unsigned bits, double vref, double *out) {
+ if (!out || bits == 0 || bits > 24 || !(vref > 0.0)) return false;
+ uint32_t maximum = (1U << bits) - 1U;
+ if (raw > maximum) return false;
+ *out = (double)raw * vref / maximum;
+ return true;
+}
+int main(void) {
+ double pin;
+ assert(adc_voltage(2048,12,3.3,&pin));
+ assert(pin > 1.650 && pin < 1.651);
+ printf("pin=%.6f V, divider input=%.6f V\n",pin,pin*2.0);
+ assert(!adc_voltage(4096,12,3.3,&pin));
+ return 0;
+}
 ```
 
 

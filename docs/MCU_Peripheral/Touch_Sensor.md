@@ -3,7 +3,7 @@ layout: default
 title: Touch Sensor
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 4
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Touch_Sensor'
@@ -42,32 +42,28 @@ redirect_from:
 센서마다 touch가 raw 증가 또는 감소로 나타날 수 있다. delta를 항상 raw−baseline으로 가정하지 말고 부품의 표현을 확인한다. 비터치 상태에서는 baseline이 느린 온도·습도 변화를 따라가게 하되, 터치 중에는 baseline이 손가락 신호를 흡수하지 않도록 업데이트 정책을 둔다.
 
 
-```python
-# 설명용: touch에서 raw가 증가하는 센서, 일정한 주기로 호출
-class TouchFilter:
-    def __init__(self, initial):
-        self.baseline = float(initial)
-        self.pressed = False
-        self.count = 0
-
-    def update(self, raw):
-        delta = raw - self.baseline
-        wanted = delta > (30 if self.pressed else 50)
-        if wanted != self.pressed:
-            self.count += 1
-            if self.count >= 3:
-                self.pressed = wanted
-                self.count = 0
-        else:
-            self.count = 0
-        # 터치 후보 구간에서도 baseline을 고정
-        if not self.pressed and delta < 30:
-            self.baseline += 0.01 * (raw - self.baseline)
-        return self.pressed
-
-sensor = TouchFilter(1000)
-assert [sensor.update(1100) for _ in range(3)] == [False, False, True]
-assert [sensor.update(1000) for _ in range(3)] == [True, True, False]
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+typedef struct { double baseline; bool pressed; unsigned count; } Touch;
+static bool update(Touch *s, double raw) {
+ double delta = raw - s->baseline;
+ bool wanted = delta > (s->pressed ? 30.0 : 50.0);
+ if (wanted != s->pressed) {
+  if (++s->count >= 3) { s->pressed = wanted; s->count = 0; }
+ } else s->count = 0;
+ if (!s->pressed && delta < 30.0) s->baseline += 0.01 * (raw - s->baseline);
+ return s->pressed;
+}
+int main(void) {
+ Touch s = {1000.0,false,0};
+ assert(!update(&s,1100)); assert(!update(&s,1100)); assert(update(&s,1100));
+ assert(update(&s,1000)); assert(update(&s,1000)); assert(!update(&s,1000));
+ return 0;
+}
 ```
 
 

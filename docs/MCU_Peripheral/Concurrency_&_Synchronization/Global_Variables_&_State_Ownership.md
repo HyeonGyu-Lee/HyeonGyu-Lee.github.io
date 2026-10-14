@@ -3,7 +3,7 @@ layout: default
 title: Global Variables & State Ownership
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 1
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Global_Variables_&_State_Ownership'
@@ -23,6 +23,7 @@ redirect_from:
 
 ## Single Owner Pattern
 
+
 ```mermaid
 flowchart LR
  A["Task A"] -->|Request| Q["Request Queue"]
@@ -35,7 +36,10 @@ flowchart LR
  R --> B
 ```
 
+
+
 여러 실행 문맥이 전역 구조체를 직접 수정하는 대신 Owner Task로 요청을 전달한다. Queue full 처리와 응답 timeout도 정의해야 한다. Snapshot을 공유 메모리로 직접 읽는 경우에는 별도 동기화가 필요하다.
+
 
 ## static·extern·const·volatile 구분
 

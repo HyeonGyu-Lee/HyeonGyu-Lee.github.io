@@ -3,7 +3,7 @@ layout: default
 title: CAN
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 1
 parent: '차량 통신'
 permalink: '/차량_통신/CAN'
@@ -98,11 +98,21 @@ cansend vcan0 123#11223344
 예제 신호 정의는 첫 2바이트 unsigned little-endian, factor 0.1, offset -40이다. Raw 0x012C는 300이고 물리값은 -10이다.
 
 
-```python
-payload = bytes.fromhex("2C01")
-raw = int.from_bytes(payload[:2], "little", signed=False)
-physical = raw * 0.1 - 40
-assert physical == -10
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+int main(void) {
+ const uint8_t payload[] = {0x2C, 0x01};
+ uint16_t raw = (uint16_t)payload[0] | ((uint16_t)payload[1] << 8);
+ /* 0.1 단위 고정소수점: physical = raw*0.1 - 40 */
+ int32_t physical_tenths = (int32_t)raw - 400;
+ assert(physical_tenths == -100);
+ printf("physical = %.1f\n", physical_tenths / 10.0);
+ return 0;
+}
 ```
 
 

@@ -3,7 +3,7 @@ layout: default
 title: Single-Core & ISR Synchronization
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 2
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Single-Core_&_ISR_Synchronization'
@@ -21,17 +21,8 @@ redirect_from:
 단일 코어는 한 순간에 하나의 명령 흐름을 실행해도 task 선점과 ISR 진입 때문에 Shared State가 손상될 수 있다. counter++는 보통 읽기·증가·쓰기이며 중간에 선점되면 증가분을 잃는다.
 
 
-```text
-초기 counter=0
-Task: counter 읽음 → 0
-ISR : counter 읽음 → 0, +1, counter=1
-Task: 이전에 읽은 0에 +1, counter=1
-두 번 증가했지만 결과는 1
-```
-
-
-
 ## Lost Update: Task Preempted by ISR
+
 
 ```mermaid
 sequenceDiagram
@@ -46,7 +37,20 @@ sequenceDiagram
  Note over S: 두 번 증가했지만 결과는 1
 ```
 
+
+
 단일 코어에서도 read-modify-write는 중간에 선점될 수 있다. 해당 플랫폼의 짧은 Critical Section 또는 ISR-safe임을 확인한 Atomic operation을 사용한다. volatile만으로 해결되지 않는다.
+
+
+```text
+초기 counter=0
+Task: counter 읽음 → 0
+ISR : counter 읽음 → 0, +1, counter=1
+Task: 이전에 읽은 0에 +1, counter=1
+두 번 증가했지만 결과는 1
+```
+
+
 
 ## Critical Section 사용 원칙
 

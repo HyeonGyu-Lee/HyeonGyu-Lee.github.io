@@ -3,7 +3,7 @@ layout: default
 title: RTOS Mutex, Semaphore & Queue
 has_children: false
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 3
 parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/RTOS_Mutex,_Semaphore_&_Queue'
@@ -23,6 +23,7 @@ Mutex는 소유권이 있는 상호 배제, Semaphore는 이벤트 또는 자원
 
 ## Mutex vs Semaphore vs Queue
 
+
 ```mermaid
 flowchart TD
  A["공유 주변장치의 접근을 직렬화?"] -->|Yes| M["Mutex: Task가 획득하고 해제"]
@@ -34,10 +35,13 @@ flowchart TD
  M --> P["Priority Inheritance 지원 여부 확인"]
 ```
 
+
+
 Mutex는 ownership을 가진 상호 배제 도구이고 Semaphore는 신호·개수 전달에 사용한다. ISR에서는 Mutex를 기다리지 않는다. Queue에 pointer를 넣을 때는 대상 Buffer의 수명도 함께 관리한다.
 
 
 ## Priority Inversion
+
 
 ```mermaid
 sequenceDiagram
@@ -53,7 +57,10 @@ sequenceDiagram
  H->>H: Mutex 획득 후 실행
 ```
 
+
+
 Priority Inheritance는 owner의 실행 지연을 줄이지만 긴 Critical Section이나 Deadlock을 없애지는 않는다. 실제 지원 범위와 nested Mutex 동작은 RTOS 구현을 확인한다.
+
 
 ## Mutex: 공유 자원 보호
 

@@ -3,7 +3,7 @@ layout: default
 title: SPI
 has_children: false
 published_date: 2026-10-14-13-10-00
-last_modified_date: 2026-10-14-13-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 11
 parent: '차량 통신'
 permalink: '/차량_통신/SPI'
@@ -81,19 +81,29 @@ SCK 주기 = 200 ns
 80 MHz는 계산을 위한 가정이며 사용 보드의 기본값이라는 뜻이 아니다. 설정 도구가 이미 Hz 단위 bitrate를 받아 분주값을 계산한다면 레지스터 인코딩 값을 API의 bitrate에 넣지 않는다. 계산 후 생성 코드의 선택된 prescaler/divider와 오실로스코프의 SCK 주기를 대조한다. 목표 속도를 정확히 만들 수 없으면 주변장치 최대 속도를 넘지 않는 후보를 선택한다.
 
 
-```python
-def spi_candidates(clock_hz, max_hz):
-    rows = []
-    for prescale in range(8):
-        for divider in range(256):
-            hz = clock_hz / ((1 << prescale) * (divider + 2))
-            if hz <= max_hz:
-                rows.append((hz, prescale, divider))
-    return sorted(rows, reverse=True)
-
-# 범위는 해당 LPSPI 레지스터 정의와 대조한다.
-print(spi_candidates(80_000_000, 5_000_000)[:5])
-assert 80_000_000 / (2**1 * (6 + 2)) == 5_000_000
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+int main(void) {
+ const uint64_t clock_hz = 80000000ULL, maximum = 5000000ULL;
+ unsigned best_p = 0, best_d = 0;
+ uint64_t best_divisor = UINT64_MAX;
+ for (unsigned p = 0; p < 8; ++p)
+  for (unsigned d = 0; d < 256; ++d) {
+   uint64_t divisor = (1ULL << p) * (d + 2U);
+   if (clock_hz <= maximum * divisor && divisor < best_divisor) {
+    best_divisor = divisor; best_p = p; best_d = d;
+   }
+  }
+ assert(best_divisor != UINT64_MAX);
+ printf("PRESCALE=%u SCKDIV=%u SCK=%.1f Hz\n", best_p, best_d,
+        (double)clock_hz / (double)best_divisor);
+ assert(clock_hz / best_divisor == maximum);
+ return 0;
+}
 ```
 
 

@@ -3,7 +3,7 @@ layout: default
 title: CAN FD
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-14-13-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 2
 parent: '차량 통신'
 permalink: '/차량_통신/CAN_FD'
@@ -245,30 +245,34 @@ candump -e can0
 ## 재현 가능한 계산기: 타이밍 후보 탐색
 
 
-다음 Python 예제는 가능한 정수 분주·TQ 조합을 탐색한다. 입력 범위는 설명용이며 칩의 허용 범위로 바꾸어야 한다. PROP/PHASE1 분할·SJW·Nominal/Data 간 제약·전파 지연·발진기 오차·TDC는 별도로 검증한다.
+다음 C 예제는 가능한 정수 분주·TQ 조합을 탐색한다. 입력 범위는 설명용이며 칩의 허용 범위로 바꾸어야 한다. PROP/PHASE1 분할·SJW·Nominal/Data 간 제약·전파 지연·발진기 오차·TDC는 별도로 검증한다.
 
 
-```python
-def candidates(clock_hz, bitrate, target_sp, brps, tseg1s, tseg2s):
-    rows = []
-    for brp in brps:
-        for t1 in tseg1s:
-            for t2 in tseg2s:
-                total = 1 + t1 + t2
-                if clock_hz != bitrate * brp * total:
-                    continue
-                sp = (1 + t1) / total
-                rows.append((abs(sp - target_sp), brp, t1, t2, sp))
-    return sorted(rows)
-
-for rate in (500_000, 2_000_000):
-    rows = candidates(80_000_000, rate, 0.8,
-                      range(1, 17), range(2, 32), range(1, 9))
-    print(rate, rows[:5])
-
-assert 80_000_000 // (8 * 20) == 500_000
-assert 80_000_000 // (2 * 20) == 2_000_000
-assert (1 + 7 + 8) / 20 == 0.8
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+int main(void) {
+ const uint64_t clock_hz = 80000000ULL;
+ const unsigned rates[] = {500000, 2000000};
+ /* 설명용 범위. 실제 IP의 BRP/SEG/SJW 제약을 별도 적용한다. */
+ for (size_t i = 0; i < 2; ++i)
+  for (unsigned brp = 1; brp <= 16; ++brp)
+   for (unsigned t1 = 2; t1 <= 31; ++t1)
+    for (unsigned t2 = 1; t2 <= 8; ++t2) {
+     unsigned total = 1 + t1 + t2;
+     if (clock_hz != (uint64_t)rates[i] * brp * total) continue;
+     /* 80% sample point인 후보만 출력한다. */
+     if (5U * (1U + t1) == 4U * total)
+      printf("rate=%u BRP=%u TSEG1=%u TSEG2=%u SP=80%%\n",
+             rates[i], brp, t1, t2);
+    }
+ assert(clock_hz / (8 * 20) == 500000);
+ assert(clock_hz / (2 * 20) == 2000000);
+ return 0;
+}
 ```
 
 

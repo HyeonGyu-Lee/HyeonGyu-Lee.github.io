@@ -3,7 +3,7 @@ layout: default
 title: DTC (Diagnostic Trouble Code)
 has_children: false
 published_date: 2024-06-20-09-06-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 3
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/DTC_(Diagnostic_Trouble_Code)'
@@ -81,12 +81,20 @@ AUTOSAR Classic DEM·DCM의 해당 릴리스: https://www.autosar.org/standards/
 ### 실습: 상태 마스크 읽기
 
 
-```python
-status, availability, request_mask = 0x09, 0xFF, 0x08
-effective = status & availability
-print("testFailed:", bool(effective & 0x01))
-print("confirmedDTC:", bool(effective & 0x08))
-print("마스크 일치:", bool(effective & request_mask))
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+int main(void) {
+ const uint8_t status = 0x09, availability = 0xFF, request_mask = 0x08;
+ const uint8_t effective = status & availability;
+ printf("testFailed=%d confirmedDTC=%d match=%d\n",
+  !!(effective & 0x01), !!(effective & 0x08), !!(effective & request_mask));
+ assert((effective & request_mask) != 0);
+ return 0;
+}
 ```
 
 

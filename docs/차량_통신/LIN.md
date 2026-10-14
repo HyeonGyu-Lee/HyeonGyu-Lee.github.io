@@ -3,7 +3,7 @@ layout: default
 title: LIN
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 4
 parent: '차량 통신'
 permalink: '/차량_통신/LIN'
@@ -76,13 +76,19 @@ LIN 진단은 진단 프레임과 주소 지정·전송 절차를 함께 읽는�
 ID 0x12의 protected identifier를 계산하는 예시:
 
 
-```python
-identifier = 0x12
-bits = [(identifier >> i) & 1 for i in range(6)]
-p0 = bits[0] ^ bits[1] ^ bits[2] ^ bits[4]
-p1 = 1 ^ bits[1] ^ bits[3] ^ bits[4] ^ bits[5]
-pid = identifier | (p0 << 6) | (p1 << 7)
-assert pid == 0x92
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+static uint8_t lin_pid(uint8_t id) {
+ id &= 0x3FU;
+ uint8_t p0 = ((id >> 0) ^ (id >> 1) ^ (id >> 2) ^ (id >> 4)) & 1U;
+ uint8_t p1 = (1U ^ (id >> 1) ^ (id >> 3) ^ (id >> 4) ^ (id >> 5)) & 1U;
+ return (uint8_t)(id | (p0 << 6) | (p1 << 7));
+}
+int main(void) { assert(lin_pid(0x12) == 0x92); return 0; }
 ```
 
 
@@ -90,18 +96,27 @@ assert pid == 0x92
 ### checksum 계산 예시
 
 
-```python
-def checksum(values):
-    total = 0
-    for value in values:
-        total += value
-        if total > 255:
-            total -= 255
-    return (~total) & 255
-
-data = [0x10, 0x20]
-assert checksum(data) == 0xCF
-assert checksum([0x92, *data]) == 0x3D
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+static uint8_t checksum(const uint8_t *data, size_t size) {
+ unsigned sum = 0;
+ for (size_t i = 0; i < size; ++i) {
+  sum += data[i];
+  if (sum > 255U) sum -= 255U;
+ }
+ return (uint8_t)(~sum & 0xFFU);
+}
+int main(void) {
+ const uint8_t classic[] = {0x10, 0x20};
+ const uint8_t enhanced[] = {0x92, 0x10, 0x20};
+ assert(checksum(classic, sizeof classic) == 0xCF);
+ assert(checksum(enhanced, sizeof enhanced) == 0x3D);
+ return 0;
+}
 ```
 
 

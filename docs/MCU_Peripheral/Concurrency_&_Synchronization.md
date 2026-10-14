@@ -3,7 +3,7 @@ layout: default
 title: Concurrency & Synchronization
 has_children: true
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-14-21-10-00
 nav_order: 5
 parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization'
@@ -23,6 +23,7 @@ redirect_from:
 
 ## Learning Path
 
+
 ```mermaid
 flowchart TD
  A["Global Variables / State Ownership"] --> B["Single-Core: Task + ISR"]
@@ -32,7 +33,10 @@ flowchart TD
  A -. "모든 단계의 공통 질문" .-> F["누가 쓰고, 언제 읽으며, 언제 재사용하는가?"]
 ```
 
+
+
 먼저 각 데이터의 owner를 정하고 실행 문맥을 늘려가며 필요한 보호 수단을 선택한다. 코어가 하나여도 ISR과 Task가 공유 상태에 접근하면 race condition이 발생할 수 있다.
+
 
 ## 학습 순서
 

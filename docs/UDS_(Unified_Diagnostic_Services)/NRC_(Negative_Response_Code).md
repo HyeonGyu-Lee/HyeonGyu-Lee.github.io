@@ -3,7 +3,7 @@ layout: default
 title: NRC (Negative Response Code)
 has_children: false
 published_date: 2024-06-20-08-06-00
-last_modified_date: 2026-10-12-14-10-00
+last_modified_date: 2026-10-14-16-10-00
 nav_order: 2
 parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/NRC_(Negative_Response_Code)'
@@ -74,12 +74,20 @@ AUTOSAR Classic DCM 규격은 프로젝트 릴리스에 맞춰 확인한다: htt
 ### 실습: 응답 해석과 결과 분류
 
 
-```python
-response = bytes.fromhex("7F2278")
-assert len(response) == 3 and response[0] == 0x7F
-request_sid, nrc = response[1], response[2]
-print(f"요청 SID=0x{request_sid:02X}, NRC=0x{nrc:02X}")
-assert nrc == 0x78
+```c
+#include <assert.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+int main(void) {
+ const uint8_t response[] = {0x7F, 0x22, 0x78};
+ assert(sizeof response == 3 && response[0] == 0x7F);
+ uint8_t sid = response[1], nrc = response[2];
+ printf("SID=0x%02X NRC=0x%02X\n", (unsigned)sid, (unsigned)nrc);
+ assert(nrc == 0x78); /* ResponsePending: 즉시 같은 요청을 재송신하지 않는다. */
+ return 0;
+}
 ```
 
 
