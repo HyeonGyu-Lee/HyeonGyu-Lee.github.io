@@ -1,15 +1,13 @@
-<section class="mcu-map" data-mcu-map data-title="Classic AUTOSAR Architecture" data-source="{{ '/assets/diagrams/autosar-architecture.mmd' | relative_url }}" data-links="{{ '/assets/diagrams/autosar-architecture-links.json' | relative_url }}" data-baseurl="{{ site.baseurl }}" aria-label="Classic AUTOSAR Architecture">
-  <div class="mcu-map-toolbar">
-    <span>레이어를 선택하면 역할과 설정 관점을 확인할 수 있습니다.</span>
-    <button type="button" data-map-zoom="out" aria-label="관계도 축소">−</button>
-    <button type="button" data-map-zoom="in" aria-label="관계도 확대">＋</button>
-    <button type="button" data-map-zoom="fit">화면에 맞춤</button>
+<section class="autosar-layer-map" aria-label="AUTOSAR 레이어 구조">
+  <p>BSW 영역에 마우스를 올리면 ICC2 구성이 나타나고, 각 계층 위에서는 ICC3 세부 블록을 확인할 수 있습니다. 그림 밖으로 이동하면 전체 레이어로 돌아갑니다.</p>
+  <div class="autosar-layer-controls" role="group" aria-label="레이어 상세 수준">
+    <button type="button" data-autosar-level="hover" aria-pressed="true">마우스로 탐색</button>
+    <button type="button" data-autosar-level="1" aria-pressed="false">ICC1 전체 레이어</button>
+    <button type="button" data-autosar-level="2" aria-pressed="false">ICC2 계층</button>
+    <button type="button" data-autosar-level="3" aria-pressed="false">ICC3 세부 블록</button>
   </div>
-  <p class="mcu-map-legend">Classic AUTOSAR의 대표 계층과 의존 관계입니다. 모듈별 상세 호출 경로와 release 차이는 설명 영역에서 확인하세요.</p>
-  <div class="mcu-map-scroll" tabindex="0" aria-label="확대된 관계도 스크롤 영역">
-    <div class="mcu-map-canvas" aria-live="polite">기능 관계도를 불러오는 중입니다.</div>
+  <div class="autosar-layer-scroll">
+    <div class="canvas-container"><canvas id="autosarCanvas" aria-label="Application, RTE, Basic Software, Microcontroller 레이어. 세부 수준은 위 버튼으로 선택할 수 있습니다.">Application Layer → RTE → Basic Software → Microcontroller</canvas></div>
   </div>
-  <aside class="mcu-map-detail" hidden aria-live="polite"></aside>
-  <noscript>기능 관계도를 사용하려면 JavaScript를 활성화해 주세요.</noscript>
+  <p class="autosar-layer-note">ICC 표기는 기존 그림의 상세 수준을 유지합니다. 이 그림은 대표적인 기능 분류이며, 실제 모듈 구성은 AUTOSAR release와 ECU 구성에 따라 다릅니다. 터치 화면에서는 위 버튼으로 수준을 선택하세요.</p>
 </section>
-<script defer src="{{ '/assets/js/mcu-map.js' | relative_url }}"></script>

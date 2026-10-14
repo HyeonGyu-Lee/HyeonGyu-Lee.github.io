@@ -5,9 +5,11 @@ Notion 일반 텍스트 블록에 아래 문자열 하나만 입력하면 import
 | 문자열 | 표시 |
 | --- | --- |
 | `site:embed:mcu-peripheral-map` | MCU Peripheral 기능 관계도와 상세 문서 이동 |
-| `site:embed:autosar-architecture` | Classic AUTOSAR 계층 관계도와 선택 설명 |
+| `site:embed:autosar-architecture` | Classic AUTOSAR 레이어와 ICC1 → ICC2 → ICC3 hover 탐색 |
 
-`assets/diagrams/*.mmd`에서 구조를, 같은 이름의 `*-links.json`에서 클릭 대상과 설명을 관리합니다. 문서 대상은 이름 변경에도 유지되는 Notion 페이지 UUID redirect(`/` + 하이픈 없는 UUID)를 사용합니다. JSON의 `description`이 있는 노드는 설명 패널을 열고, 없는 노드는 문서로 이동합니다.
+MCU 관계도는 `assets/diagrams/*.mmd`에서 구조를, 같은 이름의 `*-links.json`에서 클릭 대상과 설명을 관리합니다. 문서 대상은 이름 변경에도 유지되는 Notion 페이지 UUID redirect(`/` + 하이픈 없는 UUID)를 사용합니다. JSON의 `description`이 있는 노드는 설명 패널을 열고, 없는 노드는 문서로 이동합니다.
+
+AUTOSAR 레이어는 `_includes/js/canvas.js`의 `autosarLayerInit`에서 기존 블록 배치와 색상을 관리합니다. 기본값은 hover 탐색이며, ICC 버튼으로 상세 수준을 고정할 수 있습니다.
 
 기존 독립 블록 `<div class="canvas-container"><canvas id="autosarCanvas"></canvas></div>`도 AUTOSAR 컴포넌트로 변환됩니다. 코드 예제 안의 문자열은 변환하지 않습니다. 등록되지 않은 `site:embed:*` 토큰은 오타가 게시되지 않도록 import를 중단합니다.
 

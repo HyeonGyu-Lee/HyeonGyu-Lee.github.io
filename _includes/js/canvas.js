@@ -56,6 +56,7 @@ function initializeCanvas(
       layerGroupDetailDetails: null,
     }
 
+    let autosarLevel = "hover"
     resizeCanvas()
 
     function calculateGridWidths(canvasWidth) {
@@ -127,13 +128,22 @@ function initializeCanvas(
     }
 
     function resizeCanvas() {
-      const container = document.querySelector(".canvas-container")
+      const container = canvas.closest(".canvas-container")
       canvas.width = container.clientWidth
       canvas.height = container.clientWidth * (9 / 16)
 
       canvasInit()
       layers = layerInitFunction(dynamicFontSize, typeDetail, lang)
-      drawLayersFunction(layers)
+      if (type === "autosar") drawAutosarSelection()
+      else drawLayersFunction(layers)
+    }
+
+    function drawAutosarSelection() {
+      drawLayersFunction(
+        layers,
+        autosarLevel === "2" || autosarLevel === "3",
+        autosarLevel === "3" ? { name: "all" } : null
+      )
     }
 
     function drawAutosarLayers(
@@ -151,7 +161,8 @@ function initializeCanvas(
             // layersICC2 layersICC3
             if (
               !hoverLayer ||
-              hoverLayer.name !== subLayer.name ||
+              (hoverLayer.name !== "all" &&
+                hoverLayer.name !== subLayer.name) ||
               !layerGroupDetailDetails[subLayer.name]
             ) {
               drawLayer(subLayer, ctx)
@@ -312,10 +323,17 @@ function initializeCanvas(
     }
 
     function handleMouseMove(event) {
+      if (type === "autosar" && autosarLevel !== "hover") return
       const x = event.clientX - canvas.getBoundingClientRect().left
       const y = event.clientY - canvas.getBoundingClientRect().top
-      let hoverOnICC2 = true
+      let hoverOnICC2 = false
       let hoverLayer = null
+
+      hoverOnICC2 = layers.layerGroups.some(
+        (layer) =>
+          layers.layerGroupDetails[layer.name] &&
+          layer.cells.some((cell) => isMouseInsideLayer(x, y, cell))
+      )
 
       // Determine if hovering on ICC2 layers
       Object.keys(layers.layerGroupDetails).forEach((key) => {
@@ -330,13 +348,15 @@ function initializeCanvas(
     }
 
     function handleMouseEnter() {
-      drawLayersFunction(layers)
+      if (type === "autosar") drawAutosarSelection()
+      else drawLayersFunction(layers)
       canvas.addEventListener("mousemove", handleMouseMove)
     }
 
     function handleMouseLeave() {
       canvas.removeEventListener("mousemove", handleMouseMove)
-      drawLayersFunction(layers)
+      if (type === "autosar") drawAutosarSelection()
+      else drawLayersFunction(layers)
     }
 
     function handleMouseClick(event) {
@@ -369,6 +389,24 @@ function initializeCanvas(
             window.location.href = `${origin}${path}/` + url.replace(/\s/g, "-")
           }
         }
+      }
+
+      if (type === "autosar") {
+        const hit = (layer) =>
+          layer.cells.some((cell) => isMouseInsideLayer(x, y, cell))
+        const root = layers.layerGroups.find(hit)
+        let selected = root
+        if (root && autosarLevel !== "1") {
+          const group = layers.layerGroupDetails[root.name]?.find(hit)
+          if (group) {
+            selected = group
+            if (autosarLevel === "3" || autosarLevel === "hover")
+              selected =
+                layers.layerGroupDetailDetails[group.name]?.find(hit) || group
+          }
+        }
+        if (selected) navigateToUrl(selected.url)
+        return
       }
 
       if (layers.layerGroups != null) {
@@ -453,6 +491,21 @@ function initializeCanvas(
         break
       default:
         break
+    }
+    if (type === "autosar") {
+      const buttons =
+        canvas
+          .closest(".autosar-layer-map")
+          ?.querySelectorAll("[data-autosar-level]") || []
+      buttons.forEach((button) =>
+        button.addEventListener("click", () => {
+          autosarLevel = button.dataset.autosarLevel
+          buttons.forEach((item) =>
+            item.setAttribute("aria-pressed", String(item === button))
+          )
+          drawAutosarSelection()
+        })
+      )
     }
     window.addEventListener("resize", resizeCanvas)
   }

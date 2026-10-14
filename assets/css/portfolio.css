@@ -407,3 +407,12 @@ body .site-button {
 @media print { .scroll-nav, .mcu-map-toolbar { display: none !important; } }
 /* Reserve the interactive diagram viewport before its renderer loads. */
 .mcu-map-scroll { height: clamp(360px, 65vh, 680px); }
+
+.autosar-layer-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.autosar-layer-controls button { padding: .5rem .75rem; border: 1px solid var(--folio-line); border-radius: 6px; background: var(--folio-surface); color: var(--folio-ink); cursor: pointer; }
+.autosar-layer-controls button[aria-pressed="true"] { background: var(--folio-tint); border-color: var(--folio-accent); font-weight: 700; }
+.autosar-layer-controls button:focus-visible { outline: 3px solid var(--folio-accent); outline-offset: 2px; }
+.autosar-layer-scroll { overflow-x: auto; }
+.autosar-layer-map .canvas-container { width: 100%; min-width: 760px; aspect-ratio: 16 / 9; }
+.autosar-layer-map canvas { display: block; }
+.autosar-layer-note { color: var(--folio-muted); font-size: .85rem; }
