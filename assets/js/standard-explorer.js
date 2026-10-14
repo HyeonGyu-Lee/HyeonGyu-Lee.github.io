@@ -30,12 +30,14 @@
       const label = make("label", "모듈 ")
       const select = make("select")
       select.setAttribute("aria-label", "표준 모듈 선택")
-      for (const name of [...index.modules, "IoHwAb"]) {
-        const option = make("option", name)
+      for (const name of ["all", ...index.modules, "IoHwAb"]) {
+        const option = make("option", name === "all" ? "전체 모듈" : name)
         option.value = name
         select.append(option)
       }
-      select.value = index.modules.includes(root.dataset.standardModule)
+      select.value = ["all", ...index.modules].includes(
+        root.dataset.standardModule
+      )
         ? root.dataset.standardModule
         : "Dcm"
       label.append(select)
@@ -153,6 +155,15 @@
           ? `${matches}개 정의 일치 · 상위 경로 함께 표시`
           : "계층을 펼친 뒤 이름 버튼을 선택하면 설명과 원본 조건이 표시됩니다."
       }
+      const cache = new Map()
+      async function moduleData(name) {
+        if (!cache.has(name)) {
+          const r = await fetch(base + name + ".json")
+          if (!r.ok) throw Error(name + " 모듈을 읽지 못했습니다.")
+          cache.set(name, await r.json())
+        }
+        return cache.get(name)
+      }
       async function load() {
         const current = ++request
         tree.replaceChildren()
@@ -173,12 +184,31 @@
           return
         }
         try {
-          const r = await fetch(base + select.value + ".json")
-          if (!r.ok) throw Error("모듈을 읽지 못했습니다.")
-          const result = await r.json()
+          const all = select.value === "all"
+          let result
+          if (all) {
+            const names = [...index.modules]
+            await Promise.all(
+              Array.from({ length: 8 }, async () => {
+                while (names.length) {
+                  if (current !== request) return
+                  await moduleData(names.shift())
+                }
+              })
+            )
+            result = { children: index.modules.map((name) => cache.get(name)) }
+          } else result = await moduleData(select.value)
           if (current !== request) return
           data = result
-          show(data)
+          if (all) {
+            detail.replaceChildren(
+              make("h3", "전체 모듈"),
+              make(
+                "p",
+                "84개 모듈을 하나의 트리에서 탐색합니다. 모듈을 펼치거나 이름·설명을 검색한 뒤 항목을 선택하세요. 원본은 Classic AUTOSAR 4.2.2이며, IoHwAb는 이 정의 파일에 포함되지 않습니다."
+              )
+            )
+          } else show(data)
           render()
         } catch (error) {
           if (current === request) status.textContent = error.message

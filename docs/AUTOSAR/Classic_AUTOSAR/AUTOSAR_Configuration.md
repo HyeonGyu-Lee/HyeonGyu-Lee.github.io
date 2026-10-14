@@ -21,7 +21,7 @@ redirect_from:
 > ECU Configuration은 단순 옵션 목록이 아니라, BSW module의 구조·parameter·reference와 허용되는 구성 범위를 정의하는 모델이다.
 Module Definition은 어떤 설정을 구성할 수 있는지 정의하고, ECU Configuration Values는 특정 ECU에서 선택한 실제 인스턴스와 값을 담는다. Explorer는 실제 차량 설정값이 아니라 표준의 정의를 읽는 도구다.
 ## AUTOSAR 표준 Explorer
-{% include components/standard-explorer.html %}
+{% include components/standard-explorer.html module="all" %}
 ## Explorer에서 읽는 계층
 
 | 항목 | 의미 |

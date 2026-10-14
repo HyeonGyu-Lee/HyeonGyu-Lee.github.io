@@ -6,6 +6,8 @@ Run `python _scripts/build-standard-explorer.py` after updating the source inten
 
 Standalone Notion tokens:
 
+- `site:embed:autosar-all-explorer`: all 84 modules in one tree, with cross-module search.
+
 - `site:embed:autosar-standard-explorer`: defaults to Dcm, all modules selectable.
 - `site:embed:autosar-nvm-explorer`
 - `site:embed:autosar-can-explorer`

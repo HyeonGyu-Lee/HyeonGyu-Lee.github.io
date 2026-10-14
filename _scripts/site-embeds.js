@@ -1,6 +1,10 @@
 import { readFileSync } from "node:fs"
 const components = new Map([
   [
+    "site:embed:autosar-all-explorer",
+    'components/standard-explorer.html module="all"',
+  ],
+  [
     "site:embed:autosar-nvm-explorer",
     'components/standard-explorer.html module="NvM"',
   ],
