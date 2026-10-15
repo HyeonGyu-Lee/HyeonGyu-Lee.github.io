@@ -20,7 +20,7 @@ redirect_from:
 ## Overview
 
 
-> CAN Controller는 message buffer·filter·bit timing·error state를 관리하는 MCU hardware다. CAN transceiver와 차량 네트워크 설계는 별도 계층이며, 이 문서는 controller 기능과 software interface를 중심으로 설명한다.
+> CAN Controller는 message buffer·filter·bit timing·error state를 관리하는 MCU hardware다. CAN transceiver는 bus의 전기 신호를 송수신하며, network topology와 termination은 차량 네트워크 설계에 속한다.
 
 
 ## Controller, Transceiver and Network

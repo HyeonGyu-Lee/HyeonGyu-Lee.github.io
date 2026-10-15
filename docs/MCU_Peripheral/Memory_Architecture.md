@@ -36,11 +36,10 @@ flowchart LR
 ```
 
 
-
 ## Learning Path
 
 
-RAM, ROM & Flash → Linker Script & Startup → Stack, Heap & Memory Safety 순서로 학습한다. 이미 작성된 DMA & Buffer Ownership과 Multi-Core & Memory Ordering은 runtime 접근 규칙을 보완한다.
+RAM, ROM & Flash는 저장 매체, Linker Script & Startup은 메모리 배치와 초기화, Stack, Heap & Memory Safety는 실행 중 할당과 수명을 다룬다. DMA & Buffer Ownership과 Multi-Core & Memory Ordering은 공유 메모리의 접근 규칙을 다룬다.
 
 
 ## S32K312 Scope

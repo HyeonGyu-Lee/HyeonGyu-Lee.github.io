@@ -32,11 +32,10 @@ redirect_from:
 💡
 </div>
 <div class="callout-content" markdown="1">
-이 문서는 OSRAM RGB 구동 경험과 관련한 학습 자료다. 실제 사용한 LED·보드·라이브러리가 확인되기 전이므로 특정 제품을 사용했다고 단정하지 않는다. 공개 구현의 대표 노드는 RGB가 내장된 OSIRE E3731i(RGBi), 외부 LED를 구동하는 AS1163(SAID)이다. 아래 제조사 예제는 OSP32/Arduino 기반이며 S32K312에 바로 빌드되는 코드는 아니다.
+OSP 공개 구현의 대표 노드는 RGB가 내장된 OSIRE E3731i(RGBi)와 외부 LED를 구동하는 AS1163(SAID)이다. 제조사 예제는 OSP32/Arduino 기반이며 S32K312에서는 SPI·GPIO·timing 관련 포팅이 필요하다.
 </div>
 </div>
 </blockquote>
-
 
 
 ## 1. 시스템 구성과 계층
@@ -78,7 +77,6 @@ flowchart TD
 </div>
 </div>
 </blockquote>
-
 
 
 제조사 aospi 문서는 MCU mode type A를 1-wire Manchester, type B를 2-wire SPI로 구분한다. RGBi와 기본 OTP의 SAID는 type A 관련 조건을 확인해야 하며 OSP32의 첫 SAID는 type B에 맞게 구성되어 있다. type B 기본 예제를 RGBi 직접 연결에 그대로 적용하면 통신하지 않을 수 있다.
@@ -249,4 +247,4 @@ CRC 일치만으로 응답이 올바른 것은 아니다. 최소 길이, preambl
 사용 MCU·RTD 버전, RGB/SAID 부품명과 보드 revision, OSP 라이브러리 commit, type A/B와 BiDir/Loop 구성, 노드 수, 클록·idle·timeout, 송수신 hex와 CRC 결과, 주소 할당·단색 점등·오류 복구 결과를 기록한다. 실제 사용 부품과 프로젝트 버전이 확정되면 이 항목에 측정값과 재현 순서를 추가한다.
 
 
-구현 구분은 제조사 공개 프로젝트 OSP_aotop, OSP_aospi의 물리 계층·bring-up 설명, OSP_aoosp의 aoosp_min 및 CRC 구현을 기준으로 했다. 이 문서의 S32K312 포팅 항목과 계산 예제는 설계·학습용이며 보드에서 구동 검증한 결과를 의미하지 않는다.
+OSP_aotop과 OSP_aospi는 physical layer와 bring-up, OSP_aoosp의 aoosp_min은 protocol 처리와 CRC 구현을 제공한다. S32K312 예제는 포팅 설계용이며 보드 동작 검증은 포함하지 않는다.

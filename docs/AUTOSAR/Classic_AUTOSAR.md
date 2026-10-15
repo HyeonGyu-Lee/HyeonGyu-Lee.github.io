@@ -14,7 +14,7 @@ redirect_from:
 ## 핵심 요약
 
 
-> Classic AUTOSAR의 계층, 모듈과 설정을 학습하기 위한 진입 문서다.
+> Classic AUTOSAR는 Application, RTE, BSW 계층을 통해 ECU software의 기능과 hardware 의존성을 분리한다.
 
 
 ## 적용 범위
@@ -30,7 +30,6 @@ redirect_from:
 </div>
 </div>
 </blockquote>
-
 
 
 ## 본문
@@ -67,7 +66,6 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 </div>
 </div>
 </blockquote>
-
 
 
 ---

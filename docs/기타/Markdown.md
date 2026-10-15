@@ -15,7 +15,7 @@ redirect_from:
 ## 핵심 요약
 
 
-> 문법별 입력 예제와 표시 결과, Notion 변환·Jekyll 빌드 실습을 정리한다.
+> Markdown은 제목·목록·표·코드 등을 일반 텍스트로 표현하는 문법이다.
 
 
 ## 적용 범위
@@ -31,7 +31,6 @@ redirect_from:
 </div>
 </div>
 </blockquote>
-
 
 
 ## 본문
@@ -53,7 +52,6 @@ redirect_from:
 ```
 
 
-
 출력 확인: 제목 계층과 문단 간격이 구분되는지 본다. H1은 문서 제목, H2는 주요 절, H3는 세부 절로 사용하며 화면 크기 조절용으로 제목 수준을 건너뛰지 않는다.
 
 
@@ -72,7 +70,6 @@ redirect_from:
 ```
 
 
-
 번호 목록과 하위 목록의 들여쓰기를 확인한다. 체크리스트 지원은 렌더러의 확장 문법에 따라 다르므로 Notion 변환 결과와 사이트 화면을 각각 확인한다.
 
 
@@ -85,7 +82,6 @@ redirect_from:
 ```
 
 
-
 이미지 경로는 설명용이다. 실제 파일 존재·빌드 후 경로·대체 설명을 확인한다. 문서 제목 변경 시 permalink와 내부 링크의 영향을 확인한다.
 
 
@@ -96,7 +92,6 @@ redirect_from:
 인라인 표기는 `NRC 0x78`처럼 작성한다.
 여러 줄 코드는 fenced code block을 사용하고 언어를 지정한다.
 ```
-
 
 
 코드와 설명을 분리하고 입력·기대 결과·실패 조건을 함께 적는다. 코드 안의 줄바꿈과 특수문자가 변환 후 보존되는지 비교한다.
@@ -113,7 +108,6 @@ redirect_from:
 ```
 
 
-
 표는 GFM 등 확장 지원을 확인한다. 긴 코드·문단을 표에 넣지 않고 상세 절로 분리한다. 모바일에서 가로 폭도 확인한다.
 
 
@@ -127,7 +121,6 @@ layout: default
 permalink: /practice/diagnostic-request/
 ---
 ```
-
 
 
 Front matter는 문서 맨 앞에 배치한다. YAML과 본문을 구분하고 title·layout·permalink가 테마에서 어떻게 사용되는지 확인한다.
@@ -150,7 +143,6 @@ sequenceDiagram
     ECU-->>Tester: ResponsePending
     ECU-->>Tester: FinalResponse
 ```
-
 
 
 ### 실습 과제

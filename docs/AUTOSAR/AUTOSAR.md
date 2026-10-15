@@ -51,7 +51,7 @@ Adaptive는 application process의 실행과 상태, service 통신, 지속 데�
 | 두 platform의 공존 | 공통 protocol, service/data 의미와 platform 경계의 명확화 |
 | 제품 수명 동안 software 변경 | Application lifecycle, configuration·compatibility·security의 중요성 증가 |
 
-위 표는 아키텍처 발전의 배경이다. 특정 기능의 최초 도입 release나 개별 요구사항의 변경 시점을 뜻하지 않는다.
+
 ## Release와 제품 version의 차이
 AUTOSAR release는 표준 문서 집합의 기준선이다. BSW/AP 공급사의 제품 version, generator version, compiler version과 동일하지 않다. 같은 표준 release를 기반으로 해도 지원 subset, 확장 기능과 제한이 다를 수 있다. Document version과 AUTOSAR release 표기 또한 구분해야 한다.
 ## 릴리스 문서를 읽는 구조

@@ -61,4 +61,4 @@ Pre-compile, link-time, post-build는 값이 결정되는 구성 시점과 관�
 현재 Explorer는 저장소의 _files/422.arxml을 기준으로 84개 module을 제공한다. 파일의 schema는 AUTOSAR_4-2-2.xsd이며 header에는 Part of Release 4.2, Revision 2, Document Version 4.6.0이 기록돼 있다. Document version과 platform release를 혼동하지 않는다.
 Dcm, NvM, Can/CanIf/CanTp/CanSM, Lin/LinIf/LinTp/LinSM, Com, PduR, Dem, EcuM, BswM, OS, Ethernet 및 memory·watchdog·MCAL 관련 module을 선택할 수 있다. Adaptive의 functional cluster 전체를 이 Classic ECUC 파일에서 탐색할 수 있는 것은 아니다.
 ## IoHwAb의 위치
-IoHwAb는 I/O Hardware Abstraction의 책임을 다루는 영역이다. 이 원본의 module 목록에는 IoHwAb가 없으므로 Explorer에 표준 container와 multiplicity를 임의 생성하지 않는다. 해당 release의 IoHwAb 규격·설명과 공급사 정의가 확보되면 출처를 구분해 추가할 수 있다.
+IoHwAb는 ECU의 I/O 연결과 signal 처리 차이를 상위 software에서 추상화한다. 현재 Explorer의 4.2.2 ECUC 데이터에는 IoHwAb definition이 포함되어 있지 않다.

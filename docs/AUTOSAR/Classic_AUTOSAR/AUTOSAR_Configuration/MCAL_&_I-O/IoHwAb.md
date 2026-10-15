@@ -29,7 +29,7 @@ redirect_from:
 | 표준과 공급사 구성 | IoHwAb의 역할 설명과 공급사의 구체적인 container/API 정의를 구분 |
 
 ## Explorer 수록 여부
-이 저장소의 AUTOSAR 4.2.2 ECUC 원본에는 IoHwAb module definition이 없다. 역할 설명은 제공하지만 container tree와 필수/선택 multiplicity는 출처 없이 작성하지 않는다. 이는 IoHwAb 개념 자체가 없다는 뜻이 아니다.
+Explorer의 4.2.2 ECUC 데이터에는 IoHwAb module definition이 포함되어 있지 않다. IoHwAb의 interface와 configuration은 적용 규격 및 공급사 정의에 따른다.
 
 ## 표준 구조를 읽는 관점
 Container는 의미 단위, parameter는 그 안의 값 정의, reference는 다른 구성과의 관계다. 데이터 type과 값 범위, 개수 범위, variant 조건을 구분한다. Module이 정의돼 있다는 사실만으로 특정 ECU에 그 module이 필수라는 뜻은 아니다.

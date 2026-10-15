@@ -44,7 +44,7 @@ Adaptive는 Linux의 다른 이름이 아니며 모든 POSIX application이 Adap
 | Update and Configuration Management | Software package와 update lifecycle 관련 기능 |
 | Security 관련 기능 | Identity·권한·암호 기능 등 신뢰 경계와 접근 통제에 필요한 기능 |
 
-이 표는 기능별 읽기 지도다. 모든 cluster가 모든 과거 release에서 같은 이름·범위·성숙도로 제공됐다는 의미는 아니다. 적용 release의 문서 목록과 cluster별 변경 이력을 함께 읽는다.
+Functional cluster의 구성과 interface는 적용 release에 따라 달라진다.
 ## Service-oriented architecture의 의미
 Interface는 어떤 data·operation을 교환하는지, instance는 그 기능의 어떤 제공 대상을 뜻하는지, deployment는 그 instance가 어느 실행·통신 환경에 놓이는지를 나타낸다. Service availability와 데이터의 유효성은 별개다. Field, event, method는 같은 정보를 전달하더라도 접근 방식과 계약이 다르다.
 ## 실행과 상태를 분리하는 이유
@@ -55,4 +55,4 @@ Application binary만으로는 어떤 process가 어떤 instance를 제공하고
 Software가 바뀌면 binary뿐 아니라 interface, persistency data 형식, package dependency와 권한도 영향을 받는다. Adaptive의 lifecycle 관점은 설치 여부를 넘어 실행 가능한 조합과 application/platform 관계를 다룬다. Update 전달 경로, package 검증, activation과 boot 검증은 동일한 기능이 아니다.
 ## 릴리스 흐름을 읽는 방법
 2017년의 초기 Adaptive release 계열은 process·service 기반 platform이라는 새로운 방향을 이해하는 출발점이다. 이후 연도별 baseline은 여러 functional cluster의 요구사항과 관계를 비교해 읽어야 한다. R17-10은 Adaptive 최초 release와 동일하지 않으며, R17-03과 구분한다.
-R19-11·R20-11·R21-11 같은 이름만으로 AI, cloud, 특정 보안 기능이 신규 도입됐다고 단정할 수 없다. 아래 릴리스 페이지는 각 문서 집합을 읽는 관점과 표준 간 관계를 정리하고, 확인되지 않은 최초 도입 주장은 넣지 않는다.
+Release는 표준 문서 집합의 기준 버전이다. 공급사 runtime과 application의 버전은 별도로 관리한다.
