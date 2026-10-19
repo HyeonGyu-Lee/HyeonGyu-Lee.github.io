@@ -53,7 +53,7 @@ Application의 의미, RTE의 연결, BSW service와 MCAL의 hardware 접근은 
 ## Application Layer `Application`
 
 
-> Application Layer는 차량의 전자 제어 장치(ECU)의 특정 기능 구현을 담당합니다. 엔진 제어, 변속기 제어, 차량 동역학 등의 특정 작업을 실행하기 위해 하위 계층과 상호작용하는 다양한 응용 소프트웨어 구성 요소가 포함됩니다
+> Application Layer는 차량의 전자 제어 장치(ECU)의 특정 기능 구현을 담당합니다. 엔진 제어, 변속기 제어, 차량 동역학 등의 특정 작업을 실행하기 위해 하위 계층과 상호작용하는 다양한 Application Software Component(SW-C)가 포함됩니다
 
 
 <blockquote class="notice">

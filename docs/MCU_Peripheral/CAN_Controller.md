@@ -13,7 +13,7 @@ redirect_from:
 ## CAN ID filter를 설정했는데 예상하지 않은 message가 들어오는 상황
 
 
-Controller의 buffer, mask, filter와 interrupt는 수신 frame의 저장과 통지를 담당한다. 응용 message 의미와 bus의 전기적 상태는 별도 계층이므로 register 설정과 network 계약을 나누어 분석한다.
+Controller의 buffer, mask, filter와 interrupt는 수신 frame의 저장과 통지를 담당한다. application message의 의미와 bus의 전기적 상태는 별도 계층이므로 register 설정과 network 계약을 나누어 분석한다.
 
 
 > CAN Controller는 message buffer·filter·bit timing·error state를 관리하는 MCU hardware다. CAN transceiver는 bus의 전기 신호를 송수신하며, network topology와 termination은 차량 네트워크 설계에 속한다.

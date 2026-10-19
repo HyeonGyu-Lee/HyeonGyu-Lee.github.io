@@ -10,13 +10,13 @@ permalink: '/차량_통신/Ethernet/10BASE-T1S'
 redirect_from:
  - "/3f71b412900a81a6a543d4e1f5c8fa9f"
 ---
-## 여러 node가 짧은 single-pair segment를 공유하는 상황
+## 여러 node가 짧은 single twisted pair segment를 공유하는 상황
 
 
 10BASE-T1S의 multidrop 구성에서는 매체 접근과 node별 전송 기회가 중요하다. PLCA는 접근 충돌을 줄이는 역할이며 application deadline이나 delivery 보장을 대신하지 않는다.
 
 
-> 단거리 single-pair Ethernet의 10 Mbit/s 통신과 multidrop·PLCA를 설명한다.
+> single twisted pair를 사용하는 10 Mbit/s short-reach 통신과 multidrop·PLCA를 설명한다.
 
 
 ## 적용 범위
@@ -38,7 +38,7 @@ IEEE 802.3cg-2019에서 정의된 10BASE-T1S를 중심으로 설명한다. 실�
 ### 핵심 특성
 
 
-10BASE-T1S는 10 Mbit/s의 single-pair Ethernet PHY로 short-reach 환경을 다룬다. Multidrop 구성에서는 여러 노드가 같은 매체를 공유하는 half-duplex 운용을 고려한다.
+10BASE-T1S는 10 Mbit/s의 single twisted pair를 사용하는 Ethernet PHY로 short-reach 환경을 다룬다. Multidrop 구성에서는 여러 노드가 같은 매체를 공유하는 half-duplex 운용을 고려한다.
 
 
 Point-to-point와 multidrop 지원은 PHY와 적용 구성에서 확인한다. 공유 매체의 10 Mbit/s는 각 노드가 동시에 독립적인 10 Mbit/s를 얻는다는 의미가 아니다.

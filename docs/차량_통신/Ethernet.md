@@ -13,7 +13,7 @@ redirect_from:
 ## 센서 1의 25.00°C가 다른 ECU에 도착하는 상황
 
 
-응용이 만든 숫자는 RAM의 바이트, DMA descriptor, Ethernet frame, PHY의 신호를 거쳐 다시 숫자가 된다. 각 단계는 저장 위치와 완료 조건이 다르다. 송신 API의 성공과 상대 application의 처리 완료를 구분해야 문제를 좁힐 수 있다.
+송신 application(데이터를 생성하는 프로그램)은 측정값을 정해진 byte format으로 인코딩해 RAM buffer에 저장한다. DMA를 사용하는 Ethernet controller에서는 descriptor가 buffer 주소·길이·소유권 등의 제어 정보를 제공하고, DMA가 payload를 전송한다. MAC은 Ethernet frame을 송신하고 PHY는 이를 매체에 맞는 신호로 변환한다. 수신 측에서는 반대 경로로 전달된 payload를 application이 디코딩한다. OS와 driver는 이 경로를 지원하는 별도 계층이며, descriptor 자체가 측정값으로 변환되는 것은 아니다. 송신 API의 성공과 상대 application의 처리 완료도 구분해야 한다.
 
 
 ## 핵심 요약
@@ -53,7 +53,7 @@ IEEE 802.3 물리·MAC 계층과 IEEE 802.1 기능을 구분한다. 실제 구�
 ### 토폴로지와 자동차 PHY
 
 
-단일 페어 링크와 스위치 기반 구성, zonal/domain 구조, 게이트웨이와 연결 상태를 확인한다. 모든 single-pair Ethernet이 multidrop을 지원하는 것은 아니다.
+single twisted pair link와 스위치 기반 구성, zonal/domain 구조, 게이트웨이와 연결 상태를 확인한다. 모든 single twisted pair를 사용하는 Ethernet이 multidrop을 지원하는 것은 아니다.
 
 
 ### 성능과 지연
@@ -162,7 +162,7 @@ flowchart LR
  B --> D["DMA · descriptor와 ownership"]
  D --> M["MAC · frame 송수신"]
  M --> P["PHY · physical signal"]
- P --> L["Single-pair link"]
+ P --> L["Single twisted pair link"]
  CPU["CPU · software 실행"] -.-> S
  CPU -.-> D
  CPU -. "MDIO · 관리" .-> P

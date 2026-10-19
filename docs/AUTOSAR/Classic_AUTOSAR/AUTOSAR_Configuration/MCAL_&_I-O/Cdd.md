@@ -10,7 +10,7 @@ permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/MCAL_&_I-O/Cdd'
 redirect_from:
  - "/3f91b412900a811bbd17cc896691a60b"
 ---
-## Cdd의 책임을 응용 기능과 hardware 자원 관점에서 구분하는 상황
+## Cdd의 책임을 application 기능과 hardware 자원 관점에서 구분하는 상황
 
 
 Peripheral driver는 MCU 자원을 설정·제어하고 상위 software는 신호와 기능의 의미를 다룬다. Channel, pin과 clock의 hardware 제약은 ECU별 configuration에 반영된다. Cdd의 최상위 정의에는 CddComStackContribution, CddConfigSet, CddEcucPartitionInteraction 등이 있다. Container의 이름, description과 reference를 함께 보면 module 내부 설정과 외부 연결을 구분할 수 있다.

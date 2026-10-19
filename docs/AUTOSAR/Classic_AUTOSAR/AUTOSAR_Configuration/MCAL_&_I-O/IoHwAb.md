@@ -11,10 +11,10 @@ redirect_from:
  - "/3f91b412900a81a88584f0310f0d29b7"
  - "/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/IoHwAb"
 ---
-## 같은 응용 신호를 서로 다른 ECU I/O에 연결하는 상황
+## 같은 application에서 사용하는 signal를 서로 다른 ECU I/O에 연결하는 상황
 
 
-IoHwAb는 ECU의 I/O 배치와 signal 처리 차이를 상위 기능에서 분리한다. GPIO·ADC 같은 driver의 hardware 단위와 응용의 신호 단위를 연결하므로 pin 하나와 interface 하나가 항상 일대일 대응하는 것은 아니다.
+IoHwAb는 ECU의 I/O 배치와 signal 처리 차이를 상위 기능에서 분리한다. GPIO·ADC 같은 driver의 hardware 단위와 application에서 사용하는 signal 단위를 연결하므로 pin 하나와 interface 하나가 항상 일대일 대응하는 것은 아니다.
 
 
 ## I/O Hardware Abstraction

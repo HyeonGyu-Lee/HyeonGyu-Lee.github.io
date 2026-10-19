@@ -251,7 +251,7 @@ sequenceDiagram
 ```
 
 
-- [SWS_Dcm_00024] 응용 프로그램(또는 DSP 서브 모듈)이 요청된 진단 작업을 수행할 수 있지만 작업을 완료하고 응답을 준비하는데 추가 시간이 필요한 경우, DSL 서브 모듈은 응답 시간에 도달하면 NRC 0x78(Response pending)로 부정 응답을 전송(각각 DcmDspSessionP2ServerMax-DcmTimStrP2ServerAdjust-DcmDspSessionP2StarServerMax-DcmTimStrP2StarServerAdjust)  (SWS_BSW_04016)
+- [SWS_Dcm_00024] application(또는 DSP 서브 모듈)이 요청된 진단 작업을 수행할 수 있지만 작업을 완료하고 응답을 준비하는데 추가 시간이 필요한 경우, DSL 서브 모듈은 응답 시간에 도달하면 NRC 0x78(Response pending)로 부정 응답을 전송(각각 DcmDspSessionP2ServerMax-DcmTimStrP2ServerAdjust-DcmDspSessionP2StarServerMax-DcmTimStrP2StarServerAdjust)  (SWS_BSW_04016)
 
 > SWS_Dcm_00024의 근거 : DSL 서브 모듈이 테스터에 대한 응답 타이밍을 보장
 

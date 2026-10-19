@@ -10,7 +10,7 @@ permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/MCAL_&_I-O'
 redirect_from:
  - "/3f91b412900a819383d5fff13039a421"
 ---
-## 응용 기능과 hardware 자원를 모듈별로 나누는 상황
+## application 기능과 hardware 자원을 모듈별로 나누는 상황
 
 
 Peripheral driver는 MCU 자원을 설정·제어하고 상위 software는 신호와 기능의 의미를 다룬다. Channel, pin과 clock의 hardware 제약은 ECU별 configuration에 반영된다.

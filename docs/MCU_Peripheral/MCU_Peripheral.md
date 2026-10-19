@@ -12,7 +12,7 @@ redirect_from:
 ## 하나의 sensor 입력을 여러 hardware 기능으로 구성하는 상황
 
 
-Sensor와 actuator는 응용 기능이고 ADC, GPIO, timer, serial interface는 구현 자원이다. 하나의 기능에 여러 peripheral이 참여할 수 있으며 clock·pin·interrupt·DMA는 이들을 연결한다.
+Sensor와 actuator는 각각 물리량을 감지하거나 물리적 출력을 만드는 장치다. 측정·출력 제어는 application 기능이며, ADC, GPIO, timer, serial interface는 이를 구현하는 MCU peripheral이다. 하나의 기능에 여러 peripheral이 참여할 수 있으며 clock·pin·interrupt·DMA는 이들을 연결한다.
 
 
 ## MCU Peripheral 기능 지도

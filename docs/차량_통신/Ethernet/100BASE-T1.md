@@ -16,7 +16,7 @@ redirect_from:
 100BASE-T1은 100 Mbit/s point-to-point full-duplex physical link다. Link training·전기적 품질과 Ethernet frame 이후의 IP·service 동작은 다른 관측 대상이다.
 
 
-> 단일 twisted pair의 100 Mbit/s point-to-point full-duplex 링크를 정리한다.
+> single twisted pair의 100 Mbit/s point-to-point full-duplex 링크를 정리한다.
 
 
 ## 적용 범위

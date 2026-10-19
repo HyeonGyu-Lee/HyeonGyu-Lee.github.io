@@ -14,7 +14,7 @@ redirect_from:
 ## 센서 register를 읽기 위해 주소와 dummy byte를 보내는 상황
 
 
-SCK는 bit 이동 시점을 만들고 CS는 transaction 경계를 만든다. MOSI와 MISO의 바이트는 동시에 이동하지만 응용에서 유효한 구간은 장치 protocol에 따라 다르다. Clock mode와 command format을 함께 이해해야 한다.
+SCK는 bit 이동 시점을 만들고 CS는 transaction 경계를 만든다. MOSI와 MISO의 바이트는 동시에 이동하지만 application이 유효한 데이터로 해석하는 구간은 장치 protocol에 따라 다르다. Clock mode와 command format을 함께 이해해야 한다.
 
 
 > SPI는 SCK와 데이터 신호, CS(Chip Select)를 사용하는 동기식 직렬 통신이다. 컨트롤러가 클록을 만들고 주변장치와 프레임을 교환한다. CPOL·CPHA·bitrate뿐 아니라 주변장치별 명령 형식·CS 유지 조건·읽기 더미 클록·응답 지연을 데이터시트에 맞춰 구현해야 한다.

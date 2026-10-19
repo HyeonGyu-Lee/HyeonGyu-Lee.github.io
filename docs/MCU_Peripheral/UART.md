@@ -156,5 +156,5 @@ TX buffer 수명이 완료까지 유지되어야 한다. DMA 완료나 TX FIFO e
 > Callback 한 번을 packet 하나로 처리해도 될까?
 
 
-DMA·interrupt의 완료 조건은 응용 frame과 다를 수 있다. 연속 buffer에서 frame을 누적·분리하고 부분 수신과 여러 frame의 동시 수신을 처리한다.
+DMA·interrupt의 완료 조건은 application protocol의 message 경계과 다를 수 있다. 연속 buffer에서 frame을 누적·분리하고 부분 수신과 여러 frame의 동시 수신을 처리한다.
 

@@ -256,7 +256,7 @@ candump -tz can0
 
 - TX 요청 시 driver가 busy면 현재 MB 데이터를 덮어쓰지 않는다. bounded TX queue 또는 최신값 교체 정책을 사용한다.
 - 주기 메시지는 task의 절대 기준 tick에 맞춰 scheduling하고, 반복 delay의 누적으로 주기가 밀리지 않게 한다. bus load·중재 지연 때문에 요청 시각과 실제 송신 시각은 다르다.
-- TX 완료는 CAN 버스 전송 완료이며 상대 애플리케이션이 값을 사용했다는 보장은 아니다. 업무 확인이 필요하면 프로토콜의 응답·sequence·timeout으로 확인한다.
+- TX 완료는 CAN 버스 전송 완료이며 상대 애플리케이션이 값을 사용했다는 보장은 아니다. 상대 application의 처리 완료 확인이 필요하면 프로토콜의 응답·sequence·timeout으로 확인한다.
 - Classical payload는 최대 8바이트다. 긴 데이터는 임의로 여러 프레임에 나누기보다 ISO-TP 등 합의된 전송 규약과 timeout/flow control을 사용한다.
 
 ## CAN 구현: timeout과 bus-off 복구
