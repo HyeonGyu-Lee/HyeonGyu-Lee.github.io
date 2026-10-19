@@ -14,6 +14,7 @@
   {% assign asset_version = site.time | date: "%s" %}
   <meta name="site-build" content="{{ asset_version }}">
   <meta charset="UTF-8">
+  <link rel="preload" href="{{ "/assets/fonts/noto-sans-kr.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
   {% if page.has_children == false %}
   <link rel="preconnect" href="https://giscus.app" crossorigin>
   <link rel="preload" href="https://giscus.app/client.js" as="script" crossorigin="anonymous">
