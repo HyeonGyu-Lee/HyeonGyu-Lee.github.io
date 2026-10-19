@@ -3,7 +3,7 @@ layout: default
 title: MCU Peripheral
 has_children: true
 published_date: 2026-10-14-15-10-00
-last_modified_date: 2026-10-19-13-10-00
+last_modified_date: 2026-10-19-22-10-00
 nav_order: 6
 permalink: '/MCU_Peripheral'
 redirect_from:

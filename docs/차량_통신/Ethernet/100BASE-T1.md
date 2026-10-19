@@ -3,7 +3,7 @@ layout: default
 title: 100BASE-T1
 has_children: false
 published_date: 2026-10-12-13-10-00
-last_modified_date: 2026-10-19-13-10-00
+last_modified_date: 2026-10-19-22-10-00
 nav_order: 2
 parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/100BASE-T1'

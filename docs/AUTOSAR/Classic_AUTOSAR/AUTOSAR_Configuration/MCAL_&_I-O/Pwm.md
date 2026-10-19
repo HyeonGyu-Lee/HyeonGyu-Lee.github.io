@@ -3,7 +3,7 @@ layout: default
 title: Pwm
 has_children: false
 published_date: 2026-10-15-01-10-00
-last_modified_date: 2026-10-19-13-10-00
+last_modified_date: 2026-10-19-22-10-00
 nav_order: 9
 parent: 'MCAL & I-O'
 permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/MCAL_&_I-O/Pwm'

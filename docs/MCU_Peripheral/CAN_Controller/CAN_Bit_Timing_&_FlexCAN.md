@@ -3,7 +3,7 @@ layout: default
 title: CAN Bit Timing & FlexCAN
 has_children: false
 published_date: 2026-10-14-22-10-00
-last_modified_date: 2026-10-19-13-10-00
+last_modified_date: 2026-10-19-22-10-00
 nav_order: 1
 parent: 'CAN Controller'
 permalink: '/MCU_Peripheral/CAN_Controller/CAN_Bit_Timing_&_FlexCAN'

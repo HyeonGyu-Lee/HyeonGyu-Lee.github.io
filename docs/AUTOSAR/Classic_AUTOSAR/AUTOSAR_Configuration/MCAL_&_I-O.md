@@ -3,7 +3,7 @@ layout: default
 title: MCAL & I-O
 has_children: true
 published_date: 2026-10-15-01-10-00
-last_modified_date: 2026-10-19-13-10-00
+last_modified_date: 2026-10-19-22-10-00
 nav_order: 4
 parent: 'AUTOSAR Configuration'
 permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/MCAL_&_I-O'

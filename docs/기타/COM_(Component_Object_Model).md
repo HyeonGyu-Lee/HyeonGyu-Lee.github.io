@@ -3,7 +3,7 @@ layout: default
 title: COM (Component Object Model)
 has_children: false
 published_date: 2024-08-28-09-08-00
-last_modified_date: 2026-10-19-13-10-00
+last_modified_date: 2026-10-19-22-10-00
 nav_order: 4
 parent: '기타'
 permalink: '/기타/COM_(Component_Object_Model)'
