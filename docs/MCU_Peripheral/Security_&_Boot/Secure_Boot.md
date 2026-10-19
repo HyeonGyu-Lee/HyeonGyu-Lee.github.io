@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Secure Boot"
+title: Secure Boot
 has_children: false
-published_date: 2026-10-14T13:02:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-22-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 3
-parent: "Security & Boot"
+parent: 'Security & Boot'
 permalink: '/MCU_Peripheral/Security_&_Boot/Secure_Boot'
 redirect_from:
  - "/3f91b412900a81aeb1e7e6374f6fd111"
 ---
-
 ## 업데이트된 image를 실행해도 되는지 판단하는 상황
 
+
 Secure Boot는 실행 대상의 authenticity와 integrity를 trust anchor에 연결한다. Signature 확인만으로 version rollback, image 범위와 key lifecycle 문제까지 해결되지는 않는다.
+
 
 > Secure Boot는 부팅할 코드와 필요한 metadata를 신뢰된 기준으로 인증하는 과정이다. 이미지 암호화, 디버그 차단, measured boot, Anti-Rollback과 역할을 구분한다. Secure Boot가 성공해도 실행 중 결함이 자동 방지되는 것은 아니다.
 
@@ -57,8 +58,12 @@ flowchart TD
 
 payload·metadata·signature 각각 변조, 길이 overflow, 잘못된 entry, 다른 하드웨어 이미지, 구버전, 중간 전원 차단을 시험한다. 실패한 이미지로 jump하지 않고 정의된 recovery로 진입하는지 확인한다. digest 출력 비교만으로 signature 검증을 대신하지 않는다.
 
+
 ## 이해를 확인하는 질문
+
 
 > 정상 signature가 있으면 오래된 취약 image도 허용해야 할까?
 
+
 Anti-rollback policy가 별도로 필요하다. 인증에 성공한 image와 현재 실행을 허용할 image를 구분한다.
+

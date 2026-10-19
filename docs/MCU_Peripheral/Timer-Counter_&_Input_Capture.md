@@ -1,20 +1,21 @@
 ---
 layout: default
-title: "Timer/Counter & Input Capture"
+title: Timer/Counter & Input Capture
 has_children: false
-published_date: 2026-10-14T12:52:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 5
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Timer-Counter_&_Input_Capture'
 redirect_from:
  - "/3f91b412900a819a80c1c169cf52d6b9"
  - "/MCU_Peripheral/Timer,_PWM_&_Input_Capture"
 ---
-
 ## 회전 센서의 두 edge 사이 시간을 측정하는 상황
 
+
 Timer는 기준 clock을 count하고 input capture는 edge 시점의 counter 값을 보관한다. 분해능과 최대 측정 간격은 서로 trade-off 관계이며 overflow를 포함한 시간 차 계산이 필요하다.
+
 
 > Timer는 주기 작업·timeout·PWM·edge timestamp의 기반이다. S32K312에서 사용할 timer IP와 channel·pin은 RTD 예제와 Reference Manual로 확정한다. 서로 다른 timer의 prescaler·reload 의미를 혼용하지 않는다.
 
@@ -27,14 +28,28 @@ Timer는 기준 clock을 count하고 input capture는 edge 시점의 counter 값
 
 ## Worked Example
 
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/MCU_Peripheral/Timer-Counter_&_Input_Capture/1.webp" href="/_images/MCU_Peripheral/Timer-Counter_&_Input_Capture/1.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" decoding="async" width="1774" height="887" alt="" src="/_images/MCU_Peripheral/Timer-Counter_&_Input_Capture/1.webp" />
+<figcaption>Edge-aligned PWM 1 kHz, duty 25%의 설명용 파형이다. Period=1 ms, High time=250 μs이며 Input Capture의 rising/falling timestamp로 period와 duty를 계산한다. 실제 측정 파형이 아니다.</figcaption>
+</figure>
+</a>
+</div>
+</div>
+</div>
 
-<figure><a href="/assets/images/diagrams/pwm-timing.png" data-fslightbox="pwm"><img src="/assets/images/diagrams/pwm-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="Edge-aligned PWM 1 kHz, duty 25%의 설명용 파형이다. Period=1 ms, High time=250 μs이며 Input Capture의 rising/falling timestamp로 period와 duty를 계산한다. 실제 측정 파형이 아니다."></a><figcaption>Edge-aligned PWM 1 kHz, duty 25%의 설명용 파형이다. Period=1 ms, High time=250 μs이며 Input Capture의 rising/falling timestamp로 period와 duty를 계산한다. 실제 측정 파형이 아니다.</figcaption></figure>
 
 
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 그림 읽기와 실측 확인: 실제 scope에서 period·High time·jitter를 확인한다. timer tick 단위, counter wraparound, edge polarity를 기록하고 center-aligned PWM에는 같은 계산식을 그대로 적용하지 않는다.
@@ -99,6 +114,7 @@ int main(void) {
 ```
 
 
+
 한 번 이상의 full counter cycle 동안 상태를 확인하지 않으면 이 함수만으로 실제 경과시간을 복원할 수 없다. Overflow ISR과 high word를 조합할 때도 capture와 overflow가 동시에 발생하는 race를 처리해야 한다.
 
 
@@ -113,8 +129,12 @@ Edge timestamp를 ISR에서 소프트웨어로 읽는 것과 hardware capture re
 
 기준 신호로 period·pulse width·wrap 경계·누락된 edge·IRQ 지연·저전력 복귀를 시험한다. 32-bit 1 MHz counter는 약 71.6분마다 wrap된다. Counter 폭과 tick frequency가 바뀌면 timeout의 유효 범위도 다시 계산한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Counter가 한 번 돌아가면 주기 계산은 실패할까?
 
+
 허용 간격이 counter 범위 안이면 unsigned 차이 계산을 사용할 수 있다. 여러 번 overflow할 수 있다면 overflow count와 capture의 일관성을 별도로 관리한다.
+

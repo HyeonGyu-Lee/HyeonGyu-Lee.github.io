@@ -1,20 +1,21 @@
 ---
 layout: default
-title: "Button Input & Debounce"
+title: Button Input & Debounce
 has_children: false
-published_date: 2026-10-14T06:25:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Button_Input_&_Debounce'
 redirect_from:
  - "/3f91b412900a812d8969f4adcff04f00"
  - "/MCU_Peripheral/물리_버튼"
 ---
-
 ## 한 번 누른 버튼에서 여러 press event가 발생하는 상황
 
+
 접점의 bounce는 전기적 변화이고 press·release·long press는 시간 조건이 있는 논리 event다. Raw input을 먼저 안정 상태로 변환한 뒤 사용자 동작을 분류해야 한다.
+
 
 > 물리 버튼은 접점 bounce를 필터링한 뒤 pressed/released 이벤트로 변환한다. 길게 누름·반복 입력은 안정화된 상태 위에서 별도 상태 머신으로 구현한다.
 
@@ -27,14 +28,28 @@ redirect_from:
 
 ## 시간 기반 debounce 예제
 
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/MCU_Peripheral/Button_Input_&_Debounce/1.webp" href="/_images/MCU_Peripheral/Button_Input_&_Debounce/1.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" decoding="async" width="1774" height="887" alt="" src="/_images/MCU_Peripheral/Button_Input_&_Debounce/1.webp" />
+<figcaption>Pull-up/active-low 버튼의 설명용 파형이다. 마지막 bounce가 10 ms에서 끝나고 20 ms 동안 안정된 뒤 30 ms에 press 이벤트가 한 번 발생한다. 실제 측정 파형이 아니다.</figcaption>
+</figure>
+</a>
+</div>
+</div>
+</div>
 
-<figure><a href="/assets/images/diagrams/button-timing.png" data-fslightbox="button"><img src="/assets/images/diagrams/button-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="Pull-up/active-low 버튼의 설명용 파형이다. 마지막 bounce가 10 ms에서 끝나고 20 ms 동안 안정된 뒤 30 ms에 press 이벤트가 한 번 발생한다. 실제 측정 파형이 아니다."></a><figcaption>Pull-up/active-low 버튼의 설명용 파형이다. 마지막 bounce가 10 ms에서 끝나고 20 ms 동안 안정된 뒤 30 ms에 press 이벤트가 한 번 발생한다. 실제 측정 파형이 아니다.</figcaption></figure>
 
 
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 그림 읽기와 실측 확인: Raw GPIO와 pressed=true로 정규화한 값은 반대다. 그림은 edge가 1 ms polling 시점에 정렬된 예제이며, 실제 확인 시점에는 polling 지연이 추가될 수 있다. Bounce 중에는 안정화 timer가 다시 시작된다.
@@ -73,6 +88,7 @@ bool button_update(Button *b, bool raw, uint32_t now) {
 ```
 
 
+
 raw에는 전기 레벨이 아니라 눌림=true로 변환한 값을 넣는다. 초기화 시 현재 상태를 저장하므로 부팅 때 이미 눌린 버튼을 새 press 이벤트로 처리하지 않는다. 부팅 눌림을 의미 있는 입력으로 사용할지는 제품 요구에 따라 별도로 정의한다.
 
 
@@ -96,6 +112,9 @@ edge IRQ에서 20 ms busy wait를 하지 않는다. IRQ는 버튼 활동을 알�
 
 ## 이해를 확인하는 질문
 
+
 > Interrupt의 첫 edge만 받아도 버튼 입력이 완성될까?
 
+
 Release와 bounce를 구분할 시간 정보가 부족하다. 안정 시간, active polarity와 event 재발행 조건을 포함한 상태 모델이 필요하다.
+

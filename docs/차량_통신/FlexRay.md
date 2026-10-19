@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "FlexRay"
+title: FlexRay
 has_children: false
-published_date: 2026-10-12T04:26:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 5
-parent: "차량 통신"
+parent: '차량 통신'
 permalink: '/차량_통신/FlexRay'
 redirect_from:
  - "/3f71b412900a819692a8fe50df1d07ad"
 ---
-
 ## 동일 slot에서 주기적으로 control data를 교환하는 상황
 
+
 통신 cycle, slot, channel과 clock synchronization이 함께 전송 기회를 정의한다. Bus에서 frame이 보인다는 사실보다 지정된 시간·cycle에 도착했는지가 중요하다.
+
 
 > 시간 기반 슬롯과 네트워크 동기화를 중심으로 FlexRay의 통신 구조를 정리한다.
 
@@ -24,15 +25,13 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 ISO 17458 시리즈와 프로젝트 클러스터 설정을 기준으로 세부 조건을 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -78,8 +77,12 @@ FlexRay는 통신 주기를 기반으로 static segment와 dynamic segment를 �
 
 Startup 실패 시 클러스터 설정, startup/sync 노드, 배선과 시계 상태 순으로 비교한다. 프레임 수신 성공만으로 이중화 시험을 통과 처리하지 않는다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Slot ID가 같으면 항상 같은 전달 기회일까?
 
+
 Cycle repetition과 offset, channel 구성이 다를 수 있다. Slot ID만으로 전체 schedule을 설명할 수 없다.
+

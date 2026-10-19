@@ -1,18 +1,19 @@
 ---
 layout: default
-title: "A-SPICE"
+title: A-SPICE
 has_children: true
-published_date: 2024-06-03T05:02:00.000Z
-last_modified_date: 2026-10-14T13:26:00.000Z
+published_date: 2024-06-03-14-06-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 4
 permalink: '/A-SPICE'
 redirect_from:
  - "/fe127bd9bf174c5691d6df535f3d1ad9"
 ---
-
 ## 요구사항 변경이 설계와 시험에 미치는 영향을 설명하는 상황
 
+
 Process의 목적과 산출물의 추적성을 함께 보아야 변경의 누락을 찾을 수 있다. 문서 개수보다 요구사항·설계·구현·검증 사이의 일관성이 중요하며 평가 범위와 버전을 구분해야 한다.
+
 
 > 변경 요청을 요구사항·설계·구현·검증 결과와 연결하고 리뷰·기준선을 관리한다.
 
@@ -23,14 +24,13 @@ Process의 목적과 산출물의 추적성을 함께 보아야 변경의 누락
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 </div>
 </div>
 </blockquote>
-
 
 
 
@@ -109,8 +109,12 @@ VDA QMC Automotive SPICE 모델과 적용 버전 자료: https://vda-qmc.de/en/a
 
 ---
 
+
 ## 이해를 확인하는 질문
+
 
 > 시험 결과만 있으면 요구사항 충족을 설명할 수 있을까?
 
+
 시험 조건과 판정 기준이 해당 요구사항에 연결되어야 한다. 변경 영향과 재시험 범위도 추적할 수 있어야 한다.
+

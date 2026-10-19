@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Touch Sensor"
+title: Touch Sensor
 has_children: false
-published_date: 2026-10-14T06:25:00.000Z
-last_modified_date: 2026-10-14T13:55:00.000Z
+published_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 4
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Touch_Sensor'
 redirect_from:
  - "/3f91b412900a81d09942c1e319a88c65"
 ---
-
 ## 손을 대지 않았는데 터치가 검출되는 상황
 
+
 Touch 판단에는 raw measurement, 장기 baseline, 차이값과 hysteresis가 관여한다. 주변 습도와 접지, 전극 형상이 측정값을 바꾸므로 threshold만 조절해서 모든 문제를 해결하기 어렵다.
+
 
 > 정전용량 터치는 손가락 접근에 따른 전극의 정전용량 변화를 측정한다. raw 값을 baseline과 비교해 delta를 계산하고 threshold·hysteresis·debounce로 안정된 이벤트를 만든다. 부품명과 전극 구조가 확정되지 않은 상태에서 특정 레지스터나 감도 값을 고정하지 않는다.
 
@@ -35,14 +36,28 @@ Touch 판단에는 raw measurement, 장기 baseline, 차이값과 hysteresis가 
 
 ## raw·baseline·delta 분리
 
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/MCU_Peripheral/Touch_Sensor/1.webp" href="/_images/MCU_Peripheral/Touch_Sensor/1.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" decoding="async" width="1983" height="793" alt="" src="/_images/MCU_Peripheral/Touch_Sensor/1.webp" />
+<figcaption>Delta=raw−baseline, ON threshold=50, OFF threshold=30, 연속 3회 판정의 설명용 그래프다. Sample 3~5에서 ON 조건이 유지되어 5에서 pressed가 되고, 8~10에서 OFF 조건이 유지되어 10에서 해제된다. 실제 측정 파형이 아니다.</figcaption>
+</figure>
+</a>
+</div>
+</div>
+</div>
 
-<figure><a href="/assets/images/diagrams/touch-timing.png" data-fslightbox="touch"><img src="/assets/images/diagrams/touch-timing.png" width="1983" height="793" loading="lazy" decoding="async" alt="Delta=raw−baseline, ON threshold=50, OFF threshold=30, 연속 3회 판정의 설명용 그래프다. Sample 3~5에서 ON 조건이 유지되어 5에서 pressed가 되고, 8~10에서 OFF 조건이 유지되어 10에서 해제된다. 실제 측정 파형이 아니다."></a><figcaption>Delta=raw−baseline, ON threshold=50, OFF threshold=30, 연속 3회 판정의 설명용 그래프다. Sample 3~5에서 ON 조건이 유지되어 5에서 pressed가 되고, 8~10에서 OFF 조건이 유지되어 10에서 해제된다. 실제 측정 파형이 아니다.</figcaption></figure>
 
 
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 그림 읽기와 실측 확인: Threshold 사이에서는 현재 상태를 유지한다. 본문 C 예제의 ON 조건은 delta\>50, OFF 조건은 delta\<=30이다. 그림의 scan period와 threshold는 실제 센서 보장값이 아니며, baseline 추적과 filtering을 포함한 실측 데이터로 보정한다.
@@ -80,6 +95,7 @@ int main(void) {
 ```
 
 
+
 threshold 50/30, 연속 3회, 계수 0.01은 알고리즘 설명용이다. 실제 센서 raw 범위·샘플 주기·비터치 분산·최약 터치 delta를 측정해 정한다. 외부 IC가 이미 filtering과 debounce를 제공하면 MCU가 추가한 지연까지 합산해 응답시간을 평가한다.
 
 
@@ -114,8 +130,12 @@ IC·firmware 버전, 전극·overlay 조건, scan period, raw/baseline/delta 분
 
 S32K312에서 사용할 방식은 실제 회로와 지원 Peripheral로 결정한다. GPIO·ADC를 모두 써야 하는 것이 아니며, 어느 조합이든 전극/overlay·ESD·noise·baseline 추적·hysteresis·debounce 검증이 필요하다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Baseline을 빠르게 추종시키면 항상 안정적일까?
 
+
 실제 touch까지 baseline에 흡수할 수 있다. Touch 상태에서의 갱신 정책과 환경 변화 추종 속도를 구분한다.
+

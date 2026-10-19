@@ -1,20 +1,21 @@
 ---
 layout: default
-title: "SID (Service Identifier)"
+title: SID (Service Identifier)
 has_children: false
-published_date: 2024-06-19T23:39:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2024-06-20-08-06-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "UDS (Unified Diagnostic Services)"
+parent: 'UDS (Unified Diagnostic Services)'
 permalink: '/UDS_(Unified_Diagnostic_Services)/SID_(Service_Identifier)'
 redirect_from:
  - "/6c434e6207fc42a89f62176ec69d00be"
  - "/UDS_(Unified_Diagnostic_Services)/SIDs_(Serivce_Identifiers)"
 ---
-
 ## 진단 payload의 첫 byte로 service를 식별하는 상황
 
+
 SID는 diagnostic 기능의 종류를 나타내며 sub-function·identifier·record가 요청을 구체화한다. Positive SID와 negative response의 framing을 분리해 읽어야 한다.
+
 
 > UDS 서비스 식별자와 서비스별 요청·응답 개념을 정리한 문서다. 영문 표기는 Service Identifiers다.
 
@@ -25,7 +26,7 @@ SID는 diagnostic 기능의 종류를 나타내며 sub-function·identifier·rec
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 규격·도구 버전에 따른 동작 차이를 확인한다.
@@ -35,12 +36,10 @@ SID는 diagnostic 기능의 종류를 나타내며 sub-function·identifier·rec
 
 
 
-
-
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프로토콜에서 사용되는 주요 명령어들로, 특정 진단 서비스를 호출하는 데 사용됩니다. 각 SID는 특정 진단 기능을 수행하기 위한 요청을 나타내며, ECU(Electronic Control Unit)가 이 요청을 수신하고 해당 서비스에 대해 적절한 응답을 반환합니다.
@@ -59,30 +58,30 @@ Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프
 | **0x11**          | **0x51**           | **ECU Reset**                          | **Reset the ECU (“hard reset”, “key off", “soft reset”)**               | **Reset type**                   | 0x01 - 0x05  |
 | **0x27**          | **0x67**           | **Security Access**                    | **Enable use of security-critical services via authentication**         | **Security access type**         | 0x01 - 0x10  |
 | **0x28**          | **0x68**           | **Communication Control**              | **Turn sending/receiving of messages on/off in the ECU**                | **Control type**                 | 0x00 - 0x03  |
-| 0x29              | 0x69               | Authentication                         | Enable more advanced authentication vs. 0x27 (PKI based exchange)       | N/A                              | \<           |
+| 0x29              | 0x69               | Authentication                         | Enable more advanced authentication vs. 0x27 (PKI based exchange)       | N/A                              | &lt;         |
 | **0x3E**          | **0x7E**           | **Tester Present**                     | **Send a "heartbeat" periodically to remain in the current session**    | **“Zero Sub function”**          | 0x00         |
 | **0x83**          | **0xC3**           | **Access Timing Parameters**           | **View/modify timing parameters used in client/server communication**   | **Timing parameter access type** | 0x01 - 0x02  |
-| 0x84              | 0xC4               | Secured Data Transmission              | Send encrypted data via ISO 15764 (Extended Data Link Security)         | N/A                              | \<           |
+| 0x84              | 0xC4               | Secured Data Transmission              | Send encrypted data via ISO 15764 (Extended Data Link Security)         | N/A                              | &lt;         |
 | **0x85**          | **0xC5**           | **Control DTC Settings**               | **Enable/disable detection of errors (e.g. used during diagnostics)**   | **DTC setting type**             | 0x01 - 0x02  |
 | **0x86**          | **0xC6**           | **Response On Event**                  | **Request that an ECU processes a service request if an event happens** | **Event type**                   | 0x00 - 0x02  |
 | **0x87**          | **0xC7**           | **Link Control**                       | **Set the baud rate for diagnostic access**                             | **Link control type**            | 0x01 - 0x05  |
-| 0x22              | 0x62               | Read Data By Identifier                | Read data from targeted ECU - e.g. VIN, sensor data values etc.         | N/A                              | \<           |
-| 0x23              | 0x63               | Read Memory By Address                 | Read data from physical memory (e.g. to understand software behavior)   | N/A                              | \<           |
-| 0x24              | 0x64               | Read Scaling Data By Identifier        | Read information about how to scale data identifiers                    | N/A                              | \<           |
-| 0x2A              | 0x6A               | Read Data By Identifier Periodic       | Request ECU to broadcast sensor data at slow/medium/fast/stop rate      | N/A                              | \<           |
+| 0x22              | 0x62               | Read Data By Identifier                | Read data from targeted ECU - e.g. VIN, sensor data values etc.         | N/A                              | &lt;         |
+| 0x23              | 0x63               | Read Memory By Address                 | Read data from physical memory (e.g. to understand software behavior)   | N/A                              | &lt;         |
+| 0x24              | 0x64               | Read Scaling Data By Identifier        | Read information about how to scale data identifiers                    | N/A                              | &lt;         |
+| 0x2A              | 0x6A               | Read Data By Identifier Periodic       | Request ECU to broadcast sensor data at slow/medium/fast/stop rate      | N/A                              | &lt;         |
 | **0x2C**          | **0x6C**           | **Dynamically Define Data Identifier** | **Define data parameter for use in 0x22 or 0x2A dynamically**           | **Definition type**              | 0x01 - 0x03  |
-| 0x2E              | 0x6E               | Write Data By Identifier               | Program specific variables determined by data parameters                | N/A                              | \<           |
-| 0x3D              | 0x7D               | Write Memory By Address                | Write information to the ECU's memory                                   | N/A                              | \<           |
-| 0x14              | 0x54               | Clear Diagnostic Information           | Delete stored DTCs                                                      | N/A                              | \<           |
+| 0x2E              | 0x6E               | Write Data By Identifier               | Program specific variables determined by data parameters                | N/A                              | &lt;         |
+| 0x3D              | 0x7D               | Write Memory By Address                | Write information to the ECU's memory                                   | N/A                              | &lt;         |
+| 0x14              | 0x54               | Clear Diagnostic Information           | Delete stored DTCs                                                      | N/A                              | &lt;         |
 | **0x19**          | **0x59**           | **Read DTC Information**               | **Read stored DTCs, as well as related information**                    | **Report type**                  | 0x01 - 0x0D  |
-| 0x2F              | 0x6F               | Input Output Control By Identifier     | Gain control over ECU analog/digital inputs/outputs                     | N/A                              | \<           |
+| 0x2F              | 0x6F               | Input Output Control By Identifier     | Gain control over ECU analog/digital inputs/outputs                     | N/A                              | &lt;         |
 | **0x31**          | **0x71**           | **Routine Control**                    | **Initiate/stop routines (e.g. self-testing, erasing of flash memory)** | **Routine control type**         | 0x01 - 0x03  |
-| 0x34              | 0x74               | Request Download                       | Start request to add software/data to ECU (incl. location/size)         | N/A                              | \<           |
-| 0x35              | 0x75               | Request Upload                         | Start request to read software/data from ECU (incl. location/size)      | N/A                              | \<           |
-| 0x36              | 0x76               | Transfer Data                          | Perform actual transfer of data following use of 0x74/0x75              | N/A                              | \<           |
-| 0x37              | 0x77               | Request Transfer Exit                  | Stop the transfer of data                                               | N/A                              | \<           |
-| 0x38              | 0x78               | Request File Transfer                  | Perform a file download/upload to/from the ECU                          | N/A                              | \<           |
-| 0x7F              | \<                 | Negative Response                      | Sent with a Negative Response Code when a request cannot be handled     | N/A                              | \<           |
+| 0x34              | 0x74               | Request Download                       | Start request to add software/data to ECU (incl. location/size)         | N/A                              | &lt;         |
+| 0x35              | 0x75               | Request Upload                         | Start request to read software/data from ECU (incl. location/size)      | N/A                              | &lt;         |
+| 0x36              | 0x76               | Transfer Data                          | Perform actual transfer of data following use of 0x74/0x75              | N/A                              | &lt;         |
+| 0x37              | 0x77               | Request Transfer Exit                  | Stop the transfer of data                                               | N/A                              | &lt;         |
+| 0x38              | 0x78               | Request File Transfer                  | Perform a file download/upload to/from the ECU                          | N/A                              | &lt;         |
+| 0x7F              | &lt;               | Negative Response                      | Sent with a Negative Response Code when a request cannot be handled     | N/A                              | &lt;         |
 
 
 ### Diagnostic Session Control (0x10)
@@ -93,7 +92,7 @@ Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x10 - 진단 세션을 시작하여 ECU를 테스트 모드로 전환
@@ -143,7 +142,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x11 - 하드 리셋 명령을 보내 ECU를 재부팅
@@ -169,7 +168,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x27 - ECU 보안 접근을 위해 암호화된 키를 요청
@@ -192,7 +191,7 @@ sequenceDiagram
   participant Dsd
   participant Dsp
   participant Dcm User
-
+  
   critical Request Seed
   PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
   activate PduR
@@ -231,7 +230,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x28 - ECU의 모든 통신을 비활성화
@@ -256,7 +255,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x29 - PKI 기반 인증을 사용하여 ECU 접근을 요청
@@ -273,7 +272,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x3E - ECU가 현재 세션을 종료하지 않도록 Heart Beat를 전송
@@ -294,7 +293,7 @@ sequenceDiagram
   participant Dsl
   participant Dsd
   participant Dsp
-
+  
   critical Tester Present with positive response
   PduR ->>+ Dsl: Dcm_TpRxIndication(PduIdType,<br>Std_ReturnType)
   activate PduR
@@ -324,7 +323,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x83 - 타이밍 매개변수를 수정하여 통신 지연 시간을 줄임
@@ -347,7 +346,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x84 - 암호화된 진단 데이터를 ECU에 전송
@@ -364,7 +363,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x85 - 특정 오류 코드 감지를 비활성화
@@ -387,7 +386,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x86 - 특정 조건이 만족되면 ECU가 응답하도록 설정
@@ -411,7 +410,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x87 - ECU와의 통신 속도를 500 kbps로 설정
@@ -437,7 +436,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x22 - 차량의 VIN 번호를 ECU로부터 읽어옴
@@ -454,7 +453,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x23 - ECU의 특정 메모리 주소에서 데이터를 읽어옴
@@ -466,12 +465,12 @@ sequenceDiagram
 
 ### Read Scaling Data By Identifier (0x24)
 
-- 데이터 식별자의 스케일링 정보를 읽어옴
+- 데이터 식별자의 스케일링 정보를 읽어옴 
 
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x24 - 센서 데이터의 스케일링 정보를 조회
@@ -488,7 +487,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x2A - ECU가 센서 데이터를 초당 1회 주기로 방송하도록 설정
@@ -505,7 +504,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x2C - 새로운 데이터 식별자를 동적으로 정의
@@ -529,7 +528,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x2E - ECU의 특정 설정 값을 업데이트
@@ -546,7 +545,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x3D - ECU의 특정 메모리 위치에 데이터를 작성
@@ -563,7 +562,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x14 - ECU에서 모든 DTC를 삭제
@@ -580,7 +579,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x19 - ECU에서 현재 저장된 모든 DTC를 읽어옴
@@ -628,7 +627,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x2F - 특정 출력 핀을 활성화
@@ -645,7 +644,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
  0x31 - ECU의 자가 테스트 루틴을 시작
@@ -669,7 +668,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x34 - ECU에 새로운 소프트웨어를 다운로드
@@ -686,7 +685,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x35 - ECU에서 데이터를 업로드
@@ -703,7 +702,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x36 - ECU로 데이터 전송을 수행
@@ -720,7 +719,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x37 - 현재 진행 중인 데이터 전송을 중지
@@ -737,7 +736,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x38 - ECU와 파일 업로드를 수행
@@ -754,7 +753,7 @@ sequenceDiagram
 <blockquote class="example">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-📝
+📝 
 </div>
 <div class="callout-content" markdown="1">
 0x7F - 요청된 서비스가 지원되지 않는 경우 부정 응답을 반환
@@ -762,8 +761,13 @@ sequenceDiagram
 </div>
 </blockquote>
 
+
+
 ## 이해를 확인하는 질문
+
 
 > 요청 SID에 0x40을 더하면 모든 성공 응답 내용을 알 수 있을까?
 
+
 Positive SID 식별에는 도움이 되지만 응답 record와 echo 필드는 service 정의를 따라야 한다.
+

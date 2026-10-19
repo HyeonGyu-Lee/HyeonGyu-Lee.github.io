@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Git"
+title: Git
 has_children: false
-published_date: 2026-10-14T04:17:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2026-10-14-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 7
-parent: "기타"
+parent: '기타'
 permalink: '/기타/Git'
 redirect_from:
  - "/3f91b412900a81bc8bc8d2bc06670870"
 ---
-
 ## 변경을 공유하기 전에 local과 remote의 차이를 확인하는 상황
 
+
 Working tree, index, commit과 remote branch는 서로 다른 상태다. Add, commit, fetch와 push가 각각 바꾸는 대상을 구분하면 변경을 잃지 않고 협업할 수 있다.
+
 
 > Git은 파일의 변경 이력을 커밋으로 기록하는 분산 버전 관리 도구다. 실무에서는 현재 상태 확인 → 작업 브랜치 생성 → 변경 검토 → 커밋 → 원격 반영 → 코드 리뷰 흐름을 기본으로 사용한다. 작업 폴더, 스테이징 영역, 로컬 저장소, 원격 저장소를 구분하면 복구 명령을 안전하게 선택할 수 있다.
 
@@ -24,7 +25,7 @@ Working tree, index, commit과 remote branch는 서로 다른 상태다. Add, co
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 예제는 Git 2.23 이상과 bash를 기준으로 하며 기본 브랜치는 main, 원격 이름은 origin으로 가정한다. 실제 저장소의 브랜치 정책을 먼저 확인한다. \<commit\> 같은 표기는 실제 값으로 바꾸고 꺾쇠는 입력하지 않는다. 복구·이력 변경 예제는 별도의 실습 저장소에서 연습한다.
@@ -194,7 +195,7 @@ git stash show -p 'stash@{0}'
 # 원본 stash를 남겨 둔 채 적용
 git stash apply 'stash@{0}'
 # 반영 및 테스트를 확인한 뒤에만 보관본 삭제
-# git stash drop 'stash@{0}'
+# git stash drop 'stash@{0}' 
 ```
 
 
@@ -205,12 +206,12 @@ git stash apply 'stash@{0}'
 ## 8. 상황별 변경 복구
 
 
-| **항목**                     | **설명 및 적용 기준**                                                                                                     |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **스테이징 실수**                | git restore --staged \<file\>. 작업 폴더 수정은 유지된다. 첫 커밋 이전 저장소는 HEAD가 없으므로 이 예제의 전제가 다르다.                              |
-| **아직 커밋하지 않은 추적 파일 수정 폐기** | git restore \<file\>. 기본적으로 스테이징 내용으로 되돌리며 버려진 작업 폴더 변경은 Git으로 복구하지 못할 수 있다. diff 확인과 별도 백업 후 실행한다.                |
-| **로컬 마지막 커밋만 취소하고 변경 유지**  | git reset --soft HEAD~1. 취소한 변경은 스테이징에 남는다. 부모 커밋이 있는 개인 브랜치에서만 사용한다.                                              |
-| **이미 공유한 커밋 취소**           | git revert \<commit\>. 기존 이력을 지우지 않고 반대 변경을 새 커밋으로 만든다. 이후 변경과 충돌할 수 있다. 병합 커밋 revert는 mainline 선택이 필요하므로 별도 검토한다. |
+| **항목**                     | **설명 및 적용 기준**                                                                                                         |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **스테이징 실수**                | git restore --staged &lt;file&gt;. 작업 폴더 수정은 유지된다. 첫 커밋 이전 저장소는 HEAD가 없으므로 이 예제의 전제가 다르다.                              |
+| **아직 커밋하지 않은 추적 파일 수정 폐기** | git restore &lt;file&gt;. 기본적으로 스테이징 내용으로 되돌리며 버려진 작업 폴더 변경은 Git으로 복구하지 못할 수 있다. diff 확인과 별도 백업 후 실행한다.                |
+| **로컬 마지막 커밋만 취소하고 변경 유지**  | git reset --soft HEAD~1. 취소한 변경은 스테이징에 남는다. 부모 커밋이 있는 개인 브랜치에서만 사용한다.                                                  |
+| **이미 공유한 커밋 취소**           | git revert &lt;commit&gt;. 기존 이력을 지우지 않고 반대 변경을 새 커밋으로 만든다. 이후 변경과 충돌할 수 있다. 병합 커밋 revert는 mainline 선택이 필요하므로 별도 검토한다. |
 
 
 ```bash
@@ -339,8 +340,12 @@ git diff --check
 
 완료 기준: 의도한 변경만 커밋되었고, 불필요한 파일이 추적되지 않으며, 충돌 마커가 없고, 프로젝트 테스트가 통과해야 한다. 원격을 사용하는 실습에서는 upstream과 push 대상 브랜치도 확인한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Commit하면 remote에도 저장된 것인가?
 
+
 Commit은 local history를 만든다. Push와 remote branch 상태를 확인해야 공유 여부를 알 수 있다.
+

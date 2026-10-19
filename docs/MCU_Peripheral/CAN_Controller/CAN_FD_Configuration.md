@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "CAN FD Configuration"
+title: CAN FD Configuration
 has_children: false
-published_date: 2026-10-14T13:46:00.000Z
-last_modified_date: 2026-10-14T13:53:00.000Z
+published_date: 2026-10-14-22-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "CAN Controller"
+parent: 'CAN Controller'
 permalink: '/MCU_Peripheral/CAN_Controller/CAN_FD_Configuration'
 redirect_from:
  - "/3f91b412900a8146a610f03107f8d64e"
 ---
-
 ## Nominal phase는 정상인데 BRS 이후 error가 증가하는 상황
 
+
 Data phase의 짧은 bit time은 transceiver와 bus delay, sample point에 더 민감하다. Data timing과 TDC를 nominal timing에서 분리해 이해하고 controller IP별 encoding을 적용해야 한다.
+
 
 ## Scope
 
@@ -21,7 +22,7 @@ Data phase의 짧은 bit time은 transceiver와 bus delay, sample point에 더 �
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 MCU Controller에서 Classical CAN을 CAN FD로 확장할 때 변경하는 timing·payload·RAM·driver 설정을 다룬다. 차량 네트워크의 호환성·ECU 혼재·배선 검증과 구분하여 읽는다.
@@ -47,14 +48,28 @@ CAN FD는 단순히 bitrate를 올리는 설정이 아니다. 컨트롤러 FD �
 
 ## 변경점 2: Nominal과 Data 타이밍 계산
 
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/MCU_Peripheral/CAN_Controller/CAN_FD_Configuration/1.webp" href="/_images/MCU_Peripheral/CAN_Controller/CAN_FD_Configuration/1.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" decoding="async" width="1774" height="887" alt="" src="/_images/MCU_Peripheral/CAN_Controller/CAN_FD_Configuration/1.webp" />
+<figcaption>BRS=1인 CAN FD의 설명용 시간축이다. Nominal 500 kbit/s와 Data 2 Mbit/s를 가정했으며 각각의 완전한 비트 시간은 2 μs와 0.5 μs다. 실제 측정 파형이 아니다.</figcaption>
+</figure>
+</a>
+</div>
+</div>
+</div>
 
-<figure><a href="/assets/images/diagrams/canfd-timing.png" data-fslightbox="canfd"><img src="/assets/images/diagrams/canfd-timing.png" width="1774" height="887" loading="lazy" decoding="async" alt="BRS=1인 CAN FD의 설명용 시간축이다. Nominal 500 kbit/s와 Data 2 Mbit/s를 가정했으며 각각의 완전한 비트 시간은 2 μs와 0.5 μs다. 실제 측정 파형이 아니다."></a><figcaption>BRS=1인 CAN FD의 설명용 시간축이다. Nominal 500 kbit/s와 Data 2 Mbit/s를 가정했으며 각각의 완전한 비트 시간은 2 μs와 0.5 μs다. 실제 측정 파형이 아니다.</figcaption></figure>
 
 
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 그림 읽기와 실측 확인: 속도 전환은 BRS와 CRC delimiter의 Sample Point에서 일어난다. 경계 비트 전체를 한 속도로 계산하지 않는다. 전체 필드·stuff bit를 생략한 그림이므로 프레임 전송 시간을 이 그림의 폭으로 계산하지 않는다.
@@ -73,6 +88,7 @@ Data_TQ = BRP_D / f_CAN
 Data_bitrate = f_CAN / (BRP_D × (1 + TSEG1_D + TSEG2_D))
 Data_SP = (1 + TSEG1_D) / (1 + TSEG1_D + TSEG2_D)
 ```
+
 
 
 위 식은 두 타이밍 도메인이 같은 f_CAN을 사용하는 경우다. MCU의 실제 클록 구조를 먼저 확인한다. Nominal과 Data의 prescaler가 독립적으로 설정 가능한지, 두 값 사이 제약이 있는지, 세그먼트 최소·최대 범위를 확인한다. Nominal 속도는 중재·ACK 등 공통 구간에 적용되며 FD 전체 프레임이 Data 속도로 전송되는 것은 아니다.
@@ -97,6 +113,7 @@ Data:
   BRP_D = 1, N_TQ_D = 40이면 같은 2 Mbit/s
   다만 해당 IP의 Data 세그먼트 범위와 제약이 허용해야 한다.
 ```
+
 
 
 이 수치는 산술 예제다. 일부 IP·드라이버에서는 Nominal/Data prescaler 조합이나 Data 세그먼트 값이 허용되지 않을 수 있다. 사용 IP의 타이밍 계산기 결과와 매뉴얼을 비교해야 하며 이 예제를 그대로 레지스터에 쓰는 완성 설정으로 취급하지 않는다. 80% Sample Point도 모든 배선·속도에서 최적이라는 뜻은 아니다.
@@ -132,6 +149,7 @@ Data_TQ = 25 ns일 때도 TDC 단위가 25 ns라고 가정하면 안 된다.
 ```
 
 
+
 FlexCAN의 TDCOFF·TDCEN·측정값/실패 상태 필드 등은 IP별 의미와 범위를 확인한다. SSP 허용 범위, 측정 지연 포화, offset 제약, 자동 측정 동작 조건과 errata를 확인한다. Data bitrate별로 TDC 필요 여부를 드라이버 지침과 실제 트랜시버 지연에 근거해 결정하며 특정 속도 이상이면 항상 같은 값이라는 규칙을 만들지 않는다.
 
 
@@ -149,6 +167,7 @@ DLC 코드 → FD payload 바이트
 14 → 48
 15 → 64
 ```
+
 
 
 payload 길이 12바이트와 DLC 코드 12를 혼동하지 않는다(DLC 12는 24바이트). API가 길이(byte)를 받는지 DLC 코드를 받는지 확인한다. 9·10·11바이트 등 버스 길이로 직접 표현할 수 없는 경우에는 API 정책에 따라 허용 길이로 패딩하거나 거부한다. 패딩 값·애플리케이션 유효 길이는 송수신 계약으로 정한다.
@@ -180,6 +199,7 @@ cansend can0 123##10102030405060708
 cansend can0 123##1000102030405060708090A0B
 candump -e can0
 ```
+
 
 
 실제 드라이버가 FD와 요청한 bitrate를 지원해야 한다. 출력에서 설정된 bitrate, sample-point, tq, segment와 오류 카운터를 확인한다. 지원되는 커널·드라이버에서는 TDC 설정을 별도로 제공할 수 있으나 옵션 이름·단위·범위가 다르므로 ip link help와 드라이버 문서를 확인한다.
@@ -217,6 +237,7 @@ int main(void) {
  return 0;
 }
 ```
+
 
 
 ## 검증 순서와 장애 분류
@@ -266,8 +287,12 @@ S32K312와 설치한 S32K3 RTD 버전의 FlexCAN 예제를 기준으로 진행�
 
 80 MHz 계산 예제에서 Nominal은 BRP=8·20TQ로 500 kbit/s, Data는 BRP=2·20TQ로 2 Mbit/s다. 이것은 후보 계산 결과이며 S32K312용 드라이버의 허용 조합과 지연 조건을 통과했다는 의미는 아니다. 설정 도구가 prescaler/segment를 다른 값으로 표현하면 실제 물리값으로 환산해 비교한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > TDC를 켜면 잘못된 data timing도 보정될까?
 
+
 TDC는 주로 송신 지연 보상을 위한 sampling 위치와 관련된다. 잘못된 bitrate·segment·전기적 조건을 대신 해결하지 않는다.
+

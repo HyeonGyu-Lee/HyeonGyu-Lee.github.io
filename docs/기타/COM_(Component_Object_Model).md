@@ -1,20 +1,21 @@
 ---
 layout: default
-title: "COM (Component Object Model)"
+title: COM (Component Object Model)
 has_children: false
-published_date: 2024-08-28T00:53:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2024-08-28-09-08-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 4
-parent: "기타"
+parent: '기타'
 permalink: '/기타/COM_(Component_Object_Model)'
 redirect_from:
  - "/b70a3e94ccc24769aa2c67939878791c"
  - "/기타/COM"
 ---
-
 ## 다른 언어로 만든 component의 interface를 호출하는 상황
 
+
 COM은 binary interface와 object lifetime, interface discovery의 계약을 제공한다. 호출 가능한 method와 reference count, apartment model이 함께 맞아야 component 경계를 안전하게 넘는다.
+
 
 > Microsoft Component Object Model의 객체·인터페이스와 상호 운용 개념을 정리한 문서다. AUTOSAR COM 통신 모듈과는 다른 주제다.
 
@@ -25,7 +26,7 @@ COM은 binary interface와 object lifetime, interface discovery의 계약을 제
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 규격·도구 버전에 따른 동작 차이를 확인한다.
@@ -35,12 +36,10 @@ COM은 binary interface와 object lifetime, interface discovery의 계약을 제
 
 
 
-
-
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 COM(Component Object Model)은 마이크로소프트에서 개발한 소프트웨어 기술로, 다양한 애플리케이션이 서로 간에 객체(오브젝트)를 공유하고 재사용할 수 있도록 하는 프레임워크입니다. COM은 언어와 플랫폼에 독립적이기 때문에, COM 기반의 객체는 C++, C#, Visual Basic, Python 등 다양한 프로그래밍 언어로 작성된 애플리케이션에서 사용할 수 있습니다.<br>**오브젝트와 시스템이 개방적이고 변화 가능한 방식으로 상호 동작할 수 있는 방법을 정의하는 다수의 기술에 대한 바이너리 사양**
@@ -55,8 +54,8 @@ COM(Component Object Model)은 마이크로소프트에서 개발한 소프트�
 1. COM 객체: COM 객체는 인터페이스를 통해 상호작용할 수 있는 객체입니다. 이 객체는 특정 기능을 구현하고, 인터페이스는 이 객체의 기능에 접근할 수 있는 방법을 정의합니다.
 2. 인터페이스: 인터페이스는 클래스의 메서드 집합을 정의하며, COM에서 객체는 인터페이스를 통해 접근됩니다. 각 인터페이스는 고유한 식별자를 가지며, 이 식별자는 GUID(Globally Unique Identifier)로 표현됩니다.
 3. IUnknown 인터페이스: 모든 COM 객체는 IUnknown 인터페이스를 구현해야 합니다. 이 인터페이스는 참조 카운팅과 인터페이스 쿼리 기능을 제공합니다.
-    - QueryInterface: 객체가 지원하는 인터페이스를 요청합니다.
-    - AddRef: 객체의 참조 카운트를 증가시킵니다.
+    - QueryInterface: 객체가 지원하는 인터페이스를 요청합니다. 
+    - AddRef: 객체의 참조 카운트를 증가시킵니다. 
     - Release: 객체의 참조 카운트를 감소시키며, 카운트가 0이 되면 객체를 메모리에서 해제합니다.
 4. COM 서버와 클라이언트: COM 객체는 COM 서버에서 생성되고 관리됩니다. COM 서버는 DLL(동적 링크 라이브러리) 또는 EXE(실행 파일)로 구현될 수 있습니다. COM 클라이언트는 이러한 COM 객체를 사용하여 필요한 작업을 수행합니다.
 5. COM의 등록 및 활성화: COM 객체를 사용하기 위해서는 먼저 COM 서버가 레지스트리에 등록되어야 합니다. 이를 통해 클라이언트가 COM 객체의 CLSID(Class ID)를 사용하여 객체를 생성하고, 해당 객체의 인터페이스에 접근할 수 있습니다.
@@ -67,7 +66,7 @@ COM(Component Object Model)은 마이크로소프트에서 개발한 소프트�
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 COM 기술의 핵심 단위로, 특정 기능을 캡슐화하여 다른 애플리케이션이나 구성 요소에서 사용할 수 있는 독립적인 소프트웨어 구성 요소<br>COM 객체는 특정 작업을 수행하는 메서드와 데이터를 포함하고 있으며, 객체 지향적 프로그래밍의 원칙을 따름<br>**COM 객체**는 특정 기능을 **캡슐화**한 독립적인 구성 요소로, 다양한 어플리케이션에서 **재사용**될 수 있고, **언어 독립적**임
@@ -104,7 +103,7 @@ COM 기술의 핵심 단위로, 특정 기능을 캡슐화하여 다른 애플�
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 COM 객체가 제공하는 기능에 접근하는 방법을 정의하는 계약(contract)<br>인터페이스는 특정 기능을 수행하는 메서드의 집합으로, 이 메서드를 통해 외부에서 객체의 기능을 사용할 수 있음<br>**인터페이스**는 COM 객체의 기능에 접근하는 **계약**으로, 객체의 구현 세부 사항을 감추고, 다수의 언어에서 **일관된 방식**으로 사용할 수 있게 함
@@ -140,7 +139,7 @@ COM 객체가 제공하는 기능에 접근하는 방법을 정의하는 계약(
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 COM에서 사용되는 기본 인터페이스, 모든 COM 인터페이스는 IUnknown을 상속받음<br>COM 객체의 수명 관리와 인터페이스 검색 기능을 제공하는데 필수<br>**QueryInterface** 메서드를 통해 런타임에 객체가 지원하는 인터페이스에 접근할 수 있게 해주고, 이로 인해 클라이언트는 특정 인터페이스에 의존하지 않고도 다양한 COM 객체를 사용할 수 있음<br>**AddRef** 와 **Release** 메서드를 통해 객체의 수명을 관리하며, 이를 통해 메모리 관리를 자동화함
@@ -211,6 +210,9 @@ COM에서 사용되는 기본 인터페이스, 모든 COM 인터페이스는 IUn
 
 ## 이해를 확인하는 질문
 
+
 > Interface pointer를 복사하면 lifetime도 자동 연장될까?
 
+
 소유권 계약에 맞는 reference 관리가 필요하다. Raw pointer 복사와 AddRef는 같은 동작이 아니다.
+

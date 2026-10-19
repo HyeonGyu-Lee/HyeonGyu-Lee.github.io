@@ -1,20 +1,22 @@
 ---
 layout: default
-title: "Dcm"
+title: Dcm
 has_children: false
-parent: "Diagnostics & Observability"
+published_date: 2024-06-05-12-06-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
+parent: 'Diagnostics & Observability'
 permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Diagnostics_&_Observability/Dcm'
-last_modified_date: 2026-10-14T16:38:00.000Z
 redirect_from:
  - "/6f1c6084d31946eebed1b8d172719bba"
  - "/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Dcm"
  - "/AUTOSAR/Classic_AUTOSAR/Configure_Parameters/Dcm"
 ---
-
 ## Dcm의 책임을 고장 정보와 진단 접근 관점에서 구분하는 상황
 
+
 Fault 관찰, event 상태 저장, diagnostic service 처리와 기능 허용 판단은 서로 다른 책임이다. 이 경계를 나누면 같은 오류가 어떤 상태와 응답으로 표현되는지 설명할 수 있다. Dcm의 최상위 정의에는 DcmConfigSet, DcmGeneral 등이 있다. Container의 이름, description과 reference를 함께 보면 module 내부 설정과 외부 연결을 구분할 수 있다.
+
 
 > 진단 요청 처리와 DSL·DSD·DSP의 역할, 관련 설정과 동작을 정리한 문서다.
 
@@ -25,15 +27,13 @@ Fault 관찰, event 상태 저장, diagnostic service 처리와 기능 허용 �
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 정확한 규범적 요구사항은 적용 AUTOSAR 릴리스를 지정한 뒤 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -73,7 +73,7 @@ sequenceDiagram
 
 - [SWS_Dcm_00030] DSL 서브모듈의 모든 기능 영역은 ISO14229-1[15] 사양과 ISO15765-3[18]의 네트워크 독립적인 부분을 준수해야함
 
-> DSL 서브모듈에는 네트워크에 의존하는 기능 영역이 없음
+> DSL 서브모듈에는 네트워크에 의존하는 기능 영역이 없음  
 > 구성 내에서 네트워크에 따라 일부 매개변수를 설정할 수 있음
 
 
@@ -143,12 +143,12 @@ sequenceDiagram
 ### 7.2.4.2 PduR 모듈에서 DSD 서브모듈로 요청 전달
 
 
-> PduR 모듈은 새로운 진단 요청 콘텐츠의 수신이 시작될 때마다 DCM 모듈에 할당된 DcmRxPduId를 통해 DCM 모듈에 알림.
-> 이 때 Dcm_StartOfReception()을 호출하여 수신할 데이터 크기를 DCM 모듈에 알리고 첫 번째 프레임 또는 단일 프레임의 데이터를 제공하며, 데이터 크기가 버퍼 크기를 초과하거나 요청된 서비스를 사용할 수 없는 경우 DCM이 수신을 거부할 수 있도록 함
-> 이후 Dcm_CopyRxData를 호출하면 DCM 모듈이 제공된 버퍼에서 DCM 버퍼로 데이터를 복사하도록 요청
-> 진단 요청의 수신이 완료되면(Dcm_StartOfReception이 성공하면) PduR 모듈은 Dcm_TpRxIndication()을 호출하여 DCM 모듈에 수신 표시를 제공
-> DCM은 일반 연결을 사용할 수 있어야 하며, 여기서 주소 지정 정보는 DcmRxPdu의 메타데이터를 통해 Dcm_StartOfReception()에 의해 DCM에 제공됨
-> 이 주소 지정 정보는 응답 및 동일한 테스터의 요청 감지를 위해 저장 및 사용되어야함
+> PduR 모듈은 새로운 진단 요청 콘텐츠의 수신이 시작될 때마다 DCM 모듈에 할당된 DcmRxPduId를 통해 DCM 모듈에 알림.  
+> 이 때 Dcm_StartOfReception()을 호출하여 수신할 데이터 크기를 DCM 모듈에 알리고 첫 번째 프레임 또는 단일 프레임의 데이터를 제공하며, 데이터 크기가 버퍼 크기를 초과하거나 요청된 서비스를 사용할 수 없는 경우 DCM이 수신을 거부할 수 있도록 함  
+> 이후 Dcm_CopyRxData를 호출하면 DCM 모듈이 제공된 버퍼에서 DCM 버퍼로 데이터를 복사하도록 요청  
+> 진단 요청의 수신이 완료되면(Dcm_StartOfReception이 성공하면) PduR 모듈은 Dcm_TpRxIndication()을 호출하여 DCM 모듈에 수신 표시를 제공  
+> DCM은 일반 연결을 사용할 수 있어야 하며, 여기서 주소 지정 정보는 DcmRxPdu의 메타데이터를 통해 Dcm_StartOfReception()에 의해 DCM에 제공됨  
+> 이 주소 지정 정보는 응답 및 동일한 테스터의 요청 감지를 위해 저장 및 사용되어야함  
 > 자세한 내용은 **일반 연결 처리 섹션**을 참고
 
 
@@ -168,7 +168,7 @@ sequenceDiagram
 - [SWS_Dcm_00111] DSL 서브모듈은 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출한 후에만 수신 데이터를 DSD 서브모듈로 전달
 - [SWS_Dcm_00241] 요청 메시지가 수신되는 즉시 (파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출한 후 연결된 Tx-DcmPduId에 대해 Dcm_TpTxConfirmation()을 호출하기 전까지) DSL 하위 모듈은 해당 DcmPduId를 차단해야함(SWS_Dcm_00351 참조). 이 요청을 처리하는 동안에는 해당 응답 메시지가 전송되고 DcmPduId가 다시 해제될 때까지 동일한 DcmDslConnection의 다른 요청(예: OBD 세션에 의해 향상된 세션이 종료될 수 있음)을 수신할 수 없음(동시 TesterPresent 요청 제외)
 
-> API(프로토타입, 입출력 파라미터)에 대한 자세한 설명은 PduR 모듈의 인터페이스 설명에서 확인할 수 있음([2] 참조)
+> API(프로토타입, 입출력 파라미터)에 대한 자세한 설명은 PduR 모듈의 인터페이스 설명에서 확인할 수 있음([2] 참조)  
 > 진단 통신 어플리케이션에 따라 서로 다른 DcmPduId를 사용할 수 있음. 예를 들어:
 
 - OBD DcmRxPduId : OBD 요청 수신용
@@ -177,7 +177,7 @@ sequenceDiagram
 - UDS fuc DcmRxPduId : 기능적(Functionally) 주소가 지정된 UDS 요청 수신용
 - UDS DcmTxPduId :  UDS 응답 전송용
 
-> 주소 유형(phys/func)은 DcmRxPduId에 따라 구성됨(구성 매개변수 DcmDslProtocolRx 참조)
+> 주소 유형(phys/func)은 DcmRxPduId에 따라 구성됨(구성 매개변수 DcmDslProtocolRx 참조)  
 > 전송 계층의 주소 지정 형식(확장 주소 지정, 일반 주소 지정)과 관계없이 기능적 수신과 물리적 수신에 대해 항상 다른 DcmRxPduId 값이 있기 때문에 DcmRxPduId별로 구성할 수 있음
 
 
@@ -187,10 +187,10 @@ sequenceDiagram
 ### 7.2.4.3 동시 “TesterPresent”(”keep alive logic”)
 
 
-> 테스터가 물리적 요청/응답과 병행하여 기능적인 “TesterPresent” 명령을 전송할 수도 있음
-> 이를 ISO14229-1[15]에서 “keep alive logic”이라고 함
-> 이 기능 “TesterPresent”는 물리적 요청과 동일한 DcmDslConnection에 속하는 별도의 DcmRxPduId(UDS 기능 DcmRxPduId)에서 수신됨
-> 이 경우 명시적으로 구성되지 않은 Dcm 내부 수신 버퍼가 사용됨
+> 테스터가 물리적 요청/응답과 병행하여 기능적인 “TesterPresent” 명령을 전송할 수도 있음  
+> 이를 ISO14229-1[15]에서 “keep alive logic”이라고 함  
+> 이 기능 “TesterPresent”는 물리적 요청과 동일한 DcmDslConnection에 속하는 별도의 DcmRxPduId(UDS 기능 DcmRxPduId)에서 수신됨  
+> 이 경우 명시적으로 구성되지 않은 Dcm 내부 수신 버퍼가 사용됨  
 > 이러한 이유로 기능적 TesterPresent(그리고 응답이 없는 기능적 TestPresent만)는 다음과 같은 방식으로 처리
 
 - [SWS_Dcm_00112] PduR 모듈이 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출하고 요청이 “suppressPosPspMsgIndicationBit”이 TRUE(SID = 0x3E, 서브펑션 =0x80)인 “TesterPresent” 명령이면 DSL 서브 모듈은 세션 타임아웃 타이머를 재설정함(S3Server)
@@ -208,8 +208,8 @@ sequenceDiagram
 - [SWS_Dcm_01072] 주기적 전송의 경우, Dcm은 PduR_DcmTransmit() 호출에서 전체 payload 데이터를 제공해야하며 Dcm_CopyTxData에 대한 호출이 없을 것으로 예상
 - [SWS_Dcm_01073] 주기적 전송의 경우, 전송 결과를 알리기 위해 Dcm_TxConfirmation()을 호출하여 주기적 전송을 위해 Dcm을 호출함
 
-> 응답은 DCM 모듈 구성에서 요청이 수신된 ID, 즉 DcmRxPduId에 연결된 DcmTxPduId와 함께 전송됨(구성 파라미터 DcmDslProtocolTx 참조)
-> PduR_DcmTransmit() 내에서 길이 정보 및 일반 연결의 경우 주소 지정 정보만 PduR 모듈에 전달됩니다. DCM 모듈이 PduR_DcmTransmit()을 성공적으로 호출한 후, PduR 모듈은 Dcm_CopyTxData()를 호출하여 전송할 데이터를 제공하도록 DCM 모듈에 요청하고 전체 PDU가 성공적으로 전송되었거나 오류가 발생한 후 Dcm_TpTxConfirmation()을 호출함
+> 응답은 DCM 모듈 구성에서 요청이 수신된 ID, 즉 DcmRxPduId에 연결된 DcmTxPduId와 함께 전송됨(구성 파라미터 DcmDslProtocolTx 참조)  
+> PduR_DcmTransmit() 내에서 길이 정보 및 일반 연결의 경우 주소 지정 정보만 PduR 모듈에 전달됩니다. DCM 모듈이 PduR_DcmTransmit()을 성공적으로 호출한 후, PduR 모듈은 Dcm_CopyTxData()를 호출하여 전송할 데이터를 제공하도록 DCM 모듈에 요청하고 전체 PDU가 성공적으로 전송되었거나 오류가 발생한 후 Dcm_TpTxConfirmation()을 호출함  
 > 일반 연결 내 주소 정보 처리에 대한 자세한 내용은 7.2.4.5 일반 연결 처리 섹션을 참조
 
 - [SWS_Dcm_00117] 완전한 DCM PDU가 성공적으로 전송되었거나 오류가 발생한 후 DSL 서브모듈이 Dcm_TpTxConfirmation() 호출로 확인을 받으면, DSL 서브모듈은 이 확인을 DSD 서브모듈로 전달
@@ -221,12 +221,12 @@ sequenceDiagram
 ### 7.2.4.5 일반 연결 처리 (Generic Connection Handling)
 
 
-> DCM은 메타데이터길이 ≥1로 DcmPdus에 의해 식별되는 일반 연결을 처리할 수 있어야 함
-> 이러한 연결은 런타임에 실제 테스터 주소(actual tester address)를 전달
-> 일반 연결은 ISO15765-2[17]에 따라 일반 고정 또는 혼합 29비트 주소 지정 형식을 사용하는 CAN 진단에 지원됨
-> 이에 CAN ID의 실제 레이아웃에 따라 일반 연결은 확장 또는 일반 및 혼합 11비트 주소 지정 형식에도 사용할 수 있음
-> DCM은 CanTp에서 사용하는 실제 주소 지정 형식(actual addressing format)을 인식하지 못함
-> 일반 연결에는 구성 매개변수 DcmDslProtocolRxTesterSourceAddr가 필요하지 않음
+> DCM은 메타데이터길이 ≥1로 DcmPdus에 의해 식별되는 일반 연결을 처리할 수 있어야 함  
+> 이러한 연결은 런타임에 실제 테스터 주소(actual tester address)를 전달  
+> 일반 연결은 ISO15765-2[17]에 따라 일반 고정 또는 혼합 29비트 주소 지정 형식을 사용하는 CAN 진단에 지원됨  
+> 이에 CAN ID의 실제 레이아웃에 따라 일반 연결은 확장 또는 일반 및 혼합 11비트 주소 지정 형식에도 사용할 수 있음  
+> DCM은 CanTp에서 사용하는 실제 주소 지정 형식(actual addressing format)을 인식하지 못함  
+> 일반 연결에는 구성 매개변수 DcmDslProtocolRxTesterSourceAddr가 필요하지 않음  
 > 여러 연결이 동일한 DcmPdus를 참조할 수 있음
 
 - [constr_6044] 일반 연결은 일관성이 있어야함. 즉, DcmDsl 커넥션의 모든 참조된 PDU(DcmDslProtocolRxPduRef, DcmDslProtocolTxPduRef, DcmDslPeriodicTxPduRef, DcmDslRoeTxPduRef)의 메타데이터 길이와 PduLength가 동일함
@@ -242,7 +242,7 @@ sequenceDiagram
   participant Dcm
   Tester->> Dcm: Request
   Dcm->> Tester: Response (NRC 0x78)
-
+  
   alt is negative
     Dcm->> Tester: Response (NRC 0x78)
 	else
@@ -257,7 +257,7 @@ sequenceDiagram
 
 - [SWS_Dcm_00119] DSL 서브 모듈은 별도의 버퍼에서 SWS_Dcm_00024에서 요구하는 대로 부정 응답을 전송해야함
 
-> SWS_Dcm_00119의 근거 : 진단 버퍼에 이미 응답 내용을 준비한 애플리케이션과 같이 진행 중인 요청 처리를 덮어쓰는 것을 방지하기 위해 필요
+> SWS_Dcm_00119의 근거 : 진단 버퍼에 이미 응답 내용을 준비한 애플리케이션과 같이 진행 중인 요청 처리를 덮어쓰는 것을 방지하기 위해 필요  
 > 하나의 진단 요청에 대한 NRC 0x78(Response pending)의 부정 응답 수는 구성 파라미터 DcmDslDiagRespMaxNumRespPend에 의해 제한됨. 이렇게 하면 애플리케이션의 교착 상태를 방지
 
 - [SWS_Dcm_00120] 요청된 진단 작업에 대한 부정 응답 횟수(SWS_Dcm_00024 참조)가 구성 파라미터 DcmDslDiagRespMaxNumRespPend에 정의된 값에 도달하면 DCM 모듈은 활성된 진단 요청(active diagnostic request)의 처리를 중지해야함
@@ -270,13 +270,13 @@ sequenceDiagram
 
 - [SWS_Dcm_00122] DCM 모듈은 별도의 프로토콜과 설정 가능한 크기의 별도 버퍼를 사용하여 주기적 전송에 대한 응답을 전송해야함
 
-> DcmDslPeriodicTransmissionConRef 구성 파라미터를 사용하면 주기적 전송 요청을 수신하거나 주기적 전송 응답을 전송하는데 사용되는 프로토콜을 주기적 전송 메시지 전송에 사용되는 프로토콜에 연결할 수 있음
-> 주기적 전송 프로토콜에 여러 개의 DcmTxPduId를 할당할 수 있음
+> DcmDslPeriodicTransmissionConRef 구성 파라미터를 사용하면 주기적 전송 요청을 수신하거나 주기적 전송 응답을 전송하는데 사용되는 프로토콜을 주기적 전송 메시지 전송에 사용되는 프로토콜에 연결할 수 있음  
+> 주기적 전송 프로토콜에 여러 개의 DcmTxPduId를 할당할 수 있음  
 > DCM 모듈은 통신 모드에 따라 몇 가지 제한 사항을 준수함
 
 - [SWS_Dcm_00123] 주기적 전송 통신은 전체 통신 모드(Full COM)에서만 이루어짐
 
-> 전체 통신 모드(Full COM)가 아닐 때 주기적인 전송 이벤트가 발생할 수 있음.
+> 전체 통신 모드(Full COM)가 아닐 때 주기적인 전송 이벤트가 발생할 수 있음.  
 > 따라서 다음과 같은 요구사항이 존재함
 
 - [SWS_Dcm_00125] DCM 모듈은 전체 통신 모드(Full COM) 옆의 주기적 전송 이벤트를 폐기하고 전송을 위해 대기열에 넣지 않아야함
@@ -285,7 +285,7 @@ sequenceDiagram
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 [SWS_Dcm_01072] 주기적 전송의 경우, Dcm은 PduR_DcmTransmit() 호출에서 전체 payload 데이터를 제공해야하며 Dcm_CopyTxData에 대한 호출이 없을 것으로 예상<br>[SWS_Dcm_01073] 주기적 전송의 경우, 전송 결과를 알리기 위해 Dcm_TxConfirmation()을 호출하여 주기적 전송을 위해 Dcm을 호출함
@@ -305,7 +305,7 @@ sequenceDiagram
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 ROE가 발생해도 DcmDslResponseOnEvent 컨테이너가 있는 경우에 Configuration 되어 있어야함
@@ -375,7 +375,7 @@ stateDiagram-v2
 - [SWS_Dcm_00878] Event Window Time이 초과되면 중지된 RoeEvents가 ‘ROE stopped’ 상태로 변경
 - [SWS_Dcm_00879] 현재 세션에서 나가면 시작된 모든 RoeEvent가 ‘ROE stopped’ 상태로 변경
 
-> 참고 : 현재 세션이 기본 세션이 아닌 세션에서 동일하거나 다른 세션으로 변경되는 경우와 관계없이 현재 세션이 종료되면 RoeEvents가 중지됨
+> 참고 : 현재 세션이 기본 세션이 아닌 세션에서 동일하거나 다른 세션으로 변경되는 경우와 관계없이 현재 세션이 종료되면 RoeEvents가 중지됨  
 > 기본 세션이 아닌 세션으로 전환함, 기본 세션을 현재 활성 세션으로 두면 세션이 중지되고 저장됨(세션이 다시 시작되는 즉시 다시 시작하기 위해 기본 세션으로 다시 변경(SWS_Dcm_00902 참조))
 
 - [SWS_Dcm_00952] OnDTCStatusChange 하위 함수로 ROE 요청이 수신되고 RoeEvent가 ‘ROE started’인 경우, OnDTEStatusChange의 RoeEvent는 ‘ROE stopped’ 상태로 변경되고 새 요청으로 설정된 DTCStatusMask에 의해 ServiceToRespondTo가 트리거 됨
@@ -402,8 +402,12 @@ stateDiagram-v2
 
 #### 7.2.4.8.1.10 ‘ROE stoppted’ 상태에서 ‘ROE stopped’로 전환 (10)
 
+
 ## 이해를 확인하는 질문
+
 
 > Dcm의 container 개수와 parameter 값의 범위는 어떻게 다른가?
 
+
 Multiplicity는 부모 instance마다 허용되는 구성 개수다. MIN/MAX·default·enum은 값의 범위를 설명한다. Reference의 대상과 variant 조건까지 함께 읽어야 실제 ECU 설정의 허용 범위를 알 수 있다.
+

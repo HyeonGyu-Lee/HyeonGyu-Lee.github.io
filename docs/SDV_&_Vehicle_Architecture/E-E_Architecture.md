@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "E/E Architecture"
+title: E/E Architecture
 has_children: true
-published_date: 2026-10-14T12:49:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "SDV & Vehicle Architecture"
+parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/E-E_Architecture'
 redirect_from:
  - "/3f91b412900a813082ecffed2ba23817"
 ---
-
 ## 기능별 ECU를 중앙·영역 단위로 재배치하는 상황
 
+
 Functional decomposition과 physical placement는 다른 축이다. Cable 길이를 줄이는 결정이 latency, failure domain과 service dependency를 어떻게 바꾸는지 함께 보아야 한다.
+
 
 > E/E(Electrical/Electronic) Architecture는 ECU·센서·Actuator·전원·네트워크의 배치와 역할을 정의한다. Distributed, Domain, Zonal은 설계 관점이며 실제 차량에는 혼합 구조가 흔하다.
 
@@ -57,8 +58,12 @@ flowchart TB
 
 배선 길이·커넥터 수·네트워크 지연·CPU/메모리·전력·장애 영향 범위를 변경 전후 비교한다. ECU 개수 감소만으로 성공을 평가하지 않는다. Gateway에서 전송 주기와 우선순위가 바뀌면 실제 End-to-End Latency를 다시 측정한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > ECU 개수를 줄이면 복잡성도 같은 비율로 줄어들까?
 
+
 Network·software dependency와 공유 자원 관리가 늘 수 있다. 물리 통합과 논리적 책임 분리를 함께 설계한다.
+

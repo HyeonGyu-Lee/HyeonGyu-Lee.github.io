@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Time Synchronization & Latency"
+title: Time Synchronization & Latency
 has_children: false
-published_date: 2026-10-14T12:49:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 5
-parent: "SDV & Vehicle Architecture"
+parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/Time_Synchronization_&_Latency'
 redirect_from:
  - "/3f91b412900a814c8d51ce571713d0bb"
 ---
-
 ## 서로 다른 ECU의 sensor timestamp를 비교하는 상황
 
+
 Clock synchronization과 전달 latency는 다른 문제다. 공통 시간 기준이 있어도 queue와 processing delay가 생기므로 측정 시점과 관측 시점을 분리해야 한다.
+
 
 > 분산 시스템에서는 Clock Synchronization과 Latency Measurement를 구분해야 한다. 서로 다른 장치의 timestamp를 빼려면 clock offset과 오차를 알아야 한다. 같은 장치의 timeout에는 역행 가능한 wall clock보다 monotonic clock을 사용한다.
 
@@ -55,8 +56,12 @@ IEEE 1588 PTP와 IEEE 802.1AS gPTP의 적용 profile·timestamp 지원·switch �
 
 CPU 부하·혼잡·sync loss·clock step·Grandmaster 변경을 주입한다. 만료 명령 처리에 잘못된 wall clock을 쓰면 과거 명령이 살아나거나 정상 명령이 거절될 수 있으므로 timestamp domain을 명시한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Clock이 동기화되면 데이터 Age도 0에 가까울까?
 
+
 Age에는 sampling 이후의 전달·대기·처리 시간이 포함된다. Clock offset과 별도로 end-to-end 예산을 측정한다.
+

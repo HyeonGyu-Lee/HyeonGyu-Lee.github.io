@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Arrays & Two Pointers"
+title: Arrays & Two Pointers
 has_children: false
-published_date: 2026-10-14T12:52:00.000Z
-last_modified_date: 2026-10-14T12:54:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "Coding Test in C"
+parent: 'Coding Test in C'
 permalink: '/Coding_Test_in_C/Arrays_&_Two_Pointers'
 redirect_from:
  - "/3f91b412900a81f48b08c6abf5aa2600"
 ---
-
 ## 배열의 구간을 늘리고 줄이며 조건을 유지하는 상황
 
+
 Two pointers는 각 pointer가 움직일 때 유지되는 성질을 이용한다. 정렬이나 단조성이 없는 문제에 같은 이동 규칙을 적용하면 해를 건너뛸 수 있다.
+
 
 ## Problem
 
@@ -59,8 +60,12 @@ int main(void) {
 
 정렬되지 않은 부분 배열의 합 문제는 이 방법과 다르다. Sliding Window는 양수·비음수 조건처럼 단조성이 있어야 적용되는 경우가 많다. 음수가 있으면 Prefix Sum과 hash 등 다른 접근을 검토한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > 두 pointer가 한 방향으로만 움직여도 항상 정답을 찾을까?
 
+
 문제의 단조성과 구간 불변식이 증명되어야 한다. 음수·중복 등 조건 변화가 이동 논리를 깨뜨리는지 확인한다.
+

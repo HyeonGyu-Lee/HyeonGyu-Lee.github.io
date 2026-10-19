@@ -1,18 +1,19 @@
 ---
 layout: default
-title: "MCU Peripheral"
+title: MCU Peripheral
 has_children: true
-published_date: 2026-10-14T06:25:00.000Z
-last_modified_date: 2026-10-14T13:55:00.000Z
+published_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 6
 permalink: '/MCU_Peripheral'
 redirect_from:
  - "/3f91b412900a810ab8d8eff3a8c51fbf"
 ---
-
 ## 하나의 sensor 입력을 여러 hardware 기능으로 구성하는 상황
 
+
 Sensor와 actuator는 응용 기능이고 ADC, GPIO, timer, serial interface는 구현 자원이다. 하나의 기능에 여러 peripheral이 참여할 수 있으며 clock·pin·interrupt·DMA는 이들을 연결한다.
+
 
 ## MCU Peripheral 기능 지도
 
@@ -66,7 +67,7 @@ Concurrency·DMA ownership·Memory·Watchdog·Security & Boot는 Peripheral을 �
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 설치한 S32 RTD release와 S32K312 Reference Manual·pin map·errata로 실제 지원 IP와 API를 확인한다. 이 지도에 Ethernet MAC이나 특정 Touch engine이 있다는 이유로 S32K312에도 해당 hardware가 내장되어 있다고 가정하지 않는다.
@@ -74,8 +75,13 @@ Concurrency·DMA ownership·Memory·Watchdog·Security & Boot는 Peripheral을 �
 </div>
 </blockquote>
 
+
+
 ## 이해를 확인하는 질문
+
 
 > Touch sensor는 항상 ADC 하나로 구현되는가?
 
+
 측정 방식에 따라 GPIO·timer, 전용 touch controller 또는 외부 IC의 serial interface를 사용할 수 있다.
+

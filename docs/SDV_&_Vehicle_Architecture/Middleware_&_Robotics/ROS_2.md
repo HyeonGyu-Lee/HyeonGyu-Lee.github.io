@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "ROS 2"
+title: ROS 2
 has_children: false
-published_date: 2026-10-14T12:49:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "Middleware & Robotics"
+parent: 'Middleware & Robotics'
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/ROS_2'
 redirect_from:
  - "/3f91b412900a810b8ab4d2e9bbada142"
 ---
-
 ## Node를 실행했지만 Topic에서 값을 받지 못하는 상황
 
+
 Node, executor, callback과 middleware endpoint는 서로 다른 책임을 가진다. Topic 이름만 확인하면 실행 지연이나 QoS 불일치를 놓친다. 데이터 경로와 callback 실행 경로를 함께 추적해야 한다.
+
 
 > ROS 2는 로봇·분산 시스템의 Node와 통신·도구를 제공한다. ROS 1과 달리 RMW 추상화와 분산 Discovery 등을 사용하지만 hard real-time이나 차량 Safety 적합성을 자동 보장하지 않는다. 새 학습은 ROS 2를 중심으로 하고 ROS 1은 기존 시스템 이관 시 별도로 비교한다.
 
@@ -77,8 +78,12 @@ Single-threaded Executor에서도 callback이 오래 걸리면 다른 callback �
 
 Node 종료·재시작, 서로 다른 Domain, QoS 불일치, subscriber 처리 지연, 네트워크 인터페이스 변경을 시험한다. topic hz는 관측 지점의 수신 빈도이며 원래 센서 sampling 주기나 End-to-End Latency를 직접 증명하지 않는다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Topic이 발견되면 callback 실행도 보장될까?
 
+
 발견은 endpoint 정보의 교환이다. QoS, 데이터 전달, executor scheduling과 callback 처리 가능 여부는 별도로 확인한다.
+

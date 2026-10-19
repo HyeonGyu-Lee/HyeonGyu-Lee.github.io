@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "10BASE-T1S"
+title: 10BASE-T1S
 has_children: false
-published_date: 2026-10-12T04:26:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "Ethernet"
+parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/10BASE-T1S'
 redirect_from:
  - "/3f71b412900a81a6a543d4e1f5c8fa9f"
 ---
-
 ## 여러 node가 짧은 single-pair segment를 공유하는 상황
 
+
 10BASE-T1S의 multidrop 구성에서는 매체 접근과 node별 전송 기회가 중요하다. PLCA는 접근 충돌을 줄이는 역할이며 application deadline이나 delivery 보장을 대신하지 않는다.
+
 
 > 단거리 single-pair Ethernet의 10 Mbit/s 통신과 multidrop·PLCA를 설명한다.
 
@@ -24,15 +25,13 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 IEEE 802.3cg-2019에서 정의된 10BASE-T1S를 중심으로 설명한다. 실제 거리·노드 수·매체 조건은 표준과 PHY 사양을 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -98,8 +97,12 @@ Unsupported 응답이면 PHY·드라이버 지원 여부를 먼저 확인한다.
 
 노드별로 동일 크기 프레임을 전송하고 ID·timestamp·손실을 기록한다. 단일 송신, 동시 송신, 노드 제거·복귀, coordinator 재시작을 구분한다. 공유 매체 처리량과 각 노드의 최악 대기 시간을 각각 측정한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > PLCA node ID만 설정하면 deterministic application이 될까?
 
+
 Node 수, burst 정책, traffic 길이, cycle과 software 지연까지 포함한 시간 예산이 필요하다.
+

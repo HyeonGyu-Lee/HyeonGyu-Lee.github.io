@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "100BASE-T1"
+title: 100BASE-T1
 has_children: false
-published_date: 2026-10-12T04:26:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "Ethernet"
+parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/100BASE-T1'
 redirect_from:
  - "/3f71b412900a81ceaab7c7b0679fd3b0"
 ---
-
 ## 한 쌍의 선으로 ECU와 switch를 연결하는 상황
 
+
 100BASE-T1은 100 Mbit/s point-to-point full-duplex physical link다. Link training·전기적 품질과 Ethernet frame 이후의 IP·service 동작은 다른 관측 대상이다.
+
 
 > 단일 twisted pair의 100 Mbit/s point-to-point full-duplex 링크를 정리한다.
 
@@ -24,15 +25,13 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 IEEE 802.3bw-2015와 적용 PHY·케이블 사양을 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -83,8 +82,12 @@ iperf3 -c 192.168.10.2 -u -b 20M -t 30
 
 이 시험의 throughput·loss·jitter 결과는 PHY 적합성 인증을 대신하지 않는다. 전원 재인가와 cable reconnect 후 link 복구와 서비스 복구 시간을 따로 확인한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > PHY link up이면 IP 통신도 되는가?
 
+
 MAC 설정, VLAN, addressing과 route가 별도로 맞아야 한다. Link 상태는 physical 연결의 일부 조건을 나타낸다.
+

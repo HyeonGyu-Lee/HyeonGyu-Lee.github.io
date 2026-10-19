@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "I2C"
+title: I2C
 has_children: false
-published_date: 2026-10-14T13:46:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-22-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 9
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/I2C'
 redirect_from:
  - "/3f91b412900a815bab37fa40ac87308d"
 ---
-
 ## Register address를 쓴 뒤 같은 장치의 값을 읽는 상황
 
+
 Address와 ACK는 장치 선택·수신 상태를 나타내고 START/Repeated START/STOP은 transaction을 나눈다. Pull-up과 bus capacitance가 signal 상승 시간을 결정하므로 software sequence와 전기 조건을 함께 보아야 한다.
+
 
 > I2C는 SDA/SCL을 공유하며 address, ACK/NACK, START/STOP으로 transaction을 구성한다. Open-drain과 pull-up, bus capacitance, clock stretching, timeout을 함께 검토한다.
 
@@ -24,7 +25,7 @@ Address와 ACK는 장치 선택·수신 상태를 나타내고 START/Repeated ST
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 S32K312의 실제 I2C/LPI2C instance·pin mux·지원 speed·RTD API를 설치 패키지에서 확인한다. 아래 board_i2c_write_read는 repeated START를 지원한다고 명시한 설명용 adapter다.
@@ -60,6 +61,7 @@ sequenceDiagram
 ```
 
 
+
 위는 1-byte register address와 1-byte read를 사용하는 가상 장치 예다. 모든 장치가 같은 protocol을 쓰지 않으며 마지막 read byte에 보내는 NACK는 정상 transaction 종료다.
 
 
@@ -79,6 +81,7 @@ bool sensor_read_id(uint8_t *value) {
     return board_i2c_write_read(0x50,&reg,1,value,1,10);
 }
 ```
+
 
 
 이 adapter는 동기식이며 반환 시 stack의 reg를 더 이상 참조하지 않는다는 계약이다. 비동기 driver라면 buffer를 완료 시점까지 유지한다. 0x50·0x0F·10 ms는 예제값이다.
@@ -101,8 +104,12 @@ SDA low stuck이면 먼저 전원·pin mux·다른 controller의 소유 여부�
 
 정상 ID read, 잘못된 address, 장치 미연결, NACK, 긴 stretching, 동시 bus 접근, 전원 순서 변화, stuck line을 시험한다. Logic analyzer decode와 scope의 rise time·VOL 측정을 함께 확인한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > ACK를 받으면 읽은 값도 항상 올바를까?
 
+
 ACK는 해당 단계의 byte 수신 응답이다. Register 주소, repeated-start 요구, 데이터 길이와 byte order는 별도로 맞아야 한다.
+

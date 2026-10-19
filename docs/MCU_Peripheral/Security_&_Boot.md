@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Security & Boot"
+title: Security & Boot
 has_children: true
-published_date: 2026-10-14T13:02:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-22-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 16
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Security_&_Boot'
 redirect_from:
  - "/3f91b412900a8157a786de9d2d8088d6"
 ---
-
 ## 전원 인가부터 신뢰할 수 있는 application 실행까지의 흐름
 
+
 Trust anchor, image validation, key policy와 recovery는 부팅 경로를 구성한다. 업데이트 편의와 보안 경계를 함께 설계해야 실패 후에도 허용된 software로 복귀할 수 있다.
+
 
 > HSM/HSE, Key Management, Secure Boot와 Bootloader를 연결해 부팅 시 어떤 코드를 신뢰하고, 업데이트 시 무엇을 검증하며, 실패 시 어떻게 복구하는지 정리한다. 암호화·무결성·인증·권한·복구는 서로 다른 요구사항이다.
 
@@ -44,8 +45,12 @@ S32K3 계열의 보안 기능은 NXP HSE(인증·암호 서비스) 및 제품별
 
 HSM & HSE → Key Management & Provisioning → Secure Boot → Bootloader & Firmware Update 순으로 학습한다. Memory Architecture의 Flash 배치·Linker Script·Startup을 함께 이해해야 부팅 주소와 이미지 범위를 올바르게 검증할 수 있다.
 
+
 ## 이해를 확인하는 질문
+
 
 > 암호화된 image라면 신뢰할 수 있는 image인가?
 
+
 Confidentiality와 authenticity는 다르다. 실행 허용에는 인증·무결성·version policy가 필요하다.
+

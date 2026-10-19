@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "RAM, ROM & Flash"
+title: RAM, ROM & Flash
 has_children: false
-published_date: 2026-10-14T13:02:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-22-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "Memory Architecture"
+parent: 'Memory Architecture'
 permalink: '/MCU_Peripheral/Memory_Architecture/RAM,_ROM_&_Flash'
 redirect_from:
  - "/3f91b412900a81b2870fcba272b43118"
 ---
-
 ## 설정값을 전원 차단 후에도 보존하는 상황
 
+
 RAM의 volatile lifetime과 Flash의 erase/program 단위는 저장 정책을 다르게 만든다. 값을 기록하는 코드보다 중간 실패 뒤 어떤 복사본을 유효하다고 판단하는지가 중요하다.
+
 
 > RAM은 일반적으로 전원 유지가 필요한 작업 메모리, ROM은 읽기 전용 또는 출고 시 고정된 코드/데이터 영역을 가리킨다. Firmware가 저장된 Flash를 관습적으로 ROM이라고 부르기도 하지만 Flash는 지정된 erase/program 절차로 갱신할 수 있어 물리적 특성과 접근 규칙이 다르다.
 
@@ -47,8 +48,12 @@ ECC 보호 RAM/Flash에서는 초기화되지 않은 영역 읽기와 올바르�
 
 메모리 보존 범위를 reset 종류별로 시험하고 초기화 누락·alignment 오류·Flash driver failure·record 손상을 주입한다. raw pointer로 memory map 전체를 읽는 방식은 MMIO 부작용과 접근 fault를 유발할 수 있으므로 디버거와 vendor 도구를 목적에 맞게 사용한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > CRC가 맞으면 최신 설정값이라고 볼 수 있을까?
 
+
 CRC는 손상 탐지에 관한 정보다. Generation과 commit 상태를 함께 사용해야 최신의 완전한 기록을 구분할 수 있다.
+

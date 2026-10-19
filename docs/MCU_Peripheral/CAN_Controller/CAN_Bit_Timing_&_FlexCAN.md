@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "CAN Bit Timing & FlexCAN"
+title: CAN Bit Timing & FlexCAN
 has_children: false
-published_date: 2026-10-14T13:46:00.000Z
-last_modified_date: 2026-10-14T13:52:00.000Z
+published_date: 2026-10-14-22-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "CAN Controller"
+parent: 'CAN Controller'
 permalink: '/MCU_Peripheral/CAN_Controller/CAN_Bit_Timing_&_FlexCAN'
 redirect_from:
  - "/3f91b412900a819aacb9e115a3cb0ba0"
 ---
-
 ## 같은 500 kbit/s인데 두 ECU가 안정적으로 통신하지 못하는 상황
 
+
 Bitrate는 clock과 prescaler, time segment의 합으로 정해진다. 같은 bitrate라도 sample point, oscillator 오차, propagation delay와 SJW가 달라질 수 있다. Register encoding과 실제 time quanta를 구분해야 한다.
+
 
 ## Scope
 
@@ -21,7 +22,7 @@ Bitrate는 clock과 prescaler, time segment의 합으로 정해진다. 같은 bi
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 MCU CAN Controller의 timing·buffer·driver 구현을 다룬다. S32K312와 설치 RTD를 기준으로 실제 API·register 범위를 확인한다. 아래 수치와 board_can_* adapter는 실습용이며 사용 보드의 기본 설정값이 아니다.
@@ -48,19 +49,34 @@ TSEG2 = PHASE_SEG2
 ```
 
 
+
 여기서 BRP는 실제 분주비, 각 SEG는 실제 TQ 개수다. 레지스터에 쓰는 값과 구분한다. 많은 타이밍 필드는 실제값−1을 저장하지만 모든 필드가 그렇지는 않다. 드라이버 API가 실제값을 받는지 인코딩 값을 받는지도 확인한다. SYNC_SEG는 1 TQ이다.
 
 
 ## 계산 예제: 80 MHz에서 500 kbit/s, Sample Point 80%
 
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/MCU_Peripheral/CAN_Controller/CAN_Bit_Timing_&_FlexCAN/1.webp" href="/_images/MCU_Peripheral/CAN_Controller/CAN_Bit_Timing_&_FlexCAN/1.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" decoding="async" width="1983" height="793" alt="" src="/_images/MCU_Peripheral/CAN_Controller/CAN_Bit_Timing_&_FlexCAN/1.webp" />
+<figcaption>f_CAN=80 MHz, 실제 BRP=8, TQ=100 ns를 가정한 설명용 비트 구간도다. SYNC 1 + PROP 7 + PHASE1 8 + PHASE2 4 = 20 TQ이며 Sample Point는 16 TQ, 즉 80%다. 실제 측정 파형이 아니다.</figcaption>
+</figure>
+</a>
+</div>
+</div>
+</div>
 
-<figure><a href="/assets/images/diagrams/can-timing.png" data-fslightbox="can"><img src="/assets/images/diagrams/can-timing.png" width="1983" height="793" loading="lazy" decoding="async" alt="f_CAN=80 MHz, 실제 BRP=8, TQ=100 ns를 가정한 설명용 비트 구간도다. SYNC 1 + PROP 7 + PHASE1 8 + PHASE2 4 = 20 TQ이며 Sample Point는 16 TQ, 즉 80%다. 실제 측정 파형이 아니다."></a><figcaption>f_CAN=80 MHz, 실제 BRP=8, TQ=100 ns를 가정한 설명용 비트 구간도다. SYNC 1 + PROP 7 + PHASE1 8 + PHASE2 4 = 20 TQ이며 Sample Point는 16 TQ, 즉 80%다. 실제 측정 파형이 아니다.</figcaption></figure>
 
 
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 그림 읽기와 실측 확인: Sample Point는 PHASE1과 PHASE2 경계다. 그림의 구간 폭보다 표기된 TQ를 기준으로 계산하고, 실제 register 인코딩·SJW 제약은 해당 FlexCAN 매뉴얼과 생성 설정으로 확인한다.
@@ -80,6 +96,7 @@ bitrate = 80 MHz / (8 × 20) = 500,000 bit/s
 sample point = (1 + 7 + 8) / 20 = 80%
 SJW = 4 TQ → 최대 재동기화 조정 폭 400 ns
 ```
+
 
 
 이 예제는 타이밍 계산용 후보이며 특정 보드의 검증 완료 설정이 아니다. SJW·각 세그먼트·분주비 범위와 관계는 컨트롤러 제약을 만족해야 한다. 일반적으로 SJW는 PHASE_SEG2를 넘지 않도록 하며 PHASE_SEG1 관련 제약도 해당 하드웨어 규정을 확인한다. 동일 bitrate와 sample point여도 전파 지연, 발진기 허용 오차, 버스 길이에 대한 적합성은 달라질 수 있다.
@@ -119,6 +136,7 @@ sudo ip link set can0 type can bitrate 500000 sample-point 0.800
 sudo ip link set can0 up
 ip -details -statistics link show can0
 ```
+
 
 
 SocketCAN의 sample-point는 80%가 아니라 0.800 형식이다. 커널이 실제 클록·드라이버 범위에서 타이밍을 선택하므로 요청한 Sample Point와 선택된 결과를 비교한다. vcan은 물리 클록·ACK·종단 저항이나 비트 타이밍을 검증하지 못한다.
@@ -178,6 +196,7 @@ flowchart TD
 ```
 
 
+
 ## CAN 구현: 초기화에서 놓치기 쉬운 순서
 
 - 클록과 pin mux, 트랜시버 비활성 초기 상태를 먼저 구성한다. 설치 예제의 모듈 초기화·freeze/정상 모드 전환 순서를 따르고 각 실패를 별도로 보고한다.
@@ -220,12 +239,14 @@ void encode_speed(uint16_t centi_kmh, uint8_t seq, uint8_t out[3]) {
 ```
 
 
+
 ```bash
 # can-utils, 정상 노드/분석기와 시험용 네트워크에서 실행
 # 0x1388 = 5000 → 50.00 km/h, sequence=1
 cansend can0 321#881301
 candump -tz can0
 ```
+
 
 
 정수 단위로 내부 값을 유지하고 표시 단계에서 100으로 나누면 단순 신호에 불필요한 float 변환을 줄일 수 있다. 범위·invalid 값·sequence wrap 정책을 실제 신호 계약에 추가한다. signed 신호나 Motorola bit numbering은 이 예제와 다르다.
@@ -262,6 +283,9 @@ MCAL Can과 CanIf를 사용하는 구성에서는 controller/PDU handle 매핑, 
 
 ## 이해를 확인하는 질문
 
+
 > 분주값이 같으면 서로 다른 MCU에서도 bitrate가 같을까?
 
+
 Peripheral에 공급되는 실제 clock과 segment 설정이 같아야 한다. Clock tree와 driver의 실제값·register값 표현을 먼저 확인한다.
+

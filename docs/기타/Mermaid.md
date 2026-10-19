@@ -1,20 +1,21 @@
 ---
 layout: default
-title: "Mermaid"
+title: Mermaid
 has_children: false
-published_date: 2024-06-19T23:19:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2024-06-20-08-06-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "기타"
+parent: '기타'
 permalink: '/기타/Mermaid'
 redirect_from:
  - "/9dce9e4497ee4d9cacf0c81ae6f240c9"
  - "/기타/mermaid"
 ---
-
 ## 모듈의 관계와 message 순서를 그림으로 설명하는 상황
 
+
 Flowchart는 관계와 분기, sequence diagram은 참여자와 시간 순서를 표현한다. Diagram 종류를 질문에 맞추고 화살표가 의미하는 데이터·제어·시간을 구분해야 한다.
+
 
 > 텍스트로 다이어그램을 표현하는 문법과 예제를 정리한 문서다.
 
@@ -25,15 +26,13 @@ Flowchart는 관계와 분기, sequence diagram은 참여자와 시간 순서를
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 규격·도구 버전에 따른 동작 차이를 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -68,7 +67,7 @@ sequenceDiagram
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 [Actor][Arrow][Actor]: Message text
@@ -116,7 +115,7 @@ sequenceDiagram
 	participant Alice
 	actor J as John
 	actor softer
-
+	
 	J->Alice : text
 ```
 
@@ -136,7 +135,7 @@ J->Alice : text
 ## Actor 별 stack 활성화 (activate, deactivate)
 
 
-> Arrow 뒤에 +, -를 붙여서 activate, deactivate를 사용할 수 있으나, 한 단계의 stack만 적용된다.
+> Arrow 뒤에 +, -를 붙여서 activate, deactivate를 사용할 수 있으나, 한 단계의 stack만 적용된다.  
 > 한번에 여러 단계의 stack을 적용하려면 activate, deactivate를 하단에 적용하면 된다.
 
 
@@ -497,8 +496,13 @@ sequenceDiagram
     API-->BillingService: Start billing process
 ```
 
+
+
 ## 이해를 확인하는 질문
+
 
 > 연결선이 있으면 동시 실행이나 시간 순서까지 의미할까?
 
+
 Flowchart 연결만으로는 timing을 확정할 수 없다. Sequence나 state diagram 등 목적에 맞는 표현을 선택한다.
+

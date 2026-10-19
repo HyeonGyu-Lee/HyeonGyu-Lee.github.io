@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Concurrency & Synchronization"
+title: Concurrency & Synchronization
 has_children: true
-published_date: 2026-10-14T06:29:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 14
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization'
 redirect_from:
  - "/3f91b412900a817c90bfc1192aa0a8e6"
 ---
-
 ## Task·ISR·DMA·다른 core가 상태를 공유하는 상황
 
+
 동시에 접근하는 주체와 실행 context를 먼저 나누면 필요한 보호가 드러난다. Atomicity, ordering, ownership과 lifetime은 서로 다른 조건이며 하나의 lock으로 항상 해결되지 않는다.
+
 
 > 동시성 문제는 코어 개수보다 공유 자원에 접근하는 실행 문맥에서 시작한다. 단일 코어에서도 ISR과 task의 선점으로 경쟁이 발생하며, 멀티 코어에서는 다른 코어의 실제 병렬 실행과 Memory Visibility까지 고려한다. Global Variable를 없애는 것만으로 해결되지 않으며 소유권·수명·원자성·순서·실패 처리를 함께 설계한다.
 
@@ -49,7 +50,7 @@ flowchart TD
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 S32K312 프로젝트의 드라이버 구현과 연결해 설명하지만 멀티 코어 부분은 멀티 코어 MCU로 확장할 때의 일반 설계다. 현재 MCU의 모든 메모리·캐시·Atomic operation·RTOS 기능을 가정하지 않는다. C11 예제와 FreeRTOS API 예제는 각각의 도구체인·RTOS 전제 아래 읽고, AUTOSAR OS나 다른 RTOS에 함수 이름만 바꿔 적용하지 않는다.
@@ -73,8 +74,12 @@ S32K312 프로젝트의 드라이버 구현과 연결해 설명하지만 멀티 
 | **코어 간 버퍼 전달**           | IPC + ownership + 메모리 순서        |
 | **CPU-DMA 버퍼 전달**        | ownership + cache/완료 규약         |
 
+
 ## 이해를 확인하는 질문
+
 
 > Critical section을 쓰면 DMA 접근도 멈추는가?
 
+
 CPU interrupt mask는 DMA나 다른 core를 정지시키지 않는다. 각 주체의 접근 종료와 ownership protocol이 필요하다.
+

@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Electron"
+title: Electron
 has_children: false
-published_date: 2026-10-12T02:28:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2026-10-12-11-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 5
-parent: "기타"
+parent: '기타'
 permalink: '/기타/Electron'
 redirect_from:
  - "/3f71b412900a8118a22accad6ce0e215"
 ---
-
 ## 화면에서 요청한 작업을 OS 기능으로 수행하는 상황
 
+
 Renderer, preload와 main process는 권한과 실행 환경이 다르다. IPC를 좁은 계약으로 설계하면 UI 입력이 임의의 filesystem·process 접근으로 확장되는 것을 줄일 수 있다.
+
 
 > 프로세스 책임과 제한된 IPC를 구현하고 보안 경계·배포 환경의 동작을 확인한다.
 
@@ -24,15 +25,13 @@ Renderer, preload와 main process는 권한과 실행 환경이 다르다. IPC�
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -169,8 +168,12 @@ Renderer는 window.appInfo.version()을 호출하고 반환값을 textContent로
 
 정상 창에서 버전 표시 → 다른 프레임 요청 거부 → 창 재시작 → 배포 패키지에서 preload 경로 확인 순서로 시험한다. 파일 접근 API로 확장할 때는 경로 범위·타입·권한을 main에서 검증한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Renderer가 보낸 IPC message를 그대로 신뢰해도 될까?
 
+
 채널, 입력 형식과 권한을 main에서 검증해야 한다. Context isolation은 입력 검증을 대신하지 않는다.
+

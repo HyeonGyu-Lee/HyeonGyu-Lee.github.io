@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Single-Core & ISR Synchronization"
+title: Single-Core & ISR Synchronization
 has_children: false
-published_date: 2026-10-14T06:29:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "Concurrency & Synchronization"
+parent: 'Concurrency & Synchronization'
 permalink: '/MCU_Peripheral/Concurrency_&_Synchronization/Single-Core_&_ISR_Synchronization'
 redirect_from:
  - "/3f91b412900a811394dfc8437ec305c6"
 ---
-
 ## Task의 increment 사이에 ISR이 같은 counter를 바꾸는 상황
 
+
 Single core에서도 실행 흐름은 instruction 사이에서 교체될 수 있다. Critical section의 범위와 interrupt mask 복원 규칙이 중요하며 긴 작업을 보호 구간에 넣으면 latency가 증가한다.
+
 
 > 단일 코어는 한 순간에 하나의 명령 흐름을 실행해도 task 선점과 ISR 진입 때문에 Shared State가 손상될 수 있다. counter++는 보통 읽기·증가·쓰기이며 중간에 선점되면 증가분을 잃는다.
 
@@ -93,8 +94,12 @@ binary semaphore는 중복 이벤트가 합쳐질 수 있다. 모든 수신 이�
 
 높은 빈도의 IRQ와 task 부하로 강제 선점하고 카운터·queue 항목·완료 알림의 손실을 확인한다. Critical Section 최대 시간과 interrupt latency를 GPIO toggle·trace로 측정한다. 정상 실행 빈도만으로 race가 없다고 판단하지 않는다.
 
+
 ## 이해를 확인하는 질문
+
 
 > CPU가 하나라면 race condition이 없을까?
 
+
 Task와 ISR 또는 task 간 선점으로 논리 연산이 섞일 수 있다. 단일 instruction인지와 호출 context를 구분한다.
+

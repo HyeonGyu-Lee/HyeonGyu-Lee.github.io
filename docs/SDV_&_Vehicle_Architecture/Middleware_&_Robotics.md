@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Middleware & Robotics"
+title: Middleware & Robotics
 has_children: true
-published_date: 2026-10-14T12:49:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 4
-parent: "SDV & Vehicle Architecture"
+parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics'
 redirect_from:
  - "/3f91b412900a8175b1fede20bb9f4f97"
 ---
-
 ## 센서 처리와 제어 기능을 여러 node로 분리하는 상황
 
+
 Middleware는 발견·전달·타입과 lifecycle의 일부를 제공한다. ROS interface, DDS·Zenoh와 underlying network의 책임을 나누면 기능 배치와 장애 위치를 설명할 수 있다.
+
 
 > ROS 2는 Node·Topic·Service·Action과 실행·개발 도구를 제공하는 생태계다. DDS는 ROS 2에서 많이 사용하는 통신 기반이고 Zenoh는 Pub/Sub·Query 등을 제공하는 별도 통신 기술다. 셋을 같은 계층으로 비교하지 않는다.
 
@@ -43,8 +44,12 @@ flowchart TD
 
 ROS 2 전체 스택을 S32K312에 그대로 올리는 전제로 시작하지 않는다. MCU는 CAN/Ethernet adapter, 지원되는 micro-ROS 구성 또는 별도 IPC를 통해 Linux 애플리케이션과 연결할 수 있다. micro-ROS는 RTOS·transport·메모리·Agent 지원 여부와 실제 board port가 필요하다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Middleware를 교체하면 application 계약도 자동 보존될까?
 
+
 Naming, serialization, QoS·시간·복구 의미가 유지되는지 확인해야 한다. API 이름의 유사성만으로는 충분하지 않다.
+

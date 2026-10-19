@@ -1,20 +1,21 @@
 ---
 layout: default
-title: "UART"
+title: UART
 has_children: false
-published_date: 2026-10-14T06:25:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 10
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/UART'
 redirect_from:
  - "/3f91b412900a81af8221d49c3dd33cae"
  - "/차량_통신/UART"
 ---
-
 ## 한 번의 receive callback에 메시지의 절반만 들어오는 상황
 
+
 UART는 byte stream을 전달하며 application message의 경계를 만들지 않는다. Baudrate와 sampling 문제를 해결한 뒤에도 길이, delimiter, checksum과 timeout을 포함한 framing이 필요하다.
+
 
 > UART는 별도 클록선 없이 약속한 baudrate·data bits·parity·stop bits로 데이터를 주고받는 비동기 직렬 통신이다. 프레임 경계를 애플리케이션이 정의해야 하며, UART 전기 레벨과 RS-232/RS-485 물리 계층을 구분한다.
 
@@ -28,14 +29,28 @@ UART는 byte stream을 전달하며 application message의 경계를 만들지 �
 
 ## baudrate 계산과 오차
 
+<div class="image-flex">
+<div class="image-item">
+<div class="image-item-img">
+<a data-fslightbox="/_images/MCU_Peripheral/UART/1.webp" href="/_images/MCU_Peripheral/UART/1.webp" data-type="image" aria-label="This is fslightbox">
+<div class="skeleton-loading">
+<div class="skeleton-img"></div>
+</div>
+<figure>
+<img loading="lazy" decoding="async" width="2073" height="758" alt="" src="/_images/MCU_Peripheral/UART/1.webp" />
+<figcaption>UART 8N1, 115200 baud, 0x55를 LSB first로 송신한 설명용 파형이다. 한 비트는 약 8.68 μs, start부터 stop까지 10비트는 약 86.8 μs다. 실제 측정 파형이 아니다.</figcaption>
+</figure>
+</a>
+</div>
+</div>
+</div>
 
-<figure><a href="/assets/images/diagrams/uart-timing.png" data-fslightbox="uart"><img src="/assets/images/diagrams/uart-timing.png" width="2073" height="758" loading="lazy" decoding="async" alt="UART 8N1, 115200 baud, 0x55를 LSB first로 송신한 설명용 파형이다. 한 비트는 약 8.68 μs, start부터 stop까지 10비트는 약 86.8 μs다. 실제 측정 파형이 아니다."></a><figcaption>UART 8N1, 115200 baud, 0x55를 LSB first로 송신한 설명용 파형이다. 한 비트는 약 8.68 μs, start부터 stop까지 10비트는 약 86.8 μs다. 실제 측정 파형이 아니다.</figcaption></figure>
 
 
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 그림 읽기와 실측 확인: Logic-level TX/RX를 측정하고 start edge부터 각 비트 중앙의 값과 stop High를 확인한다. RS-232의 전압 극성과 혼동하지 않는다.
@@ -58,6 +73,7 @@ baud_actual ≈ 116279.07 bit/s
 이 후보가 최적 또는 해당 보드에서 검증된 설정이라는 뜻은 아니다.
 다른 OSR/SBR 조합과 해당 IP의 허용 범위를 함께 탐색한다.
 ```
+
 
 
 낮은 OSR에서 추가 sampling 옵션이 필요한지 매뉴얼을 확인한다. 허용 오차는 송수신 양쪽의 발진기 오차·프레임 길이·sampling 방식·온도 조건을 합쳐 평가한다. 통신 한 번 성공했다고 전 범위에서 안정적이라고 판단하지 않는다. 8N1은 payload 1바이트당 일반적으로 10비트 시간을 사용하므로 115200에서 이론상 약 11520 bytes/s다.
@@ -114,6 +130,7 @@ int main(void) {
 ```
 
 
+
 ## 바이너리 프로토콜 설계
 
 
@@ -135,6 +152,9 @@ TX buffer 수명이 완료까지 유지되어야 한다. DMA 완료나 TX FIFO e
 
 ## 이해를 확인하는 질문
 
+
 > Callback 한 번을 packet 하나로 처리해도 될까?
 
+
 DMA·interrupt의 완료 조건은 응용 frame과 다를 수 있다. 연속 buffer에서 frame을 누적·분리하고 부분 수신과 여러 frame의 동시 수신을 처리한다.
+

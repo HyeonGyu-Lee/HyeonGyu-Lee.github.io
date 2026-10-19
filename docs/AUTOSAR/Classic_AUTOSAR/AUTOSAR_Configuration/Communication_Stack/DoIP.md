@@ -1,49 +1,99 @@
 ---
 layout: default
-title: "DoIP"
+title: DoIP
 has_children: false
-parent: "Communication Stack"
-nav_order: 10
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
+nav_order: 6
+parent: 'Ethernet'
 permalink: '/AUTOSAR/Classic_AUTOSAR/AUTOSAR_Configuration/Communication_Stack/DoIP'
-last_modified_date: 2026-10-14T16:39:00.000Z
 redirect_from:
- - "/3f91b412900a81a3bed8c81a188e72f4"
+ - "/3f71b412900a81a3a5e1fc467ddd2058"
+ - "/차량_통신/Ethernet/DoIP"
 ---
+## Ethernet으로 ECU에 diagnostic request를 보내는 상황
 
-## DoIP의 책임을 데이터 의미와 전송 계층 관점에서 구분하는 상황
 
-Signal·I-PDU, routing, transport, interface와 driver는 같은 traffic을 다른 경계에서 다룬다. Configuration reference는 그 경계를 연결하며, network state와 실제 데이터 전송 상태도 구분된다. DoIP의 최상위 정의에는 DoIPConfigSet, DoIPGeneral 등이 있다. Container의 이름, description과 reference를 함께 보면 module 내부 설정과 외부 연결을 구분할 수 있다.
+Vehicle discovery, routing activation, TCP 연결과 UDS 응답은 서로 다른 단계다. TCP가 연결되었다고 진단 대상이나 session 권한이 준비된 것은 아니다.
 
-## DoIP의 역할
-> Diagnostics over Internet Protocol. Ethernet/IP 기반 진단의 주소·연결·전달 책임을 다룬다. UDS service 내용은 Dcm 등 상위 기능과 구분한다.
 
-## 표준 원문
+> IP 네트워크에서 진단 장비·게이트웨이·ECU 사이의 진단 전달을 이해한다.
 
-| 항목 | 원문 값 |
-| --- | --- |
-| SHORT-NAME | DoIP |
-| TYPE | ECUC-MODULE-DEF |
-| DESC | Configuration of the DoIP (Diagnostic over IP) module. |
-| Multiplicity | [0..1] |
 
-## 구성의 첫 계층
+## 적용 범위
 
-| 정의 | Type | 개수 | 설명 원문 |
-| --- | --- | --- | --- |
-| DoIPConfigSet | ECUC-PARAM-CONF-CONTAINER-DEF | [1] | This container contains the configuration parameters and sub containers of the AUTOSAR DoIP module. |
-| DoIPGeneral | ECUC-PARAM-CONF-CONTAINER-DEF | [1] | This container specifies the general configuration parameters of the DoIP module. |
 
-## 전체 표준 Explorer
-{% include components/standard-explorer.html module="DoIP" %}
+<blockquote class="notice">
+<div class="callout">
+<div class="callout-icon" markdown="1">
+💡 
+</div>
+<div class="callout-content" markdown="1">
+ISO 13400 시리즈의 적용 판과 ECU 논리 주소·라우팅 정책을 확인한다.
+</div>
+</div>
+</blockquote>
 
-## 개수와 조건의 해석
-[1]은 해당 부모 아래 1개, [0..1]은 선택적으로 1개, [0..*]는 0개 이상, [1..*]는 1개 이상이다. 부모·choice·variant 조건을 함께 읽어야 하며 optional parent의 자식을 ECU 전체에서 무조건 필수로 해석하지 않는다. MIN/MAX는 값 범위이며 multiplicity와 다르다.
 
-## 기준과 범위
-원본은 Classic AUTOSAR 4.2.2의 ECU Configuration Parameter Definitions다. 최신 release나 공급사 확장으로 확대 해석하지 않는다. Explorer에서 하위 container·parameter·reference와 원문 조건을 표로 확인할 수 있다.
+
+### 역할
+
+
+DoIP은 Diagnostics over Internet Protocol의 약자다. UDS 서비스 데이터의 의미와 IP 기반 진단 전달·연결 절차를 구분한다.
+
+
+### 발견과 연결
+
+
+차량 식별·발견과 실제 진단 연결은 다른 단계다. 일반적으로 UDP 기반 발견과 TCP 기반 진단 연결을 고려하며 세부 동작은 적용 규격을 따른다.
+
+
+Routing activation, source/target logical address, 연결 상태와 게이트웨이 경로를 확인한다. IP 주소와 진단 논리 주소는 동일한 식별자가 아니다.
+
+
+### 오류 해석
+
+
+네트워크 연결 실패, DoIP 수준 acknowledgement·negative acknowledgement, UDS NRC를 구분한다. DoIP acknowledgement가 UDS 서비스의 성공을 의미하지 않는다.
+
+
+### 보안과 운용
+
+
+DoIP이라는 이유만으로 인증·암호화가 자동 제공된다고 가정하지 않는다. TLS 등 보안 지원과 실제 정책, 외부 접근·gateway 라우팅·세션 자원 제한을 확인한다.
+
+
+### 검증 항목
+
+- 차량 발견·식별과 네트워크 설정.
+- routing activation 허용·거절.
+- 잘못된 source/target 주소.
+- 연결 종료·재접속과 요청 처리.
+- 진단 payload·응답 시간과 UDS 결과.
+
+### 실습: 발견부터 UDS 응답까지
+
+
+시험용 ECU·gateway·진단 도구의 IP와 logical address를 설정한다. 차량 식별 → TCP 연결 → routing activation → 진단 요청 → DoIP acknowledgement → UDS 응답을 각각 캡처한다.
+
+
+Wireshark에서 doip 필터를 적용하고, 기본 포트가 아닌 시스템에서는 실제 transport 포트와 decode-as를 확인한다.
+
+
+### 실패 분석 예제
+
+
+TCP 연결은 됐지만 진단이 실패하면 routing activation 결과, source/target logical address, gateway 경로와 세션 상태를 확인한다. 잘못된 logical address의 DoIP NACK와 ECU가 반환한 UDS NRC를 다른 결과로 기록한다.
+
+
+연결을 강제로 종료한 뒤 재접속·routing activation·기존 요청의 처리 정책을 확인한다. 변경·초기화 서비스는 승인된 시험 대상에서만 실행한다.
+
 
 ## 이해를 확인하는 질문
 
-> DoIP의 container 개수와 parameter 값의 범위는 어떻게 다른가?
 
-Multiplicity는 부모 instance마다 허용되는 구성 개수다. MIN/MAX·default·enum은 값의 범위를 설명한다. Reference의 대상과 variant 조건까지 함께 읽어야 실제 ECU 설정의 허용 범위를 알 수 있다.
+> TCP ACK를 diagnostic positive response로 볼 수 있을까?
+
+
+TCP ACK는 transport byte 수신에 관한 것이다. UDS positive·negative response와 ECU의 실제 동작은 별도로 확인한다.
+

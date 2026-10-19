@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Selenium"
+title: Selenium
 has_children: false
-published_date: 2024-08-09T04:18:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2024-08-09-13-08-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 3
-parent: "기타"
+parent: '기타'
 permalink: '/기타/Selenium'
 redirect_from:
  - "/a1271ad8aacf4f759024ea9397642edc"
 ---
-
 ## 비동기 화면에서 버튼을 누르고 결과를 확인하는 상황
 
+
 Browser automation은 요소 탐색, 동작과 상태 관찰을 구분해야 한다. 고정 sleep 대신 원하는 조건을 기다려야 환경 속도 차이와 실제 오류를 분리할 수 있다.
+
 
 > 브라우저 검색 동작을 명시적 대기와 결과 assertion으로 검증하는 예제를 다룬다.
 
@@ -24,15 +25,13 @@ Browser automation은 요소 탐색, 동작과 상태 관찰을 구분해야 한
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -121,8 +120,12 @@ finally:
 
 선택자는 설명용이며 현재 DOM과 다르면 수정한다. 첫 결과가 원하는 문서인지도 확인하도록 조건을 보강한다. Timeout 발생 시 screenshot·현재 URL·실패 단계·선택자를 저장하고 고정 sleep 증가로만 해결하지 않는다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Click이 성공하면 사용자의 작업도 완료된 것인가?
 
+
 결과 상태나 데이터가 반영됐는지 확인해야 한다. Click은 입력 동작의 수행만 나타낼 수 있다.
+

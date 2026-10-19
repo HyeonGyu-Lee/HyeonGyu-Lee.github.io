@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "MOST"
+title: MOST
 has_children: false
-published_date: 2026-10-12T04:26:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 6
-parent: "차량 통신"
+parent: '차량 통신'
 permalink: '/차량_통신/MOST'
 redirect_from:
  - "/3f71b412900a81e1984edd688374dd6d"
 ---
-
 ## 음성·영상 stream과 control data를 함께 다루는 상황
 
+
 MOST는 multimedia 전달의 시간·자원 배분을 network 구조와 연결한다. 서로 다른 세대의 physical 조건과 channel 구성을 같은 대역폭 숫자로 비교해서는 안 된다.
+
 
 > 차량 멀티미디어 네트워크의 대역폭·연결 관리 관점에서 MOST를 소개한다.
 
@@ -24,15 +25,13 @@ MOST는 multimedia 전달의 시간·자원 배분을 network 구조와 연결�
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 MOST 세대와 사용하는 PHY·노드 제품을 먼저 확인한다. 현재 차량에 적용됐다는 의미는 아니다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -78,8 +77,12 @@ Ethernet 기반 미디어 전송과 비교할 때 세대·기능·토폴로지·
 
 프로토콜 분석 장비의 설정과 원본 캡처를 보존하고, 실제 제품의 MOST 세대와 PHY에 맞는 시험 절차를 사용한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > 평균 대역폭만 맞으면 stream 품질도 보장될까?
 
+
 연속 공급, 지연·jitter와 자원 할당이 함께 맞아야 한다. Burst나 clock 문제는 평균값에 드러나지 않을 수 있다.
+

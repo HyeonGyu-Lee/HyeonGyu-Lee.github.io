@@ -1,20 +1,21 @@
 ---
 layout: default
-title: "Markdown"
+title: Markdown
 has_children: false
-published_date: 2024-08-09T01:16:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2024-08-09-10-08-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "기타"
+parent: '기타'
 permalink: '/기타/Markdown'
 redirect_from:
  - "/68785713880641198580284cac02eb7d"
  - "/기타/markdown"
 ---
-
 ## 기술 내용을 여러 renderer에서 읽을 수 있게 작성하는 상황
 
+
 제목은 문서 구조, 표는 비교, code fence는 literal 예제를 표현한다. Renderer 확장과 표준 Markdown의 범위를 구분해야 Notion과 정적 사이트에서 의미가 유지된다.
+
 
 > Markdown은 제목·목록·표·코드 등을 일반 텍스트로 표현하는 문법이다.
 
@@ -25,14 +26,13 @@ redirect_from:
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 </div>
 </div>
 </blockquote>
-
 
 
 
@@ -50,6 +50,7 @@ redirect_from:
 ## 준비 조건
 대상 ECU와 시험 도구의 설정을 확인한다.
 ```
+
 
 
 출력 확인: 제목 계층과 문단 간격이 구분되는지 본다. H1은 문서 제목, H2는 주요 절, H3는 세부 절로 사용하며 화면 크기 조절용으로 제목 수준을 건너뛰지 않는다.
@@ -70,6 +71,7 @@ redirect_from:
 ```
 
 
+
 번호 목록과 하위 목록의 들여쓰기를 확인한다. 체크리스트 지원은 렌더러의 확장 문법에 따라 다르므로 Notion 변환 결과와 사이트 화면을 각각 확인한다.
 
 
@@ -82,6 +84,7 @@ redirect_from:
 ```
 
 
+
 이미지 경로는 설명용이다. 실제 파일 존재·빌드 후 경로·대체 설명을 확인한다. 문서 제목 변경 시 permalink와 내부 링크의 영향을 확인한다.
 
 
@@ -92,6 +95,7 @@ redirect_from:
 인라인 표기는 `NRC 0x78`처럼 작성한다.
 여러 줄 코드는 fenced code block을 사용하고 언어를 지정한다.
 ```
+
 
 
 코드와 설명을 분리하고 입력·기대 결과·실패 조건을 함께 적는다. 코드 안의 줄바꿈과 특수문자가 변환 후 보존되는지 비교한다.
@@ -108,6 +112,7 @@ redirect_from:
 ```
 
 
+
 표는 GFM 등 확장 지원을 확인한다. 긴 코드·문단을 표에 넣지 않고 상세 절로 분리한다. 모바일에서 가로 폭도 확인한다.
 
 
@@ -121,6 +126,7 @@ layout: default
 permalink: /practice/diagnostic-request/
 ---
 ```
+
 
 
 Front matter는 문서 맨 앞에 배치한다. YAML과 본문을 구분하고 title·layout·permalink가 테마에서 어떻게 사용되는지 확인한다.
@@ -145,6 +151,7 @@ sequenceDiagram
 ```
 
 
+
 ### 실습 과제
 
 
@@ -164,8 +171,12 @@ Notion 변환 파일과 원본을 비교하고 Jekyll 빌드 → HTML 검사 →
 | **코드가 실행·치환됨**        | Liquid 처리와 escape 설정을 확인한다. |
 | **표·체크리스트가 본문처럼 표시됨** | 렌더러 확장과 변환 지원을 확인한다.        |
 
+
 ## 이해를 확인하는 질문
+
 
 > 화면에서 크게 보이는 제목이 항상 적절한 제목일까?
 
+
 Heading 수준은 글의 계층을 표현한다. 크기 조절을 위해 수준을 건너뛰면 목차와 접근성 구조가 어긋난다.
+

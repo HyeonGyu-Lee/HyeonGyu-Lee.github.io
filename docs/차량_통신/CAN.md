@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "CAN"
+title: CAN
 has_children: false
-published_date: 2026-10-12T04:26:00.000Z
-last_modified_date: 2026-10-14T13:52:00.000Z
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "차량 통신"
+parent: '차량 통신'
 permalink: '/차량_통신/CAN'
 redirect_from:
  - "/3f71b412900a81f7b0bbfba3a142389f"
 ---
-
 ## 여러 ECU가 동시에 message를 송신하는 상황
 
+
 CAN은 identifier의 arbitration으로 bus 사용 순서를 정한다. Identifier는 우선순위와 message 해석에 관여하지만 payload의 물리 단위나 sender identity를 자동 정의하지 않는다. Frame과 signal을 분리해 해석해야 한다.
+
 
 > 공유 버스에서 식별자 기반 중재로 메시지를 전송하는 CAN의 프레임·신호·오류 처리를 정리한다.
 
@@ -24,15 +25,13 @@ CAN은 identifier의 arbitration으로 bus 사용 순서를 정한다. Identifie
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 Classic CAN의 일반 개념. ISO 11898 시리즈의 적용 판과 트랜시버 사양을 별도로 확인한다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -94,6 +93,7 @@ cansend vcan0 123#11223344
 ```
 
 
+
 수신 로그에서 ID 0x123과 데이터 11 22 33 44를 확인한다. 응용 신호 정의가 없다면 이 데이터를 온도·속도 등으로 임의 해석하지 않는다.
 
 
@@ -121,6 +121,7 @@ int main(void) {
 ```
 
 
+
 신호 정의와 실제 로그의 바이트 순서·단위를 먼저 대조한다. Raw 최소·최대값과 무효값 처리를 추가해 시험한다.
 
 
@@ -129,8 +130,12 @@ int main(void) {
 
 차량 네트워크에서는 ECU 간 메시지 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN Bit Timing & FlexCAN](https://autosar.dev/3f91b412900a819aacb9e115a3cb0ba0) 문서에서 별도로 다룬다.
 
+
 ## 이해를 확인하는 질문
+
 
 > ACK가 있으면 목적 ECU의 제어가 수행됐을까?
 
+
 ACK는 bus의 수신 확인이며 특정 application의 적용 완료를 뜻하지 않는다. 필요한 경우 application response와 sequence를 별도로 설계한다.
+

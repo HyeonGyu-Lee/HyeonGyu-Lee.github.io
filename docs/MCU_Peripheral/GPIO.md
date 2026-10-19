@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "GPIO"
+title: GPIO
 has_children: false
-published_date: 2026-10-14T06:25:00.000Z
-last_modified_date: 2026-10-14T13:55:00.000Z
+published_date: 2026-10-14-15-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/GPIO'
 redirect_from:
  - "/3f91b412900a81e89986d913d9b0c254"
 ---
-
 ## 버튼 입력과 LED 출력을 같은 pin 설정으로 다루려는 상황
 
+
 Pin mux, 방향, pull resistor, 출력 방식은 각각 역할이 다르다. GPIO register의 값은 pad의 전압이나 외부 회로의 실제 동작과 항상 같지 않다. 회로와 pin 상태를 함께 보아야 한다.
+
 
 > GPIO 설정은 핀 방향만 고르는 작업이 아니다. 주변장치 mux, 입력 경로, 출력 초기값, pull, 전기적 구동 능력과 인터럽트 조건을 회로에 맞춰 구성해야 한다.
 
@@ -43,6 +44,7 @@ void led_on(bool on) { board_write_output(LED_PIN, on); }
 ```
 
 
+
 ## 인터럽트와 동시 접근
 
 
@@ -66,8 +68,12 @@ LED에는 current limiting resistor 또는 전류 driver가 필요하다. 대략
 
 Active-high/low와 부팅·reset·pin mux 전환 중 output 초기값을 정의한다. GPIO로 On/Off를 구현하고 밝기 조절은 PWM 문서의 timer output·reload 정책으로 확장한다. ISR의 소프트웨어 toggle로 고정 frequency·duty를 보장했다고 가정하지 않는다.
 
+
 ## 이해를 확인하는 질문
+
 
 > 출력 register가 1이면 LED는 반드시 켜질까?
 
+
 LED의 active polarity, 배선, 전류 제한과 pin mux에 따라 달라진다. Register 값과 pad 전압, LED 전류를 구분한다.
+

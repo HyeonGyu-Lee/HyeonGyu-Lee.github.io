@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Watchdog & Reset Recovery"
+title: Watchdog & Reset Recovery
 has_children: false
-published_date: 2026-10-14T12:52:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 13
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Watchdog_&_Reset_Recovery'
 redirect_from:
  - "/3f91b412900a81698454d9c0fc69a03a"
 ---
-
 ## Task는 멈췄는데 watchdog feed 함수만 계속 실행되는 상황
 
+
 Watchdog의 목적은 주기적으로 register를 쓰는 것이 아니라 유효한 software 진행을 감시하는 것이다. 각 task의 progress와 deadline을 모아 feed 여부를 결정하고 reset 이후 원인을 보존해야 한다.
+
 
 > Watchdog은 software progress가 멈췄을 때 복구를 시작하는 수단이다. 무조건 주기적으로 feed하는 코드만 넣으면 일부 task가 멈춰도 fault를 숨길 수 있다.
 
@@ -48,7 +49,7 @@ task 정지, interrupt storm, deadlock, clock 변경, 초기화 실패와 reset 
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 실제 watchdog IP·clock source·timeout·window·unlock/refresh sequence는 S32K312 매뉴얼과 설치 RTD를 기준으로 확인한다. 아래 health gate는 feed 여부를 판단하는 예제이며 hardware refresh sequence를 구현하지 않는다.
@@ -90,6 +91,7 @@ bool all_progressed(Health *h, const uint32_t now[TASKS]) {
 ```
 
 
+
 모든 task가 매 supervision interval마다 진행해야 한다는 예제다. 서로 다른 주기 task는 각자의 deadline·alive count 범위로 감독한다. all_progressed가 true여도 window open 여부를 확인한 뒤 하나의 supervisor만 feed한다. 부팅 초기 last 값은 첫 유효 snapshot으로 초기화하고 첫 deadline을 별도로 관리한다.
 
 
@@ -98,8 +100,12 @@ bool all_progressed(Health *h, const uint32_t now[TASKS]) {
 
 ISR에서 무조건 feed하면 main/task deadlock을 숨길 수 있다. Supervisor 자체가 멈췄을 때 watchdog이 실제 reset하는지 확인한다. Reset loop가 발생하면 watchdog을 끄기 전에 boot deadline·retained state·clock·계속되는 외부 fault를 분석한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Timer interrupt에서 watchdog을 feed하면 충분할까?
 
+
 Application이 정지해도 interrupt는 계속 실행될 수 있다. 핵심 task의 완료 증거와 시간 조건이 충족된 경우에만 feed해야 한다.
+

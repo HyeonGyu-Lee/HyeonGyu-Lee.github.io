@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "차량 Ethernet 상위 프로토콜"
+title: 차량 Ethernet 상위 프로토콜
 has_children: false
-published_date: 2026-10-12T04:27:00.000Z
-last_modified_date: 2026-10-14T13:25:00.000Z
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 4
-parent: "Ethernet"
+parent: 'Ethernet'
 permalink: '/차량_통신/Ethernet/차량_Ethernet_상위_프로토콜'
 redirect_from:
  - "/3f71b412900a817e99e6e3bea577cd4b"
 ---
-
 ## Ethernet frame 안에서 application data를 찾는 상황
 
+
 L2 frame, IP packet, UDP datagram·TCP stream과 service message는 서로 다른 경계다. Address, routing, segmentation과 serialization을 분리하면 어느 단계에서 data가 달라졌는지 알 수 있다.
+
 
 > Ethernet 위의 주소·전송·서비스 계층을 구분해 패킷을 분석한다.
 
@@ -24,15 +25,13 @@ L2 frame, IP packet, UDP datagram·TCP stream과 service message는 서로 다�
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 일반적인 IP 네트워크 개념. 실제 IPv4·IPv6, 주소·VLAN·포트 정책은 시스템 사양을 따른다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -97,8 +96,12 @@ UDP 30490은 흔히 사용하는 SOME/IP-SD 포트 예시이며 프로젝트 설
 
 UDP datagram 하나와 애플리케이션 메시지의 관계를 먼저 정의한다. TCP로 옮기면 read 호출 한 번이 메시지 하나라는 가정이 성립하지 않으므로 길이 prefix 등 framing 규칙을 적용한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > TCP read 한 번이 SOME/IP message 하나와 일치할까?
 
+
 TCP는 byte stream이다. Message length를 해석해 누적·분리하고 partial read와 여러 message의 동시 도착을 처리한다.
+

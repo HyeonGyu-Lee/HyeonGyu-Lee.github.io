@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "SDV"
+title: SDV
 has_children: false
-published_date: 2026-10-14T12:48:00.000Z
-last_modified_date: 2026-10-14T13:24:00.000Z
+published_date: 2026-10-14-21-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 1
-parent: "SDV & Vehicle Architecture"
+parent: 'SDV & Vehicle Architecture'
 permalink: '/SDV_&_Vehicle_Architecture/SDV'
 redirect_from:
  - "/3f91b412900a81289c3ac3d32fbec963"
 ---
-
 ## 차량 기능을 software 변경으로 확장하는 상황
 
+
 Software 변경 가능성은 hardware의 제어 경계와 안전 조건, interface version에 의해 제한된다. 배포 단위와 상태 소유권을 분리해야 기능 업데이트가 기존 제어를 방해하지 않는다.
+
 
 > SDV(Software-Defined Vehicle)는 차량 기능을 소프트웨어로 지속적으로 개발·배포·관리할 수 있도록 하드웨어, 플랫폼, 서비스와 운영 체계를 설계하는 접근이다. ECU를 Linux 컴퓨터로 바꾸거나 OTA 기능 하나를 추가했다고 완성되는 것은 아니다.
 
@@ -58,8 +59,12 @@ Artifact ID, Software Version, Hardware Compatibility, Schema Version, Dependenc
 
 중앙 집중은 공통 기능 재사용에 유리하지만 장애 영향 범위와 자원 간섭이 커질 수 있다. 독립적인 제어·시간 제약·Safety 요구가 있는 기능을 무조건 중앙으로 옮기지 않는다. 기능 분할과 보안·안전 분석을 함께 수행한다.
 
+
 ## 이해를 확인하는 질문
+
 
 > 중앙 application만 업데이트하면 MCU 영향은 없을까?
 
+
 Command 의미, timing과 최소 지원 version이 바뀌면 MCU 계약도 영향을 받는다. 변경의 경계를 interface로 판단한다.
+

@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "Ethernet MAC & DMA"
+title: Ethernet MAC & DMA
 has_children: false
-published_date: 2026-10-14T13:46:00.000Z
-last_modified_date: 2026-10-14T13:46:00.000Z
+published_date: 2026-10-14-22-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 12
-parent: "MCU Peripheral"
+parent: 'MCU Peripheral'
 permalink: '/MCU_Peripheral/Ethernet_MAC_&_DMA'
 redirect_from:
  - "/3f91b412900a81ebbf0fd6014d454ce5"
 ---
-
 ## RX interrupt는 발생했는데 application buffer가 바뀌지 않는 상황
 
+
 MAC은 frame을 처리하고 DMA는 메모리와 descriptor를 사용한다. CPU가 보는 cache와 DMA가 접근하는 RAM이 일치해야 하며, descriptor ownership 전환이 buffer를 읽거나 재사용할 수 있는 시점을 결정한다.
+
 
 > Ethernet MAC은 frame 송수신과 MAC 계층 기능을 처리하고, PHY는 실제 매체의 신호를 처리한다. MCU 쪽에서는 descriptor·DMA·buffer ownership·cache·interrupt·network stack의 계약을 이해하는 것이 핵심이다.
 
@@ -24,7 +25,7 @@ MAC은 frame을 처리하고 DMA는 메모리와 descriptor를 사용한다. CPU
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 모든 MCU에 Ethernet MAC이 있는 것은 아니다. S32K312에 MAC이 있다고 가정하여 존재하지 않는 ENET register나 API를 제시하지 않는다. 실제 대상 MCU의 peripheral 목록을 먼저 확인하고, MAC이 있는 MCU/SoC 또는 외부 Ethernet controller의 vendor 예제로 실습한다.
@@ -61,6 +62,7 @@ stateDiagram-v2
 ```
 
 
+
 RX descriptor에는 hardware가 쓸 buffer 주소·capacity를 먼저 준비하고 ownership을 마지막에 넘긴다. TX descriptor는 payload·length·flags가 hardware에 보이도록 한 뒤 ownership을 넘긴다. OWN bit 이름과 polarity는 IP마다 다르므로 고정 bit mask를 제시하지 않는다.
 
 
@@ -95,6 +97,7 @@ void ethernet_poll(void) {
 ```
 
 
+
 14는 기본 Ethernet header 길이의 최소 sanity check일 뿐이다. IP packet 검증·VLAN·jumbo frame·FCS 포함 여부는 MAC과 stack 계약에서 처리한다. Zero-copy stack이면 copy 함수 대신 buffer 반환 callback으로 lifetime을 연결해야 한다. IRQ는 완료를 알리고 bounded task/polling에서 frame을 처리한다.
 
 
@@ -115,8 +118,12 @@ PHY link down, descriptor ring exhaustion, RX overrun, malformed length, DMA bus
 
 PHY 관리 접근 → link 상태 → 동일 subnet의 ARP/ICMP → UDP payload → TCP와 sustained load 순으로 확인한다. RX/TX descriptor 회수·packet loss·CPU 부하·cache 활성/비활성 차이·link flap·buffer pool 소진을 측정한다. 지원 여부가 확인되지 않은 timestamp offload·TSN 기능을 가정하지 않는다.
 
+
 ## 이해를 확인하는 질문
+
 
 > RX 완료 뒤 buffer를 읽는 것만으로 충분할까?
 
+
 DMA 완료 상태, descriptor 길이·오류, 필요한 cache invalidate와 memory ordering을 확인한 뒤 CPU가 buffer를 소비해야 한다.
+

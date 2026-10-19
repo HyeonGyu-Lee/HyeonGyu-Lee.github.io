@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "CAN FD"
+title: CAN FD
 has_children: false
-published_date: 2026-10-12T04:26:00.000Z
-last_modified_date: 2026-10-14T13:53:00.000Z
+published_date: 2026-10-12-13-10-00
+last_modified_date: 2026-10-19-13-10-00
 nav_order: 2
-parent: "차량 통신"
+parent: '차량 통신'
 permalink: '/차량_통신/CAN_FD'
 redirect_from:
  - "/3f71b412900a815caa45ee26fd52198f"
 ---
-
 ## 기존 CAN traffic에 더 큰 payload와 빠른 data phase를 추가하는 상황
 
+
 CAN FD는 payload 크기와 data phase 전송 속도를 확장한다. Arbitration timing과 data timing을 분리하고 controller·transceiver·network 구성의 지원 범위를 맞춰야 한다.
+
 
 > Classic CAN 대비 확장된 데이터 길이와 선택적인 데이터 구간 속도 전환을 이해한다.
 
@@ -24,15 +25,13 @@ CAN FD는 payload 크기와 data phase 전송 속도를 확장한다. Arbitratio
 <blockquote class="notice">
 <div class="callout">
 <div class="callout-icon" markdown="1">
-💡
+💡 
 </div>
 <div class="callout-content" markdown="1">
 CAN FD 공통 개념. 실제 허용 비트레이트·배선·혼합 노드 조건은 ISO 11898과 하드웨어 사양을 따른다.
 </div>
 </div>
 </blockquote>
-
-
 
 
 
@@ -83,6 +82,7 @@ cansend vcan0 123##1112233445566778899AABBCC
 ```
 
 
+
 ID 0x123, FD 형식, 12바이트 데이터와 BRS 표시를 확인한다. 실제 버스의 data bitrate는 vcan 실습에서 검증되지 않는다.
 
 
@@ -100,6 +100,7 @@ ip -details -statistics link show can0
 ```
 
 
+
 상대 노드·트랜시버의 지원과 종단을 확인하고 8·12·64바이트 프레임에서 오류 카운터·주기·지터를 비교한다.
 
 
@@ -108,8 +109,12 @@ ip -details -statistics link show can0
 
 차량 네트워크에서는 ECU 간 메시지 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN FD Configuration](https://autosar.dev/3f91b412900a8146a610f03107f8d64e) 문서에서 별도로 다룬다.
 
+
 ## 이해를 확인하는 질문
+
 
 > Data bitrate만 높이면 bus 부하가 같은 비율로 줄어들까?
 
+
 Arbitration, frame overhead, retransmission과 traffic 구성은 그대로 영향을 준다. 실제 frame 길이와 주기별 점유 시간을 계산해야 한다.
+
