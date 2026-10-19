@@ -11,10 +11,10 @@ redirect_from:
  - "/3f91b412900a817c8aa4d5d8e0f4b62f"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 연결된 node를 빠짐없이 방문하는 상황
+
+Queue와 visited state는 탐색 순서와 중복 처리를 결정한다. 방문 표시 시점과 저장 공간의 한계가 correctness와 메모리 사용량을 바꾼다.
+
 ## Problem
 
 
@@ -63,3 +63,9 @@ int main(void) {
 
 
 DFS는 연결 요소·cycle·topological 문제에 활용한다. directed/undirected cycle 판정은 다르다. 큰 입력의 recursion depth를 확인하고 필요한 경우 명시적 stack을 사용한다.
+
+## 이해를 확인하는 질문
+
+> Queue에 넣을 때와 꺼낼 때 방문 표시를 해도 같을까?
+
+꺼낼 때만 표시하면 같은 node가 여러 번 들어갈 수 있다. 중복 허용과 queue 크기를 포함한 불변식을 정해야 한다.

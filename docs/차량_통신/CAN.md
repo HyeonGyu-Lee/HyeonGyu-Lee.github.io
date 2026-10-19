@@ -11,14 +11,9 @@ redirect_from:
  - "/3f71b412900a81f7b0bbfba3a142389f"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 여러 ECU가 동시에 message를 송신하는 상황
 
-
-## 핵심 요약
-
+CAN은 identifier의 arbitration으로 bus 사용 순서를 정한다. Identifier는 우선순위와 message 해석에 관여하지만 payload의 물리 단위나 sender identity를 자동 정의하지 않는다. Frame과 signal을 분리해 해석해야 한다.
 
 > 공유 버스에서 식별자 기반 중재로 메시지를 전송하는 CAN의 프레임·신호·오류 처리를 정리한다.
 
@@ -39,7 +34,6 @@ Classic CAN의 일반 개념. ISO 11898 시리즈의 적용 판과 트랜시버 
 
 
 
-## 본문
 
 
 ### 통신 원리
@@ -134,3 +128,9 @@ int main(void) {
 
 
 차량 네트워크에서는 ECU 간 메시지 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN Bit Timing & FlexCAN](https://autosar.dev/3f91b412900a819aacb9e115a3cb0ba0) 문서에서 별도로 다룬다.
+
+## 이해를 확인하는 질문
+
+> ACK가 있으면 목적 ECU의 제어가 수행됐을까?
+
+ACK는 bus의 수신 확인이며 특정 application의 적용 완료를 뜻하지 않는다. 필요한 경우 application response와 sequence를 별도로 설계한다.

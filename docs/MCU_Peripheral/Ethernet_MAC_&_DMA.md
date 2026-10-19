@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a81ebbf0fd6014d454ce5"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## RX interrupt는 발생했는데 application buffer가 바뀌지 않는 상황
 
-
-## Overview
-
+MAC은 frame을 처리하고 DMA는 메모리와 descriptor를 사용한다. CPU가 보는 cache와 DMA가 접근하는 RAM이 일치해야 하며, descriptor ownership 전환이 buffer를 읽거나 재사용할 수 있는 시점을 결정한다.
 
 > Ethernet MAC은 frame 송수신과 MAC 계층 기능을 처리하고, PHY는 실제 매체의 신호를 처리한다. MCU 쪽에서는 descriptor·DMA·buffer ownership·cache·interrupt·network stack의 계약을 이해하는 것이 핵심이다.
 
@@ -119,3 +114,9 @@ PHY link down, descriptor ring exhaustion, RX overrun, malformed length, DMA bus
 
 
 PHY 관리 접근 → link 상태 → 동일 subnet의 ARP/ICMP → UDP payload → TCP와 sustained load 순으로 확인한다. RX/TX descriptor 회수·packet loss·CPU 부하·cache 활성/비활성 차이·link flap·buffer pool 소진을 측정한다. 지원 여부가 확인되지 않은 timestamp offload·TSN 기능을 가정하지 않는다.
+
+## 이해를 확인하는 질문
+
+> RX 완료 뒤 buffer를 읽는 것만으로 충분할까?
+
+DMA 완료 상태, descriptor 길이·오류, 필요한 cache invalidate와 memory ordering을 확인한 뒤 CPU가 buffer를 소비해야 한다.

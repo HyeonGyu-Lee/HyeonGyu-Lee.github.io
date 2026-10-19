@@ -1,0 +1,105 @@
+/* Technical articles: quiet typography, numbered chapters and readable evidence. */
+body:not(.portfolio-home) {
+  --study-accent: #245b78;
+  --study-tint: #eff5f8;
+}
+body[data-theme="dark"]:not(.portfolio-home) {
+  --study-accent: #9acbe4;
+  --study-tint: #233238;
+}
+.technical-article {
+  counter-reset: chapter;
+  font-size: 16px;
+  line-height: 1.95;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+.technical-article > h1 {
+  letter-spacing: -0.035em;
+  line-height: 1.35;
+  padding-bottom: 1.2rem;
+  border-bottom: 2px solid var(--study-accent);
+  margin-bottom: 2rem;
+}
+.technical-article > h2:not(.text-delta) {
+  counter-increment: chapter;
+  margin-top: 3.2rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--folio-line);
+  font-size: 1.38rem;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+}
+.technical-article > h2:not(.text-delta)::before {
+  content: counter(chapter, decimal-leading-zero);
+  display: block;
+  color: var(--study-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+.technical-article > p,
+.technical-article > ul,
+.technical-article > ol {
+  max-width: 76ch;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.technical-article blockquote {
+  margin: 1.6rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--study-accent);
+  background: var(--study-tint);
+  color: var(--folio-ink);
+  font-style: normal;
+}
+.technical-article blockquote p:last-child { margin-bottom: 0; }
+.technical-article .table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--folio-line);
+  border-radius: 4px;
+}
+.technical-article table { margin: 0; width: 100%; font-size: 0.88rem; line-height: 1.75; }
+.technical-article th { background: var(--study-tint); font-weight: 650; }
+.technical-article td, .technical-article th { padding: 0.8rem 1rem; vertical-align: top; }
+.technical-article pre { max-width: 100%; overflow-x: auto; line-height: 1.65; }
+.technical-article figure { margin: 2rem 0; }
+.technical-article figcaption, .technical-article .study-caption {
+  color: var(--folio-muted);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  margin: 0.6rem 0 1.4rem;
+}
+.technical-article .study-meta {
+  color: var(--study-accent);
+  font-size: 0.76rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.7rem;
+}
+.technical-article .study-outline {
+  border: 1px solid var(--folio-line);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+.technical-article .study-outline summary { cursor: pointer; font-weight: 650; }
+.technical-article .study-outline ol { margin: 1rem 0 0; padding-left: 1.4rem; }
+.technical-article .study-outline a { text-decoration: none; }
+.technical-article .study-outline a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .technical-article { font-size: 15px; }
+  .technical-article > h2:not(.text-delta) { font-size: 1.2rem; margin-top: 2.3rem; }
+  .technical-article td, .technical-article th { padding: 0.65rem; }
+}
+@media print {
+  .technical-article { font-size: 11pt; color: #172b38; }
+  .technical-article h2, .technical-article h3, .technical-article figcaption { break-after: avoid; }
+  .technical-article tr, .technical-article blockquote { break-inside: avoid; }
+  .technical-article .study-outline { display: none; }
+  .technical-article .table-wrapper, .technical-article pre { overflow: visible; }
+}

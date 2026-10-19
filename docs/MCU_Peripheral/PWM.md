@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a816b83f7e67afc9a7236"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## LED 밝기와 motor 구동을 같은 duty 값으로 제어하는 상황
 
-
-## Overview
-
+PWM은 주기와 active 시간의 비율을 표현한다. Clock, prescaler, counter mode가 주기를 정하고 compare 값이 출력 전환 시점을 정한다. Load의 전기적 특성에 따라 같은 duty도 다른 효과를 낸다.
 
 > PWM은 period와 active time으로 출력을 제어한다. Frequency·duty뿐 아니라 polarity·edge alignment·update 시점·fault 시 output 상태를 함께 설정한다.
 
@@ -103,3 +98,9 @@ Motor·half bridge처럼 complementary output을 사용하는 경우 두 스위�
 
 
 Scope로 frequency·active width·jitter·update glitch·0/100%·start/stop·fault 상태를 측정한다. LED 밝기는 duty에 선형으로 보이지 않을 수 있으며 gamma/전류 제어는 별도 요구사항이다. Input Capture로 되읽을 때는 출력 검증 경로와 독립적인 clock 오차도 고려한다.
+
+## 이해를 확인하는 질문
+
+> Duty 50%를 설정하면 출력 전압이 항상 절반일까?
+
+Digital pin은 high와 low를 반복한다. 평균값·전류·부하 응답은 filter, 주파수, 회로와 측정 방식에 따라 달라진다.

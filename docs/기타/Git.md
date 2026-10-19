@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a81bc8bc8d2bc06670870"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## 변경을 공유하기 전에 local과 remote의 차이를 확인하는 상황
 
+Working tree, index, commit과 remote branch는 서로 다른 상태다. Add, commit, fetch와 push가 각각 바꾸는 대상을 구분하면 변경을 잃지 않고 협업할 수 있다.
 
 > Git은 파일의 변경 이력을 커밋으로 기록하는 분산 버전 관리 도구다. 실무에서는 현재 상태 확인 → 작업 브랜치 생성 → 변경 검토 → 커밋 → 원격 반영 → 코드 리뷰 흐름을 기본으로 사용한다. 작업 폴더, 스테이징 영역, 로컬 저장소, 원격 저장소를 구분하면 복구 명령을 안전하게 선택할 수 있다.
 
@@ -341,3 +338,9 @@ git diff --check
 
 
 완료 기준: 의도한 변경만 커밋되었고, 불필요한 파일이 추적되지 않으며, 충돌 마커가 없고, 프로젝트 테스트가 통과해야 한다. 원격을 사용하는 실습에서는 upstream과 push 대상 브랜치도 확인한다.
+
+## 이해를 확인하는 질문
+
+> Commit하면 remote에도 저장된 것인가?
+
+Commit은 local history를 만든다. Push와 remote branch 상태를 확인해야 공유 여부를 알 수 있다.

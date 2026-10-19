@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a81e9bd01f70e03d1f81f"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## Flash 기록 도중 전원이 꺼지는 상황
 
+Download, validation, activation과 application handover는 다른 상태다. 저장 완료와 boot 가능성을 구분하고, 전원 손실 후에도 유효 image를 찾을 수 있는 metadata가 필요하다.
 
 > Bootloader는 시작할 application 선택·검증·업데이트·복구를 담당한다. Boot ROM, vendor boot firmware, 사용자 Bootloader와 application의 경계를 구분한다. 업데이트 transport(CAN/UDS/UART/Ethernet)와 이미지 설치·검증 로직은 분리한다.
 
@@ -87,3 +84,9 @@ Cortex-M에서 vector table·stack·interrupt·timer·DMA·cache 상태를 고�
 
 
 각 chunk 전후, erase 중, verify 후 commit 전, metadata 갱신 중 전원 차단을 시험한다. 중복·순서 뒤바뀐 chunk와 재연결을 처리하고 인증되지 않은 부분 이미지를 실행하지 않는다. UDS download sequence와 실제 설치 상태를 구분해 진단 응답을 설계한다.
+
+## 이해를 확인하는 질문
+
+> 모든 byte를 썼으면 즉시 새 application으로 jump해도 될까?
+
+Image 검증, activation 기록, vector·stack·interrupt·peripheral 상태와 rollback 조건을 맞춰야 한다.

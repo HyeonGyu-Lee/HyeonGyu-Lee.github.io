@@ -11,10 +11,10 @@ redirect_from:
  - "/3f91b412900a8121ba75f8d2e09b90a8"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Kernel은 올라오지만 peripheral driver가 연결되지 않는 상황
+
+Bootloader가 kernel과 hardware description을 전달하고 driver가 binding 정보를 해석한다. Device Tree의 node는 device 사용 조건을 기술하며 driver 구현 자체를 대신하지 않는다.
+
 ## Boot Flow
 
 
@@ -66,3 +66,9 @@ UART console에서 Bootloader·Kernel·user service 중 어느 단계에서 실�
 
 
 Kernel, DTB, Modules, Root FS와 application version의 조합을 기록한다. 재현 가능한 BSP 빌드와 Artifact 서명·배포 정책을 사용한다. Bootloader 변경은 정상 부팅 경로와 복구 인터페이스를 준비한 보드에서 검증한다.
+
+## 이해를 확인하는 질문
+
+> Device Tree node를 추가하면 driver도 생기는가?
+
+Matching driver와 binding, clock·reset·pin·interrupt resource가 함께 필요하다.

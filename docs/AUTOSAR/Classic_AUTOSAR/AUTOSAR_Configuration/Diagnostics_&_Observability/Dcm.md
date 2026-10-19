@@ -12,13 +12,9 @@ redirect_from:
  - "/AUTOSAR/Classic_AUTOSAR/Configure_Parameters/Dcm"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Dcm의 책임을 고장 정보와 진단 접근 관점에서 구분하는 상황
 
-## 핵심 요약
-
+Fault 관찰, event 상태 저장, diagnostic service 처리와 기능 허용 판단은 서로 다른 책임이다. 이 경계를 나누면 같은 오류가 어떤 상태와 응답으로 표현되는지 설명할 수 있다. Dcm의 최상위 정의에는 DcmConfigSet, DcmGeneral 등이 있다. Container의 이름, description과 reference를 함께 보면 module 내부 설정과 외부 연결을 구분할 수 있다.
 
 > 진단 요청 처리와 DSL·DSD·DSP의 역할, 관련 설정과 동작을 정리한 문서다.
 
@@ -39,7 +35,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 ---
@@ -406,3 +401,9 @@ stateDiagram-v2
 - [SWS_Dcm_00890] StorageStatus가 StoreEvent로 설정된 유효한 StartResponseOnEvent 요청이 수신되고 Event Window Time이 이전 전원 주기에서 StorageStatus를 지원하는 경우, 비휘발성(volatile) 데이터를 사용할 수 있는 즉시 RoeEvent가 ‘ROE started’ 상태로 변
 
 #### 7.2.4.8.1.10 ‘ROE stoppted’ 상태에서 ‘ROE stopped’로 전환 (10)
+
+## 이해를 확인하는 질문
+
+> Dcm의 container 개수와 parameter 값의 범위는 어떻게 다른가?
+
+Multiplicity는 부모 instance마다 허용되는 구성 개수다. MIN/MAX·default·enum은 값의 범위를 설명한다. Reference의 대상과 variant 조건까지 함께 읽어야 실제 ECU 설정의 허용 범위를 알 수 있다.

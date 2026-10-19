@@ -10,10 +10,9 @@ redirect_from:
  - "/3f91b412900a8147ba61e086b5eb695f"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Cal의 책임을 암호 연산과 보호 정책 관점에서 구분하는 상황
+
+암호 primitive, key 사용 정책과 PDU 보호는 서로 다른 책임이다. Module의 interface는 그 책임을 연결하며 hardware 저장·연산 방식과 application의 보호 목적을 구분한다. Cal의 최상위 정의에는 CalAsymDecrypt, CalAsymEncrypt, CalAsymPrivateKeyExtract 등이 있다. Container의 이름, description과 reference를 함께 보면 module 내부 설정과 외부 연결을 구분할 수 있다.
 
 ## Cal의 역할
 > Cryptographic Abstraction Library. 암호 기능의 library 추상화를 다루며 Csm의 service/job 관리 관점과 구분한다. 이후 release의 crypto stack 구성을 그대로 대입하지 않는다.
@@ -67,3 +66,9 @@ redirect_from:
 
 ## 기준과 범위
 원본은 Classic AUTOSAR 4.2.2의 ECU Configuration Parameter Definitions다. 최신 release나 공급사 확장으로 확대 해석하지 않는다. Explorer에서 하위 container·parameter·reference와 원문 조건을 표로 확인할 수 있다.
+
+## 이해를 확인하는 질문
+
+> Cal의 container 개수와 parameter 값의 범위는 어떻게 다른가?
+
+Multiplicity는 부모 instance마다 허용되는 구성 개수다. MIN/MAX·default·enum은 값의 범위를 설명한다. Reference의 대상과 variant 조건까지 함께 읽어야 실제 ECU 설정의 허용 범위를 알 수 있다.

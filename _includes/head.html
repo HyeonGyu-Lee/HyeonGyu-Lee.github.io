@@ -41,5 +41,9 @@
   <script defer src="{{ '/assets/js/lazysizes.min.js' | relative_url }}"></script>
   
   <link rel="stylesheet" href="{{ "/assets/css/portfolio.css" | relative_url }}?v={{ asset_version }}">
+  {% unless page.portfolio_home %}
+  <link rel="stylesheet" href="{{ '/assets/css/study-guide.css' | relative_url }}?v={{ asset_version }}">
+  <script defer src="{{ '/assets/js/study-guide.js' | relative_url }}?v={{ asset_version }}"></script>
+  {% endunless %}
   {% seo %}
 </head>

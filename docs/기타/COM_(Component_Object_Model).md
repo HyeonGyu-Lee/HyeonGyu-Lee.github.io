@@ -12,8 +12,9 @@ redirect_from:
  - "/기타/COM"
 ---
 
-## 핵심 요약
+## 다른 언어로 만든 component의 interface를 호출하는 상황
 
+COM은 binary interface와 object lifetime, interface discovery의 계약을 제공한다. 호출 가능한 method와 reference count, apartment model이 함께 맞아야 component 경계를 안전하게 넘는다.
 
 > Microsoft Component Object Model의 객체·인터페이스와 상호 운용 개념을 정리한 문서다. AUTOSAR COM 통신 모듈과는 다른 주제다.
 
@@ -34,7 +35,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 <blockquote class="notice">
@@ -208,3 +208,9 @@ COM에서 사용되는 기본 인터페이스, 모든 COM 인터페이스는 IUn
 ### 2-3. 파라미터
 
 - ‘CoCreateInstance’는 CLSID, 객체가 생성될 컨텍스트(로컬, 원격 등), 그리고 요청된 인터페이스의 식별자(IID) 등을 파라미터로 받
+
+## 이해를 확인하는 질문
+
+> Interface pointer를 복사하면 lifetime도 자동 연장될까?
+
+소유권 계약에 맞는 reference 관리가 필요하다. Raw pointer 복사와 AddRef는 같은 동작이 아니다.

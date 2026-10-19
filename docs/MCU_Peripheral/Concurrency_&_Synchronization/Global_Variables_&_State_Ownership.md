@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a813f99a5db9e21ef3050"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## 여러 task와 ISR이 하나의 상태값을 바꾸는 상황
 
+전역변수 문제의 핵심은 범위 자체보다 누가 언제 쓰고 읽는지다. Owner를 정하고 상태 변경을 interface로 묶으면 synchronization의 필요한 범위를 줄일 수 있다.
 
 > 전역 상태는 어느 파일에서든 접근할 수 있게 만드는 대신, 쓰기 주체와 읽기 API를 정해 관리한다. 파일 범위 static으로 가시성을 제한해도 ISR이나 여러 task가 같은 상태에 접근하면 동기화가 필요하다.
 
@@ -108,3 +105,9 @@ unsigned read_drop_count(void) {
 
 
 모든 공유 변수에 writer, reader, 실행 문맥, 보호 수단, 수명, 초기화 시점을 적는다. 읽기 전용 데이터·task 전용 데이터·ISR 공유·DMA 공유를 구분한 뒤 불필요한 전역 공유를 줄인다. PC에서 race detector를 사용할 수 있어도 MCU의 IRQ·DMA·cache 오류까지 검출하지는 못한다.
+
+## 이해를 확인하는 질문
+
+> volatile을 붙이면 read-modify-write가 안전해질까?
+
+volatile은 atomicity나 상호 배제를 제공하지 않는다. 경쟁하는 접근에는 atomic operation 또는 적절한 보호가 필요하다.

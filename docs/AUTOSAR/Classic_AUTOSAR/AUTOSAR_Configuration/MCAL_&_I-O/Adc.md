@@ -10,10 +10,9 @@ redirect_from:
  - "/3f91b412900a8116b2bcfcc9b7f9ac68"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Adc의 책임을 응용 기능과 hardware 자원 관점에서 구분하는 상황
+
+Peripheral driver는 MCU 자원을 설정·제어하고 상위 software는 신호와 기능의 의미를 다룬다. Channel, pin과 clock의 hardware 제약은 ECU별 configuration에 반영된다. Adc의 최상위 정의에는 AdcConfigSet, AdcGeneral, AdcPublishedInformation 등이 있다. Container의 이름, description과 reference를 함께 보면 module 내부 설정과 외부 연결을 구분할 수 있다.
 
 ## Adc의 역할
 > Analog 입력을 digital 값으로 변환하는 ADC peripheral driver. Channel과 group 같은 hardware 가까운 구성을 다룬다.
@@ -43,3 +42,9 @@ redirect_from:
 
 ## 기준과 범위
 원본은 Classic AUTOSAR 4.2.2의 ECU Configuration Parameter Definitions다. 최신 release나 공급사 확장으로 확대 해석하지 않는다. Explorer에서 하위 container·parameter·reference와 원문 조건을 표로 확인할 수 있다.
+
+## 이해를 확인하는 질문
+
+> Adc의 container 개수와 parameter 값의 범위는 어떻게 다른가?
+
+Multiplicity는 부모 instance마다 허용되는 구성 개수다. MIN/MAX·default·enum은 값의 범위를 설명한다. Reference의 대상과 variant 조건까지 함께 읽어야 실제 ECU 설정의 허용 범위를 알 수 있다.

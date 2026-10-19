@@ -10,8 +10,9 @@ redirect_from:
  - "/89f6c72d1f3d44d6b2b7798ecb2eb4af"
 ---
 
-## 핵심 요약
+## Tester가 ECU 상태와 데이터를 진단하는 상황
 
+UDS는 diagnostic service의 의미를 정의한다. CAN·ISO-TP·DoIP 같은 transport와 session·security 조건을 나누어 이해하면 요청·응답의 책임을 추적할 수 있다.
 
 > 진단 서비스, 요청·응답, 고장 상태를 서로 연결해 읽기 위한 문서다.
 
@@ -32,7 +33,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 ---
@@ -282,3 +282,9 @@ UDS (Unified Diagnostic Services) 메시지는 ISO 14229 표준을 따르는 특
 </div>
 </div>
 </div>
+
+## 이해를 확인하는 질문
+
+> SID만 맞으면 모든 ECU가 요청을 수행할까?
+
+Service 지원, session, security level, 길이와 차량 상태 조건이 맞아야 한다. Positive response의 의미도 service마다 다르다.

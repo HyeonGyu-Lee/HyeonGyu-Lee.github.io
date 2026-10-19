@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a81fdbcf9efb9db920246"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## 함수 반환 뒤 callback이 임시 buffer를 사용하는 상황
 
+Pointer 값이 남아 있어도 객체 lifetime이 끝나면 접근은 유효하지 않다. Stack·heap 위치, 길이·경계와 소유권을 함께 관리해야 한다.
 
 > Stack은 호출 프레임·지역 객체, Heap은 allocator가 관리하는 동적 객체에 사용된다. RTOS task별 stack과 interrupt stack 구성은 port마다 다르다. static allocation은 runtime allocation 실패를 줄일 수 있지만 bounds·공유 상태·수명 오류를 자동 해결하지 않는다.
 
@@ -76,3 +73,9 @@ int main(void) {
 
 
 PC 빌드의 AddressSanitizer/UndefinedBehaviorSanitizer와 경계 테스트, 보드의 fault status·stack trace·map을 함께 사용한다. 잘못된 길이·pool 소진·동시 요청·cancel 후 늦은 callback을 시험한다. 보안 경계의 입력 검증에 assert만 사용하지 않는다.
+
+## 이해를 확인하는 질문
+
+> NULL이 아닌 pointer는 안전한가?
+
+Lifetime, 접근 범위, 정렬과 ownership이 유효해야 한다. NULL 검사는 이 조건들 중 어느 것도 자동 보장하지 않는다.

@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a81f8ae51cf62a416b215"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## 가까운 sensor와 actuator를 zone controller에 모으는 상황
 
+Zonal 배치는 위치 중심의 I/O 연결과 중앙 기능의 통신을 분리한다. Local fallback, power·reset domain과 backbone dependency가 제어 지속성을 결정한다.
 
 > Zonal Architecture는 차량의 물리적 영역별로 I/O·전원 분배·네트워크 접속을 모으고 중앙 연산 자원과 연결하는 구조다. Zone Controller는 단순 CAN-to-Ethernet 변환기가 아니라 로컬 제어·상태 관리·진단·전원 제어를 맡을 수 있다.
 
@@ -57,3 +54,9 @@ flowchart TD
 
 
 센서 acquisition → MCU task 대기 → Gateway queue → Backbone → 중앙 처리 → 하행 전송 → 출력 반영으로 지연을 분해한다. 평균만 보지 말고 높은 부하·재연결 조건의 p99와 최악 관측값을 기록한다. 실측 최댓값은 WCET 증명과 다르다.
+
+## 이해를 확인하는 질문
+
+> Backbone이 끊겨도 zone의 모든 기능이 유지될까?
+
+Local에 남긴 기능과 필요한 중앙 상태에 따라 다르다. 통신 상실 시 허용 동작과 timeout을 명시해야 한다.

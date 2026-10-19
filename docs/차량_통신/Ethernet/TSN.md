@@ -11,12 +11,9 @@ redirect_from:
  - "/3f71b412900a8161b3e8f37cbcf99cea"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## 센서 burst와 주기 control traffic이 같은 Ethernet link를 공유하는 상황
 
+Time synchronization, scheduling, shaping과 traffic admission은 서로 다른 TSN 기능이다. End-to-end 지연은 endpoint 처리와 모든 bridge·link의 동작을 합쳐 결정된다.
 
 > 시간 동기화와 큐·스케줄·자원 관리를 통해 Ethernet의 시간 특성을 다루는 TSN 기능을 정리한다.
 
@@ -37,7 +34,6 @@ IEEE 802.1 표준 기능별 적용과 자동차 프로파일을 구분한다. �
 
 
 
-## 본문
 
 
 ### 기능 모음
@@ -89,3 +85,9 @@ LinuxPTP·gPTP 구성은 장비 지원과 802.1AS 프로파일에 맞춘다. 일
 
 
 Gate schedule은 주기·큐·전송 시간·guard band를 포함해 검토한다. 설정 명령 성공, 하드웨어 offload 지원, 실제 end-to-end deadline 충족을 별개로 판정한다.
+
+## 이해를 확인하는 질문
+
+> 한 switch에 time-aware shaper를 켜면 전체 deadline이 보장될까?
+
+경로 전체의 시간 기준, gate schedule, queue·traffic 예산과 endpoint 처리 시간을 맞춰야 한다.

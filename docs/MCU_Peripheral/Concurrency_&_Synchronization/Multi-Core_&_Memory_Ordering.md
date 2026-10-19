@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a8112a430d2f72b9a555d"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## Producer core가 데이터와 ready flag를 consumer에 공개하는 상황
 
+Core 간에는 실행 순서뿐 아니라 관측 순서와 cache coherence가 문제다. Release/acquire 관계는 데이터 공개를 연결하고, cache maintenance는 플랫폼의 coherency 조건에 따라 별도로 필요하다.
 
 > 멀티 코어에서는 로컬 IRQ 차단만으로 Shared State가 보호되지 않는다. atomicity, compiler/CPU ordering, cache coherence, 메모리 접근 속성과 ownership을 별도로 검토해야 한다. 아래 C11 예제는 같은 coherent 공유 메모리를 사용하는 C 실행 환경이 전제다. 별도 펌웨어가 도는 AMP MCU에 자동 적용되지 않는다.
 
@@ -105,3 +102,9 @@ spinlock은 바쁜 대기이므로 아주 짧고 상한이 있는 구간에서, 
 
 
 동시 producer/consumer 부하, 강제 선점, 한 코어 정지·reset, queue full, stale notification을 시험한다. coherent/non-coherent 메모리 속성과 compiler optimization을 바꾸어도 정의된 프로토콜이 유지되는지 확인한다. PC thread test 통과는 MCU의 cache·IPC 구현 검증과 별개다.
+
+## 이해를 확인하는 질문
+
+> Flag가 보이면 payload도 항상 최신일까?
+
+그 접근 사이에 필요한 synchronization 관계가 있어야 한다. volatile flag만으로 ordering과 data race 문제를 해결할 수 없다.

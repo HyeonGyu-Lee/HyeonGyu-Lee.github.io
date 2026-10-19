@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a814d9a43eddb3fc5a5f3"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## SPI bus의 소유권과 수신 event를 task 사이에 전달하는 상황
 
+Mutex는 자원 소유를, semaphore는 신호나 개수를, queue는 데이터 전달을 표현한다. 하나의 primitive로 모든 관계를 처리하면 ownership과 event 의미가 섞인다.
 
 > Mutex는 소유권이 있는 상호 배제, Semaphore는 이벤트 또는 자원 개수, Queue는 데이터 전달에 사용한다. 이름이 비슷해도 역할·ISR 사용 가능 여부·우선순위 상속이 다르다.
 
@@ -131,3 +128,9 @@ CAN/UART 수신은 ISR→queue→parser task, SPI bus는 owner task 또는 trans
 
 
 lock hold time·wait time·queue high-water mark·timeout 횟수를 기록한다. 고/중/저 우선순위 부하로 역전 시나리오를 재현하고, 강제 오류·timeout에서도 자원 반환과 다음 요청 처리가 가능한지 확인한다.
+
+## 이해를 확인하는 질문
+
+> Binary semaphore를 mutex 대신 쓰면 동작이 같을까?
+
+Owner 규칙과 priority inheritance가 다를 수 있다. ISR 허용 여부와 RTOS 구현의 계약을 확인해야 한다.

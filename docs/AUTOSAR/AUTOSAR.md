@@ -10,10 +10,9 @@ redirect_from:
  - "/e20f9e7df0d34378beea96efa4172089"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 서로 다른 ECU와 공급사의 software를 연결하는 상황
+
+AUTOSAR는 Application과 platform의 책임 및 interface를 표준화한다. Classic과 Adaptive는 실행 환경과 구성 방식이 다르며 Foundation은 두 platform이 공유하는 규격을 제공한다.
 
 ## AUTOSAR가 해결하려는 문제
 > AUTOSAR는 ECU 소프트웨어를 구성하는 기능의 경계와 교환 가능한 기술 정보를 표준화한다. 핵심은 특정 운영체제나 통신 프로토콜 하나가 아니라, application·platform·hardware 사이의 책임을 분리하는 데 있다.
@@ -65,3 +64,9 @@ AUTOSAR release는 표준 문서 집합의 기준선이다. BSW/AP 공급사의 
 | Methodology / Template | 모델과 교환 정보의 의미 |
 
 페이지에 표시된 Explorer는 저장소의 AUTOSAR 4.2.2 ECUC 원본을 보여준다. 이것을 최신 Classic 또는 Adaptive 전체 규격으로 해석하지 않는다.
+
+## 이해를 확인하는 질문
+
+> 같은 AUTOSAR 표준을 쓰면 모든 software가 그대로 호환될까?
+
+Release, interface, data type과 공급사 구현의 지원 범위가 맞아야 한다. 표준화는 구성과 통합의 필요성을 없애지 않는다.

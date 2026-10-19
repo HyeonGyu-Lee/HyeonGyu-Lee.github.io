@@ -12,8 +12,9 @@ redirect_from:
  - "/기타/mermaid"
 ---
 
-## 핵심 요약
+## 모듈의 관계와 message 순서를 그림으로 설명하는 상황
 
+Flowchart는 관계와 분기, sequence diagram은 참여자와 시간 순서를 표현한다. Diagram 종류를 질문에 맞추고 화살표가 의미하는 데이터·제어·시간을 구분해야 한다.
 
 > 텍스트로 다이어그램을 표현하는 문법과 예제를 정리한 문서다.
 
@@ -34,7 +35,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 # **Sequence Diagram**
@@ -496,3 +496,9 @@ sequenceDiagram
     end
     API-->BillingService: Start billing process
 ```
+
+## 이해를 확인하는 질문
+
+> 연결선이 있으면 동시 실행이나 시간 순서까지 의미할까?
+
+Flowchart 연결만으로는 timing을 확정할 수 없다. Sequence나 state diagram 등 목적에 맞는 표현을 선택한다.

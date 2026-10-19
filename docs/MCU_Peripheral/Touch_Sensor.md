@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a81d09942c1e319a88c65"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 손을 대지 않았는데 터치가 검출되는 상황
 
-
-## 핵심 요약
-
+Touch 판단에는 raw measurement, 장기 baseline, 차이값과 hysteresis가 관여한다. 주변 습도와 접지, 전극 형상이 측정값을 바꾸므로 threshold만 조절해서 모든 문제를 해결하기 어렵다.
 
 > 정전용량 터치는 손가락 접근에 따른 전극의 정전용량 변화를 측정한다. raw 값을 baseline과 비교해 delta를 계산하고 threshold·hysteresis·debounce로 안정된 이벤트를 만든다. 부품명과 전극 구조가 확정되지 않은 상태에서 특정 레지스터나 감도 값을 고정하지 않는다.
 
@@ -118,3 +113,9 @@ IC·firmware 버전, 전극·overlay 조건, scan period, raw/baseline/delta 분
 
 
 S32K312에서 사용할 방식은 실제 회로와 지원 Peripheral로 결정한다. GPIO·ADC를 모두 써야 하는 것이 아니며, 어느 조합이든 전극/overlay·ESD·noise·baseline 추적·hysteresis·debounce 검증이 필요하다.
+
+## 이해를 확인하는 질문
+
+> Baseline을 빠르게 추종시키면 항상 안정적일까?
+
+실제 touch까지 baseline에 흡수할 수 있다. Touch 상태에서의 갱신 정책과 환경 변화 추종 속도를 구분한다.

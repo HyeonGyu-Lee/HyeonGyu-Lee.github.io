@@ -11,8 +11,9 @@ redirect_from:
  - "/6a79edc83476430b85fbc4dc270ad541"
 ---
 
-## 핵심 요약
+## 같은 고장이 현재 발생 중인지 과거 기록인지 판단하는 상황
 
+DTC 번호는 fault의 식별자이며 status byte와 snapshot·extended data가 시간적 상태와 주변 정보를 보완한다. 단순히 코드가 존재한다는 사실만으로 현재 고장을 단정할 수 없다.
 
 > DTC 상태를 비트·마스크로 해석하고 고장 주입부터 제거·재시작까지 상태 변화를 확인한다.
 
@@ -33,7 +34,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 ### 핵심 요약
@@ -161,3 +161,9 @@ DTC 정보를 포함한 응답 메시지의 일부<br>Read DTC Information (0x19
 | 5     | 0x20 | testFailedSinceLastClear           | DTC test failed at least once since last code clear   |
 | 6     | 0x40 | testNotCompletedThisOperationCycle | DTC test not completed this operation cycle           |
 | 7     | 0x80 | warningIndicatorRequested          | Server is requesting warningIndicator to be active    |
+
+## 이해를 확인하는 질문
+
+> DTC를 지우면 고장의 원인도 제거될까?
+
+Clear는 진단 기록을 변경한다. 물리 원인과 monitor 조건이 남아 있으면 다시 검출될 수 있다.

@@ -11,8 +11,9 @@ redirect_from:
  - "/3f71b412900a8118a22accad6ce0e215"
 ---
 
-## 핵심 요약
+## 화면에서 요청한 작업을 OS 기능으로 수행하는 상황
 
+Renderer, preload와 main process는 권한과 실행 환경이 다르다. IPC를 좁은 계약으로 설계하면 UI 입력이 임의의 filesystem·process 접근으로 확장되는 것을 줄일 수 있다.
 
 > 프로세스 책임과 제한된 IPC를 구현하고 보안 경계·배포 환경의 동작을 확인한다.
 
@@ -33,7 +34,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 ### 핵심 개념
@@ -168,3 +168,9 @@ Renderer는 window.appInfo.version()을 호출하고 반환값을 textContent로
 
 
 정상 창에서 버전 표시 → 다른 프레임 요청 거부 → 창 재시작 → 배포 패키지에서 preload 경로 확인 순서로 시험한다. 파일 접근 API로 확장할 때는 경로 범위·타입·권한을 main에서 검증한다.
+
+## 이해를 확인하는 질문
+
+> Renderer가 보낸 IPC message를 그대로 신뢰해도 될까?
+
+채널, 입력 형식과 권한을 main에서 검증해야 한다. Context isolation은 입력 검증을 대신하지 않는다.

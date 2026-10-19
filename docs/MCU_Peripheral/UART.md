@@ -12,14 +12,9 @@ redirect_from:
  - "/차량_통신/UART"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 한 번의 receive callback에 메시지의 절반만 들어오는 상황
 
-
-## 핵심 요약
-
+UART는 byte stream을 전달하며 application message의 경계를 만들지 않는다. Baudrate와 sampling 문제를 해결한 뒤에도 길이, delimiter, checksum과 timeout을 포함한 framing이 필요하다.
 
 > UART는 별도 클록선 없이 약속한 baudrate·data bits·parity·stop bits로 데이터를 주고받는 비동기 직렬 통신이다. 프레임 경계를 애플리케이션이 정의해야 하며, UART 전기 레벨과 RS-232/RS-485 물리 계층을 구분한다.
 
@@ -137,3 +132,9 @@ TX buffer 수명이 완료까지 유지되어야 한다. DMA 완료나 TX FIFO e
 - 연속 수신에서 누락: overrun·ISR 지연·ring buffer 크기·DMA 재설정 공백을 확인한다. callback에서 printf나 blocking 송신을 하지 않는다.
 - framing/parity/noise/overrun flag를 구분해 기록하고 설치 드라이버의 flag clear·재수신 절차를 따른다.
 - 내부/외부 loopback → PC terminal → 분할·연속 메시지 → 최대 길이·overflow·timeout·잘못된 CRC → 장시간 부하 순으로 검증한다. terminal의 local echo와 개행 자동 변환은 끄거나 명확히 설정한다.
+
+## 이해를 확인하는 질문
+
+> Callback 한 번을 packet 하나로 처리해도 될까?
+
+DMA·interrupt의 완료 조건은 응용 frame과 다를 수 있다. 연속 buffer에서 frame을 누적·분리하고 부분 수신과 여러 frame의 동시 수신을 처리한다.

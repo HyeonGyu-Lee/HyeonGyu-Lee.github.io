@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a8161a930fe91172d84cd"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 짧은 hardware event를 받아 긴 처리 작업을 시작하는 상황
 
-
-## Overview
-
+Interrupt는 event를 빠르게 알리지만 ISR이 전체 작업을 끝낼 필요는 없다. Flag 처리와 데이터 보존을 짧게 수행하고 긴 처리를 task로 넘기면 latency와 실행 시간을 구분해 관리할 수 있다.
 
 > Interrupt는 hardware event를 CPU 실행 흐름에 전달하는 mechanism이며, ISR은 해당 event를 처리하는 handler다. ISR에서 event를 짧게 수집하고 시간이 긴 처리는 task/main loop로 넘기는 구조를 기본으로 한다.
 
@@ -118,3 +113,9 @@ Interrupt latency는 event 발생부터 handler 시작까지이며 ISR execution
 - IRQ를 enable하기 전후의 pending event, 연속 event, queue overflow, 공유 IRQ에서 여러 source가 동시에 켜지는 경우를 확인한다.
 - RTOS API 허용 priority 위반, 너무 긴 Critical Section, interrupt storm, nested IRQ를 시험한다.
 - IRQ 횟수와 실제 수신 데이터 수를 비교한다. event flag가 여러 interrupt를 하나로 합치는 것이 요구사항에 맞는지 확인한다.
+
+## 이해를 확인하는 질문
+
+> ISR priority를 높이면 전체 반응 시간이 항상 줄어들까?
+
+우선순위가 높은 ISR은 다른 작업을 지연시킨다. ISR 실행 시간, 중첩, task wakeup과 RTOS API 허용 priority를 함께 분석한다.

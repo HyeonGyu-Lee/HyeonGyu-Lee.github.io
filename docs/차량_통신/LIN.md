@@ -11,14 +11,9 @@ redirect_from:
  - "/3f71b412900a819d9d81cb75e7f4da79"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 저속 sensor node가 정해진 순서로 값을 보고하는 상황
 
-
-## 핵심 요약
-
+LIN controller는 header와 schedule로 통신 시점을 정하고 지정된 publisher가 response를 제공한다. ID와 checksum뿐 아니라 schedule의 slot 길이와 진단·sleep 상태가 데이터 갱신을 결정한다.
 
 > 스케줄과 헤더·응답 역할을 중심으로 LIN의 저속 통신과 진단을 정리한다.
 
@@ -39,7 +34,6 @@ LIN 2.x 및 ISO 17987 시리즈의 일반 개념. 프로젝트의 적용 판과 
 
 
 
-## 본문
 
 
 ### 통신 구조
@@ -148,3 +142,9 @@ int main(void) {
 
 
 첫 결과는 데이터만 포함한 classic 예제, 둘째는 PID를 포함한 enhanced 예제다. 실제 프레임의 적용 checksum 종류를 확인한다. 응답을 한 슬롯 누락시켜 timeout 처리와 다음 스케줄의 동작도 확인한다.
+
+## 이해를 확인하는 질문
+
+> Publisher가 준비되면 언제든 response를 시작할 수 있을까?
+
+해당 header와 schedule에 따라 응답한다. Unscheduled 전송은 정상적인 LIN transaction으로 취급할 수 없다.

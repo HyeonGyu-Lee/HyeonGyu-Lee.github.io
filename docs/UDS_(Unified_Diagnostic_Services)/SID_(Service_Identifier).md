@@ -12,8 +12,9 @@ redirect_from:
  - "/UDS_(Unified_Diagnostic_Services)/SIDs_(Serivce_Identifiers)"
 ---
 
-## 핵심 요약
+## 진단 payload의 첫 byte로 service를 식별하는 상황
 
+SID는 diagnostic 기능의 종류를 나타내며 sub-function·identifier·record가 요청을 구체화한다. Positive SID와 negative response의 framing을 분리해 읽어야 한다.
 
 > UDS 서비스 식별자와 서비스별 요청·응답 개념을 정리한 문서다. 영문 표기는 Service Identifiers다.
 
@@ -34,7 +35,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 <blockquote class="notice">
@@ -761,3 +761,9 @@ sequenceDiagram
 </div>
 </div>
 </blockquote>
+
+## 이해를 확인하는 질문
+
+> 요청 SID에 0x40을 더하면 모든 성공 응답 내용을 알 수 있을까?
+
+Positive SID 식별에는 도움이 되지만 응답 record와 echo 필드는 service 정의를 따라야 한다.

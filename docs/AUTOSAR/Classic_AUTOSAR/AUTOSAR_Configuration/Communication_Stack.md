@@ -10,10 +10,9 @@ redirect_from:
  - "/3f91b412900a8131a1c6cfabc5554b17"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 데이터 의미와 전송 계층를 모듈별로 나누는 상황
+
+Signal·I-PDU, routing, transport, interface와 driver는 같은 traffic을 다른 경계에서 다룬다. Configuration reference는 그 경계를 연결하며, network state와 실제 데이터 전송 상태도 구분된다.
 
 ## Communication Stack의 구성
 > 같은 기능 영역 안에서도 driver·interface·manager·service의 책임을 구분해서 읽는다.
@@ -66,3 +65,9 @@ redirect_from:
 
 ## 표준 범위
 이 분류는 탐색을 위한 문서 묶음이며 AUTOSAR의 공식 layer 구성을 대체하지 않는다. 각 페이지와 Explorer는 저장소의 Classic AUTOSAR 4.2.2 ECUC 정의를 기준으로 한다.
+
+## 이해를 확인하는 질문
+
+> 같은 그룹의 모듈을 하나의 책임으로 합쳐도 될까?
+
+그룹은 탐색을 위한 분류다. 실제 API·configuration·state의 경계는 개별 module이 정의하므로 각 책임과 연결을 따로 확인한다.

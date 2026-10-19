@@ -12,14 +12,9 @@ redirect_from:
  - "/MCU_Peripheral/Timer,_PWM_&_Input_Capture"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 회전 센서의 두 edge 사이 시간을 측정하는 상황
 
-
-## Overview
-
+Timer는 기준 clock을 count하고 input capture는 edge 시점의 counter 값을 보관한다. 분해능과 최대 측정 간격은 서로 trade-off 관계이며 overflow를 포함한 시간 차 계산이 필요하다.
 
 > Timer는 주기 작업·timeout·PWM·edge timestamp의 기반이다. S32K312에서 사용할 timer IP와 channel·pin은 RTD 예제와 Reference Manual로 확정한다. 서로 다른 timer의 prescaler·reload 의미를 혼용하지 않는다.
 
@@ -117,3 +112,9 @@ Edge timestamp를 ISR에서 소프트웨어로 읽는 것과 hardware capture re
 
 
 기준 신호로 period·pulse width·wrap 경계·누락된 edge·IRQ 지연·저전력 복귀를 시험한다. 32-bit 1 MHz counter는 약 71.6분마다 wrap된다. Counter 폭과 tick frequency가 바뀌면 timeout의 유효 범위도 다시 계산한다.
+
+## 이해를 확인하는 질문
+
+> Counter가 한 번 돌아가면 주기 계산은 실패할까?
+
+허용 간격이 counter 범위 안이면 unsigned 차이 계산을 사용할 수 있다. 여러 번 overflow할 수 있다면 overflow count와 capture의 일관성을 별도로 관리한다.

@@ -11,11 +11,9 @@ redirect_from:
  - "/3f91b412900a8146a610f03107f8d64e"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Nominal phase는 정상인데 BRS 이후 error가 증가하는 상황
 
+Data phase의 짧은 bit time은 transceiver와 bus delay, sample point에 더 민감하다. Data timing과 TDC를 nominal timing에서 분리해 이해하고 controller IP별 encoding을 적용해야 한다.
 
 ## Scope
 
@@ -267,3 +265,9 @@ S32K312와 설치한 S32K3 RTD 버전의 FlexCAN 예제를 기준으로 진행�
 
 
 80 MHz 계산 예제에서 Nominal은 BRP=8·20TQ로 500 kbit/s, Data는 BRP=2·20TQ로 2 Mbit/s다. 이것은 후보 계산 결과이며 S32K312용 드라이버의 허용 조합과 지연 조건을 통과했다는 의미는 아니다. 설정 도구가 prescaler/segment를 다른 값으로 표현하면 실제 물리값으로 환산해 비교한다.
+
+## 이해를 확인하는 질문
+
+> TDC를 켜면 잘못된 data timing도 보정될까?
+
+TDC는 주로 송신 지연 보상을 위한 sampling 위치와 관련된다. 잘못된 bitrate·segment·전기적 조건을 대신 해결하지 않는다.

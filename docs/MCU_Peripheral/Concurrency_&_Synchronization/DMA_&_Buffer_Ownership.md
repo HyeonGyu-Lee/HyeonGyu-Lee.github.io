@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a81f58904c451020aff72"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## CPU가 전송 중인 DMA buffer를 다시 쓰는 상황
 
+Buffer lifetime과 ownership은 전송 완료 시점까지 이어진다. Cache 일관성, memory ordering과 descriptor 상태가 함께 맞아야 데이터가 실제 device에 전달된다.
 
 > DMA는 CPU의 mutex나 IRQ mask를 따르지 않고 메모리를 읽고 쓸 수 있다. DMA가 접근하는 buffer의 소유권과 실제 전송 완료를 기준으로 재사용 시점을 결정한다.
 
@@ -89,3 +86,9 @@ API timeout은 DMA 정지를 보장하지 않는다. abort 요청 후 하드웨�
 
 
 지연 consumer, 강제 timeout·abort, 잘못된 길이, 반복 재시작, IRQ masking, DMA error를 재현한다. buffer 경계 guard·sequence·누락 카운터로 손상을 찾되 검증용 guard가 하드웨어 bounds 보호를 대신하지는 않는다.
+
+## 이해를 확인하는 질문
+
+> DMA start 함수가 반환되면 buffer를 재사용할 수 있을까?
+
+비동기 start는 완료가 아니다. 완료·취소와 device 접근 종료를 확인한 뒤 ownership을 회수해야 한다.

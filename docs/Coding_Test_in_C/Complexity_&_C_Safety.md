@@ -11,10 +11,10 @@ redirect_from:
  - "/3f91b412900a81e0a23bdf42c8364019"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 입력이 커질 때 실행 시간과 메모리 접근이 달라지는 상황
+
+Big-O는 성장률을 설명하고 C의 type·index·allocation 제약은 실행 가능 범위를 정한다. 두 관점을 연결해야 작동하는 알고리즘을 안전하게 구현할 수 있다.
+
 ## Complexity
 
 
@@ -43,3 +43,9 @@ qsort comparator에서 return a-b는 overflow 위험이 있다. (a\>b)-(a\<b) �
 
 
 복잡도에 출력 크기와 정렬 비용이 포함됐는가? 입력을 수정해도 되는가? 함수가 포인터를 반환하면 수명은 누가 관리하는가? 데이터 구조의 capacity 초과를 어떻게 처리하는가?
+
+## 이해를 확인하는 질문
+
+> O(n)이면 항상 제한 시간 안에 끝날까?
+
+상수 비용, I/O, cache와 실제 n의 범위가 영향을 준다. 최악 입력과 측정 환경을 함께 고려한다.

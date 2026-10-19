@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a8190a2fbec71337381cc"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## CAN ID filter를 설정했는데 예상하지 않은 message가 들어오는 상황
 
-
-## Overview
-
+Controller의 buffer, mask, filter와 interrupt는 수신 frame의 저장과 통지를 담당한다. 응용 message 의미와 bus의 전기적 상태는 별도 계층이므로 register 설정과 network 계약을 나누어 분석한다.
 
 > CAN Controller는 message buffer·filter·bit timing·error state를 관리하는 MCU hardware다. CAN transceiver는 bus의 전기 신호를 송수신하며, network topology와 termination은 차량 네트워크 설계에 속한다.
 
@@ -65,3 +60,9 @@ Callback pointer를 queue에 넣는 것만으로 buffer 수명이 연장되지 �
 
 
 CAN Bit Timing & FlexCAN에서 clock 계산·설정·C encode/decode·TX/RX 구현을 읽고, CAN FD Configuration에서 FD 전환·Data timing·DLC·TDC를 이어서 확인한다. 차량 통신의 CAN/CAN FD 페이지는 ECU 간 통신 계약과 실제 bus 검증 관점을 다룬다.
+
+## 이해를 확인하는 질문
+
+> Hardware filter가 있으면 software 검사는 생략해도 될까?
+
+Filter는 수신 범위를 줄인다. 길이, frame type, counter·checksum과 application state 검사는 별도로 필요하다.

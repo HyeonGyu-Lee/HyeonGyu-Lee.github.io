@@ -11,14 +11,9 @@ redirect_from:
  - "/3f71b412900a815caa45ee26fd52198f"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 기존 CAN traffic에 더 큰 payload와 빠른 data phase를 추가하는 상황
 
-
-## 핵심 요약
-
+CAN FD는 payload 크기와 data phase 전송 속도를 확장한다. Arbitration timing과 data timing을 분리하고 controller·transceiver·network 구성의 지원 범위를 맞춰야 한다.
 
 > Classic CAN 대비 확장된 데이터 길이와 선택적인 데이터 구간 속도 전환을 이해한다.
 
@@ -39,7 +34,6 @@ CAN FD 공통 개념. 실제 허용 비트레이트·배선·혼합 노드 조�
 
 
 
-## 본문
 
 
 ### Classic CAN과의 차이
@@ -113,3 +107,9 @@ ip -details -statistics link show can0
 
 
 차량 네트워크에서는 ECU 간 메시지 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN FD Configuration](https://autosar.dev/3f91b412900a8146a610f03107f8d64e) 문서에서 별도로 다룬다.
+
+## 이해를 확인하는 질문
+
+> Data bitrate만 높이면 bus 부하가 같은 비율로 줄어들까?
+
+Arbitration, frame overhead, retransmission과 traffic 구성은 그대로 영향을 준다. 실제 frame 길이와 주기별 점유 시간을 계산해야 한다.

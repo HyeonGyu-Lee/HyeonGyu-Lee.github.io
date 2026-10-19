@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a813abce6c90f8c54794b"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## 생산 시 주입한 key를 운용 중 교체하는 상황
 
+Key lifecycle에는 생성·주입·사용·회전·폐기가 포함된다. 암호 알고리즘의 강도와 별개로 주입 경로, 권한, 복구와 추적성이 보안 경계를 결정한다.
 
 > 암호 알고리즘 선택뿐 아니라 key 생성·배포·사용·교체·폐기와 제품 lifecycle을 설계한다. 개발 key와 양산 key를 분리하고 빌드 시스템의 서명 권한과 장치의 검증 권한을 구분한다.
 
@@ -56,3 +53,9 @@ Key ID, 용도, 알고리즘, owner, 저장 위치, export 허용 여부, 활성
 
 
 다른 장치용 이미지, 폐기된 key, 잘못된 usage, 중단된 provisioning, debug 접근 정책을 시험한다. error log에는 key 값 대신 key ID·status·단계만 남긴다. 실제 절차는 제조·보안 운영과 제품의 vendor security manual에 맞춘다.
+
+## 이해를 확인하는 질문
+
+> 새 key를 저장하면 rotation이 끝난 것인가?
+
+이전 key의 유효기간, 상대 시스템의 전환, 재시도와 실패 복구를 포함해야 한다.

@@ -11,11 +11,9 @@ redirect_from:
  - "/3f91b412900a819aacb9e115a3cb0ba0"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 같은 500 kbit/s인데 두 ECU가 안정적으로 통신하지 못하는 상황
 
+Bitrate는 clock과 prescaler, time segment의 합으로 정해진다. 같은 bitrate라도 sample point, oscillator 오차, propagation delay와 SJW가 달라질 수 있다. Register encoding과 실제 time quanta를 구분해야 한다.
 
 ## Scope
 
@@ -261,3 +259,9 @@ MCAL Can과 CanIf를 사용하는 구성에서는 controller/PDU handle 매핑, 
 - burst 수신·TX busy·RX queue overflow를 만들어 손실 카운터와 복구를 확인한다. 시험 네트워크에서 수행하고 실제 제어 차량에 임의 메시지를 주입하지 않는다.
 - ACK 노드 부재·트랜시버 standby·배선 오류·bitrate 불일치 시 상태 전이를 기록한다. bus-off 해소 후 중복 송신·오래된 명령 재전송 여부를 점검한다.
 - 검증 로그에는 설정된 clock/timing, 송수신 ID·형식·길이·데이터, queue 깊이, 오류 상태, 응답 지연과 테스트 조건을 남긴다. loopback 성공과 실제 버스 성공을 구분한다.
+
+## 이해를 확인하는 질문
+
+> 분주값이 같으면 서로 다른 MCU에서도 bitrate가 같을까?
+
+Peripheral에 공급되는 실제 clock과 segment 설정이 같아야 한다. Clock tree와 driver의 실제값·register값 표현을 먼저 확인한다.

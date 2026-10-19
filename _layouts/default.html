@@ -13,7 +13,7 @@ layout: table_wrappers
     <div class="main-content-wrap">
       {% include components/breadcrumbs.html %}
       <div id="main-content" class="main-content">
-        <main>
+        <main{% unless page.portfolio_home %} class="technical-article"{% endunless %}>
           {% if site.heading_anchors != false and page.portfolio_home != true %}
           {% unless page.portfolio_home %}<h1><strong>{{ page.title }}</strong></h1>{% endunless %}
             <!--{% if page.has_children == false and page.published_date != nil %}

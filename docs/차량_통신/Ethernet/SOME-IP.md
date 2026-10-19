@@ -11,12 +11,9 @@ redirect_from:
  - "/3f71b412900a81ef8662f3595c5c474b"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## 서비스의 method를 호출하고 event를 구독하는 상황
 
+Service ID와 instance, method·event, request ID는 의미와 응답 관계를 표현한다. Discovery와 application data의 경로를 나누고 serialization과 version을 계약으로 관리해야 한다.
 
 > SOME/IP의 서비스·메서드·이벤트와 서비스 탐색을 정리한다.
 
@@ -37,7 +34,6 @@ redirect_from:
 
 
 
-## 본문
 
 
 ### 서비스 구조
@@ -85,3 +81,9 @@ Offer가 보이는데 호출이 실패하면 interface version, instance·endpoi
 
 
 제공자를 재시작한 뒤 TTL·재탐색·재구독과 오래된 상태의 정리를 확인한다. Wireshark의 someip·someipsd dissector 지원과 decode-as 설정도 확인한다.
+
+## 이해를 확인하는 질문
+
+> Service가 발견되면 event를 즉시 받을 수 있을까?
+
+Subscription, endpoint·QoS에 해당하는 transport 조건, service state와 payload 호환성이 추가로 필요하다.

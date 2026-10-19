@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a812baf18ec687a76bdfa"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## RGB node에 주소를 할당한 뒤 원하는 색을 적용하는 상황
 
-
-## 핵심 요약
-
+물리 waveform, telegram 형식, node enumeration과 출력 설정은 각각 다른 단계다. SPI peripheral을 waveform 생성에 사용하더라도 일반 register SPI device와 같은 transaction은 아니다.
 
 > OSP(Open System Protocol)는 ams OSRAM의 RGB 조명·지능형 드라이버 노드를 daisy chain으로 제어하는 통신 프로토콜이다. LED 밝기 값을 쓰는 것뿐 아니라 노드 초기화·주소 할당·상태 조회·오류 처리까지 포함한다. SPI는 MCU 측 전송 수단으로 사용될 수 있지만 OSP 전체를 일반적인 CS/MOSI/MISO 방식의 SPI 장치로 취급해서는 안 된다.
 
@@ -248,3 +243,9 @@ CRC 일치만으로 응답이 올바른 것은 아니다. 최소 길이, preambl
 
 
 OSP_aotop과 OSP_aospi는 physical layer와 bring-up, OSP_aoosp의 aoosp_min은 protocol 처리와 CRC 구현을 제공한다. S32K312 예제는 포팅 설계용이며 보드 동작 검증은 포함하지 않는다.
+
+## 이해를 확인하는 질문
+
+> CRC가 맞는 response라면 점등도 성공한 것인가?
+
+주소와 응답 의미, node state, current·PWM 설정과 실제 광출력을 별도로 확인해야 한다.

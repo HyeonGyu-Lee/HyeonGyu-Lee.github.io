@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a81f5bdeaca2cefa7b4c5"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## 여러 thread가 한 file descriptor로 데이터를 처리하는 상황
 
+Process는 주소 공간과 자원의 경계를 만들고 thread는 같은 공간 안에서 실행을 나눈다. IPC는 데이터 전달과 lifecycle을 연결하며 부분 I/O와 shutdown 순서를 처리해야 한다.
 
 > Process는 독립적인 virtual address space를 가지며 Thread는 같은 Process의 메모리를 공유한다. Thread를 늘리면 shared state와 synchronization 문제가 생긴다. fork 이후 실행, exec, exit, wait와 thread 종료·join의 역할을 구분한다.
 
@@ -62,3 +59,9 @@ int write_all(int fd, const void *data, size_t size) {
 
 
 partial read/write, EINTR, peer 종료, Queue full, shutdown 중 callback, file descriptor 누수를 시험한다. TCP recv 한 번이 메시지 하나라는 가정을 하지 않는다. 길이·framing·상한·timeout을 application protocol에 정의한다.
+
+## 이해를 확인하는 질문
+
+> write가 요청한 길이보다 적게 반환하면 실패로만 볼까?
+
+일부 byte가 이미 전달됐을 수 있다. 반환 길이와 errno, blocking 조건에 따라 남은 범위를 처리한다.

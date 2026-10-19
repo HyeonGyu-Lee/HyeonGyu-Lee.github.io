@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a81b79eaedd62648caf72"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## Socket은 열렸지만 데이터 처리가 지연되는 상황
 
+Device file과 socket은 kernel과 user space의 interface다. Readiness와 message 완료를 구분하고 nonblocking I/O의 부분 처리와 재시도 조건을 다뤄야 한다.
 
 > User space 애플리케이션은 일반적으로 device node와 표준 API를 통해 하드웨어에 접근한다. 임의 MMIO 접근 대신 driver·권한·프로세스 소유권을 이용한다.
 
@@ -57,3 +54,9 @@ poll/epoll은 준비된 fd를 알려주며 완전한 application message를 보�
 
 
 device unplug, interface down, bus error, 권한 부족, fd 재사용과 서비스 재시작을 시험한다. application queue의 timestamp와 실제 wire capture를 대조해 지연 위치를 찾는다.
+
+## 이해를 확인하는 질문
+
+> poll이 readable을 알리면 전체 application frame을 읽을 수 있을까?
+
+Readiness는 읽기 시도가 가능한 상태다. Stream에서는 frame을 누적하고 EOF와 error를 별도로 처리해야 한다.

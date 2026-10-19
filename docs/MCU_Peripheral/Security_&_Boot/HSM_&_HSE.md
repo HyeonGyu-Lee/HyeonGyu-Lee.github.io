@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a8130825acce9df6db0b0"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## Host application이 암호 연산을 security engine에 요청하는 상황
 
+Host는 descriptor와 buffer를 준비하고 security engine은 허용된 service와 key를 사용한다. Request 수락, 연산 완료와 보안 정책 충족은 서로 다른 판단이다.
 
 > HSM(Hardware Security Module)은 키 보호와 암호 연산을 격리하는 보안 하위 시스템을 가리킨다. NXP HSE는 제품·firmware에 따라 제공되는 보안 서비스와 인터페이스를 갖는다. HSM이라는 일반 용어와 특정 HSE 구현을 동일한 레지스터/API로 취급하지 않는다.
 
@@ -66,3 +63,9 @@ Hash는 데이터 요약이며 누구나 다시 계산할 수 있다. MAC은 공
 
 
 정상/변조 입력, 잘못된 key usage, 부팅 직후 서비스 준비 지연, 동시 요청과 reset을 시험한다. private key·평문 비밀·민감 descriptor를 로그에 남기지 않는다. 보드 검증 전에는 HSE 성공 응답을 실제 보안 요구 충족으로 단정하지 않는다.
+
+## 이해를 확인하는 질문
+
+> Key handle을 알면 key 값을 읽을 수 있는가?
+
+Handle은 참조 식별자다. Key export와 사용 권한은 별도의 정책이며 hardware 저장 방식에 따라 제한된다.

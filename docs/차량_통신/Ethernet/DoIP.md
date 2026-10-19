@@ -11,12 +11,9 @@ redirect_from:
  - "/3f71b412900a81a3a5e1fc467ddd2058"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## Ethernet으로 ECU에 diagnostic request를 보내는 상황
 
+Vehicle discovery, routing activation, TCP 연결과 UDS 응답은 서로 다른 단계다. TCP가 연결되었다고 진단 대상이나 session 권한이 준비된 것은 아니다.
 
 > IP 네트워크에서 진단 장비·게이트웨이·ECU 사이의 진단 전달을 이해한다.
 
@@ -37,7 +34,6 @@ ISO 13400 시리즈의 적용 판과 ECU 논리 주소·라우팅 정책을 확�
 
 
 
-## 본문
 
 
 ### 역할
@@ -91,3 +87,9 @@ TCP 연결은 됐지만 진단이 실패하면 routing activation 결과, source
 
 
 연결을 강제로 종료한 뒤 재접속·routing activation·기존 요청의 처리 정책을 확인한다. 변경·초기화 서비스는 승인된 시험 대상에서만 실행한다.
+
+## 이해를 확인하는 질문
+
+> TCP ACK를 diagnostic positive response로 볼 수 있을까?
+
+TCP ACK는 transport byte 수신에 관한 것이다. UDS positive·negative response와 ECU의 실제 동작은 별도로 확인한다.

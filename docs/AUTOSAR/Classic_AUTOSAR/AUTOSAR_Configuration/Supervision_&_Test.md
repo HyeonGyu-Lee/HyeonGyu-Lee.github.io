@@ -10,10 +10,9 @@ redirect_from:
  - "/3f91b412900a81cab352c7b5b661f6aa"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 오류 탐지와 감독를 모듈별로 나누는 상황
+
+데이터 오류 검사, 메모리·CPU 시험과 software 진행 감시는 관찰 대상이 다르다. 오류를 찾는 기능과 reset·degradation 같은 반응 정책은 별도로 연결된다.
 
 ## Supervision & Test의 구성
 > 같은 기능 영역 안에서도 driver·interface·manager·service의 책임을 구분해서 읽는다.
@@ -30,3 +29,9 @@ redirect_from:
 
 ## 표준 범위
 이 분류는 탐색을 위한 문서 묶음이며 AUTOSAR의 공식 layer 구성을 대체하지 않는다. 각 페이지와 Explorer는 저장소의 Classic AUTOSAR 4.2.2 ECUC 정의를 기준으로 한다.
+
+## 이해를 확인하는 질문
+
+> 같은 그룹의 모듈을 하나의 책임으로 합쳐도 될까?
+
+그룹은 탐색을 위한 분류다. 실제 API·configuration·state의 경계는 개별 module이 정의하므로 각 책임과 연결을 따로 확인한다.

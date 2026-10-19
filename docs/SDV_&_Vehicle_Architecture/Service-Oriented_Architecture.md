@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a8106ac9df5da77f3cced"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## 기능의 위치를 바꾸어도 consumer가 같은 의미로 사용하는 상황
 
+Service contract는 이름과 endpoint뿐 아니라 데이터 타입, timing, error와 version을 포함한다. 위치 독립성은 실행 순서와 장애 처리를 없애지 않는다.
 
 > SOA(Service-Oriented Architecture)는 기능을 명시적인 Interface와 계약으로 제공하는 설계 방식이다. 서비스 구현 위치와 사용자를 분리하되 Versioning·Discovery·Timeout·권한·실패 처리를 함께 정의한다.
 
@@ -62,3 +59,9 @@ C 구조체의 메모리를 그대로 wire payload로 사용하지 않는다. �
 
 
 알 수 없는 enum, 이전 Schema, 중복 Request ID, 만료 요청, 재시작 중 요청과 늦게 도착한 응답을 시험한다. Interface unit test와 실제 네트워크 단절 시험을 분리해 수행한다.
+
+## 이해를 확인하는 질문
+
+> Service discovery가 location dependency를 모두 해결할까?
+
+주소 탐색은 해결해도 초기화 순서, 권한, version과 장애 복구 계약은 남는다.

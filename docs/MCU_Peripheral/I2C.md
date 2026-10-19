@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a815bab37fa40ac87308d"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Register address를 쓴 뒤 같은 장치의 값을 읽는 상황
 
-
-## Overview
-
+Address와 ACK는 장치 선택·수신 상태를 나타내고 START/Repeated START/STOP은 transaction을 나눈다. Pull-up과 bus capacitance가 signal 상승 시간을 결정하므로 software sequence와 전기 조건을 함께 보아야 한다.
 
 > I2C는 SDA/SCL을 공유하며 address, ACK/NACK, START/STOP으로 transaction을 구성한다. Open-drain과 pull-up, bus capacitance, clock stretching, timeout을 함께 검토한다.
 
@@ -105,3 +100,9 @@ SDA low stuck이면 먼저 전원·pin mux·다른 controller의 소유 여부�
 
 
 정상 ID read, 잘못된 address, 장치 미연결, NACK, 긴 stretching, 동시 bus 접근, 전원 순서 변화, stuck line을 시험한다. Logic analyzer decode와 scope의 rise time·VOL 측정을 함께 확인한다.
+
+## 이해를 확인하는 질문
+
+> ACK를 받으면 읽은 값도 항상 올바를까?
+
+ACK는 해당 단계의 byte 수신 응답이다. Register 주소, repeated-start 요구, 데이터 길이와 byte order는 별도로 맞아야 한다.

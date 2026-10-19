@@ -10,10 +10,9 @@ redirect_from:
  - "/3f91b412900a814e845fcfd4f2278f49"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Wdg의 책임을 오류 탐지와 감독 관점에서 구분하는 상황
+
+데이터 오류 검사, 메모리·CPU 시험과 software 진행 감시는 관찰 대상이 다르다. 오류를 찾는 기능과 reset·degradation 같은 반응 정책은 별도로 연결된다. Wdg의 최상위 정의에는 WdgDemEventParameterRefs, WdgGeneral, WdgPublishedInformation 등이 있다. Container의 이름, description과 reference를 함께 보면 module 내부 설정과 외부 연결을 구분할 수 있다.
 
 ## Wdg의 역할
 > Watchdog hardware driver. Watchdog device의 hardware 접근을 제공한다.
@@ -44,3 +43,9 @@ redirect_from:
 
 ## 기준과 범위
 원본은 Classic AUTOSAR 4.2.2의 ECU Configuration Parameter Definitions다. 최신 release나 공급사 확장으로 확대 해석하지 않는다. Explorer에서 하위 container·parameter·reference와 원문 조건을 표로 확인할 수 있다.
+
+## 이해를 확인하는 질문
+
+> Wdg의 container 개수와 parameter 값의 범위는 어떻게 다른가?
+
+Multiplicity는 부모 instance마다 허용되는 구성 개수다. MIN/MAX·default·enum은 값의 범위를 설명한다. Reference의 대상과 variant 조건까지 함께 읽어야 실제 ECU 설정의 허용 범위를 알 수 있다.

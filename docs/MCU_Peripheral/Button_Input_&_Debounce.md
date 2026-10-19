@@ -12,14 +12,9 @@ redirect_from:
  - "/MCU_Peripheral/물리_버튼"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 한 번 누른 버튼에서 여러 press event가 발생하는 상황
 
-
-## 핵심 요약
-
+접점의 bounce는 전기적 변화이고 press·release·long press는 시간 조건이 있는 논리 event다. Raw input을 먼저 안정 상태로 변환한 뒤 사용자 동작을 분류해야 한다.
 
 > 물리 버튼은 접점 bounce를 필터링한 뒤 pressed/released 이벤트로 변환한다. 길게 누름·반복 입력은 안정화된 상태 위에서 별도 상태 머신으로 구현한다.
 
@@ -98,3 +93,9 @@ edge IRQ에서 20 ms busy wait를 하지 않는다. IRQ는 버튼 활동을 알�
 - 0/1이 2~5 ms 간격으로 흔들리는 입력 뒤 20 ms 안정 상태를 주고 이벤트가 한 번만 나오는지 확인한다.
 - 짧게 누름·길게 누름·계속 누름·동시 버튼·tick wraparound·부팅 눌림·버튼 stuck를 검증한다.
 - 주기 작업 지연 시 debounce 응답 지연과 이벤트 누락을 확인한다. 긴 배선의 노이즈를 소프트웨어 debounce만으로 해결하려 하지 않는다.
+
+## 이해를 확인하는 질문
+
+> Interrupt의 첫 edge만 받아도 버튼 입력이 완성될까?
+
+Release와 bounce를 구분할 시간 정보가 부족하다. 안정 시간, active polarity와 event 재발행 조건을 포함한 상태 모델이 필요하다.

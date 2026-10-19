@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a81029051d305edc556b5"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 가변 저항을 돌렸는데 측정값이 늦거나 흔들리는 상황
 
-
-## 핵심 요약
-
+ADC 결과는 입력 전압뿐 아니라 source impedance, sample time, reference voltage와 trigger 시점의 영향을 받는다. Raw code를 전압으로 바꾸는 계산과 물리 입력을 안정적으로 획득하는 과정은 서로 다른 문제다.
 
 > ADC는 아날로그 전압을 디지털 코드로 변환한다. 결과의 품질은 해상도뿐 아니라 기준 전압, 입력 소스 임피던스, acquisition time, 변환 주기, 보정과 노이즈에 영향을 받는다.
 
@@ -122,3 +117,9 @@ DMA buffer 길이·채널 순서·전송 폭·완료 이벤트를 확인한다. 
 
 
 Wiper의 source impedance는 위치에 따라 달라진다. ADC acquisition time과 입력 모델을 기준으로 오차를 확인하고 필요 시 buffer·RC filter를 검토한다. 범위 밖·단선·wiper 접촉 불량은 moving average만으로 숨기지 않는다. 기존 adc_voltage 예제와 raw/min/max 보정값을 이용해 위치를 정규화한다.
+
+## 이해를 확인하는 질문
+
+> 평균 횟수를 늘리면 모든 측정 오류가 줄어들까?
+
+Random noise는 줄어들 수 있지만 reference 오차와 입력 settling 문제는 남는다. 평균은 응답 지연도 늘리므로 sample 조건과 filter 지연을 함께 정한다.

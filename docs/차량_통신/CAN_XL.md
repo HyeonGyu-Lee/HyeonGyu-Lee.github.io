@@ -11,12 +11,9 @@ redirect_from:
  - "/3f71b412900a813da3e5f539116b266e"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## 핵심 요약
+## 큰 데이터와 기존 CAN traffic의 수용 방법을 비교하는 상황
 
+Payload와 전송 효율의 확장은 controller와 physical layer, 분석 도구의 지원을 함께 요구한다. 최대 속도 숫자보다 traffic 종류와 구성 요소의 호환성을 기준으로 판단해야 한다.
 
 > CAN 계열에서 대용량 페이로드 전송을 다루는 CAN XL의 목적과 호환 조건을 소개한다.
 
@@ -37,7 +34,6 @@ CAN XL의 개념 안내. 규격 판·컨트롤러·PHY의 실제 지원을 확�
 
 
 
-## 본문
 
 
 ### 목적과 특징
@@ -78,3 +74,9 @@ CAN XL은 Classic CAN·CAN FD보다 큰 페이로드를 제공하며 최대 2048
 
 
 비교 시험은 64·512·1500·2048바이트 입력과 경쟁 트래픽을 포함한다. 송신 시각부터 수신 애플리케이션 처리까지 측정하고 오류·재전송·메모리 사용을 기록한다. 장치별 API가 달라 공통 명령만으로 모든 CAN XL 장비를 시험할 수는 없다.
+
+## 이해를 확인하는 질문
+
+> Payload가 크면 작은 주기 message에도 항상 유리할까?
+
+우선순위, blocking 시간, frame overhead와 구현 제약을 함께 비교해야 한다. 큰 payload의 이점이 모든 traffic의 지연 감소를 뜻하지 않는다.

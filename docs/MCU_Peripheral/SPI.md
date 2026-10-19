@@ -12,14 +12,9 @@ redirect_from:
  - "/차량_통신/SPI"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 센서 register를 읽기 위해 주소와 dummy byte를 보내는 상황
 
-
-## 핵심 요약
-
+SCK는 bit 이동 시점을 만들고 CS는 transaction 경계를 만든다. MOSI와 MISO의 바이트는 동시에 이동하지만 응용에서 유효한 구간은 장치 protocol에 따라 다르다. Clock mode와 command format을 함께 이해해야 한다.
 
 > SPI는 SCK와 데이터 신호, CS(Chip Select)를 사용하는 동기식 직렬 통신이다. 컨트롤러가 클록을 만들고 주변장치와 프레임을 교환한다. CPOL·CPHA·bitrate뿐 아니라 주변장치별 명령 형식·CS 유지 조건·읽기 더미 클록·응답 지연을 데이터시트에 맞춰 구현해야 한다.
 
@@ -190,3 +185,9 @@ AUTOSAR Spi는 Channel(데이터와 buffer), Job(CS 대상·통신 속성), Sequ
 
 
 검증 과제: loopback으로 TX/RX 일치 확인 → 실제 장치 ID 읽기 → 읽기 전용·가역 설정 register 확인 → 반복 송수신 및 timeout 주입 → DMA 전환 순으로 진행한다. loopback 성공은 실제 장치의 명령·CS 조건을 검증하지 않는다. 결과에는 RTD 버전, pin mux, functional clock, SCK 실측값, CPOL/CPHA, PCS 파형과 송수신 바이트를 함께 기록한다.
+
+## 이해를 확인하는 질문
+
+> 8 clocks를 보냈는데 유효한 데이터가 없는 이유는 무엇일까?
+
+첫 byte가 command 또는 address일 수 있다. 유효 응답의 시작 위치, dummy cycle, CS 유지 조건과 CPOL·CPHA를 장치 규격과 대조한다.

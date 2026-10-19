@@ -11,10 +11,9 @@ redirect_from:
  - "/420a299530e5405fb9ca1c2680cc8386"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 고성능 ECU의 application과 service를 배포하는 구조
+
+Process lifecycle, service communication, machine state와 update는 독립된 기능이면서 의존 관계를 갖는다. Functional cluster의 interface와 manifest는 이 관계를 표현한다.
 
 ## Adaptive AUTOSAR가 등장한 배경
 > Adaptive Platform은 고성능 차량 컴퓨팅에서 application을 process와 service 단위로 구성하고, 실행·통신·데이터·software lifecycle을 관리하기 위한 표준이다.
@@ -56,3 +55,9 @@ Software가 바뀌면 binary뿐 아니라 interface, persistency data 형식, pa
 ## 릴리스 흐름을 읽는 방법
 2017년의 초기 Adaptive release 계열은 process·service 기반 platform이라는 새로운 방향을 이해하는 출발점이다. 이후 연도별 baseline은 여러 functional cluster의 요구사항과 관계를 비교해 읽어야 한다. R17-10은 Adaptive 최초 release와 동일하지 않으며, R17-03과 구분한다.
 Release는 표준 문서 집합의 기준 버전이다. 공급사 runtime과 application의 버전은 별도로 관리한다.
+
+## 이해를 확인하는 질문
+
+> Process 실행과 service 준비를 같은 상태로 볼 수 있을까?
+
+Process가 실행되어도 dependency와 endpoint, 권한·상태 조건이 준비되지 않을 수 있다. 실행 상태와 service 가용성을 구분한다.

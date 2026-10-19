@@ -10,11 +10,9 @@ redirect_from:
  - "/3f91b412900a810ab8d8eff3a8c51fbf"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 하나의 sensor 입력을 여러 hardware 기능으로 구성하는 상황
 
+Sensor와 actuator는 응용 기능이고 ADC, GPIO, timer, serial interface는 구현 자원이다. 하나의 기능에 여러 peripheral이 참여할 수 있으며 clock·pin·interrupt·DMA는 이들을 연결한다.
 
 ## MCU Peripheral 기능 지도
 
@@ -75,3 +73,9 @@ Concurrency·DMA ownership·Memory·Watchdog·Security & Boot는 Peripheral을 �
 </div>
 </div>
 </blockquote>
+
+## 이해를 확인하는 질문
+
+> Touch sensor는 항상 ADC 하나로 구현되는가?
+
+측정 방식에 따라 GPIO·timer, 전용 touch controller 또는 외부 IC의 serial interface를 사용할 수 있다.

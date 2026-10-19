@@ -465,13 +465,7 @@ redirect_from:
 ${redirects.map((url) => ` - ${JSON.stringify(url)}`).join("\n")}`
       header += `
 ---`
-      if (~hasChild && hasToc) {
-        header += `
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}`
-      }
+      // The article layout provides its own compact, accessible outline.
 
       let imagePath
       if (filepath === "/") {

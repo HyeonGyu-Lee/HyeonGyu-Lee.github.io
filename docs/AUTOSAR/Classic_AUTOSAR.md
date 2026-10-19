@@ -11,8 +11,9 @@ redirect_from:
  - "/60a1016be7be4a4082033eabd928f106"
 ---
 
-## 핵심 요약
+## SWC의 sensor 값이 통신 driver까지 전달되는 구조
 
+Application의 의미, RTE의 연결, BSW service와 MCAL의 hardware 접근은 다른 책임이다. 계층 분리는 hardware 의존성을 줄이지만 ECU별 configuration과 생성 코드가 그 연결을 구체화한다.
 
 > Classic AUTOSAR는 Application, RTE, BSW 계층을 통해 ECU software의 기능과 hardware 의존성을 분리한다.
 
@@ -32,7 +33,6 @@ redirect_from:
 </blockquote>
 
 
-## 본문
 
 
 ---
@@ -411,3 +411,9 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 
 
 > 마이크로컨트롤러는 ECU의 중심 처리 장치로, 모든 소프트웨어 계층이 직접적으로 상호작용하는 하드웨어입니다.
+
+## 이해를 확인하는 질문
+
+> MCAL이 바뀌면 SWC도 반드시 바뀌는가?
+
+상위 interface와 동작 계약이 유지되면 변경 범위를 제한할 수 있다. Timing과 지원 기능이 바뀌면 상위 요구에도 영향이 생긴다.

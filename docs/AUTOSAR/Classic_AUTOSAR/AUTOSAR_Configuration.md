@@ -12,10 +12,9 @@ redirect_from:
  - "/AUTOSAR/Classic_AUTOSAR/Configure_Parameters"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 표준 definition과 실제 ECU 값을 구분하는 상황
+
+Definition은 허용된 container·parameter·reference와 개수를 설명한다. 실제 ECU configuration은 그 구조의 instance와 값을 선택한다. 같은 이름이라도 release와 공급사 extension에 따라 의미와 제약이 달라질 수 있다.
 
 ## ECU Configuration의 의미
 > ECU Configuration은 단순 옵션 목록이 아니라, BSW module의 구조·parameter·reference와 허용되는 구성 범위를 정의하는 모델이다.
@@ -62,3 +61,9 @@ Pre-compile, link-time, post-build는 값이 결정되는 구성 시점과 관�
 Dcm, NvM, Can/CanIf/CanTp/CanSM, Lin/LinIf/LinTp/LinSM, Com, PduR, Dem, EcuM, BswM, OS, Ethernet 및 memory·watchdog·MCAL 관련 module을 선택할 수 있다. Adaptive의 functional cluster 전체를 이 Classic ECUC 파일에서 탐색할 수 있는 것은 아니다.
 ## IoHwAb의 위치
 IoHwAb는 ECU의 I/O 연결과 signal 처리 차이를 상위 software에서 추상화한다. 현재 Explorer의 4.2.2 ECUC 데이터에는 IoHwAb definition이 포함되어 있지 않다.
+
+## 이해를 확인하는 질문
+
+> Multiplicity [1]이면 ECU 전체에 반드시 하나 있어야 할까?
+
+해당 부모 instance와 조건이 전제다. Optional parent의 자식을 전체 ECU에서 무조건 필수라고 해석하지 않는다.

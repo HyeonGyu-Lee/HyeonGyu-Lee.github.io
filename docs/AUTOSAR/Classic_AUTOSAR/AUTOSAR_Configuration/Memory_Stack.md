@@ -10,10 +10,9 @@ redirect_from:
  - "/3f91b412900a81048976ed89d32be3e7"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## 논리 데이터와 저장 매체를 모듈별로 나누는 상황
+
+Application의 논리 block, memory abstraction과 물리 erase/program은 다른 단위다. Block 상태와 job 상태를 나누어야 비동기 저장과 초기화·복구의 의미가 드러난다.
 
 ## Memory Stack의 구성
 > 같은 기능 영역 안에서도 driver·interface·manager·service의 책임을 구분해서 읽는다.
@@ -30,3 +29,9 @@ redirect_from:
 
 ## 표준 범위
 이 분류는 탐색을 위한 문서 묶음이며 AUTOSAR의 공식 layer 구성을 대체하지 않는다. 각 페이지와 Explorer는 저장소의 Classic AUTOSAR 4.2.2 ECUC 정의를 기준으로 한다.
+
+## 이해를 확인하는 질문
+
+> 같은 그룹의 모듈을 하나의 책임으로 합쳐도 될까?
+
+그룹은 탐색을 위한 분류다. 실제 API·configuration·state의 경계는 개별 module이 정의하므로 각 책임과 연결을 따로 확인한다.

@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a818892aac82a6b1d2b38"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## ELF는 빌드되지만 부팅 직후 상태값이 잘못되는 상황
 
+Linker는 section의 주소를 정하고 startup은 초기값 복사와 zero initialization을 수행한다. Load address와 runtime address의 관계를 알아야 .data, .bss와 retained 영역을 설명할 수 있다.
 
 > Compiler는 section을 만들고 Linker는 주소와 region을 결정하며 Startup은 C runtime이 요구하는 상태를 준비한다. 소스에 전역변수가 있다는 사실만으로 최종 RAM 배치가 확정되지 않는다. 최종 ELF와 map file로 확인한다.
 
@@ -62,3 +59,9 @@ map file에서 vector table, boot metadata, application entry, DMA buffer, stack
 
 
 초기값 있는 전역·zero 전역·const·큰 배열의 map 배치를 비교한다. cold/warm reset에서 값이 요구대로 초기화되는지 관찰한다. 실제 메모리 주소가 맞는지 검증하지 않은 예제 linker script를 보드에 적용하지 않는다.
+
+## 이해를 확인하는 질문
+
+> 전역 초기값은 Flash에서 직접 읽히는가?
+
+일반적인 .data는 Flash의 초기 이미지를 RAM으로 복사한 뒤 사용한다. Linker 배치와 startup code를 함께 확인한다.

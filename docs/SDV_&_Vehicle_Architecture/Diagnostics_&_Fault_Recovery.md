@@ -11,12 +11,9 @@ redirect_from:
  - "/3f91b412900a8191abd4cd74c4ef4a11"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-## Overview
+## 일부 service가 멈췄지만 전체 차량은 동작하는 상황
 
+Fault detection, isolation, degraded mode와 recovery는 단계가 다르다. 무조건 재시작하면 원인을 잃거나 반복 실패를 만들 수 있으므로 관찰값과 복구 조건을 분리해야 한다.
 
 > 분산 제어 시스템은 정상 데이터 경로뿐 아니라 fault 탐지·격리·복구·기록을 설계해야 한다. 로그가 있다는 사실과 시스템이 올바르게 복구된다는 사실은 다르다.
 
@@ -65,3 +62,9 @@ Sequence, Data ID, CRC, Timeout은 손상·누락·중복·잘못된 데이터 �
 
 
 네트워크 단절, 서비스 crash, MCU reset, queue overflow, 센서 stuck, timestamp 이상, 만료 명령, 중복 응답을 각각 주입한다. 검출 시간·복구 시간·출력 영향·기록 내용·재발 조건을 표로 관리한다. Safety 관련 허용 동작은 시스템 분석과 요구사항에 따라 별도로 확정한다.
+
+## 이해를 확인하는 질문
+
+> Restart 후 잠깐 정상이라면 복구가 끝난 것인가?
+
+Dependency와 상태 일관성, 반복 실패 조건과 안정 구간을 확인해야 한다. Health 판정과 복구 성공 기준이 필요하다.

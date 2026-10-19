@@ -11,14 +11,9 @@ redirect_from:
  - "/3f91b412900a81698454d9c0fc69a03a"
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Task는 멈췄는데 watchdog feed 함수만 계속 실행되는 상황
 
-
-## Overview
-
+Watchdog의 목적은 주기적으로 register를 쓰는 것이 아니라 유효한 software 진행을 감시하는 것이다. 각 task의 progress와 deadline을 모아 feed 여부를 결정하고 reset 이후 원인을 보존해야 한다.
 
 > Watchdog은 software progress가 멈췄을 때 복구를 시작하는 수단이다. 무조건 주기적으로 feed하는 코드만 넣으면 일부 task가 멈춰도 fault를 숨길 수 있다.
 
@@ -102,3 +97,9 @@ bool all_progressed(Health *h, const uint32_t now[TASKS]) {
 
 
 ISR에서 무조건 feed하면 main/task deadlock을 숨길 수 있다. Supervisor 자체가 멈췄을 때 watchdog이 실제 reset하는지 확인한다. Reset loop가 발생하면 watchdog을 끄기 전에 boot deadline·retained state·clock·계속되는 외부 fault를 분석한다.
+
+## 이해를 확인하는 질문
+
+> Timer interrupt에서 watchdog을 feed하면 충분할까?
+
+Application이 정지해도 interrupt는 계속 실행될 수 있다. 핵심 task의 완료 증거와 시간 조건이 충족된 경우에만 feed해야 한다.
