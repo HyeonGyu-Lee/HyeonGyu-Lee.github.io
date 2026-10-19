@@ -16,7 +16,7 @@ redirect_from:
 Controller의 buffer, mask, filter와 interrupt는 수신 frame의 저장과 통지를 담당한다. application message의 의미와 bus의 전기적 상태는 별도 계층이므로 register 설정과 network 계약을 나누어 분석한다.
 
 
-> CAN Controller는 message buffer·filter·bit timing·error state를 관리하는 MCU hardware다. CAN transceiver는 bus의 전기 신호를 송수신하며, network topology와 termination은 차량 네트워크 설계에 속한다.
+> CAN Controller는 message buffer·filter·bit timing·error state를 관리하는 MCU hardware다. CAN transceiver는 bus의 전기 신호를 송수신하며, network topology와 termination은 차량 network 설계에 속한다.
 
 
 ## Controller, Transceiver and Network
@@ -26,7 +26,7 @@ Controller의 buffer, mask, filter와 interrupt는 수신 frame의 저장과 통
 | --------------- | ---------------------------------------------------------------------------- | ------------------------- |
 | MCU Controller  | Bit timing, frame serialization, arbitration, CRC, error handling, buffer 관리 | FlexCAN clock·MB·IRQ·상태   |
 | Transceiver     | TXD/RXD와 differential bus 사이 전기적 변환                                          | EN/STB, 전압·전파 지연          |
-| Vehicle Network | ECU 간 메시지 계약·주기·배선·진단·복구 정책                                                  | ID/DBC, bus load, gateway |
+| Vehicle Network | ECU 간 message 계약·주기·배선·진단·복구 정책                                                  | ID/DBC, bus load, gateway |
 
 
 ## Functional Model

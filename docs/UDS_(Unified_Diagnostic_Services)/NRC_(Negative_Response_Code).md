@@ -28,7 +28,7 @@ Negative response의 original SID와 NRC는 거절한 service와 조건을 구�
 💡 
 </div>
 <div class="callout-content" markdown="1">
-실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+실행 예제의 주소·선택자·interface·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 </div>
 </div>
 </blockquote>
@@ -41,7 +41,7 @@ Negative response의 original SID와 NRC는 거절한 service와 조건을 구�
 NRC는 UDS 요청을 정상 완료하지 못한 이유 또는 처리가 계속 진행 중임을 나타내는 코드다. 진단 서비스는 배출가스 OBD에만 한정되지 않으며, 요청 형식·세션·보안 상태·동작 조건을 함께 해석해야 한다.
 
 
-### 응답 프레임 읽기
+### 응답 frame 읽기
 
 
 UDS 부정 응답의 기본 구조는 0x7F, 원래 요청 SID, NRC다. 설명용 예시 7F 22 31은 ReadDataByIdentifier(0x22) 요청에 requestOutOfRange(0x31)가 반환됐다는 뜻이다. 실제 원인은 요청 DID와 ECU 사양을 함께 확인한다.
@@ -61,7 +61,7 @@ UDS 부정 응답의 기본 구조는 0x7F, 원래 요청 SID, NRC다. 설명용
 
 - 0x78 requestCorrectlyReceived-ResponsePending: 요청은 수신됐지만 최종 응답이 준비되지 않은 중간 상태다. 즉시 최종 실패로 집계하지 않는다.
 
-### 0x78과 타임아웃 구분
+### 0x78과 timeout 구분
 
 
 P2/P2*와 테스트 도구의 대기 설정, 타임스탬프, 최종 응답을 함께 본다. 0x78을 수신했다고 모든 대기 시간이 무제한으로 연장되는 것은 아니다. 실제 시간 값과 반복 제한은 적용 규격·세션 설정·프로젝트 사양에 따른다.
@@ -73,7 +73,7 @@ P2/P2*와 테스트 도구의 대기 설정, 타임스탬프, 최종 응답을 �
 - 세션·보안 수준·ECU 상태와 요청 순서를 기록한다.
 - 정상 조건, 지원하지 않는 입력, 길이 오류, 조건 미충족을 각각 분리해 시험한다.
 - 예상 NRC는 임의 선택하지 않고 서비스별 요구사항과 검사 우선순위에 따라 정한다.
-- 타임아웃과 ECU의 부정 응답을 서로 다른 결과로 기록한다.
+- timeout과 ECU의 부정 응답을 서로 다른 결과로 기록한다.
 
 ### 확인할 출처
 
@@ -117,7 +117,7 @@ int main(void) {
 💡 
 </div>
 <div class="callout-content" markdown="1">
-Negative Response Code : 차량의 진단 통신 프로토콜에서 사용되는 코드로, 특정 진단 요청이 실패했거나 처리할 수 없을 때 ECU(Electronic Control Unit)에서 반환하는 응답 코드입니다. 이 코드는 ISO 14229 (UDS - Unified Diagnostic Services) 표준에서 정의되며, 차량의 OBD(On-Board Diagnostics) 시스템에서 진단 요청에 대한 부정적인 응답을 식별하는 데 사용됩니다.
+Negative Response Code : 차량의 진단 통신 protocol에서 사용되는 코드로, 특정 진단 요청이 실패했거나 처리할 수 없을 때 ECU(Electronic Control Unit)에서 반환하는 응답 코드입니다. 이 코드는 ISO 14229 (UDS - Unified Diagnostic Services) 표준에서 정의되며, 차량의 OBD(On-Board Diagnostics) 시스템에서 진단 요청에 대한 부정적인 응답을 식별하는 데 사용됩니다.
 </div>
 </div>
 </blockquote>

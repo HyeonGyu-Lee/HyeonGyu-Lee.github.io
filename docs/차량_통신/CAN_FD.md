@@ -28,7 +28,7 @@ CAN FD는 payload 크기와 data phase 전송 속도를 확장한다. Arbitratio
 💡 
 </div>
 <div class="callout-content" markdown="1">
-CAN FD 공통 개념. 실제 허용 비트레이트·배선·혼합 노드 조건은 ISO 11898과 하드웨어 사양을 따른다.
+CAN FD 공통 개념. 실제 허용 비트레이트·배선·혼합 node 조건은 ISO 11898과 hardware 사양을 따른다.
 </div>
 </div>
 </blockquote>
@@ -38,42 +38,42 @@ CAN FD 공통 개념. 실제 허용 비트레이트·배선·혼합 노드 조�
 ### Classic CAN과의 차이
 
 
-CAN FD는 데이터 페이로드를 최대 64바이트로 확장한다. BRS를 사용할 경우 중재 구간과 데이터 구간에 서로 다른 비트 타이밍을 적용할 수 있다. 모든 CAN FD 프레임이 고속 데이터 구간을 사용하는 것은 아니다.
+CAN FD는 데이터 페이로드를 최대 64바이트로 확장한다. BRS를 사용할 경우 중재 구간과 데이터 구간에 서로 다른 비트 타이밍을 적용할 수 있다. 모든 CAN FD frame이 고속 데이터 구간을 사용하는 것은 아니다.
 
 
-CAN FD는 Classic CAN과 프레임 형식이 다르며 원격 프레임을 지원하지 않는다. 기존 노드가 물리적으로 연결된다는 사실만으로 CAN FD 프레임을 안전하게 처리한다고 가정하지 않는다.
+CAN FD는 Classic CAN과 frame 형식이 다르며 원격 frame을 지원하지 않는다. 기존 node가 물리적으로 연결된다는 사실만으로 CAN FD frame을 안전하게 처리한다고 가정하지 않는다.
 
 
-### 길이와 프레임 해석
+### 길이와 frame 해석
 
 
-DLC는 8바이트를 초과하면 데이터 길이와 일대일 선형 대응하지 않는다. 12·16·20·24·32·48·64바이트로 매핑되는 구간을 실제 프레임 해석에서 확인한다.
+DLC는 8바이트를 초과하면 데이터 길이와 일대일 선형 대응하지 않는다. 12·16·20·24·32·48·64바이트로 매핑되는 구간을 실제 frame 해석에서 확인한다.
 
 
 ### 설정 항목
 
 
-Nominal/Data bit timing, BRS, 컨트롤러와 트랜시버의 지원, 필요 시 transmitter delay compensation을 확인한다. ISO CAN FD와 초기 비-ISO 구현의 차이도 제품 문서에서 확인한다.
+Nominal/Data bit timing, BRS, controller와 transceiver의 지원, 필요 시 transmitter delay compensation을 확인한다. ISO CAN FD와 초기 비-ISO 구현의 차이도 제품 문서에서 확인한다.
 
 
 ### 성능 판단
 
 
-페이로드 증가와 데이터 구간 가속은 처리량에 영향을 주지만, 중재·프레임 오버헤드·재전송·애플리케이션 주기가 전체 성능을 좌우한다. 비트레이트만으로 진단 전송 시간을 단정하지 않는다.
+페이로드 증가와 데이터 구간 가속은 처리량에 영향을 주지만, 중재·frame 오버헤드·재전송·application 주기가 전체 성능을 좌우한다. 비트레이트만으로 진단 전송 시간을 단정하지 않는다.
 
 
 ### 검증 항목
 
-- BRS 사용·미사용 프레임과 다양한 DLC 길이.
+- BRS 사용·미사용 frame과 다양한 DLC 길이.
 - 정상·최대 페이로드, 패딩과 신호 정의.
 - nominal/data 타이밍의 불일치와 오류.
-- 기존 노드·게이트웨이·로깅 도구의 호환성.
-- ISO-TP 사용 시 링크 계층 길이에 맞는 전송 설정.
+- 기존 node·gateway·로깅 도구의 호환성.
+- ISO-TP 사용 시 link 계층 길이에 맞는 전송 설정.
 
-### 실습: 12바이트 FD 프레임
+### 실습: 12바이트 FD frame
 
 
-can-utils와 vcan을 사용하는 API·프레임 해석 예제다. ## 뒤의 첫 숫자 1은 BRS 플래그를 나타낸다.
+can-utils와 vcan을 사용하는 API·frame 해석 예제다. ## 뒤의 첫 숫자 1은 BRS 플래그를 나타낸다.
 
 
 ```bash
@@ -101,13 +101,13 @@ ip -details -statistics link show can0
 
 
 
-상대 노드·트랜시버의 지원과 종단을 확인하고 8·12·64바이트 프레임에서 오류 카운터·주기·지터를 비교한다.
+상대 node·transceiver의 지원과 종단을 확인하고 8·12·64바이트 frame에서 오류 카운터·주기·지터를 비교한다.
 
 
 ## MCU 구현과의 연결
 
 
-차량 네트워크에서는 ECU 간 메시지 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN FD Configuration](https://autosar.dev/3f91b412900a8146a610f03107f8d64e) 문서에서 별도로 다룬다.
+차량 network에서는 ECU 간 message 계약·주기·부하·호환성과 복구 정책을 확인한다. Controller의 clock·register·buffer·driver 구현은 [CAN FD Configuration](https://autosar.dev/3f91b412900a8146a610f03107f8d64e) 문서에서 별도로 다룬다.
 
 
 ## 이해를 확인하는 질문

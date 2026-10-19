@@ -10,7 +10,7 @@ permalink: '/차량_통신/Ethernet'
 redirect_from:
  - "/3f71b412900a817b9e99f6616ada2231"
 ---
-## 센서 1의 25.00°C가 다른 ECU에 도착하는 상황
+## sensor 1의 25.00°C가 다른 ECU에 도착하는 상황
 
 
 송신 application(데이터를 생성하는 프로그램)은 측정값을 정해진 byte format으로 인코딩해 RAM buffer에 저장한다. DMA를 사용하는 Ethernet controller에서는 descriptor가 buffer 주소·길이·소유권 등의 제어 정보를 제공하고, DMA가 payload를 전송한다. MAC은 Ethernet frame을 송신하고 PHY는 이를 매체에 맞는 신호로 변환한다. 수신 측에서는 반대 경로로 전달된 payload를 application이 디코딩한다. OS와 driver는 이 경로를 지원하는 별도 계층이며, descriptor 자체가 측정값으로 변환되는 것은 아니다. 송신 API의 성공과 상대 application의 처리 완료도 구분해야 한다.
@@ -19,7 +19,7 @@ redirect_from:
 ## 핵심 요약
 
 
-> 자동차 Ethernet의 PHY·프레임·스위칭과 IP 상위 프로토콜을 구분해 정리한다.
+> 자동차 Ethernet의 PHY·frame·스위칭과 IP 상위 protocol을 구분해 정리한다.
 
 
 ## 적용 범위
@@ -31,7 +31,7 @@ redirect_from:
 💡 
 </div>
 <div class="callout-content" markdown="1">
-IEEE 802.3 물리·MAC 계층과 IEEE 802.1 기능을 구분한다. 실제 구현 규격과 PHY 데이터시트를 확인한다.
+IEEE 802.3 물리·MAC 계층과 IEEE 802.1 기능을 구분한다. 실제 구현 규격과 PHY datasheet를 확인한다.
 </div>
 </div>
 </blockquote>
@@ -41,45 +41,45 @@ IEEE 802.3 물리·MAC 계층과 IEEE 802.1 기능을 구분한다. 실제 구�
 ### 계층 구분
 
 
-10BASE-T1S·100BASE-T1·1000BASE-T1은 물리 계층 규격이다. Ethernet 프레임·MAC 주소·스위칭은 링크 계층 관점이다. IP·TCP·UDP 및 서비스·진단 프로토콜은 별도 계층이다.
+10BASE-T1S·100BASE-T1·1000BASE-T1은 물리 계층 규격이다. Ethernet frame·MAC 주소·스위칭은 link 계층 관점이다. IP·TCP·UDP 및 서비스·진단 protocol은 별도 계층이다.
 
 
-### 프레임과 스위칭
+### frame과 스위칭
 
 
-목적지·출발지 MAC, EtherType, 페이로드와 FCS를 구분한다. VLAN 태그를 사용할 경우 식별과 우선순위 설정을 확인한다. 스위치는 프레임을 전달하며 라우터는 IP 네트워크 사이의 전달을 다룬다.
+목적지·출발지 MAC, EtherType, 페이로드와 FCS를 구분한다. VLAN 태그를 사용할 경우 식별과 우선순위 설정을 확인한다. switch는 frame을 전달하며 라우터는 IP network 사이의 전달을 다룬다.
 
 
-### 토폴로지와 자동차 PHY
+### topology와 자동차 PHY
 
 
-single twisted pair link와 스위치 기반 구성, zonal/domain 구조, 게이트웨이와 연결 상태를 확인한다. 모든 single twisted pair를 사용하는 Ethernet이 multidrop을 지원하는 것은 아니다.
+single twisted pair link와 switch 기반 구성, zonal/domain 구조, gateway와 연결 상태를 확인한다. 모든 single twisted pair를 사용하는 Ethernet이 multidrop을 지원하는 것은 아니다.
 
 
 ### 성능과 지연
 
 
-물리 링크 속도는 애플리케이션의 실제 처리량과 다르다. 패킷 크기, 오버헤드, 스위치 큐, 트래픽 경쟁, 손실·재전송과 호스트 처리가 지연에 영향을 준다.
+물리 link 속도는 application의 실제 처리량과 다르다. packet 크기, 오버헤드, switch 큐, 트래픽 경쟁, 손실·재전송과 호스트 처리가 지연에 영향을 준다.
 
 
 ### 분석 순서
 
 
-PHY link 상태 → MAC·VLAN → IP 주소와 경로 → transport 연결 → 서비스 상태 → 애플리케이션 판정 순서로 문제를 좁힌다.
+PHY link 상태 → MAC·VLAN → IP 주소와 경로 → transport 연결 → 서비스 상태 → application 판정 순서로 문제를 좁힌다.
 
 
 ### 검증 항목
 
 - link up/down과 복구.
 - VLAN·주소·라우팅 설정의 일치.
-- 패킷 손실·지연·지터·대역폭.
+- packet 손실·지연·지터·대역폭.
 - 멀티캐스트·브로드캐스트의 영향.
 - 진단·서비스·미디어 트래픽의 동시 부하.
 
 ### 실습: 계층별 연결 점검
 
 
-Linux 예제 인터페이스 eth0를 사용한다. 실제 장치의 인터페이스 이름과 주소로 바꾼다.
+Linux 예제 interface eth0를 사용한다. 실제 장치의 interface 이름과 주소로 바꾼다.
 
 
 ```bash
@@ -99,7 +99,7 @@ Link 상태와 주소·경로를 먼저 확인하고, 캡처에서 실제 요청
 ### 장애 분석 예제
 
 
-Link는 up인데 서비스가 보이지 않는 경우 VLAN·subnet·routing·multicast 설정 → transport 포트 → 서비스 제공 상태 순서로 확인한다. 스위치 포트 카운터와 송수신 캡처를 비교해 손실 지점을 좁힌다.
+Link는 up인데 서비스가 보이지 않는 경우 VLAN·subnet·routing·multicast 설정 → transport 포트 → 서비스 제공 상태 순서로 확인한다. switch 포트 카운터와 송수신 캡처를 비교해 손실 지점을 좁힌다.
 
 
 ## 차량 Network 설계 관점

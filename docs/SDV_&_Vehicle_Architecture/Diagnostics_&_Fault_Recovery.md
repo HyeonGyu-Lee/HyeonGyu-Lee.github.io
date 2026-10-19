@@ -50,7 +50,7 @@ Sequence, Data ID, CRC, Timeout은 손상·누락·중복·잘못된 데이터 �
 ## Observability
 
 
-노드·SW version·boot/session ID·request/sequence·clock quality·queue depth·error counter를 기록한다. ISR에서 긴 printf를 수행하지 않는다. 중요 fault는 속도 제한·요약 정책을 두고 로그 부하가 제어 task를 방해하지 않는지 확인한다.
+node·SW version·boot/session ID·request/sequence·clock quality·queue depth·error counter를 기록한다. ISR에서 긴 printf를 수행하지 않는다. 중요 fault는 속도 제한·요약 정책을 두고 로그 부하가 제어 task를 방해하지 않는지 확인한다.
 
 
 ## Watchdog
@@ -62,7 +62,7 @@ Sequence, Data ID, CRC, Timeout은 손상·누락·중복·잘못된 데이터 �
 ## Verification Matrix
 
 
-네트워크 단절, 서비스 crash, MCU reset, queue overflow, 센서 stuck, timestamp 이상, 만료 명령, 중복 응답을 각각 주입한다. 검출 시간·복구 시간·출력 영향·기록 내용·재발 조건을 표로 관리한다. Safety 관련 허용 동작은 시스템 분석과 요구사항에 따라 별도로 확정한다.
+network 단절, 서비스 crash, MCU reset, queue overflow, sensor stuck, timestamp 이상, 만료 명령, 중복 응답을 각각 주입한다. 검출 시간·복구 시간·출력 영향·기록 내용·재발 조건을 표로 관리한다. Safety 관련 허용 동작은 시스템 분석과 요구사항에 따라 별도로 확정한다.
 
 
 ## 이해를 확인하는 질문

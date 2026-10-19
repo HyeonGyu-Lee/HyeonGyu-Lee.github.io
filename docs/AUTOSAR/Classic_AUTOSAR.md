@@ -75,7 +75,7 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 ## AUTOSAR Runtime Environment `RTE`
 
 
-> <span class="tooltip">RTE<span class="tooltiptext">Runtime Environment</span></span>는 <span class="tooltip">ASW<span class="tooltiptext">Application Software</span></span>와 <span class="tooltip">BSW<span class="tooltiptext">Basic Software</span></span> 모듈 간의 통신을 용이하게 하는 미들웨어 계층입니다. 구성 요소가 ECU 내의 위치에 관계없이 서로 상호작용할 수 있도록 합니다.
+> <span class="tooltip">RTE<span class="tooltiptext">Runtime Environment</span></span>는 <span class="tooltip">ASW<span class="tooltiptext">Application Software</span></span>와 <span class="tooltip">BSW<span class="tooltiptext">Basic Software</span></span> 모듈 간의 통신을 용이하게 하는 middleware 계층입니다. 구성 요소가 ECU 내의 위치에 관계없이 서로 상호작용할 수 있도록 합니다.
 
 
 ---
@@ -84,7 +84,7 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 ## Basic Software `BSW`
 
 
-> <span class="tooltip">BSW<span class="tooltiptext">Basic Software</span></span> 계층은 <span class="tooltip">ASW<span class="tooltiptext">Application Software</span></span>와 <span class="tooltip">RTE<span class="tooltiptext">Runtime Environment</span></span>에 필요한 필수 서비스와 기능을 제공합니다. 각기 다른 소프트웨어 인프라의 다양한 측면을 담당하는 여러 하위 계층으로 나뉩니다.
+> <span class="tooltip">BSW<span class="tooltiptext">Basic Software</span></span> 계층은 <span class="tooltip">ASW<span class="tooltiptext">Application Software</span></span>와 <span class="tooltip">RTE<span class="tooltiptext">Runtime Environment</span></span>에 필요한 필수 서비스와 기능을 제공합니다. 각기 다른 software 인프라의 다양한 측면을 담당하는 여러 하위 계층으로 나뉩니다.
 
 
 ### Services Layer
@@ -102,7 +102,7 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 | 모듈                                    | 기능 및 특징                                             |
 | ------------------------------------- | --------------------------------------------------- |
 | Development Error Tracer (DET)        | • 개발 단계에서 발생하는 오류를 감지하고 보고<br>- 오류 로그 기록, 디버깅 지원    |
-| Communication Manager (ComM)          | • ECU의 통신 모드 관리<br>- 네트워크 활성화/비활성화 관리, 통신 모드 전      |
+| Communication Manager (ComM)          | • ECU의 통신 모드 관리<br>- network 활성화/비활성화 관리, 통신 모드 전      |
 | Watchdog Manager (WdgM)               | • 시스템의 시간적 오류 감지 및 대응<br>- Watchdog 타이머 관리, 시스템 리셋  |
 | Function Inhibition Manager (FIM)     | • 특정 기능의 실행 억제 또는 제한<br>- 시스템 상태에 따른 기능 활성화/비활성화 관리 |
 | Time Services (TM)                    | • 시스템 내 시간 관리<br>- 타이머 설정 및 관리, 시간 동기화              |
@@ -144,45 +144,45 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 | 모듈                                                   | 기능 및 특징                                   |
 | ---------------------------------------------------- | ----------------------------------------- |
 | Xcp (Universal Measurement and Calibration Protocol) | • 측정 및 캘리브레이션 지원<br>- 데이터 수집, ECU 매개변수 조정 |
-| Socket Adapter                                       | • 소켓 인터페이스 제공<br>- TCP/IP 통신 지원           |
+| Socket Adapter                                       | • 소켓 interface 제공<br>- TCP/IP 통신 지원           |
 | Diagnostic Com. Manager (DCM)                        | • 진단 통신 관리<br>- 진단 요청 처리, UDS 지원          |
 | Diagnostic Log and Trace (DLT)                       | • 진단 로그 및 추적<br>- 로그 데이터 수집/저장, 디버깅 지원    |
-| DoIP (Diagnostics over IP)                           | • IP 기반 진단 데이터 전송<br>- 네트워크 진단 지원         |
-| TCP/IP Com. Services                                 | • TCP/IP 통신 관리<br>- 네트워크 연결 및 데이터 전송 관리   |
-| Service Discovery                                    | • 네트워크 서비스 검색<br>- 서비스 제공자/클라이언트 자동 연결    |
+| DoIP (Diagnostics over IP)                           | • IP 기반 진단 데이터 전송<br>- network 진단 지원         |
+| TCP/IP Com. Services                                 | • TCP/IP 통신 관리<br>- network 연결 및 데이터 전송 관리   |
+| Service Discovery                                    | • network 서비스 검색<br>- 서비스 제공자/client 자동 연결    |
 | Secure Onboard Com                                   | • 통신 보안 기능 제공<br>- 데이터 암호화/복호화, 인증 관리     |
 
 
 #### Communication Services
 
 
-> 통신 서비스는 차량 내부 네트워크 통신을 관리합니다.
+> 통신 서비스는 차량 내부 network 통신을 관리합니다.
 
 
 | 모듈                                                                                         | 기능                                                  |
 | ------------------------------------------------------------------------------------------ | --------------------------------------------------- |
-| SomeIPXf (SOME/IP Transformer)                                                             | • 서비스 지향 아키텍처 통신 지원<br>- SOME/IP 메시지 처리             |
-| ComXf (Communication Transformer)                                                          | • 통신 데이터 변환<br>- 프로토콜 간 데이터 변환                      |
+| SomeIPXf (SOME/IP Transformer)                                                             | • 서비스 지향 아키텍처 통신 지원<br>- SOME/IP message 처리             |
+| ComXf (Communication Transformer)                                                          | • 통신 데이터 변환<br>- protocol 간 데이터 변환                      |
 | E2EXf (End-to-End Transformer)                                                             | • 종단 간 데이터 보호<br>- 데이터 무결성 검증                       |
 | IpduM (IPDU Multiplexer)                                                                   | • IPDU 다중화<br>- 데이터 전송 효율성 증가                       |
 | LdCom (Local Diagnostic Communication)                                                     | • 로컬 진단 통신 지원<br>- ECU 간 진단 데이터 송수신                 |
 | AUTOSAR COM                                                                                | • 신호 및 PDU 관리<br>- 통신 스택 상위 계층 지원                   |
-| <span class="tooltip">PDU<span class="tooltiptext">Protocol Data Unit</span></span> Router | • PDU 라우팅<br>- 프로토콜 간 데이터 전송 관리                     |
-| J1939 TP (Transport Protocol)                                                              | • J1939 네트워크 대용량 데이터 전송<br>- 데이터 분할/재조립             |
-| LIN TP (Transport Protocol)                                                                | • LIN 네트워크 대용량 데이터 전송<br>- 데이터 분할/재조립               |
-| CAN TP (Transport Protocol)                                                                | • CAN 네트워크 대용량 데이터 전송<br>- 데이터 분할/재조립               |
-| FR TP (Transport Protocol)                                                                 | • FlexRay 네트워크 대용량 데이터 전송<br>- 데이터 분할/재조립           |
+| <span class="tooltip">PDU<span class="tooltiptext">Protocol Data Unit</span></span> Router | • PDU 라우팅<br>- protocol 간 데이터 전송 관리                     |
+| J1939 TP (Transport Protocol)                                                              | • J1939 network 대용량 데이터 전송<br>- 데이터 분할/재조립             |
+| LIN TP (Transport Protocol)                                                                | • LIN network 대용량 데이터 전송<br>- 데이터 분할/재조립               |
+| CAN TP (Transport Protocol)                                                                | • CAN network 대용량 데이터 전송<br>- 데이터 분할/재조립               |
+| FR TP (Transport Protocol)                                                                 | • FlexRay network 대용량 데이터 전송<br>- 데이터 분할/재조립           |
 | XxxTSyn                                                                                    | • 통신 동기화 지원<br>- 다양한 동기화 방식 지원 (모듈에 따라 다름)          |
-| Generic NM Interface                                                                       | • 네트워크 관리 모듈 인터페이스 제공<br>- 공통 인터페이스로 다양한 네트워크 관리 지원 |
-| Flexray NM (Network Manager)                                                               | • FlexRay 네트워크 관리<br>- 네트워크 상태 모니터링                 |
-| CAN NM (Network Manager)                                                                   | • CAN 네트워크 관리<br>- 네트워크 상태 모니터링                     |
-| LIN NM (Network Manager)                                                                   | • LIN 네트워크 관리<br>- 네트워크 상태 모니터링                     |
-| J1939 NM (Network Manager)                                                                 | • J1939 네트워크 관리<br>- 네트워크 상태 모니터링                   |
-| UDP NM (Network Manager)                                                                   | • UDP 네트워크 관리<br>- 네트워크 상태 모니터링                     |
-| CAN SM (State Manager)                                                                     | • CAN 네트워크 상태 관리<br>- 상태 전환 제어                      |
-| LIN SM  (State Manager)                                                                    | • LIN 네트워크 상태 관리<br>- 상태 전환 제어                      |
-| FR SM  (State Manager)                                                                     | • FlexRay 네트워크 상태 관리<br>- 상태 전환 제어                  |
-| ETH SM  (State Manager)                                                                    | • Ethernet 네트워크 상태 관리<br>- 상태 전환 제어                 |
+| Generic NM Interface                                                                       | • network 관리 모듈 interface 제공<br>- 공통 interface로 다양한 network 관리 지원 |
+| Flexray NM (Network Manager)                                                               | • FlexRay network 관리<br>- network 상태 모니터링                 |
+| CAN NM (Network Manager)                                                                   | • CAN network 관리<br>- network 상태 모니터링                     |
+| LIN NM (Network Manager)                                                                   | • LIN network 관리<br>- network 상태 모니터링                     |
+| J1939 NM (Network Manager)                                                                 | • J1939 network 관리<br>- network 상태 모니터링                   |
+| UDP NM (Network Manager)                                                                   | • UDP network 관리<br>- network 상태 모니터링                     |
+| CAN SM (State Manager)                                                                     | • CAN network 상태 관리<br>- 상태 전환 제어                      |
+| LIN SM  (State Manager)                                                                    | • LIN network 상태 관리<br>- 상태 전환 제어                      |
+| FR SM  (State Manager)                                                                     | • FlexRay network 상태 관리<br>- 상태 전환 제어                  |
+| ETH SM  (State Manager)                                                                    | • Ethernet network 상태 관리<br>- 상태 전환 제어                 |
 
 
 ---
@@ -191,25 +191,25 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 ### ECU Abstraction Layer
 
 
-> ECU 추상화 계층은 하드웨어 종속성을 줄이고 상위 소프트웨어 계층에 표준화된 인터페이스를 제공하는 역할을 합니다.
+> ECU 추상화 계층은 hardware 종속성을 줄이고 상위 software 계층에 표준화된 interface를 제공하는 역할을 합니다.
 
 
 #### On-board Device Abstraction
 
 
-> 온보드 장치 추상화는 차량 내의 다양한 장치와의 인터페이스를 관리합니다.
+> 온보드 장치 추상화는 차량 내의 다양한 장치와의 interface를 관리합니다.
 
 
 | 모듈                         | 기능 및 특징                                             |
 | -------------------------- | --------------------------------------------------- |
-| Watchdog Interface (WdgIf) | • Watchdog 타이머 인터페이스 제공<br>- 다양한 Watchdog 타이머 지원    |
-| External Watchdogs Driver  | • 외부 Watchdogs 타이머 제어<br>- 외부 Watchdogs 타이머와의 인터페이스 |
+| Watchdog Interface (WdgIf) | • Watchdog 타이머 interface 제공<br>- 다양한 Watchdog 타이머 지원    |
+| External Watchdogs Driver  | • 외부 Watchdogs 타이머 제어<br>- 외부 Watchdogs 타이머와의 interface |
 
 
 #### Memory Hardware Abstraction
 
 
-> 메모리 하드웨어 추상화는 메모리 장치와의 통신을 관리합니다.
+> 메모리 hardware 추상화는 메모리 장치와의 통신을 관리합니다.
 
 
 | 모듈                                   | 기능 및 특징                                                |
@@ -217,68 +217,68 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 | Memory Abstraction Interface (MemIf) | • 메모리 접근 추상화<br>- 다양한 메모리 타입 지원                        |
 | EEPROM Abstraction (Ea)              | • EEPROM 접근 추상화<br>- EEPROM 데이터 관리                     |
 | Flash EEPROM Emulation (Fee)         | • Flash 메모리의 EEPROM 에뮬레이션<br>- Flash 메모리의 EEPROM 기능 제공 |
-| External EEPROM Driver               | • 외부 EEPROM 제어<br>- 외부 EEPROM 인터페이스                    |
-| External Flash Driver                | • 외부 Flash 메모리 제어<br>- 외부 Flash 메모리 인터페이스              |
+| External EEPROM Driver               | • 외부 EEPROM 제어<br>- 외부 EEPROM interface                    |
+| External Flash Driver                | • 외부 Flash 메모리 제어<br>- 외부 Flash 메모리 interface              |
 
 
 #### Crypto Hardware Abstraction
 
 
-> 암호화 하드웨어 추상화는 암호화 장치와의 상호작용을 처리합니다.
+> 암호화 hardware 추상화는 암호화 장치와의 상호작용을 처리합니다.
 
 
 | 모듈               | 기능 및 특징                                |
 | ---------------- | -------------------------------------- |
-| Crypto Interface | • 암호화 기능 인터페이스 제공<br>- 데이터 암호화/복호화 지원  |
-| Crypto (SW)      | • 소프트웨어 암호화 기능 제공<br>- 다양한 암호화 알고리즘 제공 |
+| Crypto Interface | • 암호화 기능 interface 제공<br>- 데이터 암호화/복호화 지원  |
+| Crypto (SW)      | • software 암호화 기능 제공<br>- 다양한 암호화 알고리즘 제공 |
 
 
 #### Wireless Communication Abstraction
 
 
-> 무선 통신 추상화는 무선 통신 장치와의 인터페이스를 관리합니다.
+> 무선 통신 추상화는 무선 통신 장치와의 interface를 관리합니다.
 
 
 | 모듈                                             | 기능 및 특징                                        |
 | ---------------------------------------------- | ---------------------------------------------- |
-| Bluetooth Interface (BT IF)                    | • Bluetooth 통신 인터페이스 제공<br>- Bluetooth 프로파일 관리 |
-| Wi-Fi Interface (Wi-Fi IF)                     | • Wi-Fi 통신 인터페이스 제공<br>- Wi-Fi 네트워크 관리         |
-| Cellular Communication Interface (Cellular IF) | • 셀룰러 통신 인터페이스 제공<br>- 셀룰러 네트워크 관리             |
-| Near Field Communication Interface (NFC IF)    | • NFC 통신 인터페이스 제공<br>- 근거리 무선 통신 지원            |
+| Bluetooth Interface (BT IF)                    | • Bluetooth 통신 interface 제공<br>- Bluetooth 프로파일 관리 |
+| Wi-Fi Interface (Wi-Fi IF)                     | • Wi-Fi 통신 interface 제공<br>- Wi-Fi network 관리         |
+| Cellular Communication Interface (Cellular IF) | • 셀룰러 통신 interface 제공<br>- 셀룰러 network 관리             |
+| Near Field Communication Interface (NFC IF)    | • NFC 통신 interface 제공<br>- 근거리 무선 통신 지원            |
 | GNSS Interface (GNSS IF)                       | • GNSS 위치 정보 수신<br>- GPS 등 다양한 GNSS 지원         |
-| V2X Communication Interface (V2X IF)           | • 차량 간 및 차량-인프라 간 통신<br>- V2X 프로토콜 지원          |
+| V2X Communication Interface (V2X IF)           | • 차량 간 및 차량-인프라 간 통신<br>- V2X protocol 지원          |
 
 
 #### Communication Abstraction
 
 
-> 통신 하드웨어 추상화는 통신 장치와의 인터페이스를 처리합니다.
+> 통신 hardware 추상화는 통신 장치와의 interface를 처리합니다.
 
 
 | 모듈                                            | 기능 및 특징                                       |
 | --------------------------------------------- | --------------------------------------------- |
-| LIN Interface                                 | • LIN 통신 인터페이스<br>- LIN 프레임 송수신               |
-| TT CAN IF (Time-Triggered CAN Interface)      | • 시간 트리거 방식의 CAN 인터페이스<br>- 시간 동기화 기반 통신      |
-| CAN Interface                                 | • CAN 통신 인터페이스<br>- CAN 프레임 송수신               |
-| CAN Trcv Driver (CAN Transceiver Driver)      | • CAN 트랜시버 제어<br>- 물리적 CAN 통신 제어              |
-| Ext. CAN Driver (External CAN Driver)         | • 외부 CAN 통신 제어<br>- 보조 CAN 네트워크 인터페이스         |
-| FR Interface                                  | • FlexRay 통신 인터페이스<br>- FlexRay 프레임 송수신       |
-| FR Trcv Driver (FlexRay Transceiver Driver)   | • FlexRay 트랜시버 제어<br>- 물리적 FlexRay 통신 제어      |
-| Ext. FR Driver (External FlexRay Driver)      | • 외부 FlexRay 통신 제어<br>- 보조 FlexRay 네트워크 인터페이스 |
-| ETH Interface                                 | • Ethernet 통신 인터페이스<br>- Ethernet 프레임 송수신     |
-| ETH Switch Driver                             | • Ethernet 스위치 제어<br>- 네트워크 스위칭 기능 제공         |
-| ETH Trcv Driver (Ethernet Transceiver Driver) | • Ethernet 트랜시버 제어<br>- 물리적 Ethernet 통신 제어    |
+| LIN Interface                                 | • LIN 통신 interface<br>- LIN frame 송수신               |
+| TT CAN IF (Time-Triggered CAN Interface)      | • 시간 트리거 방식의 CAN interface<br>- 시간 동기화 기반 통신      |
+| CAN Interface                                 | • CAN 통신 interface<br>- CAN frame 송수신               |
+| CAN Trcv Driver (CAN Transceiver Driver)      | • CAN transceiver 제어<br>- 물리적 CAN 통신 제어              |
+| Ext. CAN Driver (External CAN Driver)         | • 외부 CAN 통신 제어<br>- 보조 CAN network interface         |
+| FR Interface                                  | • FlexRay 통신 interface<br>- FlexRay frame 송수신       |
+| FR Trcv Driver (FlexRay Transceiver Driver)   | • FlexRay transceiver 제어<br>- 물리적 FlexRay 통신 제어      |
+| Ext. FR Driver (External FlexRay Driver)      | • 외부 FlexRay 통신 제어<br>- 보조 FlexRay network interface |
+| ETH Interface                                 | • Ethernet 통신 interface<br>- Ethernet frame 송수신     |
+| ETH Switch Driver                             | • Ethernet switch 제어<br>- network 스위칭 기능 제공         |
+| ETH Trcv Driver (Ethernet Transceiver Driver) | • Ethernet transceiver 제어<br>- 물리적 Ethernet 통신 제어    |
 
 
 #### I/O Hardware Abstraction
 
 
-> 입출력 하드웨어 추상화는 다양한 입출력 장치와의 상호작용을 관리합니다.
+> 입출력 hardware 추상화는 다양한 입출력 장치와의 상호작용을 관리합니다.
 
 
 | 모듈                       | 기능 및 특징                                 |
 | ------------------------ | --------------------------------------- |
-| I/O Signal Interface     | • I/O 신호 인터페이스 제공<br>- 디지털 및 아날로그 신호 관리 |
+| I/O Signal Interface     | • I/O 신호 interface 제공<br>- 디지털 및 아날로그 신호 관리 |
 | Driver for ext. ADC ASIC | • 외부 ADC ASIC 제어<br>- 아날로그 신호 디지털 변환    |
 | Driver for ext. I/O ASIC | • 외부 I/O ASIC 제어<br>- 다양한 I/O 신호 관리     |
 
@@ -289,13 +289,13 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 ### Microcontroller Abstraction Layer
 
 
-> 마이크로컨트롤러 추상화 계층은 마이크로컨트롤러와 상호작용하는 드라이버를 제공합니다.
+> 마이크로controller 추상화 계층은 마이크로controller와 상호작용하는 driver를 제공합니다.
 
 
 #### Microcontroller Drivers
 
 
-> 마이크로컨트롤러 드라이버는 마이크로컨트롤러와의 직접적인 통신을 관리합니다.
+> 마이크로controller driver는 마이크로controller와의 직접적인 통신을 관리합니다.
 
 
 | 모듈                    | 기능 및 특징                            |
@@ -303,13 +303,13 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 | Core Test (CorTst)    | • 코어 테스트 기능 제공<br>- 시스템 진단 및 검증    |
 | Watchdog Driver (Wdg) | • 감시 타이머 제어<br>- 시스템 오류 감지 및 복구    |
 | GPT Driver (GPT)      | • 범용 타이머 제어<br>- 타이머 설정 및 관리       |
-| MCU Driver (MCU)      | • 마이크로컨트롤러 제어<br>- MCU 초기화 및 전원 관리 |
+| MCU Driver (MCU)      | • 마이크로controller 제어<br>- MCU 초기화 및 전원 관리 |
 
 
 #### Memory Drivers
 
 
-> 메모리 드라이버는 메모리 장치와의 통신을 처리합니다.
+> 메모리 driver는 메모리 장치와의 통신을 처리합니다.
 
 
 | 모듈                           | 기능 및 특징                                                                      |
@@ -323,7 +323,7 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 #### Crypto Drivers
 
 
-> 암호화 드라이버는 암호화 장치와의 통신을 처리합니다.
+> 암호화 driver는 암호화 장치와의 통신을 처리합니다.
 
 
 | 모듈     | 기능 및 특징                                      |
@@ -334,13 +334,13 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 #### Wireless Communication Drivers
 
 
-> 무선 통신 드라이버는 무선 통신 장치와의 인터페이스를 관리합니다.
+> 무선 통신 driver는 무선 통신 장치와의 interface를 관리합니다.
 
 
 | 모듈               | 기능 및 특징                                  |
 | ---------------- | ---------------------------------------- |
 | Bluetooth Driver | • Bluetooth 통신 제어<br>- Bluetooth 데이터 송수신 |
-| Wi-Fi Driver     | • Wi-Fi 통신 제어<br>- Wi-Fi 네트워크 연결         |
+| Wi-Fi Driver     | • Wi-Fi 통신 제어<br>- Wi-Fi network 연결         |
 | Cellular Driver  | • 셀룰러 통신 제어<br>- 셀룰러 데이터 송수신             |
 | NFC Driver       | • NFC 통신 제어<br>- 근거리 무선 데이터 송수신          |
 
@@ -348,7 +348,7 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 #### Communication Drivers
 
 
-> 통신 드라이버는 통신 장치와의 상호작용을 관리합니다.
+> 통신 driver는 통신 장치와의 상호작용을 관리합니다.
 
 
 | 모듈               | 기능 및 특징                                   |
@@ -357,14 +357,14 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 | FR Driver (Fr)   | • FlexRay 통신 제어<br>- FlexRay 데이터 송수신      |
 | CAN Driver (Can) | • CAN 통신 제어<br>- CAN 데이터 송수신              |
 | LIN Driver (Lin) | • LIN 통신 제어<br>- LIN 데이터 송수신              |
-| LIN Comm. Stack  | • LIN 통신 스택 제공<br>- LIN 데이터 송수신 및 프로토콜 관리 |
+| LIN Comm. Stack  | • LIN 통신 스택 제공<br>- LIN 데이터 송수신 및 protocol 관리 |
 | SPI Driver (Spi) | • SPI 통신 제어<br>- 동기식 직렬 데이터 송수신           |
 
 
 #### I/O Drivers
 
 
-> 입출력 드라이버는 다양한 입출력 장치와의 통신을 관리합니다.
+> 입출력 driver는 다양한 입출력 장치와의 통신을 관리합니다.
 
 
 | 모듈                 | 기능 및 징                                |
@@ -383,20 +383,20 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 ### Complex Drivers
 
 
-> <span class="tooltip">CDD<span class="tooltiptext">Complex Device Driver</span></span>는 ECU 추상화 계층을 통해 제공되지 않는 특정 하드웨어 기능을 직접 접근하는 드라이버입니다.
+> <span class="tooltip">CDD<span class="tooltiptext">Complex Device Driver</span></span>는 ECU 추상화 계층을 통해 제공되지 않는 특정 hardware 기능을 직접 접근하는 driver입니다.
 
 
 | 모듈                   | 기능 및 특징                                |
 | -------------------- | -------------------------------------- |
-| CddOvTp              | • 사용자 정의 전송 프로토콜<br>- 맞춤형 데이터 전송 관리    |
+| CddOvTp              | • 사용자 정의 전송 protocol<br>- 맞춤형 데이터 전송 관리    |
 | CddOsOh              | • 사용자 정의 운영체제 오버헤드 관리<br>- OS 오버헤드 최적화 |
 | CddOsPh              | • 사용자 정의 운영체제 페이로드 관리<br>- OS 페이로드 최적화 |
-| SwUpdM               | • 소프트웨어 업데이트 관리<br>- 업데이트 다운로드 및 설치    |
+| SwUpdM               | • software 업데이트 관리<br>- 업데이트 다운로드 및 설치    |
 | vMemAccM             | • 가상 메모리 접근 관리<br>- 메모리 접근 제어          |
 | vMem                 | • 가상 메모리 관리<br>- 가상 메모리 매핑             |
 | Idsm                 | • ID 및 보안 관리<br>- 사용자 인증 및 권한 관리       |
 | CddRouter            | • 사용자 정의 데이터 라우팅<br>- 맞춤형 데이터 경로 설정    |
-| OsekNM               | • OSEK 네트워크 관리<br>- 네트워크 상태 모니터링       |
+| OsekNM               | • OSEK network 관리<br>- network 상태 모니터링       |
 | Power Manager (Pm)   | • 전원 관리<br>- 전원 상태 전환                  |
 | UART                 | • UART 통신 관리<br>- 직렬 데이터 송수신           |
 | …                    |                                        |
@@ -411,7 +411,7 @@ Application Layer에는 **ASW(Application Software)**로 구성되어 있다.<br
 ## Microcontroller `Hardware`
 
 
-> 마이크로컨트롤러는 ECU의 중심 처리 장치로, 모든 소프트웨어 계층이 직접적으로 상호작용하는 하드웨어입니다.
+> 마이크로controller는 ECU의 중심 처리 장치로, 모든 software 계층이 직접적으로 상호작용하는 hardware입니다.
 
 
 ## 이해를 확인하는 질문

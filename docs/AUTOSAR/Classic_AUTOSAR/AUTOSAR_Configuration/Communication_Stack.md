@@ -52,7 +52,7 @@ Signal·I-PDU, routing, transport, interface와 driver는 같은 traffic을 다�
 | J1939Dcm | J1939 diagnostic communication 관련 service 처리를 다룬다. UDS 중심 Dcm과 같은 service 집합이라고 가정하지 않는다.                          |
 | J1939Nm  | J1939 network management와 address claim 관련 구성을 다룬다.                                                                |
 | J1939Rm  | J1939 Request Manager. J1939 request 관련 처리를 조정하는 책임을 다룬다.                                                          |
-| J1939Tp  | J1939 transport protocol. J1939 메시지의 큰 payload 전송에 필요한 transport 책임을 다룬다.                                          |
+| J1939Tp  | J1939 transport protocol. J1939 message의 큰 payload 전송에 필요한 transport 책임을 다룬다.                                          |
 | LdCom    | Large Data COM. 큰 data의 communication interface 관련 기능을 다루며 일반 Com의 signal 처리와 구분한다.                                |
 | Lin      | LIN hardware driver. Schedule·network 상태·transport의 상위 책임은 LinIf·LinSM·LinTp 등과 나눈다.                               |
 | LinIf    | LIN interface. LIN frame/schedule와 driver·상위 기능 사이의 연결을 다룬다.                                                       |

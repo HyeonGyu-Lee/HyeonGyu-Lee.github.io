@@ -10,7 +10,7 @@ permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics'
 redirect_from:
  - "/3f91b412900a8175b1fede20bb9f4f97"
 ---
-## 센서 처리와 제어 기능을 여러 node로 분리하는 상황
+## sensor 처리와 제어 기능을 여러 node로 분리하는 상황
 
 
 Middleware는 발견·전달·타입과 lifecycle의 일부를 제공한다. ROS interface, DDS·Zenoh와 underlying network의 책임을 나누면 기능 배치와 장애 위치를 설명할 수 있다.
@@ -36,13 +36,13 @@ flowchart TD
 ## Learning Exercise
 
 
-같은 가상 온도 데이터를 ROS 2 Topic으로 전달한 뒤 Reliability·History·subscriber 종료 조건을 바꾸어 관찰한다. 이후 Zenoh 적용 시 native API, ROS bridge, RMW 교체 중 무엇을 비교할지 정한다. 서로 다른 경로의 결과를 단순히 프로토콜 속도 차이로 해석하지 않는다.
+같은 가상 온도 데이터를 ROS 2 Topic으로 전달한 뒤 Reliability·History·subscriber 종료 조건을 바꾸어 관찰한다. 이후 Zenoh 적용 시 native API, ROS bridge, RMW 교체 중 무엇을 비교할지 정한다. 서로 다른 경로의 결과를 단순히 protocol 속도 차이로 해석하지 않는다.
 
 
 ## Platform Boundary
 
 
-ROS 2 전체 스택을 S32K312에 그대로 올리는 전제로 시작하지 않는다. MCU는 CAN/Ethernet adapter, 지원되는 micro-ROS 구성 또는 별도 IPC를 통해 Linux 애플리케이션과 연결할 수 있다. micro-ROS는 RTOS·transport·메모리·Agent 지원 여부와 실제 board port가 필요하다.
+ROS 2 전체 스택을 S32K312에 그대로 올리는 전제로 시작하지 않는다. MCU는 CAN/Ethernet adapter, 지원되는 micro-ROS 구성 또는 별도 IPC를 통해 Linux application과 연결할 수 있다. micro-ROS는 RTOS·transport·메모리·Agent 지원 여부와 실제 board port가 필요하다.
 
 
 ## 이해를 확인하는 질문

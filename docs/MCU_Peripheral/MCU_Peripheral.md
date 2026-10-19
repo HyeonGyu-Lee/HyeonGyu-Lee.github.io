@@ -18,7 +18,7 @@ Sensor와 actuator는 각각 물리량을 감지하거나 물리적 출력을 �
 ## MCU Peripheral 기능 지도
 
 
-> Peripheral의 동작 원리와 활용 기능을 연결해 학습한다. 기반 설정 → GPIO·ADC·Timer·통신 Controller → 센서·입출력 기능 순서로 보고, Interrupt·DMA·Memory·복구 조건을 함께 확인한다.
+> Peripheral의 동작 원리와 활용 기능을 연결해 학습한다. 기반 설정 → GPIO·ADC·Timer·통신 Controller → sensor·입출력 기능 순서로 보고, Interrupt·DMA·Memory·복구 조건을 함께 확인한다.
 
 
 {% include components/mcu-map.html %}

@@ -107,7 +107,7 @@ Period와 compare를 함께 변경할 때 어느 값이 먼저 적용되는지 �
 ## Complementary Output and Dead Time
 
 
-Motor·half bridge처럼 complementary output을 사용하는 경우 두 스위치가 동시에 켜지지 않도록 dead time·interlock·hardware fault path가 필요하다. Dead time 지원 여부와 단위, gate driver 지연을 확인한다. 단순 GPIO 반전이나 ISR 지연으로 안전한 complementary PWM을 구현했다고 가정하지 않는다.
+Motor·half bridge처럼 complementary output을 사용하는 경우 두 switch가 동시에 켜지지 않도록 dead time·interlock·hardware fault path가 필요하다. Dead time 지원 여부와 단위, gate driver 지연을 확인한다. 단순 GPIO 반전이나 ISR 지연으로 안전한 complementary PWM을 구현했다고 가정하지 않는다.
 
 
 ## Measurement

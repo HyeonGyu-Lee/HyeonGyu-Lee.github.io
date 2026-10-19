@@ -40,7 +40,7 @@ erase block, program unit, alignment, bit transition, 최대 erase 횟수와 보
 ## ECC and Initialization
 
 
-ECC 보호 RAM/Flash에서는 초기화되지 않은 영역 읽기와 올바르지 않은 쓰기가 fault를 유발할 수 있다. startup의 RAM 초기화·ECC 처리와 reset 원인을 확인한다. ECC가 있다고 모든 소프트웨어 corruption이 탐지되는 것은 아니다.
+ECC 보호 RAM/Flash에서는 초기화되지 않은 영역 읽기와 올바르지 않은 쓰기가 fault를 유발할 수 있다. startup의 RAM 초기화·ECC 처리와 reset 원인을 확인한다. ECC가 있다고 모든 software corruption이 탐지되는 것은 아니다.
 
 
 ## Verification

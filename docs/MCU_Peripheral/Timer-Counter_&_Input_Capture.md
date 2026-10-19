@@ -11,7 +11,7 @@ redirect_from:
  - "/3f91b412900a819a80c1c169cf52d6b9"
  - "/MCU_Peripheral/Timer,_PWM_&_Input_Capture"
 ---
-## 회전 센서의 두 edge 사이 시간을 측정하는 상황
+## 회전 sensor의 두 edge 사이 시간을 측정하는 상황
 
 
 Timer는 기준 clock을 count하고 input capture는 edge 시점의 counter 값을 보관한다. 분해능과 최대 측정 간격은 서로 trade-off 관계이며 overflow를 포함한 시간 차 계산이 필요하다.
@@ -59,13 +59,13 @@ Timer는 기준 clock을 count하고 input capture는 edge 시점의 counter 값
 
 
 
-설명용 입력 80 MHz, divider 80이면 tick은 1 us다. MOD=999이면 period는 1 ms, frequency는 1 kHz다. edge-aligned high time 250 tick을 지원하는 설정이면 25% duty다. 실제 레지스터가 divider 자체인지 divider−1인지 확인한다.
+설명용 입력 80 MHz, divider 80이면 tick은 1 us다. MOD=999이면 period는 1 ms, frequency는 1 kHz다. edge-aligned high time 250 tick을 지원하는 설정이면 25% duty다. 실제 register가 divider 자체인지 divider−1인지 확인한다.
 
 
 ## Capture and Overflow
 
 
-입력 capture는 edge 시각을 하드웨어에서 기록하여 ISR 진입 지연의 영향을 줄인다. 같은 timer의 unsigned 차이로 짧은 간격을 계산할 수 있지만 한 번 이상 wrap되는 긴 구간에는 overflow 확장 counter가 필요하다. 측정 주파수와 duty를 edge polarity별로 구분한다.
+입력 capture는 edge 시각을 hardware에서 기록하여 ISR 진입 지연의 영향을 줄인다. 같은 timer의 unsigned 차이로 짧은 간격을 계산할 수 있지만 한 번 이상 wrap되는 긴 구간에는 overflow 확장 counter가 필요하다. 측정 주파수와 duty를 edge polarity별로 구분한다.
 
 
 ## Update and Verification
@@ -121,7 +121,7 @@ int main(void) {
 ## Capture Data Path
 
 
-Edge timestamp를 ISR에서 소프트웨어로 읽는 것과 hardware capture register를 읽는 것은 다르다. Hardware capture도 다음 edge가 오면 덮어쓸 수 있으므로 FIFO/DMA·overcapture flag를 확인한다. CPU가 읽는 순서와 flag clear가 캡처 데이터를 버리지 않는지 확인한다.
+Edge timestamp를 ISR에서 software로 읽는 것과 hardware capture register를 읽는 것은 다르다. Hardware capture도 다음 edge가 오면 덮어쓸 수 있으므로 FIFO/DMA·overcapture flag를 확인한다. CPU가 읽는 순서와 flag clear가 캡처 데이터를 버리지 않는지 확인한다.
 
 
 ## Timer Verification

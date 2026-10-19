@@ -40,7 +40,7 @@ S32K312의 실제 I2C/LPI2C instance·pin mux·지원 speed·RTD API를 설치 �
 | Voltage / Pull-up | 공급 전압·입력 허용치·open-drain 설정·외부 pull-up을 확인한다.                             |
 | Speed             | Functional clock과 divider뿐 아니라 rise/fall time·filter·hold time을 확인한다.    |
 | Address           | 7-bit address와 R/W를 포함한 wire byte를 구분한다. 0x50을 driver가 다시 shift하는지 확인한다. |
-| Transfer          | Register address 폭·byte order·repeated START·STOP 조건은 장치 데이터시트를 따른다.     |
+| Transfer          | Register address 폭·byte order·repeated START·STOP 조건은 장치 datasheet를 따른다.     |
 | Timeout           | Address NACK, data NACK, stretching, arbitration loss와 bus stuck를 구분한다.  |
 
 

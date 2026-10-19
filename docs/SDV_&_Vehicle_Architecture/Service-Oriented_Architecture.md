@@ -59,7 +59,7 @@ C 구조체의 메모리를 그대로 wire payload로 사용하지 않는다. �
 ## Verification
 
 
-알 수 없는 enum, 이전 Schema, 중복 Request ID, 만료 요청, 재시작 중 요청과 늦게 도착한 응답을 시험한다. Interface unit test와 실제 네트워크 단절 시험을 분리해 수행한다.
+알 수 없는 enum, 이전 Schema, 중복 Request ID, 만료 요청, 재시작 중 요청과 늦게 도착한 응답을 시험한다. Interface unit test와 실제 network 단절 시험을 분리해 수행한다.
 
 
 ## 이해를 확인하는 질문

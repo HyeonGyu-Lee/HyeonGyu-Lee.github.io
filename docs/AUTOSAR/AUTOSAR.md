@@ -18,10 +18,10 @@ AUTOSAR는 Application과 platform의 책임 및 interface를 표준화한다. C
 ## AUTOSAR가 해결하려는 문제
 
 
-> AUTOSAR는 ECU 소프트웨어를 구성하는 기능의 경계와 교환 가능한 기술 정보를 표준화한다. 핵심은 특정 운영체제나 통신 프로토콜 하나가 아니라, application·platform·hardware 사이의 책임을 분리하는 데 있다.
+> AUTOSAR는 ECU software를 구성하는 기능의 경계와 교환 가능한 기술 정보를 표준화한다. 핵심은 특정 운영체제나 통신 protocol 하나가 아니라, application·platform·hardware 사이의 책임을 분리하는 데 있다.
 
 
-자동차 기능이 여러 ECU와 공급사에 분산되면 같은 기능도 hardware, 통신 stack, 설정 도구에 따라 다시 통합해야 한다. AUTOSAR는 software component, interface, configuration description과 기본 소프트웨어의 역할을 정의해 이 결합을 줄이려는 접근이다. 표준을 채택했다는 사실만으로 안전성·실시간성·상호운용성이 자동으로 보장되는 것은 아니다.
+자동차 기능이 여러 ECU와 공급사에 분산되면 같은 기능도 hardware, 통신 stack, 설정 도구에 따라 다시 통합해야 한다. AUTOSAR는 software component, interface, configuration description과 기본 software의 역할을 정의해 이 결합을 줄이려는 접근이다. 표준을 채택했다는 사실만으로 안전성·실시간성·상호운용성이 자동으로 보장되는 것은 아니다.
 
 
 ## 세 가지 표준 영역

@@ -22,7 +22,7 @@ Process는 주소 공간과 자원의 경계를 만들고 thread는 같은 공�
 ## IPC Selection
 
 
-Pipe는 연결된 byte stream, Unix Domain Socket은 로컬 프로세스 통신, TCP/UDP는 네트워크 통신, Shared Memory는 복사를 줄일 수 있는 공유 영역이다. Shared Memory 자체는 동기화나 메시지 경계를 제공하지 않는다.
+Pipe는 연결된 byte stream, Unix Domain Socket은 로컬 process 통신, TCP/UDP는 network 통신, Shared Memory는 복사를 줄일 수 있는 공유 영역이다. Shared Memory 자체는 동기화나 message 경계를 제공하지 않는다.
 
 
 ## POSIX C: Partial Write Handling
@@ -59,7 +59,7 @@ int write_all(int fd, const void *data, size_t size) {
 ## Verification
 
 
-partial read/write, EINTR, peer 종료, Queue full, shutdown 중 callback, file descriptor 누수를 시험한다. TCP recv 한 번이 메시지 하나라는 가정을 하지 않는다. 길이·framing·상한·timeout을 application protocol에 정의한다.
+partial read/write, EINTR, peer 종료, Queue full, shutdown 중 callback, file descriptor 누수를 시험한다. TCP recv 한 번이 message 하나라는 가정을 하지 않는다. 길이·framing·상한·timeout을 application protocol에 정의한다.
 
 
 ## 이해를 확인하는 질문

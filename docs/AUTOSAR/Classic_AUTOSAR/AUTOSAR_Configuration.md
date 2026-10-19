@@ -44,7 +44,7 @@ Module Definition은 어떤 설정을 구성할 수 있는지 정의하고, ECU 
 | Choice    | 여러 구조 중 선택 관계가 있는 정의. 각 항목을 독립적인 필수 구성으로 세지 않음   |
 
 
-트리에서는 XML의 CONTAINERS·PARAMETERS 같은 포장 노드를 생략하고 의미 있는 이름을 보여준다. 설명 영역은 type, description, multiplicity와 condition/configuration 관련 원본 metadata를 표시한다.
+트리에서는 XML의 CONTAINERS·PARAMETERS 같은 포장 node를 생략하고 의미 있는 이름을 보여준다. 설명 영역은 type, description, multiplicity와 condition/configuration 관련 원본 metadata를 표시한다.
 
 
 ## Multiplicity: 필수 여부와 개수

@@ -17,7 +17,7 @@ redirect_from:
 Vehicle discovery, routing activation, TCP 연결과 UDS 응답은 서로 다른 단계다. TCP가 연결되었다고 진단 대상이나 session 권한이 준비된 것은 아니다.
 
 
-> IP 네트워크에서 진단 장비·게이트웨이·ECU 사이의 진단 전달을 이해한다.
+> IP network에서 진단 장비·gateway·ECU 사이의 진단 전달을 이해한다.
 
 
 ## 적용 범위
@@ -48,13 +48,13 @@ DoIP은 Diagnostics over Internet Protocol의 약자다. UDS 서비스 데이터
 차량 식별·발견과 실제 진단 연결은 다른 단계다. 일반적으로 UDP 기반 발견과 TCP 기반 진단 연결을 고려하며 세부 동작은 적용 규격을 따른다.
 
 
-Routing activation, source/target logical address, 연결 상태와 게이트웨이 경로를 확인한다. IP 주소와 진단 논리 주소는 동일한 식별자가 아니다.
+Routing activation, source/target logical address, 연결 상태와 gateway 경로를 확인한다. IP 주소와 진단 논리 주소는 동일한 식별자가 아니다.
 
 
 ### 오류 해석
 
 
-네트워크 연결 실패, DoIP 수준 acknowledgement·negative acknowledgement, UDS NRC를 구분한다. DoIP acknowledgement가 UDS 서비스의 성공을 의미하지 않는다.
+network 연결 실패, DoIP 수준 acknowledgement·negative acknowledgement, UDS NRC를 구분한다. DoIP acknowledgement가 UDS 서비스의 성공을 의미하지 않는다.
 
 
 ### 보안과 운용
@@ -65,7 +65,7 @@ DoIP이라는 이유만으로 인증·암호화가 자동 제공된다고 가정
 
 ### 검증 항목
 
-- 차량 발견·식별과 네트워크 설정.
+- 차량 발견·식별과 network 설정.
 - routing activation 허용·거절.
 - 잘못된 source/target 주소.
 - 연결 종료·재접속과 요청 처리.

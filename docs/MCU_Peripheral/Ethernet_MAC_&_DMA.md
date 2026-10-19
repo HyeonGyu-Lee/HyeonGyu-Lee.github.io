@@ -110,7 +110,7 @@ PHY link down, descriptor ring exhaustion, RX overrun, malformed length, DMA bus
 ## Vehicle Ethernet Connection
 
 
-차량 통신의 Ethernet·100BASE-T1·1000BASE-T1·10BASE-T1S는 매체·토폴로지·PHY·차량 network 관점이다. MAC 쪽 descriptor ring과 cache 처리는 별도로 학습한다. 특히 MAC-PHY interface와 cable 쪽 BASE-T1 표준을 같은 이름의 interface로 취급하지 않는다.
+차량 통신의 Ethernet·100BASE-T1·1000BASE-T1·10BASE-T1S는 매체·topology·PHY·차량 network 관점이다. MAC 쪽 descriptor ring과 cache 처리는 별도로 학습한다. 특히 MAC-PHY interface와 cable 쪽 BASE-T1 표준을 같은 이름의 interface로 취급하지 않는다.
 
 
 ## Verification

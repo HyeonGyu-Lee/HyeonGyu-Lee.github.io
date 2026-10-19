@@ -35,7 +35,7 @@ flowchart LR
 ## Topic / Service / Action
 
 
-Topic은 지속적인 데이터 흐름, Service는 짧은 Request/Response, Action은 진행 상황·결과·취소가 필요한 장시간 작업에 적합하다. Blocking Service 처리로 Executor가 정지하지 않게 한다. Topic 이름뿐 아니라 메시지 타입과 QoS가 호환되어야 연결된다.
+Topic은 지속적인 데이터 흐름, Service는 짧은 Request/Response, Action은 진행 상황·결과·취소가 필요한 장시간 작업에 적합하다. Blocking Service 처리로 Executor가 정지하지 않게 한다. Topic 이름뿐 아니라 message 타입과 QoS가 호환되어야 연결된다.
 
 
 ## CLI Practice
@@ -76,7 +76,7 @@ Single-threaded Executor에서도 callback이 오래 걸리면 다른 callback �
 ## Verification
 
 
-Node 종료·재시작, 서로 다른 Domain, QoS 불일치, subscriber 처리 지연, 네트워크 인터페이스 변경을 시험한다. topic hz는 관측 지점의 수신 빈도이며 원래 센서 sampling 주기나 End-to-End Latency를 직접 증명하지 않는다.
+Node 종료·재시작, 서로 다른 Domain, QoS 불일치, subscriber 처리 지연, network interface 변경을 시험한다. topic hz는 관측 지점의 수신 빈도이며 원래 sensor sampling 주기나 End-to-End Latency를 직접 증명하지 않는다.
 
 
 ## 이해를 확인하는 질문

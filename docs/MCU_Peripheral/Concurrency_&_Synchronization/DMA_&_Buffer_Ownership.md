@@ -44,7 +44,7 @@ stateDiagram-v2
 timeout이 발생해도 DMA가 즉시 정지했다고 가정하면 안 된다. abort 완료와 늦은 callback 처리까지 확인한 뒤 Buffer를 반환한다. 그림의 상태 전환 자체에도 실행 문맥에 맞는 동기화가 필요하다.
 
 
-## 버퍼 상태 머신
+## buffer state machine
 
 
 ```text
@@ -69,7 +69,7 @@ DMA 완료가 주변장치의 wire-level 송신 완료인지 별도로 확인한
 ## timeout과 cancel
 
 
-API timeout은 DMA 정지를 보장하지 않는다. abort 요청 후 하드웨어가 멈췄는지와 늦은 callback 가능성을 확인해야 buffer를 해제할 수 있다. 요청 generation/sequence를 두어 이전 전송의 완료 알림이 다음 요청을 완료시키지 않도록 한다.
+API timeout은 DMA 정지를 보장하지 않는다. abort 요청 후 hardware가 멈췄는지와 늦은 callback 가능성을 확인해야 buffer를 해제할 수 있다. 요청 generation/sequence를 두어 이전 전송의 완료 알림이 다음 요청을 완료시키지 않도록 한다.
 
 
 ## 주변장치별 적용
@@ -77,16 +77,16 @@ API timeout은 DMA 정지를 보장하지 않는다. abort 요청 후 하드웨�
 
 | **항목**   | **설명 및 적용 기준**                                                                     |
 | -------- | ---------------------------------------------------------------------------------- |
-| **UART** | RX idle event는 메시지 경계와 항상 같지 않다. 수신 buffer의 유효 길이를 parser에 전달하고 framing은 별도로 처리한다. |
+| **UART** | RX idle event는 message 경계와 항상 같지 않다. 수신 buffer의 유효 길이를 parser에 전달하고 framing은 별도로 처리한다. |
 | **SPI**  | DMA TX 완료 뒤 FIFO/shift register가 남아 있을 수 있다. CS 해제는 실제 완료 조건을 따른다.                 |
 | **ADC**  | half/full buffer 완료 시 소유권을 교환하고 채널 순서·sample counter·overrun을 확인한다.                |
-| **CAN**  | controller RAM과 소프트웨어 buffer의 소유권을 구분하고 다음 RX arm이 이전 데이터를 덮어쓰지 않도록 한다.            |
+| **CAN**  | controller RAM과 software buffer의 소유권을 구분하고 다음 RX arm이 이전 데이터를 덮어쓰지 않도록 한다.            |
 
 
 ## 검증
 
 
-지연 consumer, 강제 timeout·abort, 잘못된 길이, 반복 재시작, IRQ masking, DMA error를 재현한다. buffer 경계 guard·sequence·누락 카운터로 손상을 찾되 검증용 guard가 하드웨어 bounds 보호를 대신하지는 않는다.
+지연 consumer, 강제 timeout·abort, 잘못된 길이, 반복 재시작, IRQ masking, DMA error를 재현한다. buffer 경계 guard·sequence·누락 카운터로 손상을 찾되 검증용 guard가 hardware bounds 보호를 대신하지는 않는다.
 
 
 ## 이해를 확인하는 질문

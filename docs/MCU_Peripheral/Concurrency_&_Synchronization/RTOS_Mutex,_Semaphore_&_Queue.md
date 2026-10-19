@@ -24,7 +24,7 @@ Mutex는 자원 소유를, semaphore는 신호나 개수를, queue는 데이터 
 
 ```mermaid
 flowchart TD
- A["공유 주변장치의 접근을 직렬화?"] -->|Yes| M["Mutex: Task가 획득하고 해제"]
+ A["공유 peripheral에 한 번에 하나의 task만 접근해야 하는가?"] -->|Yes| M["Mutex: Task가 획득하고 해제"]
  B["완료 알림이나 자원 개수를 전달?"] -->|Yes| S["Semaphore / Task Notification"]
  C["데이터 또는 요청을 전달?"] -->|Yes| Q["Queue: 복사 또는 소유권 이전"]
  I["ISR에서 전달"] --> R["RTOS의 ISR-safe API 확인"]
@@ -92,7 +92,7 @@ board_spi_transaction은 timeout과 CS 복구를 포함해 반환한다는 계�
 | **Counting semaphore** | 사용 가능한 buffer 개수 또는 누적 이벤트 수. 최대 카운트와 overflow 처리를 정한다. FreeRTOS semaphore는 mutex와 같은 priority inheritance를 제공하지 않는다. |
 | **Task notification**  | 지정 task에 값·비트·카운트를 전달하는 경량 방식. 어떤 action 모드를 쓰는지에 따라 덮어쓰기·누적 의미가 달라진다.                                                |
 | **Event group**        | 여러 조건 비트의 조합 대기. 반복 횟수 보존용이 아니다. clear-on-exit와 여러 waiter의 의미를 확인한다.                                                  |
-| **Queue**              | payload 복사 또는 포인터 전달. 포인터 queue는 대상 데이터의 소유권·수명까지 정의해야 한다. full일 때 block/drop/overwrite 정책을 메시지 종류에 맞춘다.              |
+| **Queue**              | payload 복사 또는 포인터 전달. 포인터 queue는 대상 데이터의 소유권·수명까지 정의해야 한다. full일 때 block/drop/overwrite 정책을 message 종류에 맞춘다.              |
 
 
 ## Priority Inversion
@@ -122,7 +122,7 @@ priority inheritance 구현의 nested mutex 제한과 복구 시점을 RTOS 문�
 ## CAN/UART/SPI에 적용
 
 
-CAN/UART 수신은 ISR→queue→parser task, SPI bus는 owner task 또는 transaction mutex, ADC DMA는 완료 buffer queue로 구성할 수 있다. 여러 task가 전역 peripheral handle에 직접 명령을 보내는 구조보다 한 owner가 상태 머신과 retry를 관리하면 ownership이 명확해진다.
+CAN/UART 수신은 ISR→queue→parser task, SPI bus는 owner task 또는 transaction mutex, ADC DMA는 완료 buffer queue로 구성할 수 있다. 여러 task가 전역 peripheral handle에 직접 명령을 보내는 구조보다 한 owner가 state machine과 retry를 관리하면 ownership이 명확해진다.
 
 
 ## 검증

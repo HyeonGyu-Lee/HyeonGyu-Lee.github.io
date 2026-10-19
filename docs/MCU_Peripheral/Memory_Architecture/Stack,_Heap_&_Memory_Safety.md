@@ -16,7 +16,7 @@ redirect_from:
 Pointer 값이 남아 있어도 객체 lifetime이 끝나면 접근은 유효하지 않다. Stack·heap 위치, 길이·경계와 소유권을 함께 관리해야 한다.
 
 
-> Stack은 호출 프레임·지역 객체, Heap은 allocator가 관리하는 동적 객체에 사용된다. RTOS task별 stack과 interrupt stack 구성은 port마다 다르다. static allocation은 runtime allocation 실패를 줄일 수 있지만 bounds·공유 상태·수명 오류를 자동 해결하지 않는다.
+> Stack은 호출 frame·지역 객체, Heap은 allocator가 관리하는 동적 객체에 사용된다. RTOS task별 stack과 interrupt stack 구성은 port마다 다르다. static allocation은 runtime allocation 실패를 줄일 수 있지만 bounds·공유 상태·수명 오류를 자동 해결하지 않는다.
 
 
 ## Lifetime Example

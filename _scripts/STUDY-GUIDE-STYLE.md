@@ -15,3 +15,19 @@ The common layout supplies chapter numbers, a collapsible outline, responsive ta
 - Automotive Ethernet의 배선은 `single twisted pair`로 통일한다. Short-reach, point-to-point, multidrop, half-duplex, full-duplex는 배선 명칭이 아니라 별도 특성이므로 구분해 설명한다.
 - DMA descriptor는 buffer 주소·길이·상태 등의 제어 정보다. Payload가 descriptor로 변환된다고 표현하지 않는다.
 - Sensor와 actuator는 장치이며, 측정·출력 제어는 application 기능이다. ADC, GPIO, timer 등 MCU peripheral과 구분한다.
+
+### 표기 일관성
+
+설명 문장은 한국어로 쓰되 아래 기술 용어는 영어 표기를 유지한다. 같은 뜻의 한글 음역을 괄호에 반복하지 않는다. 약어의 정식 명칭과 실제 의미를 설명하는 괄호는 유지한다.
+
+| 개념 | 표준 표기 |
+| --- | --- |
+| 프로그램 계층 | application, middleware, OS, driver |
+| 통신 구조 | protocol, interface, network, node, gateway, topology |
+| 전송 데이터 | message, frame, packet, buffer |
+| MCU 구성 | controller, transceiver, register, clock, interrupt |
+| 실행 단위 | process, thread, callback, timeout |
+| 배선 및 duplex | single twisted pair, full-duplex, half-duplex |
+| 자료 및 구성 요소 | datasheet, sensor, hardware, software |
+
+`양방향`만으로 full-duplex를 설명하지 않는다. 동시 송수신 여부를 명시한다. 데이터 serialization과 공유 자원의 순차 접근은 서로 다른 개념이므로, 후자는 한 번에 접근 가능한 task 수와 보호 수단으로 설명한다. 코드 식별자, URL, 표준의 공식 명칭은 표기 통일을 이유로 변경하지 않는다.

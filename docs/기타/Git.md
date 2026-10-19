@@ -107,7 +107,7 @@ git show HEAD -- README.md
 
 
 
-git add .는 현재 경로 하위의 변경·삭제까지 포함할 수 있으므로 status를 먼저 확인한다. 기능 변경과 무관한 서식 변경을 분리하고, 커밋 전 프로젝트 테스트를 실행한다. 커밋 메시지는 무엇을 바꿨는지와 목적이 드러나도록 작성한다.
+git add .는 현재 경로 하위의 변경·삭제까지 포함할 수 있으므로 status를 먼저 확인한다. 기능 변경과 무관한 서식 변경을 분리하고, 커밋 전 프로젝트 테스트를 실행한다. 커밋 message는 무엇을 바꿨는지와 목적이 드러나도록 작성한다.
 
 
 ## 4. 브랜치에서 작업하고 원격으로 보내기
@@ -319,7 +319,7 @@ git fetch --prune
 | **non-fast-forward push 거절** | fetch로 원격 변경을 확인한 뒤 merge 또는 합의된 rebase를 수행한다. 개인 브랜치의 이력 교체가 승인된 경우에도 --force보다 --force-with-lease를 사용하며, 이는 충돌 위험을 줄일 뿐 협업 조율을 대체하지 않는다. |
 | **detached HEAD**            | 태그나 커밋을 직접 체크아웃한 상태다. 변경을 유지하려면 git switch -c rescue/my-work로 브랜치를 만든 뒤 커밋한다.                                                              |
 | **unrelated histories**      | 서로 독립된 저장소를 합치려는 상황이다. remote와 저장소 경로가 맞는지 확인하며 --allow-unrelated-histories를 기본 해결책으로 사용하지 않는다.                                            |
-| **인증 실패**                    | git remote -v로 저장소 주소를 확인하고 HTTPS 자격 증명 또는 SSH 키 설정·저장소 권한을 확인한다. 커밋 user.name/user.email 설정은 서버 로그인 권한을 주지 않는다.                           |
+| **인증 실패**                    | git remote -v로 저장소 주소를 확인하고 HTTPS 자격 증명 또는 SSH 키 설정·저장소 권한을 확인한다. 커밋 user.name/user.email 설정은 server 로그인 권한을 주지 않는다.                           |
 
 
 ## 13. 실습 과제와 확인 기준

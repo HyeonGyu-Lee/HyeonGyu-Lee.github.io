@@ -16,7 +16,7 @@ redirect_from:
 Host는 descriptor와 buffer를 준비하고 security engine은 허용된 service와 key를 사용한다. Request 수락, 연산 완료와 보안 정책 충족은 서로 다른 판단이다.
 
 
-> HSM(Hardware Security Module)은 키 보호와 암호 연산을 격리하는 보안 하위 시스템을 가리킨다. NXP HSE는 제품·firmware에 따라 제공되는 보안 서비스와 인터페이스를 갖는다. HSM이라는 일반 용어와 특정 HSE 구현을 동일한 레지스터/API로 취급하지 않는다.
+> HSM(Hardware Security Module)은 키 보호와 암호 연산을 격리하는 보안 하위 시스템을 가리킨다. NXP HSE는 제품·firmware에 따라 제공되는 보안 서비스와 interface를 갖는다. HSM이라는 일반 용어와 특정 HSE 구현을 동일한 register/API로 취급하지 않는다.
 
 
 ## Host and Security Engine

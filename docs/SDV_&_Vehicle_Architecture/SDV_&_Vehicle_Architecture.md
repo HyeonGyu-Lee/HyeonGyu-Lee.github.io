@@ -36,13 +36,13 @@ flowchart TD
 ## Practice Scenario
 
 
-Zone MCU가 버튼·온도 입력을 수집하고 Central Compute가 조명 정책을 계산한 뒤 Zone MCU가 RGB 출력에 반영하는 가상 시스템을 사용한다. 실제 차량 구현 경험이나 안전 인증을 의미하지 않는다. 메시지 단위·유효기간·Sequence·명령 ACK·오류 시 동작을 먼저 정하고 Middleware를 선택한다.
+Zone MCU가 버튼·온도 입력을 수집하고 Central Compute가 조명 정책을 계산한 뒤 Zone MCU가 RGB 출력에 반영하는 가상 시스템을 사용한다. 실제 차량 구현 경험이나 안전 인증을 의미하지 않는다. message 단위·유효기간·Sequence·명령 ACK·오류 시 동작을 먼저 정하고 Middleware를 선택한다.
 
 
 ## Environment
 
 
-MCU 쪽 구현 예제는 C를 우선한다. ROS 2 CLI·운영 명령은 셸 코드로 제공한다. ROS 2 실습은 설치된 배포판의 demo_nodes_cpp를 전제로 하며 실제 차량 제어 장치 대신 격리된 테스트 네트워크에서 진행한다. ROS 2의 RMW·Zenoh API는 설치 버전을 기록하고 해당 버전 문서에 맞춘다.
+MCU 쪽 구현 예제는 C를 우선한다. ROS 2 CLI·운영 명령은 셸 코드로 제공한다. ROS 2 실습은 설치된 배포판의 demo_nodes_cpp를 전제로 하며 실제 차량 제어 장치 대신 격리된 테스트 network에서 진행한다. ROS 2의 RMW·Zenoh API는 설치 버전을 기록하고 해당 버전 문서에 맞춘다.
 
 
 ## 이해를 확인하는 질문

@@ -56,7 +56,7 @@ flowchart TD
 ## Verification
 
 
-payload·metadata·signature 각각 변조, 길이 overflow, 잘못된 entry, 다른 하드웨어 이미지, 구버전, 중간 전원 차단을 시험한다. 실패한 이미지로 jump하지 않고 정의된 recovery로 진입하는지 확인한다. digest 출력 비교만으로 signature 검증을 대신하지 않는다.
+payload·metadata·signature 각각 변조, 길이 overflow, 잘못된 entry, 다른 hardware 이미지, 구버전, 중간 전원 차단을 시험한다. 실패한 이미지로 jump하지 않고 정의된 recovery로 진입하는지 확인한다. digest 출력 비교만으로 signature 검증을 대신하지 않는다.
 
 
 ## 이해를 확인하는 질문

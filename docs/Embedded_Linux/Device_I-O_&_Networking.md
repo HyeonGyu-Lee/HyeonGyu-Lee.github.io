@@ -16,13 +16,13 @@ redirect_from:
 Device file과 socket은 kernel과 user space의 interface다. Readiness와 message 완료를 구분하고 nonblocking I/O의 부분 처리와 재시도 조건을 다뤄야 한다.
 
 
-> User space 애플리케이션은 일반적으로 device node와 표준 API를 통해 하드웨어에 접근한다. 임의 MMIO 접근 대신 driver·권한·프로세스 소유권을 이용한다.
+> User space application은 일반적으로 device node와 표준 API를 통해 hardware에 접근한다. 임의 MMIO 접근 대신 driver·권한·process 소유권을 이용한다.
 
 
 ## Device Access
 
 
-UART는 termios에서 baudrate·raw mode·flow control과 VMIN/VTIME을 설정한다. GPIO는 해당 kernel의 GPIO character device와 libgpiod 버전에 맞춰 사용한다. SPI spidev는 지원되는 device binding·권한과 transaction/CS 규칙이 필요하다. I2C는 장치 주소·register protocol을 데이터시트에 맞춘다.
+UART는 termios에서 baudrate·raw mode·flow control과 VMIN/VTIME을 설정한다. GPIO는 해당 kernel의 GPIO character device와 libgpiod 버전에 맞춰 사용한다. SPI spidev는 지원되는 device binding·권한과 transaction/CS 규칙이 필요하다. I2C는 장치 주소·register protocol을 datasheet에 맞춘다.
 
 
 ## Network Inspection

@@ -102,7 +102,7 @@ spinlock은 바쁜 대기이므로 아주 짧고 상한이 있는 구간에서, 
 ## 검증
 
 
-동시 producer/consumer 부하, 강제 선점, 한 코어 정지·reset, queue full, stale notification을 시험한다. coherent/non-coherent 메모리 속성과 compiler optimization을 바꾸어도 정의된 프로토콜이 유지되는지 확인한다. PC thread test 통과는 MCU의 cache·IPC 구현 검증과 별개다.
+동시 producer/consumer 부하, 강제 선점, 한 코어 정지·reset, queue full, stale notification을 시험한다. coherent/non-coherent 메모리 속성과 compiler optimization을 바꾸어도 정의된 protocol이 유지되는지 확인한다. PC thread test 통과는 MCU의 cache·IPC 구현 검증과 별개다.
 
 
 ## 이해를 확인하는 질문

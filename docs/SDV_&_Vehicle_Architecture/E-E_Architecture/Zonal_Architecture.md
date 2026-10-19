@@ -16,7 +16,7 @@ redirect_from:
 Zonal 배치는 위치 중심의 I/O 연결과 중앙 기능의 통신을 분리한다. Local fallback, power·reset domain과 backbone dependency가 제어 지속성을 결정한다.
 
 
-> Zonal Architecture는 차량의 물리적 영역별로 I/O·전원 분배·네트워크 접속을 모으고 중앙 연산 자원과 연결하는 구조다. Zone Controller는 단순 CAN-to-Ethernet 변환기가 아니라 로컬 제어·상태 관리·진단·전원 제어를 맡을 수 있다.
+> Zonal Architecture는 차량의 물리적 영역별로 I/O·전원 분배·network 접속을 모으고 중앙 연산 자원과 연결하는 구조다. Zone Controller는 단순 CAN-to-Ethernet 변환기가 아니라 로컬 제어·상태 관리·진단·전원 제어를 맡을 수 있다.
 
 
 ## Example Topology
@@ -36,7 +36,7 @@ flowchart TD
 ## Interface Contract
 
 
-입력 이벤트에는 Signal ID, Value, Unit, Timestamp, Sequence, Validity를 정의한다. 출력 명령에는 Request ID, Target, Value, Expiry와 승인·적용·실패 상태를 구분한다. 네트워크에 전송됐다는 사실과 실제 Actuator에 반영됐다는 사실은 다르다.
+입력 이벤트에는 Signal ID, Value, Unit, Timestamp, Sequence, Validity를 정의한다. 출력 명령에는 Request ID, Target, Value, Expiry와 승인·적용·실패 상태를 구분한다. network에 전송됐다는 사실과 실제 Actuator에 반영됐다는 사실은 다르다.
 
 
 ## Local vs Central
@@ -48,13 +48,13 @@ flowchart TD
 ## Fault Injection
 
 
-중앙 서비스 정지, Backbone 단절, Zone 재부팅, 센서 고정값, 전원 스위치 과전류를 각각 주입한다. 상태 전이가 구분되는지와 재연결 후 만료된 명령이 재실행되지 않는지 확인한다. ACK 누락이 발생했을 때 재전송이 중복 동작을 만들지 않도록 Request ID 처리 정책을 정한다.
+중앙 서비스 정지, Backbone 단절, Zone 재부팅, sensor 고정값, 전원 switch 과전류를 각각 주입한다. 상태 전이가 구분되는지와 재연결 후 만료된 명령이 재실행되지 않는지 확인한다. ACK 누락이 발생했을 때 재전송이 중복 동작을 만들지 않도록 Request ID 처리 정책을 정한다.
 
 
 ## Timing Budget
 
 
-센서 acquisition → MCU task 대기 → Gateway queue → Backbone → 중앙 처리 → 하행 전송 → 출력 반영으로 지연을 분해한다. 평균만 보지 말고 높은 부하·재연결 조건의 p99와 최악 관측값을 기록한다. 실측 최댓값은 WCET 증명과 다르다.
+sensor acquisition → MCU task 대기 → Gateway queue → Backbone → 중앙 처리 → 하행 전송 → 출력 반영으로 지연을 분해한다. 평균만 보지 말고 높은 부하·재연결 조건의 p99와 최악 관측값을 기록한다. 실측 최댓값은 WCET 증명과 다르다.
 
 
 ## 이해를 확인하는 질문

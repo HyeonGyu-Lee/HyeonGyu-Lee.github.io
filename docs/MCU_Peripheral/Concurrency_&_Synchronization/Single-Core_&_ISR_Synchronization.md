@@ -63,7 +63,7 @@ Task: 이전에 읽은 0에 +1, counter=1
 ## ISR에서 task로 넘기기
 
 
-ISR에서는 장치 상태·필요한 데이터 확보, 드라이버 규정에 따른 flag 처리, 짧은 이벤트 전달을 수행한다. 해석·재시도 정책·사용자 logging은 task에서 처리한다. FreeRTOS에서는 해당 IRQ 우선순위가 FromISR API 호출을 허용하는지 configMAX_SYSCALL_INTERRUPT_PRIORITY와 포트의 우선순위 표현을 확인한다.
+ISR에서는 장치 상태·필요한 데이터 확보, driver 규정에 따른 flag 처리, 짧은 이벤트 전달을 수행한다. 해석·재시도 정책·사용자 logging은 task에서 처리한다. FreeRTOS에서는 해당 IRQ 우선순위가 FromISR API 호출을 허용하는지 configMAX_SYSCALL_INTERRUPT_PRIORITY와 포트의 우선순위 표현을 확인한다.
 
 
 ```c
@@ -86,7 +86,7 @@ if (xSemaphoreTake(done, pdMS_TO_TICKS(100)) == pdTRUE) {
 
 
 
-binary semaphore는 중복 이벤트가 합쳐질 수 있다. 모든 수신 이벤트를 보존하려면 데이터 queue 또는 counting 형태를 검토한다. timeout은 하드웨어 전송이 정지했다는 뜻이 아니므로 버퍼를 즉시 재사용하지 않는다.
+binary semaphore는 중복 이벤트가 합쳐질 수 있다. 모든 수신 이벤트를 보존하려면 데이터 queue 또는 counting 형태를 검토한다. timeout은 hardware 전송이 정지했다는 뜻이 아니므로 buffer를 즉시 재사용하지 않는다.
 
 
 ## 검증

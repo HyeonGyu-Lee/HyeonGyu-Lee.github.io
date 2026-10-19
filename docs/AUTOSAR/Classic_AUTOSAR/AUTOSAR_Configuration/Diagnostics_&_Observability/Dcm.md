@@ -71,10 +71,10 @@ sequenceDiagram
 
 ## 7.2.1 소개
 
-- [SWS_Dcm_00030] DSL 서브모듈의 모든 기능 영역은 ISO14229-1[15] 사양과 ISO15765-3[18]의 네트워크 독립적인 부분을 준수해야함
+- [SWS_Dcm_00030] DSL 서브모듈의 모든 기능 영역은 ISO14229-1[15] 사양과 ISO15765-3[18]의 network 독립적인 부분을 준수해야함
 
-> DSL 서브모듈에는 네트워크에 의존하는 기능 영역이 없음  
-> 구성 내에서 네트워크에 따라 일부 매개변수를 설정할 수 있음
+> DSL 서브모듈에는 network에 의존하는 기능 영역이 없음  
+> 구성 내에서 network에 따라 일부 매개변수를 설정할 수 있음
 
 
 ---
@@ -84,7 +84,7 @@ sequenceDiagram
 
 - DSL 서브 모듈은 다음과 같은 기능을 제공
     - 세션 처리(ISO14229-1[15] 및 ISO15765-3[18]에서 요구하는 대로)
-    - 어플리케이션 레이어 타이밍 처리(ISO14229-1[15] 및 ISO15763-3[18]에서 요구하는 대로)
+    - application 레이어 타이밍 처리(ISO14229-1[15] 및 ISO15763-3[18]에서 요구하는 대로)
     - 특정 응답 동작(ISO14229-1[15] 및 ISO15763-3[18]에서 요구하는 대로)
 
 ---
@@ -122,15 +122,15 @@ sequenceDiagram
     - 주기적 전송 지원
     - 응답 온 이벤트(ResponseOnEvent; ROE) 전송 지원
     - 세분화된 응답 지원
-    - 어플리케이션에서 트리거된 응답 대기 중 응답 지원
+    - application에서 트리거된 응답 대기 중 응답 지원
 - **보안 수준 처리(Security Level Handling):**
     - 보안 수준을 관리
 - **세션 상태 처리(Session Status Handling):**
     - 세선 상태를 관리
     - 기본값이 아닌 활성 세션을 추적
     - 타이망을 수정
-- **진단 프로토콜 처리(Diagnostic Protocol Handling):**
-    - 다양한 진단 프로토콜 처리
+- **진단 protocol 처리(Diagnostic Protocol Handling):**
+    - 다양한 진단 protocol 처리
     - 리소스 관리
 - **통신 모드 처리(Communication Mode Handling):**
     - 통신 요구 사항 처리(Full- / Silent- / No Communication)
@@ -144,8 +144,8 @@ sequenceDiagram
 
 
 > PduR 모듈은 새로운 진단 요청 콘텐츠의 수신이 시작될 때마다 DCM 모듈에 할당된 DcmRxPduId를 통해 DCM 모듈에 알림.  
-> 이 때 Dcm_StartOfReception()을 호출하여 수신할 데이터 크기를 DCM 모듈에 알리고 첫 번째 프레임 또는 단일 프레임의 데이터를 제공하며, 데이터 크기가 버퍼 크기를 초과하거나 요청된 서비스를 사용할 수 없는 경우 DCM이 수신을 거부할 수 있도록 함  
-> 이후 Dcm_CopyRxData를 호출하면 DCM 모듈이 제공된 버퍼에서 DCM 버퍼로 데이터를 복사하도록 요청  
+> 이 때 Dcm_StartOfReception()을 호출하여 수신할 데이터 크기를 DCM 모듈에 알리고 첫 번째 frame 또는 단일 frame의 데이터를 제공하며, 데이터 크기가 buffer 크기를 초과하거나 요청된 서비스를 사용할 수 없는 경우 DCM이 수신을 거부할 수 있도록 함  
+> 이후 Dcm_CopyRxData를 호출하면 DCM 모듈이 제공된 buffer에서 DCM buffer로 데이터를 복사하도록 요청  
 > 진단 요청의 수신이 완료되면(Dcm_StartOfReception이 성공하면) PduR 모듈은 Dcm_TpRxIndication()을 호출하여 DCM 모듈에 수신 표시를 제공  
 > DCM은 일반 연결을 사용할 수 있어야 하며, 여기서 주소 지정 정보는 DcmRxPdu의 메타데이터를 통해 Dcm_StartOfReception()에 의해 DCM에 제공됨  
 > 이 주소 지정 정보는 응답 및 동일한 테스터의 요청 감지를 위해 저장 및 사용되어야함  
@@ -166,10 +166,10 @@ sequenceDiagram
 
 
 - [SWS_Dcm_00111] DSL 서브모듈은 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출한 후에만 수신 데이터를 DSD 서브모듈로 전달
-- [SWS_Dcm_00241] 요청 메시지가 수신되는 즉시 (파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출한 후 연결된 Tx-DcmPduId에 대해 Dcm_TpTxConfirmation()을 호출하기 전까지) DSL 하위 모듈은 해당 DcmPduId를 차단해야함(SWS_Dcm_00351 참조). 이 요청을 처리하는 동안에는 해당 응답 메시지가 전송되고 DcmPduId가 다시 해제될 때까지 동일한 DcmDslConnection의 다른 요청(예: OBD 세션에 의해 향상된 세션이 종료될 수 있음)을 수신할 수 없음(동시 TesterPresent 요청 제외)
+- [SWS_Dcm_00241] 요청 message가 수신되는 즉시 (파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출한 후 연결된 Tx-DcmPduId에 대해 Dcm_TpTxConfirmation()을 호출하기 전까지) DSL 하위 모듈은 해당 DcmPduId를 차단해야함(SWS_Dcm_00351 참조). 이 요청을 처리하는 동안에는 해당 응답 message가 전송되고 DcmPduId가 다시 해제될 때까지 동일한 DcmDslConnection의 다른 요청(예: OBD 세션에 의해 향상된 세션이 종료될 수 있음)을 수신할 수 없음(동시 TesterPresent 요청 제외)
 
-> API(프로토타입, 입출력 파라미터)에 대한 자세한 설명은 PduR 모듈의 인터페이스 설명에서 확인할 수 있음([2] 참조)  
-> 진단 통신 어플리케이션에 따라 서로 다른 DcmPduId를 사용할 수 있음. 예를 들어:
+> API(프로토타입, 입출력 파라미터)에 대한 자세한 설명은 PduR 모듈의 interface 설명에서 확인할 수 있음([2] 참조)  
+> 진단 통신 application에 따라 서로 다른 DcmPduId를 사용할 수 있음. 예를 들어:
 
 - OBD DcmRxPduId : OBD 요청 수신용
 - OBD DcmTxPduId : OBD 응답 전송용
@@ -190,10 +190,10 @@ sequenceDiagram
 > 테스터가 물리적 요청/응답과 병행하여 기능적인 “TesterPresent” 명령을 전송할 수도 있음  
 > 이를 ISO14229-1[15]에서 “keep alive logic”이라고 함  
 > 이 기능 “TesterPresent”는 물리적 요청과 동일한 DcmDslConnection에 속하는 별도의 DcmRxPduId(UDS 기능 DcmRxPduId)에서 수신됨  
-> 이 경우 명시적으로 구성되지 않은 Dcm 내부 수신 버퍼가 사용됨  
+> 이 경우 명시적으로 구성되지 않은 Dcm 내부 수신 buffer가 사용됨  
 > 이러한 이유로 기능적 TesterPresent(그리고 응답이 없는 기능적 TestPresent만)는 다음과 같은 방식으로 처리
 
-- [SWS_Dcm_00112] PduR 모듈이 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출하고 요청이 “suppressPosPspMsgIndicationBit”이 TRUE(SID = 0x3E, 서브펑션 =0x80)인 “TesterPresent” 명령이면 DSL 서브 모듈은 세션 타임아웃 타이머를 재설정함(S3Server)
+- [SWS_Dcm_00112] PduR 모듈이 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출하고 요청이 “suppressPosPspMsgIndicationBit”이 TRUE(SID = 0x3E, 서브펑션 =0x80)인 “TesterPresent” 명령이면 DSL 서브 모듈은 세션 timeout 타이머를 재설정함(S3Server)
 - [SWS_Dcm_00113] PduR 모듈이 파라미터 Result = E_OK(SWS_Dcm_00093 참조)로 Dcm_TpRxIndication()을 호출하고 요청이 “suppressPosRspMsgIndicationBit”이 TRUE(SID = 0x3E, 서브펑션 = 0x80)로 설정된 “TestPresent” 명령이면 DSL 서브모듈은 추가 해석을 위해 이 요청을 DSD 서브 모듈에 전달하지 않아야함을 의미
 - **SWS_Dcm_00013의 근거 :** DSL 서브모듈의 “TesterPresent” 기능을 우회하기 때문에 DCM 모듈은 지연 없이 다음 물리적 요청을 수신하고 처리할 수 있음
 - [SWS_Dcm_01168] Dcm은 TesterPresent 요청이 “suppressPosRspMsgIndicationBit”이 TRUE로 설정된 기능 주소에서 수신된 경우에만 동시 요청으로 처리
@@ -216,7 +216,7 @@ sequenceDiagram
 - [SWS_Dcm_00118] 전송 실패(실패한 PduR_DcmTransmit() 요청) 또는 오류 확인(오류 있는 Dcm_TpTxConfirmation()) 시 DSD 서브모듈은 진단 응답 전송을 반복하지 않음
 - 참고 : Dcm_TpTxConfirmation은 PduR_DcmTansmit이 성공한 경우에만 예상됨
 - [SWS_Dcm01166] DcmDslProtocolTx의 Multiplicity가 “0”으로 설정된 경우, Dcm은 응답을 보내지 않고 수신된 진단 요청을 처리
-- API(프로토타입, 입력/출력 파라미터)에 대한 자세한 설명은 PduR 모듈의 인터페이스 설명에서 확인 ([2]참조)
+- API(프로토타입, 입력/출력 파라미터)에 대한 자세한 설명은 PduR 모듈의 interface 설명에서 확인 ([2]참조)
 
 ### 7.2.4.5 일반 연결 처리 (Generic Connection Handling)
 
@@ -255,23 +255,23 @@ sequenceDiagram
 
 > SWS_Dcm_00024의 근거 : DSL 서브 모듈이 테스터에 대한 응답 타이밍을 보장
 
-- [SWS_Dcm_00119] DSL 서브 모듈은 별도의 버퍼에서 SWS_Dcm_00024에서 요구하는 대로 부정 응답을 전송해야함
+- [SWS_Dcm_00119] DSL 서브 모듈은 별도의 buffer에서 SWS_Dcm_00024에서 요구하는 대로 부정 응답을 전송해야함
 
-> SWS_Dcm_00119의 근거 : 진단 버퍼에 이미 응답 내용을 준비한 애플리케이션과 같이 진행 중인 요청 처리를 덮어쓰는 것을 방지하기 위해 필요  
-> 하나의 진단 요청에 대한 NRC 0x78(Response pending)의 부정 응답 수는 구성 파라미터 DcmDslDiagRespMaxNumRespPend에 의해 제한됨. 이렇게 하면 애플리케이션의 교착 상태를 방지
+> SWS_Dcm_00119의 근거 : 진단 buffer에 이미 응답 내용을 준비한 application과 같이 진행 중인 요청 처리를 덮어쓰는 것을 방지하기 위해 필요  
+> 하나의 진단 요청에 대한 NRC 0x78(Response pending)의 부정 응답 수는 구성 파라미터 DcmDslDiagRespMaxNumRespPend에 의해 제한됨. 이렇게 하면 application의 교착 상태를 방지
 
 - [SWS_Dcm_00120] 요청된 진단 작업에 대한 부정 응답 횟수(SWS_Dcm_00024 참조)가 구성 파라미터 DcmDslDiagRespMaxNumRespPend에 정의된 값에 도달하면 DCM 모듈은 활성된 진단 요청(active diagnostic request)의 처리를 중지해야함
-    활성 포트 인터페이스(active port interface)의 OpStatus 파라미터를 DCM_CANCEL로 설정하여 애플리케이션 또는 BSW(이 진단 작업이 SW-C 인터페이스 또는 BSW 인터페이스에 대한 호출을 의미하는 경우)에 알리고 NRC 0x10(General reject)으로 부정 응답을 전송해야
+    활성 포트 interface(active port interface)의 OpStatus 파라미터를 DCM_CANCEL로 설정하여 application 또는 BSW(이 진단 작업이 SW-C interface 또는 BSW interface에 대한 호출을 의미하는 경우)에 알리고 NRC 0x10(General reject)으로 부정 응답을 전송해야
 
 ### 7.2.4.7 주기적 전송(periodic transmission) 지원
 
 
 > UDS 서비스 ReadDataByPeriodicIdentifier(0x2A)를 사용하면 테스터가 하나 이상의 주기적 DataIdentifier로 식별된 ECU로 부터 데이터 레코드 값의 주기적 전송을 요청할 수 있음
 
-- [SWS_Dcm_00122] DCM 모듈은 별도의 프로토콜과 설정 가능한 크기의 별도 버퍼를 사용하여 주기적 전송에 대한 응답을 전송해야함
+- [SWS_Dcm_00122] DCM 모듈은 별도의 protocol과 설정 가능한 크기의 별도 buffer를 사용하여 주기적 전송에 대한 응답을 전송해야함
 
-> DcmDslPeriodicTransmissionConRef 구성 파라미터를 사용하면 주기적 전송 요청을 수신하거나 주기적 전송 응답을 전송하는데 사용되는 프로토콜을 주기적 전송 메시지 전송에 사용되는 프로토콜에 연결할 수 있음  
-> 주기적 전송 프로토콜에 여러 개의 DcmTxPduId를 할당할 수 있음  
+> DcmDslPeriodicTransmissionConRef 구성 파라미터를 사용하면 주기적 전송 요청을 수신하거나 주기적 전송 응답을 전송하는데 사용되는 protocol을 주기적 전송 message 전송에 사용되는 protocol에 연결할 수 있음  
+> 주기적 전송 protocol에 여러 개의 DcmTxPduId를 할당할 수 있음  
 > DCM 모듈은 통신 모드에 따라 몇 가지 제한 사항을 준수함
 
 - [SWS_Dcm_00123] 주기적 전송 통신은 전체 통신 모드(Full COM)에서만 이루어짐

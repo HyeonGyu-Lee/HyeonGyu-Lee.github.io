@@ -39,7 +39,7 @@ flowchart TD
 ## 학습 순서
 
 - Global Variables & State Ownership: static/extern/const/volatile과 수명·캡슐화를 구분한다.
-- 단일 코어와 인터럽트: read-modify-write 경쟁, ISR에서 할 수 없는 작업, 짧은 Critical Section을 이해한다.
+- 단일 코어와 interrupt: read-modify-write 경쟁, ISR에서 할 수 없는 작업, 짧은 Critical Section을 이해한다.
 - RTOS 동기화: Mutex·Semaphore·Queue·Event를 목적에 맞게 선택하고 Priority Inversion·Deadlock·timeout을 설계한다.
 - 멀티 코어와 메모리 모델: atomic·acquire/release·cache coherence·spinlock·IPC를 구분한다.
 - DMA & Buffer Ownership: CPU 이외 실행 주체를 포함해 전송 시작부터 완료까지 메모리 수명을 관리한다.
@@ -53,7 +53,7 @@ flowchart TD
 💡 
 </div>
 <div class="callout-content" markdown="1">
-S32K312 프로젝트의 드라이버 구현과 연결해 설명하지만 멀티 코어 부분은 멀티 코어 MCU로 확장할 때의 일반 설계다. 현재 MCU의 모든 메모리·캐시·Atomic operation·RTOS 기능을 가정하지 않는다. C11 예제와 FreeRTOS API 예제는 각각의 도구체인·RTOS 전제 아래 읽고, AUTOSAR OS나 다른 RTOS에 함수 이름만 바꿔 적용하지 않는다.
+S32K312 프로젝트의 driver 구현과 연결해 설명하지만 멀티 코어 부분은 멀티 코어 MCU로 확장할 때의 일반 설계다. 현재 MCU의 모든 메모리·캐시·Atomic operation·RTOS 기능을 가정하지 않는다. C11 예제와 FreeRTOS API 예제는 각각의 도구체인·RTOS 전제 아래 읽고, AUTOSAR OS나 다른 RTOS에 함수 이름만 바꿔 적용하지 않는다.
 </div>
 </div>
 </blockquote>
@@ -71,8 +71,8 @@ S32K312 프로젝트의 드라이버 구현과 연결해 설명하지만 멀티 
 | **개수 있는 가용 자원**          | Counting semaphore              |
 | **데이터와 알림을 함께 전달**       | Queue / message buffer          |
 | **짧은 ISR-task 공유 상태 변경** | 해당 플랫폼 임계 구역 또는 검증된 atomic      |
-| **코어 간 버퍼 전달**           | IPC + ownership + 메모리 순서        |
-| **CPU-DMA 버퍼 전달**        | ownership + cache/완료 규약         |
+| **코어 간 buffer 전달**           | IPC + ownership + 메모리 순서        |
+| **CPU-DMA buffer 전달**        | ownership + cache/완료 규약         |
 
 
 ## 이해를 확인하는 질문

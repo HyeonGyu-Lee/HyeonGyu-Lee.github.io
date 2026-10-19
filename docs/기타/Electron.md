@@ -16,7 +16,7 @@ redirect_from:
 Renderer, preload와 main process는 권한과 실행 환경이 다르다. IPC를 좁은 계약으로 설계하면 UI 입력이 임의의 filesystem·process 접근으로 확장되는 것을 줄일 수 있다.
 
 
-> 프로세스 책임과 제한된 IPC를 구현하고 보안 경계·배포 환경의 동작을 확인한다.
+> process 책임과 제한된 IPC를 구현하고 보안 경계·배포 환경의 동작을 확인한다.
 
 
 ## 적용 범위
@@ -28,7 +28,7 @@ Renderer, preload와 main process는 권한과 실행 환경이 다르다. IPC�
 💡 
 </div>
 <div class="callout-content" markdown="1">
-실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+실행 예제의 주소·선택자·interface·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 </div>
 </div>
 </blockquote>
@@ -38,13 +38,13 @@ Renderer, preload와 main process는 권한과 실행 환경이 다르다. IPC�
 ### 핵심 개념
 
 
-Electron은 Chromium과 Node.js를 바탕으로 웹 기술을 데스크톱 애플리케이션에 사용하는 프레임워크다. Windows·macOS·Linux에서 동작할 수 있지만 배포 패키지, 권한, OS 연동과 시험은 플랫폼별로 확인한다.
+Electron은 Chromium과 Node.js를 바탕으로 웹 기술을 데스크톱 application에 사용하는 framework다. Windows·macOS·Linux에서 동작할 수 있지만 배포 패키지, 권한, OS 연동과 시험은 플랫폼별로 확인한다.
 
 
-### 프로세스 구조
+### process 구조
 
 
-Main process는 애플리케이션 수명 주기, 창 생성, OS 기능과 권한이 필요한 작업을 다룬다. Renderer process는 창의 UI를 렌더링한다. Preload는 제한된 기능을 UI에 연결하는 경계로 설계한다.
+Main process는 application 수명 주기, 창 생성, OS 기능과 권한이 필요한 작업을 다룬다. Renderer process는 창의 UI를 렌더링한다. Preload는 제한된 기능을 UI에 연결하는 경계로 설계한다.
 
 
 Renderer에 Node.js나 전체 파일 시스템 접근을 직접 제공하지 않는다. Main과 Renderer 사이에 contextBridge와 IPC로 필요한 기능만 연결하는 방식을 검토한다.
@@ -53,7 +53,7 @@ Renderer에 Node.js나 전체 파일 시스템 접근을 직접 제공하지 않
 ### IPC 설계
 
 
-요청·응답은 ipcRenderer.invoke와 ipcMain.handle 형태로 구성할 수 있다. 이벤트 전달과 요청·응답을 구분하고, 채널·입력 타입·허용 값·송신 프레임을 검증한다.
+요청·응답은 ipcRenderer.invoke와 ipcMain.handle 형태로 구성할 수 있다. 이벤트 전달과 요청·응답을 구분하고, 채널·입력 타입·허용 값·송신 frame을 검증한다.
 
 
 contextBridge에 ipcRenderer 전체를 노출하지 않고 작업별 최소 API를 제공한다. 파일 경로나 URL을 받은 뒤 무조건 실행하는 핸들러는 피하고, 허용 범위와 오류 처리를 정의한다.
@@ -102,7 +102,7 @@ contextBridge에 ipcRenderer 전체를 노출하지 않고 작업별 최소 API�
 ### 공식 자료
 
 
-Electron 프로세스 모델: https://www.electronjs.org/docs/latest/tutorial/process-model
+Electron process 모델: https://www.electronjs.org/docs/latest/tutorial/process-model
 
 
 Electron 보안 안내: https://www.electronjs.org/docs/latest/tutorial/security
@@ -166,7 +166,7 @@ Renderer는 window.appInfo.version()을 호출하고 반환값을 textContent로
 ### 검증 실습
 
 
-정상 창에서 버전 표시 → 다른 프레임 요청 거부 → 창 재시작 → 배포 패키지에서 preload 경로 확인 순서로 시험한다. 파일 접근 API로 확장할 때는 경로 범위·타입·권한을 main에서 검증한다.
+정상 창에서 버전 표시 → 다른 frame 요청 거부 → 창 재시작 → 배포 패키지에서 preload 경로 확인 순서로 시험한다. 파일 접근 API로 확장할 때는 경로 범위·타입·권한을 main에서 검증한다.
 
 
 ## 이해를 확인하는 질문

@@ -28,7 +28,7 @@ DTC 번호는 fault의 식별자이며 status byte와 snapshot·extended data가
 💡 
 </div>
 <div class="callout-content" markdown="1">
-실행 예제의 주소·선택자·인터페이스·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
+실행 예제의 주소·선택자·interface·설정값은 시험 환경에 맞게 변경한다. 규격의 적용 판과 도구 버전을 확인한다.
 </div>
 </div>
 </blockquote>
@@ -80,7 +80,7 @@ ReadDTCInformation(0x19)은 하위 기능에 따라 건수·목록·스냅샷·�
 - 설명용 시험 환경에서 고장을 주입하고 디바운스·확인 조건과 상태 변화를 관찰한다.
 - 고장 제거와 동작 주기 전환 후 pending·confirmed·현재 실패 상태를 각각 확인한다.
 - 전원 재인가, 초기화, 저장 정책에 따른 유지·해제 동작을 검증한다.
-- 모니터와 저장 정책은 AUTOSAR DEM, 진단 요청 인터페이스는 DCM 관점에서 연결해 본다.
+- 모니터와 저장 정책은 AUTOSAR DEM, 진단 요청 interface는 DCM 관점에서 연결해 본다.
 
 ### 확인할 출처와 범위
 
@@ -140,7 +140,7 @@ Diagnostic Trouble Code : 차량의 On-Board Diagnostics (OBD) 시스템에서 �
 💡 
 </div>
 <div class="callout-content" markdown="1">
-DTC 정보를 포함한 응답 메시지의 일부<br>Read DTC Information (0x19) 서비스 요청 시 반환
+DTC 정보를 포함한 응답 message의 일부<br>Read DTC Information (0x19) 서비스 요청 시 반환
 </div>
 </div>
 </blockquote>

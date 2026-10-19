@@ -62,7 +62,7 @@ flowchart LR
 | Liveliness               | Writer의 생존성을 어떻게 관찰하는가?        | Lease 시간·탐지 지연·false alarm      |
 
 
-Deadline은 CPU task의 deadline scheduling을 제공하는 정책이 아니다. Liveliness 역시 센서가 올바른 값을 측정했는지 보장하지 않는다. Middleware가 관찰한 endpoint 상태와 application의 health 판단은 별개다.
+Deadline은 CPU task의 deadline scheduling을 제공하는 정책이 아니다. Liveliness 역시 sensor가 올바른 값을 측정했는지 보장하지 않는다. Middleware가 관찰한 endpoint 상태와 application의 health 판단은 별개다.
 
 
 ## Match와 데이터 품질을 따로 검증하기
@@ -86,7 +86,7 @@ Reliability는 Best Effort/Reliable, Durability는 늦게 참가한 reader에게
 ## Practical Profiles
 
 
-빠르게 갱신되는 온도·위치 센서는 오래된 데이터 재전송보다 최신값이 중요할 수 있다. 설정값은 늦게 참가한 Node가 최근 상태를 필요로 할 수 있다. 명령은 Reliable을 사용해도 최종 적용 ACK·중복 처리·만료 정책이 별도로 필요하다.
+빠르게 갱신되는 온도·위치 sensor는 오래된 데이터 재전송보다 최신값이 중요할 수 있다. 설정값은 늦게 참가한 Node가 최근 상태를 필요로 할 수 있다. 명령은 Reliable을 사용해도 최종 적용 ACK·중복 처리·만료 정책이 별도로 필요하다.
 
 
 ```mermaid
@@ -115,19 +115,19 @@ ros2 topic echo /chatter --qos-reliability best_effort
 ## Resource Budget
 
 
-메시지 크기×History Depth×연결 수는 메모리·대기열 부하를 증가시킨다. Reliable 재전송과 느린 reader의 영향을 부하 시험으로 관찰한다. Depth를 무작정 늘려 오래된 데이터의 Age를 키우지 않는다.
+message 크기×History Depth×연결 수는 메모리·대기열 부하를 증가시킨다. Reliable 재전송과 느린 reader의 영향을 부하 시험으로 관찰한다. Depth를 무작정 늘려 오래된 데이터의 Age를 키우지 않는다.
 
 
 ## Verification
 
 
-의도적으로 Reliability를 불일치시킨 경우와 일치시킨 경우를 비교한다. subscriber 재시작, packet loss, burst, CPU 지연 조건에서 전달률·최신 데이터 Age·메모리 사용량을 기록한다. QoS 설정은 Safety 메커니즘이나 네트워크 인증을 대체하지 않는다.
+의도적으로 Reliability를 불일치시킨 경우와 일치시킨 경우를 비교한다. subscriber 재시작, packet loss, burst, CPU 지연 조건에서 전달률·최신 데이터 Age·메모리 사용량을 기록한다. QoS 설정은 Safety 메커니즘이나 network 인증을 대체하지 않는다.
 
 
 ## 이해를 확인하는 질문
 
 
-> Reliable이면 센서값이 항상 최신일까?
+> Reliable이면 sensor값이 항상 최신일까?
 
 
 재전송은 전달 가능성을 높이지만 대기열과 복구 시간이 늘 수 있다. sequence와 timestamp로 누락과 Age를 따로 측정하고 History·Lifespan·처리 속도를 함께 정한다.

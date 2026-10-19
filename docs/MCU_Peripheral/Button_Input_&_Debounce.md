@@ -17,7 +17,7 @@ redirect_from:
 접점의 bounce는 전기적 변화이고 press·release·long press는 시간 조건이 있는 논리 event다. Raw input을 먼저 안정 상태로 변환한 뒤 사용자 동작을 분류해야 한다.
 
 
-> 물리 버튼은 접점 bounce를 필터링한 뒤 pressed/released 이벤트로 변환한다. 길게 누름·반복 입력은 안정화된 상태 위에서 별도 상태 머신으로 구현한다.
+> 물리 버튼은 접점 bounce를 필터링한 뒤 pressed/released 이벤트로 변환한다. 길게 누름·반복 입력은 안정화된 상태 위에서 별도 state machine으로 구현한다.
 
 
 ## 입력 회로와 GPIO 설정
@@ -98,7 +98,7 @@ raw에는 전기 레벨이 아니라 눌림=true로 변환한 값을 넣는다. 
 - released 이벤트에서 long_sent가 false인 경우에만 SHORT 이벤트를 발생시킨다. LONG 이후 release를 SHORT로 중복 처리하지 않는다.
 - 더블클릭은 첫 release 뒤 대기 창을 둔다. 즉시 SHORT를 내보내면 DOUBLE이 뒤늦게 발생할 수 있으므로 이벤트 정책을 먼저 정한다.
 
-## 인터럽트 사용 시
+## interrupt 사용 시
 
 
 edge IRQ에서 20 ms busy wait를 하지 않는다. IRQ는 버튼 활동을 알리고 실제 안정화는 주기 작업에서 수행한다. 저전력 wake-up은 첫 edge로 깨우되, 깨어난 뒤 debounce 결과로 사용자 입력을 확정한다. level IRQ의 경우 flag와 활성 레벨 때문에 반복 진입하지 않는지 확인한다.
@@ -108,7 +108,7 @@ edge IRQ에서 20 ms busy wait를 하지 않는다. IRQ는 버튼 활동을 알�
 
 - 0/1이 2~5 ms 간격으로 흔들리는 입력 뒤 20 ms 안정 상태를 주고 이벤트가 한 번만 나오는지 확인한다.
 - 짧게 누름·길게 누름·계속 누름·동시 버튼·tick wraparound·부팅 눌림·버튼 stuck를 검증한다.
-- 주기 작업 지연 시 debounce 응답 지연과 이벤트 누락을 확인한다. 긴 배선의 노이즈를 소프트웨어 debounce만으로 해결하려 하지 않는다.
+- 주기 작업 지연 시 debounce 응답 지연과 이벤트 누락을 확인한다. 긴 배선의 노이즈를 software debounce만으로 해결하려 하지 않는다.
 
 ## 이해를 확인하는 질문
 

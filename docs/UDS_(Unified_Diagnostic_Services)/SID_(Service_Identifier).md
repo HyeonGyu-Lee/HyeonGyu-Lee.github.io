@@ -42,7 +42,7 @@ SID는 diagnostic 기능의 종류를 나타내며 sub-function·identifier·rec
 💡 
 </div>
 <div class="callout-content" markdown="1">
-Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프로토콜에서 사용되는 주요 명령어들로, 특정 진단 서비스를 호출하는 데 사용됩니다. 각 SID는 특정 진단 기능을 수행하기 위한 요청을 나타내며, ECU(Electronic Control Unit)가 이 요청을 수신하고 해당 서비스에 대해 적절한 응답을 반환합니다.
+Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) protocol에서 사용되는 주요 명령어들로, 특정 진단 서비스를 호출하는 데 사용됩니다. 각 SID는 특정 진단 기능을 수행하기 위한 요청을 나타내며, ECU(Electronic Control Unit)가 이 요청을 수신하고 해당 서비스에 대해 적절한 응답을 반환합니다.
 </div>
 </div>
 </blockquote>
@@ -50,7 +50,7 @@ Serivce Identifiers : 차량의 UDS (Unified Diagnostic Services, ISO 14229) 프
 
 - 차량의 ECU와 진단 도구 간의 통신에서 사용되는 특정 명령 또는 서비스를 식별하는 고유한 코드
 - 각 SID는 ECU가 수행해야 할 진단 작업을 정의
-- UDS 프로토콜에서 SIDs는 특정 기능을 요청하거나 실행하기 위해 사용
+- UDS protocol에서 SIDs는 특정 기능을 요청하거나 실행하기 위해 사용
 
 | UDS SID (request) | UDS SID (response) | Service                                | Details                                                                 | Sub function types               | Sub function |
 | ----------------- | ------------------ | -------------------------------------- | ----------------------------------------------------------------------- | -------------------------------- | ------------ |
@@ -225,7 +225,7 @@ sequenceDiagram
 
 ### Communication Control (0x28)
 
-- ECU의 메시지 송수신 기능을 켜거나 끔
+- ECU의 message 송수신 기능을 켜거나 끔
 
 <blockquote class="example">
 <div class="callout">
@@ -267,7 +267,7 @@ sequenceDiagram
 
 ### Tester Present (0x3E)
 
-- 현재 세션을 유지하기 위해 주기적으로 “Heart Beat" 메시지를 전송
+- 현재 세션을 유지하기 위해 주기적으로 “Heart Beat" message를 전송
 
 <blockquote class="example">
 <div class="callout">
@@ -318,7 +318,7 @@ sequenceDiagram
 
 ### Access Timing Parameters (0x83)
 
-- 클라이언트/서버 통신에 사용되는 타이밍 매개변수를 조회하거나 수정
+- client/server 통신에 사용되는 타이밍 매개변수를 조회하거나 수정
 
 <blockquote class="example">
 <div class="callout">
@@ -473,7 +473,7 @@ sequenceDiagram
 📝 
 </div>
 <div class="callout-content" markdown="1">
-0x24 - 센서 데이터의 스케일링 정보를 조회
+0x24 - sensor 데이터의 스케일링 정보를 조회
 </div>
 </div>
 </blockquote>
@@ -482,7 +482,7 @@ sequenceDiagram
 
 ### Read Data By Identifier Periodic (0x2A)
 
-- ECU에 센서 데이터를 주기적으로 방송하도록 요청
+- ECU에 sensor 데이터를 주기적으로 방송하도록 요청
 
 <blockquote class="example">
 <div class="callout">
@@ -490,7 +490,7 @@ sequenceDiagram
 📝 
 </div>
 <div class="callout-content" markdown="1">
-0x2A - ECU가 센서 데이터를 초당 1회 주기로 방송하도록 설정
+0x2A - ECU가 sensor 데이터를 초당 1회 주기로 방송하도록 설정
 </div>
 </div>
 </blockquote>
@@ -663,7 +663,7 @@ sequenceDiagram
 
 ### Request Download (0x34)
 
-- ECU에 소프트웨어/데이터 추가를 요청합니다 (위치/크기 포함)
+- ECU에 software/데이터 추가를 요청합니다 (위치/크기 포함)
 
 <blockquote class="example">
 <div class="callout">
@@ -671,7 +671,7 @@ sequenceDiagram
 📝 
 </div>
 <div class="callout-content" markdown="1">
-0x34 - ECU에 새로운 소프트웨어를 다운로드
+0x34 - ECU에 새로운 software를 다운로드
 </div>
 </div>
 </blockquote>
@@ -680,7 +680,7 @@ sequenceDiagram
 
 ### Request Upload (0x35)
 
-- ECU에서 소프트웨어/데이터를 읽어오도록 요청합니다 (위치/크기 포함)
+- ECU에서 software/데이터를 읽어오도록 요청합니다 (위치/크기 포함)
 
 <blockquote class="example">
 <div class="callout">

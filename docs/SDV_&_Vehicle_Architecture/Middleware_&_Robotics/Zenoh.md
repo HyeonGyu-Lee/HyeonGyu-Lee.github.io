@@ -10,7 +10,7 @@ permalink: '/SDV_&_Vehicle_Architecture/Middleware_&_Robotics/Zenoh'
 redirect_from:
  - "/3f91b412900a8173bcdfc45ba887d945"
 ---
-## 차량의 센서값을 로컬 제어와 원격 조회에 함께 사용하는 상황
+## 차량의 sensor값을 로컬 제어와 원격 조회에 함께 사용하는 상황
 
 
 Key expression은 데이터의 이름과 구독 범위를 결정하고 payload는 값의 형식을 결정한다. Pub/Sub의 실시간 전달과 Query의 요청·응답은 목적이 다르다. Router의 배치, 저장 주체, 연결 복구 정책을 합쳐야 데이터 경로를 설명할 수 있다.
@@ -74,7 +74,7 @@ Pub/Sub은 발행되는 data를 관심 있는 subscriber에 전달한다. Query�
 단일 정상 publish보다 router 재시작, subscriber 지연, link 단절 후 복구를 비교하는 것이 유용하다. 수신률과 별도로 sequence gap, data Age, memory 사용량과 재접속 시간을 기록한다. Reliable한 transport를 사용해도 application command의 만료·중복 방지·적용 확인은 별도 계약이다.
 
 
-> Zenoh는 Key Expression을 기반으로 Pub/Sub·Query 등을 제공하는 통신 기술다. Router/Peer/Client 배치와 네트워크 조건에 따라 동작을 설계한다. ROS 2 연동과 native Zenoh 애플리케이션은 서로 다른 통합 경로다.
+> Zenoh는 Key Expression을 기반으로 Pub/Sub·Query 등을 제공하는 통신 기술다. Router/Peer/Client 배치와 network 조건에 따라 동작을 설계한다. ROS 2 연동과 native Zenoh application은 서로 다른 통합 경로다.
 
 
 ## Example Topology
@@ -100,7 +100,7 @@ flowchart LR
 ## Three ROS Integration Paths
 
 
-Native zenoh-c는 C 애플리케이션이 Zenoh Session·Publisher·Subscriber를 직접 사용한다. ROS bridge는 기존 ROS 측과 Zenoh 네트워크 사이를 연결하며 지원되는 interface·type·QoS 범위를 확인해야 한다. rmw_zenoh 경로는 ROS 2의 RMW를 바꾸는 방식이므로 해당 ROS 배포판과 패키지 조합을 따른다. 이 세 경로의 topology·discovery·serialization 비용은 같지 않다.
+Native zenoh-c는 C application이 Zenoh Session·Publisher·Subscriber를 직접 사용한다. ROS bridge는 기존 ROS 측과 Zenoh network 사이를 연결하며 지원되는 interface·type·QoS 범위를 확인해야 한다. rmw_zenoh 경로는 ROS 2의 RMW를 바꾸는 방식이므로 해당 ROS 배포판과 패키지 조합을 따른다. 이 세 경로의 topology·discovery·serialization 비용은 같지 않다.
 
 
 ## C Practice Plan
@@ -130,7 +130,7 @@ Router 재시작·다중 경로·잘못된 endpoint·연결 단절·큰 payload�
 ## 이해를 확인하는 질문
 
 
-> Router에 연결하면 과거 센서값도 조회할 수 있을까?
+> Router에 연결하면 과거 sensor값도 조회할 수 있을까?
 
 
 Router 자체가 모든 값을 자동 저장하는 것은 아니다. Queryable 또는 storage의 제공 범위, 데이터 수명, 응답 선택 정책을 정해야 한다.

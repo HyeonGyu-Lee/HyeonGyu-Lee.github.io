@@ -61,7 +61,7 @@ sequenceDiagram
 
 
 
-## 메시지 및 화살표 유형 (A~B: Text)
+## message 및 화살표 유형 (A~B: Text)
 
 
 <blockquote class="notice">
@@ -417,7 +417,7 @@ sequenceDiagram
 
 
 
-### Actor에 링크 (link)
+### Actor에 link (link)
 
 
 ```c

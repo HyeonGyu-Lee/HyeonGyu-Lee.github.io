@@ -39,7 +39,7 @@ Bootloader는 보드에 필요한 초기화와 이미지 로딩·검증을 수�
 ## Device Tree
 
 
-Device Tree는 하드웨어 연결과 속성을 기술한다. compatible, reg, interrupts, clocks, pinctrl, status 등이 driver binding에 사용된다. DTS를 수정한다고 없는 driver가 만들어지지는 않는다. 잘못된 주소·핀·클록을 복사하지 말고 보드 schematic과 binding 문서를 확인한다.
+Device Tree는 hardware 연결과 속성을 기술한다. compatible, reg, interrupts, clocks, pinctrl, status 등이 driver binding에 사용된다. DTS를 수정한다고 없는 driver가 만들어지지는 않는다. 잘못된 주소·핀·clock을 복사하지 말고 보드 schematic과 binding 문서를 확인한다.
 
 
 ## Read-only Inspection
@@ -66,7 +66,7 @@ UART console에서 Bootloader·Kernel·user service 중 어느 단계에서 실�
 ## Image Management
 
 
-Kernel, DTB, Modules, Root FS와 application version의 조합을 기록한다. 재현 가능한 BSP 빌드와 Artifact 서명·배포 정책을 사용한다. Bootloader 변경은 정상 부팅 경로와 복구 인터페이스를 준비한 보드에서 검증한다.
+Kernel, DTB, Modules, Root FS와 application version의 조합을 기록한다. 재현 가능한 BSP 빌드와 Artifact 서명·배포 정책을 사용한다. Bootloader 변경은 정상 부팅 경로와 복구 interface를 준비한 보드에서 검증한다.
 
 
 ## 이해를 확인하는 질문

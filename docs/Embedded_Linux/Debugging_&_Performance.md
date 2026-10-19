@@ -19,7 +19,7 @@ redirect_from:
 ## Investigation Order
 
 
-증상과 재현 조건 → 정상/실패 로그 비교 → Process·Thread 상태 → system call → CPU·메모리·I/O → driver·하드웨어 순서로 범위를 좁힌다. 처음부터 우선순위나 cache 설정을 바꾸지 않는다.
+증상과 재현 조건 → 정상/실패 로그 비교 → Process·Thread 상태 → system call → CPU·메모리·I/O → driver·hardware 순서로 범위를 좁힌다. 처음부터 우선순위나 cache 설정을 바꾸지 않는다.
 
 
 ## Practical Commands

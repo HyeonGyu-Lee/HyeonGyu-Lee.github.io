@@ -16,7 +16,7 @@ redirect_from:
 AP와 MCU는 scheduling, memory, reset domain이 다른 독립 실행 주체다. Transport 위에 version, sequence, timeout과 재접속 handshake를 설계해야 부분 실패를 견딜 수 있다.
 
 
-> Linux AP의 큰 연산·정책 처리와 MCU의 로컬 제어를 분리할 때 IPC의 메시지 계약과 장애 격리가 핵심이다. AP가 멈추더라도 필요한 MCU 동작이 무엇인지 먼저 정의한다.
+> Linux AP의 큰 연산·정책 처리와 MCU의 로컬 제어를 분리할 때 IPC의 message 계약과 장애 격리가 핵심이다. AP가 멈추더라도 필요한 MCU 동작이 무엇인지 먼저 정의한다.
 
 
 ## OS and AUTOSAR
@@ -46,7 +46,7 @@ AP service restart, MCU reset, cable disconnect를 별도로 시험한다. 재�
 ## Verification
 
 
-응답시간·유효 데이터 Age·메시지 손실·CPU 부하·재연결 시간을 기록한다. Linux 평균 지연이 작아도 최악 스케줄링 지연이 제어 요구를 만족하는지는 별도 검증한다. PREEMPT_RT도 모든 하드웨어·드라이버의 deadline을 자동 보장하지 않는다.
+응답시간·유효 데이터 Age·message 손실·CPU 부하·재연결 시간을 기록한다. Linux 평균 지연이 작아도 최악 스케줄링 지연이 제어 요구를 만족하는지는 별도 검증한다. PREEMPT_RT도 모든 hardware·driver의 deadline을 자동 보장하지 않는다.
 
 
 ## 이해를 확인하는 질문

@@ -38,13 +38,13 @@ Service ID와 instance, method·event, request ID는 의미와 응답 관계를 
 ### 서비스 구조
 
 
-서비스와 인스턴스, 메서드와 이벤트·eventgroup을 구분한다. 제공자·소비자, 요청·응답, 이벤트 발행·구독과 인터페이스 버전을 연결해 읽는다.
+서비스와 인스턴스, 메서드와 이벤트·eventgroup을 구분한다. 제공자·소비자, 요청·응답, 이벤트 발행·구독과 interface 버전을 연결해 읽는다.
 
 
-### 메시지와 직렬화
+### message와 serialization
 
 
-Service ID·Method/Event ID, Client ID·Session ID, Message Type, Return Code 등 메시지 식별·처리 정보를 확인한다. Payload 직렬화는 인터페이스와 타입 정의에 따라 해석한다.
+Service ID·Method/Event ID, Client ID·Session ID, Message Type, Return Code 등 message 식별·처리 정보를 확인한다. Payload serialization은 interface와 타입 정의에 따라 해석한다.
 
 
 Transport가 UDP인지 TCP인지, 서비스 deployment와 포트·주소가 무엇인지 확인한다. SOME/IP가 언제나 TCP 또는 언제나 UDP만 사용한다고 가정하지 않는다.
@@ -59,10 +59,10 @@ SOME/IP-SD의 제공·탐색·구독 절차, TTL, endpoint와 eventgroup 구성�
 ### 검증 항목
 
 - 제공 전·후 탐색과 TTL 만료.
-- 인터페이스 버전·서비스·인스턴스 불일치.
+- interface 버전·서비스·인스턴스 불일치.
 - 요청·응답 상관관계와 오류 응답.
 - 구독·해제·제공자 재시작과 복구.
-- 직렬화 경계값·길이와 미지원 입력.
+- serialization 경계값·길이와 미지원 입력.
 
 ### 실습: 서비스 제공·구독 점검
 
