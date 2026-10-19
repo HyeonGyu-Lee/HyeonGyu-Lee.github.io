@@ -14,6 +14,10 @@
   {% assign asset_version = site.time | date: "%s" %}
   <meta name="site-build" content="{{ asset_version }}">
   <meta charset="UTF-8">
+  {% if page.has_children == false %}
+  <link rel="preconnect" href="https://giscus.app" crossorigin>
+  <link rel="preload" href="https://giscus.app/client.js" as="script" crossorigin="anonymous">
+  {% endif %}
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <link rel="icon" href="/assets/images/favicon.ico">
   <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}?v={{ asset_version }}">
