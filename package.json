@@ -21,7 +21,7 @@
     "sitemap": "^9.0.1",
     "stylelint": "^17.16.0",
     "stylelint-config-standard-scss": "^17.0.0",
-    "typescript": "^5.4.5"
+    "typescript": "^7.0.2"
   },
   "scripts": {
     "prettier": "npx prettier --write '**/*.{scss,js,json}'",
